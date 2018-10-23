@@ -5,10 +5,10 @@ android {
     compileSdkVersion 26
     buildToolsVersion '28.0.2'
     defaultConfig {
-        applicationId "com.hgapp.a6668" //线上环境
-        versionName "1.1" //线上环境
-//        applicationId "com.hgapp.a6668.test"//测试环境
-//        versionName "1.1" //测试环境环境
+        /*applicationId "com.hgapp.a6668" //线上环境
+        versionName "1.4" //线上环境*/
+        applicationId "com.hgapp.a6668.test"//测试环境
+        versionName "1.4" //测试环境环境
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
