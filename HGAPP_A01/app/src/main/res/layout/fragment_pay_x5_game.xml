@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.hgapp.a6668.common.widgets.NTitleBar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pay_x5_game_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:moreImageShow="false"
+        app:backText="返回"
+        />
+    <FrameLayout
+        android:id="@+id/flayout_xpay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/wv_pay_x5_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

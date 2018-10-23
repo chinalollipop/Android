@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/title_text"
+    android:orientation="vertical">
+
+    <com.hgapp.a6668.common.widgets.NTitleBar
+        android:id="@+id/agTitleBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:moreTextOnly="true"
+        app:backText="返回"
+        />
+    <RelativeLayout
+        android:id="@+id/agUserMoneyShow"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="45dp">
+        <TextView
+            android:id="@+id/agUserMoney"
+            android:text="加载额度中..."
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/agUserMoneyChange"
+            android:text="额度转换"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_margin"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+    <TextView
+        android:background="@color/textview_hight"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/agLiveList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/agGameList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

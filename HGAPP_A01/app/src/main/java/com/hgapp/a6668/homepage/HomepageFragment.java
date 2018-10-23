@@ -1,0 +1,552 @@
+package com.hgapp.a6668.homepage;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+
+import com.hgapp.a6668.Injections;
+import com.hgapp.a6668.R;
+import com.hgapp.a6668.base.HGBaseFragment;
+import com.hgapp.a6668.base.IPresenter;
+import com.hgapp.a6668.common.event.LogoutEvent;
+import com.hgapp.a6668.common.http.Client;
+import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.a6668.common.util.GameShipHelper;
+import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.widgets.MarqueeTextView;
+import com.hgapp.a6668.common.widgets.RoundCornerImageView;
+import com.hgapp.a6668.data.AGCheckAcountResult;
+import com.hgapp.a6668.data.BannerResult;
+import com.hgapp.a6668.data.CPResult;
+import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.LoginResult;
+import com.hgapp.a6668.data.NoticeResult;
+import com.hgapp.a6668.data.OnlineServiceResult;
+import com.hgapp.a6668.data.QipaiResult;
+import com.hgapp.a6668.homepage.aglist.AGListFragment;
+import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
+import com.hgapp.a6668.homepage.events.EventsFragment;
+import com.hgapp.a6668.homepage.handicap.HandicapFragment;
+import com.hgapp.a6668.homepage.noticelist.NoticeListFragment;
+import com.hgapp.a6668.homepage.online.ContractFragment;
+import com.hgapp.a6668.homepage.online.OnlineFragment;
+import com.hgapp.a6668.login.fastlogin.LoginFragment;
+import com.hgapp.common.util.Check;
+import com.hgapp.common.util.GameLog;
+import com.jude.rollviewpager.RollPagerView;
+import com.tencent.smtt.export.external.interfaces.JsPromptResult;
+import com.tencent.smtt.export.external.interfaces.JsResult;
+import com.tencent.smtt.sdk.CookieManager;
+import com.tencent.smtt.sdk.CookieSyncManager;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
+
+/**
+ *
+ AG真人，老虎机，皇冠体育，彩票，优惠活动，联系我们，公告，代理加盟，新手教学（暂时先不做）
+
+ AG真人，老虎机，皇冠体育，彩票，优惠活动，联系我们，公告，代理加盟，新手教学
+ */
+public class HomepageFragment extends HGBaseFragment implements HomePageContract.View{
+
+    @BindView(R.id.tvHomePageLogin)
+    TextView tvHomePageLogin;
+    @BindView(R.id.tvHomePageUserMoney)
+    TextView tvHomePageUserMoney;
+    @BindView(R.id.rollpageview)
+    RollPagerView rollpageview;
+    @BindView(R.id.tv_homapage_bulletin)
+    MarqueeTextView tvHomapageBulletin;
+    @BindView(R.id.rv_homepage_game_hall)
+    RecyclerView rvHomapageGameHall;
+
+
+    private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
+
+    HomePageContract.Presenter presenter;
+
+    private RollPagerViewManager rollPagerViewManager;
+
+    private NoticeResult noticeResultList;
+
+    private String userName ="";
+    private  String pro =  "";
+    private String userMoney = "";
+
+    //private CheckUpgradeResult checkUpgradeResult;
+    static {
+        homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty));
+        homeGameList.add(new HomePageIcon("真人视讯",R.mipmap.home_ag));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp));
+        homeGameList.add(new HomePageIcon("棋牌游戏",R.mipmap.home_qipai));
+        homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj));
+//        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
+//        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
+//        homeGameList.add(new HomePageIcon("BBIN",R.mipmap.home_bbin));
+//        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_kyqp));
+//        homeGameList.add(new HomePageIcon("扑鱼王二代",R.mipmap.home_fish));
+//        homeGameList.add(new HomePageIcon("甜心扑克王",R.mipmap.home_honey));
+//        homeGameList.add(new HomePageIcon("抢红包",R.mipmap.home_red));
+        homeGameList.add(new HomePageIcon("优惠活动",R.mipmap.home_pro));
+        homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent));
+        homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact));
+        homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red));
+        homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new));
+        homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind));
+//        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
+//        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
+//        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
+
+    }
+
+    public static HomepageFragment newInstance() {
+        HomepageFragment fragment = new HomepageFragment();
+        Bundle args = new Bundle();
+
+        fragment.setArguments(args);
+        //注入控制器
+        Injections.inject(null,(HomePageContract.View) fragment);
+        return fragment;
+    }
+
+    @Override
+    public int setLayoutId() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
+    public void setEvents(@Nullable Bundle savedInstanceState) {
+        // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
+        rvHomapageGameHall.setLayoutManager(gridLayoutManager);
+        rvHomapageGameHall.setHasFixedSize(true);
+        rvHomapageGameHall.setNestedScrollingEnabled(false);
+        rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
+        rvHomapageGameHall.scrollToPosition(0);
+
+        //presenter.postOnlineService("");
+        presenter.postBanner("");
+        presenter.postNotice("");
+
+    }
+
+    class HomaPageGameAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<HomePageIcon> {
+        private Context context;
+        public HomaPageGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
+            holder.setText(R.id.tv_item_game_name,data.getIconName());
+            RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
+            roundCornerImageView.onCornerAll(roundCornerImageView);
+            holder.setBackgroundRes(R.id.iv_item_game_icon,data.getIconId());
+            holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    onHomeGameItemClick(position);
+                }
+            });
+        }
+    }
+
+    private void onHomeGameItemClick( int position){
+
+        //showMessage("点击的位置是："+position);
+        /*if(Check.isNull(checkUpgradeResult)){
+            return;
+        }*/
+        if(position<5&&Check.isEmpty(userName)){
+            //start(LoginFragment.newInstance());
+            EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+            return;
+        }
+        switch (position){
+            case 0:
+                EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName,userMoney), SupportFragment.SINGLETASK));
+
+                break;
+            case 1:
+                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
+                break;
+            case 2:
+                postCPGo();
+                 break;
+            case 3:
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getLottery_link())));
+                //presenter.postCP();
+                presenter.postQipai("","");
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl().replace("m.","mc."))));
+                break;
+            case 4:
+                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName,userMoney,"game")), SupportFragment.SINGLETASK));
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"ky/ky_api.php?action=cm")));
+                break;
+            case 5:
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getDiscount_activity())));
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+pro)));
+                break;
+            case 6:
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getNewcomer_guide())));
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"agents_reg.php?tip=app")));
+                break;
+            case 7:
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getBusiness_agent())));
+                EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(userMoney,
+                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
+                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
+                break;
+            case 8:
+                EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,"",1)));
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
+
+                break;
+            case 9:
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
+                //presenter.postNoticeList("");
+                break;
+            case 10:
+                presenter.postNoticeList("");
+                break;
+        }
+    }
+
+    @Override
+    public void onVisible() {
+        super.onVisible();
+        // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+
+    }
+
+
+    @OnClick({R.id.tvHomePageLogin})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.tvHomePageLogin:
+                //start(LoginFragment.newInstance());  启动一个新的Fragment 但是还是覆盖在以前的Fragemnet的基础上
+                EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                break;
+        }
+
+    }
+
+    @Override
+    public void postOnlineServiceResult(OnlineServiceResult onlineServiceResult) {
+
+        GameLog.log("在线客服地址："+onlineServiceResult.getOnlineserver());
+       // onStartOnlineService(onlineServiceResult.getOnlineserver());
+        ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL,onlineServiceResult.getOnlineserver() );
+    }
+
+    @Override
+    public void postBannerResult(BannerResult bannerResult) {
+        GameLog.log("。。。。。Banner的数据返回。。。。。");
+        rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
+        //rollPagerViewManager.testImagesLocal(null);
+        rollPagerViewManager.testImagesNet(null,null);
+    }
+
+    @Override
+    public void postNoticeResult(NoticeResult noticeResult) {
+        GameLog.log("。。。。。公告的数据返回。。。。。");
+        List<String> stringList = new ArrayList<String>();
+        int size =noticeResult.getData().size();
+        for(int i=0;i<size;++i){
+            stringList.add(noticeResult.getData().get(i).getNotice());
+        }
+        tvHomapageBulletin.setContentList(stringList);
+    }
+
+    @Override
+    public void postNoticeListResult(NoticeResult noticeResult) {
+
+        noticeResultList =noticeResult;
+        EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
+    }
+
+    @Override
+    public void postAGLiveCheckRegisterResult(CheckAgLiveResult checkAgLiveResult) {
+        GameLog.log("AG视讯是否已经注册："+checkAgLiveResult.getIs_registered());
+        if(!"1".equals(checkAgLiveResult.getIs_registered())){
+            presenter.postAGGameRegisterAccount("","cga");
+            GameLog.log("开始注册 AG视讯账号");
+        }
+    }
+
+
+    @Override
+    public void postAGGameRegisterAccountResult(AGCheckAcountResult agCheckAcountResult) {
+        GameLog.log("AG创建账号："+agCheckAcountResult.toString());
+    }
+
+    @Override
+    public void postQipaiResult(QipaiResult qipaiResult) {
+        //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, qipaiResult.getUrl())));
+        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","棋牌游戏");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);
+    }
+
+
+    private void initWebView(String url) {
+        final WebView mWebView = new WebView(getContext());
+        mWebView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onLoadResource(WebView view, String url) {
+                super.onLoadResource(view, url);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView webview, String url) {
+                webview.loadUrl(url);
+                return true;
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+                //rl_loading.setVisibility(View.VISIBLE); // 显示加载界面
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+
+                GameLog.log("请求的URL地址 "+url);
+                String title = view.getTitle();
+                CookieSyncManager.createInstance(getContext());
+                CookieManager cookieManager = CookieManager.getInstance();
+                if (cookieManager != null) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        cookieManager.setAcceptThirdPartyCookies(mWebView, true);
+                    }
+                }
+                String CookieStr = cookieManager.getCookie(url);
+                ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE,CookieStr);
+                GameLog.log("cookie日志："+CookieStr);
+                /*tv_topbar_title.setText(title);
+                tv_topbar_title.setVisibility(View.VISIBLE);
+                rl_loading.setVisibility(View.GONE); // 隐藏加载界面*/
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                //rl_loading.setVisibility(View.GONE); // 隐藏加载界面
+            }
+        });
+
+        mWebView.setWebChromeClient(new WebChromeClient() {
+
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                result.confirm();
+                return true;
+            }
+
+            @Override
+            public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+                return super.onJsConfirm(view, url, message, result);
+            }
+
+            @Override
+            public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+                return super.onJsPrompt(view, url, message, defaultValue, result);
+            }
+        });
+
+        mWebView.loadUrl(url);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);  //设置 缓存模式
+        // 开启 DOM storage API 功能
+        mWebView.getSettings().setDomStorageEnabled(true);
+        //开启 database storage API 功能
+        mWebView.getSettings().setDatabaseEnabled(true);
+//        String cacheDirPath = getContext().getFilesDir().getAbsolutePath()+APP_CACAHE_DIRNAME;
+        String cacheDirPath = getContext().getCacheDir().getAbsolutePath() + HGConstant.APP_DB_DIRNAME;
+        GameLog.log("cacheDirPath=" + cacheDirPath);
+        //设置数据库缓存路径
+        mWebView.getSettings().setDatabasePath(cacheDirPath);
+        //设置  Application Caches 缓存目录
+        mWebView.getSettings().setAppCachePath(cacheDirPath);
+        //开启 Application Caches 功能
+        mWebView.getSettings().setAppCacheEnabled(true);
+
+        mWebView.getSettings().setAllowFileAccessFromFileURLs(true);
+        mWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+
+    }
+
+    @Override
+    public void postCPResult(CPResult cpResult) {
+        //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
+        ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
+        ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
+        initWebView(cpResult.getUrlLogin());
+       // initWebView(cpResult.getUrlLogin());
+        /*MyHttpClient myHttpClient = new MyHttpClient();
+        myHttpClient.executeGet(cpResult.getUrlLogin(), new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseText =  response.body().string();
+                final Headers headers = response.headers();
+                for(int k=0;k<headers.names().size();++k){
+
+                    final int finalK = k;
+                    rvHomapageGameHall.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            GameLog.log(headers.name(finalK)+" : "+headers.value(finalK)+"<br>");
+                        }
+                    });
+                }
+                //ACache.get(getContext()).put(HGConstant.APP_CP_HEADER,headers.toString());
+                final List<String> cookies = headers.values("Set-Cookie");
+                String session = cookies.get(0);
+                org.json.JSONArray jsonArray = new org.json.JSONArray();
+                for(int k=0;k<cookies.size();++k){
+                    jsonArray.put(cookies.get(k));
+                    final int finalK = k;
+                    rvHomapageGameHall.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            GameLog.log(cookies.get(finalK));
+                        }
+                    });
+                }
+                //ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE,session);
+                GameLog.log("session " +session);
+                GameLog.log("登录成功之后请求彩票地址："+responseText);
+            }
+        });*/
+    }
+
+    private void postCPGo(){
+        String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
+        if(Check.isEmpty(cp_url)){
+            presenter.postCP();
+        }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
+            showMessage("正在加载中，请稍后再试!");
+        }else{
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",cp_url);
+            intent.putExtra("gameCnName","彩票游戏");
+            intent.putExtra("gameType","CP");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+        /*Intent intent= new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        Uri content_url = Uri.parse(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL));
+        intent.setData(content_url);
+        startActivity(intent);*/
+    }
+
+    @Override
+    public void setPresenter(HomePageContract.Presenter presenter) {
+
+        this.presenter = presenter;
+    }
+
+    @Override
+    protected List<IPresenter> presenters() {
+        return Arrays.asList((IPresenter) presenter);
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        EventBus.getDefault().unregister(this);
+    }
+
+   /* @Subscribe
+    public void onEventMain(CheckUpgradeResult checkUpgradeResult){
+
+        this.checkUpgradeResult = checkUpgradeResult;
+        ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL,checkUpgradeResult.getService_meiqia() );
+        ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL_QQ,checkUpgradeResult.getService_qq() );
+        ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL_WECHAT,checkUpgradeResult.getService_wechat() );
+    }*/
+
+    @Subscribe
+    public void onEventMain(UserMoneyEvent userMoneyEvent){
+        userMoney = userMoneyEvent.money;
+        tvHomePageUserMoney.setText(userMoney);
+    }
+
+    @Subscribe
+    public void onEventMain(LoginResult loginResult) {
+
+        GameLog.log("首页获取的用户余额："+loginResult.getMoney());
+        userName = loginResult.getUserName();
+        pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents();
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro);
+        if(!Check.isEmpty(loginResult.getMoney())){
+            ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, loginResult.getMoney());
+            tvHomePageUserMoney.setVisibility(View.VISIBLE);
+            userMoney = GameShipHelper.formatMoney(loginResult.getMoney());
+            tvHomePageUserMoney.setText(userMoney);
+            tvHomePageLogin.setVisibility(View.GONE);
+        }
+        //presenter.postAGLiveCheckRegister("");
+        presenter.postCP();
+
+    }
+
+    @Subscribe
+    public void onEventMain(LogoutEvent logoutEvent) {
+
+        GameLog.log("首页用户退出了");
+//        if(Check.isEmpty(loginResult.getMoney())){
+//            tvHomePageUserName.setText(loginResult.getMoney());
+//
+//        }
+        pro ="";
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro);
+        tvHomePageLogin.setVisibility(View.VISIBLE);
+        tvHomePageUserMoney.setVisibility(View.GONE);
+        userName = "";
+        userMoney = "";
+    }
+
+}

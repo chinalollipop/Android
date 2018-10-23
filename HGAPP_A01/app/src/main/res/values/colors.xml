@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4d8eb9</color>
+    <color name="colorPrimaryDark">#4d8eb9</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="intputEditText">#FF4081</color>
+    <!--标题背景色-->
+    <color name="title_bg">#4d8eb9</color>
+    <color name="title_bg_black">#4B4339</color>
+
+    <!--标题文字颜色-->
+    <color name="title_text">#FFFFFF</color>
+    <!--按钮文字颜色-->
+    <color name="btn_text">#FFFFFF</color>
+    <!--EditText默认颜色值-->
+    <color name="n_edittext_hint">#9B9B9B</color>
+
+    <!--EditText文字颜色值-->
+    <color name="n_edittext_stroke">#979797</color>
+    <color name="n_edittext">#606060</color>
+    <color name="n_edittext_cursor">#606060</color>
+    <color name="n_edittext_pwd">#868686</color>
+    <color name="l_view_color">#D6D6D6</color>
+    <color name="all_bg">#F9F9F9</color>
+    <color name="event_line_title">#fdb22b</color>
+    <color name="event_tab_bg">#f6e8bb</color>
+    <color name="event_line">#ff0000</color>
+    <color name="event_tv">#673106</color>
+    <color name="event_red">#f55b1d</color>
+    <!--Textview默认颜色值-->
+    <color name="textview_normal">#9B9B9B</color>
+    <!--Textview跑马灯的默认颜色值-->
+    <color name="textview_marque">#666666</color>
+    <!--Textview高亮颜色值-->
+    <color name="textview_hight">#606060</color>
+    <!--标题文字颜色-->
+    <color name="login_left">#4d8eb9</color>
+    <color name="register_left">#FFFFFF</color>
+    <color name="login_title_hight">#00B3E0</color>
+    <color name="login_title_normal">#2A8FBD</color>
+    <color name="color_bg_dialog">#e0000000</color>
+    <color name="color_translucent">#e0000000</color>
+
+    <!--pop-->
+    <color name="pop_ll_hight">#31B4EF</color>
+    <color name="pop_ll_normal">#F0F0F0</color>
+    <color name="pop_hight">#FFFFFF</color>
+    <color name="pop_normal">#3D3D3D</color>
+    
+    <color name="bet_line">#8D7768</color>
+    <color name="bet_line_image">#8D7768</color>
+    <color name="bet_line_inside">#303030</color>
+    <color name="bet_line_inside_odds">#C9270B</color>
+    <color name="bet_line_inside_bg">#FFFFFF</color>
+    <color name="bet_title_tv_clicked">#DDA23E</color>
+    <color name="bet_title_tv_normal">#C0BAB4</color>
+    <color name="bet_tv_up">#6E5336</color>
+    <color name="bet_tv_down">#C9270B</color>
+    <color name="bet_tv_name">#f5efe7</color>
+</resources>

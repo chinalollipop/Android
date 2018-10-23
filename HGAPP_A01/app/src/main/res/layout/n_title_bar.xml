@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--公共的标题bar-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/title_bg"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        >
+
+        <TextView
+            android:id="@+id/iv_com_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/n_titlebar_back"
+            android:drawablePadding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/title_text"
+            android:drawableLeft="@mipmap/back"
+            />
+
+        <TextView
+            android:id="@+id/tv_com_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/title_text"
+            android:drawableLeft="@mipmap/home_logo"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_com_title_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/account"
+            android:textColor="@color/title_text"
+            android:textSize="16sp" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#B2B2B2"
+        />
+</LinearLayout>
+<!--<RelativeLayout
+        android:paddingTop="20px"
+        android:background="@color/n_title_bg"
+        android:layout_width="match_parent"
+        android:layout_height="132px">
+        <ImageView
+            android:layout_width="64px"
+            android:layout_height="64px"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/back"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/n_title_text"
+            android:textSize="51px"
+            android:text="注册成功" />
+        <ImageView
+            android:id="@+id/iv_phone_register_success_cancel"
+            android:layout_width="64px"
+            android:layout_height="64px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/title_right_close" />
+    </RelativeLayout>-->

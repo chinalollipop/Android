@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">HG0086</string>
+    <!--底部兰标题-->
+    <string name="str_title_homepage">首页</string>
+    <string name="str_title_deposit">存款</string>
+    <string name="str_title_withdraw">客服</string>
+    <string name="str_title_person">我的</string>
+    <string name="str_event_list1"> 1、每日计算区间：北京时间中午12:00:00至次日12:00:00期间的<font color='#FF0000'>体育、彩票</font>的打码量（输赢一半计算一半打码量，和局不计算打码量）。\n
+                                    2、此优惠需要会员在此活动页面点击【点击获取次数】进行申请，成功获取次数后，红包自动掉落，即可领取红包，领取到的红包金额将自动添加到会员账户！\n
+                                    3、幸运红包一倍流水即可提款。\n
+                                    4、本活动于次日中午12:00:00后点击申请，如果在24小时内未点击申请本公司将视为自动放弃本次活动。\n
+                                    5、领取红包之后将重新计算新一轮的日累计打码量！\n
+</string>
+    <string name="str_event_list2"> 1、此活动仅适用于<font color='#FF0000'>手机APP</font>用户！\n
+                                    2、每位会员每个参与获取红包次数，当天仅限获取一次次数；\n
+                                    3、任何个人或团体以不诚实方式套取红利，HG0086保留取消其活动资格，收回优惠红利和活动产生盈利以及关闭会员账号的权利。\n
+                                    4、HG0086保留在任何时候都可以更改，停止该活动的权利，并不做提前通知。\n
+                                    5、本活动最终解释权归属HG0086所有。</string>
+</resources>

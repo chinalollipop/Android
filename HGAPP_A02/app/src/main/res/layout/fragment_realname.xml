@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hgapp.a0086.common.widgets.NTitleBar
+        android:id="@+id/titleRealNameBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_text_height"
+        android:visibility="gone"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tvRegisterUserName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/login_title_hight"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@color/title_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvRegisterUserPhone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/login_title_normal"
+            android:gravity="center"
+            android:text="手机注册"
+            android:textColor="@color/title_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="18dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/llRegisterAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:background="@color/login_left"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tvRegisterIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="介绍人"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="5-15个字符，英文需小写"
+                    android:maxLength="15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:background="@color/login_left"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tvRegisterType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 账号"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="6-15个字符，英文需小写"
+                    android:maxLength="15" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterPwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 密码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:hint="6-15个字符长度字母或数字组成"
+                    android:maxLength="15"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterPwdVerify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 确认密码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterPwdVerify"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:hint="重新输入密码"
+                    android:maxLength="15"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterRealName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 真实姓名"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterWithDrawName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="提款行卡的姓名，用于提款"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 提款密码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterWithDrawPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="请输入提款密码(6位纯数字)"
+                    android:inputType="numberPassword"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterAccountPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 手机号码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterAccountPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="请输入11位手机号码"
+                    android:maxLength="11"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 微信"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterWechat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="微信号码"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 出生日期"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterBrithday"
+                    android:background="@mipmap/icon_textview_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="time"
+                    android:focusable="false"
+                    android:hint="请填写出生年月日"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterResource"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 如何得知本网站"
+                        android:textColor="@color/register_left"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterResource"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:hint="网络广告"
+
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:id="@+id/llRegisterVerificationCode"
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterVerificationCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 验证码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterVerificationCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_toLeftOf="@+id/registerVerificationCodeView"
+                    android:layout_toRightOf="@+id/llRegisterVerificationCode"
+                    android:hint="输入验证码"
+                    android:maxLength="4" />
+
+                <com.hgapp.a0086.common.widgets.verifycodeview.VerificationCodeView
+                    android:id="@+id/registerVerificationCodeView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_alignParentRight="true"
+                    app:codeNumber="4" />
+                <!--<com.hgapp.a01.common.widgets.VerificationCodeView
+                    android:id="@+id/registerVerificationCodeView"
+                    android:layout_width="120dp"
+                    android:layout_height="@dimen/h_edit_height"
+                    android:padding="25dp"
+                    zhangym:interferenceCirclesCount="40"
+                    zhangym:interferenceCirclesRadius="5"
+                    zhangym:interferenceLinesCount="10"
+                    zhangym:isShowInterferenceCircles="false"
+                    zhangym:isShowInterferenceLines="true"
+                    zhangym:isTextBold="true"
+                    zhangym:textSize="40sp"
+                    zhangym:textSkewX="100"
+                    zhangym:verificationText="9D27" />-->
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRegisterPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 手机号"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="手机号码(必填）"
+                    android:maxLength="14"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterPhonePwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 密码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etRegisterPhonePwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="8-16个字符长度字母或数字组成"
+                    android:maxLength="16"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/h_text_width"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_gravity="center"
+                    android:background="@color/login_left">
+
+                    <TextView
+                        android:id="@+id/tvRegisterPhoneVerificationCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="* 验证码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height">
+
+                    <EditText
+                        android:id="@+id/etRegisterPhoneVerificationCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_text_height"
+                        android:hint="输入验证码" />
+
+                    <Button
+                        android:id="@+id/btnRegisterGetVerificationCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_margin="5dp"
+                        android:text="获取验证码"
+                        android:textSize="12sp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbRegisterProtocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:checked="true"
+            android:text="同意本站《协议条款》"
+            android:button="@drawable/btn_check_style"
+            android:textColor="@color/textview_hight"
+            android:textSize="16sp" />
+
+
+        <Button
+            android:id="@+id/btnRegisterSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:text="注册" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sw_R_show"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rlTeamHRang"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bet_sw_height"
+        android:background="@color/bet_line_inside_bg">
+
+        <TextView
+            android:id="@+id/tvTeamHRangName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/bet_sw_padding_left"
+            android:text="主队"
+            android:textColor="@color/bet_line_inside"
+            android:textSize="@dimen/bet_sw_size" />
+
+        <LinearLayout
+            android:id="@+id/ior_RH_H"
+            android:layout_width="@dimen/bet_sw_layout_width"
+            android:layout_height="@dimen/bet_sw_layout_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/bet_sw_layout_padding"
+            android:layout_marginRight="@dimen/bet_sw_padding_right"
+            android:layout_marginTop="@dimen/bet_sw_layout_padding"
+            android:background="@drawable/wanfa_item_default"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_ior_RH_ratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="让球"
+                android:textColor="@color/bet_tv_up"
+                android:textSize="@dimen/bet_sw_up_size" />
+
+            <TextView
+                android:id="@+id/tv_ior_RH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="让球"
+                android:textColor="@color/bet_tv_down"
+                android:textSize="@dimen/bet_sw_down_size" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bet_line_image" />
+
+    <RelativeLayout
+        android:id="@+id/rlTeamCRang"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bet_sw_height"
+        android:background="@color/bet_line_inside_bg">
+
+        <TextView
+            android:id="@+id/tvTeamCRangName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/bet_sw_padding_left"
+            android:text="客队"
+            android:textColor="@color/bet_line_inside"
+            android:textSize="@dimen/bet_sw_size" />
+
+        <LinearLayout
+            android:id="@+id/ior_RC_H"
+            android:layout_width="@dimen/bet_sw_layout_width"
+            android:layout_height="@dimen/bet_sw_layout_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/bet_sw_layout_padding"
+            android:layout_marginRight="@dimen/bet_sw_padding_right"
+            android:layout_marginTop="@dimen/bet_sw_layout_padding"
+            android:background="@drawable/wanfa_item_default"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_ior_RC_ratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="让球"
+                android:textColor="@color/bet_tv_up"
+                android:textSize="@dimen/bet_sw_up_size" />
+
+            <TextView
+                android:id="@+id/tv_ior_RC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="让球"
+                android:textColor="@color/bet_tv_down"
+                android:textSize="@dimen/bet_sw_down_size" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

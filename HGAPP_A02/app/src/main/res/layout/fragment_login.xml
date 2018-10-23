@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:zhangym="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hgapp.a0086.common.widgets.NTitleBar
+        android:id="@+id/tvLoginBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:visibility="gone"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/tvLoginUserName"
+            android:layout_weight="1"
+            android:text="登入"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:textColor="@color/title_text"
+            android:background="@color/login_title_hight"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tvLoginUserPhone"
+            android:layout_weight="1"
+            android:text="手机登入"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="@color/title_text"
+            android:background="@color/login_title_normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="18dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:text="请先登入您的会员帐号"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="112dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:background="@color/login_left"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivLoginType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/login_hy" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etLoginType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:hint="您的会员账号"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="112dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:background="@color/login_left"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/tvLoginPwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/login_sou" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etLoginPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:hint="您的密码"
+                    android:maxLength="15"
+                    android:inputType="textPassword"
+                    />
+                <ImageView
+                    android:id="@+id/etLoginEyes"
+                    android:background="@mipmap/icon_eye_close"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:id="@+id/cbLoginRemeber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textview_hight"
+            android:textSize="16sp"
+            android:text="记住手机号"
+            />
+        
+        <Button
+            android:layout_marginTop="12dp"
+            android:id="@+id/btnLoginSubmit"
+            android:text="登入"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            />
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnLoginRegister"
+            android:text="注册"
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
+
+        <TextView
+            android:id="@+id/tvLoginForgetPwd"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center|top"
+            android:textSize="14sp"
+            android:textColor="@color/textview_normal"
+            android:text="忘记密码？"
+            />
+        <com.hgapp.a0086.common.widgets.InputCodeLayout
+            android:id="@+id/inputCodeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            app:icl_divideWidth="10dp"
+            app:icl_focusBackground="@drawable/bg_edit_focus"
+            app:icl_height="40dp"
+            app:icl_number="4"
+            app:icl_showMode="password"
+            app:icl_textColor="@color/colorPrimaryDark"
+            app:icl_textSize="16sp"
+            app:icl_unFocusBackground="@drawable/bg_edit_un_focus"
+            app:icl_width="40dp" />
+
+        <com.hgapp.a0086.common.widgets.VerificationCodeView
+            android:id="@+id/verificationCodeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            android:visibility="gone"
+            zhangym:interferenceCirclesCount="40"
+            zhangym:interferenceCirclesRadius="5"
+            zhangym:interferenceLinesCount="10"
+            zhangym:isShowInterferenceCircles="true"
+            zhangym:isShowInterferenceLines="true"
+            zhangym:isTextBold="true"
+            zhangym:textSize="80sp"
+            zhangym:textSkewX="0"
+            zhangym:verificationText="9D27" />
+    </LinearLayout>
+</LinearLayout>

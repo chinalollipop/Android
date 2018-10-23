@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="h_tbn_height">33dp</dimen>
+    <dimen name="h_edit_height">33dp</dimen>
+
+    <dimen name="h_text_height">35dp</dimen>
+    <dimen name="h_text_width">112dp</dimen>
+</resources>
