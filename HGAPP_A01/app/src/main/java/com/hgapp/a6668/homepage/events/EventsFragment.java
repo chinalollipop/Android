@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -125,13 +126,15 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
             @Override
             public void onCloseClick() {
                 //hideDialog();
-                mRedPacketDialog.dismiss();
-                /*mRedPacketDialogView.postDelayed(new Runnable() {
+                final Animation animation= AnimationUtils.loadAnimation(getActivity(),R.anim.animation);
+                animation.setDuration(4000);
+                mRedPacketDialogView.startAnimation(animation);
+                mRedPacketDialogView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
+                        mRedPacketDialog.dismiss();
                     }
-                },2000);*/
+                },2000);
 
             }
 
@@ -140,7 +143,9 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
                 //领取红包,调用接口
             }
         });
+
         mRedPacketDialog.show();
+
         //showDialog();
     }
 
@@ -225,7 +230,7 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
                         packets_layout.setVisibility(View.GONE);
                         GameLog.log("停止下雨了");
                     }
-                },5000);
+                },2000);
                 break;
             case R.id.ivEventRefresh:
                 showMessage("刷新次数");

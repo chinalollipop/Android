@@ -266,10 +266,10 @@ public class RealNameFragment extends HGBaseFragment implements RealNameContract
             return;
         }*/
 
-        if(Check.isEmpty(userPhone)){
+        /*if(Check.isEmpty(userPhone)){
             showMessage("请输入手机号！");
             return;
-        }
+        }*/
 
         if(Check.isEmpty(userWechat)){
             showMessage("请输入微信号码！");

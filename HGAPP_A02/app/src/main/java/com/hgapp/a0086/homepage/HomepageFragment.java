@@ -113,7 +113,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("优惠活动",R.mipmap.home_pro));
         homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent));
         homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact));
-        homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red));
+        //homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red));
         homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new));
         homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind));
 //        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
@@ -164,11 +164,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         @Override
         protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
             TextView textView = holder.getView(R.id.tv_item_game_name);
-            if(position==8){
+            /*if(position==8){
                 textView.setTextColor(getContext().getColor(R.color.event_red));
             }else{
                 textView.setTextColor(getContext().getColor(R.color.login_left));
-            }
+            }*/
             holder.setText(R.id.tv_item_game_name,data.getIconName());
             RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
             roundCornerImageView.onCornerAll(roundCornerImageView);
@@ -230,13 +230,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                 break;
             case 8:
-                EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,"",1)));
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
+                //EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,"",1)));
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
 
                 break;
             case 9:
-                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-                //presenter.postNoticeList("");
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
+                presenter.postNoticeList("");
                 break;
             case 10:
                 presenter.postNoticeList("");

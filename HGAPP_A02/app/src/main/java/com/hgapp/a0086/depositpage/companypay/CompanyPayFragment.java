@@ -138,6 +138,7 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
                     tvDepositCompanyPayBank.setTextSize(14);
                 }
                 tvDepositCompanyPayBank.setText(stringListBankName.get(options1));
+                bankId = dataBean.getData().get(options1).getId();
                 tvDepositCompanyPayBankNumber.setText(dataBean.getData().get(options1).getBank_account());
                 tvDepositCompanyPayBankAddress.setText(dataBean.getData().get(options1).getBank_addres());
             }
@@ -168,13 +169,13 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
         String tvTime = tvDepositCompanyPayTime.getText().toString().trim();
         String edRemark = edDepositCompanyPayRemark.getText().toString().trim();
 
-        if (Check.isEmpty(etMoney)) {
-            showMessage("汇款金额必须是整数！");
+        if (Check.isEmpty(etMoney)||Integer.parseInt(etMoney)<Integer.parseInt("100")) {
+            super.showMessage("汇款金额须大于100元！");
             return;
         }
 
         if (Check.isEmpty(etName)) {
-            showMessage("请输入存款人姓名！");
+            super.showMessage("请输入存款人姓名！");
             return;
         }
 

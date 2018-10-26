@@ -221,10 +221,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_psersion);
                     break;
                 case 7:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer_record);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
+                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer_record);
                     break;
                 case 8:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
+                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
                     break;
                 case 9:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);

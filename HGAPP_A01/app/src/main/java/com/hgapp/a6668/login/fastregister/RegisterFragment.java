@@ -288,6 +288,11 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             return;
         }
 
+        if(Check.isEmpty(userPhone)){
+            showMessage("请输入手机号！");
+            return;
+        }
+
         /*if(Check.isEmpty(userDrawName)){
             showMessage("请输入真实姓名！");
             return;
@@ -297,10 +302,6 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             return;
         }
 
-        if(Check.isEmpty(userPhone)){
-            showMessage("请输入手机号！");
-            return;
-        }
 
         if(Check.isEmpty(userWechat)){
             showMessage("请输入微信号码！");
