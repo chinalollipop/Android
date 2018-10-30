@@ -70,46 +70,46 @@ public interface IPrepareBetApi {
     @POST("order/order_finish_api.php")
     @FormUrlEncoded
     public Observable<BetResult> postBet(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
     //足球今日赛事和早盘下注接口 投注接口
     @POST("order/FT_order_finish_api.php")
     @FormUrlEncoded
     public Observable<BetResult> postBetFT(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
     //足球滚球全场投注 投注接口
     @POST("order/FT_order_re_finish_api.php")
     @FormUrlEncoded
     public Observable<BetResult> postBetFTre(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
     //足球滚球半场投注 投注接口
     @POST("order/FT_order_hre_finish_api.php")
     @FormUrlEncoded
     public Observable<BetResult> postBetFThre(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
 
     //篮球今日赛事与早盘投注 投注接口
     @POST("order/BK_order_finish_api.php")
     @FormUrlEncoded
     public Observable<BetResult> postBetBK(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
 
     //篮球滚球投注 投注接口
     @POST("order/BK_order_re_finish_api.php")
     @FormUrlEncoded
     public Observable<BetResult> postBetBKre(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
 
     //冠军投注（篮球与足球公用） 投注接口
     @POST("order/FT_order_nfs_finish_api.php ")
     @FormUrlEncoded
     public Observable<BetResult> postBetChampionFT(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
-            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum, @Field("autoOdd") String autoOdd);
+            , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
 
 }

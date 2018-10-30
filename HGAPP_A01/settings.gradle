@@ -1,1 +1,1 @@
-include ':app', ':commonliberary'
+include ':app', ':commonliberary', ':swipemenu'

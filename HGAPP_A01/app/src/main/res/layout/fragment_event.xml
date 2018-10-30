@@ -7,13 +7,6 @@
     android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical">
 
-    <com.hgapp.a6668.common.widgets.NTitleBar
-        android:id="@+id/titleEventBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:backText="返回"
-        app:moreImageShow="false" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -43,11 +36,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="凡在本公司于2018年10月1日前注册，\n存款金额100以上，均可领取！"
+                    android:text="凡在本公司于2018年11月1日前注册，\n存款金额100以上，均可领取！"
                     android:textColor="@color/title_text"
                     android:textSize="14sp" />
                 <ImageView
-                    android:id="@+id/ivClickOne"
+                    android:id="@+id/ivClickOldestMember"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -531,6 +524,35 @@
                 </LinearLayout>
 
         </LinearLayout>
+        <RelativeLayout
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/eventTitleBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/n_titlebar_back"
+                android:drawablePadding="5dp"
+                android:textSize="16sp"
+                android:textColor="@color/title_text"
+                android:drawableLeft="@mipmap/back"
+                />
+            <TextView
+                android:id="@+id/eventTitleUserMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@mipmap/title_right"
+                android:gravity="center"
+                android:text="@string/account"
+                android:textColor="@color/title_text"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
         <com.hgapp.a6668.common.widgets.redpacket.RedPacketsLayout
             android:id="@+id/packets_layout"
             android:visibility="gone"

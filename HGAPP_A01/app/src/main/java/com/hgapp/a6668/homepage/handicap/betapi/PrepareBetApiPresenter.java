@@ -212,13 +212,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postBetFTApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype) {
+    public void postBetFTApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype,String autoOdd) {
         Random random = new Random();
         String resultRandom="";
         for (int i=0;i<6;i++) {
             resultRandom += random.nextInt(10);
         }
-        subscriptionHelper.add(RxHelper.addSugar(api.postBetFT(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,resultRandom))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBetFT(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,autoOdd,resultRandom))
                 .subscribe(new ResponseSubscriber<BetResult>() {
                     @Override
                     public void success(BetResult response) {
@@ -242,13 +242,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postBetFTreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype) {
+    public void postBetFTreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype,String autoOdd) {
         Random random = new Random();
         String resultRandom="";
         for (int i=0;i<6;i++) {
             resultRandom += random.nextInt(10);
         }
-        subscriptionHelper.add(RxHelper.addSugar(api.postBetFTre(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,resultRandom))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBetFTre(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,autoOdd,resultRandom))
                 .subscribe(new ResponseSubscriber<BetResult>() {
                     @Override
                     public void success(BetResult response) {
@@ -271,13 +271,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postBetFThreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype) {
+    public void postBetFThreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype,String autoOdd) {
         Random random = new Random();
         String resultRandom="";
         for (int i=0;i<6;i++) {
             resultRandom += random.nextInt(10);
         }
-        subscriptionHelper.add(RxHelper.addSugar(api.postBetFThre(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,resultRandom))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBetFThre(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,autoOdd,resultRandom))
                 .subscribe(new ResponseSubscriber<BetResult>() {
                     @Override
                     public void success(BetResult response) {
@@ -300,13 +300,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postBetBKApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype) {
+    public void postBetBKApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype,String autoOdd) {
         Random random = new Random();
         String resultRandom="";
         for (int i=0;i<6;i++) {
             resultRandom += random.nextInt(10);
         }
-        subscriptionHelper.add(RxHelper.addSugar(api.postBetBK(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,resultRandom))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBetBK(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,autoOdd,resultRandom))
                 .subscribe(new ResponseSubscriber<BetResult>() {
                     @Override
                     public void success(BetResult response) {
@@ -329,13 +329,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postBetBKreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype) {
+    public void postBetBKreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype,String autoOdd) {
         Random random = new Random();
         String resultRandom="";
         for (int i=0;i<6;i++) {
             resultRandom += random.nextInt(10);
         }
-        subscriptionHelper.add(RxHelper.addSugar(api.postBetBKre(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,resultRandom))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBetBKre(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,autoOdd,resultRandom))
                 .subscribe(new ResponseSubscriber<BetResult>() {
                     @Override
                     public void success(BetResult response) {
@@ -358,13 +358,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postBetChampionApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype) {
+    public void postBetChampionApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype,String autoOdd) {
         Random random = new Random();
         String resultRandom="";
         for (int i=0;i<6;i++) {
             resultRandom += random.nextInt(10);
         }
-        subscriptionHelper.add(RxHelper.addSugar(api.postBetChampionFT(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,resultRandom,"Y"))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBetChampionFT(HGConstant.PRODUCT_PLATFORM,cate,gid,type,active,line_type,HGConstant.ODD_F_TYPE,gold,ioradio_r_h,rtype,wtype,autoOdd,resultRandom))
                 .subscribe(new ResponseSubscriber<BetResult>() {
                     @Override
                     public void success(BetResult response) {

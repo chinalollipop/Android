@@ -487,9 +487,17 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 textView3.setText(Html.fromHtml(textCont3));
                 String textCont4 ="";
                 if(Check.isEmpty(rowsBean.getFirst_half())){
-                    textCont4 = onMarkRed(rowsBean.getBet_content())+"@"+ onMarkRed(rowsBean.getBet_rate())+onMarkGreen(rowsBean.getIsDanger());
+                    if(Check.isEmpty(rowsBean.getIsDanger())){
+                        textCont4 = onMarkRed(rowsBean.getBet_content())+"@"+ onMarkRed(rowsBean.getBet_rate());
+                    }else{
+                        textCont4 = onMarkRed(rowsBean.getBet_content())+"@"+ onMarkRed(rowsBean.getBet_rate())+onMarkGreen(rowsBean.getIsDanger());
+                    }
                 }else{
-                    textCont4 = onMarkRed(rowsBean.getBet_content()+rowsBean.getFirst_half())+"@"+ onMarkRed(rowsBean.getBet_rate())+onMarkGreen(rowsBean.getIsDanger());
+                    if(Check.isEmpty(rowsBean.getIsDanger())){
+                        textCont4 = onMarkRed(rowsBean.getBet_content()+rowsBean.getFirst_half())+"@"+ onMarkRed(rowsBean.getBet_rate());
+                    }else{
+                        textCont4 = onMarkRed(rowsBean.getBet_content()+rowsBean.getFirst_half())+"@"+ onMarkRed(rowsBean.getBet_rate())+onMarkGreen(rowsBean.getIsDanger());
+                    }
                 }
                 TextView textView4 =  holder.getView(R.id.betRecordItem4);
                 textView4.setText(Html.fromHtml(textCont4));

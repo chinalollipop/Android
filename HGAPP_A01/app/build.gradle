@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.hgapp.a6668" //线上环境
-        versionName "1.5" //线上环境
-//        applicationId "com.hgapp.a6668.test"//测试环境
-//        versionName "1.4" //测试环境环境
+//        applicationId "com.hgapp.a6668" //线上环境
+//        versionName "1.6" //线上环境
+        applicationId "com.hgapp.a6668.test"//测试环境
+        versionName "1.5" //测试环境环境
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
@@ -69,6 +69,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation project(':commonliberary')
+    implementation project(path: ':swipemenu')
     implementation(name: 'rxandroid-1.1.0', ext: 'aar')
     implementation(name: 'ultra-ptr-1.0.11', ext: 'aar')
     //compile(name: 'leakcanary-android-1.5.1', ext: 'aar')

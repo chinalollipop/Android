@@ -46,6 +46,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class CPListFragment extends HGBaseFragment implements AGListContract.View {
 
@@ -129,6 +130,7 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
                 @Override
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
+                    EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111","222","333"))));
                 }
             });
         }

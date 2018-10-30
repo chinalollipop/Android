@@ -3,8 +3,8 @@ package com.hgapp.a6668.homepage.events;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,10 +16,10 @@ import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.NTitleBar;
-import com.hgapp.a6668.common.widgets.RoundRainbowTextView;
 import com.hgapp.a6668.common.widgets.redpacket.RedPacketsLayout;
 import com.hgapp.a6668.data.DepositAliPayQCCodeResult;
-import com.hgapp.a6668.depositpage.aliqcpay.AliQCPayContract;
+import com.hgapp.a6668.homepage.events.anim.Swing;
+import com.hgapp.a6668.homepage.events.anim.ZoomOutRightExit;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 
@@ -29,18 +29,20 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class EventsFragment extends HGBaseFragment implements AliQCPayContract.View {
+public class EventsFragment extends HGBaseFragment implements EventsContract.View {
 
     private static final String ARG_PARAM0 = "param0";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
-    @BindView(R.id.titleEventBack)
-    NTitleBar titleEventBack;
+    @BindView(R.id.eventTitleUserMoney)
+    TextView eventTitleUserMoney;
     @BindView(R.id.tvLastEventsFlowings)
     TextView tvLastEventsFlowings;
     @BindView(R.id.tvLastEventsNumber)
     TextView tvLastEventsNumber;
+    @BindView(R.id.ivClickOldestMember)
+    ImageView ivClickOldestMember;
     @BindView(R.id.ivEventRefresh)
     ImageView ivEventRefresh;
     @BindView(R.id.packets_layout)
@@ -51,7 +53,7 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
     private String getArgParam1;
     private int getArgParam2;
 
-    private AliQCPayContract.Presenter presenter;
+    private EventsContract.Presenter presenter;
     private View mRedPacketDialogView;
     private RedPacketViewHolder mRedPacketViewHolder;
     private RedCustomDialog mRedPacketDialog;
@@ -73,6 +75,8 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
             getArgParam1 = getArguments().getString(ARG_PARAM1);
             getArgParam2 = getArguments().getInt(ARG_PARAM2);
         }
+        /*getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
     }
 
 
@@ -89,12 +93,7 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        titleEventBack.setBackListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pop();
-            }
-        });
+        eventTitleUserMoney.setText(getArgParam1);
     }
 
 
@@ -104,43 +103,49 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
     }
 
     @Override
-    public void setPresenter(AliQCPayContract.Presenter presenter) {
+    public void setPresenter(EventsContract.Presenter presenter) {
         this.presenter = presenter;
     }
 
-    public void showRedDialog(View view){
+    public void showRedDialog(String data){
         String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
-        RedPacketEntity entity = new RedPacketEntity("alias", "http://xxx.xxx.com/20171205180511192.png", "恭喜发财，大吉大利");
-        showRedPacketDialog(entity);
+        RedPacketEntity entity = new RedPacketEntity(alias, "http://xxx.xxx.com/20171205180511192.png", "恭喜发财，大吉大利");
+        showRedPacketDialog(entity,data);
     }
 
-    public void showRedPacketDialog(RedPacketEntity entity) {
+    public void showRedPacketDialog(RedPacketEntity entity, final String data) {
         if (mRedPacketDialogView == null) {
             mRedPacketDialogView = View.inflate(getContext(), R.layout.dialog_red_packet, null);
             mRedPacketViewHolder = new RedPacketViewHolder(getContext(), mRedPacketDialogView);
             mRedPacketDialog = new RedCustomDialog(getContext(), mRedPacketDialogView, R.style.red_custom_dialog);
             mRedPacketDialog.setCancelable(false);
         }
+        new Swing().start(mRedPacketDialogView);
         mRedPacketViewHolder.setData(entity);
         mRedPacketViewHolder.setOnRedPacketDialogClickListener(new OnRedPacketDialogClickListener() {
             @Override
             public void onCloseClick() {
-                //hideDialog();
-                final Animation animation= AnimationUtils.loadAnimation(getActivity(),R.anim.animation);
-                animation.setDuration(4000);
-                mRedPacketDialogView.startAnimation(animation);
+                new ZoomOutRightExit().start(mRedPacketDialogView);
                 mRedPacketDialogView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         mRedPacketDialog.dismiss();
+                        new Swing().start(eventTitleUserMoney);
                     }
-                },2000);
+                },1000);
 
             }
 
             @Override
             public void onOpenClick() {
                 //领取红包,调用接口
+                mRedPacketDialogView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRedPacketViewHolder.setData(data);
+                    }
+                },2000);
+
             }
         });
 
@@ -175,9 +180,24 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
         mRedPacketDialogView.setAnimation(animation);
     }
 
-    @OnClick({R.id.btnClickRed,R.id.ivEventRefresh})
+    @OnClick({R.id.eventTitleBack,R.id.ivClickOldestMember,R.id.btnClickRed,R.id.ivEventRefresh})
     public void onViewClicked(final View view) {
         switch (view.getId()) {
+            case R.id.eventTitleBack:
+                pop();
+                break;
+            case R.id.ivClickOldestMember:
+                presenter.postDownAppGift("");
+                ivClickOldestMember.setClickable(false);
+                ivClickOldestMember.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(!Check.isNull(ivClickOldestMember)){
+                            ivClickOldestMember.setClickable(true);
+                        }
+                    }
+                },3000);
+                break;
                 //showRedDialog(view);
                 /*packets_layout.setVisibility(View.VISIBLE);
                 packets_layout.post(new Runnable() {
@@ -209,7 +229,7 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
                 btnClickRed.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        showRedDialog(view);
+                        showRedDialog("23");
                         if(!Check.isNull(btnClickRed)){
                             btnClickRed.setClickable(true);
                         }
@@ -237,4 +257,31 @@ public class EventsFragment extends HGBaseFragment implements AliQCPayContract.V
                 break;
         }
     }
+
+    @Override
+    public void postDownAppGiftResult(final String data) {
+        //showMessage(data);
+        packets_layout.setVisibility(View.VISIBLE);
+        packets_layout.post(new Runnable() {
+            @Override
+            public void run() {
+                packets_layout.startRain();
+            }
+        });
+        ivClickOldestMember.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showRedDialog(data);
+            }
+        },2000);
+        packets_layout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                packets_layout.stopRain();
+                packets_layout.setVisibility(View.GONE);
+                GameLog.log("停止下雨了");
+            }
+        },2500);
+    }
+
 }

@@ -1983,7 +1983,7 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         sw_RWB(gameAllPlayRFTResult);
 
         //总进球数
-        sw_RT(gameAllPlayRFTResult);
+        //sw_RT(gameAllPlayRFTResult);
 
         //总进球数  上半场
         sw_HRT(gameAllPlayRFTResult);

@@ -147,4 +147,7 @@ public abstract class HGConstant {
 
     //用户的登录状态  后的banner
     public static final String USERNAME_LOGIN_BANNER = "username_login_banner";
+
+    //用户的初始化下注的选中状态
+    public static final String USERNAME_AUTO_ADD = "username_auto_add";
 }

@@ -1,6 +1,7 @@
 package com.hgapp.a0086;
 
 import android.content.pm.PackageInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import com.hgapp.a0086.common.event.StartBrotherWithPopEvent;
 import com.hgapp.a0086.common.service.ServiceOnlineFragment;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.HGConstant;
+import com.hgapp.a0086.common.util.InstallHelper;
 import com.hgapp.a0086.data.CheckUpgradeResult;
 import com.hgapp.a0086.depositpage.DepositFragment;
 import com.hgapp.a0086.homepage.HomepageFragment;
@@ -21,6 +23,10 @@ import com.hgapp.a0086.login.fastlogin.LoginFragment;
 import com.hgapp.a0086.personpage.PersonFragment;
 import com.hgapp.a0086.upgrade.CheckUpdateContract;
 import com.hgapp.a0086.upgrade.UpgradeDialog;
+import com.hgapp.a0086.upgrade.downunit.AppDownloadServiceBinder;
+import com.hgapp.a0086.upgrade.downunit.DownloadIntent;
+import com.hgapp.a0086.upgrade.downunit.DownloadProgress;
+import com.hgapp.a0086.upgrade.downunit.FileDownloaderListener;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.PackageUtil;
@@ -30,6 +36,8 @@ import com.hgapp.common.util.Utils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import java.io.File;
 
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.base.BaseFragment;
@@ -57,7 +65,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
     private int selectedPositon = 0;
     private boolean checkUpgradeDone = false;
     private CheckUpdateContract.Presenter presenter;
-
+    private DownloadIntent intent;
     public static MainFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -290,6 +298,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
     {
         super.onStop();
         //presenter.destroy();
+        AppDownloadServiceBinder.getBinder().unregisterListener(getContext().getPackageName());
     }
     @Override
     public boolean wantShowMessage() {
@@ -315,11 +324,81 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             String localver = packageInfo.versionName;
             GameLog.log("当前APP的版本号是："+localver);
             if(!localver.equals(checkUpgradeResult.getVersion())){
-                UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
+                onDownLoadAPP(checkUpgradeResult);
+                //UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
             }
             GameLog.log(""+checkUpgradeResult.getDescription());
         }
     }
+
+    private void onDownLoadAPP(CheckUpgradeResult checkUpgradeResult){
+        AppDownloadServiceBinder.getBinder().bind();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            boolean hasInstallPermission = getActivity().getPackageManager().canRequestPackageInstalls();
+            if (!hasInstallPermission) {
+                InstallHelper.startInstallPermissionSettingActivity(getContext());
+                return;
+            }
+        }
+        checkUpgradeResult.setFile_path(checkUpgradeResult.getFile_path());
+        //checkUpgradeResult.setFile_path("https://hg00086.firebaseapp.com/app-release.apk");
+        intent = new DownloadIntent();
+        intent.packageName = getContext().getPackageName();
+        intent.dir = getContext().getCacheDir().getAbsolutePath();
+        intent.fileName = getContext().getPackageName()+".apk";
+        intent.tempFileName = "temp" + intent.fileName;
+        intent.url = checkUpgradeResult.getFile_path();
+        File file = new File(intent.dir,intent.fileName);
+        String lVersion = InstallHelper.apkInfoVersion(intent.dir+"/"+intent.fileName,getContext());
+        GameLog.log("\"本地文件的版本号是："+lVersion);
+        if(lVersion.equals(checkUpgradeResult.getVersion())){
+            showMessage("检测到有新版本更新，请安装！");
+            if (file.exists()) {
+                GameLog.log("\"安装app时发现文件已经存在"+file.getAbsolutePath());
+                InstallHelper.attemptIntallApp(getContext(),file);
+                //如果为文件，直接删除
+                /*if(file.isFile()){
+                    file.delete();
+                }*/
+                return;
+            }
+        }
+        AppDownloadServiceBinder binder = AppDownloadServiceBinder.getBinder();
+        binder.registerListener(intent.packageName,fileDownloaderListener);
+        binder.downloadUpgradeApp(intent);
+
+    }
+
+    private FileDownloaderListener fileDownloaderListener = new FileDownloaderListener()
+    {
+
+        @Override
+        public void onBegin(String packagename) {
+        }
+
+        @Override
+        public void onProgress(DownloadProgress progress) {
+            Timber.i("升级进度:%s",progress.toString());
+            GameLog.log("升级进度 totalSize ["+progress.totalSize+ "]  sofarSize ["+progress.sofarSize+"] percent  -> "+progress.percent);
+            /*progressBar.setProgress(progress.percent);
+            tvSize.setText(progress.getSofarSizeInM()+"/" + progress.getTotalSizeInM());*/
+        }
+
+        @Override
+        public void onComplete(String packagename) {
+            showMessage("检测到有新版本更新，请安装！");
+            if(null != intent)
+            {
+                File file = new File(intent.dir,intent.fileName);
+                InstallHelper.attemptIntallApp(getContext(),file);
+            }
+            AppDownloadServiceBinder.getBinder().unbind();
+        }
+
+        @Override
+        public void onError(String packagename, int errcode) {
+        }
+    };
 
     @Override
     public void showMessage(String message) {

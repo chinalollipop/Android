@@ -2,6 +2,10 @@ package com.hgapp.a0086.common.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
@@ -9,6 +13,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
 
 import com.hgapp.a0086.BuildConfig;
+import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.Timber;
 
 import java.io.File;
@@ -75,5 +80,31 @@ public class InstallHelper {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
     }
+    /**
+     * 获取apk包的信息：版本号，名称，图标等
+     *
+     * @param absPath  apk包的绝对路径
+     * @param context 
+     */
+    public static String apkInfoVersion(String absPath, Context context) {
 
+        PackageManager pm = context.getPackageManager();
+        PackageInfo pkgInfo = pm.getPackageArchiveInfo(absPath, PackageManager.GET_ACTIVITIES);
+        if (pkgInfo != null) {
+            ApplicationInfo appInfo = pkgInfo.applicationInfo;
+            /* 必须加这两句，不然下面icon获取是default icon而不是应用包的icon */
+            appInfo.sourceDir = absPath;
+            appInfo.publicSourceDir = absPath;
+            String appName = pm.getApplicationLabel(appInfo).toString();// 得到应用名 
+            String packageName = appInfo.packageName; // 得到包名 
+            String version = pkgInfo.versionName; // 得到版本信息 
+            /* icon1和icon2其实是一样的 */
+            Drawable icon1 = pm.getApplicationIcon(appInfo);// 得到图标信息 
+            Drawable icon2 = appInfo.loadIcon(pm);
+            String pkgInfoStr = String.format("PackageName:%s, Vesion: %s, AppName: %s", packageName, version, appName);
+            GameLog.log(String.format("PkgInfo: %s", pkgInfoStr));
+            return version;
+        }
+        return "";
+    }
 }

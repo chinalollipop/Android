@@ -1,0 +1,414 @@
+package com.hgapp.a6668.homepage.cplist;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.brioal.swipemenu.view.SwipeMenu;
+import com.hgapp.a6668.Injections;
+import com.hgapp.a6668.R;
+import com.hgapp.a6668.base.HGBaseFragment;
+import com.hgapp.a6668.base.IPresenter;
+import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
+import com.hgapp.a6668.common.util.ArrayListHelper;
+import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.widgets.NTitleBar;
+import com.hgapp.a6668.data.AGGameLoginResult;
+import com.hgapp.a6668.data.AGLiveResult;
+import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.PersonBalanceResult;
+import com.hgapp.a6668.homepage.HomePageIcon;
+import com.hgapp.a6668.homepage.aglist.AGListContract;
+import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
+import com.hgapp.common.util.GameLog;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
+public class CPOrderFragment extends HGBaseFragment implements AGListContract.View {
+
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.llCPOrderAll)
+    LinearLayout llCPOrderAll;
+    @BindView(R.id.cpOrderTitleBack)
+    NTitleBar cpTitleBack;
+    @BindView(R.id.cpOrderGameList)
+    RecyclerView cpList;
+    @BindView(R.id.cpOrderListLeft)
+    RecyclerView cpOrderListLeft;
+    @BindView(R.id.cpOrderListRight)
+    RecyclerView cpOrderListRight;
+
+    @BindView(R.id.rightTitle)
+    TextView rightTitle;
+    @BindView(R.id.rightCloseLotteryTime)
+    TextView rightCloseLotteryTime;
+    @BindView(R.id.rightOpenLotteryTime)
+    TextView rightOpenLotteryTime;
+
+    private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
+    private static List<LeftEvents> cpLeftEventList = new ArrayList<LeftEvents>();
+    @BindView(R.id.main_swipemenu)
+    SwipeMenu mainSwipemenu;
+    Unbinder unbinder;
+    private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
+    AGListContract.Presenter presenter;
+    private ScheduledExecutorService executorService;
+    private ScheduledExecutorService executorEndService;
+    private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
+    private int sendEndTime = HGConstant.ACTION_SEND_LEAGUE_TIME_T;
+    private String agMoney, hgMoney;
+    private String titleName = "";
+    private String dzTitileName = "";
+
+    static {
+        //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
+        cpGameList.add(new HomePageIcon("北京赛车", R.mipmap.home_hgty));
+        cpGameList.add(new HomePageIcon("幸运飞艇", R.mipmap.home_ag));
+        cpGameList.add(new HomePageIcon("重庆时时彩", R.mipmap.home_vrcp));
+        cpGameList.add(new HomePageIcon("极速赛车", R.mipmap.home_qipai));
+        cpGameList.add(new HomePageIcon("极速飞艇", R.mipmap.home_hgty));
+        cpGameList.add(new HomePageIcon("PC蛋蛋", R.mipmap.home_ag));
+        cpGameList.add(new HomePageIcon("分分彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("三分彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("五分彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("广东快乐十分", R.mipmap.home_vrcp));
+        cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.home_qipai));
+        cpGameList.add(new HomePageIcon("极速时时彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("香港六合彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("江苏快三", R.mipmap.home_lhj));
+
+        cpLeftEventList.add(new LeftEvents("两面", "1",false));
+        cpLeftEventList.add(new LeftEvents("1-5球", "2",true));
+        cpLeftEventList.add(new LeftEvents("前中后", "3",false));
+    }
+
+    public static CPOrderFragment newInstance(List<String> param1) {
+        CPOrderFragment fragment = new CPOrderFragment();
+        Bundle args = new Bundle();
+        args.putStringArrayList(ARG_PARAM1, ArrayListHelper.convertListToArrayList(param1));
+        Injections.inject(null, fragment);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            userName = getArguments().getStringArrayList(ARG_PARAM1).get(0);
+            userMoney = getArguments().getStringArrayList(ARG_PARAM1).get(1);
+            fshowtype = getArguments().getStringArrayList(ARG_PARAM1).get(2);// 用以判断是电子还是真人
+        }
+    }
+
+    @Override
+    public int setLayoutId() {
+        return R.layout.fragment_cp_order;
+    }
+
+    @Override
+    public void setEvents(@Nullable Bundle savedInstanceState) {
+        cpTitleBack.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pop();
+            }
+        });
+        GameLog.log("屏幕的宽度："+cpList.getWidth());
+        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics metrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(metrics);
+        /*mScreenWidth = metrics.widthPixels;
+        mScreenHeight = metrics.heightPixels;*/
+        //mainSwipemenu.setMenuOffset(metrics.widthPixels-Integer.parseInt(SizeUtil.Dp2Px(getContext(),50)+""));
+        cpTitleBack.setMoreText(userMoney);
+        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
+        cpList.setLayoutManager(gridLayoutManager);
+        cpList.setHasFixedSize(true);
+        cpList.setNestedScrollingEnabled(false);
+        cpList.setAdapter(new CPOrederGameAdapter(getContext(), R.layout.item_cp_order_list, cpGameList));
+
+        LinearLayoutManager linearLayoutManagerLeft = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
+        cpOrderListLeft.setLayoutManager(linearLayoutManagerLeft);
+        cpOrderListLeft.setHasFixedSize(true);
+        cpOrderListLeft.setNestedScrollingEnabled(false);
+        cpOrderListLeft.setAdapter(new CPOrederListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, cpLeftEventList));
+
+        LinearLayoutManager linearLayoutManagerRight = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
+        cpOrderListRight.setLayoutManager(linearLayoutManagerRight);
+        cpOrderListRight.setHasFixedSize(true);
+        cpOrderListRight.setNestedScrollingEnabled(false);
+        cpOrderListRight.setAdapter(new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_list, cpGameList));
+    }
+    class CPOrederListLeftGameAdapter extends AutoSizeRVAdapter<LeftEvents> {
+        private Context context;
+
+        public CPOrederListLeftGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, LeftEvents data, final int position) {
+            if(data.isEventChecked()){
+                holder.setImageResource(R.id.itemOrderLeftListIV,R.drawable.cp_circle_checked);
+            }else{
+                holder.setImageResource(R.id.itemOrderLeftListIV,R.drawable.cp_circle_normal);
+            }
+            holder.setText(R.id.itemOrderLeftListTV, data.getEventName());
+            holder.setOnClickListener(R.id.itemOrderLeftListTV, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onRefreshRight(position);
+                }
+            });
+        }
+    }
+
+    private void onRefreshRight(int position){
+        showMessage("刷新后边的数据");
+    }
+
+    class CPOrederListRightGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
+        private Context context;
+
+        public CPOrederListRightGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
+            holder.setText(R.id.tv_item_game_name, data.getIconName());
+            holder.setOnClickListener(R.id.tv_item_game_name, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //onCpGameItemClick(position);
+                }
+            });
+        }
+    }
+
+    class CPOrederGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
+        private Context context;
+
+        public CPOrederGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
+            holder.setText(R.id.tv_item_game_name, data.getIconName());
+            holder.setOnClickListener(R.id.tv_item_game_name, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onCpGameItemClick(position);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void showMessage(String message) {
+        super.showMessage(message);
+    }
+
+    @Override
+    public void setPresenter(AGListContract.Presenter presenter) {
+
+        this.presenter = presenter;
+    }
+
+    @Override
+    protected List<IPresenter> presenters() {
+        return Arrays.asList((IPresenter) presenter);
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
+
+    }
+
+    @Override
+    public void postCheckAgLiveAccountResult(CheckAgLiveResult checkAgLiveResult) {
+
+    }
+
+    @Override
+    public void postCheckAgGameAccountResult(CheckAgLiveResult checkAgLiveResult) {
+    }
+
+    @Override
+    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("用户的真人账户：" + personBalance.getBalance_ag());
+    }
+
+    @Override
+    public void postAGGameResult(List<AGLiveResult> agLiveResult) {
+        GameLog.log("游戏列表：" + agLiveResult);
+    }
+
+    @Override
+    public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
+
+    }
+
+    @Override
+    public void postCreateAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
+
+    }
+
+
+    @Subscribe
+    public void onPersonBalanceResult(PersonBalanceResult personBalanceResult) {
+        GameLog.log("通过发送消息得的的数据" + personBalanceResult.getBalance_ag());
+        agMoney = personBalanceResult.getBalance_ag();
+        hgMoney = personBalanceResult.getBalance_hg();
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    public void onBackPressed() {
+        if (mainSwipemenu.isMenuShowing()) {
+            mainSwipemenu.hideMenu();
+        }
+    }
+
+    //等待时长
+    class onWaitingThread implements Runnable {
+        @Override
+        public void run() {
+            if (sendAuthTime-- <= 0) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        onSendAuthCode();
+                    }
+                });
+            } else {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(rightOpenLotteryTime!=null){
+                            rightOpenLotteryTime.setText(""+ sendAuthTime);
+                            //GameLog.log(getString(R.string.n_register_phone_waiting) + sendAuthTime + "s");
+                        }
+                    }
+                });
+            }
+        }
+    }
+    class onWaitingEndThread implements Runnable {
+        @Override
+        public void run() {
+            if (sendEndTime-- <= 0) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        onSendEndCode();
+                    }
+                });
+            } else {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(rightCloseLotteryTime!=null){
+                            rightCloseLotteryTime.setText(""+ sendEndTime);
+                            //GameLog.log(getString(R.string.n_register_phone_waiting) + sendAuthTime + "s");
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+
+    private void onSartTime(){
+        onSendAuthCode();
+        onSendEndCode();
+    }
+
+    //计数器，用于倒计时使用
+    private void onSendAuthCode() {
+        GameLog.log("-----开始-----");
+        if(null!=executorService){
+            executorService.shutdownNow();
+            executorService.shutdown();
+            executorService = null;
+        }
+        sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
+        executorService = Executors.newScheduledThreadPool(1);
+        executorService.scheduleAtFixedRate(new onWaitingThread(), 0, 1000, TimeUnit.MILLISECONDS);
+    }
+
+    //计数器，用于倒计时使用
+    private void onSendEndCode() {
+        GameLog.log("-----开始-----");
+        if(null!=executorEndService){
+            executorEndService.shutdownNow();
+            executorEndService.shutdown();
+            executorEndService = null;
+        }
+        sendEndTime = HGConstant.ACTION_SEND_LEAGUE_TIME_T;
+        executorEndService = Executors.newScheduledThreadPool(1);
+        executorEndService.scheduleAtFixedRate(new onWaitingEndThread(), 0, 1000, TimeUnit.MILLISECONDS);
+    }
+
+    @OnClick({R.id.rightTitle,R.id.llCPOrderAll})
+    public void onClickedView(View view ){
+        switch (view.getId()){
+            case R.id.rightTitle:
+                if (mainSwipemenu.isMenuShowing()) {
+                    mainSwipemenu.hideMenu();
+                } else {
+                    mainSwipemenu.showMenu();
+                }
+                break;
+            case R.id.llCPOrderAll:
+                if (mainSwipemenu.isMenuShowing()) {
+                    mainSwipemenu.hideMenu();
+                }
+                break;
+        }
+
+    }
+
+    private void onCpGameItemClick(int position) {
+        rightTitle.setText(cpGameList.get(position).getIconName());
+        if (mainSwipemenu.isMenuShowing()) {
+            mainSwipemenu.hideMenu();
+        } else {
+            mainSwipemenu.showMenu();
+        }
+        onSartTime();
+    }
+}

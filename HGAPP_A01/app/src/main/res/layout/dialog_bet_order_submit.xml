@@ -111,6 +111,16 @@
                 />
 
         </LinearLayout>
+        <CheckBox
+            android:id="@+id/betAutoOdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/btn_check_style"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/n_edittext"
+            android:text="自动接收较佳赔率"
+            />
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

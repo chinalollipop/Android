@@ -85,7 +85,7 @@ public class RedPacketViewHolder {
                         stopAnim();
                         mIvClose.setVisibility(View.GONE);
                         mIvOpen.setVisibility(View.GONE);
-                        mTvMsg.setText("恭喜您\n\n抽到幸运红包38.88元");
+                        //mTvMsg.setText("恭喜您\n\n抽到幸运红包38.88元");
                         ivGetMoney.setVisibility(View.VISIBLE);
                         /*if (mListener != null) {
                             mListener.onCloseClick();
@@ -96,7 +96,7 @@ public class RedPacketViewHolder {
             case R.id.ivGetMoney:
                 if (mListener != null) {
                     mListener.onCloseClick();
-                    mIvClose.setVisibility(View.VISIBLE);
+                    mIvClose.setVisibility(View.GONE);
                     mIvOpen.setVisibility(View.VISIBLE);
                     ivGetMoney.setVisibility(View.GONE);
                 }
@@ -116,6 +116,18 @@ public class RedPacketViewHolder {
 
         mTvName.setText(entity.name);
         mTvMsg.setText(entity.remark);
+    }
+
+    public void setData(String entity) {
+        /*RequestOptions options = new RequestOptions();
+        options.centerCrop()
+                .circleCrop();
+
+        Glide.with(mContext)
+                .load(entity.avatar)
+                .apply(options)
+                .into(mIvAvatar);*/
+        mTvMsg.setText("恭喜您\n抽到幸运红包"+entity+"元");
     }
 
     public void startAnim() {

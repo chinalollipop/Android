@@ -6,6 +6,8 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseDialogFragment;
 import com.hgapp.a0086.base.IPresenter;
+import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.CalcHelper;
 import com.hgapp.a0086.common.util.DoubleClickHelper;
 import com.hgapp.a0086.common.util.GameShipHelper;
@@ -61,7 +64,8 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
     TextView tvBetSubmitmLeagueName;
     @BindView(R.id.tvBetSubmitmLeagueRadio)
     TextView tvBetSubmitmLeagueRadio;
-
+    @BindView(R.id.betAutoOdd)
+    CheckBox betAutoOdd;
 
     @BindView(R.id.etBetSubmitGod)
     EditText etBetSubmitGod;
@@ -87,6 +91,7 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
 
     private String getParam0,getParam1;
     private String championStr = "";
+    private String autoOdd = "";
     private PrepareBetApiContract.Presenter presenter;
     public static BetOrderSubmitDialog newInstance(String param0, String param1, OrderNumber param2, PrepareBetEvent prepareBetEvent, PrepareRequestParams prepareRequestParams,PrepareBetResult prepareBetResult) {
         Bundle bundle = new Bundle();
@@ -116,7 +121,32 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
         prepareBetEvent =  getArguments().getParcelable(PARAM3);
         prepareRequestParams =  getArguments().getParcelable(PARAM4);
         prepareBetResult =  getArguments().getParcelable(PARAM5);
-
+        String aauto = ACache.get(getContext()).getAsString(HGConstant.USERNAME_AUTO_ADD);
+        if(Check.isEmpty(aauto)||aauto.equals("Y")){
+            GameLog.log("当前是Y");
+            autoOdd = "Y";
+            betAutoOdd.setChecked(true);
+            ACache.get(getContext()).put(HGConstant.USERNAME_AUTO_ADD,"Y");
+        }else if(aauto.equals("N")){
+            GameLog.log("当前是N");
+            betAutoOdd.setChecked(false);
+            autoOdd = "";
+            ACache.get(getContext()).put(HGConstant.USERNAME_AUTO_ADD,"N");
+        }
+        betAutoOdd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(!b){
+                    GameLog.log("当前是N");
+                    autoOdd = "";
+                    ACache.get(getContext()).put(HGConstant.USERNAME_AUTO_ADD,"N");
+                }else{
+                    GameLog.log("当前是Y");
+                    autoOdd = "Y";
+                    ACache.get(getContext()).put(HGConstant.USERNAME_AUTO_ADD,"Y");
+                }
+            }
+        });
         onpostPrepareBetApiResult(prepareBetResult);
         onSartTime();
 
@@ -213,27 +243,27 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
                 DoubleClickHelper.getNewInstance().disabledView(btnBetSubmitSuccess);
                 if("FT_order_nfs".equals(prepareRequestParams.autoOdd)){
                     presenter.postBetChampionApi("",prepareRequestParams.getCate(),prepareRequestParams.getGid(),prepareBetResult.getType(),prepareRequestParams.getAppRefer(),
-                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype());
+                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype(),autoOdd);
 
                 }else if("BK_order_re".equals(prepareRequestParams.autoOdd)){
                     presenter.postBetBKreApi("",prepareRequestParams.getCate(),prepareRequestParams.getGid(),prepareBetResult.getType(),prepareRequestParams.getAppRefer(),
-                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype());
+                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype(),autoOdd);
 
                 }else if("BK_order".equals(prepareRequestParams.autoOdd)){
                 presenter.postBetBKApi("",prepareRequestParams.getCate(),prepareRequestParams.getGid(),prepareBetResult.getType(),prepareRequestParams.getAppRefer(),
-                        prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype());
+                        prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype(),autoOdd);
 
                 }else if("FT_order_re".equals(prepareRequestParams.autoOdd)){
                     presenter.postBetFTreApi("",prepareRequestParams.getCate(),prepareRequestParams.getGid(),prepareBetResult.getType(),prepareRequestParams.getAppRefer(),
-                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype());
+                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype(),autoOdd);
 
                 }else if("FT_order_hre".equals(prepareRequestParams.autoOdd)){
                     presenter.postBetFThreApi("",prepareRequestParams.getCate(),prepareRequestParams.getGid(),prepareBetResult.getType(),prepareRequestParams.getAppRefer(),
-                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype());
+                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype(),autoOdd);
 
                 }else{
                     presenter.postBetFTApi("",prepareRequestParams.getCate(),prepareRequestParams.getGid(),prepareBetResult.getType(),prepareRequestParams.getAppRefer(),
-                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype());
+                            prepareBetResult.getLine_type(),prepareBetResult.getOdd_f_type(),god,prepareBetResult.getIoradio_r_h(),prepareBetResult.getRtype(),prepareBetResult.getWtype(),autoOdd);
                 }
                 break;
         }

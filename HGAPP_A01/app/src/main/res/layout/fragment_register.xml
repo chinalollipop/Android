@@ -84,7 +84,7 @@
                     android:id="@+id/etRegisterIntro"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="5-15个字符，英文需小写"
+                    android:hint="没有可不填写"
                     android:maxLength="15" />
             </LinearLayout>
 
@@ -115,7 +115,7 @@
                     android:id="@+id/etRegisterUserName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="6-15个字符，英文需小写"
+                    android:hint="5-15个字符，英文需小写"
                     android:maxLength="15" />
             </LinearLayout>
 
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:hint="重新输入密码"
+                    android:hint="再次输入密码"
                     android:maxLength="15"
 
                     />
@@ -282,6 +282,7 @@
                     android:layout_height="match_parent"
                     android:hint="请输入11位手机号码"
                     android:maxLength="11"
+                    android:inputType="number"
                     />
             </LinearLayout>
 
