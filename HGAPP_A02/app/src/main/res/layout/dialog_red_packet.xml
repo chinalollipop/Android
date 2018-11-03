@@ -7,8 +7,8 @@
     >
 
     <RelativeLayout
-        android:layout_width="310dp"
-        android:layout_height="415dp"
+        android:layout_width="277dp"
+        android:layout_height="300dp"
         android:background="@mipmap/red_packet_bg"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
@@ -19,6 +19,7 @@
             android:id="@+id/iv_close"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:visibility="invisible"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="5dp"
@@ -32,7 +33,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="25dp"
             />
 
         <TextView
@@ -67,10 +68,19 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="20dp"
             android:background="@mipmap/icon_open_red_packet1"
             />
-
+        <ImageView
+            android:id="@+id/ivGetMoney"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@mipmap/event_click_red"
+            />
     </RelativeLayout>
 
 

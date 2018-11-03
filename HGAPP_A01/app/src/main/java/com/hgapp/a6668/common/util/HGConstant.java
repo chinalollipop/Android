@@ -120,6 +120,13 @@ public abstract class HGConstant {
     public static final String USERNAME_LOGIN_INFO = "username_login_info";
 
 
+    //首页banner
+    public static final String USERNAME_HOME_BANNER = "username_home_banner";
+
+
+    //首页notice
+    public static final String USERNAME_HOME_NOTICE = "username_home_notice";
+
     //用户当前的状态
     public static final String USERNAME_CURRENT_STATE = "username_current_state";
 

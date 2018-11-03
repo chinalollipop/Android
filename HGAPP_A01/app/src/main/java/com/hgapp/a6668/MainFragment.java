@@ -298,7 +298,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
     {
         super.onStop();
         //presenter.destroy();
-        AppDownloadServiceBinder.getBinder().unregisterListener(getContext().getPackageName());
+        //AppDownloadServiceBinder.getBinder().unregisterListener(getContext().getPackageName());
     }
     @Override
     public boolean wantShowMessage() {
@@ -324,8 +324,8 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             String localver = packageInfo.versionName;
             GameLog.log("当前APP的版本号是："+localver);
             if(!localver.equals(checkUpgradeResult.getVersion())){
-                onDownLoadAPP(checkUpgradeResult);
-               // UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
+                //onDownLoadAPP(checkUpgradeResult);
+                UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
             }
             GameLog.log(""+checkUpgradeResult.getDescription());
         }

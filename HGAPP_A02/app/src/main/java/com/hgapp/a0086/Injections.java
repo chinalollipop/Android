@@ -22,6 +22,9 @@ import com.hgapp.a0086.homepage.aglist.IAGListApi;
 import com.hgapp.a0086.homepage.aglist.agchange.AGPlatformContract;
 import com.hgapp.a0086.homepage.aglist.agchange.AGPlatformPresenter;
 import com.hgapp.a0086.homepage.aglist.agchange.IAgPlatformApi;
+import com.hgapp.a0086.homepage.events.EventsContract;
+import com.hgapp.a0086.homepage.events.EventsPresenter;
+import com.hgapp.a0086.homepage.events.IEventsApi;
 import com.hgapp.a0086.homepage.handicap.betapi.IPrepareBetApi;
 import com.hgapp.a0086.homepage.handicap.betapi.PrepareBetApiContract;
 import com.hgapp.a0086.homepage.handicap.betapi.PrepareBetApiPresenter;
@@ -294,6 +297,13 @@ public class Injections {
             api = Client.getRetrofit().create(IAliQCPayApi.class);
         }
         return new AliQCPayPresenter(api,view);
+    }
+
+    public static EventsContract.Presenter inject(@Nullable IEventsApi api , @NonNull EventsContract.View view){
+        if(null == api){
+            api = Client.getRetrofit().create(IEventsApi.class);
+        }
+        return new EventsPresenter(api,view);
     }
 
     public static BindingCardContract.Presenter inject(@Nullable IBindingCardApi api , @NonNull BindingCardContract.View view){

@@ -58,6 +58,7 @@
                 <TextView
                     android:id="@+id/tv_size_upgrade"
                     android:paddingTop="16px"
+                    android:visibility="gone"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

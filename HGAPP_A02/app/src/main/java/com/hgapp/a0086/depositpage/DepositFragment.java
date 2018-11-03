@@ -10,7 +10,9 @@ import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
+import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.GameShipHelper;
+import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.a0086.data.DepositAliPayQCCodeResult;
 import com.hgapp.a0086.data.DepositBankCordListResult;
@@ -24,6 +26,7 @@ import com.hgapp.a0086.depositpage.thirdbankcardpay.ThirdbankCardFragment;
 import com.hgapp.a0086.depositpage.thirdmobilepay.OnlinePlayFragment;
 import com.hgapp.a0086.depositpage.thirdmobilepay.ThirdMobilePayFragment;
 import com.hgapp.a0086.homepage.UserMoneyEvent;
+import com.hgapp.a0086.personpage.realname.RealNameFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
@@ -204,6 +207,11 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 @Override
                 public void onClick(View view) {
                     //EventBus.getDefault().post(new DepositEvent(dataBean.getId()));
+                    String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                    if(Check.isEmpty(alias)){
+                        EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                        return;
+                    }
                     onListenerDeposit(dataBean.getId(),dataBean.getBankid(),dataBean.getApi());
                 }
             });

@@ -9,6 +9,7 @@ import com.hgapp.a0086.data.CheckAgLiveResult;
 import com.hgapp.a0086.data.NoticeResult;
 import com.hgapp.a0086.data.OnlineServiceResult;
 import com.hgapp.a0086.data.QipaiResult;
+import com.hgapp.a0086.data.ValidResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -50,5 +51,10 @@ public interface IHomePageApi {
     @POST("index_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<CPResult>> postCP(@Field("appRefer") String appRefer);
+
+    //昨日有效金额
+    @POST("lucky_red_envelope_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<ValidResult>> postValidGift(@Field("appRefer") String appRefer, @Field("action") String action);
 
 }

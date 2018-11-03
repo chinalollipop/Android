@@ -11,6 +11,7 @@ import com.hgapp.a0086.data.CheckAgLiveResult;
 import com.hgapp.a0086.data.NoticeResult;
 import com.hgapp.a0086.data.OnlineServiceResult;
 import com.hgapp.a0086.data.QipaiResult;
+import com.hgapp.a0086.data.ValidResult;
 
 public interface HomePageContract {
 
@@ -24,6 +25,7 @@ public interface HomePageContract {
         public void postAGGameRegisterAccount(String appRefer,String action);
         public void postQipai(String appRefer,String action);
         public void postCP();
+        public void postValidGift(String appRefer,String action);
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
@@ -35,6 +37,7 @@ public interface HomePageContract {
         public void postAGGameRegisterAccountResult(AGCheckAcountResult agCheckAcountResult);
         public void postQipaiResult(QipaiResult qipaiResult);
         public void postCPResult(CPResult cpResult);
+        public void postValidGiftResult(ValidResult validResult);
     }
 
 }

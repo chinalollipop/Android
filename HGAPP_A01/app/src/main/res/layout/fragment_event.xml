@@ -29,14 +29,14 @@
                     android:layout_marginTop="75dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="【老会员下载APP免费领取彩金38元】"
+                    android:text="【新老会员下载APP免费领取彩金38元】"
                     android:textColor="@color/event_line_title"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="凡在本公司于2018年11月1日前注册，\n存款金额100以上，均可领取！"
+                    android:text="凡在本公司注册会员，累计存款金额1000元\n即可免费领取。"
                     android:textColor="@color/title_text"
                     android:textSize="14sp" />
                 <ImageView
@@ -498,6 +498,13 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@mipmap/event_click_blue"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="注意：此活动有效流水仅计算通过APP投注的流水！"
+                        android:textColor="@color/all_bg"
                         />
                     <TextView
                         android:layout_width="wrap_content"

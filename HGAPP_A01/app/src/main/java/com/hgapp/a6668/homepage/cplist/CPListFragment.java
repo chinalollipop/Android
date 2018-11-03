@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,8 +22,12 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
+import com.hgapp.a6668.common.widgets.GridRvItemDecoration2;
 import com.hgapp.a6668.common.widgets.NTitleBar;
+import com.hgapp.a6668.common.widgets.RecyclerViewItemDecoration;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
+import com.hgapp.a6668.common.widgets.SimpleDividerItemDecoration;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
@@ -74,9 +79,9 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
         cpGameList.add(new HomePageIcon("五分彩", R.mipmap.home_lhj));
         cpGameList.add(new HomePageIcon("广东快乐十分", R.mipmap.home_vrcp));
         cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.home_qipai));
-        cpGameList.add(new HomePageIcon("极速时时彩", R.mipmap.home_lhj));
+        /*cpGameList.add(new HomePageIcon("极速时时彩", R.mipmap.home_lhj));
         cpGameList.add(new HomePageIcon("香港六合彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("江苏快三", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("江苏快三", R.mipmap.home_lhj));*/
     }
     public static CPListFragment newInstance(List<String> param1) {
         CPListFragment fragment = new CPListFragment();
@@ -109,8 +114,10 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
         cpList.setLayoutManager(gridLayoutManager);
         cpList.setHasFixedSize(true);
         cpList.setNestedScrollingEnabled(false);
-        cpList.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,cpGameList));
-        cpList.scrollToPosition(0);
+        cpList.addItemDecoration(new GridRvItemDecoration2(getContext()));
+        /*cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.VERTICAL,5,getContext().getColor(R.color.textview_normal),8));
+        cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.HORIZONTAL,5,getContext().getColor(R.color.textview_normal),8));*/
+        cpList.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_cp_hall,cpGameList));
     }
 
     class HomaPageGameAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<HomePageIcon> {
@@ -123,8 +130,6 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
         @Override
         protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
             holder.setText(R.id.tv_item_game_name,data.getIconName());
-            RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
-            roundCornerImageView.onCornerAll(roundCornerImageView);
             holder.setBackgroundRes(R.id.iv_item_game_icon,data.getIconId());
             holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
                 @Override

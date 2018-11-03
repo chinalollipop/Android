@@ -747,17 +747,22 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     to = "AG平台";
                     break;
             }
-            if (rowsBean.getType().equals("S")) {
-                holder.setText(R.id.tvRecordName, "存款");
-            }else if(rowsBean.getType().equals("T")){
-                holder.setText(R.id.tvRecordName, "取款");
-            }else if(rowsBean.getType().equals("Q")){
-                TextView textView = holder.getView(R.id.tvRecordName);
-                textView.setText(Html.fromHtml(from+onMarkRed("<br>转入<br>")+to));
-                //holder.setText(R.id.tvRecordName, );
-            }else if(rowsBean.getType().equals("R")){
-                holder.setText(R.id.tvRecordName, "返水");
+            if(rowsBean.getNotes().equals("APP幸运红包活动")){
+                holder.setText(R.id.tvRecordName, "红包");
+            }else{
+                if (rowsBean.getType().equals("S")) {
+                    holder.setText(R.id.tvRecordName, "存款");
+                }else if(rowsBean.getType().equals("T")){
+                    holder.setText(R.id.tvRecordName, "取款");
+                }else if(rowsBean.getType().equals("Q")){
+                    TextView textView = holder.getView(R.id.tvRecordName);
+                    textView.setText(Html.fromHtml(from+onMarkRed("<br>转入<br>")+to));
+                    //holder.setText(R.id.tvRecordName, );
+                }else if(rowsBean.getType().equals("R")){
+                    holder.setText(R.id.tvRecordName, "返水");
+                }
             }
+
             holder.setText(R.id.tvRecordOrderCode, rowsBean.getOrder_code());
             holder.setText(R.id.tvRecordTime, rowsBean.getDate());
 

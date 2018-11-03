@@ -69,6 +69,18 @@
         <activity android:name="com.hgapp.a6668.common.service.ServiceOnlineActivity"/>
         <service android:name="com.hgapp.a6668.common.service.StartX5Service" />
         <service android:name="com.hgapp.a6668.upgrade.downunit.AppDownloadService" />
+        <!--<service
+            android:name="com.hgapp.a6668.autoinstall.AutoReplyService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/auto_reply_service_config"/>
+        </service>-->
         <!--<receiver android:name=".common.broadcast.OpenBrodcast">
             <intent-filter  >
                 <action android:name="android.intent.action.USER_PRESENT" />

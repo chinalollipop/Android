@@ -29,7 +29,8 @@ public class RedPacketViewHolder {
     TextView mTvMsg;
     @BindView(R.id.iv_open)
     ImageView mIvOpen;
-
+    @BindView(R.id.ivGetMoney)
+    ImageView ivGetMoney;
     private FrameAnimation mFrameAnimation;
     private Context mContext;
     private OnRedPacketDialogClickListener mListener;
@@ -55,7 +56,7 @@ public class RedPacketViewHolder {
         ButterKnife.bind(this, view);
     }
 
-    @OnClick({R.id.iv_close, R.id.iv_open})
+    @OnClick({R.id.iv_close, R.id.iv_open,R.id.ivGetMoney})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_close:
@@ -76,6 +77,28 @@ public class RedPacketViewHolder {
                 if (mListener != null) {
                     mListener.onOpenClick();
                 }
+                mIvOpen.setVisibility(View.VISIBLE);
+                mIvOpen.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        stopAnim();
+                        mIvClose.setVisibility(View.GONE);
+                        mIvOpen.setVisibility(View.GONE);
+                        //mTvMsg.setText("恭喜您\n\n抽到幸运红包38.88元");
+                        ivGetMoney.setVisibility(View.VISIBLE);
+                        /*if (mListener != null) {
+                            mListener.onCloseClick();
+                        }*/
+                    }
+                },2000);
+                break;
+            case R.id.ivGetMoney:
+                if (mListener != null) {
+                    mListener.onCloseClick();
+                    mIvClose.setVisibility(View.GONE);
+                    mIvOpen.setVisibility(View.VISIBLE);
+                    ivGetMoney.setVisibility(View.GONE);
+                }
                 break;
         }
     }
@@ -92,6 +115,18 @@ public class RedPacketViewHolder {
 
         mTvName.setText(entity.name);
         mTvMsg.setText(entity.remark);
+    }
+
+    public void setData(String entity) {
+        /*RequestOptions options = new RequestOptions();
+        options.centerCrop()
+                .circleCrop();
+
+        Glide.with(mContext)
+                .load(entity.avatar)
+                .apply(options)
+                .into(mIvAvatar);*/
+        mTvMsg.setText("恭喜您,抽到幸运红包"+entity+"元");
     }
 
     public void startAnim() {

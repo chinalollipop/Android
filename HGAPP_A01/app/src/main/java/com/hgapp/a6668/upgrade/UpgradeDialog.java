@@ -134,7 +134,7 @@ public class UpgradeDialog extends HGBaseDialogFragment {
             Timber.i("升级进度:%s",progress.toString());
             GameLog.log("升级进度 totalSize ["+progress.totalSize+ "]  sofarSize ["+progress.sofarSize+"] percent  -> "+progress.percent);
             progressBar.setProgress(progress.percent);
-            tvSize.setText(progress.getSofarSizeInM()+"/" + progress.getTotalSizeInM());
+            //tvSize.setText(progress.getSofarSizeInM()+"/" + progress.getTotalSizeInM());
         }
 
         @Override

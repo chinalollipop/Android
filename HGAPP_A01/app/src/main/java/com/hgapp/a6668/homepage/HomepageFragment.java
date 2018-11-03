@@ -12,10 +12,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
+import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.event.LogoutEvent;
 import com.hgapp.a6668.common.http.Client;
 import com.hgapp.a6668.common.util.ACache;
@@ -31,8 +33,10 @@ import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
+import com.hgapp.a6668.data.ValidResult;
 import com.hgapp.a6668.homepage.aglist.AGListFragment;
 import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
+import com.hgapp.a6668.homepage.cplist.CPListFragment;
 import com.hgapp.a6668.homepage.events.EventsFragment;
 import com.hgapp.a6668.homepage.handicap.HandicapFragment;
 import com.hgapp.a6668.homepage.noticelist.NoticeListFragment;
@@ -41,6 +45,7 @@ import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.hgapp.common.util.NetworkUtils;
 import com.jude.rollviewpager.RollPagerView;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
@@ -147,14 +152,32 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
         rvHomapageGameHall.scrollToPosition(0);
-
-        //presenter.postOnlineService("");
-        presenter.postBanner("");
-        presenter.postNotice("");
+        if(!NetworkUtils.isConnected()){
+            GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
+            BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
+            if(!Check.isNull(bannerResult)){
+                rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
+                //rollPagerViewManager.testImagesLocal(null);
+                rollPagerViewManager.testImagesNet(null,null);
+            }
+            NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
+            if(!Check.isNull(noticeResult)){
+                List<String> stringList = new ArrayList<String>();
+                int size =noticeResult.getData().size();
+                for(int i=0;i<size;++i){
+                    stringList.add(noticeResult.getData().get(i).getNotice());
+                }
+                tvHomapageBulletin.setContentList(stringList);
+            }
+        }else{
+            //presenter.postOnlineService("");
+            presenter.postBanner("");
+            presenter.postNotice("");
+        }
 
     }
 
-    class HomaPageGameAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<HomePageIcon> {
+    class HomaPageGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
         private Context context;
         public HomaPageGameAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
@@ -170,7 +193,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    if(!NetworkUtils.isConnected()){
+                        showMessage("请检查您的网络！");
+                        return;
+                    }
                     onHomeGameItemClick(position);
                 }
             });
@@ -225,9 +251,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                 break;
             case 8:
-                EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,"",1)));
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-
+                presenter.postValidGift("","get_valid");
                 break;
             case 9:
                 EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
@@ -269,6 +299,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postBannerResult(BannerResult bannerResult) {
         GameLog.log("。。。。。Banner的数据返回。。。。。");
+        ACache.get(getContext()).put(HGConstant.USERNAME_HOME_BANNER, JSON.toJSONString(bannerResult));
         rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
         //rollPagerViewManager.testImagesLocal(null);
         rollPagerViewManager.testImagesNet(null,null);
@@ -277,6 +308,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postNoticeResult(NoticeResult noticeResult) {
         GameLog.log("。。。。。公告的数据返回。。。。。");
+        ACache.get(getContext()).put(HGConstant.USERNAME_HOME_NOTICE, JSON.toJSONString(noticeResult));
         List<String> stringList = new ArrayList<String>();
         int size =noticeResult.getData().size();
         for(int i=0;i<size;++i){
@@ -453,6 +485,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 GameLog.log("登录成功之后请求彩票地址："+responseText);
             }
         });*/
+    }
+
+    @Override
+    public void postValidGiftResult(ValidResult validResult) {
+        EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
     }
 
     private void postCPGo(){

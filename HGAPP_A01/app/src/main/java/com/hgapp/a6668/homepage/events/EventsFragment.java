@@ -3,8 +3,8 @@ package com.hgapp.a6668.homepage.events;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,14 +14,21 @@ import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
-import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.common.widgets.redpacket.RedPacketsLayout;
 import com.hgapp.a6668.data.DepositAliPayQCCodeResult;
+import com.hgapp.a6668.data.PersonBalanceResult;
+import com.hgapp.a6668.homepage.UserMoneyEvent;
+import com.hgapp.a6668.data.DownAppGiftResult;
+import com.hgapp.a6668.data.LuckGiftResult;
 import com.hgapp.a6668.homepage.events.anim.Swing;
+import com.hgapp.a6668.data.ValidResult;
 import com.hgapp.a6668.homepage.events.anim.ZoomOutRightExit;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,7 +59,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
     private String payId;
     private String getArgParam1;
     private int getArgParam2;
-
+    Animation animation ;
     private EventsContract.Presenter presenter;
     private View mRedPacketDialogView;
     private RedPacketViewHolder mRedPacketViewHolder;
@@ -75,6 +82,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
             getArgParam1 = getArguments().getString(ARG_PARAM1);
             getArgParam2 = getArguments().getInt(ARG_PARAM2);
         }
+
         /*getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
     }
@@ -93,7 +101,9 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        animation = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
         eventTitleUserMoney.setText(getArgParam1);
+        presenter.postValidGift("","get_valid");
     }
 
 
@@ -129,6 +139,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
                 mRedPacketDialogView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        presenter.postPersonBalance("","");
                         mRedPacketDialog.dismiss();
                         new Swing().start(eventTitleUserMoney);
                     }
@@ -198,68 +209,29 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
                     }
                 },3000);
                 break;
-                //showRedDialog(view);
-                /*packets_layout.setVisibility(View.VISIBLE);
-                packets_layout.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        packets_layout.startRain();
-                        GameLog.log("开始下雨了");
-                    }
-                });
-                ivClickOne.setClickable(false);
-                ivClickOne.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(!Check.isNull(ivClickOne)) {
-                            ivClickOne.setClickable(true);
-                        }
-                    }
-                },5000);
-                packets_layout.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        packets_layout.stopRain();
-                        packets_layout.setVisibility(View.GONE);
-                        GameLog.log("停止下雨了");
-                    }
-                },5000);*/
             case R.id.btnClickRed:
+                presenter.postLuckGift("","extract_lucky_red_envelope");
                 btnClickRed.setClickable(false);
                 btnClickRed.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        showRedDialog("23");
                         if(!Check.isNull(btnClickRed)){
                             btnClickRed.setClickable(true);
                         }
                     }
-                },2000);
-                packets_layout.setVisibility(View.VISIBLE);
-                packets_layout.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        packets_layout.startRain();
-                    }
-                });
-                packets_layout.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        GameLog.log("停止下雨了");
-                        packets_layout.stopRain();
-                        packets_layout.setVisibility(View.GONE);
-                        GameLog.log("停止下雨了");
-                    }
-                },2000);
+                },3000);
                 break;
             case R.id.ivEventRefresh:
-                showMessage("刷新次数");
+                if(null !=ivEventRefresh){
+                    ivEventRefresh.startAnimation(animation);
+                }
+                presenter.postValidGift("","get_valid");
                 break;
         }
     }
 
     @Override
-    public void postDownAppGiftResult(final String data) {
+    public void postDownAppGiftResult(final DownAppGiftResult data) {
         //showMessage(data);
         packets_layout.setVisibility(View.VISIBLE);
         packets_layout.post(new Runnable() {
@@ -271,7 +243,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
         ivClickOldestMember.postDelayed(new Runnable() {
             @Override
             public void run() {
-                showRedDialog(data);
+                showRedDialog(data.getData_gold()+"");
             }
         },2000);
         packets_layout.postDelayed(new Runnable() {
@@ -282,6 +254,46 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
                 GameLog.log("停止下雨了");
             }
         },2500);
+    }
+
+    @Override
+    public void postLuckGiftResult(final LuckGiftResult luckGiftResult) {
+        packets_layout.setVisibility(View.VISIBLE);
+        packets_layout.post(new Runnable() {
+            @Override
+            public void run() {
+                packets_layout.startRain();
+            }
+        });
+        ivClickOldestMember.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showRedDialog(luckGiftResult.getData_gold()+"");
+            }
+        },2000);
+        packets_layout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                packets_layout.stopRain();
+                packets_layout.setVisibility(View.GONE);
+                GameLog.log("停止下雨了");
+            }
+        },2500);
+        presenter.postValidGift("","get_valid");
+    }
+
+    @Override
+    public void postValidGiftResult(ValidResult validResult) {
+        ivEventRefresh.clearAnimation();
+        tvLastEventsFlowings.setText("昨日有效流水："+validResult.getValid_money());
+        tvLastEventsNumber.setText("可领取次数："+validResult.getLast_times());
+    }
+
+    @Override
+    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
+        eventTitleUserMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_hg()));
+        EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(personBalance.getBalance_hg())));
+        GameLog.log("红包的数量"+GameShipHelper.formatMoney(personBalance.getBalance_hg()));
     }
 
 }

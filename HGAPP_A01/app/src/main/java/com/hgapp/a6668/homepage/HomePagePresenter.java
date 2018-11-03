@@ -13,6 +13,7 @@ import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
+import com.hgapp.a6668.data.ValidResult;
 import com.hgapp.common.util.Check;
 
 
@@ -212,6 +213,31 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
                         if(!Check.isNull(response)&&response.getData().size()>0){
                             view.postCPResult(response.getData().get(0));
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postValidGift(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postValidGift(HGConstant.PRODUCT_PLATFORM,action))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<ValidResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<ValidResult> response) {
+                        //view.postDownAppGiftResult("38");
+                        if(response.isSuccess()){
+                            view.postValidGiftResult(response.getData().get(0));
                         }else{
                             view.showMessage(response.getDescribe());
                         }

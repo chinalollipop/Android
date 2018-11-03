@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: network-library-release-0.2.1:@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/network-library-release-0.2.1.aar/38c3bdc4584207eff3012dc35da895ae/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/network-library-release-0.2.1.aar/38c3bdc4584207eff3012dc35da895ae/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/network-library-release-0.2.1.aar/124ce400d13f42ec8a2544deab307bed/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/network-library-release-0.2.1.aar/124ce400d13f42ec8a2544deab307bed/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
