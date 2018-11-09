@@ -143,14 +143,18 @@ public class OnlineFragment extends HGBaseFragment {
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
-                mCoolIndicator.start();
+                if (!Check.isNull(mCoolIndicator)) {
+                    mCoolIndicator.start();
+                }
             }
 
 
             @Override
             public void onPageFinished(WebView webView, String s) {
                 super.onPageFinished(webView, s);
-                mCoolIndicator.complete();
+                if (!Check.isNull(mCoolIndicator)) {
+                    mCoolIndicator.complete();
+                }
             }
 
             @Override

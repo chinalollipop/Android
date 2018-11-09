@@ -10,6 +10,7 @@ import com.hgapp.a6668.data.AGCheckAcountResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
@@ -185,9 +186,10 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<QipaiResult> response) {
-
-                        if(!Check.isNull(response)&&!Check.isNull(response.getData())){
-                            view.postQipaiResult(response.getData());
+                        if(response.isSuccess()){
+                            if(!Check.isNull(response.getData())){
+                                view.postQipaiResult(response.getData());
+                            }
                         }else{
                             view.showMessage(response.getDescribe());
                         }
@@ -238,6 +240,31 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                         //view.postDownAppGiftResult("38");
                         if(response.isSuccess()){
                             view.postValidGiftResult(response.getData().get(0));
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postMaintain() {
+        subscriptionHelper.add(RxHelper.addSugar(api.postMaintain(HGConstant.PRODUCT_PLATFORM))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<MaintainResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<MaintainResult> response) {
+                        //view.postDownAppGiftResult("38");
+                        if(response.isSuccess()){
+                            view.postMaintainResult(response.getData());
                         }else{
                             view.showMessage(response.getDescribe());
                         }

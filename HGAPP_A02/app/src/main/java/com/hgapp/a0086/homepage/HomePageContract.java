@@ -8,10 +8,13 @@ import com.hgapp.a0086.data.AGCheckAcountResult;
 import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
+import com.hgapp.a0086.data.MaintainResult;
 import com.hgapp.a0086.data.NoticeResult;
 import com.hgapp.a0086.data.OnlineServiceResult;
 import com.hgapp.a0086.data.QipaiResult;
 import com.hgapp.a0086.data.ValidResult;
+
+import java.util.List;
 
 public interface HomePageContract {
 
@@ -26,6 +29,7 @@ public interface HomePageContract {
         public void postQipai(String appRefer,String action);
         public void postCP();
         public void postValidGift(String appRefer,String action);
+        public void postMaintain();
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
@@ -38,6 +42,7 @@ public interface HomePageContract {
         public void postQipaiResult(QipaiResult qipaiResult);
         public void postCPResult(CPResult cpResult);
         public void postValidGiftResult(ValidResult validResult);
+        public void postMaintainResult(List<MaintainResult> maintainResult);
     }
 
 }

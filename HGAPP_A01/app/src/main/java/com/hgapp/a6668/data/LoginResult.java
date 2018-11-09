@@ -23,6 +23,8 @@ public class LoginResult {
     private String BetMinMoney;
     private String BetMaxMoney;
     private String E_Mail;
+    private String DOWNLOAD_APP_GIFT_GOLD;
+    private String DOWNLOAD_APP_GIFT_DEPOSIT;
 
     public LoginResult() {
     }
@@ -161,6 +163,21 @@ public class LoginResult {
     public void setE_Mail(String e_Mail) {
         E_Mail = e_Mail;
     }
+    public String getDOWNLOAD_APP_GIFT_GOLD() {
+        return DOWNLOAD_APP_GIFT_GOLD;
+    }
+
+    public void setDOWNLOAD_APP_GIFT_GOLD(String DOWNLOAD_APP_GIFT_GOLD) {
+        this.DOWNLOAD_APP_GIFT_GOLD = DOWNLOAD_APP_GIFT_GOLD;
+    }
+
+    public String getDOWNLOAD_APP_GIFT_DEPOSIT() {
+        return DOWNLOAD_APP_GIFT_DEPOSIT;
+    }
+
+    public void setDOWNLOAD_APP_GIFT_DEPOSIT(String DOWNLOAD_APP_GIFT_DEPOSIT) {
+        this.DOWNLOAD_APP_GIFT_DEPOSIT = DOWNLOAD_APP_GIFT_DEPOSIT;
+    }
 
     @Override
     public String toString() {
@@ -175,6 +192,8 @@ public class LoginResult {
                 ", BetMinMoney='" + BetMinMoney + '\'' +
                 ", BetMaxMoney='" + BetMaxMoney + '\'' +
                 ", E_Mail='" + E_Mail + '\'' +
+                ", DOWNLOAD_APP_GIFT_GOLD='" + DOWNLOAD_APP_GIFT_GOLD + '\'' +
+                ", DOWNLOAD_APP_GIFT_DEPOSIT='" + DOWNLOAD_APP_GIFT_DEPOSIT + '\'' +
                 ", Oid='" + Oid + '\'' +
                 ", userid='" + userid + '\'' +
                 ", Alias='" + Alias + '\'' +

@@ -311,7 +311,14 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
     @Override
     public void postBetRecordResult(BetRecordResult message) {
         GameLog.log("总共充值多少：" + message.getTotal());
-        if(message.getRows().size()==0){
+        if(Check.isNull(message.getRows())){
+            if(rowsBeanList.size()>0){
+                lvBetRecord.setNoMore(true);
+            }else{
+                tvBetRecordNodataT.setVisibility(View.VISIBLE);
+                lvBetRecord.setVisibility(View.GONE);
+            }
+        }else if(message.getRows().size()==0){
             tvBetRecordNodataT.setVisibility(View.VISIBLE);
             lvBetRecord.setVisibility(View.GONE);
         }else if(message.getRows().size()>0){
@@ -388,10 +395,10 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 }
                 tvBetRecordStartTime.setText(data_start);
                 tvBetRecordEndTime.setText(data_end);
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.title_text));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.title_text));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -408,10 +415,10 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 }
                 tvBetRecordStartTime.setText(data_start);
                 tvBetRecordEndTime.setText(data_end);
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.title_text));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.title_text));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -427,10 +434,10 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 }
                 tvBetRecordStartTime.setText(data_start);
                 tvBetRecordEndTime.setText(data_end);
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.title_text));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.title_text));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_focus);
@@ -446,10 +453,10 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 }
                 tvBetRecordStartTime.setText(data_start);
                 tvBetRecordEndTime.setText(data_end);
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.title_text));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.title_text));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);

@@ -3,10 +3,9 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.hgapp.a0086" //线上环境
-        versionName "1.8" //线上环境
+        versionName "2.3" //线上环境
 //        applicationId "com.hgapp.a0086.test"//测试环境
 //        versionName "1.5" //测试环境环境
         minSdkVersion 19

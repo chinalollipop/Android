@@ -63,7 +63,7 @@ public class NoticeResult implements Parcelable {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Parcelable {
         /**
          * notice : ☆重要通知☆：收款银行账户会不定期更换，请您在每次转账汇款充值前重新获取最新的收款账户，如存款值停用的收款账户，公司无法查收，恕不负责！谢谢您的支持！
          * created_time : 2018-08-01
@@ -87,6 +87,37 @@ public class NoticeResult implements Parcelable {
         public void setCreated_time(String created_time) {
             this.created_time = created_time;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.notice);
+            dest.writeString(this.created_time);
+        }
+
+        public DataBean() {
+        }
+
+        protected DataBean(Parcel in) {
+            this.notice = in.readString();
+            this.created_time = in.readString();
+        }
+
+        public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel source) {
+                return new DataBean(source);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
     }
 
     @Override

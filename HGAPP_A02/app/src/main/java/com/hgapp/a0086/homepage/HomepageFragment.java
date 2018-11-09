@@ -30,6 +30,7 @@ import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
 import com.hgapp.a0086.data.LoginResult;
+import com.hgapp.a0086.data.MaintainResult;
 import com.hgapp.a0086.data.NoticeResult;
 import com.hgapp.a0086.data.OnlineServiceResult;
 import com.hgapp.a0086.data.QipaiResult;
@@ -45,7 +46,6 @@ import com.hgapp.a0086.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.NetworkUtils;
-import com.hgapp.common.util.ToastUtils;
 import com.jude.rollviewpager.RollPagerView;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
@@ -99,6 +99,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private String userName ="";
     private String userMoney = "";
+    private String userState = "9";
     private  String pro =  "";
 
     //private CheckUpgradeResult checkUpgradeResult;
@@ -151,29 +152,29 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
-        rvHomapageGameHall.scrollToPosition(0);
+        BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
+        if(!Check.isNull(bannerResult)){
+            rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
+            //rollPagerViewManager.testImagesLocal(null);
+            rollPagerViewManager.testImagesNet(null,null);
+        }
+        NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
+        if(!Check.isNull(noticeResult)){
+            List<String> stringList = new ArrayList<String>();
+            int size =noticeResult.getData().size();
+            for(int i=0;i<size;++i){
+                stringList.add(noticeResult.getData().get(i).getNotice());
+            }
+            tvHomapageBulletin.setContentList(stringList);
+        }
         if(!NetworkUtils.isConnected()){
             GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
-            BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
-            if(!Check.isNull(bannerResult)){
-                rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
-                //rollPagerViewManager.testImagesLocal(null);
-                rollPagerViewManager.testImagesNet(null,null);
-            }
-            NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
-            if(!Check.isNull(noticeResult)){
-                List<String> stringList = new ArrayList<String>();
-                int size =noticeResult.getData().size();
-                for(int i=0;i<size;++i){
-                    stringList.add(noticeResult.getData().get(i).getNotice());
-                }
-                tvHomapageBulletin.setContentList(stringList);
-            }
-
         }else {
             //presenter.postOnlineService("");
-            presenter.postBanner("");
-            presenter.postNotice("");
+            if(!Check.isNull(presenter)) {
+                presenter.postBanner("");
+                presenter.postNotice("");
+            }
         }
     }
 
@@ -188,9 +189,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
             TextView textView = holder.getView(R.id.tv_item_game_name);
             if(position==8){
-                textView.setTextColor(getContext().getColor(R.color.event_red));
+                textView.setTextColor(getResources().getColor(R.color.event_red));
             }else{
-                textView.setTextColor(getContext().getColor(R.color.login_left));
+                textView.setTextColor(getResources().getColor(R.color.login_left));
             }
             holder.setText(R.id.tv_item_game_name,data.getIconName());
             RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
@@ -222,24 +223,50 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         switch (position){
             case 0:
-                EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName,userMoney), SupportFragment.SINGLETASK));
-
+                userState = "0";
+                String sport_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SPORT_MAINTAIN);
+                if("1".equals(sport_url)){
+                    presenter.postMaintain();
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName,userMoney), SupportFragment.SINGLETASK));
+                }
                 break;
             case 1:
-                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
+                userState = "1";
+                String video_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
+                if("1".equals(video_url)){
+                    presenter.postMaintain();
+                }else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "live")), SupportFragment.SINGLETASK));
+                }
                 break;
             case 2:
-                postCPGo();
+                userState = "2";
+                //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
+                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                if("1".equals(cp_url)){
+                    presenter.postMaintain();
+                }else {
+                    postCPGo();
+                }
                  break;
             case 3:
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getLottery_link())));
-                //presenter.postCP();
-                presenter.postQipai("","");
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl().replace("m.","mc."))));
+                userState = "3";
+                String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
+                if("1".equals(qp_url)){
+                    presenter.postMaintain();
+                }else {
+                    postQiPaiGo();
+                }
                 break;
             case 4:
-                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName,userMoney,"game")), SupportFragment.SINGLETASK));
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"ky/ky_api.php?action=cm")));
+                userState = "4";
+                String game_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                if("1".equals(game_url)){
+                    presenter.postMaintain();
+                }else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
+                }
                 break;
             case 5:
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getDiscount_activity())));
@@ -261,8 +288,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
+                postValidGiftGo();
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-                presenter.postValidGift("","get_valid");
 
                 break;
             case 9:
@@ -345,16 +372,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GameLog.log("AG创建账号："+agCheckAcountResult.toString());
     }
 
-    @Override
-    public void postQipaiResult(QipaiResult qipaiResult) {
-        //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, qipaiResult.getUrl())));
-        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
-        intent.putExtra("url",qipaiResult.getUrl());
-        intent.putExtra("gameCnName","棋牌游戏");
-        intent.putExtra("hidetitlebar",false);
-        getActivity().startActivity(intent);
-    }
-
 
     private void initWebView(String url) {
         final WebView mWebView = new WebView(getContext());
@@ -390,6 +407,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                 }
                 String CookieStr = cookieManager.getCookie(url);
+                if(!Check.isEmpty(CookieStr))
                 ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE,CookieStr);
                 GameLog.log("cookie日志："+CookieStr);
                 /*tv_topbar_title.setText(title);
@@ -446,64 +464,107 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postQipaiResult(QipaiResult qipaiResult) {
+        //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, qipaiResult.getUrl())));
+        ACache.get(getContext()).put(HGConstant.USERNAME_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============棋牌的地址=============");
+    }
+
+    @Override
     public void postCPResult(CPResult cpResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
         initWebView(cpResult.getUrlLogin());
-       // initWebView(cpResult.getUrlLogin());
-        /*MyHttpClient myHttpClient = new MyHttpClient();
-        myHttpClient.executeGet(cpResult.getUrlLogin(), new Callback() {
-            @Override
-            public void onFailure(Call call, final IOException e) {
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                final String responseText =  response.body().string();
-                final Headers headers = response.headers();
-                for(int k=0;k<headers.names().size();++k){
-
-                    final int finalK = k;
-                    rvHomapageGameHall.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            GameLog.log(headers.name(finalK)+" : "+headers.value(finalK)+"<br>");
-                        }
-                    });
-                }
-                //ACache.get(getContext()).put(HGConstant.APP_CP_HEADER,headers.toString());
-                final List<String> cookies = headers.values("Set-Cookie");
-                String session = cookies.get(0);
-                org.json.JSONArray jsonArray = new org.json.JSONArray();
-                for(int k=0;k<cookies.size();++k){
-                    jsonArray.put(cookies.get(k));
-                    final int finalK = k;
-                    rvHomapageGameHall.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            GameLog.log(cookies.get(finalK));
-                        }
-                    });
-                }
-                //ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE,session);
-                GameLog.log("session " +session);
-                GameLog.log("登录成功之后请求彩票地址："+responseText);
-            }
-        });*/
+       
     }
 
     @Override
     public void postValidGiftResult(ValidResult validResult) {
-        EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
+        GameLog.log("=============红包的地址是否正常=============");
+        ACache.get(getContext()).put(HGConstant.USERNAME_GIFT_URL,"true");
+        //EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
     }
 
+    @Override
+    public void postMaintainResult(List<MaintainResult> maintainResult) {
+        GameLog.log("=============维护日志=============");
+        for(MaintainResult maintainResult1:maintainResult){
+            switch (maintainResult1.getType()){
+                case "sport":
+                    GameLog.log("sport "+maintainResult1.getState());
+                    if(userState.equals("0")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    ACache.get(getContext()).put(HGConstant.USERNAME_SPORT_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "video":
+                    if(userState.equals("1")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("video "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_VIDEO_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "game":
+                    if(userState.equals("4")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("game "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "lottery":
+                    if(userState.equals("2")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("lottery "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_LOTTERY_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "ky":
+                    if(userState.equals("3")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("ky "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_KY_MAINTAIN,maintainResult1.getState());
+                    break;
+            }
+        }
+    }
+
+    private void postValidGiftGo(){
+        String gift_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL);
+        if(Check.isEmpty(gift_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postValidGift("","get_valid");
+        }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
+            showMessage("正在加载中，请稍后再试!");
+        }*/else {
+            EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
+        }
+    }
+
+    private void postQiPaiGo(){
+        String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_QIPAI_URL);
+        if(Check.isEmpty(qipai_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postQipai("","");
+        }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
+            showMessage("正在加载中，请稍后再试!");
+        }*/else {
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",qipai_url);
+            intent.putExtra("gameCnName","棋牌游戏");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+
+    }
 
     private void postCPGo(){
         String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
         if(Check.isEmpty(cp_url)){
             presenter.postCP();
         }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
+            presenter.postCP();
             showMessage("正在加载中，请稍后再试!");
         }else{
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
@@ -575,8 +636,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tvHomePageLogin.setVisibility(View.GONE);
         }
         //presenter.postAGLiveCheckRegister("");
+        presenter.postMaintain();
         presenter.postCP();
-
+        presenter.postQipai("","");
+        presenter.postValidGift("","get_valid");
     }
 
     @Subscribe
@@ -593,6 +656,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         tvHomePageUserMoney.setVisibility(View.GONE);
         userName = "";
         userMoney = "";
+        userState = "9";
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
     }
 

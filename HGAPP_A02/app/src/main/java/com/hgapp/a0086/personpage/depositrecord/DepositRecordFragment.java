@@ -275,13 +275,14 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 lvDepositRecord2.setAdapter(recordListAdapter);
             }
             recordListAdapter.notifyDataSetChanged();
-
-
-
         }else{
-            tvDepositNodata.setVisibility(View.VISIBLE);
-            //lvDepositRecord.setVisibility(View.GONE);
-            lvDepositRecord2.setVisibility(View.GONE);
+            if(rowsBeanList.size()>0){
+                lvDepositRecord2.setNoMore(true);
+            }else{
+                tvDepositNodata.setVisibility(View.VISIBLE);
+                //lvDepositRecord.setVisibility(View.GONE);
+                lvDepositRecord2.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -367,89 +368,89 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
         // if(!Check.isNull(popMenuHGtv)&&!Check.isNull(popMenuCPtv)&&!Check.isNull(popMenuAGtv)){
         switch (stype){
             case "":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusFan.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                ivDepositStatusAll.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusFan.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                ivDepositStatusAll.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusDeposit.setBackgroundResource(0);
                 ivDepositStatusWithdraw.setBackgroundResource(0);
                 ivDepositStatusRed.setBackgroundResource(0);
                 ivDepositStatusFan.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusFan.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusFan.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "S":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusFan.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusFan.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 ivDepositStatusAll.setBackgroundResource(0);
-                ivDepositStatusDeposit.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                ivDepositStatusDeposit.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusWithdraw.setBackgroundResource(0);
                 ivDepositStatusRed.setBackgroundResource(0);
                 ivDepositStatusFan.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusFan.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusFan.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "T":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusFan.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusFan.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 ivDepositStatusAll.setBackgroundResource(0);
                 ivDepositStatusDeposit.setBackgroundResource(0);
-                ivDepositStatusWithdraw.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                ivDepositStatusWithdraw.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusRed.setBackgroundResource(0);
                 ivDepositStatusFan.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusFan.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusFan.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "Q":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusFan.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusFan.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 ivDepositStatusAll.setBackgroundResource(0);
                 ivDepositStatusDeposit.setBackgroundResource(0);
                 ivDepositStatusWithdraw.setBackgroundResource(0);
-                ivDepositStatusRed.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                ivDepositStatusRed.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusFan.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusFan.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusFan.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "R":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusFan.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusFan.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
                 ivDepositStatusAll.setBackgroundResource(0);
                 ivDepositStatusDeposit.setBackgroundResource(0);
                 ivDepositStatusWithdraw.setBackgroundResource(0);
                 ivDepositStatusRed.setBackgroundResource(0);
-                ivDepositStatusFan.setBackground(getContext().getDrawable(R.mipmap.pop_item));
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusFan.setTextColor(getContext().getColor(R.color.pop_hight));
+                ivDepositStatusFan.setBackground(getResources().getDrawable(R.mipmap.pop_item));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusFan.setTextColor(getResources().getColor(R.color.pop_hight));
                 break;
         }
 
@@ -515,60 +516,60 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
         // if(!Check.isNull(popMenuHGtv)&&!Check.isNull(popMenuCPtv)&&!Check.isNull(popMenuAGtv)){
         switch (type_status){
             case "":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                ivDepositStatusAll.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                ivDepositStatusAll.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusDeposit.setBackgroundResource(0);
                 ivDepositStatusWithdraw.setBackgroundResource(0);
                 ivDepositStatusRed.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "1":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 ivDepositStatusAll.setBackgroundResource(0);
-                ivDepositStatusDeposit.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                ivDepositStatusDeposit.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusWithdraw.setBackgroundResource(0);
                 ivDepositStatusRed.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "-1":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 ivDepositStatusAll.setBackgroundResource(0);
                 ivDepositStatusDeposit.setBackgroundResource(0);
-                ivDepositStatusWithdraw.setBackground(getContext().getDrawable(R.mipmap.pop_item));
+                ivDepositStatusWithdraw.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 ivDepositStatusRed.setBackgroundResource(0);
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_hight));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_normal));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_hight));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "0,2":
-                popMenuDepositStatusAll.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusDeposit.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusWithDraw.setBackgroundColor(getContext().getColor(R.color.pop_ll_normal));
-                popMenuDepositStatusRed.setBackgroundColor(getContext().getColor(R.color.pop_ll_hight));
+                popMenuDepositStatusAll.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusDeposit.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusWithDraw.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuDepositStatusRed.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
                 ivDepositStatusAll.setBackgroundResource(0);
                 ivDepositStatusDeposit.setBackgroundResource(0);
                 ivDepositStatusWithdraw.setBackgroundResource(0);
-                ivDepositStatusRed.setBackground(getContext().getDrawable(R.mipmap.pop_item));
-                tvDepositStatusAll.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusDeposit.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusWithdraw.setTextColor(getContext().getColor(R.color.pop_normal));
-                tvDepositStatusRed.setTextColor(getContext().getColor(R.color.pop_hight));
+                ivDepositStatusRed.setBackground(getResources().getDrawable(R.mipmap.pop_item));
+                tvDepositStatusAll.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusDeposit.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusWithdraw.setTextColor(getResources().getColor(R.color.pop_normal));
+                tvDepositStatusRed.setTextColor(getResources().getColor(R.color.pop_hight));
                 break;
         }
 
@@ -633,10 +634,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getContext().getColor(R.color.title_text));
-                tvDepositRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.title_text));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -652,10 +653,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastDay.setTextColor(getContext().getColor(R.color.title_text));
-                tvDepositRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.title_text));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -671,10 +672,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastWeek.setTextColor(getContext().getColor(R.color.title_text));
-                tvDepositRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.title_text));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_focus);
@@ -690,17 +691,18 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastMonth.setTextColor(getContext().getColor(R.color.title_text));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.title_text));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastMonth.setBackgroundResource(R.drawable.bg_btn_focus);
                 break;
             case R.id.btnDepositRecordSubmit:
-                lvDepositRecord2.refresh();
+                page =0;
+                onSearchRecordList();
                 break;
         }
     }

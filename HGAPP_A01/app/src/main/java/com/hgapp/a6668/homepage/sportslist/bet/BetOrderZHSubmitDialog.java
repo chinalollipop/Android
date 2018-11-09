@@ -173,6 +173,9 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
                     return;
                 }
 
+                if(Check.isNull(betItem)){
+                    return;
+                }
                 int size = betItem.size();
                 Double money =1.0d;
                 for(int k=0;k<size;++k){
@@ -206,7 +209,8 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
                GameLog.log(" 购买金额："+god);
 
                 if(Double.valueOf(god) < Double.valueOf(getParamMin)){
-                    showMessage("下注金额需大于20元！");
+                    //showMessage("下注金额需大于20元！");
+                    showMessage("下注金额需大于"+getParamMin+"元！");
                     return;
                 }
                 if(Double.valueOf(godWin.replace(",","")) > Double.valueOf("1000000")){

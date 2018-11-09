@@ -164,6 +164,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
 
     private ScheduledExecutorService executorService;
+    onWaitingThread onWaitingThread = new onWaitingThread();
     private int sendAuthTime = HGConstant.ACTION_SEND_AUTH_CODE;
     private int sorttype = 1;
     private String userMoney,M_League ;
@@ -1161,7 +1162,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
     private void onSendAuthCode() {
         GameLog.log("-----开始-----");
         executorService = Executors.newScheduledThreadPool(1);
-        executorService.scheduleAtFixedRate(new onWaitingThread(), 0, 1000, TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(onWaitingThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
     @Subscribe

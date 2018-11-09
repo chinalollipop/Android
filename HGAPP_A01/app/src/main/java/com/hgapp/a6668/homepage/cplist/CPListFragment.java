@@ -12,18 +12,22 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.http.Client;
+import com.hgapp.a6668.common.service.ServiceOnlineFragment;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.widgets.CPBottomBar;
 import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
 import com.hgapp.a6668.common.widgets.GridRvItemDecoration2;
+import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.common.widgets.RecyclerViewItemDecoration;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
@@ -31,12 +35,14 @@ import com.hgapp.a6668.common.widgets.SimpleDividerItemDecoration;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.HomepageFragment;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
 import com.hgapp.a6668.homepage.aglist.agchange.AGPlatformDialog;
 import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
+import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.squareup.picasso.Picasso;
@@ -51,38 +57,39 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
+import me.yokeyword.sample.demo_wechat.ui.view.BottomBarTab;
 
 public class CPListFragment extends HGBaseFragment implements AGListContract.View {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @BindView(R.id.cpTitleBack)
-    NTitleBar cpTitleBack;
+    @BindView(R.id.cpBottomBar)
+    CPBottomBar cpBottomBar;
+    @BindView(R.id.cpPageBulletin)
+    MarqueeTextView cpPageBulletin;/*
     @BindView(R.id.cpGameList)
     RecyclerView cpList;
-    private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
+    private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();*/
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
     AGListContract.Presenter presenter;
     private String agMoney,hgMoney;
     private String titleName = "";
     private String dzTitileName ="";
-    static {
-        cpGameList.add(new HomePageIcon("北京赛车", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("幸运飞艇", R.mipmap.home_ag));
-        cpGameList.add(new HomePageIcon("重庆时时彩", R.mipmap.home_vrcp));
-        cpGameList.add(new HomePageIcon("极速赛车", R.mipmap.home_qipai));
-        cpGameList.add(new HomePageIcon("极速飞艇", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("PC蛋蛋", R.mipmap.home_ag));
-        cpGameList.add(new HomePageIcon("分分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("三分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("五分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("广东快乐十分", R.mipmap.home_vrcp));
-        cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.home_qipai));
-        /*cpGameList.add(new HomePageIcon("极速时时彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("香港六合彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("江苏快三", R.mipmap.home_lhj));*/
-    }
+    /*static {
+        cpGameList.add(new HomePageIcon("北京赛车", R.mipmap.cp_bjsc));
+        cpGameList.add(new HomePageIcon("极速飞艇", R.mipmap.cp_jsft));
+        cpGameList.add(new HomePageIcon("重庆时时彩", R.mipmap.cp_cqssc));
+        cpGameList.add(new HomePageIcon("极速赛车", R.mipmap.cp_jsfc));
+        cpGameList.add(new HomePageIcon("六合彩", R.mipmap.cp_lhc));
+        cpGameList.add(new HomePageIcon("分分彩", R.mipmap.cp_ffc));
+        cpGameList.add(new HomePageIcon("PC蛋蛋", R.mipmap.cp_pcdd));
+        cpGameList.add(new HomePageIcon("快乐十分", R.mipmap.cp_klsfc));
+        cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.cp_xync));
+        cpGameList.add(new HomePageIcon("江苏快3", R.mipmap.cp_js));
+        cpGameList.add(new HomePageIcon("更多", R.mipmap.cp_more));
+    }*/
     public static CPListFragment newInstance(List<String> param1) {
         CPListFragment fragment = new CPListFragment();
         Bundle args = new Bundle();
@@ -109,20 +116,64 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        cpTitleBack.setMoreText(userMoney);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
+        cpBottomBar
+                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_home, getString(R.string.str_title_homepage)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_record, getString(R.string.cp_title_record)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_me, getString(R.string.str_title_person)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_service, getString(R.string.str_title_withdraw)));
+        //cpBottomBar.getItem(1).setUnreadCount(9);
+        cpBottomBar.setOnTabSelectedListener(new CPBottomBar.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(int position, int prePosition) {
+                switch (position){
+                    case 0:
+                        GameLog.log("当前选择的事");
+                        pop();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        EventBus.getDefault().post(new StartBrotherEvent(ServiceOnlineFragment.newInstance(), SupportFragment.SINGLETASK));
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(int position) {
+                GameLog.log("++++++++++++++++++++++++++ "+position);
+            }
+
+            @Override
+            public void onTabReselected(int position) {
+                if(position==0){
+                    pop();
+                }
+                GameLog.log("----------------------------- "+position);
+            }
+        });
+        NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
+        if(!Check.isNull(noticeResult)){
+            List<String> stringList = new ArrayList<String>();
+            int size =noticeResult.getData().size();
+            for(int i=0;i<size;++i){
+                stringList.add(noticeResult.getData().get(i).getNotice());
+            }
+            cpPageBulletin.setContentList(stringList);
+        }
+        /*cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.VERTICAL,5,getContext().getColor(R.color.textview_normal),8));
+        cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.HORIZONTAL,5,getContext().getColor(R.color.textview_normal),8));*/
+       /* GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
         cpList.setLayoutManager(gridLayoutManager);
         cpList.setHasFixedSize(true);
         cpList.setNestedScrollingEnabled(false);
         cpList.addItemDecoration(new GridRvItemDecoration2(getContext()));
-        /*cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.VERTICAL,5,getContext().getColor(R.color.textview_normal),8));
-        cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.HORIZONTAL,5,getContext().getColor(R.color.textview_normal),8));*/
-        cpList.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_cp_hall,cpGameList));
+        cpList.setAdapter(new LotteryPageGameAdapter(getContext(),R.layout.item_cp_hall,cpGameList));*/
     }
-
-    class HomaPageGameAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<HomePageIcon> {
+    class LotteryPageGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
         private Context context;
-        public HomaPageGameAdapter(Context context, int layoutId, List datas) {
+        public LotteryPageGameAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
             context = context;
         }

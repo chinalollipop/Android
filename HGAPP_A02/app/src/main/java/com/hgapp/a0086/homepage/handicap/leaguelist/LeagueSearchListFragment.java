@@ -97,6 +97,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
     OptionsPickerView optionsPickerViewTime1;//时间排序
     LeagueSearchListContract.Presenter presenter;
     private ScheduledExecutorService executorService;
+    onWaitingThread onWaitingThread = new onWaitingThread();
     private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
     List<String> time = new ArrayList<String>();
     String mdata ="";
@@ -247,9 +248,9 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
 
     private void setShowShopping(){
         if(gtype.equals("FT")){
-            ZHBetViewManager.getSingleton().onShowView(getActivity(),this,gtype,"",getArgParam4.equals("2")?"1":"11");
+            ZHBetViewManager.getSingleton().onShowView(getActivity(),this,gtype,"",getArgParam4.equals("s")?"1":"11");
         }else{
-            ZHBetViewManager.getSingleton().onShowView(getActivity(),this,gtype,"",getArgParam4.equals("2")?"2":"22");
+            ZHBetViewManager.getSingleton().onShowView(getActivity(),this,gtype,"",getArgParam4.equals("s")?"2":"22");
         }
 
     }
@@ -340,7 +341,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
     private void onSendAuthCode() {
         GameLog.log("-----开始-----");
         executorService = Executors.newScheduledThreadPool(1);
-        executorService.scheduleAtFixedRate(new onWaitingThread(), 0, 1000, TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(onWaitingThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -522,12 +523,12 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                     tvLeagueSearchRBTime.setVisibility(View.GONE);
                     llLeagueSearchTimeAll.setVisibility(View.VISIBLE);
                 }
-                tvLeagueSearchTitle1.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchTitle2.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle3.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown1.setBackgroundColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchDown2.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown3.setBackgroundColor(getContext().getColor(R.color.bet_line));
+                tvLeagueSearchTitle1.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchTitle2.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle3.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown1.setBackgroundColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchDown2.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown3.setBackgroundColor(getResources().getColor(R.color.bet_line));
                 break;
             case "2":
                 Ctype = "2";
@@ -538,24 +539,24 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                     llLeagueSearchTimeAll.setVisibility(View.VISIBLE);
                 }
                 llLeagueSearchTimeAll.setVisibility(View.VISIBLE);
-                tvLeagueSearchTitle1.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle2.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchTitle3.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown1.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown2.setBackgroundColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchDown3.setBackgroundColor(getContext().getColor(R.color.bet_line));
+                tvLeagueSearchTitle1.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle2.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchTitle3.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown1.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown2.setBackgroundColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchDown3.setBackgroundColor(getResources().getColor(R.color.bet_line));
                 break;
             case "3":
                 Ctype = "3";
                 //postLeagueSearchList();
                 llLeagueSearchTimeAll.setVisibility(View.GONE);
                 tvLeagueSearchRBTime.setVisibility(View.GONE);
-                tvLeagueSearchTitle1.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle2.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle3.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchDown1.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown2.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown3.setBackgroundColor(getContext().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchTitle1.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle2.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle3.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchDown1.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown2.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown3.setBackgroundColor(getResources().getColor(R.color.bet_title_tv_clicked));
                 break;
         }
     }
@@ -590,12 +591,12 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                     tvLeagueSearchRBTime.setVisibility(View.GONE);
                     llLeagueSearchTimeAll.setVisibility(View.VISIBLE);
                 }
-                tvLeagueSearchTitle1.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchTitle2.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle3.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown1.setBackgroundColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchDown2.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown3.setBackgroundColor(getContext().getColor(R.color.bet_line));
+                tvLeagueSearchTitle1.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchTitle2.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle3.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown1.setBackgroundColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchDown2.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown3.setBackgroundColor(getResources().getColor(R.color.bet_line));
                 break;
             case R.id.tvLeagueSearchTitle2:
                 Ctype = "2";
@@ -606,24 +607,24 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                     llLeagueSearchTimeAll.setVisibility(View.VISIBLE);
                 }
                 llLeagueSearchTimeAll.setVisibility(View.VISIBLE);
-                tvLeagueSearchTitle1.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle2.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchTitle3.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown1.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown2.setBackgroundColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchDown3.setBackgroundColor(getContext().getColor(R.color.bet_line));
+                tvLeagueSearchTitle1.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle2.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchTitle3.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown1.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown2.setBackgroundColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchDown3.setBackgroundColor(getResources().getColor(R.color.bet_line));
                 break;
             case R.id.tvLeagueSearchTitle3:
                 Ctype = "3";
                 postLeagueSearchList();
                 llLeagueSearchTimeAll.setVisibility(View.GONE);
                 tvLeagueSearchRBTime.setVisibility(View.GONE);
-                tvLeagueSearchTitle1.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle2.setTextColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchTitle3.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvLeagueSearchDown1.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown2.setBackgroundColor(getContext().getColor(R.color.bet_line));
-                tvLeagueSearchDown3.setBackgroundColor(getContext().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchTitle1.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle2.setTextColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchTitle3.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvLeagueSearchDown1.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown2.setBackgroundColor(getResources().getColor(R.color.bet_line));
+                tvLeagueSearchDown3.setBackgroundColor(getResources().getColor(R.color.bet_title_tv_clicked));
                 break;
             case R.id.btnLeagueSearch:
                 GameLog.log("点击了所有球类 参数一是"+getArgParam1);

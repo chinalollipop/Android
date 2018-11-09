@@ -147,7 +147,7 @@ public class DepositThirdBankCardResult {
             this.bankList = bankList;
         }
 
-        public static class BankListBean {
+        public static class BankListBean implements Parcelable {
             /**
              * bankcode : ABC
              * bankname : 农业银行
@@ -171,6 +171,37 @@ public class DepositThirdBankCardResult {
             public void setBankname(String bankname) {
                 this.bankname = bankname;
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.bankcode);
+                dest.writeString(this.bankname);
+            }
+
+            public BankListBean() {
+            }
+
+            protected BankListBean(Parcel in) {
+                this.bankcode = in.readString();
+                this.bankname = in.readString();
+            }
+
+            public static final Creator<BankListBean> CREATOR = new Creator<BankListBean>() {
+                @Override
+                public BankListBean createFromParcel(Parcel source) {
+                    return new BankListBean(source);
+                }
+
+                @Override
+                public BankListBean[] newArray(int size) {
+                    return new BankListBean[size];
+                }
+            };
         }
 
         @Override

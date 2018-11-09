@@ -176,7 +176,8 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position, int prePosition) {
-                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
+                try{
+                    String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
                 GameLog.log("用户的登录状态 [ 1登录成功 ] [ 0 未登录 ] ："+userStatus+" 当前的位置是 "+prePosition+" 目前位置是 "+position);
                 if(Check.isEmpty(userStatus)){
                     userStatus = "0";
@@ -189,34 +190,13 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
                         mBottomBar.setCurrentItem(0);
                         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     }
-                   /* if(position==0||position==2||"true".equals(ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGOUT))){
-                        GameLog.log("用户未登录 但是可以去联系客服吧！");
-                        ACache.get(getContext()).put(HGConstant.USERNAME_LOGOUT, "false");
-                        showHideFragment(mFragments[position], mFragments[prePosition]);
-                        return;
-                    }
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    mBottomBar.setCurrentItem(0);*/
                     return;
                 }
-               /* boolean isLogin = UserManagerFactory.get().isLogin();
-                if(!isLogin)
-                {
-                    Timber.d("没有登录，点击进入登陆界面 position:%d prePosition:%d",position,prePosition);
-                    if(0 != position)
-                    {
-                        EventBus.getDefault().post(new StartBrotherEvent(NLoginFragment.newInstance("", ""), SupportFragment.SINGLETASK));
-                        mBottomBar.setCurrentItem(0);
-                    }
-                    return;
-                }
+
                 showHideFragment(mFragments[position], mFragments[prePosition]);
-                selectedPositon = position;
-                //add by AK 需求是每次进入存款界面都需要去抓取最新数据
-                if(position==1){
-                    EventBus.getDefault().post(new ChoiceBankEvent(position+""));
-                }*/
-                showHideFragment(mFragments[position], mFragments[prePosition]);
+               }catch (Exception e){
+                   GameLog.log("点击失败的展示："+e.toString());
+               }
             }
 
             @Override

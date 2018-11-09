@@ -1261,7 +1261,10 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         }else{
             sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
         }
-        teamLiveTime.setText(fromString);
+        if(!Check.isEmpty(fromString)){
+            teamLiveTime.setText(fromString);
+        }
+        GameLog.log("fromString : "+fromString);
         onSendAuthCode();
         switch (fromType) {
             case "1":
@@ -1278,7 +1281,7 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             case "2":
                 teamVs.setText("|");
                 rbkStateKK.setVisibility(View.VISIBLE);
-                teamRFT.setBackground(getActivity().getDrawable(R.drawable.bg_bet_bk));
+                teamRFT.setBackground(getResources().getDrawable(R.drawable.bg_bet_bk));
                 orderType = "BK_order_re";
                 presenter.postGameAllBetsRBK("", gid, gtype, showtype);
                 break;
@@ -1287,7 +1290,7 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
                 teamVs.setText("|");
                 MBTeamNumber.setVisibility(View.GONE);
                 TGTeamNumber.setVisibility(View.GONE);
-                teamRFT.setBackground(getActivity().getDrawable(R.drawable.bg_bet_bk));
+                teamRFT.setBackground(getResources().getDrawable(R.drawable.bg_bet_bk));
                 orderType = "BK_order";
                 presenter.postGameAllBetsBK("", gid, gtype, showtype);
                 break;
@@ -2965,15 +2968,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DSHY())){
             iorDSHY.setVisibility(View.GONE);
-            iorDSHYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSHYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DSHN())){
             iorDSHN.setVisibility(View.GONE);
-            iorDSHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DSCY())){
             iorDSCY.setVisibility(View.GONE);
-            iorDSCYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSCYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorDSCN.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_DSCN()));
@@ -2982,15 +2985,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DSCN())){
             iorDSCN.setVisibility(View.GONE);
-            iorDSCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DSSY())){
             iorDSSY.setVisibility(View.GONE);
-            iorDSSYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSSYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DSSN())){
             iorDSSN.setVisibility(View.GONE);
-            iorDSSNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorDSHYName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 是");
@@ -3013,30 +3016,30 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorDSCY.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_RDSCY()));
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RDSHY())){
             iorDSHY.setVisibility(View.GONE);
-            iorDSHYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSHYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RDSHN())){
             iorDSHN.setVisibility(View.GONE);
-            iorDSHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RDSCY())){
             iorDSCY.setVisibility(View.GONE);
-            iorDSCYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSCYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorDSCN.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_RDSCN()));
         iorDSSY.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_RDSSY()));
         iorDSSN.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_RDSSN()));
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RDSCN())){
             iorDSCN.setVisibility(View.GONE);
-            iorDSCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RDSSY())){
             iorDSSY.setVisibility(View.GONE);
-            iorDSSYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSSYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RDSSN())){
             iorDSSN.setVisibility(View.GONE);
-            iorDSSNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDSSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorDSHYName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 是");
         iorDSHNName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 不是");
@@ -3059,15 +3062,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MTSHY())){
             iorMTSHY.setVisibility(View.GONE);
-            iorMTSHYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSHYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MTSHN())){
             iorMTSHN.setVisibility(View.GONE);
-            iorMTSHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MTSNY())){
             iorMTSNY.setVisibility(View.GONE);
-            iorMTSNYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSNYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorMTSNN.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_MTSNN()));
@@ -3076,15 +3079,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MTSNN())){
             iorMTSNN.setVisibility(View.GONE);
-            iorMTSNNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSNNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MTSCY())){
             iorMTSCY.setVisibility(View.GONE);
-            iorMTSCYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSCYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MTSCN())){
             iorMTSCN.setVisibility(View.GONE);
-            iorMTSCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorMTSHYName.setText(gameAllPlayFTResult.getTeam_h() + " & 是");
         iorMTSHNName.setText(gameAllPlayFTResult.getTeam_h() + " & 不是");
@@ -3104,30 +3107,30 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorMTSNY.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RMTSNY()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMTSHY())){
             iorMTSHY.setVisibility(View.GONE);
-            iorMTSHYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSHYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMTSHN())){
             iorMTSHN.setVisibility(View.GONE);
-            iorMTSHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMTSNY())){
             iorMTSNY.setVisibility(View.GONE);
-            iorMTSNYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSNYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorMTSNN.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RMTSNN()));
         iorMTSCY.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RMTSCY()));
         iorMTSCN.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RMTSCN()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMTSNN())){
             iorMTSNN.setVisibility(View.GONE);
-            iorMTSNNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSNNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMTSCY())){
             iorMTSCY.setVisibility(View.GONE);
-            iorMTSCYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSCYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMTSCN())){
             iorMTSCN.setVisibility(View.GONE);
-            iorMTSCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMTSCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorMTSHYName.setText(gameAllPlayRFTResult.getTeam_h() + " & 是");
         iorMTSHNName.setText(gameAllPlayRFTResult.getTeam_h() + " & 不是");
@@ -3148,15 +3151,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DCHN())){
             iorDCHN.setVisibility(View.GONE);
-            iorDCHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDCHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DCCN())){
             iorDCCN.setVisibility(View.GONE);
-            iorDCCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDCCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_DCHC())){
             iorDCHC.setVisibility(View.GONE);
-            iorDCHCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDCHCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorDCHNName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局");
         iorDCCNName.setText(gameAllPlayFTResult.getTeam_c() + " / 和局");
@@ -3175,15 +3178,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorDCHC.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RDCHC()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RDCHN())){
             iorDCHN.setVisibility(View.GONE);
-            iorDCHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDCHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RDCCN())){
             iorDCCN.setVisibility(View.GONE);
-            iorDCCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDCCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RDCHC())){
             iorDCHC.setVisibility(View.GONE);
-            iorDCHCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorDCHCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorDCHNName.setText(gameAllPlayRFTResult.getTeam_h() + " / 和局");
         iorDCCNName.setText(gameAllPlayRFTResult.getTeam_c() + " / 和局");
@@ -3208,20 +3211,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMH1())){
             iorWMH1.setVisibility(View.GONE);
-            iorWMH1H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMH1H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMH2())){
             iorWMH2.setVisibility(View.GONE);
-            iorWMH2H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMH2H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMH3())){
             iorWMH3.setVisibility(View.GONE);
-            iorWMH3H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMH3H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMHOV())){
             iorWMHOV.setVisibility(View.GONE);
-            iorWMHOVH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMHOVH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorWMC1.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_WMC1()));
@@ -3231,20 +3234,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMC1())){
             iorWMC1.setVisibility(View.GONE);
-            iorWMC1H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMC1H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMC2())){
             iorWMC2.setVisibility(View.GONE);
-            iorWMC2H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMC2H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMC3())){
             iorWMC3.setVisibility(View.GONE);
-            iorWMC3H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMC3H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMCOV())){
             iorWMCOV.setVisibility(View.GONE);
-            iorWMCOVH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMCOVH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorWM0.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_WM0()));
@@ -3252,11 +3255,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WM0())){
             iorWM0.setVisibility(View.GONE);
-            iorWM0H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWM0H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WMN())){
             iorWMN.setVisibility(View.GONE);
-            iorWMNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3276,20 +3279,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorWMHOV.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RWMHOV()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMH1())){
             iorWMH1.setVisibility(View.GONE);
-            iorWMH1H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMH1H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMH2())){
             iorWMH2.setVisibility(View.GONE);
-            iorWMH2H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMH2H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMH3())){
             iorWMH3.setVisibility(View.GONE);
-            iorWMH3H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMH3H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMHOV())){
             iorWMHOV.setVisibility(View.GONE);
-            iorWMHOVH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMHOVH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorWMC1.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RWMC1()));
         iorWMC2.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RWMC2()));
@@ -3297,30 +3300,30 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorWMCOV.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RWMCOV()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMC1())){
             iorWMC1.setVisibility(View.GONE);
-            iorWMC1H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMC1H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMC2())){
             iorWMC2.setVisibility(View.GONE);
-            iorWMC2H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMC2H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMC3())){
             iorWMC3.setVisibility(View.GONE);
-            iorWMC3H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMC3H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMCOV())){
             iorWMCOV.setVisibility(View.GONE);
-            iorWMCOVH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMCOVH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         iorWM0.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RWM0()));
         iorWMN.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RWMN()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWM0())){
             iorWM0.setVisibility(View.GONE);
-            iorWM0H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWM0H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWMN())){
             iorWMN.setVisibility(View.GONE);
-            iorWMNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWMNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3342,42 +3345,42 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FHH())){
             iorFHH.setVisibility(View.GONE);
-            iorFHHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFHHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FHN())){
             iorFHN.setVisibility(View.GONE);
-            iorFHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FHC())){
             iorFHC.setVisibility(View.GONE);
-            iorFHCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFHCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FNH())){
             iorFNH.setVisibility(View.GONE);
-            iorFNHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFNHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FNN())){
             iorFNN.setVisibility(View.GONE);
-            iorFNNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFNNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FNC())){
             iorFNC.setVisibility(View.GONE);
-            iorFNCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFNCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FCH())){
             iorFCH.setVisibility(View.GONE);
-            iorFCHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFCHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FCN())){
             iorFCN.setVisibility(View.GONE);
-            iorFCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_FCC())){
             iorFCC.setVisibility(View.GONE);
-            iorFCCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFCCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
 
@@ -3414,42 +3417,42 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFHH())){
             iorFHH.setVisibility(View.GONE);
-            iorFHHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFHHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFHN())){
             iorFHN.setVisibility(View.GONE);
-            iorFHNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFHNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFHC())){
             iorFHC.setVisibility(View.GONE);
-            iorFHCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFHCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFNH())){
             iorFNH.setVisibility(View.GONE);
-            iorFNHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFNHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFNN())){
             iorFNN.setVisibility(View.GONE);
-            iorFNNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFNNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFNC())){
             iorFNC.setVisibility(View.GONE);
-            iorFNCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFNCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFCH())){
             iorFCH.setVisibility(View.GONE);
-            iorFCHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFCHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFCN())){
             iorFCN.setVisibility(View.GONE);
-            iorFCNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RFCC())){
             iorFCC.setVisibility(View.GONE);
-            iorFCCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorFCCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorFHHName.setText(gameAllPlayRFTResult.getTeam_h() + "/" + gameAllPlayRFTResult.getTeam_h());
@@ -3479,11 +3482,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_SBH())){
             iorSBH.setVisibility(View.GONE);
-            iorSBHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorSBHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_SBC())){
             iorSBC.setVisibility(View.GONE);
-            iorSBCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorSBCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3500,11 +3503,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorSBCName.setText(gameAllPlayRFTResult.getTeam_c());
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RSBH())){
             iorSBH.setVisibility(View.GONE);
-            iorSBHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorSBHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RSBC())){
             iorSBC.setVisibility(View.GONE);
-            iorSBCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorSBCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3520,15 +3523,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MGH())){
             iorMGH.setVisibility(View.GONE);
-            iorMGHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMGHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MGC())){
             iorMGC.setVisibility(View.GONE);
-            iorMGCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMGCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MGN())){
             iorMGN.setVisibility(View.GONE);
-            iorMGNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMGNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3544,15 +3547,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorMGN.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RMGN()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMGH())){
             iorMGH.setVisibility(View.GONE);
-            iorMGHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMGHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMGC())){
             iorMGC.setVisibility(View.GONE);
-            iorMGCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMGCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMGN())){
             iorMGN.setVisibility(View.GONE);
-            iorMGNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMGNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3567,11 +3570,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HGH())){
             iorHGH.setVisibility(View.GONE);
-            iorHGHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHGHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HGC())){
             iorHGC.setVisibility(View.GONE);
-            iorHGCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHGCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3586,11 +3589,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorHGC.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RHGC()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RHGH())){
             iorHGH.setVisibility(View.GONE);
-            iorHGHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHGHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RHGC())){
             iorHGC.setVisibility(View.GONE);
-            iorHGCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHGCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3607,11 +3610,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WNH())){
             iorWNH.setVisibility(View.GONE);
-            iorWNHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWNHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WNC())){
             iorWNC.setVisibility(View.GONE);
-            iorWNCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWNCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3628,11 +3631,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorWNCName.setText(gameAllPlayRFTResult.getTeam_c());
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWNH())){
             iorWNH.setVisibility(View.GONE);
-            iorWNHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWNHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWNC())){
             iorWNC.setVisibility(View.GONE);
-            iorWNCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWNCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3650,11 +3653,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_CSH())){
             iorCSH.setVisibility(View.GONE);
-            iorCSHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorCSHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_CSC())){
             iorCSC.setVisibility(View.GONE);
-            iorCSCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorCSCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3671,11 +3674,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorCSCName.setText(gameAllPlayRFTResult.getTeam_c());
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RCSH())){
             iorCSH.setVisibility(View.GONE);
-            iorCSHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorCSHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RCSC())){
             iorCSC.setVisibility(View.GONE);
-            iorCSCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorCSCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3691,11 +3694,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HEOO())){
             iorHEOO.setVisibility(View.GONE);
-            iorHEOOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHEOOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HEOE())){
             iorHEOE.setVisibility(View.GONE);
-            iorHEOEH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHEOEH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3710,11 +3713,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HREOO())){
             iorHEOO.setVisibility(View.GONE);
-            iorHEOOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHEOOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HREOE())){
             iorHEOE.setVisibility(View.GONE);
-            iorHEOEH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHEOEH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3729,11 +3732,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_EOO())){
             iorEOO.setVisibility(View.GONE);
-            iorEOOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_EOE())){
             iorEOE.setVisibility(View.GONE);
-            iorEOEH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOEH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3750,11 +3753,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_EOO())){
             iorEOO.setVisibility(View.GONE);
-            iorEOOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_EOE())){
             iorEOE.setVisibility(View.GONE);
-            iorEOEH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOEH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3769,11 +3772,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorEOE.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_REOE()));
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_REOO())){
             iorEOO.setVisibility(View.GONE);
-            iorEOOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_REOE())){
             iorEOE.setVisibility(View.GONE);
-            iorEOEH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOEH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3788,11 +3791,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_REOO())){
             iorEOO.setVisibility(View.GONE);
-            iorEOOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_REOE())){
             iorEOE.setVisibility(View.GONE);
-            iorEOEH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorEOEH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3808,11 +3811,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HTSY())){
             iorHTSY.setVisibility(View.GONE);
-            iorHTSYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHTSYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HTSN())){
             iorHTSN.setVisibility(View.GONE);
-            iorHTSNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHTSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3827,11 +3830,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_TSY())){
             iorTSY.setVisibility(View.GONE);
-            iorTSYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorTSYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_TSN())){
             iorTSN.setVisibility(View.GONE);
-            iorTSNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorTSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3846,11 +3849,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorTSN.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_RTSN()));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RTSY())){
             iorTSY.setVisibility(View.GONE);
-            iorTSYH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorTSYH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RTSN())){
             iorTSN.setVisibility(View.GONE);
-            iorTSNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorTSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3869,20 +3872,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HT0())){
             iorHT0.setVisibility(View.GONE);
-            iorHT0H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHT0H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HT1())){
             iorHT1.setVisibility(View.GONE);
-            iorHT1H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHT1H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HT2())){
             iorHT2.setVisibility(View.GONE);
-            iorHT2H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHT2H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HTOV())){
             iorHTOV.setVisibility(View.GONE);
-            iorHTOVH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHTOVH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3901,20 +3904,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRT0())){
             iorHT0.setVisibility(View.GONE);
-            iorHT0H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHT0H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRT1())){
             iorHT1.setVisibility(View.GONE);
-            iorHT1H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHT1H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRT2())){
             iorHT2.setVisibility(View.GONE);
-            iorHT2H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHT2H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRTOV())){
             iorHTOV.setVisibility(View.GONE);
-            iorHTOVH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHTOVH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3933,20 +3936,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_T01())){
             iorT01.setVisibility(View.GONE);
-            iorT01H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorT01H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_T23())){
             iorT23.setVisibility(View.GONE);
-            iorT23H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorT23H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_T46())){
             iorT46.setVisibility(View.GONE);
-            iorT46H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorT46H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OVER())){
             iorOVER.setVisibility(View.GONE);
-            iorOVERH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOVERH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -3965,20 +3968,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RT01())){
             iorT01.setVisibility(View.GONE);
-            iorT01H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorT01H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RT23())){
             iorT23.setVisibility(View.GONE);
-            iorT23H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorT23H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RT46())){
             iorT46.setVisibility(View.GONE);
-            iorT46H.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorT46H.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROVER())){
             iorOVER.setVisibility(View.GONE);
-            iorOVERH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOVERH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -3995,11 +3998,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WBH())){
             iorWBH.setVisibility(View.GONE);
-            iorWBHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWBHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WBC())){
             iorWBC.setVisibility(View.GONE);
-            iorWBCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWBCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4016,11 +4019,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorWBCName.setText(gameAllPlayRFTResult.getTeam_c());
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWBH())){
             iorWBH.setVisibility(View.GONE);
-            iorWBHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWBHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWBC())){
             iorWBC.setVisibility(View.GONE);
-            iorWBCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWBCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4037,11 +4040,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WEH())){
             iorWEH.setVisibility(View.GONE);
-            iorWEHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWEHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_WEC())){
             iorWEC.setVisibility(View.GONE);
-            iorWECH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWECH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4059,11 +4062,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWEH())){
             iorWEH.setVisibility(View.GONE);
-            iorWEHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWEHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RWEC())){
             iorWEC.setVisibility(View.GONE);
-            iorWECH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorWECH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4082,16 +4085,16 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HMH())){
             iorHMH.setVisibility(View.GONE);
-            iorHMHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHMHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HMC())){
             iorHMC.setVisibility(View.GONE);
-            iorHMCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHMCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HMN())){
             iorHMN.setVisibility(View.GONE);
-            iorHMNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHMNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4110,16 +4113,16 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRMH())){
             iorHMH.setVisibility(View.GONE);
-            iorHMHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHMHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRMC())){
             iorHMC.setVisibility(View.GONE);
-            iorHMCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHMCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRMN())){
             iorHMN.setVisibility(View.GONE);
-            iorHMNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHMNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4137,16 +4140,16 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MH())){
             iorMH.setVisibility(View.GONE);
-            iorMHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MC())){
             iorMC.setVisibility(View.GONE);
-            iorMCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_MN())){
             iorMN.setVisibility(View.GONE);
-            iorMNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4166,11 +4169,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_MH())){
             iorMH.setVisibility(View.GONE);
-            iorMHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_MC())){
             iorMC.setVisibility(View.GONE);
-            iorMCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4189,11 +4192,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorMCName.setText(gameAllPlayRBKResult.getTeam_c());
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_RMH())){
             iorMH.setVisibility(View.GONE);
-            iorMHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_RMC())){
             iorMC.setVisibility(View.GONE);
-            iorMCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4211,16 +4214,16 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMH())){
             iorMH.setVisibility(View.GONE);
-            iorMHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMC())){
             iorMC.setVisibility(View.GONE);
-            iorMCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_RMN())){
             iorMN.setVisibility(View.GONE);
-            iorMNH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorMNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4239,12 +4242,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUCO())){
             iorHOUCO.setVisibility(View.GONE);
             ratioHouco.setVisibility(View.GONE);
-            iorHOUCOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUCOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUCU())){
             iorHOUCU.setVisibility(View.GONE);
             ratioHoucu.setVisibility(View.GONE);
-            iorHOUCUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUCUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4263,12 +4266,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRUCO())){
             iorHOUCO.setVisibility(View.GONE);
             ratioHouco.setVisibility(View.GONE);
-            iorHOUCOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUCOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRUCU())){
             iorHOUCU.setVisibility(View.GONE);
             ratioHoucu.setVisibility(View.GONE);
-            iorHOUCUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUCUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4287,12 +4290,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUHO())){
             iorHOUHO.setVisibility(View.GONE);
             ratioHouho.setVisibility(View.GONE);
-            iorHOUHOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUHOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUHU())){
             iorHOUHU.setVisibility(View.GONE);
             ratioHouhu.setVisibility(View.GONE);
-            iorHOUHUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUHUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4311,12 +4314,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRUHO())){
             iorHOUHO.setVisibility(View.GONE);
             ratioHouho.setVisibility(View.GONE);
-            iorHOUHOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUHOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRUHU())){
             iorHOUHU.setVisibility(View.GONE);
             ratioHouhu.setVisibility(View.GONE);
-            iorHOUHUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUHUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4335,12 +4338,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
-            iorOUCOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUCU())){
             iorOUCU.setVisibility(View.GONE);
             ratioOucu.setVisibility(View.GONE);
-            iorOUCUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4359,12 +4362,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
-            iorOUCOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUCU())){
             iorOUCU.setVisibility(View.GONE);
             ratioOucu.setVisibility(View.GONE);
-            iorOUCUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4382,12 +4385,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
-            iorOUCOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUCU())){
             iorOUCU.setVisibility(View.GONE);
             ratioOucu.setVisibility(View.GONE);
-            iorOUCUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4406,12 +4409,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
-            iorOUCOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUCU())){
             iorOUCU.setVisibility(View.GONE);
             ratioOucu.setVisibility(View.GONE);
-            iorOUCUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4431,12 +4434,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
-            iorOUHOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUHU())){
             iorOUHU.setVisibility(View.GONE);
             ratioOuhu.setVisibility(View.GONE);
-            iorOUHUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
 
@@ -4456,12 +4459,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
-            iorOUHOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUHU())){
             iorOUHU.setVisibility(View.GONE);
             ratioOuhu.setVisibility(View.GONE);
-            iorOUHUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4479,12 +4482,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
-            iorOUHOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUHU())){
             iorOUHU.setVisibility(View.GONE);
             ratioOuhu.setVisibility(View.GONE);
-            iorOUHUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4503,12 +4506,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
-            iorOUHOH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHOH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUHU())){
             iorOUHU.setVisibility(View.GONE);
             ratioOuhu.setVisibility(View.GONE);
-            iorOUHUH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHUH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4527,12 +4530,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUH())){
             iorHOUH.setVisibility(View.GONE);
             ratioHu.setVisibility(View.GONE);
-            iorHOUHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUC())){
             iorHOUC.setVisibility(View.GONE);
             ratioHo.setVisibility(View.GONE);
-            iorHOUCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4551,12 +4554,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HROUH())){
             iorHOUH.setVisibility(View.GONE);
             ratioHu.setVisibility(View.GONE);
-            iorHOUHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HROUC())){
             iorHOUC.setVisibility(View.GONE);
             ratioHo.setVisibility(View.GONE);
-            iorHOUCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHOUCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4575,12 +4578,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUH())){
             iorOUH.setVisibility(View.GONE);
             ratioU.setVisibility(View.GONE);
-            iorOUHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUC())){
             iorOUC.setVisibility(View.GONE);
             ratioO.setVisibility(View.GONE);
-            iorOUCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4600,12 +4603,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUH())){
             iorOUH.setVisibility(View.GONE);
             ratioU.setVisibility(View.GONE);
-            iorOUHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUC())){
             iorOUC.setVisibility(View.GONE);
             ratioO.setVisibility(View.GONE);
-            iorOUCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4624,12 +4627,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUH())){
             iorOUH.setVisibility(View.GONE);
             ratioU.setVisibility(View.GONE);
-            iorOUHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUC())){
             iorOUC.setVisibility(View.GONE);
             ratioO.setVisibility(View.GONE);
-            iorOUCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4648,12 +4651,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUH())){
             iorOUH.setVisibility(View.GONE);
             ratioU.setVisibility(View.GONE);
-            iorOUHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUC())){
             iorOUC.setVisibility(View.GONE);
             ratioO.setVisibility(View.GONE);
-            iorOUCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorOUCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
 
@@ -4683,11 +4686,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HREH())){
             iorHRH.setVisibility(View.GONE);
-            iorHRHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHRHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HREC())){
             iorHRC.setVisibility(View.GONE);
-            iorHRCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHRCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4715,11 +4718,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HRH())){
             iorHRH.setVisibility(View.GONE);
-            iorHRHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHRHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HRC())){
             iorHRC.setVisibility(View.GONE);
-            iorHRCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorHRCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
     }
@@ -4747,11 +4750,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_REH())){
             tvIorRH.setVisibility(View.GONE);
-            iorRHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_REC())){
             tvIorRC.setVisibility(View.GONE);
-            iorRCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4777,11 +4780,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         tvIorRC.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_RC()));
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RH())){
             tvIorRH.setVisibility(View.GONE);
-            iorRHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_RC())){
             tvIorRC.setVisibility(View.GONE);
-            iorRCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
 
@@ -4809,11 +4812,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         tvIorRC.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_RC()));
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_RH())){
             tvIorRH.setVisibility(View.GONE);
-            iorRHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_RC())){
             tvIorRC.setVisibility(View.GONE);
-            iorRCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4839,11 +4842,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         tvIorRC.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_REC()));
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_REH())){
             tvIorRH.setVisibility(View.GONE);
-            iorRHH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRHH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_REC())){
             tvIorRC.setVisibility(View.GONE);
-            iorRCH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorRCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
     }
 
@@ -4859,15 +4862,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_W3H())){
             iorW3H.setVisibility(View.GONE);
-            iorW3HH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorW3HH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_W3C())){
             iorW3C.setVisibility(View.GONE);
-            iorW3CH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorW3CH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_W3N())){
             iorW3N.setVisibility(View.GONE);
-            iorW3NH.setBackground(getContext().getDrawable(R.mipmap.bet_lock));
+            iorW3NH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
         iorW3HRatio.setText(gameAllPlayFTResult.getRatio_w3h());

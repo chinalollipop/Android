@@ -7,6 +7,7 @@ package com.hgapp.a6668.common.util;
 public abstract class HGConstant {
     public static final String APP_CP_HEADER= "app_cp_header";
     public static final String APP_CP_COOKIE= "app_cp_cookie";
+    public static final String APP_DEMAIN_URL= "app_demain_url";
     public static final String APP_DB_DIRNAME = "app_db_dirname";
     //防止重复点击按钮，避免冲突触发业务
     public static final int throttleWindowTime = 5;
@@ -141,6 +142,14 @@ public abstract class HGConstant {
 
     //用户的彩票地址
     public static final String USERNAME_CP_URL = "username_cp_url";
+
+
+    //用户的棋牌地址
+    public static final String USERNAME_QIPAI_URL = "username_qipai_url";
+
+    //用户的红包地址
+    public static final String USERNAME_GIFT_URL = "username_gift_url";
+
     //用户的彩票用户信息
     public static final String USERNAME_CP_INFORM = "username_cp_inform";
 
@@ -157,4 +166,25 @@ public abstract class HGConstant {
 
     //用户的初始化下注的选中状态
     public static final String USERNAME_AUTO_ADD = "username_auto_add";
+
+    //体育维护状态的日志
+    public static final String USERNAME_SPORT_MAINTAIN = "username_sport_maintain";
+
+    //棋牌维护状态的日志
+    public static final String USERNAME_KY_MAINTAIN = "username_ky_maintain";
+
+    //彩票维护状态的日志
+    public static final String USERNAME_LOTTERY_MAINTAIN = "username_lottery_maintain";
+
+    //视讯维护状态的日志
+    public static final String USERNAME_VIDEO_MAINTAIN = "username_video_maintain";
+
+    //电子维护状态的日志
+    public static final String USERNAME_GAME_MAINTAIN = "username_game_maintain";
+
+    //红包金额的日志
+    public static final String DOWNLOAD_APP_GIFT_GOLD = "download_app_gift_gold";
+
+    //充值金额
+    public static final String DOWNLOAD_APP_GIFT_DEPOSIT = "download_app_gift_deposit";
 }

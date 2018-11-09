@@ -405,23 +405,23 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
                 }
                 /*Animation aniRotateClk = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
                 ivBetNewBowls.startAnimation(aniRotateClk);*/
-                tvBetNewBowls.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvBetNewToday.setTextColor(getContext().getColor(R.color.bet_title_tv_normal));
-                tvBetNewMorning.setTextColor(getContext().getColor(R.color.bet_title_tv_normal));
+                tvBetNewBowls.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvBetNewToday.setTextColor(getResources().getColor(R.color.bet_title_tv_normal));
+                tvBetNewMorning.setTextColor(getResources().getColor(R.color.bet_title_tv_normal));
                 break;
             case "2":
                 ivBetNewBowls.clearAnimation();
                 ivBetNewBowls.setVisibility(View.INVISIBLE);
-                 tvBetNewBowls.setTextColor(getContext().getColor(R.color.bet_title_tv_normal));
-                 tvBetNewToday.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
-                tvBetNewMorning.setTextColor(getContext().getColor(R.color.bet_title_tv_normal));
+                 tvBetNewBowls.setTextColor(getResources().getColor(R.color.bet_title_tv_normal));
+                 tvBetNewToday.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
+                tvBetNewMorning.setTextColor(getResources().getColor(R.color.bet_title_tv_normal));
                  break;
             case "3":
                 ivBetNewBowls.clearAnimation();
                 ivBetNewBowls.setVisibility(View.INVISIBLE);
-                tvBetNewBowls.setTextColor(getContext().getColor(R.color.bet_title_tv_normal));
-                tvBetNewToday.setTextColor(getContext().getColor(R.color.bet_title_tv_normal));
-                tvBetNewMorning.setTextColor(getContext().getColor(R.color.bet_title_tv_clicked));
+                tvBetNewBowls.setTextColor(getResources().getColor(R.color.bet_title_tv_normal));
+                tvBetNewToday.setTextColor(getResources().getColor(R.color.bet_title_tv_normal));
+                tvBetNewMorning.setTextColor(getResources().getColor(R.color.bet_title_tv_clicked));
                 break;
 
         }

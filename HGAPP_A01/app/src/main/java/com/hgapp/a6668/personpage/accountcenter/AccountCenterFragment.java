@@ -120,17 +120,17 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
                 FragmentTransaction ft = getFragmentManager().beginTransaction().replace(R.id.fragementAccountCenterChange, accountCenterＭainFragment);
                 ft.show(accountCenterＭainFragment);
                 ft.commit();
-                btnAccountCenterMyInform.setTextColor(getContext().getColor(R.color.title_text));
+                btnAccountCenterMyInform.setTextColor(getResources().getColor(R.color.title_text));
                 //tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_focus);
-                btnAccountCenterMyInform.setBackground(getContext().getDrawable(R.mipmap.account_center_pwd_high));
-                btnAccountCenterChangePwd.setTextColor(getContext().getColor(R.color.n_edittext_hint));
-                btnAccountCenterChangePwd.setBackground(getContext().getDrawable(R.mipmap.account_center_pwd_normal));
+                btnAccountCenterMyInform.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_high));
+                btnAccountCenterChangePwd.setTextColor(getResources().getColor(R.color.n_edittext_hint));
+                btnAccountCenterChangePwd.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_normal));
                 break;
             case R.id.btnAccountCenterChangePwd:
-                btnAccountCenterMyInform.setTextColor(getContext().getColor(R.color.n_edittext_hint));
-                btnAccountCenterMyInform.setBackground(getContext().getDrawable(R.mipmap.account_center_pwd_normal));
-                btnAccountCenterChangePwd.setTextColor(getContext().getColor(R.color.title_text));
-                btnAccountCenterChangePwd.setBackground(getContext().getDrawable(R.mipmap.account_center_pwd_high));
+                btnAccountCenterMyInform.setTextColor(getResources().getColor(R.color.n_edittext_hint));
+                btnAccountCenterMyInform.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_normal));
+                btnAccountCenterChangePwd.setTextColor(getResources().getColor(R.color.title_text));
+                btnAccountCenterChangePwd.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_high));
                 ManagePwdFragment  managePwdFragment = ManagePwdFragment.newInstance();
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction().replace(R.id.fragementAccountCenterChange, managePwdFragment);
                 ft2.show(managePwdFragment);

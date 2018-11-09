@@ -6,6 +6,7 @@ import com.hgapp.a6668.data.AGCheckAcountResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
@@ -57,6 +58,12 @@ public interface IHomePageApi {
     @POST("lucky_red_envelope_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<ValidResult>> postValidGift(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //维护日志信息
+    @POST("maintenance_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<MaintainResult>> postMaintain(@Field("appRefer") String appRefer);
+
 
 
 }

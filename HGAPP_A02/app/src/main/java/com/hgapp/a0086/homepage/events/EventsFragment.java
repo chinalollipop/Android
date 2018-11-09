@@ -52,6 +52,8 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
     ImageView ivEventRefresh;
     @BindView(R.id.packets_layout)
     RedPacketsLayout packets_layout;
+    @BindView(R.id.downAppGold)
+    RoundRainbowTextView downAppGold;
     @BindView(R.id.roundtv)
     RoundRainbowTextView roundtv;
     @BindView(R.id.ivClickOldestMember)
@@ -100,6 +102,8 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        downAppGold.setText("【新老会员下载APP免费领取彩金"+ACache.get(getContext()).getAsString(HGConstant.DOWNLOAD_APP_GIFT_GOLD)+"元");
+        roundtv.setText("凡在本公司注册会员，累计存款金额"+ACache.get(getContext()).getAsString(HGConstant.DOWNLOAD_APP_GIFT_DEPOSIT)+"元以上，均可领取！");
         animation = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
         eventTitleUserMoney.setText(getArgParam1);
         presenter.postValidGift("","get_valid");
