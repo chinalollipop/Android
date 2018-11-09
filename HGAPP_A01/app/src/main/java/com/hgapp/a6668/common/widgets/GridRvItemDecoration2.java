@@ -87,16 +87,16 @@ public class GridRvItemDecoration2 extends RecyclerView.ItemDecoration{
         int orientation = ((GridLayoutManager)parent.getLayoutManager()).getOrientation();
         int position = parent.getChildLayoutPosition(view);
         if(orientation == OrientationHelper.VERTICAL && (position + 1) % spanCount == 0) {
-            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight()+10);
+            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight()+5);
             return;
         }
 
         if(orientation == OrientationHelper.HORIZONTAL && (position + 1) % spanCount == 0) {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth()+10, 0);
+            outRect.set(0, 0, mDivider.getIntrinsicWidth()+5, 0);
             return;
         }
 
-        outRect.set(0, 0, mDivider.getIntrinsicWidth()+10, mDivider.getIntrinsicHeight()+10);
+        outRect.set(0, 0, mDivider.getIntrinsicWidth()+5, mDivider.getIntrinsicHeight()+5);
     }
 
     /**
@@ -113,9 +113,9 @@ public class GridRvItemDecoration2 extends RecyclerView.ItemDecoration{
         final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                 .getLayoutParams();
         final int top = child.getTop() - params.topMargin;
-        final int bottom = child.getBottom() + params.bottomMargin + mDivider.getIntrinsicHeight()+10;
+        final int bottom = child.getBottom() + params.bottomMargin + mDivider.getIntrinsicHeight()+5;
         final int left = child.getRight() + params.rightMargin;
-        final int right = left + mDivider.getIntrinsicWidth()+10;
+        final int right = left + mDivider.getIntrinsicWidth()+5;
         mDivider.setBounds(left, top, right, bottom);
         mDivider.draw(canvas);
     }
@@ -134,9 +134,9 @@ public class GridRvItemDecoration2 extends RecyclerView.ItemDecoration{
         final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                 .getLayoutParams();
         final int top = child.getBottom() + params.bottomMargin;
-        final int bottom = top + mDivider.getIntrinsicHeight()+10;
+        final int bottom = top + mDivider.getIntrinsicHeight()+5;
         final int left = child.getLeft() - params.leftMargin;
-        final int right = child.getRight() + params.rightMargin + mDivider.getIntrinsicWidth()+10;
+        final int right = child.getRight() + params.rightMargin + mDivider.getIntrinsicWidth()+5;
         mDivider.setBounds(left, top, right, bottom);
         mDivider.draw(canvas);
     }

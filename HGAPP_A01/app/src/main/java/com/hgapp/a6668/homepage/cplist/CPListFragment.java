@@ -51,6 +51,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -133,6 +134,7 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
                     case 1:
                         break;
                     case 2:
+                        EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("","","","")), SupportFragment.SINGLETASK));
                         break;
                     case 3:
                         EventBus.getDefault().post(new StartBrotherEvent(ServiceOnlineFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -149,6 +151,8 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
             public void onTabReselected(int position) {
                 if(position==0){
                     pop();
+                }else if(position==2){
+                    EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("","","","")), SupportFragment.SINGLETASK));
                 }
                 GameLog.log("----------------------------- "+position);
             }
