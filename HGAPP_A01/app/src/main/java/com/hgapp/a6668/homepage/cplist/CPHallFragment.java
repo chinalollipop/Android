@@ -158,20 +158,20 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
         }
         sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
         executorService = Executors.newScheduledThreadPool(14);
-        cpHallIcon0 = 10;
+        cpHallIcon0 = 1100;
         cpHallIcon1 = 90;
         cpHallIcon2 = 90;
-        cpHallIcon3 = 10;
+        cpHallIcon3 = 15;
         cpHallIcon4 = 90;
         cpHallIcon5 = 30;
         cpHallIcon6 = 90;
-        cpHallIcon7 = 50;
+        cpHallIcon7 = 1100;
         cpHallIcon8 = 90;
         cpHallIcon9 = 70;
-        cpHallIcon10 = 90;
+        cpHallIcon10 = 990;
         cpHallIcon11 = 20;
         cpHallIcon12 = 90;
-        cpHallIcon13 = 50;
+        cpHallIcon13 = 55000;
         cpHallIcon14 = 90;
         hallPageGameAdapter = null;
         hallPageGameAdapter = new HallPageGameAdapter(getContext(), R.layout.item_cp_hall, cpGameList);

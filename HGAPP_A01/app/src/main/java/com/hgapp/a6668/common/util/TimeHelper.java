@@ -514,7 +514,8 @@ public class TimeHelper {
         StringBuffer sb = new StringBuffer();
 
         //sb.append(hours).append("时").append(min).append("分").append(sec).append("秒");
-        sb.append(hours>9?hours:"0"+hours).append(" : ").append(min>9?min:"0"+min).append(" : ").append(sec>9?sec:"0"+sec);//.append(" : ")
+        sb.append(hours>9?hours:"0"+hours).append(":").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
+        //sb.append(hours>9?hours:hours>0?hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
 		/*if (days > 0) {
 			sb.append(days).append("天");
 		}

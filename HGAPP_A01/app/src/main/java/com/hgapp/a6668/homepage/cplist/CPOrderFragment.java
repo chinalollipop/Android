@@ -21,6 +21,7 @@ import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.ArrayListHelper;
 import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.util.TimeHelper;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
@@ -52,6 +53,10 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.llCPOrderAll)
     LinearLayout llCPOrderAll;
+    @BindView(R.id.cpOrderLotteryOpen1)
+    RecyclerView cpOrderLotteryOpen1;
+    @BindView(R.id.cpOrderLotteryOpen2)
+    RecyclerView cpOrderLotteryOpen2;
     @BindView(R.id.cpOrderGameList)
     RecyclerView cpList;
     @BindView(R.id.cpOrderListLeft)
@@ -69,13 +74,16 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
     private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
     private static List<LeftEvents> cpLeftEventList = new ArrayList<LeftEvents>();
+    private static List<String> cpLeftEventList2 = new ArrayList<String>();
     @BindView(R.id.main_swipemenu)
     SwipeMenu mainSwipemenu;
     Unbinder unbinder;
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
     AGListContract.Presenter presenter;
     private ScheduledExecutorService executorService;
+    private onWaitingThread onWaitingThread = new onWaitingThread();
     private ScheduledExecutorService executorEndService;
+    private  onWaitingEndThread onWaitingEndThread = new  onWaitingEndThread();
     private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
     private int sendEndTime = HGConstant.ACTION_SEND_LEAGUE_TIME_T;
     private String agMoney, hgMoney;
@@ -103,6 +111,22 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         cpLeftEventList.add(new LeftEvents("两面", "1",false));
         cpLeftEventList.add(new LeftEvents("1-5球", "2",true));
         cpLeftEventList.add(new LeftEvents("前中后", "3",false));
+        cpLeftEventList.add(new LeftEvents("两面", "4",false));
+        cpLeftEventList.add(new LeftEvents("1-5球", "8",true));
+        cpLeftEventList.add(new LeftEvents("前中后", "9",false));
+        cpLeftEventList.add(new LeftEvents("两面", "7",false));
+        cpLeftEventList.add(new LeftEvents("1-5球", "6",true));
+        cpLeftEventList.add(new LeftEvents("前中后", "10",false));
+        cpLeftEventList.add(new LeftEvents("两面", "5",false));
+        cpLeftEventList2.add("3");
+        cpLeftEventList2.add("小");
+        cpLeftEventList2.add("单");
+        cpLeftEventList2.add("虎");
+        cpLeftEventList2.add("龙");
+        cpLeftEventList2.add("虎");
+        cpLeftEventList2.add("虎");
+        cpLeftEventList2.add("龙");
+
     }
 
     public static CPOrderFragment newInstance(List<String> param1) {
@@ -155,7 +179,80 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         cpOrderListRight.setHasFixedSize(true);
         cpOrderListRight.setNestedScrollingEnabled(false);
         cpOrderListRight.setAdapter(new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_list, cpGameList));
+
+
+        LinearLayoutManager cpOrderLotteryOpen11 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        cpOrderLotteryOpen1.setLayoutManager(cpOrderLotteryOpen11);
+        cpOrderLotteryOpen1.setHasFixedSize(true);
+        cpOrderLotteryOpen1.setNestedScrollingEnabled(false);
+        cpOrderLotteryOpen1.setAdapter(new Open1GameAdapter(getContext(), R.layout.item_cp_order_open_1, cpLeftEventList));
+
+        LinearLayoutManager cpOrderLotteryOpen22 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        cpOrderLotteryOpen2.setLayoutManager(cpOrderLotteryOpen22);
+        cpOrderLotteryOpen2.setHasFixedSize(true);
+        cpOrderLotteryOpen2.setNestedScrollingEnabled(false);
+        cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
     }
+    class Open1GameAdapter extends AutoSizeRVAdapter<LeftEvents> {
+        private Context context;
+
+        public Open1GameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, LeftEvents data, final int position) {
+            switch (data.getEventId()){
+                case "1":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_one);
+                    break;
+                case "2":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_two);
+                    break;
+                case "3":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_three);
+                    break;
+                case "4":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_four);
+                    break;
+                case "5":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_five);
+                    break;
+                case "6":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_six);
+                    break;
+                case "7":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_seven);
+                    break;
+                case "8":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_eight);
+                    break;
+                case "9":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_nine);
+                    break;
+                case "10":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_ten);
+                    break;
+            }
+
+        }
+    }
+
+    class Open2GameAdapter extends AutoSizeRVAdapter<String> {
+        private Context context;
+
+        public Open2GameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, String data, final int position) {
+            holder.setText(R.id.itemOrderOpen2,data);
+        }
+    }
+
     class CPOrederListLeftGameAdapter extends AutoSizeRVAdapter<LeftEvents> {
         private Context context;
 
@@ -323,7 +420,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     @Override
                     public void run() {
                         if(rightOpenLotteryTime!=null){
-                            rightOpenLotteryTime.setText(""+ sendAuthTime);
+                            rightOpenLotteryTime.setText(TimeHelper.getTimeString(sendAuthTime));
                             //GameLog.log(getString(R.string.n_register_phone_waiting) + sendAuthTime + "s");
                         }
                     }
@@ -347,7 +444,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     @Override
                     public void run() {
                         if(rightCloseLotteryTime!=null){
-                            rightCloseLotteryTime.setText(""+ sendEndTime);
+                            rightCloseLotteryTime.setText(TimeHelper.getTimeString(sendEndTime));
                             //GameLog.log(getString(R.string.n_register_phone_waiting) + sendAuthTime + "s");
                         }
                     }
@@ -372,7 +469,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         }
         sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
         executorService = Executors.newScheduledThreadPool(1);
-        executorService.scheduleAtFixedRate(new onWaitingThread(), 0, 1000, TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(onWaitingThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
     //计数器，用于倒计时使用
@@ -385,7 +482,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         }
         sendEndTime = HGConstant.ACTION_SEND_LEAGUE_TIME_T;
         executorEndService = Executors.newScheduledThreadPool(1);
-        executorEndService.scheduleAtFixedRate(new onWaitingEndThread(), 0, 1000, TimeUnit.MILLISECONDS);
+        executorEndService.scheduleAtFixedRate(onWaitingEndThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
     @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu})
