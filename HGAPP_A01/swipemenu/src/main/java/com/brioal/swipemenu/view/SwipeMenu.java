@@ -198,7 +198,7 @@ public class SwipeMenu extends ViewGroup {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SwipeMenu);
         mType = array.getInteger(R.styleable.SwipeMenu_sm_type, 1111);
         mDragWipeOffset = (int) array.getDimension(R.styleable.SwipeMenu_sm_dragoffset, SizeUtil.Dp2Px(context, 100));
-        mMenuOffset = (int) array.getDimension(R.styleable.SwipeMenu_sm_menuoffset, SizeUtil.Dp2Px(context, 250));
+        mMenuOffset = (int) array.getDimension(R.styleable.SwipeMenu_sm_menuoffset, SizeUtil.Dp2Px(context, 220));
         mStartScale = array.getFloat(R.styleable.SwipeMenu_sm_startscale, 0.2f);
         mStartAlpha = array.getFloat(R.styleable.SwipeMenu_sm_startalpha, 0.2f);
         mStart3DAngle = array.getInteger(R.styleable.SwipeMenu_sm_start3dangle, 60);

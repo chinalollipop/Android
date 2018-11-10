@@ -6,9 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.brioal.swipemenu.view.SwipeMenu;
@@ -50,8 +52,6 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.llCPOrderAll)
     LinearLayout llCPOrderAll;
-    @BindView(R.id.cpOrderTitleBack)
-    NTitleBar cpTitleBack;
     @BindView(R.id.cpOrderGameList)
     RecyclerView cpList;
     @BindView(R.id.cpOrderListLeft)
@@ -83,21 +83,22 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
     static {
         //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
-        cpGameList.add(new HomePageIcon("北京赛车", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("幸运飞艇", R.mipmap.home_ag));
+        cpGameList.add(new HomePageIcon("系统菜单", R.mipmap.home_hgty));
+        cpGameList.add(new HomePageIcon("返回大厅", R.mipmap.home_hgty));
+        cpGameList.add(new HomePageIcon("北京赛车(PK10)", R.mipmap.home_hgty));
         cpGameList.add(new HomePageIcon("重庆时时彩", R.mipmap.home_vrcp));
         cpGameList.add(new HomePageIcon("极速赛车", R.mipmap.home_qipai));
         cpGameList.add(new HomePageIcon("极速飞艇", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("PC蛋蛋", R.mipmap.home_ag));
         cpGameList.add(new HomePageIcon("分分彩", R.mipmap.home_lhj));
         cpGameList.add(new HomePageIcon("三分彩", R.mipmap.home_lhj));
         cpGameList.add(new HomePageIcon("五分彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("腾讯二分彩", R.mipmap.home_lhj));
+        cpGameList.add(new HomePageIcon("PC蛋蛋", R.mipmap.home_ag));
+        cpGameList.add(new HomePageIcon("江苏鼓宝(快3)", R.mipmap.home_ag));
+        cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.home_ag));
         cpGameList.add(new HomePageIcon("广东快乐十分", R.mipmap.home_vrcp));
-        cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.home_qipai));
-        cpGameList.add(new HomePageIcon("极速时时彩", R.mipmap.home_lhj));
         cpGameList.add(new HomePageIcon("香港六合彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("江苏快三", R.mipmap.home_lhj));
-
+        cpGameList.add(new HomePageIcon("极速快三", R.mipmap.home_lhj));
         cpLeftEventList.add(new LeftEvents("两面", "1",false));
         cpLeftEventList.add(new LeftEvents("1-5球", "2",true));
         cpLeftEventList.add(new LeftEvents("前中后", "3",false));
@@ -129,12 +130,6 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        cpTitleBack.setBackListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pop();
-            }
-        });
         GameLog.log("屏幕的宽度："+cpList.getWidth());
         WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics metrics = new DisplayMetrics();
@@ -142,7 +137,6 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         /*mScreenWidth = metrics.widthPixels;
         mScreenHeight = metrics.heightPixels;*/
         //mainSwipemenu.setMenuOffset(metrics.widthPixels-Integer.parseInt(SizeUtil.Dp2Px(getContext(),50)+""));
-        cpTitleBack.setMoreText(userMoney);
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         cpList.setLayoutManager(gridLayoutManager);
         cpList.setHasFixedSize(true);
@@ -220,10 +214,20 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
         @Override
         protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
+            if(position==0){
+               TextView tv =  holder.getView(R.id.tv_item_game_name);
+                tv.setGravity(Gravity.CENTER);
+            }
             holder.setText(R.id.tv_item_game_name, data.getIconName());
             holder.setOnClickListener(R.id.tv_item_game_name, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(position==0){
+                        return;
+                    }else if(position==1){
+                        pop();
+                        return;
+                    }
                     onCpGameItemClick(position);
                 }
             });

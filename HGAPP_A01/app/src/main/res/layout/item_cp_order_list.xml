@@ -2,6 +2,7 @@
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#4f7ecc"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -12,9 +13,9 @@
         android:layout_margin="10dp"
         android:text="AG真人"
         android:textColor="@color/register_left"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
     <TextView
-        android:background="@color/title_bg_black"
+        android:background="#2f5a9e"
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 </com.zhy.autolayout.AutoLinearLayout>

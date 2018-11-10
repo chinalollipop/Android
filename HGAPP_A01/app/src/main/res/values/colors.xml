@@ -15,6 +15,7 @@
     <!--EditText默认颜色值-->
     <color name="n_edittext_hint">#9B9B9B</color>
     <color name="cp_line">#f7f7f7</color>
+    <color name="cp_hall_line">#DCDCDC</color>
     <!--EditText文字颜色值-->
     <color name="n_edittext_stroke">#979797</color>
     <color name="n_edittext">#606060</color>
