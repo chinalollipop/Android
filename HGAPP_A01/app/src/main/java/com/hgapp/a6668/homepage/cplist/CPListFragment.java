@@ -60,8 +60,6 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
     @BindView(R.id.cpGameList)
     RecyclerView cpList;
     private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();*/
-    @BindView(R.id.tv_com_title_name)
-    TextView tvComTitleName;
     @BindView(R.id.cpTv1)
     TextView cpTv1;
     @BindView(R.id.cpTv2)

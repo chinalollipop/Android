@@ -21,7 +21,12 @@
                 android:background="@mipmap/cp_title"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp">
-
+                <ImageView
+                    android:id="@+id/cpHallBackHome"
+                    android:background="@drawable/cp_home"
+                    android:layout_centerVertical="true"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -29,10 +34,42 @@
                     android:text="游戏大厅"
                     android:textColor="@color/title_text"
                     android:textSize="22sp" />
+                <ImageView
+                    android:id="@+id/cpHallMenu"
+                    android:background="@mipmap/cp_hall_menu"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
 
             </RelativeLayout>
 
-
+            <RelativeLayout
+                android:background="@color/cp_hall_cline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/cpHallUserName"
+                    android:text="daniel"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/cp_hall_tv"
+                    android:drawableLeft="@mipmap/cp_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/cpHallUserMoney"
+                    android:text="12345"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/cp_hall_tv"
+                    android:drawableLeft="@mipmap/cp_user_money"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="86px"
@@ -59,6 +96,7 @@
                     android:textSize="12sp" />
 
             </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cpHallList"
                 android:layout_width="match_parent"

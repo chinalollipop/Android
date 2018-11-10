@@ -5,18 +5,59 @@
     android:id="@+id/llCPOrderAll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
     android:background="@color/login_left"
     android:orientation="vertical">
 
-   <TextView
-       android:id="@+id/rightTitle"
+   <!--<TextView
+
        android:layout_width="100dp"
        android:layout_height="45dp"
        android:gravity="center|left"
        android:textColor="@color/title_text"
        android:text="彩票测试界面"
-       />
+       />-->
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="48dp"
+       android:background="@mipmap/cp_title"
+       android:paddingLeft="8dp"
+       android:paddingRight="8dp">
+      <ImageView
+          android:id="@+id/cpOrderShow"
+          android:background="@mipmap/cp_order_back"
+          android:layout_centerVertical="true"
+          android:layout_width="30dp"
+          android:layout_height="30dp" />
+      <TextView
+          android:id="@+id/cpOrderTitle"
+          android:layout_width="140dp"
+          android:gravity="center"
+          android:layout_height="match_parent"
+          android:layout_centerInParent="true"
+          android:text="游戏大厅"
+          android:textColor="@color/title_text"
+          android:textSize="20sp" />
+      <TextView
+          android:id="@+id/cpOrderUserMoney"
+          android:layout_width="wrap_content"
+          android:gravity="center"
+          android:layout_height="match_parent"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="35dp"
+          android:text="1200000"
+          android:textSize="16sp"
+          android:textColor="@color/title_text"
+          />
+      <ImageView
+          android:id="@+id/cpOrderMenu"
+          android:background="@mipmap/cp_hall_menu"
+          android:layout_centerVertical="true"
+          android:layout_alignParentRight="true"
+          android:layout_width="30dp"
+          android:layout_height="30dp" />
+
+   </RelativeLayout>
+
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content">

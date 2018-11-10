@@ -58,9 +58,10 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     RecyclerView cpOrderListLeft;
     @BindView(R.id.cpOrderListRight)
     RecyclerView cpOrderListRight;
-
-    @BindView(R.id.rightTitle)
-    TextView rightTitle;
+    @BindView(R.id.cpOrderUserMoney)
+    TextView cpOrderUserMoney;
+    @BindView(R.id.cpOrderTitle)
+    TextView cpOrderTitle;
     @BindView(R.id.rightCloseLotteryTime)
     TextView rightCloseLotteryTime;
     @BindView(R.id.rightOpenLotteryTime)
@@ -387,10 +388,11 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         executorEndService.scheduleAtFixedRate(new onWaitingEndThread(), 0, 1000, TimeUnit.MILLISECONDS);
     }
 
-    @OnClick({R.id.rightTitle,R.id.llCPOrderAll})
+    @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu})
     public void onClickedView(View view ){
         switch (view.getId()){
-            case R.id.rightTitle:
+            case R.id.cpOrderTitle:
+            case R.id.cpOrderShow:
                 if (mainSwipemenu.isMenuShowing()) {
                     mainSwipemenu.hideMenu();
                 } else {
@@ -402,12 +404,16 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     mainSwipemenu.hideMenu();
                 }
                 break;
+            case R.id.cpOrderMenu:
+                showMessage("开发中。。。");
+                break;
         }
 
     }
 
     private void onCpGameItemClick(int position) {
-        rightTitle.setText(cpGameList.get(position).getIconName());
+        cpOrderTitle.setText(cpGameList.get(position).getIconName());
+        GameLog.log("你点击了"+cpGameList.get(position).getIconName());
         if (mainSwipemenu.isMenuShowing()) {
             mainSwipemenu.hideMenu();
         } else {

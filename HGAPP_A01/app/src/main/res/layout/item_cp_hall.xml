@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-        <RelativeLayout
+        <LinearLayout
             android:background="@color/title_text"
             android:id="@+id/cpHallItemShow"
             android:layout_width="match_parent"
@@ -18,9 +18,7 @@
                 android:background="@mipmap/cp_ffc"
                 />
             <LinearLayout
-                android:layout_toRightOf="@+id/cpHallItemIcon"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -28,13 +26,14 @@
                 android:id="@+id/cpHallItemName"
                 android:text="北京赛车"
                 android:textSize="18sp"
+                android:textColor="@color/cp_hall_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-                <TextView
-                    android:text="距离截盘"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+            <TextView
+                android:text="距离截盘"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/cpHallItemTime"
                 android:layout_width="wrap_content"
@@ -44,12 +43,12 @@
                 android:textColor="@color/event_line"
                 android:textSize="16sp" />
             </LinearLayout>
-            <TextView
+            <!--<TextView
                 android:background="@color/cp_hall_line"
                 android:layout_alignParentRight="true"
                 android:layout_width="1dp"
-                android:layout_height="90dp" />
-        </RelativeLayout>
+                android:layout_height="90dp" />-->
+        </LinearLayout>
 
     <!--<TextView
         android:layout_below="@+id/cpHallItemShow"
