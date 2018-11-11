@@ -1,9 +1,18 @@
 package com.hgapp.a6668.homepage.cplist;
 
 public class CPOrderContentResult {
+    private String orderId;
     private String orderName;
     private String orderState;
     private boolean isChecked;
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
 
     public String getOrderName() {
         return orderName;
