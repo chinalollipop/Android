@@ -16,7 +16,7 @@
     <TextView
         android:background="@color/cp_hall_cline"
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="1px" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cpOrderContentList1"
         android:layout_width="match_parent"

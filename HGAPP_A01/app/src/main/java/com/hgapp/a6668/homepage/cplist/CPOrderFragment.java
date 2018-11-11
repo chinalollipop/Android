@@ -15,12 +15,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.brioal.swipemenu.view.SwipeMenu;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
+import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.TimeHelper;
@@ -28,7 +32,10 @@ import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
+import com.hgapp.a6668.data.CPBJSCResult2;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.CpBJSCResult;
+import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
@@ -39,6 +46,8 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -87,7 +96,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     private ScheduledExecutorService executorService;
     private onWaitingThread onWaitingThread = new onWaitingThread();
     private ScheduledExecutorService executorEndService;
-    private  onWaitingEndThread onWaitingEndThread = new  onWaitingEndThread();
+    private onWaitingEndThread onWaitingEndThread = new onWaitingEndThread();
     private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
     private int sendEndTime = HGConstant.ACTION_SEND_LEAGUE_TIME_T;
     private String agMoney, hgMoney;
@@ -112,16 +121,16 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         cpGameList.add(new HomePageIcon("广东快乐十分", R.mipmap.home_vrcp));
         cpGameList.add(new HomePageIcon("香港六合彩", R.mipmap.home_lhj));
         cpGameList.add(new HomePageIcon("极速快三", R.mipmap.home_lhj));
-        cpLeftEventList.add(new LeftEvents("两面", "1",false));
-        cpLeftEventList.add(new LeftEvents("1-5球", "2",true));
-        cpLeftEventList.add(new LeftEvents("前中后", "3",false));
-        cpLeftEventList.add(new LeftEvents("两面", "4",false));
-        cpLeftEventList.add(new LeftEvents("1-5球", "8",true));
-        cpLeftEventList.add(new LeftEvents("前中后", "9",false));
-        cpLeftEventList.add(new LeftEvents("两面", "7",false));
-        cpLeftEventList.add(new LeftEvents("1-5球", "6",true));
-        cpLeftEventList.add(new LeftEvents("前中后", "10",false));
-        cpLeftEventList.add(new LeftEvents("两面", "5",false));
+        cpLeftEventList.add(new LeftEvents("两面", "1", false));
+        cpLeftEventList.add(new LeftEvents("1-5球", "2", true));
+        cpLeftEventList.add(new LeftEvents("前中后", "3", false));
+        cpLeftEventList.add(new LeftEvents("两面", "4", false));
+        cpLeftEventList.add(new LeftEvents("1-5球", "8", true));
+        cpLeftEventList.add(new LeftEvents("前中后", "9", false));
+        cpLeftEventList.add(new LeftEvents("两面", "7", false));
+        cpLeftEventList.add(new LeftEvents("1-5球", "6", true));
+        cpLeftEventList.add(new LeftEvents("前中后", "10", false));
+        cpLeftEventList.add(new LeftEvents("两面", "5", false));
         cpLeftEventList2.add("3");
         cpLeftEventList2.add("小");
         cpLeftEventList2.add("单");
@@ -130,14 +139,14 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         cpLeftEventList2.add("虎");
         cpLeftEventList2.add("虎");
         cpLeftEventList2.add("龙");
-        for(int k=0;k<1;++k){
-            for(int l=0;l<11;++l){
+        for (int k = 0; k < 1; ++k) {
+            for (int l = 0; l < 11; ++l) {
                 CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
-                switch (l){
+                switch (l) {
                     case 0:
                         cpOrderContentListResult.setOrderContentListName("冠亚和");
                         List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
-                        for(int j=0;j<4;++j){
+                        for (int j = 0; j < 4; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -171,7 +180,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 1:
                         cpOrderContentListResult.setOrderContentListName("冠军");
                         List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -217,7 +226,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 2:
                         cpOrderContentListResult.setOrderContentListName("亚军");
                         List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -263,7 +272,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 3:
                         cpOrderContentListResult.setOrderContentListName("第三名");
                         List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -309,7 +318,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 4:
                         cpOrderContentListResult.setOrderContentListName("第四名");
                         List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -355,7 +364,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 5:
                         cpOrderContentListResult.setOrderContentListName("第五名");
                         List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -401,7 +410,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 6:
                         cpOrderContentListResult.setOrderContentListName("第六名");
                         List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -435,7 +444,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 7:
                         cpOrderContentListResult.setOrderContentListName("第七名");
                         List<CPOrderContentResult> cpOrderContentResultList7 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -469,7 +478,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 8:
                         cpOrderContentListResult.setOrderContentListName("第八名");
                         List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -503,7 +512,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 9:
                         cpOrderContentListResult.setOrderContentListName("第九名");
                         List<CPOrderContentResult> cpOrderContentResultList9 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -537,7 +546,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                     case 10:
                         cpOrderContentListResult.setOrderContentListName("第⑩名");
                         List<CPOrderContentResult> cpOrderContentResultList10 = new ArrayList<>();
-                        for(int j=0;j<6;++j){
+                        for (int j = 0; j < 6; ++j) {
                             switch (j) {
                                 case 0:
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
@@ -598,12 +607,38 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         return R.layout.fragment_cp_order;
     }
 
+
+    public String getFromAssets(String fileName) {
+        try {
+            InputStreamReader inputReader = new InputStreamReader(getResources().getAssets().open(fileName));
+            BufferedReader bufReader = new BufferedReader(inputReader);
+            String line = "";
+            String Result = "";
+            while ((line = bufReader.readLine()) != null)
+                Result += line;
+            return Result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        GameLog.log("屏幕的宽度："+cpList.getWidth());
-        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+
+        /*String  data = getFromAssets("data.json").replace("-","_");
+        GameLog.log("屏幕的宽度："+data);
+        CpBJSCResult cpBJSCResult = JSON.parseObject(data, CpBJSCResult.class);
+        GameLog.log("屏幕的宽度："+cpBJSCResult.toString());*/
+        String  data = getFromAssets("data_bak.json");
+        //GameLog.log("屏幕的宽度："+data);
+        Gson gson = new Gson();
+        CPBJSCResult2 str = gson.fromJson(data,CPBJSCResult2.class);
+        //CPBJSCResult2 cpBJSCResult = JSON.parseObject(data, CPBJSCResult2.class);
+        GameLog.log("屏幕的宽度："+str.toString());
+        /*WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics metrics = new DisplayMetrics();
-        wm.getDefaultDisplay().getMetrics(metrics);
+        wm.getDefaultDisplay().getMetrics(metrics);*/
         /*mScreenWidth = metrics.widthPixels;
         mScreenHeight = metrics.heightPixels;*/
         //mainSwipemenu.setMenuOffset(metrics.widthPixels-Integer.parseInt(SizeUtil.Dp2Px(getContext(),50)+""));
