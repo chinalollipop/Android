@@ -3,7 +3,9 @@ package com.hgapp.a6668.homepage.cplist;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -22,6 +24,7 @@ import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.ArrayListHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.TimeHelper;
+import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
@@ -75,6 +78,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
     private static List<LeftEvents> cpLeftEventList = new ArrayList<LeftEvents>();
     private static List<String> cpLeftEventList2 = new ArrayList<String>();
+    private static List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
     @BindView(R.id.main_swipemenu)
     SwipeMenu mainSwipemenu;
     Unbinder unbinder;
@@ -126,6 +130,447 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         cpLeftEventList2.add("虎");
         cpLeftEventList2.add("虎");
         cpLeftEventList2.add("龙");
+        for(int k=0;k<1;++k){
+            for(int l=0;l<11;++l){
+                CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                switch (l){
+                    case 0:
+                        cpOrderContentListResult.setOrderContentListName("冠亚和");
+                        List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                        for(int j=0;j<4;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("冠军大");
+                                    cpOrderContentResult0.setOrderState("2.19");
+                                    cpOrderContentResultList.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("冠军小");
+                                    cpOrderContentResult1.setOrderState("1.78");
+                                    cpOrderContentResultList.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("冠军单");
+                                    cpOrderContentResult2.setOrderState("1.78");
+                                    cpOrderContentResultList.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("冠军双");
+                                    cpOrderContentResult3.setOrderState("2.19");
+                                    cpOrderContentResultList.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 1:
+                        cpOrderContentListResult.setOrderContentListName("冠军");
+                        List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList1.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList1.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList1.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList1.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setOrderState("1.968");
+                                    cpOrderContentResultList1.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setOrderState("1.968");
+                                    cpOrderContentResultList1.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList1);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 2:
+                        cpOrderContentListResult.setOrderContentListName("亚军");
+                        List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList2.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList2.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList2.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList2.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setOrderState("1.968");
+                                    cpOrderContentResultList2.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setOrderState("1.968");
+                                    cpOrderContentResultList2.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList2);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 3:
+                        cpOrderContentListResult.setOrderContentListName("第三名");
+                        List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList3.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList3.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList3.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList3.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setOrderState("1.968");
+                                    cpOrderContentResultList3.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setOrderState("1.968");
+                                    cpOrderContentResultList3.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList3);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 4:
+                        cpOrderContentListResult.setOrderContentListName("第四名");
+                        List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList4.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList4.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList4.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList4.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setOrderState("1.968");
+                                    cpOrderContentResultList4.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setOrderState("1.968");
+                                    cpOrderContentResultList4.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList4);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 5:
+                        cpOrderContentListResult.setOrderContentListName("第五名");
+                        List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList5.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList5.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList5.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList5.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setOrderState("1.968");
+                                    cpOrderContentResultList5.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setOrderState("1.968");
+                                    cpOrderContentResultList5.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList5);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 6:
+                        cpOrderContentListResult.setOrderContentListName("第六名");
+                        List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList6.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList6.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList6.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList6.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList6);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 7:
+                        cpOrderContentListResult.setOrderContentListName("第七名");
+                        List<CPOrderContentResult> cpOrderContentResultList7 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList7.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList7.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList7.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList7.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList7);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 8:
+                        cpOrderContentListResult.setOrderContentListName("第八名");
+                        List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList8.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList8.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList8.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList8.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList8);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 9:
+                        cpOrderContentListResult.setOrderContentListName("第九名");
+                        List<CPOrderContentResult> cpOrderContentResultList9 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList9.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList9.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList9.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList9.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList9);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 10:
+                        cpOrderContentListResult.setOrderContentListName("第⑩名");
+                        List<CPOrderContentResult> cpOrderContentResultList10 = new ArrayList<>();
+                        for(int j=0;j<6;++j){
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setOrderState("1.968");
+                                    cpOrderContentResultList10.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setOrderState("1.968");
+                                    cpOrderContentResultList10.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setOrderState("1.968");
+                                    cpOrderContentResultList10.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setOrderState("1.968");
+                                    cpOrderContentResultList10.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList10);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                }
+            }
+        }
 
     }
 
@@ -178,8 +623,7 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         cpOrderListRight.setLayoutManager(linearLayoutManagerRight);
         cpOrderListRight.setHasFixedSize(true);
         cpOrderListRight.setNestedScrollingEnabled(false);
-        cpOrderListRight.setAdapter(new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_list, cpGameList));
-
+        cpOrderListRight.setAdapter(new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_content1, CPOrderContentListResult));
 
         LinearLayoutManager cpOrderLotteryOpen11 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         cpOrderLotteryOpen1.setLayoutManager(cpOrderLotteryOpen11);
@@ -280,9 +724,11 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
     private void onRefreshRight(int position){
         showMessage("刷新后边的数据");
+
+
     }
 
-    class CPOrederListRightGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
+    class CPOrederListRightGameAdapter extends AutoSizeRVAdapter<CPOrderContentListResult> {
         private Context context;
 
         public CPOrederListRightGameAdapter(Context context, int layoutId, List datas) {
@@ -291,12 +737,49 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         }
 
         @Override
-        protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
-            holder.setText(R.id.tv_item_game_name, data.getIconName());
-            holder.setOnClickListener(R.id.tv_item_game_name, new View.OnClickListener() {
+        protected void convert(ViewHolder holder, CPOrderContentListResult data, final int position) {
+            holder.setText(R.id.cpOrderContentName1, data.getOrderContentListName());
+            GridLayoutManager gridLayoutManager = null;
+            if(position==1||position==2||position==3||position==4||position==5){
+                gridLayoutManager= new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
+            }else{
+                gridLayoutManager= new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
+            }
+            RecyclerView recyclerView = holder.getView(R.id.cpOrderContentList1);
+            recyclerView.setLayoutManager(gridLayoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setNestedScrollingEnabled(false);
+           // recyclerView.addItemDecoration(new GridRvItemDecoration(getContext()));
+            recyclerView.setAdapter(new CPOrederContentGameAdapter(getContext(), R.layout.item_cp_order_content2, CPOrderContentListResult.get(position).getData()));
+        }
+    }
+
+    class CPOrederContentGameAdapter extends AutoSizeRVAdapter<CPOrderContentResult> {
+        private Context context;
+
+        public CPOrederContentGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder,final CPOrderContentResult data, final int position) {
+            holder.setText(R.id.cpOrderContentName2, data.getOrderName());
+            holder.setText(R.id.cpOrderContentState, data.getOrderState());
+            if(data.isChecked()){
+                holder.setBackgroundRes(R.id.cpOrderContentItem,R.color.cp_order_tv_clicked);
+            }else{
+                holder.setBackgroundRes(R.id.cpOrderContentItem,R.color.title_text);
+            }
+            holder.setOnClickListener(R.id.cpOrderContentItem, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //onCpGameItemClick(position);
+                    if(!data.isChecked()){
+                        data.setChecked(true);
+                    }else{
+                        data.setChecked(false);
+                    }
+                    notifyDataSetChanged();
                 }
             });
         }
