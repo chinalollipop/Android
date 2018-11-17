@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 
@@ -67,6 +68,8 @@ public class XPlayGameActivity extends Activity {
     private String mParam1;
     private String mParam2;
 
+    private int gameFull = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +124,24 @@ public class XPlayGameActivity extends Activity {
         String uuid = getIntent().getStringExtra("uuid");
         String gameCnName = getIntent().getStringExtra("gameCnName");
         boolean hidetitlebar = getIntent().getBooleanExtra("hidetitlebar",false);
+        payGameTitle.setTitle(gameCnName);
+        payGameTitle.setMoreImage(null);
+        payGameTitle.setMoreListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GameLog.log("设置全屏。。。。");
+                if(gameFull==0){
+                    gameFull = 1;
+                    payGameTitle.setMoreText("正常");
+                    payGameTitle.setVisibility(View.GONE);
+                    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }else{
+                    gameFull = 0;
+                    payGameTitle.setMoreText("全屏");
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }
+            }
+        });
         if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
             GameLog.log("SDK_INT upper ORIENTATION_LANDSCAPE");
             payGameTitle.setVisibility(View.GONE);

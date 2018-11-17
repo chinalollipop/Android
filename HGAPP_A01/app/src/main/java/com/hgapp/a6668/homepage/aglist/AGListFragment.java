@@ -15,6 +15,7 @@ import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
+import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.http.Client;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
@@ -26,6 +27,7 @@ import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
+import com.hgapp.a6668.homepage.UserMoneyEvent;
 import com.hgapp.a6668.homepage.aglist.agchange.AGPlatformDialog;
 import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
 import com.hgapp.common.util.Check;
@@ -183,7 +185,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         if("live".equals(fshowtype)){
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2, OrientationHelper.VERTICAL,false);
             agLiveList.setLayoutManager(gridLayoutManager);
-            agLiveList.setAdapter(new AGGameAdapter(getContext(),R.layout.item_ag_live,agLiveResult));
+            agLiveList.setAdapter(new AGLiveAdapter(getContext(),R.layout.item_ag_live,agLiveResult));
         }else{
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
             agLiveList.setLayoutManager(gridLayoutManager);
@@ -206,7 +208,43 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         AGPlatformDialog.newInstance(agMoney,hgMoney).show(getFragmentManager());
     }
 
-    class AGGameAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<AGLiveResult> {
+    class AGLiveAdapter extends AutoSizeRVAdapter<AGLiveResult> {
+        private Context context;
+        public AGLiveAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            this.context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, final AGLiveResult data, final int position) {
+            //holder.setText(R.id.tv_item_game_name,data.getName());
+            RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
+            roundCornerImageView.onCornerAll(roundCornerImageView);
+            switch (position){
+                case 0:
+                    roundCornerImageView.setBackgroundResource(R.drawable.game_one);
+                    break;
+                case 1:
+                    roundCornerImageView.setBackgroundResource(R.drawable.game_four);
+                    break;
+                case 2:
+                    roundCornerImageView.setBackgroundResource(R.drawable.game_two);
+                    break;
+                case 3:
+                    roundCornerImageView.setBackgroundResource(R.drawable.game_three);
+                    break;
+            }
+            holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dzTitileName = data.getName();
+                    presenter.postGoPlayGame("",data.getGameid());
+                }
+            });
+        }
+    }
+
+    class AGGameAdapter extends AutoSizeRVAdapter<AGLiveResult> {
         private Context context;
         public AGGameAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
@@ -238,6 +276,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         GameLog.log("通过发送消息得的的数据"+personBalanceResult.getBalance_ag());
         agMoney = personBalanceResult.getBalance_ag();
         hgMoney = personBalanceResult.getBalance_hg();
+        EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(hgMoney)));
         agUserMoney.setText(titleName+GameShipHelper.formatMoney(personBalanceResult.getBalance_ag()));
     }
 

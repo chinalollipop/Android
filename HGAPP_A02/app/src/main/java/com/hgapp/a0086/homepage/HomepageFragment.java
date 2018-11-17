@@ -107,7 +107,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty));
         homeGameList.add(new HomePageIcon("真人视讯",R.mipmap.home_ag));
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp));
-        homeGameList.add(new HomePageIcon("棋牌游戏",R.mipmap.home_qipai));
+        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai));
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
@@ -118,8 +119,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 //        homeGameList.add(new HomePageIcon("抢红包",R.mipmap.home_red));
         homeGameList.add(new HomePageIcon("优惠活动",R.mipmap.home_pro));
         homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent));
-        homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact));
         homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red));
+        homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact));
         homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new));
         homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind));
 //        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
@@ -252,6 +253,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                  break;
             case 3:
                 userState = "3";
+                String hg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_MAINTAIN);
+                if("1".equals(hg_url)){
+                    presenter.postMaintain();
+                }else {
+                    postHGQiPaiGo();
+                }
+                break;
+            case 4:
+                userState = "4";
                 String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
                 if("1".equals(qp_url)){
                     presenter.postMaintain();
@@ -259,8 +269,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     postQiPaiGo();
                 }
                 break;
-            case 4:
-                userState = "4";
+            case 5:
+                userState = "5";
                 String game_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
                 if("1".equals(game_url)){
                     presenter.postMaintain();
@@ -268,19 +278,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
                 }
                 break;
-            case 5:
+            case 6:
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getDiscount_activity())));
                 EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+pro)));
                 break;
-            case 6:
+            case 7:
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getNewcomer_guide())));
                 EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"agents_reg.php?tip=app")));
-                break;
-            case 7:
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getBusiness_agent())));
-                EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(userMoney,
-                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
-                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                 break;
             case 8:
                 if(Check.isEmpty(userName)){
@@ -290,13 +294,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 postValidGiftGo();
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-
                 break;
             case 9:
+                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getBusiness_agent())));
+                EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(userMoney,
+                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
+                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
+                break;
+            case 10:
                 EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
                 //presenter.postNoticeList("");
                 break;
-            case 10:
+            case 11:
                 presenter.postNoticeList("");
                 break;
         }
@@ -467,7 +476,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     public void postQipaiResult(QipaiResult qipaiResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, qipaiResult.getUrl())));
         ACache.get(getContext()).put(HGConstant.USERNAME_QIPAI_URL,qipaiResult.getUrl());
-        GameLog.log("=============棋牌的地址=============");
+        GameLog.log("=============开元棋牌的地址=============");
+    }
+
+    @Override
+    public void postHGQipaiResult(QipaiResult qipaiResult) {
+        //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, qipaiResult.getUrl())));
+        ACache.get(getContext()).put(HGConstant.USERNAME_HG_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============皇冠棋牌的地址=============");
     }
 
     @Override
@@ -506,7 +522,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     ACache.get(getContext()).put(HGConstant.USERNAME_VIDEO_MAINTAIN,maintainResult1.getState());
                     break;
                 case "game":
-                    if(userState.equals("4")){
+                    if(userState.equals("5")){
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("game "+maintainResult1.getState());
@@ -519,8 +535,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     GameLog.log("lottery "+maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_LOTTERY_MAINTAIN,maintainResult1.getState());
                     break;
-                case "ky":
+                case "hgqp":
                     if(userState.equals("3")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("hg "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_HG_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "ky":
+                    if(userState.equals("4")){
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("ky "+maintainResult1.getState());
@@ -552,7 +575,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","棋牌游戏");
+            intent.putExtra("gameCnName","开元棋牌");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+
+    }
+
+    private void postHGQiPaiGo(){
+        String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_QIPAI_URL);
+        if(Check.isEmpty(qipai_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postHGQipai("","");
+        }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
+            showMessage("正在加载中，请稍后再试!");
+        }*/else {
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",qipai_url);
+            intent.putExtra("gameCnName","皇冠棋牌");
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -639,6 +679,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postMaintain();
         presenter.postCP();
         presenter.postQipai("","");
+        presenter.postHGQipai("","");
         presenter.postValidGift("","get_valid");
     }
 

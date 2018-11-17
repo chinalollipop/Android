@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+<android.support.v4.widget.DrawerLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/title_text"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <com.brioal.swipemenu.view.SwipeMenu
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main_swipemenu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.brioal.swipemenudemo.MainActivity">
+    <!--<com.brioal.swipemenu.view.SwipeMenu
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_swipemenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.brioal.swipemenudemo.MainActivity">
 
-        <include layout="@layout/left_menu"/>
+            <include layout="@layout/left_menu" />
 
-        <include layout="@layout/right_content"/>
+            <include layout="@layout/right_content"/>
 
-    </com.brioal.swipemenu.view.SwipeMenu>
+        </com.brioal.swipemenu.view.SwipeMenu>-->
+    <include layout="@layout/right_content" />
 
+    <include layout="@layout/left_menu" />
+</android.support.v4.widget.DrawerLayout>
 </LinearLayout>

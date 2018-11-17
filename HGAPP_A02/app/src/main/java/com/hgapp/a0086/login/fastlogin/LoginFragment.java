@@ -68,6 +68,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     ImageView etLoginEyes;
     @BindView(R.id.cbLoginRemeber)
     CheckBox cbLoginRemeber;
+    @BindView(R.id.loginRemeberPwd)
+    CheckBox loginRemeberPwd;
     @BindView(R.id.btnLoginSubmit)
     Button btnLoginSubmit;
     @BindView(R.id.tvLoginForgetPwd)
@@ -97,8 +99,15 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     public void setEvents(@Nullable Bundle savedInstanceState) {
         BottombarViewManager.getSingleton().onCloseView();
         String userName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT);
+        String pwd = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_PWD);
         if(!Check.isEmpty(userName)){
             etLoginType.setText(userName);
+        }
+        if(!Check.isEmpty(pwd)){
+            loginRemeberPwd.setChecked(true);
+            etLoginPwd.setText(pwd);
+        }else{
+            loginRemeberPwd.setChecked(false);
         }
         //etLoginPwd.setText("123qwe");
         tvLoginBack.setBackListener(new View.OnClickListener() {
@@ -142,6 +151,11 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         showMessage("登录成功");
         //String userName, String agents, String loginTime, String birthday, String money, String phone, String test_flag, String oid, String alias) {
         EventBus.getDefault().post(new LoginResult(loginResult.getUserName(),loginResult.getAgents(),loginResult.getLoginTime(),loginResult.getBirthday(),loginResult.getMoney(),loginResult.getPhone(),loginResult.getTest_flag(),loginResult.getOid(),loginResult.getAlias(),loginResult.getUserid()));
+        if(loginRemeberPwd.isChecked()){
+            ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_PWD, etLoginPwd.getText().toString());
+        }else{
+            ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_PWD, "");
+        }
         pop();
         GameLog.log("用户登录成功：别名是 "+loginResult.getAlias());
         //正对每一个用户做数据缓存

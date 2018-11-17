@@ -46,7 +46,8 @@
     <color name="login_title_normal">#2A8FBD</color>
     <color name="color_bg_dialog">#e0000000</color>
     <color name="color_translucent">#e0000000</color>
-
+    <!--登录页的字体颜色值-->
+    <color name="login_tv">#146dcd</color>
     <!--pop-->
     <color name="pop_ll_hight">#31B4EF</color>
     <color name="pop_ll_normal">#F0F0F0</color>

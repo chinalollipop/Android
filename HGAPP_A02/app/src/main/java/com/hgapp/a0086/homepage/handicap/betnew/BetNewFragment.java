@@ -481,7 +481,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
     @OnClick({R.id.ivBetNewBack, R.id.ivBetNewMenu, R.id.ivBetNewUserRefresh,
             R.id.tvBetNewBowls,R.id.tvBetNewToday,R.id.tvBetNewMorning,
-            R.id.tvBetNewFootball, R.id.tvBetNewBasketball,R.id.tvBetNewSaiGuo, R.id.tvBetNewTennis, R.id.tvBetNewBaseball, R.id.tvBetNewVideoGame, R.id.tvBetNewSlotsGame, R.id.tvBetNewLottery,R.id.tvBetNewQipai})
+            R.id.tvBetNewFootball, R.id.tvBetNewBasketball,R.id.tvBetNewSaiGuo, R.id.tvBetNewTennis, R.id.tvBetNewBaseball, R.id.tvBetNewVideoGame, R.id.tvBetNewSlotsGame, R.id.tvBetNewLottery,R.id.tvBetNewQipai,R.id.tvBetNewHgQipai})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvBetNewBowls:
@@ -591,8 +591,11 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
             case R.id.tvBetNewQipai:
                 //onHideDeatail();
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(getArgParam2, Client.baseUrl()+"ky/ky_api.php?action=cm")));
-                presenter.postQipai("","");
+                postQiPaiGo();
                 //finish();
+                break;
+            case R.id.tvBetNewHgQipai:
+                postHGQiPaiGo();
                 break;
         }
     }
@@ -741,13 +744,47 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
     @Override
     public void postQipaiResult(QipaiResult qipaiResult) {
         GameLog.log("棋牌："+qipaiResult.getMessage());
-        //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(getArgParam2, qipaiResult.getUrl())));
-        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
-        intent.putExtra("url",qipaiResult.getUrl());
-        intent.putExtra("gameCnName","棋牌游戏");
-        intent.putExtra("hidetitlebar",false);
-        getActivity().startActivity(intent);
-        //pop();
+        ACache.get(getContext()).put(HGConstant.USERNAME_QIPAI_URL,qipaiResult.getUrl());
+    }
+
+    @Override
+    public void postHgQipaiResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_HG_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============皇冠棋牌的地址=============");
+    }
+
+    private void postQiPaiGo(){
+        String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_QIPAI_URL);
+        if(Check.isEmpty(qipai_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postQipai("","");
+        }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
+            showMessage("正在加载中，请稍后再试!");
+        }*/else {
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",qipai_url);
+            intent.putExtra("gameCnName","棋牌游戏");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+
+    }
+
+    private void postHGQiPaiGo(){
+        String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_QIPAI_URL);
+        if(Check.isEmpty(qipai_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postHgQipai("","");
+        }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
+            showMessage("正在加载中，请稍后再试!");
+        }*/else {
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",qipai_url);
+            intent.putExtra("gameCnName","棋牌游戏");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+
     }
 
     @Override

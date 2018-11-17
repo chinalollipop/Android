@@ -23,7 +23,11 @@ public class AliQCPayPresenter implements AliQCPayContract.Presenter {
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
-                        view.showMessage(response.getDescribe());
+                        if(response.isSuccess()){
+                            view.postDepositAliPayQCPaySubimtResult(response.getDescribe());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
                     }
 
                     @Override

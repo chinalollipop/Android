@@ -4,13 +4,19 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.solver.GoalRow;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -24,6 +30,7 @@ import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
+import com.hgapp.a6668.common.adapters.AutoSizeAdapter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
@@ -36,11 +43,16 @@ import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CPBJSCResult2;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.CpBJSCResult;
+import com.hgapp.a6668.data.DepositListResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
+import com.hgapp.a6668.homepage.handicap.leaguedetail.LeagueDetailSearchEvent;
+import com.hgapp.a6668.homepage.handicap.leaguedetail.LeagueDetailSearchListFragment;
+import com.hgapp.a6668.personpage.realname.RealNameFragment;
+import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -64,18 +76,24 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer_layout;
     @BindView(R.id.llCPOrderAll)
     LinearLayout llCPOrderAll;
     @BindView(R.id.cpOrderLotteryOpen1)
     RecyclerView cpOrderLotteryOpen1;
     @BindView(R.id.cpOrderLotteryOpen2)
     RecyclerView cpOrderLotteryOpen2;
-    @BindView(R.id.cpOrderGameList)
-    RecyclerView cpList;
+    /*@BindView(R.id.cpOrderGameList)
+    RecyclerView cpList;*/
     @BindView(R.id.cpOrderListLeft)
     RecyclerView cpOrderListLeft;
+    @BindView(R.id.cpOrderListViewtLeft)
+    ListView cpOrderListViewtLeft;
     @BindView(R.id.cpOrderListRight)
     RecyclerView cpOrderListRight;
+    @BindView(R.id.cpOrderListViewRight)
+    ListView cpOrderListViewRight;
     @BindView(R.id.cpOrderUserMoney)
     TextView cpOrderUserMoney;
     @BindView(R.id.cpOrderTitle)
@@ -89,10 +107,13 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     private static List<LeftEvents> cpLeftEventList = new ArrayList<LeftEvents>();
     private static List<String> cpLeftEventList2 = new ArrayList<String>();
     private static List<CPOrderAllResult> allResultList = new ArrayList<CPOrderAllResult>();
+    List<CPOrderContentListResult> data  = new ArrayList<>();
+    private int postionAll;
     private CPOrederListRightGameAdapter cpOrederListRightGameAdapter;
     private CPOrederContentGameAdapter cpOrederContentGameAdapter;
-    @BindView(R.id.main_swipemenu)
-    SwipeMenu mainSwipemenu;
+    MyAdapter myAdapter;/*
+    *//*@BindView(R.id.main_swipemenu)
+    SwipeMenu mainSwipemenu;*/
     Unbinder unbinder;
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
     AGListContract.Presenter presenter;
@@ -836,6 +857,11 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
 
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                getActivity(), drawer_layout, R.string.account, R.string.password);
+        drawer_layout.addDrawerListener(toggle);
+        toggle.syncState();
+
         /*String  data = getFromAssets("data.json").replace("-","_");
         GameLog.log("屏幕的宽度："+data);
         CpBJSCResult cpBJSCResult = JSON.parseObject(data, CpBJSCResult.class);
@@ -853,22 +879,20 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         /*mScreenWidth = metrics.widthPixels;
         mScreenHeight = metrics.heightPixels;*/
         //mainSwipemenu.setMenuOffset(metrics.widthPixels-Integer.parseInt(SizeUtil.Dp2Px(getContext(),50)+""));
-        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
+      /*  LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         cpList.setLayoutManager(gridLayoutManager);
         cpList.setHasFixedSize(true);
         cpList.setNestedScrollingEnabled(false);
         cpList.setAdapter(new CPOrederGameAdapter(getContext(), R.layout.item_cp_order_list, cpGameList));
-
+*/
         LinearLayoutManager linearLayoutManagerLeft = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         cpOrderListLeft.setLayoutManager(linearLayoutManagerLeft);
         cpOrderListLeft.setHasFixedSize(true);
         cpOrderListLeft.setNestedScrollingEnabled(false);
         cpOrderListLeft.setAdapter(new CPOrederListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
-        LinearLayoutManager linearLayoutManagerRight = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
-        cpOrderListRight.setLayoutManager(linearLayoutManagerRight);
-        cpOrderListRight.setHasFixedSize(true);
-        cpOrderListRight.setNestedScrollingEnabled(false);
-        showContentView(1);
+        cpOrderListViewtLeft.setAdapter(new CPOrederListViewLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
+
+        showContentView(0);
 
         LinearLayoutManager cpOrderLotteryOpen11 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         cpOrderLotteryOpen1.setLayoutManager(cpOrderLotteryOpen11);
@@ -942,6 +966,27 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         }
     }
 
+
+    class CPOrederListViewLeftGameAdapter extends AutoSizeAdapter<CPOrderAllResult> {
+        private Context context;
+
+        public CPOrederListViewLeftGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(com.zhy.adapter.abslistview.ViewHolder holder, CPOrderAllResult data, final int position) {
+            holder.setText(R.id.itemOrderLeftListTV, data.getOrderAllName());
+            holder.setOnClickListener(R.id.itemOrderLeftListTV, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onRefreshRight(position);
+                }
+            });
+        }
+    }
+
     class CPOrederListLeftGameAdapter extends AutoSizeRVAdapter<CPOrderAllResult> {
         private Context context;
 
@@ -973,12 +1018,82 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         allResultList.clear();
     }
 
+
+    public class DepositListAdapter extends AutoSizeAdapter<CPOrderContentListResult> {
+        private Context context;
+
+        public DepositListAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            this.context = context;
+        }
+
+        @Override
+        protected void convert(com.zhy.adapter.abslistview.ViewHolder holder, final CPOrderContentListResult data, final int position) {
+            holder.setText(R.id.cpOrderContentName1, data.getOrderContentListName());
+            GridLayoutManager gridLayoutManager = null;
+            if(position==1||position==2||position==3||position==4||position==5){
+                gridLayoutManager= new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
+            }else{
+                gridLayoutManager= new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
+            }
+            RecyclerView recyclerView = holder.getView(R.id.cpOrderContentList1);
+            recyclerView.setLayoutManager(gridLayoutManager);
+            /*recyclerView.setHasFixedSize(true);
+            recyclerView.setNestedScrollingEnabled(true);*/
+
+            // recyclerView.addItemDecoration(new GridRvItemDecoration(getContext()));
+            cpOrederContentGameAdapter = null;
+            cpOrederContentGameAdapter = new CPOrederContentGameAdapter(getContext(), R.layout.item_cp_order_content2, data.getData());
+            recyclerView.setAdapter(cpOrederContentGameAdapter);
+        }
+    }
+
+
+    //让球& 大小
+    private void  showSearchDetailFragmnet(int postion ){
+            CPOrderContentFragment leagueDetailSearchListFragment = CPOrderContentFragment.newInstance(Arrays.asList(postion+"","2","3"));
+            FragmentTransaction ft = getFragmentManager().beginTransaction().replace(R.id.flayoutContentOrder, leagueDetailSearchListFragment);
+            ft.show(leagueDetailSearchListFragment);
+            ft.commit();
+    }
+
+
     private void showContentView(int postion){
+        postionAll = postion;
+        //showSearchDetailFragmnet(postion);
+        //cpOrderListViewRight.setAdapter(new DepositListAdapter(getContext(), R.layout.item_cp_order_content1, allResultList.get(postionAll).getData()));
 
-        /*cpOrederListRightGameAdapter  = null;
-        cpOrederListRightGameAdapter = new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_content1, allResultList.get(postion).getData());*/
-        cpOrderListRight.setAdapter(new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_content1, allResultList.get(postion).getData()));
 
+        LinearLayoutManager linearLayoutManagerRight = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
+        cpOrderListRight.setLayoutManager(linearLayoutManagerRight);
+        cpOrderListRight.setHasFixedSize(true);
+        cpOrderListRight.setNestedScrollingEnabled(false);
+        //cpOrederListRightGameAdapter = new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_content1, allResultList.get(postion).getData());
+//        data.clear();
+//        data.addAll(allResultList.get(postion).getData());
+        cpOrederListRightGameAdapter = new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_content1, allResultList.get(postionAll).getData());
+        cpOrderListRight.setAdapter(cpOrederListRightGameAdapter);
+        cpOrderListRight.scrollToPosition(0);
+        cpOrederListRightGameAdapter.notifyDataSetChanged();
+
+
+
+        /*cpOrderUserMoney.post(new Runnable() {
+            @Override
+            public void run() {
+                *//*myAdapter = new MyAdapter(data);
+                cpOrderListRight.setAdapter(myAdapter);*//*
+                cpOrederListRightGameAdapter = new CPOrederListRightGameAdapter(getContext(), R.layout.item_cp_order_content1, allResultList.get(postionAll).getData());
+                cpOrderListRight.setAdapter(cpOrederListRightGameAdapter);
+                //cpOrderListRight.setLayoutManager(new LinearLayoutManager(getActivity()));
+                //myAdapter.notifyDataSetChanged();
+                cpOrderListRight.scrollToPosition(0);
+                cpOrederListRightGameAdapter.notifyDataSetChanged();
+            }
+        });*/
+
+        //cpOrederListRightGameAdapter.setDataChange(allResultList.get(postion).getData());
+        //cpOrederListRightGameAdapter.notifyDataSetChanged();
     }
 
 
@@ -987,12 +1102,62 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         showContentView(position);
     }
 
+    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+        List<CPOrderContentListResult>  datas;
+        public MyAdapter(List<CPOrderContentListResult>  datas) {
+            this.datas = datas;
+        }
+        //创建新View，被LayoutManager所调用
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cp_order_content1,viewGroup,false);
+            ViewHolder vh = new ViewHolder(view);
+            return vh;
+        }
+        //将数据与界面进行绑定的操作
+        @Override
+        public void onBindViewHolder(ViewHolder viewHolder, int position) {
+            viewHolder.mTextView.setText(datas.get(position).getOrderContentListName());
+            GridLayoutManager gridLayoutManager = null;
+            if(position==1||position==2||position==3||position==4||position==5){
+                gridLayoutManager= new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
+            }else{
+                gridLayoutManager= new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
+            }
+            viewHolder.recyclerView.setLayoutManager(gridLayoutManager);
+            cpOrederContentGameAdapter = null;
+            cpOrederContentGameAdapter = new CPOrederContentGameAdapter(getContext(), R.layout.item_cp_order_content2, datas.get(position).getData());
+            viewHolder.recyclerView.setAdapter(cpOrederContentGameAdapter);
+        }
+        //获取数据的数量
+        @Override
+        public int getItemCount() {
+            return datas.size();
+        }
+        //自定义的ViewHolder，持有每个Item的的所有界面元素
+        public  class ViewHolder extends RecyclerView.ViewHolder {
+            public TextView mTextView;
+            public RecyclerView recyclerView;
+            public ViewHolder(View view){
+                super(view);
+                mTextView = (TextView) view.findViewById(R.id.cpOrderContentName1);
+                recyclerView =  (RecyclerView) view.findViewById(R.id.cpOrderContentList1);
+            }
+        }
+    }
+
+
     class CPOrederListRightGameAdapter extends AutoSizeRVAdapter<CPOrderContentListResult> {
         private Context context;
-
+        private List<CPOrderContentListResult>  datas;
         public CPOrederListRightGameAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
             context = context;
+        }
+
+        public void setDataChange(List<CPOrderContentListResult>  datas){
+            this.datas = datas;
+            notifyDataSetChanged();
         }
 
         @Override
@@ -1006,8 +1171,9 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
             }
             RecyclerView recyclerView = holder.getView(R.id.cpOrderContentList1);
             recyclerView.setLayoutManager(gridLayoutManager);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setNestedScrollingEnabled(false);
+            /*recyclerView.setHasFixedSize(true);
+            recyclerView.setNestedScrollingEnabled(true);*/
+
            // recyclerView.addItemDecoration(new GridRvItemDecoration(getContext()));
             cpOrederContentGameAdapter = null;
             cpOrederContentGameAdapter = new CPOrederContentGameAdapter(getContext(), R.layout.item_cp_order_content2, data.getData());
@@ -1017,7 +1183,13 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
 
     class CPOrederContentGameAdapter extends AutoSizeRVAdapter<CPOrderContentResult> {
         private Context context;
+        private int postions;
 
+        public CPOrederContentGameAdapter(Context context, int layoutId, List datas,int postion) {
+            super(context, layoutId, datas);
+            context = context;
+            this.postions = postion;
+        }
         public CPOrederContentGameAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
             context = context;
@@ -1036,11 +1208,14 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
                 @Override
                 public void onClick(View view) {
                     if(!data.isChecked()){
+                        //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
                         data.setChecked(true);
                     }else{
+                        //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(false);
                         data.setChecked(false);
                     }
                     GameLog.log("下注的id是："+data.getOrderId());
+                    //myAdapter.notifyDataSetChanged();
                     cpOrederContentGameAdapter.notifyDataSetChanged();
                     /*cpOrederListRightGameAdapter.notifyDataSetChanged();
                     cpOrderListRight.scrollTo(10,0);*/
@@ -1145,9 +1320,11 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     }
 
     public void onBackPressed() {
-        if (mainSwipemenu.isMenuShowing()) {
+       /* if (mainSwipemenu.isMenuShowing()) {
             mainSwipemenu.hideMenu();
-        }
+        }*/
+
+        drawer_layout.closeDrawer(GravityCompat.START);
     }
 
     //等待时长
@@ -1237,15 +1414,22 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
         switch (view.getId()){
             case R.id.cpOrderTitle:
             case R.id.cpOrderShow:
-                if (mainSwipemenu.isMenuShowing()) {
+                /*if (mainSwipemenu.isMenuShowing()) {
                     mainSwipemenu.hideMenu();
                 } else {
                     mainSwipemenu.showMenu();
-                }
+                }*/
+                /*if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+                    drawer_layout.closeDrawer(GravityCompat.START);
+                }*/
+                //drawer_layout.openDrawer(cpOrderListLeft);
                 break;
             case R.id.llCPOrderAll:
-                if (mainSwipemenu.isMenuShowing()) {
+               /* if (mainSwipemenu.isMenuShowing()) {
                     mainSwipemenu.hideMenu();
+                }*/
+                if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+                    drawer_layout.closeDrawer(GravityCompat.START);
                 }
                 break;
             case R.id.cpOrderMenu:
@@ -1258,11 +1442,12 @@ public class CPOrderFragment extends HGBaseFragment implements AGListContract.Vi
     private void onCpGameItemClick(int position) {
         cpOrderTitle.setText(cpGameList.get(position).getIconName());
         GameLog.log("你点击了"+cpGameList.get(position).getIconName());
-        if (mainSwipemenu.isMenuShowing()) {
+        /*if (mainSwipemenu.isMenuShowing()) {
             mainSwipemenu.hideMenu();
         } else {
             mainSwipemenu.showMenu();
-        }
+        }*/
+        drawer_layout.closeDrawer(GravityCompat.START);
         onSartTime();
     }
 }

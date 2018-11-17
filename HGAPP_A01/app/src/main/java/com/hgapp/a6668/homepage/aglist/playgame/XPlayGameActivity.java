@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 
@@ -62,6 +63,8 @@ public class XPlayGameActivity extends Activity {
     FrameLayout flayoutXpay;
     @BindView(R.id.wv_pay_x5_game)
     WebView wvPayGame;
+
+    private int gameFull = 0;
     // TODO: Rename and change types of parameters
     //接收webview的参数传参
     private String mParam1;
@@ -121,6 +124,24 @@ public class XPlayGameActivity extends Activity {
         String uuid = getIntent().getStringExtra("uuid");
         String gameCnName = getIntent().getStringExtra("gameCnName");
         boolean hidetitlebar = getIntent().getBooleanExtra("hidetitlebar",false);
+        payGameTitle.setTitle(gameCnName);
+        payGameTitle.setMoreImage(null);
+        payGameTitle.setMoreListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GameLog.log("设置全屏。。。。");
+                if(gameFull==0){
+                    gameFull = 1;
+                    payGameTitle.setMoreText("正常");
+                    payGameTitle.setVisibility(View.GONE);
+                    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }else{
+                    gameFull = 0;
+                    payGameTitle.setMoreText("全屏");
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }
+            }
+        });
         if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
             GameLog.log("SDK_INT upper ORIENTATION_LANDSCAPE");
             payGameTitle.setVisibility(View.GONE);

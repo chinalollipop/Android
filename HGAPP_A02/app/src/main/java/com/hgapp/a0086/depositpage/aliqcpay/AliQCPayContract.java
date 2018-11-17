@@ -13,7 +13,7 @@ public interface AliQCPayContract {
     }
     public interface View extends IView<Presenter>,IMessageView,IProgressView
     {
-
+        public void postDepositAliPayQCPaySubimtResult(String  message);
     }
 
 }

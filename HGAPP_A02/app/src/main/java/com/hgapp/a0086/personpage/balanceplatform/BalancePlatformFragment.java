@@ -85,7 +85,19 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
+        balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
+        LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        lvBalancePlatform.setLayoutManager(mLayoutManager1);
+        lvBalancePlatform.setHasFixedSize(true);
+        lvBalancePlatform.setNestedScrollingEnabled(false);
+        lvBalancePlatform.setAdapter(balancePlatformAdapter);
         presenter.postPersonBalance("","");
+        presenter.postPersonBalanceKY("","");
+        presenter.postPersonBalanceHG("","");
         backTitleBalancePlatform.setMoreText(GameShipHelper.formatMoney(typeArgsHG));
         backTitleBalancePlatform.setBackListener(new View.OnClickListener() {
             @Override
@@ -109,8 +121,10 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                 viewHolder.setText(R.id.itemBalancePlatformName,"彩票平台");
             }else if(postion==1){
                 viewHolder.setText(R.id.itemBalancePlatformName,"AG平台");
-            }else{
+            }else if(postion==2){
                 viewHolder.setText(R.id.itemBalancePlatformName,"开元棋牌");
+            }else{
+                viewHolder.setText(R.id.itemBalancePlatformName,"皇冠棋牌");
             }
             viewHolder.setText(R.id.itemBalancePlatformMoney,sdata);
             viewHolder.setOnClickListener(R.id.itemBalancePlatformIn,new View.OnClickListener(){
@@ -143,8 +157,10 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "cp", GameShipHelper.getIntegerString(text));
                                     } else if (postion == 1){//AG转入
                                         presenter.postBanalceTransfer("", "hg", "ag", GameShipHelper.getIntegerString(text));
-                                    }else{
+                                    }else if(postion == 2){
                                         presenter.postBanalceTransferKY("", "hg", "ky", GameShipHelper.getIntegerString(text));
+                                    }else{
+                                        presenter.postBanalceTransferHG("", "hg", "ff", GameShipHelper.getIntegerString(text));
                                     }
                                 }
                             })
@@ -183,8 +199,10 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg", GameShipHelper.getIntegerString(text));
                                     }else if(postion==1){//AG转入
                                         presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
-                                    }else{
+                                    }else if(postion==2){
                                         presenter.postBanalceTransferKY("", "ky", "hg", GameShipHelper.getIntegerString(text));
+                                    }else{
+                                        presenter.postBanalceTransferHG("", "ff", "hg", GameShipHelper.getIntegerString(text));
                                     }
                                 }
                             })
@@ -205,27 +223,30 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        balancePlatformList.clear();
-        balancePlatformList.add(personBalance.getBalance_cp());
-        balancePlatformList.add(personBalance.getBalance_ag());
+        //balancePlatformList.clear();
+        balancePlatformList.set(0,personBalance.getBalance_cp());
+        balancePlatformList.set(1,personBalance.getBalance_ag());
+        balancePlatformAdapter.notifyDataSetChanged();
         typeArgsHG = GameShipHelper.formatMoney(personBalance.getBalance_hg());
         backTitleBalancePlatform.setMoreText(typeArgsHG);
         EventBus.getDefault().post(new UserMoneyEvent(typeArgsHG));
         //lvBalancePlatform.setAdapter(new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList));
         //balancePlatformAdapter.notifyDataSetInvalidated();
-        presenter.postPersonBalanceKY("","");
+        //presenter.postPersonBalanceKY("","");
     }
 
     @Override
     public void postPersonBalanceKYResult(KYBalanceResult personBalance) {
         GameLog.log("postPersonBalanceKYResult "+personBalance.toString());
-        balancePlatformList.add(personBalance.getKy_balance());
-        balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
-        LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        lvBalancePlatform.setLayoutManager(mLayoutManager1);
-        lvBalancePlatform.setHasFixedSize(true);
-        lvBalancePlatform.setNestedScrollingEnabled(false);
-        lvBalancePlatform.setAdapter(balancePlatformAdapter);
+        balancePlatformList.set(2,personBalance.getKy_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
+        GameLog.log("皇冠棋牌的余额 ");
+        balancePlatformList.set(3,personBalance.getFf_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
     }
 
     @Override

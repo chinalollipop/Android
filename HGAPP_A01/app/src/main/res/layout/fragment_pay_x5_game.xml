@@ -7,8 +7,12 @@
         android:id="@+id/pay_x5_game_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:moreImageShow="false"
+        app:moreImageShow="true"
         app:backText="返回"
+        app:moreText="全屏"
+        app:titleTextShow="false"
+        app:titleText="娱乐游戏"
+        app:moreTextOnly="false"
         />
     <FrameLayout
         android:id="@+id/flayout_xpay"

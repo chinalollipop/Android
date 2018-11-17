@@ -91,7 +91,7 @@ public class NTitleBar extends RelativeLayout {
         tvMore.setTextColor(moreColor);
         //返回按钮是否显示
         if(!titleTextShow){
-            tvTitle.setVisibility(View.GONE);
+            tvTitle.setCompoundDrawables(null,null,null,null);
         }
         if(!backImageShow){
             tvBackText.setVisibility(View.GONE);

@@ -24,6 +24,7 @@
             android:text="加载额度中..."
             android:gravity="center"
             android:layout_marginLeft="@dimen/text_margin"
+            android:textColor="@color/color_bg_dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
@@ -32,6 +33,9 @@
             android:text="额度转换"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/text_margin"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@mipmap/game_quota"
+            android:textColor="@color/event_red"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />

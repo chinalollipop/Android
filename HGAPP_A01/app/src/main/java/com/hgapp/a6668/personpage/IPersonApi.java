@@ -21,7 +21,7 @@ public interface IPersonApi {
     //获取余额
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
 
 
@@ -30,6 +30,11 @@ public interface IPersonApi {
     @POST("ky/ky_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<QipaiResult>> postQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //皇冠棋牌游戏
+    @POST("hgqp/hg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<QipaiResult>> postHgQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
 
 
     //会员注销 安全退出

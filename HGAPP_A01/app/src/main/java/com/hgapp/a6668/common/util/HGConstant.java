@@ -101,6 +101,10 @@ public abstract class HGConstant {
     //用户的登录账号
     public static final String USERNAME_LOGIN_ACCOUNT = "username_login_account";
 
+
+    //用户的登录密码
+    public static final String USERNAME_LOGIN_PWD = "username_login_pwd";
+
     //用户的客服地址
     public static final String USERNAME_SERVICE_URL = "username_service_url";
 
@@ -147,6 +151,10 @@ public abstract class HGConstant {
     //用户的棋牌地址
     public static final String USERNAME_QIPAI_URL = "username_qipai_url";
 
+
+    //用户的皇冠棋牌地址
+    public static final String USERNAME_HG_QIPAI_URL = "username_hg_qipai_url";
+
     //用户的红包地址
     public static final String USERNAME_GIFT_URL = "username_gift_url";
 
@@ -172,6 +180,9 @@ public abstract class HGConstant {
 
     //棋牌维护状态的日志
     public static final String USERNAME_KY_MAINTAIN = "username_ky_maintain";
+
+    //棋牌维护状态的日志
+    public static final String USERNAME_HG_MAINTAIN = "username_hg_maintain";
 
     //彩票维护状态的日志
     public static final String USERNAME_LOTTERY_MAINTAIN = "username_lottery_maintain";

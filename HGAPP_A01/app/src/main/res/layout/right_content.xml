@@ -160,7 +160,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/cp_hall_line" />
+
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -170,12 +172,34 @@
             android:layout_height="match_parent"
             android:background="@color/cp_order_bg" />
 
+        <ListView
+            android:id="@+id/cpOrderListViewtLeft"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@color/cp_order_bg"
+            android:paddingBottom="20dp"
+            android:visibility="gone"
+            />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cpOrderListRight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/title_text"
             android:paddingBottom="20dp"
+            />
+        <FrameLayout
+            android:id="@+id/flayoutContentOrder"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ListView
+            android:id="@+id/cpOrderListViewRight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/title_text"
+            android:paddingBottom="20dp"
+            android:visibility="gone"
             />
 
     </LinearLayout>

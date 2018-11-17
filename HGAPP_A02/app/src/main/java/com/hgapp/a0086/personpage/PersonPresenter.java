@@ -57,12 +57,12 @@ public class PersonPresenter implements PersonContract.Presenter {
     @Override
     public void getPersonBalance(String appRefer, String action) {
         subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postPersonBalance(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<PersonBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PersonBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<PersonBalanceResult> response) {
+                    public void success(AppTextMessageResponseList<PersonBalanceResult> response) {
                         if(response.isSuccess())
                         {
-                            view.postPersonBalanceResult(response.getData());
+                            view.postPersonBalanceResult(response.getData().get(0));
                         }
                         else
                         {
@@ -91,6 +91,31 @@ public class PersonPresenter implements PersonContract.Presenter {
 
                         if(!Check.isNull(response)&&!Check.isNull(response.getData())){
                             view.postQipaiResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postHgQipai(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postHgQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<QipaiResult> response) {
+
+                        if(!Check.isNull(response)&&!Check.isNull(response.getData())){
+                            view.postHgQipaiResult(response.getData());
                         }else{
                             view.showMessage(response.getDescribe());
                         }

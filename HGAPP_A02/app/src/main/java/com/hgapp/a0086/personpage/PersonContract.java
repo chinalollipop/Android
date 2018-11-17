@@ -15,6 +15,7 @@ public interface PersonContract {
         public void getPersonInform(String appRefer);
         public void getPersonBalance(String appRefer,String action);
         public void postQipai(String appRefer,String action);
+        public void postHgQipai(String appRefer,String action);
         public void postCP();
         public void logOut();
     }
@@ -23,6 +24,7 @@ public interface PersonContract {
         public void postPersonInformResult(PersonInformResult personInformResult);
         public void postPersonBalanceResult(PersonBalanceResult personBalance);
         public void postQipaiResult(QipaiResult qipaiResult);
+        public void postHgQipaiResult(QipaiResult qipaiResult);
         public void postPersonLogoutResult(String message);
         public void postCPResult(CPResult cpResult);
     }

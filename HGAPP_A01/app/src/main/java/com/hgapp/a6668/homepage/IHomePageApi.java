@@ -49,6 +49,11 @@ public interface IHomePageApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<QipaiResult>> postQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //皇冠棋牌游戏
+    @POST("hgqp/hg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<QipaiResult>> postHGQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
+
     //彩票联合登录接口
     @POST("index_api.php")
     @FormUrlEncoded

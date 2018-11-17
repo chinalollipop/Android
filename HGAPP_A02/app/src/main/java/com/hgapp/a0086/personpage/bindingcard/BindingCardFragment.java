@@ -202,7 +202,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         String tvPwd2 = tvBindingCardPwd2.getText().toString().trim();
 
         if(bankName.equals("请选择银行")){
-            showMessage("请输入开户银行！");
+            showMessage("请选择开户银行！");
             return;
         }
         if(Check.isEmpty(bankCode)){
@@ -216,7 +216,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         }
 
         if("1".equals(bincCard)){
-            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"'","'");
+            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","");
         }else{
             if(Check.isEmpty(tvPwd)||tvPwd.length()<6){
                 showMessage("请输入有效密码！");
@@ -259,7 +259,8 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvBindingCardBankName:
-                optionsPickerViewBank.show();;
+                hideKeyboard();
+                optionsPickerViewBank.show();
                 break;
             case R.id.tvBindingCardBankState:
                 optionsPickerViewState.show();

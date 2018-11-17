@@ -195,7 +195,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_poker_off"
                 android:gravity="center"
-                android:text="真人荷官"
+                android:text="真人"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
 
@@ -221,13 +221,23 @@
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
             <TextView
+                android:id="@+id/tvBetNewHgQipai"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_hg"
+                android:gravity="center"
+                android:text="皇冠"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+            <TextView
                 android:id="@+id/tvBetNewQipai"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_qipai"
                 android:gravity="center"
-                android:text="棋牌"
+                android:text="开元"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
         </LinearLayout>

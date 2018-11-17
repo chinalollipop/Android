@@ -275,6 +275,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     }
 
+    @Override
+    public void postHgQipaiResult(QipaiResult qipaiResult) {
+
+    }
+
 
     @Override
     public void onAttach(Context context) {

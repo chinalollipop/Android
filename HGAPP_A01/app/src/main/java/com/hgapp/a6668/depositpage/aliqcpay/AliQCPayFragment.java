@@ -181,4 +181,10 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
     public void onViewPayTimeClicked(){
         pvStartTime.show();
     }
+
+    @Override
+    public void postDepositAliPayQCPaySubimtResult(String message) {
+        showMessage(message);
+        pop();
+    }
 }

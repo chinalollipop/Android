@@ -27,6 +27,7 @@ public interface HomePageContract {
         public void postAGLiveCheckRegister(String appRefer);
         public void postAGGameRegisterAccount(String appRefer,String action);
         public void postQipai(String appRefer,String action);
+        public void postHGQipai(String appRefer,String action);
         public void postCP();
         public void postValidGift(String appRefer,String action);
         public void postMaintain();
@@ -40,6 +41,7 @@ public interface HomePageContract {
         public void postAGLiveCheckRegisterResult(CheckAgLiveResult checkAgLiveResult);
         public void postAGGameRegisterAccountResult(AGCheckAcountResult agCheckAcountResult);
         public void postQipaiResult(QipaiResult qipaiResult);
+        public void postHGQipaiResult(QipaiResult qipaiResult);
         public void postCPResult(CPResult cpResult);
         public void postValidGiftResult(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);

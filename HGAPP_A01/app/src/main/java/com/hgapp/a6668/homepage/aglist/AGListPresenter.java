@@ -28,12 +28,12 @@ public class AGListPresenter implements AGListContract.Presenter {
     @Override
     public void postPersonBalance(String appRefer, String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalance(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<PersonBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PersonBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<PersonBalanceResult> response) {
+                    public void success(AppTextMessageResponseList<PersonBalanceResult> response) {
                         if(response.isSuccess())
                         {
-                            view.postPersonBalanceResult(response.getData());
+                            view.postPersonBalanceResult(response.getData().get(0));
                         }
                         else
                         {

@@ -17,7 +17,7 @@ public interface IAGListApi {
     //获取余额
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //检查AG真人 或者 电子列表
     @POST("ag_api.php")
