@@ -3,6 +3,8 @@ package com.hgapp.a6668.common.http;
 
 import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.common.util.DeviceUtils;
 import com.hgapp.common.util.GameLog;
 
 import java.io.IOException;
@@ -22,7 +24,8 @@ public class ReadCookiesInterceptor implements Interceptor {
         CookieStore cookieJar = manager.getCookieStore();
         List<HttpCookie> cookies = cookieJar.getCookies();*/
        try{
-           builder.addHeader("Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("Set-Cookie") );
+           builder.addHeader("Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("tySet-Cookie") );
+           //builder.addHeader("Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("Set-Cookie") );
 
        }catch (Exception exception){
            GameLog.log("cookie异常：\n"+exception);

@@ -16,6 +16,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/cpListTitle"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@mipmap/cp_title"
@@ -23,7 +24,7 @@
                 android:paddingRight="8dp">
 
                 <ImageView
-                    android:id="@+id/tv_com_title_name"
+                    android:id="@+id/cpListImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

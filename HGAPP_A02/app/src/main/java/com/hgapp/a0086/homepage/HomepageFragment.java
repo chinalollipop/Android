@@ -217,7 +217,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         /*if(Check.isNull(checkUpgradeResult)){
             return;
         }*/
-        if(position<5&&Check.isEmpty(userName)){
+        if(position<6&&Check.isEmpty(userName)){
             //start(LoginFragment.newInstance());
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
             return;

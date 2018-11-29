@@ -7,6 +7,9 @@ package com.hgapp.a6668.common.util;
 public abstract class HGConstant {
     public static final String APP_CP_HEADER= "app_cp_header";
     public static final String APP_CP_COOKIE= "app_cp_cookie";
+    public static final String APP_CP_X_SESSION_TOKEN= "app_cp_x_session_token";
+    public static final String APP_TY_COOKIE= "app_ty_cookie";
+    public static final String APP_CP_COOKIE_AVIABLE= "app_cp_cookie_aviable";
     public static final String APP_DEMAIN_URL= "app_demain_url";
     public static final String APP_DB_DIRNAME = "app_db_dirname";
     //防止重复点击按钮，避免冲突触发业务

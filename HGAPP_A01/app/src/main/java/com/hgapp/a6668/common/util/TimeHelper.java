@@ -1,5 +1,8 @@
 package com.hgapp.a6668.common.util;
 
+import com.hgapp.common.util.GameLog;
+import com.hgapp.common.util.TimeUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -500,6 +503,97 @@ public class TimeHelper {
         return format.format(date);
     }
 
+    /*
+     * 毫秒转化时分秒毫秒
+     */
+    public static String formatTime(Long ms) {
+        Integer ss = 1000;
+        Integer mi = ss * 60;
+        Integer hh = mi * 60;
+        Integer dd = hh * 24;
+
+        Long day = ms / dd;
+        Long hour = (ms - day * dd) / hh;
+        Long minute = (ms - day * dd - hour * hh) / mi;
+        Long second = (ms - day * dd - hour * hh - minute * mi) / ss;
+        Long milliSecond = ms - day * dd - hour * hh - minute * mi - second * ss;
+
+        StringBuffer sb = new StringBuffer();
+        if(day > 0) {
+            sb.append(day+"天");
+        }
+        if(hour > 0) {
+            sb.append(hour+"小时");
+        }
+        if(minute > 0) {
+            sb.append(minute+"分");
+        }
+        if(second > 0) {
+            sb.append(second+"秒");
+        }
+        if(milliSecond > 0) {
+            sb.append(milliSecond+"毫秒");
+        }
+        return sb.toString();
+    }
+
+
+
+    /**
+     * 将现在的正常字符串格式时间转换成距离1970的数字时间
+     * 比如字符串格式时间："2017-12-15 21:49:03"
+     * 转换后的数字时间："1513345743"
+     * String dateStr="1970-1-1 08:00:00";
+     *         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+     *         long aftertime=0;
+     *         try {
+     *             Object d1=sdf.parse(time).getTime();
+     *             Date miDate = sdf.parse(dateStr);
+     *             Object t1=miDate.getTime();
+     *             long d1time=Long.parseLong(d1.toString())/1000;
+     *             long t1time=Long.parseLong(t1.toString())/1000;
+     *             aftertime = d1time-t1time;
+     *         } catch (ParseException e) {
+     *             e.printStackTrace();
+     *         }
+     * @param time
+     * @return
+     */
+    public static Long timeToSecond(String time,String dateStr){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long aftertime=0;
+        try {
+            /*Object d1=sdf.parse(time).getTime();
+            Date miDate = sdf.parse(dateStr);
+            Object t1=miDate.getTime();
+            long d1time=Long.parseLong(d1.toString().substring(0,10));
+            long t1time=Long.parseLong(t1.toString().substring(0,10));*/
+            long d1 = sdf.parse(time).getTime();
+            Date miDate = sdf.parse(dateStr);
+            long t1 = miDate.getTime();
+            long d1time = d1 / 1000;
+            long t1time = t1 / 1000;
+        aftertime = d1time-t1time;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        /*String dateStr="1970-1-1 08:00:00";
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long aftertime=0;
+        try {
+            Object d1=sdf.parse(time).getTime();
+            Date miDate = sdf.parse(dateStr);
+            Object t1=miDate.getTime();
+            long d1time=Long.parseLong(d1.toString())/1000;
+            long t1time=Long.parseLong(t1.toString())/1000;
+            aftertime = d1time-t1time;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
+
+        return aftertime;
+
+    }
 
     /**
      *
@@ -507,15 +601,23 @@ public class TimeHelper {
      * @return 时间戳转成成剩余的时间
      */
     public static String getTimeString(long second) {
+       // GameLog.log("时间戳的长度 "+second);
         //int days = (int) (second / (60 * 60 * 24));
-        int hours = (int) ((second % (60 * 60 * 24)) / (60 * 60));
+        /*int hours = (int) ((second % (60 * 60 * 24)) / (60 * 60));
         int min = (int) (second % (60 * 60)) / 60;
-        int sec = (int) (second % 60);
+        int sec = (int) (second % 60);*/
+
+        int days=((int)second)/(3600*24);
+        int hours=((int)second)%(3600*24)/3600;
+        int min = ((int)second)%(3600*24)%3600/60;
+        int sec = ((int)second)%(3600*24)%3600%60%60;
+
+
         StringBuffer sb = new StringBuffer();
 
         //sb.append(hours).append("时").append(min).append("分").append(sec).append("秒");
-        //sb.append(hours>9?hours:"0"+hours).append(":").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
-        sb.append(hours>9?hours:hours>0?"0"+hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
+        sb.append(hours>9?hours:"0"+hours).append(":").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
+//        sb.append(hours>9?hours:hours>0?"0"+hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
 		/*if (days > 0) {
 			sb.append(days).append("天");
 		}
@@ -539,6 +641,7 @@ public class TimeHelper {
 		 * ((days > 0) || (hours > 0) || (min > 0) || (sec > 0)) {
 		 * sb.append(sec).append(getString(R.string.seckill_time_sec)); }
 		 */
+		//GameLog.log("最后的时间是："+sb.toString());
         return sb.toString();
     }
 }

@@ -15,6 +15,7 @@ import com.hgapp.common.util.Utils;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.Call;
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;
@@ -68,7 +69,7 @@ public class Client {
     {
         if(null == client)
         {
-            client = new OkHttpClient.Builder()
+            client = RetrofitUrlManager.getInstance().with(new OkHttpClient.Builder())
                     .connectTimeout(30,TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS)
                     .writeTimeout(30,TimeUnit.SECONDS)

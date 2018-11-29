@@ -5,13 +5,18 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.common.widgets.GifView;
 import com.hgapp.common.util.ToastUtils;
+import com.huangzj.slidingmenu.SlidingMenu;
+import com.huangzj.slidingmenu.app.SlidingActivityBase;
+import com.huangzj.slidingmenu.app.SlidingActivityHelper;
 import com.zhy.autolayout.AutoLayoutActivity;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -20,22 +25,20 @@ import java.util.TimerTask;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.yokeyword.fragmentation.SupportActivity;
 import rx.Subscription;
 
 /**
  * Created by Windows 10 on 2016/12/9.
  */
 
-public abstract class BaseActivity extends AutoLayoutActivity  implements IMessageView,IProgressView {
-
+public abstract class BaseActivity extends SupportActivity implements IMessageView,SlidingActivityBase {
 
     protected Subscription mSubscription;
-    protected BroadcastReceiver mBr;
-    protected BroadcastReceiver mScreenLockBr, mScreenOffBr;
     private Context baseContext;
-    Unbinder unbinder;
     private View layoutLoading;
     private GifView ivloading;
+    Unbinder unbinder;
     @Override
     public void showMessage(String message)
     {
@@ -44,11 +47,144 @@ public abstract class BaseActivity extends AutoLayoutActivity  implements IMessa
     public void showToast(CharSequence text){
         ToastUtils.showShortToastSafe(text);
     }
+
+    private SlidingActivityHelper mHelper;
+
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#onPostCreate(android.os.Bundle)
+     */
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mHelper.onPostCreate(savedInstanceState);
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#findViewById(int)
+     */
+    @Override
+    public View findViewById(int id) {
+        View v = super.findViewById(id);
+        if (v != null)
+            return v;
+        return mHelper.findViewById(id);
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#onSaveInstanceState(android.os.Bundle)
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mHelper.onSaveInstanceState(outState);
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#setContentView(int)
+     */
+    @Override
+    public void setContentView(int id) {
+        setContentView(getLayoutInflater().inflate(id, null));
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#setContentView(android.view.View)
+     */
+    @Override
+    public void setContentView(View v) {
+        setContentView(v, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#setContentView(android.view.View, android.view.ViewGroup.LayoutParams)
+     */
+    @Override
+    public void setContentView(View v, ViewGroup.LayoutParams params) {
+        super.setContentView(v, params);
+        mHelper.registerAboveContentView(v, params);
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#setBehindContentView(int)
+     */
+    public void setBehindContentView(int id) {
+        setBehindContentView(getLayoutInflater().inflate(id, null));
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#setBehindContentView(android.view.View)
+     */
+    public void setBehindContentView(View v) {
+        setBehindContentView(v, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#setBehindContentView(android.view.View, android.view.ViewGroup.LayoutParams)
+     */
+    public void setBehindContentView(View v, ViewGroup.LayoutParams params) {
+        mHelper.setBehindContentView(v, params);
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#getSlidingMenu()
+     */
+    public SlidingMenu getSlidingMenu() {
+        return mHelper.getSlidingMenu();
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#toggle()
+     */
+    public void toggle() {
+        mHelper.toggle();
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#showAbove()
+     */
+    public void showContent() {
+        mHelper.showContent();
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#showBehind()
+     */
+    public void showMenu() {
+        mHelper.showMenu();
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#showSecondaryMenu()
+     */
+    public void showSecondaryMenu() {
+        mHelper.showSecondaryMenu();
+    }
+
+    /* (non-Javadoc)
+     * @see com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityBase#setSlidingActionBarEnabled(boolean)
+     */
+    public void setSlidingActionBarEnabled(boolean b) {
+        mHelper.setSlidingActionBarEnabled(b);
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#onKeyUp(int, android.view.KeyEvent)
+     */
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        boolean b = mHelper.onKeyUp(keyCode, event);
+        if (b) return b;
+        return super.onKeyUp(keyCode, event);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mHelper = new SlidingActivityHelper(this);
+        mHelper.onCreate(savedInstanceState);
         baseContext = this;
-        if(0!= setLayoutId())
+        /*if(0!= setLayoutId())
         {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_base,null,false);
 
@@ -59,11 +195,11 @@ public abstract class BaseActivity extends AutoLayoutActivity  implements IMessa
             AutoUtils.auto(view);
             unbinder = ButterKnife.bind(this,view);
             layoutLoading = view.findViewById(R.id.layout_loading);
+            layoutLoading.setOnClickListener(null);
             ivloading = (GifView)view.findViewById(R.id.iv_loading);
             hideLoadingView();
             setEvents(savedInstanceState);
-            setContentView(view);
-        }
+        }*/
     }
 
     //设置布局文件的id
@@ -93,11 +229,6 @@ public abstract class BaseActivity extends AutoLayoutActivity  implements IMessa
         timeStart = 0;
     }
 
-
-    protected TimerTask task;
-
-
-
     protected Context getContext() {
         return baseContext;
     }
@@ -116,11 +247,6 @@ public abstract class BaseActivity extends AutoLayoutActivity  implements IMessa
     @Override
     protected void onResume() {
         super.onResume();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     @Override
@@ -159,29 +285,9 @@ public abstract class BaseActivity extends AutoLayoutActivity  implements IMessa
     private int mBGTimeStart = 0;
     private boolean ifAlreadyCanceled;
 
-    protected Timer mTimer = new Timer();
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
-        if (!ifAlreadyCanceled) {
-            mTimer.cancel();
-        }
-        ifAlreadyCanceled = true;
-        mTimer = new Timer();
-        mTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if (!ifAlreadyShowGesture) {
-                    mBGTimeStart++;
-                    if (mBGTimeStart >= mGestureTimerLimit) {
-                        ifAlreadyShowGesture = true;
-                        this.cancel();
-                        ifAlreadyCanceled = true;
-                    }
-                }
-            }
-
-        }, 0, 1000);
     }
 
 }

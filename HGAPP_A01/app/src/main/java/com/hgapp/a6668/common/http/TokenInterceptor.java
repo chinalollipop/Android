@@ -85,6 +85,9 @@ public class TokenInterceptor implements Interceptor {
             if(contentLength != 0L) {
                 //GameLog.log("返回的数据是xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx：");
                 String resposeData = var34.clone().readString(charset);
+                if(Check.isEmpty(resposeData)){
+                    return response;
+                }
                 //GameLog.log(resposeData);
                 try{
                     RestartLoginResult restartLoginResult =  JSON.parseObject(resposeData, RestartLoginResult.class);

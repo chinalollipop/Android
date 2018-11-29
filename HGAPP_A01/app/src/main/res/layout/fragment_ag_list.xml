@@ -32,24 +32,40 @@
             android:text="额度转换"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/text_margin"
+            android:drawableLeft="@mipmap/game_quota"
             android:gravity="center"
+            android:drawablePadding="8dp"
+            android:textColor="@color/event_line"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
     </RelativeLayout>
     <TextView
         android:background="@color/textview_hight"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="1px" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/agLiveList"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/agGameList"
+    <RelativeLayout
+        android:id="@+id/agVideo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/ag_bg"
+            />
+        <ImageView
+            android:id="@+id/agVideoGo"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/ag_button"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 </LinearLayout>

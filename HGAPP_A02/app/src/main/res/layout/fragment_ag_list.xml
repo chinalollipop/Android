@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/title_text"
     android:orientation="vertical">
 
@@ -10,50 +10,67 @@
         android:id="@+id/agTitleBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:moreTextOnly="true"
         app:backText="返回"
-        />
+        app:moreTextOnly="true" />
+
     <RelativeLayout
         android:id="@+id/agUserMoneyShow"
         android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="45dp">
+        android:gravity="center">
+
         <TextView
             android:id="@+id/agUserMoney"
-            android:text="加载额度中..."
-            android:gravity="center"
-            android:layout_marginLeft="@dimen/text_margin"
-            android:textColor="@color/color_bg_dialog"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:gravity="center"
+            android:text="加载额度中..."
+            android:textColor="@color/color_bg_dialog" />
 
         <TextView
             android:id="@+id/agUserMoneyChange"
-            android:text="额度转换"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/text_margin"
-            android:drawablePadding="10dp"
             android:drawableLeft="@mipmap/game_quota"
-            android:textColor="@color/event_red"
+            android:drawablePadding="10dp"
             android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:text="额度转换"
+            android:textColor="@color/event_red" />
 
     </RelativeLayout>
+
     <TextView
-        android:background="@color/textview_hight"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="1px" />
+        android:layout_height="1px"
+        android:background="@color/textview_hight" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/agLiveList"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/agGameList"
+        android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/agVideoLayout"
+        android:background="@mipmap/cp_bg"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <com.hgapp.a0086.common.widgets.GifView
+        android:id="@+id/agVideo"
+        android:gravity="bottom"
+        app:gif="@raw/cp_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

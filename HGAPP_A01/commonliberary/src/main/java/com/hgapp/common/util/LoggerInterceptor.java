@@ -31,7 +31,7 @@ public class LoggerInterceptor implements Interceptor {
     
 
     public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request();
+        Request request = chain.request().newBuilder().addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8").build();
 
         
             boolean logBody = true;

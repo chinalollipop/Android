@@ -8,6 +8,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,6 +23,8 @@ import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.ArrayListHelper;
 import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
+import com.hgapp.a0086.common.widgets.GifView;
+import com.hgapp.a0086.common.widgets.LoadingViewGroup;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.a0086.common.widgets.RoundCornerImageView;
 import com.hgapp.a0086.data.AGGameLoginResult;
@@ -58,13 +62,16 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     TextView agUserMoneyChange;
     @BindView(R.id.agLiveList)
     RecyclerView agLiveList;
-    /*@BindView(R.id.agGameList)
-    RecyclerView agGameList;*/
+    @BindView(R.id.agVideo)
+    GifView agVideo;
+    @BindView(R.id.agVideoLayout)
+    FrameLayout agVideoLayout;
     private String FStype, Mtype, fshowtype, M_League, getArgParam4, fromType;
     AGListContract.Presenter presenter;
     private String agMoney,hgMoney;
     private String titleName = "";
     private String dzTitileName ="";
+    private String gameId;
 
     public static AGListFragment newInstance(List<String> param1) {
         AGListFragment fragment = new AGListFragment();
@@ -114,15 +121,17 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             presenter.postAGGameList("","","gamelist_zhenren");
             titleName = "真人额度：";
             //onAgLiveTestData();
-            agLiveList.setVisibility(View.VISIBLE);
-            //agGameList.setVisibility(View.GONE);
+            agLiveList.setVisibility(View.GONE);
+            agVideoLayout.setVisibility(View.VISIBLE);
+            agVideo.setMovieResource(R.raw.cp_video);
+            agVideo.setPaused(false);
         }else{
             //presenter.postCheckAgGameAccount("");
             presenter.postAGGameList("","","gamelist_dianzi");
             titleName = "电子额度：";
             //onAgGameTestData();
             agLiveList.setVisibility(View.VISIBLE);
-            //agGameList.setVisibility(View.VISIBLE);
+            agVideoLayout.setVisibility(View.GONE);
         }
        // presenter.postCreateAgAccount("","","cga");
 
@@ -183,9 +192,11 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         GameLog.log("游戏列表："+agLiveResult);
 
         if("live".equals(fshowtype)){
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2, OrientationHelper.VERTICAL,false);
+           /* GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2, OrientationHelper.VERTICAL,false);
             agLiveList.setLayoutManager(gridLayoutManager);
-            agLiveList.setAdapter(new AGLiveAdapter(getContext(),R.layout.item_ag_live,agLiveResult));
+            agLiveList.setAdapter(new AGLiveAdapter(getContext(),R.layout.item_ag_live,agLiveResult));*/
+            gameId = agLiveResult.get(0).getGameid();
+            dzTitileName = "真人视讯";
         }else{
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
             agLiveList.setLayoutManager(gridLayoutManager);
@@ -282,9 +293,17 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     }
 
 
+    @OnClick({R.id.agVideo})
+    public void onAGVodie(){
+        dzTitileName = "真人视讯";
+        presenter.postGoPlayGame("",gameId);
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+        agVideo = null;
+        GameLog.log("消失了");
     }
 }

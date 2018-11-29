@@ -1,37 +1,32 @@
 package com.hgapp.a6668.homepage.cplist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.hgapp.a6668.Injections;
+import com.hgapp.a6668.CPInjections;
 import com.hgapp.a6668.R;
-import com.hgapp.a6668.base.HGBaseFragment;
+import com.hgapp.a6668.base.BaseActivity2;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
-import com.hgapp.a6668.common.http.Client;
 import com.hgapp.a6668.common.service.ServiceOnlineFragment;
 import com.hgapp.a6668.common.util.ACache;
-import com.hgapp.a6668.common.util.ArrayListHelper;
 import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.util.StatusBarUtil2;
 import com.hgapp.a6668.common.widgets.CPBottomBar;
 import com.hgapp.a6668.common.widgets.MarqueeTextView;
-import com.hgapp.a6668.common.widgets.RoundCornerImageView;
-import com.hgapp.a6668.data.AGGameLoginResult;
-import com.hgapp.a6668.data.AGLiveResult;
-import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
-import com.hgapp.a6668.homepage.aglist.AGListContract;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
-import com.squareup.picasso.Picasso;
+import com.jaeger.library.StatusBarUtil;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
@@ -42,19 +37,21 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 import me.yokeyword.sample.demo_wechat.ui.view.BottomBarTab;
 
-public class CPListFragment extends HGBaseFragment implements AGListContract.View {
+public class CPListFragment extends BaseActivity2 implements CPListContract.View {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.cpBottomBar)
     CPBottomBar cpBottomBar;
+    @BindView(R.id.cpListTitle)
+    RelativeLayout cpListTitle;
+    @BindView(R.id.cpListImageView)
+    ImageView cpListImageView;
     @BindView(R.id.cpPageBulletin)
     MarqueeTextView cpPageBulletin;/*
     @BindView(R.id.cpGameList)
@@ -83,7 +80,7 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
     @BindView(R.id.cpTv11)
     TextView cpTv11;
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
-    AGListContract.Presenter presenter;
+    CPListContract.Presenter presenter;
     private String agMoney, hgMoney;
     private String titleName = "";
     private String dzTitileName = "";
@@ -101,23 +98,24 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
         cpGameList.add(new HomePageIcon("江苏快3", R.mipmap.cp_js));
         cpGameList.add(new HomePageIcon("更多", R.mipmap.cp_more));
     }*/
-    public static CPListFragment newInstance(List<String> param1) {
+    /*public static CPListFragment newInstance(List<String> param1) {
         CPListFragment fragment = new CPListFragment();
         Bundle args = new Bundle();
         args.putStringArrayList(ARG_PARAM1, ArrayListHelper.convertListToArrayList(param1));
-        Injections.inject(null, fragment);
+        CPInjections.inject(fragment,null);
         fragment.setArguments(args);
         return fragment;
-    }
+    }*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        CPInjections.inject(this,null);
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             userName = getArguments().getStringArrayList(ARG_PARAM1).get(0);
             userMoney = getArguments().getStringArrayList(ARG_PARAM1).get(1);
             fshowtype = getArguments().getStringArrayList(ARG_PARAM1).get(2);// 用以判断是电子还是真人
-        }
+        }*/
     }
 
     @Override
@@ -127,11 +125,23 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        //StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
+//            StatusBarUtil.setTranslucentForImageView(this,cpListTitle);
+       // RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg01455.com/");
+        presenter.postCPLogin(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM));
+        cpBottomBar.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.postCPInit();
+            }
+        },1000);
+
+//        RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg50080.com/#/home/");
         cpBottomBar
-                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_home, getString(R.string.str_title_homepage)))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_record, getString(R.string.cp_title_record)))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_me, getString(R.string.str_title_person)))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.cp_tab_service, getString(R.string.str_title_withdraw)));
+                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_home, getString(R.string.str_title_homepage)))
+                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_record, getString(R.string.cp_title_record)))
+                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_me, getString(R.string.str_title_person)))
+                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_service, getString(R.string.str_title_withdraw)));
         //cpBottomBar.getItem(1).setUnreadCount(9);
         cpBottomBar.setOnTabSelectedListener(new CPBottomBar.OnTabSelectedListener() {
             @Override
@@ -139,7 +149,7 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
                 switch (position) {
                     case 0:
                         GameLog.log("当前选择的事");
-                        pop();
+                        finish();
                         break;
                     case 1:
                         break;
@@ -160,7 +170,7 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
             @Override
             public void onTabReselected(int position) {
                 if (position == 0) {
-                    pop();
+                    finish();
                 } else if (position == 2) {
                     EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
                 }
@@ -190,37 +200,94 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cpTv1:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("1", "11", "111"))));
+                /** 北京赛车    game_code 51
+                 *  重庆时时彩    game_code 2
+                 *  极速赛车    game_code 189
+                 *  极速飞艇    game_code 222
+                 *  分分彩    game_code 207
+                 *  三分彩    game_code 407
+                 *  五分彩    game_code 507
+                 *  腾讯二分彩    game_code 607
+                 *  PC蛋蛋    game_code 304
+                 *  江苏快3    game_code 159
+                 *  幸运农场    game_code 47
+                 *  快乐十分    game_code 3
+                 *  香港六合彩  game_code 69
+                 *  极速快三    game_code 384
+                 *
+                 */
+//                startActivity(new Intent(getContext(),CPOrderFragment.class));
+                Intent intent  = new Intent(getContext(),CPOrderFragment.class);
+                intent.putExtra("gameId","51");
+                intent.putExtra("gameName","北京赛车");
+                startActivity(intent);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("51", "北京赛车", "111"))));
                 break;
             case R.id.cpTv2:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("2", "22", "222"))));
+                Intent intent2  = new Intent(getContext(),CPOrderFragment.class);
+                intent2.putExtra("gameId","222");
+                intent2.putExtra("gameName","极速飞艇");
+                startActivity(intent2);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("222", "极速飞艇", "222"))));
                 break;
             case R.id.cpTv3:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("3", "33", "333"))));
+                Intent intent3  = new Intent(getContext(),CPOrderFragment.class);
+                intent3.putExtra("gameId","2");
+                intent3.putExtra("gameName","重庆时时彩");
+                startActivity(intent3);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("2", "重庆时时彩", "333"))));
                 break;
             case R.id.cpTv4:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("4", "44", "444"))));
+                Intent intent4  = new Intent(getContext(),CPOrderFragment.class);
+                intent4.putExtra("gameId","189");
+                intent4.putExtra("gameName","极速赛车");
+                startActivity(intent4);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("189", "极速赛车", "444"))));
                 break;
             case R.id.cpTv5:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("5", "55", "555"))));
+                Intent intent5  = new Intent(getContext(),CPOrderFragment.class);
+                intent5.putExtra("gameId","69");
+                intent5.putExtra("gameName","香港六合彩");
+                startActivity(intent5);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("69", "香港六合彩", "555"))));
                 break;
             case R.id.cpTv6:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("6", "66", "666"))));
+                Intent intent6  = new Intent(getContext(),CPOrderFragment.class);
+                intent6.putExtra("gameId","207");
+                intent6.putExtra("gameName","分分彩");
+                startActivity(intent6);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("207", "分分彩", "666"))));
                 break;
             case R.id.cpTv7:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("7", "77", "777"))));
+                Intent intent7  = new Intent(getContext(),CPOrderFragment.class);
+                intent7.putExtra("gameId","304");
+                intent7.putExtra("gameName","PC蛋蛋");
+                startActivity(intent7);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("304", "PC蛋蛋", "777"))));
                 break;
             case R.id.cpTv8:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("8", "88", "888"))));
+                Intent intent8  = new Intent(getContext(),CPOrderFragment.class);
+                intent8.putExtra("gameId","3");
+                intent8.putExtra("gameName","快乐十分");
+                startActivity(intent8);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("3", "快乐十分", "888"))));
                 break;
             case R.id.cpTv9:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("9", "99", "999"))));
+                Intent intent9  = new Intent(getContext(),CPOrderFragment.class);
+                intent9.putExtra("gameId","47");
+                intent9.putExtra("gameName","幸运农场");
+                startActivity(intent9);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("47", "幸运农场", "999"))));
                 break;
             case R.id.cpTv10:
-                EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("10", "1010", "101010"))));
+                Intent intent10  = new Intent(getContext(),CPOrderFragment.class);
+                intent10.putExtra("gameId","159");
+                intent10.putExtra("gameName","江苏快3");
+                startActivity(intent10);
+                //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("159", "江苏快3", "101010"))));
                 break;
             case R.id.cpTv11:
-                EventBus.getDefault().post(new StartBrotherEvent(CPHallFragment.newInstance(Arrays.asList("7", "77","777")), SupportFragment.SINGLETASK));
+                startActivity(new Intent(getContext(),CPHallFragment.class));
                 break;
         }
     }
@@ -241,7 +308,8 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
                 @Override
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
-                    EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
+                    startActivity(new Intent(getContext(),CPOrderFragment.class));
+                    //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
                 }
             });
         }
@@ -254,7 +322,7 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
     }
 
     @Override
-    public void setPresenter(AGListContract.Presenter presenter) {
+    public void setPresenter(CPListContract.Presenter presenter) {
 
         this.presenter = presenter;
     }
@@ -264,76 +332,12 @@ public class CPListFragment extends HGBaseFragment implements AGListContract.Vie
         return Arrays.asList((IPresenter) presenter);
     }
 
-    @Override
-    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
-
-    }
-
-    @Override
-    public void postCheckAgLiveAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    @Override
-    public void postCheckAgGameAccountResult(CheckAgLiveResult checkAgLiveResult) {
-    }
-
-    @Override
-    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        GameLog.log("用户的真人账户：" + personBalance.getBalance_ag());
-    }
-
-    @Override
-    public void postAGGameResult(List<AGLiveResult> agLiveResult) {
-        GameLog.log("游戏列表：" + agLiveResult);
-    }
-
-    @Override
-    public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    @Override
-    public void postCreateAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    class AGGameAdapter extends AutoSizeRVAdapter<AGLiveResult> {
-        private Context context;
-
-        public AGGameAdapter(Context context, int layoutId, List datas) {
-            super(context, layoutId, datas);
-            this.context = context;
-        }
-
-        @Override
-        protected void convert(ViewHolder holder, final AGLiveResult data, final int position) {
-            holder.setText(R.id.tv_item_game_name, data.getName());
-            RoundCornerImageView roundCornerImageView = (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
-            roundCornerImageView.onCornerAll(roundCornerImageView);
-            String ur = Client.baseUrl().substring(0, Client.baseUrl().length() - 1) + data.getGameurl();
-            //GameLog.log("图片地址："+ur);
-            Picasso.with(context)
-                    .load(ur)
-                    .placeholder(null)
-                    .into(roundCornerImageView);
-            holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dzTitileName = data.getName();
-                    presenter.postGoPlayGame("", data.getGameid());
-                }
-            });
-        }
-    }
-
     @Subscribe
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult) {
         GameLog.log("通过发送消息得的的数据" + personBalanceResult.getBalance_ag());
         agMoney = personBalanceResult.getBalance_ag();
         hgMoney = personBalanceResult.getBalance_hg();
     }
-
 
     @Override
     public void onDestroy() {

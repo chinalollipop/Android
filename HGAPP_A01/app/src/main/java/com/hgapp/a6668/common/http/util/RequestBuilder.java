@@ -1,6 +1,7 @@
 package com.hgapp.a6668.common.http.util;
 
 import com.hgapp.a6668.common.http.ClientConfig;
+import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.Timber;
 
 import java.io.IOException;
@@ -27,11 +28,13 @@ public class RequestBuilder {
 
     public Request newRequest(Request originalRequest) throws IOException {
         Timber.tag(getClass().getName());
+        GameLog.log("请求的地址："+originalRequest.url());
+        GameLog.log("请求的方式："+originalRequest.method());
         if(!"POST".equals(originalRequest.method()))
         {
             Timber.e("请求必须是POST请求");
             //throw new IllegalArgumentException("请求方法必须是POST");
-           // return originalRequest.newBuilder().get().build();
+            return originalRequest.newBuilder().get().build();
         }
         //好啦，开始修改请求
         RequestBody requestBody = originalRequest.body();

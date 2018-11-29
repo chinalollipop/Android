@@ -67,16 +67,18 @@
         android:background="@color/title_text">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_toLeftOf="@+id/cpOrderLastLine"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/cpOrderLotteryLastTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="5785787期" />
+                android:gravity="center"
+                android:text="" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cpOrderLotteryOpen1"
@@ -94,6 +96,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/cpOrderLastLine"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_toLeftOf="@+id/cpOrderLastTime"
@@ -108,6 +111,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/cpOrderLotteryNextTime"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
@@ -163,6 +167,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:layout_marginBottom="70dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -186,9 +191,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/title_text"
-            android:paddingBottom="20dp"
             />
-        <FrameLayout
+        <!--<FrameLayout
             android:id="@+id/flayoutContentOrder"
             android:visibility="gone"
             android:layout_width="match_parent"
@@ -200,7 +204,7 @@
             android:background="@color/title_text"
             android:paddingBottom="20dp"
             android:visibility="gone"
-            />
+            />-->
 
     </LinearLayout>
 </LinearLayout>

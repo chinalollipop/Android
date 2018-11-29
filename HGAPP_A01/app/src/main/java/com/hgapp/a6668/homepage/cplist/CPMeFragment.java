@@ -1,6 +1,7 @@
 package com.hgapp.a6668.homepage.cplist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -151,7 +152,8 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
                 @Override
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
-                    EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
+                    startActivity(new Intent(getContext(),CPOrderFragment.class));
+                    //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
                 }
             });
         }

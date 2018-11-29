@@ -68,6 +68,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
     private View mRedPacketDialogView;
     private RedPacketViewHolder mRedPacketViewHolder;
     private RedCustomDialog mRedPacketDialog;
+    private boolean isShow = false;
     public static EventsFragment newInstance(DepositAliPayQCCodeResult dataBean, String getArgParam1, int getArgParam2) {
         EventsFragment fragment = new EventsFragment();
         Bundle args = new Bundle();
@@ -145,6 +146,9 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
                 mRedPacketDialogView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(isShow) {
+                            showMessage("彩金将在24小时内自动派发到账!");
+                        }
                         presenter.postPersonBalance("","");
                         mRedPacketDialog.dismiss();
                         new Swing().start(eventTitleUserMoney);
@@ -239,6 +243,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
     @Override
     public void postDownAppGiftResult(final DownAppGiftResult data) {
         //showMessage(data);
+        isShow = true;
         packets_layout.setVisibility(View.VISIBLE);
         packets_layout.post(new Runnable() {
             @Override
@@ -264,6 +269,7 @@ public class EventsFragment extends HGBaseFragment implements EventsContract.Vie
 
     @Override
     public void postLuckGiftResult(final LuckGiftResult luckGiftResult) {
+        isShow = false;
         packets_layout.setVisibility(View.VISIBLE);
         packets_layout.post(new Runnable() {
             @Override

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
@@ -20,6 +21,7 @@ import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.event.LogoutEvent;
 import com.hgapp.a6668.common.http.Client;
+import com.hgapp.a6668.common.http.cphttp.CPClient;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
@@ -43,6 +45,7 @@ import com.hgapp.a6668.homepage.handicap.HandicapFragment;
 import com.hgapp.a6668.homepage.noticelist.NoticeListFragment;
 import com.hgapp.a6668.homepage.online.ContractFragment;
 import com.hgapp.a6668.homepage.online.OnlineFragment;
+import com.hgapp.a6668.launcher.MyHttpClient;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
@@ -61,6 +64,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,6 +73,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  *
@@ -212,7 +219,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         /*if(Check.isNull(checkUpgradeResult)){
             return;
         }*/
-        if(position<5&&Check.isEmpty(userName)){
+        if(position<6&&Check.isEmpty(userName)){
             //start(LoginFragment.newInstance());
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
             return;
@@ -238,13 +245,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case 2:
                 userState = "2";
+
+                ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
+                getActivity().startActivity(new Intent(getContext(),CPListFragment.class));
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
-                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
                 if("1".equals(cp_url)){
                     presenter.postMaintain();
                 }else {
                     postCPGo();
-                }
+                }*/
                  break;
             case 3:
                 userState = "3";
@@ -309,6 +319,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void onVisible() {
         super.onVisible();
+        ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"false");
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
 
     }
@@ -484,8 +495,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     public void postCPResult(CPResult cpResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
+        CPClient.setClientDomain(cpResult.getCpUrl());
+        HGApplication.instance().configCPClient();
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
-        initWebView(cpResult.getUrlLogin());
+        //initWebView(cpResult.getUrlLogin());
     }
 
     @Override
@@ -655,7 +668,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
-
         GameLog.log("首页获取的用户余额："+loginResult.getMoney());
         userName = loginResult.getUserName();
         pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents();

@@ -21,6 +21,9 @@
     <color name="cp_order_bg">#4f7ecc</color>
     <color name="cp_order_tv">#acc6d3</color>
     <color name="cp_order_tv_clicked">#93b1de</color>
+    <color name="cp_order_submit">#ff1010</color>
+    <color name="cp_order_reset">#181eaf</color>
+    <color name="cp_order_fast_submit">#0968c1</color>
     <!--EditText文字颜色值-->
     <color name="n_edittext_stroke">#979797</color>
     <color name="n_edittext">#606060</color>
@@ -48,6 +51,7 @@
     <color name="color_translucent">#e0000000</color>
     <!--登录页的字体颜色值-->
     <color name="login_tv">#146dcd</color>
+    <color name="cp_status_bar">#2d4cb6</color>
     <!--pop-->
     <color name="pop_ll_hight">#31B4EF</color>
     <color name="pop_ll_normal">#F0F0F0</color>

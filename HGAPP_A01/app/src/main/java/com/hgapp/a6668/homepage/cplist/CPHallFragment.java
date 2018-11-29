@@ -1,6 +1,7 @@
 package com.hgapp.a6668.homepage.cplist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.hgapp.a6668.CPInjections;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
+import com.hgapp.a6668.base.BaseActivity2;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
@@ -28,12 +31,16 @@ import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
+import com.hgapp.a6668.data.CPHallResult;
+import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
+import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.hgapp.common.util.TimeUtils;
 import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -42,6 +49,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -53,7 +61,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
-public class CPHallFragment extends HGBaseFragment implements AGListContract.View {
+public class CPHallFragment extends BaseActivity2 implements CPHallListContract.View {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -72,49 +80,54 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
     TextView cpHallUserMoney;
     Unbinder unbinder;
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
-    AGListContract.Presenter presenter;
+    CPHallListContract.Presenter presenter;
     private String agMoney, hgMoney;
     private String titleName = "";
     private String dzTitileName = "";
     private ScheduledExecutorService executorService;
+    private ScheduledExecutorService executorService2;
     private HallPageGameAdapter hallPageGameAdapter;
-    private int cpHallIcon0, cpHallIcon1, cpHallIcon2, cpHallIcon3, cpHallIcon4, cpHallIcon5, cpHallIcon6, cpHallIcon7, cpHallIcon8, cpHallIcon9, cpHallIcon10, cpHallIcon11, cpHallIcon12, cpHallIcon13, cpHallIcon14;
+    private long cpHallIcon0, cpHallIcon1, cpHallIcon2, cpHallIcon3, cpHallIcon4, cpHallIcon5, cpHallIcon6, cpHallIcon7,
+            cpHallIcon8, cpHallIcon9, cpHallIcon10, cpHallIcon11, cpHallIcon12, cpHallIcon13;
+    private int scpHallIcon0, scpHallIcon1, scpHallIcon2, scpHallIcon3, scpHallIcon4, scpHallIcon5, scpHallIcon6, scpHallIcon7,
+            scpHallIcon8, scpHallIcon9, scpHallIcon10, scpHallIcon11, scpHallIcon12, scpHallIcon13;
     private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
 
     static {
-        cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 90));
-        cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsft, 90));
-        cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 30));
-        cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsfc, 30));
-        cpGameList.add(new CPHallIcon("六合彩", R.mipmap.cp_lhc, 30));
-        cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 30));
-        cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 30));
-        cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 30));
-        cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 30));
-        cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 20));
-        cpGameList.add(new CPHallIcon("更多", R.mipmap.cp_more, 10));
-        cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 30));
-        cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 20));
-        cpGameList.add(new CPHallIcon("更多", R.mipmap.cp_more, 10));
+        cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
+        cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 0,2));
+        cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsft, 0,189));
+        cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsfc, 0,222));
+        cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 0,207));
+        cpGameList.add(new CPHallIcon("三分彩", R.mipmap.cp_sfc, 0,407));
+        cpGameList.add(new CPHallIcon("五分彩", R.mipmap.cp_wfc, 0,507));
+        cpGameList.add(new CPHallIcon("腾讯二分彩", R.mipmap.cp_efc, 0,607));
+        cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 0,304));
+        cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 0,159));
+        cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
+        cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
+        cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,47));
+        cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_js, 0,384));
     }
 
-    public static CPHallFragment newInstance(List<String> param1) {
+   /* public static CPHallFragment newInstance(List<String> param1) {
         CPHallFragment fragment = new CPHallFragment();
         Bundle args = new Bundle();
         args.putStringArrayList(ARG_PARAM1, ArrayListHelper.convertListToArrayList(param1));
-        Injections.inject(null, fragment);
+        CPInjections.inject(fragment,null);
         fragment.setArguments(args);
         return fragment;
-    }
+    }*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        CPInjections.inject(this,null);
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             userName = getArguments().getStringArrayList(ARG_PARAM1).get(0);
             userMoney = getArguments().getStringArrayList(ARG_PARAM1).get(1);
             fshowtype = getArguments().getStringArrayList(ARG_PARAM1).get(2);// 用以判断是电子还是真人
-        }
+        }*/
     }
 
     @Override
@@ -123,18 +136,33 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void onDestroy() {
+        super.onDestroy();
         if (null != executorService) {
-            GameLog.log("关闭计数任务");
+            GameLog.log("关闭计数任务1");
             executorService.shutdownNow();
             executorService.shutdown();
             executorService = null;
+        }
+
+        if (null != executorService2) {
+            GameLog.log("关闭计数任务2");
+            executorService2.shutdownNow();
+            executorService2.shutdown();
+            executorService2 = null;
         }
     }
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
+        executorService2 = Executors.newScheduledThreadPool(1);
+        executorService2.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                presenter.postCPHallList("");
+            }
+         }, 0, 10000, TimeUnit.MILLISECONDS);
         NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
         if (!Check.isNull(noticeResult)) {
             List<String> stringList = new ArrayList<String>();
@@ -156,9 +184,26 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
             executorService.shutdown();
             executorService = null;
         }
-        sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
         executorService = Executors.newScheduledThreadPool(14);
-        cpHallIcon0 = 11000;
+        if(hallPageGameAdapter == null){
+            hallPageGameAdapter = new HallPageGameAdapter(getContext(), R.layout.item_cp_hall, cpGameList);
+        }
+        cpHallList.setAdapter(hallPageGameAdapter);
+        cpHallIcon0 = 0;
+        cpHallIcon1 = 0;
+        cpHallIcon2 = 0;
+        cpHallIcon3 = 0;
+        cpHallIcon4 = 0;
+        cpHallIcon5 = 0;
+        cpHallIcon6 = 0;
+        cpHallIcon7 = 0;
+        cpHallIcon8 = 0;
+        cpHallIcon9 = 0;
+        cpHallIcon10 = 0;
+        cpHallIcon11 = 0;
+        cpHallIcon12 = 0;
+        cpHallIcon13 = 0;
+        /*cpHallIcon0 = 11000;
         cpHallIcon1 = 90;
         cpHallIcon2 = 90;
         cpHallIcon3 = 15;
@@ -171,16 +216,16 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
         cpHallIcon10 = 990;
         cpHallIcon11 = 20;
         cpHallIcon12 = 90;
-        cpHallIcon13 = 5000;
-        cpHallIcon14 = 90;
-        hallPageGameAdapter = null;
+        cpHallIcon13 = 5000;*/
+        /*hallPageGameAdapter = null;
         hallPageGameAdapter = new HallPageGameAdapter(getContext(), R.layout.item_cp_hall, cpGameList);
         cpHallList.setAdapter(hallPageGameAdapter);
-        hallPageGameAdapter.notifyDataSetChanged();
+        hallPageGameAdapter.notifyDataSetChanged();*/
     }
 
     private synchronized void onRequestData() {
-        if (null != executorService) {
+//        presenter.postCPHallList("");
+        /*if (null != executorService) {
             executorService.shutdownNow();
             executorService.shutdown();
             executorService = null;
@@ -202,22 +247,199 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
         cpHallIcon11 = 20;
         cpHallIcon12 = 190;
         cpHallIcon13 = 50;
-        cpHallIcon14 = 90;
         hallPageGameAdapter = null;
         hallPageGameAdapter = new HallPageGameAdapter(getContext(), R.layout.item_cp_hall, cpGameList);
         cpHallList.setAdapter(hallPageGameAdapter);
-        hallPageGameAdapter.notifyDataSetChanged();
+        hallPageGameAdapter.notifyDataSetChanged();*/
     }
 
     @OnClick({R.id.cpHallBackHome, R.id.cpHallMenu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cpHallBackHome:
-                pop();
+                finish();
                 break;
             case R.id.cpHallMenu:
                 break;
         }
+    }
+
+    @Override
+    public void setPresenter(CPHallListContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void postCPHallListResult(CPHallResult cpHallResult) {
+
+        GameLog.log("彩票大厅的数据 "+cpHallResult.toString());
+        if (null != executorService) {
+            executorService.shutdownNow();
+            executorService.shutdown();
+            executorService = null;
+        }
+        executorService = Executors.newScheduledThreadPool(14);
+        cpGameList.clear();
+        cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
+        cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 0,2));
+        cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsfc, 0,189));
+        cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsft, 0,222));
+        cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 0,207));
+        cpGameList.add(new CPHallIcon("三分彩", R.mipmap.cp_sfc, 0,407));
+        cpGameList.add(new CPHallIcon("五分彩", R.mipmap.cp_wfc, 0,507));
+        cpGameList.add(new CPHallIcon("腾讯二分彩", R.mipmap.cp_efc, 0,607));
+        cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 0,304));
+        cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 0,159));
+        cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
+        cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
+        cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,69));
+        cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_jss, 0,384));
+       /* CPHallResult._$51Bean _51Bean = cpHallResult.get_$51();
+        cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
+        cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_jsft, 0,2));
+        cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_cqssc, 0,189));
+        cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsfc, 0,222));
+        cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 0,207));
+        cpGameList.add(new CPHallIcon("三分彩", R.mipmap.cp_lhc, 0,407));
+        cpGameList.add(new CPHallIcon("五分彩", R.mipmap.cp_lhc, 0,507));
+        cpGameList.add(new CPHallIcon("腾讯二分彩", R.mipmap.cp_lhc, 0,607));
+        cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 0,304));
+        cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 0,159));
+        cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
+        cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
+        cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_js, 0,47));
+        cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_more, 0,384));
+        CPHallIcon cpHallIcon = new CPHallIcon();
+        cpHallIcon.setIsopen(_51Bean.getIsopen());
+        cpHallIcon.setEndtime(_51Bean.getEndtime());
+        cpHallIcon.setGameId(_51Bean.getGameId());
+        cpHallIcon.setIconName(_51Bean.getEndtime());
+        cpHallIcon.setEndtime(_51Bean.getEndtime());
+        cpGameList.
+
+        cpGameList.get(0).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(1).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(2).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(3).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(4).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(5).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(6).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(7).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(8).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(9).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(10).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(11).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(12).setIsopen(cpHallResult.get_$51().getIsopen());
+        cpGameList.get(13).setIsopen(cpHallResult.get_$51().getIsopen());*/
+       String systTime =TimeUtils.convertToDetailTime(System.currentTimeMillis());
+       if(Check.isNumericNull(cpHallResult.get_$51().getEndtime())){
+           cpHallIcon0 = 0;
+           scpHallIcon0 = 1;
+       }else{
+           scpHallIcon0 = 0;
+           cpHallIcon0 = TimeHelper.timeToSecond(cpHallResult.get_$51().getEndtime(),systTime)+20;
+       }
+        Date date = new Date(System.currentTimeMillis());
+        GameLog.log("倒计时的时间 "+TimeUtils.string2Milliseconds(cpHallResult.get_$51().getEndtime())+" 系统的时间 "+systTime+" 秒的计算 "+date.getTime());
+        if(Check.isNumericNull(cpHallResult.get_$2().getEndtime())){
+            cpHallIcon1 = 0;
+            scpHallIcon1 = 1;
+        }else {
+            scpHallIcon1 = 0;
+            cpHallIcon1 = TimeHelper.timeToSecond(cpHallResult.get_$2().getEndtime(),systTime) +70;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$189().getEndtime())){
+            cpHallIcon2 = 0;
+            scpHallIcon2 = 1;
+        }else {
+            scpHallIcon2 = 0;
+            cpHallIcon2 =  TimeHelper.timeToSecond(cpHallResult.get_$189().getEndtime(),systTime)+100 ;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$222().getEndtime())){
+            cpHallIcon3 = 0;
+            scpHallIcon3 = 1;
+        }else {
+            scpHallIcon3 = 0;
+            cpHallIcon3 =  TimeHelper.timeToSecond(cpHallResult.get_$222().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$207().getEndtime())){
+            cpHallIcon4 = 0;
+            scpHallIcon4 = 1;
+        }else {
+            scpHallIcon4 = 0;
+            cpHallIcon4 =  TimeHelper.timeToSecond(cpHallResult.get_$207().getEndtime(),systTime) +20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$407().getEndtime())){
+            cpHallIcon5 = 0;
+            scpHallIcon5 = 1;
+        }else {
+            scpHallIcon5 = 0;
+            cpHallIcon5 = TimeHelper.timeToSecond(cpHallResult.get_$407().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$507().getEndtime())){
+            cpHallIcon6 = 0;
+            scpHallIcon6 = 1;
+        }else {
+            scpHallIcon6 = 0;
+            cpHallIcon6 = TimeHelper.timeToSecond(cpHallResult.get_$507().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$607().getEndtime())){
+            cpHallIcon7 = 0;
+            scpHallIcon7 = 1;
+        }else {
+            scpHallIcon7 = 0;
+            cpHallIcon7 = TimeHelper.timeToSecond(cpHallResult.get_$607().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$304().getEndtime())){
+            cpHallIcon8 = 0;
+            scpHallIcon8 = 1;
+        }else {
+            scpHallIcon8 = 8;
+            cpHallIcon8 = TimeHelper.timeToSecond(cpHallResult.get_$304().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$159().getEndtime())){
+            cpHallIcon9 = 0;
+            scpHallIcon9 = 1;
+        }else {
+            scpHallIcon9 = 0;
+            cpHallIcon9 = TimeHelper.timeToSecond(cpHallResult.get_$159().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$47().getEndtime())){
+            cpHallIcon10 = 0;
+            scpHallIcon10 = 1;
+        }else {
+            scpHallIcon10 = 0;
+            cpHallIcon10 = TimeHelper.timeToSecond(cpHallResult.get_$47().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$3().getEndtime())){
+            cpHallIcon11 = 0;
+            scpHallIcon11 = 1;
+        }else {
+            scpHallIcon11 = 0;
+            cpHallIcon11 = TimeHelper.timeToSecond(cpHallResult.get_$3().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$69().getEndtime())){
+            cpHallIcon12 = 0;
+            scpHallIcon12 = 1;
+        }else {
+            scpHallIcon12 = 0;
+            cpHallIcon12 = TimeHelper.timeToSecond(cpHallResult.get_$69().getEndtime(),systTime)+20;
+        }
+        if(Check.isNumericNull(cpHallResult.get_$384().getEndtime())){
+            cpHallIcon13 = 0;
+            scpHallIcon13 = 1;
+        }else {
+            cpHallIcon13 = TimeHelper.timeToSecond(cpHallResult.get_$384().getEndtime(),systTime)+20 ;
+            scpHallIcon13 = 0;
+        }
+        GameLog.log("最后的时间  "+cpHallIcon0+"|"+cpHallIcon1+"|"+cpHallIcon2+"|"+cpHallIcon3+"|"+cpHallIcon4+"|"+cpHallIcon5+"|"+cpHallIcon6+"|"+cpHallIcon7+"|"+cpHallIcon8+"|"+cpHallIcon9+"|"+cpHallIcon10+"|"+cpHallIcon11+"|"+cpHallIcon12+"|"+cpHallIcon13);
+        hallPageGameAdapter.notifyDataSetChanged();
+        cpHallList.scrollToPosition(0);
+    }
+
+    @Override
+    public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult) {
+        GameLog.log("postCPLeftInfoResult "+cpLeftInfoResult.toString());
     }
 
     class HallPageGameAdapter extends AutoSizeRVAdapter<CPHallIcon> {
@@ -241,6 +463,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     public void run() {
                                         GameLog.log("，，，，，，，，，，，，，重庆请求0，，，，，，，，，，，，，，");
                                         onRequestData();
+                                        if(scpHallIcon0==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                     }
                                 });
                             } else {
@@ -259,6 +486,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     public void run() {
                                         GameLog.log("，，，，，，，，，，，，，重庆请求1，，，，，，，，，，，，，，");
                                         onRequestData();
+                                        if(scpHallIcon1==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                     }
                                 });
                             } else {
@@ -277,6 +509,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     public void run() {
                                         GameLog.log("，，，，，，，，，，，，，重庆请求2，，，，，，，，，，，，，，");
                                         onRequestData();
+                                        if(scpHallIcon2==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                     }
                                 });
                             } else {
@@ -294,6 +531,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon3==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求3，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -312,6 +554,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon4==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求4，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -330,6 +577,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon5==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求5，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -348,6 +600,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon6==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求6，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -366,6 +623,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon7==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求7，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -384,6 +646,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon0==8){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求8，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -402,6 +669,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon0==9){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求9，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -420,6 +692,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon10==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求10，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -438,6 +715,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon11==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求11，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -456,6 +738,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon12==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求12，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -474,6 +761,11 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
                                     @Override
                                     public void run() {
                                         onRequestData();
+                                        if(scpHallIcon13==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求13，，，，，，，，，，，，，，");
                                     }
                                 });
@@ -493,13 +785,19 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
             holder.setText(R.id.cpHallItemName, data.getIconName());
             if (position == 2 || position == 3 || position == 6 || position == 7 || position == 10 || position == 11) {//(position & 1) != 0
                 holder.setBackgroundRes(R.id.cpHallItemShow, R.color.cp_hall_cline);
+            }else{
+                holder.setBackgroundRes(R.id.cpHallItemShow, R.color.title_text);
             }
             holder.setBackgroundRes(R.id.cpHallItemIcon, data.getIconId());
             holder.setOnClickListener(R.id.cpHallItemShow, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
-                    EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
+                    Intent intent  = new Intent(getContext(),CPOrderFragment.class);
+                    intent.putExtra("gameId",data.getGameId());
+                    intent.putExtra("gameName",data.getIconName());
+                    startActivity(intent);
+                    //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList(data.getGameId()+"", data.getIconName(), "333"))));
                 }
             });
         }
@@ -511,79 +809,12 @@ public class CPHallFragment extends HGBaseFragment implements AGListContract.Vie
         super.showMessage(message);
     }
 
-    @Override
-    public void setPresenter(AGListContract.Presenter presenter) {
-
-        this.presenter = presenter;
-    }
 
     @Override
     protected List<IPresenter> presenters() {
         return Arrays.asList((IPresenter) presenter);
     }
 
-    @Override
-    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
-
-    }
-
-    @Override
-    public void postCheckAgLiveAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    @Override
-    public void postCheckAgGameAccountResult(CheckAgLiveResult checkAgLiveResult) {
-    }
-
-    @Override
-    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        GameLog.log("用户的真人账户：" + personBalance.getBalance_ag());
-    }
-
-    @Override
-    public void postAGGameResult(List<AGLiveResult> agLiveResult) {
-        GameLog.log("游戏列表：" + agLiveResult);
-    }
-
-    @Override
-    public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    @Override
-    public void postCreateAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    class AGGameAdapter extends AutoSizeRVAdapter<AGLiveResult> {
-        private Context context;
-
-        public AGGameAdapter(Context context, int layoutId, List datas) {
-            super(context, layoutId, datas);
-            this.context = context;
-        }
-
-        @Override
-        protected void convert(ViewHolder holder, final AGLiveResult data, final int position) {
-            holder.setText(R.id.tv_item_game_name, data.getName());
-            RoundCornerImageView roundCornerImageView = (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
-            roundCornerImageView.onCornerAll(roundCornerImageView);
-            String ur = Client.baseUrl().substring(0, Client.baseUrl().length() - 1) + data.getGameurl();
-            //GameLog.log("图片地址："+ur);
-            Picasso.with(context)
-                    .load(ur)
-                    .placeholder(null)
-                    .into(roundCornerImageView);
-            holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dzTitileName = data.getName();
-                    presenter.postGoPlayGame("", data.getGameid());
-                }
-            });
-        }
-    }
 
     @Subscribe
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult) {
