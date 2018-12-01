@@ -690,7 +690,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();
                     cpOrderContentListResult6.setOrderContentListName("二同号复选");
                     cpOrderContentListResult6.setShowNumber(2);
-                    cpOrderContentListResult6.setShowType("DANIEL");
+                    cpOrderContentListResult6.setShowType("DANIEL_");
 
                     List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
                     CPOrderContentResult cpOrderContentResult111 = new CPOrderContentResult();
@@ -980,7 +980,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     CPOrderContentListResult cpOrderContentListResult8 = new CPOrderContentListResult();
                     cpOrderContentListResult8.setOrderContentListName("二不同号");
                     cpOrderContentListResult8.setShowNumber(2);
-                    cpOrderContentListResult8.setShowType("DANIEL");
+                    cpOrderContentListResult8.setShowType("DANIEL_");
 
                     List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
                     CPOrderContentResult cpOrderContentResult812 = new CPOrderContentResult();
@@ -1106,7 +1106,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     CPOrderContentListResult cpOrderContentListResult9 = new CPOrderContentListResult();
                     cpOrderContentListResult9.setOrderContentListName("猜必出");
                     cpOrderContentListResult9.setShowNumber(2);
-                    cpOrderContentListResult9.setShowType("DANIEL");
+                    cpOrderContentListResult9.setShowType("DANIEL_");
 
                     List<CPOrderContentResult> cpOrderContentResultList9 = new ArrayList<>();
                     CPOrderContentResult cpOrderContentResult91 = new CPOrderContentResult();
@@ -1167,7 +1167,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     CPOrderContentListResult cpOrderContentListResult10 = new CPOrderContentListResult();
                     cpOrderContentListResult10.setOrderContentListName("猜必不出");
                     cpOrderContentListResult10.setShowNumber(2);
-                    cpOrderContentListResult10.setShowType("DANIEL");
+                    cpOrderContentListResult10.setShowType("DANIEL_");
 
                     List<CPOrderContentResult> cpOrderContentResultList10 = new ArrayList<>();
                     CPOrderContentResult cpOrderContentResult101 = new CPOrderContentResult();
@@ -4651,14 +4651,20 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             /*recyclerView.setHasFixedSize(true);
             recyclerView.setNestedScrollingEnabled(true);*/
            // recyclerView.addItemDecoration(new GridRvItemDecoration(getContext()));
-            if(data.getShowType().equals("DANIEL")){
+           /* if(data.getShowType().equals("DANIEL_")){
+                CPOrederContentGameAdapter2  cpOrederContentGameAdapter2 = new CPOrederContentGameAdapter2(getContext(), R.layout.item_cp_order_content23, data.getData(),data.getShowType());
+                recyclerView.setAdapter(cpOrederContentGameAdapter2);
+            }else if(data.getShowType().equals("DANIEL")){
                 CPOrederContentGameAdapter2  cpOrederContentGameAdapter2 = new CPOrederContentGameAdapter2(getContext(), R.layout.item_cp_order_content22, data.getData(),data.getShowType());
                 recyclerView.setAdapter(cpOrederContentGameAdapter2);
             }else{
                 cpOrederContentGameAdapter = null;
                 cpOrederContentGameAdapter = new CPOrederContentGameAdapter(getContext(), R.layout.item_cp_order_content2, data.getData(),data.getShowType());
                 recyclerView.setAdapter(cpOrederContentGameAdapter);
-            }
+            }*/
+            cpOrederContentGameAdapter = null;
+            cpOrederContentGameAdapter = new CPOrederContentGameAdapter(getContext(), R.layout.item_cp_order_content2, data.getData(),data.getShowType());
+            recyclerView.setAdapter(cpOrederContentGameAdapter);
         }
     }
 
@@ -4674,6 +4680,76 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         public CPOrederContentGameAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
             context = context;
+        }
+
+
+        private void onSetKSImageView01(String data,ViewHolder holder){
+            switch (data){
+                case "1":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm01,R.mipmap.s_1);
+                    break;
+                case "2":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm01,R.mipmap.s_2);
+                    break;
+                case "3":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm01,R.mipmap.s_3);
+                    break;
+                case "4":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm01,R.mipmap.s_4);
+                    break;
+                case "5":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm01,R.mipmap.s_5);
+                    break;
+                case "6":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm01,R.mipmap.s_6);
+                    break;
+            }
+        }
+
+        private void onSetKSImageView02(String data,ViewHolder holder){
+            switch (data){
+                case "1":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm02,R.mipmap.s_1);
+                    break;
+                case "2":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm02,R.mipmap.s_2);
+                    break;
+                case "3":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm02,R.mipmap.s_3);
+                    break;
+                case "4":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm02,R.mipmap.s_4);
+                    break;
+                case "5":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm02,R.mipmap.s_5);
+                    break;
+                case "6":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm02,R.mipmap.s_6);
+                    break;
+            }
+        }
+
+        private void onSetKSImageView03(String data,ViewHolder holder){
+            switch (data){
+                case "1":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm03,R.mipmap.s_1);
+                    break;
+                case "2":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm03,R.mipmap.s_2);
+                    break;
+                case "3":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm03,R.mipmap.s_3);
+                    break;
+                case "4":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm03,R.mipmap.s_4);
+                    break;
+                case "5":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm03,R.mipmap.s_5);
+                    break;
+                case "6":
+                    holder.setBackgroundRes(R.id.cpOrderContentIm03,R.mipmap.s_6);
+                    break;
+            }
         }
 
         @Override
@@ -4722,10 +4798,39 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     holder.setText(R.id.cpOrderContentName2, data.getOrderName());
                     holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_qiu);
                     break;
-                    default:
-                        holder.setText(R.id.cpOrderContentName2, data.getOrderName());
-                        holder.setText(R.id.cpOrderContentState, data.getOrderState());
-                        break;
+                case "DANIEL":
+                    holder.setVisible(R.id.cpOrderContentKS, true);
+                    holder.setVisible(R.id.cpOrderContentName2, false);
+                    holder.setVisible(R.id.cpOrderContentState04, false);
+                    ArrayList<String> dataList = new ArrayList<>();
+                    String[] sdata = data.getOrderName().split("_");
+                    onSetKSImageView01(sdata[0],holder);
+                    onSetKSImageView02(sdata[1],holder);
+                    onSetKSImageView03(sdata[2],holder);
+                    holder.setText(R.id.cpOrderContentState, data.getOrderState());
+                    break;
+                case "DANIEL_":
+                    holder.setVisible(R.id.cpOrderContentKS, true);
+                    holder.setVisible(R.id.cpOrderContentState04, true);
+                    holder.setVisible(R.id.cpOrderContentNormal, false);
+                    String[] sdat_a = data.getOrderName().split("_");
+                    if(sdat_a.length==2){
+                        onSetKSImageView01(sdat_a[0],holder);
+                        onSetKSImageView02(sdat_a[1],holder);
+                        holder.setVisible(R.id.cpOrderContentIm03, false);
+                    }else{
+                        onSetKSImageView01(sdat_a[0],holder);
+                        holder.setVisible(R.id.cpOrderContentIm02, false);
+                        holder.setVisible(R.id.cpOrderContentIm03, false);
+                    }
+                    holder.setVisible(R.id.cpOrderContentName2, false);
+                    holder.setVisible(R.id.cpOrderContentState, false);
+                    holder.setText(R.id.cpOrderContentState04, data.getOrderState());
+                    break;
+                default:
+                    holder.setText(R.id.cpOrderContentName2, data.getOrderName());
+                    holder.setText(R.id.cpOrderContentState, data.getOrderState());
+                    break;
             }
 
             if(data.isChecked()){
@@ -4741,6 +4846,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         return;
                     }
                     String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
+                    if("_".equals(name.substring(name.length() -1, name.length()))){
+                        name = name.substring(0, name.length() -1);
+                    }
                     CPBetManager.getSingleton().onAddData(postionAll+"",data.getOrderId(),name,data.getOrderState(),postionAll+"_"+data.getOrderId());
                     if(!data.isChecked()){
                         //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
@@ -4782,6 +4890,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setHasFixedSize(true);
             recyclerView.setNestedScrollingEnabled(false);
+            recyclerView.setFocusableInTouchMode(false);
+            recyclerView.setFocusable(false);
+            recyclerView.setClickable(false);
             CPOrederContentGameAdapter3 cpOrederContentGameAdapter = null;
             ArrayList<String> dataList = new ArrayList<>();
             String[] sdata = data.getOrderName().split("_");
