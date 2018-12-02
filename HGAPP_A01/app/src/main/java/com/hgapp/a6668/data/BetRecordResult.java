@@ -96,7 +96,7 @@ public class BetRecordResult {
         private String M_Result;
         private String Title;
         private String first_half;
-        private String font_a;
+        private String font_a ="";
         private String Checked;
         private String zt;
         private String M_League;

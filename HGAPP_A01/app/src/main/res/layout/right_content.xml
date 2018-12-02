@@ -185,13 +185,48 @@
             android:paddingBottom="20dp"
             android:visibility="gone"
             />
-
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/cpOrderLayout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/cpOrderTab"
+            android:background="@drawable/tab_background"
+            android:layout_width="match_parent"
+            app:tabMode="scrollable"
+            app:tabIndicatorHeight="0dp"
+            android:layout_height="40dp"
+            />
+            <TextView
+                android:id="@+id/cpOrderRXRadio"
+                android:text="赔率:"
+                android:visibility="gone"
+                android:textColor="@color/cp_hall_tv"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/cpOrderRXLine"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/cp_hall_cline" />
+            </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cpOrderListRight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/title_text"
             />
+        </LinearLayout>
         <!--<FrameLayout
             android:id="@+id/flayoutContentOrder"
             android:visibility="gone"

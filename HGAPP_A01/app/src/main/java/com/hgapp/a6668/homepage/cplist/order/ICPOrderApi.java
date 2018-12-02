@@ -1,18 +1,26 @@
 package com.hgapp.a6668.homepage.cplist.order;
 
-import com.hgapp.a6668.common.http.request.AppTextMessageResponse;
+import com.hgapp.a6668.data.CPBJSCResult;
 import com.hgapp.a6668.data.CPHallResult;
+import com.hgapp.a6668.data.CPJSFTResult;
+import com.hgapp.a6668.data.CPJSK2Result;
+import com.hgapp.a6668.data.CPJSKSResult;
+import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CQ1FCResult;
+import com.hgapp.a6668.data.CQ2FCResult;
+import com.hgapp.a6668.data.CQ3FCResult;
+import com.hgapp.a6668.data.CQ5FCResult;
 import com.hgapp.a6668.data.CQSSCResult;
+import com.hgapp.a6668.data.PCDDResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Url;
 import rx.Observable;
 
@@ -27,10 +35,40 @@ public interface ICPOrderApi {
     @GET
     Observable<CPHallResult> get(@Url String path);
 
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPBJSCResult> postRateInfoBjsc(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPJSSCResult> postRateInfoJssc(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPJSFTResult> postRateInfoJsft(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+
     @Headers({"Domain-Name: CpUrl"})
     @POST("gamessc/getrateinfo")
     @FormUrlEncoded
     Observable<CQSSCResult> postRateInfo(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CQ1FCResult> postRateInfo1FC(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CQ2FCResult> postRateInfo2FC(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CQ3FCResult> postRateInfo3FC(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CQ5FCResult> postRateInfo5FC(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
 
     @Headers({"Domain-Name: CpUrl"})
     @POST("gamessc/lastresult")
@@ -41,5 +79,20 @@ public interface ICPOrderApi {
     @POST("gamessc/getNextIssue")
     @FormUrlEncoded
     public Observable<CPNextIssueResult> postNextIssue(@Field("game_code") String game_code, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<PCDDResult> postRateInfoPCDD(@Field("game_code") String game_code, @Field("x-session-token") String x_session_token);
+
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPJSKSResult> postRateInfoJsk3(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPJSK2Result> postRateInfoJsk32(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+
 
 }

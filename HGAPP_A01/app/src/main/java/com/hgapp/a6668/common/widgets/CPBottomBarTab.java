@@ -1,4 +1,4 @@
-package me.yokeyword.sample.demo_wechat.ui.view;
+package com.hgapp.a6668.common.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -22,7 +22,7 @@ import com.example.commonliberary.R;
 /**
  * Created by YoKeyword on 16/6/3.
  */
-public class BottomBarTab extends FrameLayout {
+public class CPBottomBarTab extends FrameLayout {
     private ImageView mIcon;
     private TextView mTvTitle;
     private Context mContext;
@@ -30,15 +30,15 @@ public class BottomBarTab extends FrameLayout {
 
     private TextView mTvUnreadCount;
 
-    public BottomBarTab(Context context, @DrawableRes int icon, CharSequence title) {
+    public CPBottomBarTab(Context context, @DrawableRes int icon, CharSequence title) {
         this(context, null, icon, title);
     }
 
-    public BottomBarTab(Context context, AttributeSet attrs, int icon, CharSequence title) {
+    public CPBottomBarTab(Context context, AttributeSet attrs, int icon, CharSequence title) {
         this(context, attrs, 0, icon, title);
     }
 
-    public BottomBarTab(Context context, AttributeSet attrs, int defStyleAttr, int icon, CharSequence title) {
+    public CPBottomBarTab(Context context, AttributeSet attrs, int defStyleAttr, int icon, CharSequence title) {
         super(context, attrs, defStyleAttr);
         init(context, icon, title);
     }
@@ -103,7 +103,7 @@ public class BottomBarTab extends FrameLayout {
         super.setSelected(selected);
         mIcon.setSelected(selected);
         if (selected) {
-            mTvTitle.setTextColor(ContextCompat.getColor(mContext, R.color.tab_select));
+            mTvTitle.setTextColor(ContextCompat.getColor(mContext, R.color.tab_unselect));
         } else {
             mTvTitle.setTextColor(ContextCompat.getColor(mContext, R.color.tab_unselect));
         }

@@ -28,7 +28,7 @@ public class CPBottomBar extends LinearLayout {
     private final Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
     private boolean mVisible = true;
 
-    private List<BottomBarTab> mTabs = new ArrayList<>();
+    private List<CPBottomBarTab> mTabs = new ArrayList<>();
 
     private LinearLayout mTabLayout;
 
@@ -64,7 +64,7 @@ public class CPBottomBar extends LinearLayout {
         mTabParams.weight = 1;
     }
 
-    public CPBottomBar addItem(final BottomBarTab tab) {
+    public CPBottomBar addItem(final CPBottomBarTab tab) {
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,7 @@ public class CPBottomBar extends LinearLayout {
     /**
      * 获取 Tab
      */
-    public BottomBarTab getItem(int index) {
+    public CPBottomBarTab getItem(int index) {
         if (mTabs.size() < index) return null;
         return mTabs.get(index);
     }

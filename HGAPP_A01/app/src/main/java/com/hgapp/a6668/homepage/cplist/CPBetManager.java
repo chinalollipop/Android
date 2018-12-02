@@ -38,6 +38,13 @@ public class CPBetManager {
         }
     }
 
+    public boolean inContain( String otherName){
+        if(hashSetGid.contains(otherName)){
+            return true;
+        }
+        return false;
+    }
+
     public void onAddData(String position, String gid, String gName,String rate, String otherName) {
         if(hashSetGid.contains(otherName)){
             int size = listData.size();

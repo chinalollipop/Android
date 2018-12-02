@@ -20,6 +20,7 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.StatusBarUtil2;
 import com.hgapp.a6668.common.widgets.CPBottomBar;
+import com.hgapp.a6668.common.widgets.CPBottomBarTab;
 import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
@@ -138,10 +139,10 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
 
 //        RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg50080.com/#/home/");
         cpBottomBar
-                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_home, getString(R.string.str_title_homepage)))
-                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_record, getString(R.string.cp_title_record)))
-                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_me, getString(R.string.str_title_person)))
-                .addItem(new BottomBarTab(getContext(), R.drawable.cp_tab_service, getString(R.string.str_title_withdraw)));
+                .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_home, getString(R.string.str_title_homepage)))
+                .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_record, getString(R.string.cp_title_record)))
+                .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_me, getString(R.string.str_title_person)))
+                .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_service, getString(R.string.str_title_withdraw)));
         //cpBottomBar.getItem(1).setUnreadCount(9);
         cpBottomBar.setOnTabSelectedListener(new CPBottomBar.OnTabSelectedListener() {
             @Override
