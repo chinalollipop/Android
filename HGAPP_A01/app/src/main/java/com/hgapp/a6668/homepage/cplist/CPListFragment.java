@@ -130,12 +130,12 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
 //            StatusBarUtil.setTranslucentForImageView(this,cpListTitle);
        // RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg01455.com/");
         presenter.postCPLogin(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM));
-        cpBottomBar.postDelayed(new Runnable() {
+        /*cpBottomBar.postDelayed(new Runnable() {
             @Override
             public void run() {
                 presenter.postCPInit();
             }
-        },1000);
+        },1000);*/
 
 //        RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg50080.com/#/home/");
         cpBottomBar

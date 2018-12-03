@@ -9,6 +9,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
 import com.hgapp.a6668.data.CQ3FCResult;
@@ -93,6 +94,14 @@ public interface ICPOrderApi {
     @FormUrlEncoded
     Observable<CPJSK2Result> postRateInfoJsk32(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
 
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPXYNCResult> postRateInfoXYnc(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+
+    @POST("gamessc/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPXYNCResult> postRateInfoKlsf(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
 
 
 }

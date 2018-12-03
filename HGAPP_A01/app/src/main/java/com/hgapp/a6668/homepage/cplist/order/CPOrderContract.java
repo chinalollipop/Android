@@ -12,6 +12,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
 import com.hgapp.a6668.data.CQ3FCResult;
@@ -35,6 +36,8 @@ public interface CPOrderContract {
         public void postRateInfo5FC(String game_code,String type,String x_session_token);
         public void postRateInfoJsk3(String game_code,String type,String x_session_token);
         public void postRateInfoJsk32(String game_code,String type,String x_session_token);
+        public void postRateInfoXync(String game_code,String type,String x_session_token);
+        public void postRateInfoKlsf(String game_code,String type,String x_session_token);
         public void postRateInfoPCDD(String game_code,String x_session_token);
         /*public void postRateInfo6(String game_code,String type,String x_session_token);
         public void postRateInfo1(String game_code,String type,String x_session_token);*/
@@ -60,6 +63,8 @@ public interface CPOrderContract {
         public void postRateInfoPCDDResult(PCDDResult pcddResult);
         public void postRateInfoJsk3Result(CPJSKSResult cpjsksResult);
         public void postRateInfoJsk32Result(CPJSK2Result cpjsk2Result);
+        public void postRateInfoXyncResult(CPXYNCResult cpxyncResult);
+        public void postRateInfoKlsfResult(CPXYNCResult cpxyncResult);
     }
 
 }

@@ -1,8 +1,10 @@
 package com.hgapp.a6668.homepage;
 
+import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.common.http.ResponseSubscriber;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponse;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
+import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.RxHelper;
 import com.hgapp.a6668.common.util.SubscriptionHelper;
@@ -215,6 +217,32 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                         if(response.isSuccess()){
                             if(!Check.isNull(response.getData())){
                                 view.postHGQipaiResult(response.getData());
+                            }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postVGQipai(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postVGQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<QipaiResult> response) {
+                        if(response.isSuccess()){
+                            if(!Check.isNull(response.getData())){
+                                view.postVGQipaiResult(response.getData());
                             }
                         }else{
                             view.showMessage(response.getDescribe());

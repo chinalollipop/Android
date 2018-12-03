@@ -1713,22 +1713,22 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     allResult.setData(CPOrderContentListResult31);
                     allResultList.add(allResult);*/
 
-                    onXyncIdex(allResult,cpbjscResult,"第三球");
+                    //onXyncIdex(allResult,cpbjscResult,"第三球");
                     break;
                 case 4:
-                    onXyncIdex(allResult,cpbjscResult,"第四球");
+                    //onXyncIdex(allResult,cpbjscResult,"第四球");
                     break;
                 case 5:
-                    onXyncIdex(allResult,cpbjscResult,"第五球");
+                    //onXyncIdex(allResult,cpbjscResult,"第五球");
                     break;
                 case 6:
-                    onXyncIdex(allResult,cpbjscResult,"第六球");
+                    //onXyncIdex(allResult,cpbjscResult,"第六球");
                     break;
                 case 7:
-                    onXyncIdex(allResult,cpbjscResult,"第七球");
+                    //onXyncIdex(allResult,cpbjscResult,"第七球");
                     break;
                 case 8:
-                    onXyncIdex(allResult,cpbjscResult,"第八球");
+                    //onXyncIdex(allResult,cpbjscResult,"第八球");
                     break;
                 case 9:
                     allResult.setOrderAllName("连码");
@@ -1905,8 +1905,1616 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }
     }
 
-    private void onXyncIdex(CPOrderAllResult allResult,CPXYNCResult cpbjscResult,String otherName ){
-        allResult.setOrderAllName(otherName);
+    private List<CPOrderContentListResult> XYNC(CPXYNCResult cpbjscResult,int k){
+        List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
+            switch (k) {
+                case 0:
+
+                    CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                    cpOrderContentListResult.setOrderContentListName("总和");
+                    cpOrderContentListResult.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                    cpOrderContentResult3.setOrderName("总和大");
+                    cpOrderContentResult3.setFullName("");
+                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata2024());
+                    cpOrderContentResult3.setOrderId("2024");
+                    cpOrderContentResultList.add(cpOrderContentResult3);
+
+                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                    cpOrderContentResult4.setOrderName("总和小");
+                    cpOrderContentResult4.setFullName("");
+                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata2025());
+                    cpOrderContentResult4.setOrderId("2025");
+                    cpOrderContentResultList.add(cpOrderContentResult4);
+
+                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                    cpOrderContentResult5.setOrderName("总和单");
+                    cpOrderContentResult5.setFullName("");
+                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata2026());
+                    cpOrderContentResult5.setOrderId("2026");
+                    cpOrderContentResultList.add(cpOrderContentResult5);
+
+                    CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+                    cpOrderContentResult6.setOrderName("总和双");
+                    cpOrderContentResult6.setFullName("");
+                    cpOrderContentResult6.setOrderState(cpbjscResult.getdata2027());
+                    cpOrderContentResult6.setOrderId("2027");
+                    cpOrderContentResultList.add(cpOrderContentResult6);
+
+                    CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+                    cpOrderContentResult7.setOrderName("总尾大");
+                    cpOrderContentResult7.setFullName("");
+                    cpOrderContentResult7.setOrderState(cpbjscResult.getdata2028());
+                    cpOrderContentResult7.setOrderId("2028");
+                    cpOrderContentResultList.add(cpOrderContentResult7);
+
+                    CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+                    cpOrderContentResult8.setOrderName("总尾小");
+                    cpOrderContentResult8.setFullName("");
+                    cpOrderContentResult8.setOrderState(cpbjscResult.getdata2029());
+                    cpOrderContentResult8.setOrderId("2029");
+                    cpOrderContentResultList.add(cpOrderContentResult8);
+
+                    CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
+                    cpOrderContentResult9.setOrderName("龙");
+                    cpOrderContentResult9.setFullName("");
+                    cpOrderContentResult9.setOrderState(cpbjscResult.getdata2030());
+                    cpOrderContentResult9.setOrderId("2030");
+                    cpOrderContentResultList.add(cpOrderContentResult9);
+
+                    CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+                    cpOrderContentResult10.setOrderName("虎");
+                    cpOrderContentResult10.setFullName("");
+                    cpOrderContentResult10.setOrderState(cpbjscResult.getdata2031());
+                    cpOrderContentResult10.setOrderId("2031");
+                    cpOrderContentResultList.add(cpOrderContentResult10);
+
+
+                    CPOrderContentListResult cpOrderContentListResult1 = new CPOrderContentListResult();
+                    cpOrderContentListResult1.setOrderContentListName("第一球");
+                    cpOrderContentListResult1.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult2009 = new CPOrderContentResult();
+                    cpOrderContentResult2009.setOrderName("大");
+                    cpOrderContentResult2009.setFullName("第一球");
+                    cpOrderContentResult2009.setOrderState(cpbjscResult.getdata12009());
+                    cpOrderContentResult2009.setOrderId("1-2009");
+                    cpOrderContentResultList1.add(cpOrderContentResult2009);
+
+                    CPOrderContentResult cpOrderContentResult2010 = new CPOrderContentResult();
+                    cpOrderContentResult2010.setOrderName("小");
+                    cpOrderContentResult2010.setFullName("第一球");
+                    cpOrderContentResult2010.setOrderState(cpbjscResult.getdata12010());
+                    cpOrderContentResult2010.setOrderId("1-2010");
+                    cpOrderContentResultList1.add(cpOrderContentResult2010);
+
+                    CPOrderContentResult cpOrderContentResult2011 = new CPOrderContentResult();
+                    cpOrderContentResult2011.setOrderName("单");
+                    cpOrderContentResult2011.setFullName("第一球");
+                    cpOrderContentResult2011.setOrderState(cpbjscResult.getdata12011());
+                    cpOrderContentResult2011.setOrderId("1-2011");
+                    cpOrderContentResultList1.add(cpOrderContentResult2011);
+
+                    CPOrderContentResult cpOrderContentResult2012 = new CPOrderContentResult();
+                    cpOrderContentResult2012.setOrderName("双");
+                    cpOrderContentResult2012.setFullName("第一球");
+                    cpOrderContentResult2012.setOrderState(cpbjscResult.getdata12012());
+                    cpOrderContentResult2012.setOrderId("1-2012");
+                    cpOrderContentResultList1.add(cpOrderContentResult2012);
+
+                    CPOrderContentResult cpOrderContentResult2013 = new CPOrderContentResult();
+                    cpOrderContentResult2013.setOrderName("尾大");
+                    cpOrderContentResult2013.setFullName("第一球");
+                    cpOrderContentResult2013.setOrderState(cpbjscResult.getdata12013());
+                    cpOrderContentResult2013.setOrderId("1-2013");
+                    cpOrderContentResultList1.add(cpOrderContentResult2013);
+
+                    CPOrderContentResult cpOrderContentResult2014 = new CPOrderContentResult();
+                    cpOrderContentResult2014.setOrderName("小");
+                    cpOrderContentResult2014.setFullName("第一球");
+                    cpOrderContentResult2014.setOrderState(cpbjscResult.getdata12014());
+                    cpOrderContentResult2014.setOrderId("1-2014");
+                    cpOrderContentResultList1.add(cpOrderContentResult2014);
+
+                    CPOrderContentResult cpOrderContentResult2015 = new CPOrderContentResult();
+                    cpOrderContentResult2015.setOrderName("合单");
+                    cpOrderContentResult2015.setFullName("第一球");
+                    cpOrderContentResult2015.setOrderState(cpbjscResult.getdata12015());
+                    cpOrderContentResult2015.setOrderId("1-2015");
+                    cpOrderContentResultList1.add(cpOrderContentResult2015);
+
+                    CPOrderContentResult cpOrderContentResult2016 = new CPOrderContentResult();
+                    cpOrderContentResult2016.setOrderName("合双");
+                    cpOrderContentResult2016.setFullName("第一球");
+                    cpOrderContentResult2016.setOrderState(cpbjscResult.getdata12016());
+                    cpOrderContentResult2016.setOrderId("1-2016");
+                    cpOrderContentResultList1.add(cpOrderContentResult2016);
+
+
+                    CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+                    cpOrderContentListResult2.setOrderContentListName("第二球");
+                    cpOrderContentListResult2.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult22009 = new CPOrderContentResult();
+                    cpOrderContentResult22009.setOrderName("大");
+                    cpOrderContentResult22009.setFullName("第二球");
+                    cpOrderContentResult22009.setOrderState(cpbjscResult.getdata22009());
+                    cpOrderContentResult22009.setOrderId("2-2009");
+                    cpOrderContentResultList2.add(cpOrderContentResult22009);
+
+                    CPOrderContentResult cpOrderContentResult22010 = new CPOrderContentResult();
+                    cpOrderContentResult22010.setOrderName("小");
+                    cpOrderContentResult22010.setFullName("第二球");
+                    cpOrderContentResult22010.setOrderState(cpbjscResult.getdata22010());
+                    cpOrderContentResult22010.setOrderId("2-2010");
+                    cpOrderContentResultList2.add(cpOrderContentResult22010);
+
+                    CPOrderContentResult cpOrderContentResult22011 = new CPOrderContentResult();
+                    cpOrderContentResult22011.setOrderName("单");
+                    cpOrderContentResult22011.setFullName("第二球");
+                    cpOrderContentResult22011.setOrderState(cpbjscResult.getdata22011());
+                    cpOrderContentResult22011.setOrderId("2-2011");
+                    cpOrderContentResultList2.add(cpOrderContentResult22011);
+
+                    CPOrderContentResult cpOrderContentResult22012 = new CPOrderContentResult();
+                    cpOrderContentResult22012.setOrderName("双");
+                    cpOrderContentResult22012.setFullName("第二球");
+                    cpOrderContentResult22012.setOrderState(cpbjscResult.getdata22012());
+                    cpOrderContentResult22012.setOrderId("2-2012");
+                    cpOrderContentResultList2.add(cpOrderContentResult22012);
+
+                    CPOrderContentResult cpOrderContentResult22013 = new CPOrderContentResult();
+                    cpOrderContentResult22013.setOrderName("尾大");
+                    cpOrderContentResult22013.setFullName("第二球");
+                    cpOrderContentResult22013.setOrderState(cpbjscResult.getdata22013());
+                    cpOrderContentResult22013.setOrderId("2-2013");
+                    cpOrderContentResultList2.add(cpOrderContentResult22013);
+
+                    CPOrderContentResult cpOrderContentResult22014 = new CPOrderContentResult();
+                    cpOrderContentResult22014.setOrderName("小");
+                    cpOrderContentResult22014.setFullName("第二球");
+                    cpOrderContentResult22014.setOrderState(cpbjscResult.getdata22014());
+                    cpOrderContentResult22014.setOrderId("2-2014");
+                    cpOrderContentResultList2.add(cpOrderContentResult22014);
+
+                    CPOrderContentResult cpOrderContentResult22015 = new CPOrderContentResult();
+                    cpOrderContentResult22015.setOrderName("合单");
+                    cpOrderContentResult22015.setFullName("第二球");
+                    cpOrderContentResult22015.setOrderState(cpbjscResult.getdata22015());
+                    cpOrderContentResult22015.setOrderId("2-2015");
+                    cpOrderContentResultList2.add(cpOrderContentResult22015);
+
+                    CPOrderContentResult cpOrderContentResult22016 = new CPOrderContentResult();
+                    cpOrderContentResult22016.setOrderName("合双");
+                    cpOrderContentResult22016.setFullName("第二球");
+                    cpOrderContentResult22016.setOrderState(cpbjscResult.getdata22016());
+                    cpOrderContentResult22016.setOrderId("2-2016");
+                    cpOrderContentResultList2.add(cpOrderContentResult22016);
+
+                    CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+                    cpOrderContentListResult3.setOrderContentListName("第三球");
+                    cpOrderContentListResult3.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult32009 = new CPOrderContentResult();
+                    cpOrderContentResult32009.setOrderName("大");
+                    cpOrderContentResult32009.setFullName("第三球");
+                    cpOrderContentResult32009.setOrderState(cpbjscResult.getdata32009());
+                    cpOrderContentResult32009.setOrderId("3-2009");
+                    cpOrderContentResultList3.add(cpOrderContentResult32009);
+
+                    CPOrderContentResult cpOrderContentResult32010 = new CPOrderContentResult();
+                    cpOrderContentResult32010.setOrderName("小");
+                    cpOrderContentResult32010.setFullName("第三球");
+                    cpOrderContentResult32010.setOrderState(cpbjscResult.getdata32010());
+                    cpOrderContentResult32010.setOrderId("3-2010");
+                    cpOrderContentResultList3.add(cpOrderContentResult32010);
+
+                    CPOrderContentResult cpOrderContentResult32011 = new CPOrderContentResult();
+                    cpOrderContentResult32011.setOrderName("单");
+                    cpOrderContentResult32011.setFullName("第三球");
+                    cpOrderContentResult32011.setOrderState(cpbjscResult.getdata32011());
+                    cpOrderContentResult32011.setOrderId("3-2011");
+                    cpOrderContentResultList3.add(cpOrderContentResult32011);
+
+                    CPOrderContentResult cpOrderContentResult32012 = new CPOrderContentResult();
+                    cpOrderContentResult32012.setOrderName("双");
+                    cpOrderContentResult32012.setFullName("第三球");
+                    cpOrderContentResult32012.setOrderState(cpbjscResult.getdata32012());
+                    cpOrderContentResult32012.setOrderId("3-2012");
+                    cpOrderContentResultList3.add(cpOrderContentResult32012);
+
+                    CPOrderContentResult cpOrderContentResult32013 = new CPOrderContentResult();
+                    cpOrderContentResult32013.setOrderName("尾大");
+                    cpOrderContentResult32013.setFullName("第三球");
+                    cpOrderContentResult32013.setOrderState(cpbjscResult.getdata32013());
+                    cpOrderContentResult32013.setOrderId("3-2013");
+                    cpOrderContentResultList3.add(cpOrderContentResult32013);
+
+                    CPOrderContentResult cpOrderContentResult32014 = new CPOrderContentResult();
+                    cpOrderContentResult32014.setOrderName("小");
+                    cpOrderContentResult32014.setFullName("第三球");
+                    cpOrderContentResult32014.setOrderState(cpbjscResult.getdata32014());
+                    cpOrderContentResult32014.setOrderId("3-2014");
+                    cpOrderContentResultList3.add(cpOrderContentResult32014);
+
+                    CPOrderContentResult cpOrderContentResult32015 = new CPOrderContentResult();
+                    cpOrderContentResult32015.setOrderName("合单");
+                    cpOrderContentResult32015.setFullName("第三球");
+                    cpOrderContentResult32015.setOrderState(cpbjscResult.getdata32015());
+                    cpOrderContentResult32015.setOrderId("3-2015");
+                    cpOrderContentResultList3.add(cpOrderContentResult32015);
+
+                    CPOrderContentResult cpOrderContentResult32016 = new CPOrderContentResult();
+                    cpOrderContentResult32016.setOrderName("合双");
+                    cpOrderContentResult32016.setFullName("第三球");
+                    cpOrderContentResult32016.setOrderState(cpbjscResult.getdata32016());
+                    cpOrderContentResult32016.setOrderId("3-2016");
+                    cpOrderContentResultList3.add(cpOrderContentResult32016);
+
+                    CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+                    cpOrderContentListResult4.setOrderContentListName("第四球");
+                    cpOrderContentListResult4.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult42009 = new CPOrderContentResult();
+                    cpOrderContentResult42009.setOrderName("大");
+                    cpOrderContentResult42009.setFullName("第四球");
+                    cpOrderContentResult42009.setOrderState(cpbjscResult.getdata42009());
+                    cpOrderContentResult42009.setOrderId("4-2009");
+                    cpOrderContentResultList4.add(cpOrderContentResult42009);
+
+                    CPOrderContentResult cpOrderContentResult42010 = new CPOrderContentResult();
+                    cpOrderContentResult42010.setOrderName("小");
+                    cpOrderContentResult42010.setFullName("第四球");
+                    cpOrderContentResult42010.setOrderState(cpbjscResult.getdata42010());
+                    cpOrderContentResult42010.setOrderId("4-2010");
+                    cpOrderContentResultList4.add(cpOrderContentResult42010);
+
+                    CPOrderContentResult cpOrderContentResult42011 = new CPOrderContentResult();
+                    cpOrderContentResult42011.setOrderName("单");
+                    cpOrderContentResult42011.setFullName("第四球");
+                    cpOrderContentResult42011.setOrderState(cpbjscResult.getdata42011());
+                    cpOrderContentResult42011.setOrderId("4-2011");
+                    cpOrderContentResultList4.add(cpOrderContentResult42011);
+
+                    CPOrderContentResult cpOrderContentResult42012 = new CPOrderContentResult();
+                    cpOrderContentResult42012.setOrderName("双");
+                    cpOrderContentResult42012.setFullName("第四球");
+                    cpOrderContentResult42012.setOrderState(cpbjscResult.getdata42012());
+                    cpOrderContentResult42012.setOrderId("4-2012");
+                    cpOrderContentResultList4.add(cpOrderContentResult42012);
+
+                    CPOrderContentResult cpOrderContentResult42013 = new CPOrderContentResult();
+                    cpOrderContentResult42013.setOrderName("尾大");
+                    cpOrderContentResult42013.setFullName("第四球");
+                    cpOrderContentResult42013.setOrderState(cpbjscResult.getdata42013());
+                    cpOrderContentResult42013.setOrderId("4-2013");
+                    cpOrderContentResultList4.add(cpOrderContentResult42013);
+
+                    CPOrderContentResult cpOrderContentResult42014 = new CPOrderContentResult();
+                    cpOrderContentResult42014.setOrderName("小");
+                    cpOrderContentResult42014.setFullName("第四球");
+                    cpOrderContentResult42014.setOrderState(cpbjscResult.getdata42014());
+                    cpOrderContentResult42014.setOrderId("4-2014");
+                    cpOrderContentResultList4.add(cpOrderContentResult42014);
+
+                    CPOrderContentResult cpOrderContentResult42015 = new CPOrderContentResult();
+                    cpOrderContentResult42015.setOrderName("合单");
+                    cpOrderContentResult42015.setFullName("第四球");
+                    cpOrderContentResult42015.setOrderState(cpbjscResult.getdata42015());
+                    cpOrderContentResult42015.setOrderId("4-2015");
+                    cpOrderContentResultList4.add(cpOrderContentResult42015);
+
+                    CPOrderContentResult cpOrderContentResult42016 = new CPOrderContentResult();
+                    cpOrderContentResult42016.setOrderName("合双");
+                    cpOrderContentResult42016.setFullName("第四球");
+                    cpOrderContentResult42016.setOrderState(cpbjscResult.getdata42016());
+                    cpOrderContentResult42016.setOrderId("4-2016");
+                    cpOrderContentResultList4.add(cpOrderContentResult42016);
+
+                    CPOrderContentListResult cpOrderContentListResult5 = new CPOrderContentListResult();
+                    cpOrderContentListResult5.setOrderContentListName("第五球");
+                    cpOrderContentListResult5.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult52009 = new CPOrderContentResult();
+                    cpOrderContentResult52009.setOrderName("大");
+                    cpOrderContentResult52009.setFullName("第五球");
+                    cpOrderContentResult52009.setOrderState(cpbjscResult.getdata52009());
+                    cpOrderContentResult52009.setOrderId("5-2009");
+                    cpOrderContentResultList5.add(cpOrderContentResult52009);
+
+                    CPOrderContentResult cpOrderContentResult52010 = new CPOrderContentResult();
+                    cpOrderContentResult52010.setOrderName("小");
+                    cpOrderContentResult52010.setFullName("第五球");
+                    cpOrderContentResult52010.setOrderState(cpbjscResult.getdata52010());
+                    cpOrderContentResult52010.setOrderId("5-2010");
+                    cpOrderContentResultList5.add(cpOrderContentResult52010);
+
+                    CPOrderContentResult cpOrderContentResult52011 = new CPOrderContentResult();
+                    cpOrderContentResult52011.setOrderName("单");
+                    cpOrderContentResult52011.setFullName("第五球");
+                    cpOrderContentResult52011.setOrderState(cpbjscResult.getdata52011());
+                    cpOrderContentResult52011.setOrderId("5-2011");
+                    cpOrderContentResultList5.add(cpOrderContentResult52011);
+
+                    CPOrderContentResult cpOrderContentResult52012 = new CPOrderContentResult();
+                    cpOrderContentResult52012.setOrderName("双");
+                    cpOrderContentResult52012.setFullName("第五球");
+                    cpOrderContentResult52012.setOrderState(cpbjscResult.getdata52012());
+                    cpOrderContentResult52012.setOrderId("5-2012");
+                    cpOrderContentResultList5.add(cpOrderContentResult52012);
+
+                    CPOrderContentResult cpOrderContentResult52013 = new CPOrderContentResult();
+                    cpOrderContentResult52013.setOrderName("尾大");
+                    cpOrderContentResult52013.setFullName("第五球");
+                    cpOrderContentResult52013.setOrderState(cpbjscResult.getdata52013());
+                    cpOrderContentResult52013.setOrderId("5-2013");
+                    cpOrderContentResultList5.add(cpOrderContentResult52013);
+
+                    CPOrderContentResult cpOrderContentResult52014 = new CPOrderContentResult();
+                    cpOrderContentResult52014.setOrderName("小");
+                    cpOrderContentResult52014.setFullName("第五球");
+                    cpOrderContentResult52014.setOrderState(cpbjscResult.getdata52014());
+                    cpOrderContentResult52014.setOrderId("5-2014");
+                    cpOrderContentResultList5.add(cpOrderContentResult52014);
+
+                    CPOrderContentResult cpOrderContentResult52015 = new CPOrderContentResult();
+                    cpOrderContentResult52015.setOrderName("合单");
+                    cpOrderContentResult52015.setFullName("第五球");
+                    cpOrderContentResult52015.setOrderState(cpbjscResult.getdata52015());
+                    cpOrderContentResult52015.setOrderId("5-2015");
+                    cpOrderContentResultList5.add(cpOrderContentResult52015);
+
+                    CPOrderContentResult cpOrderContentResult52016 = new CPOrderContentResult();
+                    cpOrderContentResult52016.setOrderName("合双");
+                    cpOrderContentResult52016.setFullName("第五球");
+                    cpOrderContentResult52016.setOrderState(cpbjscResult.getdata52016());
+                    cpOrderContentResult52016.setOrderId("4-2016");
+                    cpOrderContentResultList5.add(cpOrderContentResult52016);
+
+                    CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();
+                    cpOrderContentListResult6.setOrderContentListName("第六球");
+                    cpOrderContentListResult6.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult62009 = new CPOrderContentResult();
+                    cpOrderContentResult62009.setOrderName("大");
+                    cpOrderContentResult62009.setFullName("第六球");
+                    cpOrderContentResult62009.setOrderState(cpbjscResult.getdata62009());
+                    cpOrderContentResult62009.setOrderId("6-2009");
+                    cpOrderContentResultList6.add(cpOrderContentResult62009);
+
+                    CPOrderContentResult cpOrderContentResult62010 = new CPOrderContentResult();
+                    cpOrderContentResult62010.setOrderName("小");
+                    cpOrderContentResult62010.setFullName("第六球");
+                    cpOrderContentResult62010.setOrderState(cpbjscResult.getdata62010());
+                    cpOrderContentResult62010.setOrderId("6-2010");
+                    cpOrderContentResultList6.add(cpOrderContentResult62010);
+
+                    CPOrderContentResult cpOrderContentResult62011 = new CPOrderContentResult();
+                    cpOrderContentResult62011.setOrderName("单");
+                    cpOrderContentResult62011.setFullName("第六球");
+                    cpOrderContentResult62011.setOrderState(cpbjscResult.getdata62011());
+                    cpOrderContentResult62011.setOrderId("6-2011");
+                    cpOrderContentResultList6.add(cpOrderContentResult62011);
+
+                    CPOrderContentResult cpOrderContentResult62012 = new CPOrderContentResult();
+                    cpOrderContentResult62012.setOrderName("双");
+                    cpOrderContentResult62012.setFullName("第六球");
+                    cpOrderContentResult62012.setOrderState(cpbjscResult.getdata62012());
+                    cpOrderContentResult62012.setOrderId("6-2012");
+                    cpOrderContentResultList6.add(cpOrderContentResult62012);
+
+                    CPOrderContentResult cpOrderContentResult62013 = new CPOrderContentResult();
+                    cpOrderContentResult62013.setOrderName("尾大");
+                    cpOrderContentResult62013.setFullName("第六球");
+                    cpOrderContentResult62013.setOrderState(cpbjscResult.getdata62013());
+                    cpOrderContentResult62013.setOrderId("6-2013");
+                    cpOrderContentResultList6.add(cpOrderContentResult62013);
+
+                    CPOrderContentResult cpOrderContentResult62014 = new CPOrderContentResult();
+                    cpOrderContentResult62014.setOrderName("小");
+                    cpOrderContentResult62014.setFullName("第六球");
+                    cpOrderContentResult62014.setOrderState(cpbjscResult.getdata62014());
+                    cpOrderContentResult62014.setOrderId("6-2014");
+                    cpOrderContentResultList6.add(cpOrderContentResult62014);
+
+                    CPOrderContentResult cpOrderContentResult62015 = new CPOrderContentResult();
+                    cpOrderContentResult62015.setOrderName("合单");
+                    cpOrderContentResult62015.setFullName("第六球");
+                    cpOrderContentResult62015.setOrderState(cpbjscResult.getdata62015());
+                    cpOrderContentResult62015.setOrderId("6-2015");
+                    cpOrderContentResultList6.add(cpOrderContentResult62015);
+
+                    CPOrderContentResult cpOrderContentResult62016 = new CPOrderContentResult();
+                    cpOrderContentResult62016.setOrderName("合双");
+                    cpOrderContentResult62016.setFullName("第六球");
+                    cpOrderContentResult62016.setOrderState(cpbjscResult.getdata62016());
+                    cpOrderContentResult62016.setOrderId("6-2016");
+                    cpOrderContentResultList6.add(cpOrderContentResult62016);
+
+                    CPOrderContentListResult cpOrderContentListResult7 = new CPOrderContentListResult();
+                    cpOrderContentListResult7.setOrderContentListName("第七球");
+                    cpOrderContentListResult7.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList7 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult72009 = new CPOrderContentResult();
+                    cpOrderContentResult72009.setOrderName("大");
+                    cpOrderContentResult72009.setFullName("第七球");
+                    cpOrderContentResult72009.setOrderState(cpbjscResult.getdata72009());
+                    cpOrderContentResult72009.setOrderId("7-2009");
+                    cpOrderContentResultList7.add(cpOrderContentResult72009);
+
+                    CPOrderContentResult cpOrderContentResult72010 = new CPOrderContentResult();
+                    cpOrderContentResult72010.setOrderName("小");
+                    cpOrderContentResult72010.setFullName("第七球");
+                    cpOrderContentResult72010.setOrderState(cpbjscResult.getdata72010());
+                    cpOrderContentResult72010.setOrderId("7-2010");
+                    cpOrderContentResultList7.add(cpOrderContentResult72010);
+
+                    CPOrderContentResult cpOrderContentResult72011 = new CPOrderContentResult();
+                    cpOrderContentResult72011.setOrderName("单");
+                    cpOrderContentResult72011.setFullName("第七球");
+                    cpOrderContentResult72011.setOrderState(cpbjscResult.getdata72011());
+                    cpOrderContentResult72011.setOrderId("7-2011");
+                    cpOrderContentResultList7.add(cpOrderContentResult72011);
+
+                    CPOrderContentResult cpOrderContentResult72012 = new CPOrderContentResult();
+                    cpOrderContentResult72012.setOrderName("双");
+                    cpOrderContentResult72012.setFullName("第七球");
+                    cpOrderContentResult72012.setOrderState(cpbjscResult.getdata72012());
+                    cpOrderContentResult72012.setOrderId("7-2012");
+                    cpOrderContentResultList7.add(cpOrderContentResult72012);
+
+                    CPOrderContentResult cpOrderContentResult72013 = new CPOrderContentResult();
+                    cpOrderContentResult72013.setOrderName("尾大");
+                    cpOrderContentResult72013.setFullName("第七球");
+                    cpOrderContentResult72013.setOrderState(cpbjscResult.getdata72013());
+                    cpOrderContentResult72013.setOrderId("7-2013");
+                    cpOrderContentResultList7.add(cpOrderContentResult72013);
+
+                    CPOrderContentResult cpOrderContentResult72014 = new CPOrderContentResult();
+                    cpOrderContentResult72014.setOrderName("小");
+                    cpOrderContentResult72014.setFullName("第七球");
+                    cpOrderContentResult72014.setOrderState(cpbjscResult.getdata72014());
+                    cpOrderContentResult72014.setOrderId("7-2014");
+                    cpOrderContentResultList7.add(cpOrderContentResult72014);
+
+                    CPOrderContentResult cpOrderContentResult72015 = new CPOrderContentResult();
+                    cpOrderContentResult72015.setOrderName("合单");
+                    cpOrderContentResult72015.setFullName("第七球");
+                    cpOrderContentResult72015.setOrderState(cpbjscResult.getdata72015());
+                    cpOrderContentResult72015.setOrderId("7-2015");
+                    cpOrderContentResultList7.add(cpOrderContentResult72015);
+
+                    CPOrderContentResult cpOrderContentResult72016 = new CPOrderContentResult();
+                    cpOrderContentResult72016.setOrderName("合双");
+                    cpOrderContentResult72016.setFullName("第七球");
+                    cpOrderContentResult72016.setOrderState(cpbjscResult.getdata72016());
+                    cpOrderContentResult72016.setOrderId("7-2016");
+                    cpOrderContentResultList7.add(cpOrderContentResult72016);
+
+                    CPOrderContentListResult cpOrderContentListResult8 = new CPOrderContentListResult();
+                    cpOrderContentListResult8.setOrderContentListName("第八球");
+                    cpOrderContentListResult8.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult82009 = new CPOrderContentResult();
+                    cpOrderContentResult82009.setOrderName("大");
+                    cpOrderContentResult82009.setFullName("第八球");
+                    cpOrderContentResult82009.setOrderState(cpbjscResult.getdata82009());
+                    cpOrderContentResult82009.setOrderId("8-2009");
+                    cpOrderContentResultList8.add(cpOrderContentResult82009);
+
+                    CPOrderContentResult cpOrderContentResult82010 = new CPOrderContentResult();
+                    cpOrderContentResult82010.setOrderName("小");
+                    cpOrderContentResult82010.setFullName("第八球");
+                    cpOrderContentResult82010.setOrderState(cpbjscResult.getdata82010());
+                    cpOrderContentResult82010.setOrderId("8-2010");
+                    cpOrderContentResultList8.add(cpOrderContentResult82010);
+
+                    CPOrderContentResult cpOrderContentResult82011 = new CPOrderContentResult();
+                    cpOrderContentResult82011.setOrderName("单");
+                    cpOrderContentResult82011.setFullName("第八球");
+                    cpOrderContentResult82011.setOrderState(cpbjscResult.getdata82011());
+                    cpOrderContentResult82011.setOrderId("8-2011");
+                    cpOrderContentResultList8.add(cpOrderContentResult82011);
+
+                    CPOrderContentResult cpOrderContentResult82012 = new CPOrderContentResult();
+                    cpOrderContentResult82012.setOrderName("双");
+                    cpOrderContentResult82012.setFullName("第八球");
+                    cpOrderContentResult82012.setOrderState(cpbjscResult.getdata82012());
+                    cpOrderContentResult82012.setOrderId("8-2012");
+                    cpOrderContentResultList8.add(cpOrderContentResult82012);
+
+                    CPOrderContentResult cpOrderContentResult82013 = new CPOrderContentResult();
+                    cpOrderContentResult82013.setOrderName("尾大");
+                    cpOrderContentResult82013.setFullName("第八球");
+                    cpOrderContentResult82013.setOrderState(cpbjscResult.getdata82013());
+                    cpOrderContentResult82013.setOrderId("8-2013");
+                    cpOrderContentResultList8.add(cpOrderContentResult82013);
+
+                    CPOrderContentResult cpOrderContentResult82014 = new CPOrderContentResult();
+                    cpOrderContentResult82014.setOrderName("小");
+                    cpOrderContentResult82014.setFullName("第八球");
+                    cpOrderContentResult82014.setOrderState(cpbjscResult.getdata82014());
+                    cpOrderContentResult82014.setOrderId("8-2014");
+                    cpOrderContentResultList8.add(cpOrderContentResult82014);
+
+                    CPOrderContentResult cpOrderContentResult82015 = new CPOrderContentResult();
+                    cpOrderContentResult82015.setOrderName("合单");
+                    cpOrderContentResult82015.setFullName("第八球");
+                    cpOrderContentResult82015.setOrderState(cpbjscResult.getdata82015());
+                    cpOrderContentResult82015.setOrderId("8-2015");
+                    cpOrderContentResultList8.add(cpOrderContentResult82015);
+
+                    CPOrderContentResult cpOrderContentResult82016 = new CPOrderContentResult();
+                    cpOrderContentResult82016.setOrderName("合双");
+                    cpOrderContentResult82016.setFullName("第八球");
+                    cpOrderContentResult82016.setOrderState(cpbjscResult.getdata82016());
+                    cpOrderContentResult82016.setOrderId("8-2016");
+                    cpOrderContentResultList8.add(cpOrderContentResult82016);
+
+
+                    cpOrderContentListResult.setData(cpOrderContentResultList);
+                    cpOrderContentListResult1.setData(cpOrderContentResultList1);
+                    cpOrderContentListResult2.setData(cpOrderContentResultList2);
+                    cpOrderContentListResult3.setData(cpOrderContentResultList3);
+                    cpOrderContentListResult4.setData(cpOrderContentResultList4);
+                    cpOrderContentListResult5.setData(cpOrderContentResultList5);
+                    cpOrderContentListResult6.setData(cpOrderContentResultList6);
+                    cpOrderContentListResult7.setData(cpOrderContentResultList7);
+                    cpOrderContentListResult8.setData(cpOrderContentResultList8);
+
+                    CPOrderContentListResult .add(cpOrderContentListResult);
+                    CPOrderContentListResult .add(cpOrderContentListResult1);
+                    CPOrderContentListResult .add(cpOrderContentListResult2);
+                    CPOrderContentListResult .add(cpOrderContentListResult3);
+                    CPOrderContentListResult .add(cpOrderContentListResult4);
+                    CPOrderContentListResult .add(cpOrderContentListResult5);
+                    CPOrderContentListResult .add(cpOrderContentListResult6);
+                    CPOrderContentListResult .add(cpOrderContentListResult7);
+                    CPOrderContentListResult .add(cpOrderContentListResult8);
+
+                    break;
+                case 1:
+                    CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+                    cpOrderContentListResult11.setOrderContentListName("第一球");
+                    cpOrderContentListResult11.setShowType("QIU");
+                    cpOrderContentListResult11.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
+                    cpOrderContentResult11.setOrderName("1");
+                    cpOrderContentResult11.setFullName("第一球");
+                    cpOrderContentResult11.setOrderState(cpbjscResult.getdata1());
+                    cpOrderContentResult11.setOrderId("1");
+                    cpOrderContentResultList11.add(cpOrderContentResult11);
+
+                    CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
+                    cpOrderContentResult12.setOrderName("2");
+                    cpOrderContentResult12.setFullName("第一球");
+                    cpOrderContentResult12.setOrderState(cpbjscResult.getdata2());
+                    cpOrderContentResult12.setOrderId("2");
+                    cpOrderContentResultList11.add(cpOrderContentResult12);
+
+                    CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
+                    cpOrderContentResult13.setOrderName("3");
+                    cpOrderContentResult13.setFullName("第一球");
+                    cpOrderContentResult13.setOrderState(cpbjscResult.getdata3());
+                    cpOrderContentResult13.setOrderId("3");
+                    cpOrderContentResultList11.add(cpOrderContentResult13);
+
+                    CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
+                    cpOrderContentResult14.setOrderName("4");
+                    cpOrderContentResult14.setFullName("第一球");
+                    cpOrderContentResult14.setOrderState(cpbjscResult.getdata4());
+                    cpOrderContentResult14.setOrderId("4");
+                    cpOrderContentResultList11.add(cpOrderContentResult14);
+
+                    CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
+                    cpOrderContentResult15.setOrderName("5");
+                    cpOrderContentResult15.setFullName("第一球");
+                    cpOrderContentResult15.setOrderState(cpbjscResult.getdata5());
+                    cpOrderContentResult15.setOrderId("5");
+                    cpOrderContentResultList11.add(cpOrderContentResult15);
+
+                    CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
+                    cpOrderContentResult16.setOrderName("6");
+                    cpOrderContentResult16.setFullName("第一球");
+                    cpOrderContentResult16.setOrderState(cpbjscResult.getdata6());
+                    cpOrderContentResult16.setOrderId("6");
+                    cpOrderContentResultList11.add(cpOrderContentResult16);
+
+                    CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
+                    cpOrderContentResult17.setOrderName("7");
+                    cpOrderContentResult17.setFullName("第一球");
+                    cpOrderContentResult17.setOrderState(cpbjscResult.getdata7());
+                    cpOrderContentResult17.setOrderId("7");
+                    cpOrderContentResultList11.add(cpOrderContentResult17);
+
+                    CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
+                    cpOrderContentResult18.setOrderName("8");
+                    cpOrderContentResult18.setFullName("第一球");
+                    cpOrderContentResult18.setOrderState(cpbjscResult.getdata8());
+                    cpOrderContentResult18.setOrderId("8");
+                    cpOrderContentResultList11.add(cpOrderContentResult18);
+
+                    CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
+                    cpOrderContentResult19.setOrderName("9");
+                    cpOrderContentResult19.setFullName("第一球");
+                    cpOrderContentResult19.setOrderState(cpbjscResult.getdata9());
+                    cpOrderContentResult19.setOrderId("9");
+                    cpOrderContentResultList11.add(cpOrderContentResult19);
+
+                    CPOrderContentResult cpOrderContentResult110 = new CPOrderContentResult();
+                    cpOrderContentResult110.setOrderName("10");
+                    cpOrderContentResult110.setFullName("第一球");
+                    cpOrderContentResult110.setOrderState(cpbjscResult.getdata10());
+                    cpOrderContentResult110.setOrderId("10");
+                    cpOrderContentResultList11.add(cpOrderContentResult110);
+
+                    CPOrderContentResult cpOrderContentResult111 = new CPOrderContentResult();
+                    cpOrderContentResult111.setOrderName("11");
+                    cpOrderContentResult111.setFullName("第一球");
+                    cpOrderContentResult111.setOrderState(cpbjscResult.getdata11());
+                    cpOrderContentResult111.setOrderId("11");
+                    cpOrderContentResultList11.add(cpOrderContentResult111);
+
+                    CPOrderContentResult cpOrderContentResult112 = new CPOrderContentResult();
+                    cpOrderContentResult112.setOrderName("12");
+                    cpOrderContentResult112.setFullName("第一球");
+                    cpOrderContentResult112.setOrderState(cpbjscResult.getdata12());
+                    cpOrderContentResult112.setOrderId("12");
+                    cpOrderContentResultList11.add(cpOrderContentResult112);
+
+                    CPOrderContentResult cpOrderContentResult113 = new CPOrderContentResult();
+                    cpOrderContentResult113.setOrderName("13");
+                    cpOrderContentResult113.setFullName("第一球");
+                    cpOrderContentResult113.setOrderState(cpbjscResult.getdata13());
+                    cpOrderContentResult113.setOrderId("13");
+                    cpOrderContentResultList11.add(cpOrderContentResult113);
+
+                    CPOrderContentResult cpOrderContentResult114 = new CPOrderContentResult();
+                    cpOrderContentResult114.setOrderName("14");
+                    cpOrderContentResult114.setFullName("第一球");
+                    cpOrderContentResult114.setOrderState(cpbjscResult.getdata14());
+                    cpOrderContentResult114.setOrderId("14");
+                    cpOrderContentResultList11.add(cpOrderContentResult114);
+
+                    CPOrderContentResult cpOrderContentResult115 = new CPOrderContentResult();
+                    cpOrderContentResult115.setOrderName("15");
+                    cpOrderContentResult115.setFullName("第一球");
+                    cpOrderContentResult115.setOrderState(cpbjscResult.getdata15());
+                    cpOrderContentResult115.setOrderId("15");
+                    cpOrderContentResultList11.add(cpOrderContentResult115);
+
+                    CPOrderContentResult cpOrderContentResult116 = new CPOrderContentResult();
+                    cpOrderContentResult116.setOrderName("16");
+                    cpOrderContentResult116.setFullName("第一球");
+                    cpOrderContentResult116.setOrderState(cpbjscResult.getdata16());
+                    cpOrderContentResult116.setOrderId("16");
+                    cpOrderContentResultList11.add(cpOrderContentResult116);
+
+                    CPOrderContentResult cpOrderContentResult117 = new CPOrderContentResult();
+                    cpOrderContentResult117.setOrderName("17");
+                    cpOrderContentResult117.setFullName("第一球");
+                    cpOrderContentResult117.setOrderState(cpbjscResult.getdata17());
+                    cpOrderContentResult117.setOrderId("17");
+                    cpOrderContentResultList11.add(cpOrderContentResult117);
+
+                    CPOrderContentResult cpOrderContentResult118 = new CPOrderContentResult();
+                    cpOrderContentResult118.setOrderName("18");
+                    cpOrderContentResult118.setFullName("第一球");
+                    cpOrderContentResult118.setOrderState(cpbjscResult.getdata18());
+                    cpOrderContentResult118.setOrderId("18");
+                    cpOrderContentResultList11.add(cpOrderContentResult118);
+
+                    CPOrderContentListResult cpOrderContentListResult12 = new CPOrderContentListResult();
+                    cpOrderContentListResult12.setOrderContentListName("");
+                    cpOrderContentListResult12.setShowType("QIU");
+                    cpOrderContentListResult12.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList12 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult119 = new CPOrderContentResult();
+                    cpOrderContentResult119.setOrderName("19");
+                    cpOrderContentResult119.setFullName("第一球");
+                    cpOrderContentResult119.setOrderState(cpbjscResult.getdata19());
+                    cpOrderContentResult119.setOrderId("19");
+                    cpOrderContentResultList12.add(cpOrderContentResult119);
+
+                    CPOrderContentResult cpOrderContentResult120 = new CPOrderContentResult();
+                    cpOrderContentResult120.setOrderName("20");
+                    cpOrderContentResult120.setFullName("第一球");
+                    cpOrderContentResult120.setOrderState(cpbjscResult.getdata20());
+                    cpOrderContentResult120.setOrderId("20");
+                    cpOrderContentResultList12.add(cpOrderContentResult120);
+
+                    CPOrderContentListResult cpOrderContentListResult13 = new CPOrderContentListResult();
+                    cpOrderContentListResult13.setOrderContentListName("");
+                    cpOrderContentListResult13.setShowType("ZI");
+                    cpOrderContentListResult13.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList13 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult12009 = new CPOrderContentResult();
+                    cpOrderContentResult12009.setOrderName("大");
+                    cpOrderContentResult12009.setFullName("第一球");
+                    cpOrderContentResult12009.setOrderState(cpbjscResult.getdata2009());
+                    cpOrderContentResult12009.setOrderId("2009");
+                    cpOrderContentResultList13.add(cpOrderContentResult12009);
+
+                    CPOrderContentResult cpOrderContentResult12010 = new CPOrderContentResult();
+                    cpOrderContentResult12010.setOrderName("小");
+                    cpOrderContentResult12010.setFullName("第一球");
+                    cpOrderContentResult12010.setOrderState(cpbjscResult.getdata2010());
+                    cpOrderContentResult12010.setOrderId("2010");
+                    cpOrderContentResultList13.add(cpOrderContentResult12010);
+
+                    CPOrderContentResult cpOrderContentResult12011 = new CPOrderContentResult();
+                    cpOrderContentResult12011.setOrderName("单");
+                    cpOrderContentResult12011.setFullName("第一球");
+                    cpOrderContentResult12011.setOrderState(cpbjscResult.getdata2011());
+                    cpOrderContentResult12011.setOrderId("2011");
+                    cpOrderContentResultList13.add(cpOrderContentResult12011);
+
+                    CPOrderContentResult cpOrderContentResult12012 = new CPOrderContentResult();
+                    cpOrderContentResult12012.setOrderName("双");
+                    cpOrderContentResult12012.setFullName("第一球");
+                    cpOrderContentResult12012.setOrderState(cpbjscResult.getdata2012());
+                    cpOrderContentResult12012.setOrderId("2012");
+                    cpOrderContentResultList13.add(cpOrderContentResult12012);
+
+                    CPOrderContentResult cpOrderContentResult12013 = new CPOrderContentResult();
+                    cpOrderContentResult12013.setOrderName("尾大");
+                    cpOrderContentResult12013.setFullName("第一球");
+                    cpOrderContentResult12013.setOrderState(cpbjscResult.getdata2013());
+                    cpOrderContentResult12013.setOrderId("2013");
+                    cpOrderContentResultList13.add(cpOrderContentResult12013);
+
+                    CPOrderContentResult cpOrderContentResult12014 = new CPOrderContentResult();
+                    cpOrderContentResult12014.setOrderName("尾小");
+                    cpOrderContentResult12014.setFullName("第一球");
+                    cpOrderContentResult12014.setOrderState(cpbjscResult.getdata2014());
+                    cpOrderContentResult12014.setOrderId("2014");
+                    cpOrderContentResultList13.add(cpOrderContentResult12014);
+
+                    CPOrderContentResult cpOrderContentResult12015 = new CPOrderContentResult();
+                    cpOrderContentResult12015.setOrderName("合单");
+                    cpOrderContentResult12015.setFullName("第一球");
+                    cpOrderContentResult12015.setOrderState(cpbjscResult.getdata2015());
+                    cpOrderContentResult12015.setOrderId("2015");
+                    cpOrderContentResultList13.add(cpOrderContentResult12015);
+
+                    CPOrderContentResult cpOrderContentResult12016 = new CPOrderContentResult();
+                    cpOrderContentResult12016.setOrderName("合双");
+                    cpOrderContentResult12016.setFullName("第一球");
+                    cpOrderContentResult12016.setOrderState(cpbjscResult.getdata2016());
+                    cpOrderContentResult12016.setOrderId("2016");
+                    cpOrderContentResultList13.add(cpOrderContentResult12016);
+
+                    CPOrderContentResult cpOrderContentResult12017 = new CPOrderContentResult();
+                    cpOrderContentResult12017.setOrderName("东");
+                    cpOrderContentResult12017.setFullName("第一球");
+                    cpOrderContentResult12017.setOrderState(cpbjscResult.getdata2017());
+                    cpOrderContentResult12017.setOrderId("2017");
+                    cpOrderContentResultList13.add(cpOrderContentResult12017);
+
+                    CPOrderContentResult cpOrderContentResult12018 = new CPOrderContentResult();
+                    cpOrderContentResult12018.setOrderName("南");
+                    cpOrderContentResult12018.setFullName("第一球");
+                    cpOrderContentResult12018.setOrderState(cpbjscResult.getdata2018());
+                    cpOrderContentResult12018.setOrderId("2018");
+                    cpOrderContentResultList13.add(cpOrderContentResult12018);
+
+                    CPOrderContentResult cpOrderContentResult12019 = new CPOrderContentResult();
+                    cpOrderContentResult12019.setOrderName("西");
+                    cpOrderContentResult12019.setFullName("第一球");
+                    cpOrderContentResult12019.setOrderState(cpbjscResult.getdata2019());
+                    cpOrderContentResult12019.setOrderId("2019");
+                    cpOrderContentResultList13.add(cpOrderContentResult12019);
+
+                    CPOrderContentResult cpOrderContentResult12020 = new CPOrderContentResult();
+                    cpOrderContentResult12020.setOrderName("北");
+                    cpOrderContentResult12020.setFullName("第一球");
+                    cpOrderContentResult12020.setOrderState(cpbjscResult.getdata2020());
+                    cpOrderContentResult12020.setOrderId("2020");
+                    cpOrderContentResultList13.add(cpOrderContentResult12020);
+
+                    CPOrderContentListResult cpOrderContentListResult14 = new CPOrderContentListResult();
+                    cpOrderContentListResult14.setOrderContentListName("");
+                    cpOrderContentListResult14.setShowType("ZI");
+                    cpOrderContentListResult14.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList14 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult12021 = new CPOrderContentResult();
+                    cpOrderContentResult12021.setOrderName("中");
+                    cpOrderContentResult12021.setFullName("第一球");
+                    cpOrderContentResult12021.setOrderState(cpbjscResult.getdata2021());
+                    cpOrderContentResult12021.setOrderId("2021");
+                    cpOrderContentResultList14.add(cpOrderContentResult12021);
+
+                    CPOrderContentResult cpOrderContentResult12022 = new CPOrderContentResult();
+                    cpOrderContentResult12022.setOrderName("发");
+                    cpOrderContentResult12022.setFullName("第一球");
+                    cpOrderContentResult12022.setOrderState(cpbjscResult.getdata2022());
+                    cpOrderContentResult12022.setOrderId("2022");
+                    cpOrderContentResultList14.add(cpOrderContentResult12022);
+
+                    CPOrderContentResult cpOrderContentResult12023 = new CPOrderContentResult();
+                    cpOrderContentResult12023.setOrderName("白");
+                    cpOrderContentResult12023.setFullName("第一球");
+                    cpOrderContentResult12023.setOrderState(cpbjscResult.getdata2023());
+                    cpOrderContentResult12023.setOrderId("2023");
+                    cpOrderContentResultList14.add(cpOrderContentResult12023);
+
+
+                    cpOrderContentListResult11.setData(cpOrderContentResultList11);
+                    cpOrderContentListResult12.setData(cpOrderContentResultList12);
+                    cpOrderContentListResult13.setData(cpOrderContentResultList13);
+                    cpOrderContentListResult14.setData(cpOrderContentResultList14);
+                    CPOrderContentListResult.add(cpOrderContentListResult11);
+                    CPOrderContentListResult.add(cpOrderContentListResult12);
+                    CPOrderContentListResult.add(cpOrderContentListResult13);
+                    CPOrderContentListResult.add(cpOrderContentListResult14);
+
+                    break;
+                case 2:
+
+                    CPOrderContentListResult cpOrderContentListResult21 = new CPOrderContentListResult();
+                    cpOrderContentListResult21.setOrderContentListName("第二球");
+                    cpOrderContentListResult21.setShowType("QIU");
+                    cpOrderContentListResult21.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList21 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+                    cpOrderContentResult21.setOrderName("1");
+                    cpOrderContentResult21.setFullName("第二球");
+                    cpOrderContentResult21.setOrderState(cpbjscResult.getdata1());
+                    cpOrderContentResult21.setOrderId("1");
+                    cpOrderContentResultList21.add(cpOrderContentResult21);
+
+                    CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+                    cpOrderContentResult22.setOrderName("2");
+                    cpOrderContentResult22.setFullName("第二球");
+                    cpOrderContentResult22.setOrderState(cpbjscResult.getdata2());
+                    cpOrderContentResult22.setOrderId("2");
+                    cpOrderContentResultList21.add(cpOrderContentResult22);
+
+                    CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+                    cpOrderContentResult23.setOrderName("3");
+                    cpOrderContentResult23.setFullName("第二球");
+                    cpOrderContentResult23.setOrderState(cpbjscResult.getdata3());
+                    cpOrderContentResult23.setOrderId("3");
+                    cpOrderContentResultList21.add(cpOrderContentResult23);
+
+                    CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
+                    cpOrderContentResult24.setOrderName("4");
+                    cpOrderContentResult24.setFullName("第二球");
+                    cpOrderContentResult24.setOrderState(cpbjscResult.getdata4());
+                    cpOrderContentResult24.setOrderId("4");
+                    cpOrderContentResultList21.add(cpOrderContentResult24);
+
+                    CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
+                    cpOrderContentResult25.setOrderName("5");
+                    cpOrderContentResult25.setFullName("第二球");
+                    cpOrderContentResult25.setOrderState(cpbjscResult.getdata5());
+                    cpOrderContentResult25.setOrderId("5");
+                    cpOrderContentResultList21.add(cpOrderContentResult25);
+
+                    CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
+                    cpOrderContentResult26.setOrderName("6");
+                    cpOrderContentResult26.setFullName("第二球");
+                    cpOrderContentResult26.setOrderState(cpbjscResult.getdata6());
+                    cpOrderContentResult26.setOrderId("6");
+                    cpOrderContentResultList21.add(cpOrderContentResult26);
+
+                    CPOrderContentResult cpOrderContentResult27 = new CPOrderContentResult();
+                    cpOrderContentResult27.setOrderName("7");
+                    cpOrderContentResult27.setFullName("第二球");
+                    cpOrderContentResult27.setOrderState(cpbjscResult.getdata7());
+                    cpOrderContentResult27.setOrderId("7");
+                    cpOrderContentResultList21.add(cpOrderContentResult27);
+
+                    CPOrderContentResult cpOrderContentResult28 = new CPOrderContentResult();
+                    cpOrderContentResult28.setOrderName("8");
+                    cpOrderContentResult28.setFullName("第二球");
+                    cpOrderContentResult28.setOrderState(cpbjscResult.getdata8());
+                    cpOrderContentResult28.setOrderId("8");
+                    cpOrderContentResultList21.add(cpOrderContentResult28);
+
+                    CPOrderContentResult cpOrderContentResult29 = new CPOrderContentResult();
+                    cpOrderContentResult29.setOrderName("9");
+                    cpOrderContentResult29.setFullName("第二球");
+                    cpOrderContentResult29.setOrderState(cpbjscResult.getdata9());
+                    cpOrderContentResult29.setOrderId("9");
+                    cpOrderContentResultList21.add(cpOrderContentResult29);
+
+                    CPOrderContentResult cpOrderContentResult210 = new CPOrderContentResult();
+                    cpOrderContentResult210.setOrderName("10");
+                    cpOrderContentResult210.setFullName("第二球");
+                    cpOrderContentResult210.setOrderState(cpbjscResult.getdata10());
+                    cpOrderContentResult210.setOrderId("10");
+                    cpOrderContentResultList21.add(cpOrderContentResult210);
+
+                    CPOrderContentResult cpOrderContentResult211 = new CPOrderContentResult();
+                    cpOrderContentResult211.setOrderName("11");
+                    cpOrderContentResult211.setFullName("第二球");
+                    cpOrderContentResult211.setOrderState(cpbjscResult.getdata11());
+                    cpOrderContentResult211.setOrderId("11");
+                    cpOrderContentResultList21.add(cpOrderContentResult211);
+
+                    CPOrderContentResult cpOrderContentResult212 = new CPOrderContentResult();
+                    cpOrderContentResult212.setOrderName("12");
+                    cpOrderContentResult212.setFullName("第二球");
+                    cpOrderContentResult212.setOrderState(cpbjscResult.getdata12());
+                    cpOrderContentResult212.setOrderId("12");
+                    cpOrderContentResultList21.add(cpOrderContentResult212);
+
+                    CPOrderContentResult cpOrderContentResult213 = new CPOrderContentResult();
+                    cpOrderContentResult213.setOrderName("13");
+                    cpOrderContentResult213.setFullName("第二球");
+                    cpOrderContentResult213.setOrderState(cpbjscResult.getdata13());
+                    cpOrderContentResult213.setOrderId("13");
+                    cpOrderContentResultList21.add(cpOrderContentResult213);
+
+                    CPOrderContentResult cpOrderContentResult214 = new CPOrderContentResult();
+                    cpOrderContentResult214.setOrderName("14");
+                    cpOrderContentResult214.setFullName("第二球");
+                    cpOrderContentResult214.setOrderState(cpbjscResult.getdata14());
+                    cpOrderContentResult214.setOrderId("14");
+                    cpOrderContentResultList21.add(cpOrderContentResult214);
+
+
+                    CPOrderContentResult cpOrderContentResult215 = new CPOrderContentResult();
+                    cpOrderContentResult215.setOrderName("15");
+                    cpOrderContentResult215.setFullName("第二球");
+                    cpOrderContentResult215.setOrderState(cpbjscResult.getdata15());
+                    cpOrderContentResult215.setOrderId("15");
+                    cpOrderContentResultList21.add(cpOrderContentResult215);
+
+                    CPOrderContentResult cpOrderContentResult216 = new CPOrderContentResult();
+                    cpOrderContentResult216.setOrderName("16");
+                    cpOrderContentResult216.setFullName("第二球");
+                    cpOrderContentResult216.setOrderState(cpbjscResult.getdata16());
+                    cpOrderContentResult216.setOrderId("16");
+                    cpOrderContentResultList21.add(cpOrderContentResult216);
+
+                    CPOrderContentResult cpOrderContentResult217 = new CPOrderContentResult();
+                    cpOrderContentResult217.setOrderName("17");
+                    cpOrderContentResult217.setFullName("第二球");
+                    cpOrderContentResult217.setOrderState(cpbjscResult.getdata17());
+                    cpOrderContentResult217.setOrderId("17");
+                    cpOrderContentResultList21.add(cpOrderContentResult217);
+
+                    CPOrderContentResult cpOrderContentResult218 = new CPOrderContentResult();
+                    cpOrderContentResult218.setOrderName("18");
+                    cpOrderContentResult218.setFullName("第二球");
+                    cpOrderContentResult218.setOrderState(cpbjscResult.getdata18());
+                    cpOrderContentResult218.setOrderId("18");
+                    cpOrderContentResultList21.add(cpOrderContentResult218);
+
+                    CPOrderContentListResult cpOrderContentListResult22 = new CPOrderContentListResult();
+                    cpOrderContentListResult22.setOrderContentListName("");
+                    cpOrderContentListResult22.setShowType("QIU");
+                    cpOrderContentListResult22.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList22 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult219 = new CPOrderContentResult();
+                    cpOrderContentResult219.setOrderName("19");
+                    cpOrderContentResult219.setFullName("第二球");
+                    cpOrderContentResult219.setOrderState(cpbjscResult.getdata19());
+                    cpOrderContentResult219.setOrderId("19");
+                    cpOrderContentResultList22.add(cpOrderContentResult219);
+
+                    CPOrderContentResult cpOrderContentResult220 = new CPOrderContentResult();
+                    cpOrderContentResult220.setOrderName("20");
+                    cpOrderContentResult220.setFullName("第二球");
+                    cpOrderContentResult220.setOrderState(cpbjscResult.getdata20());
+                    cpOrderContentResult220.setOrderId("20");
+                    cpOrderContentResultList22.add(cpOrderContentResult220);
+
+                    CPOrderContentListResult cpOrderContentListResult23 = new CPOrderContentListResult();
+                    cpOrderContentListResult23.setOrderContentListName("");
+                    cpOrderContentListResult23.setShowType("ZI");
+                    cpOrderContentListResult23.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList23 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult222009 = new CPOrderContentResult();
+                    cpOrderContentResult222009.setOrderName("大");
+                    cpOrderContentResult222009.setFullName("第二球");
+                    cpOrderContentResult222009.setOrderState(cpbjscResult.getdata2009());
+                    cpOrderContentResult222009.setOrderId("2009");
+                    cpOrderContentResultList23.add(cpOrderContentResult222009);
+
+                    CPOrderContentResult cpOrderContentResult222010 = new CPOrderContentResult();
+                    cpOrderContentResult222010.setOrderName("小");
+                    cpOrderContentResult222010.setFullName("第二球");
+                    cpOrderContentResult222010.setOrderState(cpbjscResult.getdata2010());
+                    cpOrderContentResult222010.setOrderId("2010");
+                    cpOrderContentResultList23.add(cpOrderContentResult222010);
+
+                    CPOrderContentResult cpOrderContentResult222011 = new CPOrderContentResult();
+                    cpOrderContentResult222011.setOrderName("单");
+                    cpOrderContentResult222011.setFullName("第二球");
+                    cpOrderContentResult222011.setOrderState(cpbjscResult.getdata2011());
+                    cpOrderContentResult222011.setOrderId("2011");
+                    cpOrderContentResultList23.add(cpOrderContentResult222011);
+
+                    CPOrderContentResult cpOrderContentResult222012 = new CPOrderContentResult();
+                    cpOrderContentResult222012.setOrderName("双");
+                    cpOrderContentResult222012.setFullName("第二球");
+                    cpOrderContentResult222012.setOrderState(cpbjscResult.getdata2012());
+                    cpOrderContentResult222012.setOrderId("2012");
+                    cpOrderContentResultList23.add(cpOrderContentResult222012);
+
+                    CPOrderContentResult cpOrderContentResult222013 = new CPOrderContentResult();
+                    cpOrderContentResult222013.setOrderName("尾大");
+                    cpOrderContentResult222013.setFullName("第二球");
+                    cpOrderContentResult222013.setOrderState(cpbjscResult.getdata2013());
+                    cpOrderContentResult222013.setOrderId("2013");
+                    cpOrderContentResultList23.add(cpOrderContentResult222013);
+
+                    CPOrderContentResult cpOrderContentResult222014 = new CPOrderContentResult();
+                    cpOrderContentResult222014.setOrderName("尾小");
+                    cpOrderContentResult222014.setFullName("第二球");
+                    cpOrderContentResult222014.setOrderState(cpbjscResult.getdata2014());
+                    cpOrderContentResult222014.setOrderId("2014");
+                    cpOrderContentResultList23.add(cpOrderContentResult222014);
+
+                    CPOrderContentResult cpOrderContentResult222015 = new CPOrderContentResult();
+                    cpOrderContentResult222015.setOrderName("合单");
+                    cpOrderContentResult222015.setFullName("第二球");
+                    cpOrderContentResult222015.setOrderState(cpbjscResult.getdata2015());
+                    cpOrderContentResult222015.setOrderId("2015");
+                    cpOrderContentResultList23.add(cpOrderContentResult222015);
+
+                    CPOrderContentResult cpOrderContentResult222016 = new CPOrderContentResult();
+                    cpOrderContentResult222016.setOrderName("合双");
+                    cpOrderContentResult222016.setFullName("第二球");
+                    cpOrderContentResult222016.setOrderState(cpbjscResult.getdata2016());
+                    cpOrderContentResult222016.setOrderId("2016");
+                    cpOrderContentResultList23.add(cpOrderContentResult222016);
+
+                    CPOrderContentResult cpOrderContentResult222017 = new CPOrderContentResult();
+                    cpOrderContentResult222017.setOrderName("东");
+                    cpOrderContentResult222017.setFullName("第二球");
+                    cpOrderContentResult222017.setOrderState(cpbjscResult.getdata2017());
+                    cpOrderContentResult222017.setOrderId("2017");
+                    cpOrderContentResultList23.add(cpOrderContentResult222017);
+
+                    CPOrderContentResult cpOrderContentResult222018 = new CPOrderContentResult();
+                    cpOrderContentResult222018.setOrderName("南");
+                    cpOrderContentResult222018.setFullName("第二球");
+                    cpOrderContentResult222018.setOrderState(cpbjscResult.getdata2018());
+                    cpOrderContentResult222018.setOrderId("2018");
+                    cpOrderContentResultList23.add(cpOrderContentResult222018);
+
+                    CPOrderContentResult cpOrderContentResult222019 = new CPOrderContentResult();
+                    cpOrderContentResult222019.setOrderName("西");
+                    cpOrderContentResult222019.setFullName("第二球");
+                    cpOrderContentResult222019.setOrderState(cpbjscResult.getdata2019());
+                    cpOrderContentResult222019.setOrderId("2019");
+                    cpOrderContentResultList23.add(cpOrderContentResult222019);
+
+                    CPOrderContentResult cpOrderContentResult1222020 = new CPOrderContentResult();
+                    cpOrderContentResult1222020.setOrderName("北");
+                    cpOrderContentResult1222020.setFullName("第二球");
+                    cpOrderContentResult1222020.setOrderState(cpbjscResult.getdata2020());
+                    cpOrderContentResult1222020.setOrderId("2020");
+                    cpOrderContentResultList23.add(cpOrderContentResult1222020);
+
+                    CPOrderContentListResult cpOrderContentListResult24 = new CPOrderContentListResult();
+                    cpOrderContentListResult24.setOrderContentListName("");
+                    cpOrderContentListResult24.setShowType("ZI");
+                    cpOrderContentListResult24.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList24 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult222021 = new CPOrderContentResult();
+                    cpOrderContentResult222021.setOrderName("中");
+                    cpOrderContentResult222021.setFullName("第二球");
+                    cpOrderContentResult222021.setOrderState(cpbjscResult.getdata2021());
+                    cpOrderContentResult222021.setOrderId("2021");
+                    cpOrderContentResultList24.add(cpOrderContentResult222021);
+
+                    CPOrderContentResult cpOrderContentResult222022 = new CPOrderContentResult();
+                    cpOrderContentResult222022.setOrderName("发");
+                    cpOrderContentResult222022.setFullName("第二球");
+                    cpOrderContentResult222022.setOrderState(cpbjscResult.getdata2022());
+                    cpOrderContentResult222022.setOrderId("2022");
+                    cpOrderContentResultList24.add(cpOrderContentResult222022);
+
+                    CPOrderContentResult cpOrderContentResult222023 = new CPOrderContentResult();
+                    cpOrderContentResult222023.setOrderName("白");
+                    cpOrderContentResult222023.setFullName("第二球");
+                    cpOrderContentResult222023.setOrderState(cpbjscResult.getdata2023());
+                    cpOrderContentResult222023.setOrderId("2023");
+                    cpOrderContentResultList24.add(cpOrderContentResult222023);
+
+
+                    cpOrderContentListResult21.setData(cpOrderContentResultList21);
+                    cpOrderContentListResult22.setData(cpOrderContentResultList22);
+                    cpOrderContentListResult23.setData(cpOrderContentResultList23);
+                    cpOrderContentListResult24.setData(cpOrderContentResultList24);
+                    CPOrderContentListResult.add(cpOrderContentListResult21);
+                    CPOrderContentListResult.add(cpOrderContentListResult22);
+                    CPOrderContentListResult.add(cpOrderContentListResult23);
+                    CPOrderContentListResult.add(cpOrderContentListResult24);
+
+                    break;
+                case 3:
+                    /*allResult.setOrderAllName("第三球");
+
+                    List<CPOrderContentListResult> CPOrderContentListResult31 = new ArrayList<CPOrderContentListResult>();
+                    CPOrderContentListResult cpOrderContentListResult31 = new CPOrderContentListResult();
+                    cpOrderContentListResult31.setOrderContentListName("第三球");
+                    cpOrderContentListResult31.setShowType("QIU");
+                    cpOrderContentListResult31.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList31 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
+                    cpOrderContentResult31.setOrderName("1");
+                    cpOrderContentResult31.setFullName("第三球");
+                    cpOrderContentResult31.setOrderState(cpbjscResult.getdata1());
+                    cpOrderContentResult31.setOrderId("1");
+                    cpOrderContentResultList31.add(cpOrderContentResult31);
+
+                    CPOrderContentResult cpOrderContentResult32 = new CPOrderContentResult();
+                    cpOrderContentResult32.setOrderName("2");
+                    cpOrderContentResult32.setFullName("第三球");
+                    cpOrderContentResult32.setOrderState(cpbjscResult.getdata2());
+                    cpOrderContentResult32.setOrderId("2");
+                    cpOrderContentResultList31.add(cpOrderContentResult32);
+
+                    CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+                    cpOrderContentResult33.setOrderName("3");
+                    cpOrderContentResult33.setFullName("第三球");
+                    cpOrderContentResult33.setOrderState(cpbjscResult.getdata3());
+                    cpOrderContentResult33.setOrderId("3");
+                    cpOrderContentResultList31.add(cpOrderContentResult33);
+
+                    CPOrderContentResult cpOrderContentResult44 = new CPOrderContentResult();
+                    cpOrderContentResult44.setOrderName("4");
+                    cpOrderContentResult44.setFullName("第三球");
+                    cpOrderContentResult44.setOrderState(cpbjscResult.getdata4());
+                    cpOrderContentResult44.setOrderId("3");
+                    cpOrderContentResultList31.add(cpOrderContentResult44);
+
+                    CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+                    cpOrderContentResult45.setOrderName("5");
+                    cpOrderContentResult45.setFullName("第三球");
+                    cpOrderContentResult45.setOrderState(cpbjscResult.getdata5());
+                    cpOrderContentResult45.setOrderId("5");
+                    cpOrderContentResultList31.add(cpOrderContentResult45);
+
+                    CPOrderContentResult cpOrderContentResult46 = new CPOrderContentResult();
+                    cpOrderContentResult46.setOrderName("6");
+                    cpOrderContentResult46.setFullName("第三球");
+                    cpOrderContentResult46.setOrderState(cpbjscResult.getdata6());
+                    cpOrderContentResult46.setOrderId("6");
+                    cpOrderContentResultList31.add(cpOrderContentResult46);
+
+                    CPOrderContentResult cpOrderContentResult47 = new CPOrderContentResult();
+                    cpOrderContentResult47.setOrderName("7");
+                    cpOrderContentResult47.setFullName("第三球");
+                    cpOrderContentResult47.setOrderState(cpbjscResult.getdata7());
+                    cpOrderContentResult47.setOrderId("7");
+                    cpOrderContentResultList31.add(cpOrderContentResult47);
+
+                    CPOrderContentResult cpOrderContentResult48 = new CPOrderContentResult();
+                    cpOrderContentResult48.setOrderName("8");
+                    cpOrderContentResult48.setFullName("第三球");
+                    cpOrderContentResult48.setOrderState(cpbjscResult.getdata8());
+                    cpOrderContentResult48.setOrderId("8");
+                    cpOrderContentResultList31.add(cpOrderContentResult48);
+
+                    CPOrderContentResult cpOrderContentResult49 = new CPOrderContentResult();
+                    cpOrderContentResult49.setOrderName("9");
+                    cpOrderContentResult49.setFullName("第三球");
+                    cpOrderContentResult49.setOrderState(cpbjscResult.getdata9());
+                    cpOrderContentResult49.setOrderId("9");
+                    cpOrderContentResultList31.add(cpOrderContentResult49);
+
+                    CPOrderContentResult cpOrderContentResult410 = new CPOrderContentResult();
+                    cpOrderContentResult410.setOrderName("10");
+                    cpOrderContentResult410.setFullName("第三球");
+                    cpOrderContentResult410.setOrderState(cpbjscResult.getdata10());
+                    cpOrderContentResult410.setOrderId("10");
+                    cpOrderContentResultList31.add(cpOrderContentResult410);
+
+                    CPOrderContentResult cpOrderContentResult411 = new CPOrderContentResult();
+                    cpOrderContentResult411.setOrderName("11");
+                    cpOrderContentResult411.setFullName("第三球");
+                    cpOrderContentResult411.setOrderState(cpbjscResult.getdata11());
+                    cpOrderContentResult411.setOrderId("11");
+                    cpOrderContentResultList31.add(cpOrderContentResult411);
+
+                    CPOrderContentResult cpOrderContentResult412 = new CPOrderContentResult();
+                    cpOrderContentResult412.setOrderName("12");
+                    cpOrderContentResult412.setFullName("第三球");
+                    cpOrderContentResult412.setOrderState(cpbjscResult.getdata12());
+                    cpOrderContentResult412.setOrderId("12");
+                    cpOrderContentResultList31.add(cpOrderContentResult412);
+
+                    CPOrderContentResult cpOrderContentResult413 = new CPOrderContentResult();
+                    cpOrderContentResult413.setOrderName("13");
+                    cpOrderContentResult413.setFullName("第三球");
+                    cpOrderContentResult413.setOrderState(cpbjscResult.getdata13());
+                    cpOrderContentResult413.setOrderId("13");
+                    cpOrderContentResultList31.add(cpOrderContentResult413);
+
+                    CPOrderContentResult cpOrderContentResult414 = new CPOrderContentResult();
+                    cpOrderContentResult414.setOrderName("14");
+                    cpOrderContentResult414.setFullName("第三球");
+                    cpOrderContentResult414.setOrderState(cpbjscResult.getdata14());
+                    cpOrderContentResult414.setOrderId("14");
+                    cpOrderContentResultList31.add(cpOrderContentResult414);
+
+
+                    CPOrderContentResult cpOrderContentResult415 = new CPOrderContentResult();
+                    cpOrderContentResult415.setOrderName("15");
+                    cpOrderContentResult415.setFullName("第三球");
+                    cpOrderContentResult415.setOrderState(cpbjscResult.getdata15());
+                    cpOrderContentResult415.setOrderId("15");
+                    cpOrderContentResultList31.add(cpOrderContentResult415);
+
+                    CPOrderContentResult cpOrderContentResult416 = new CPOrderContentResult();
+                    cpOrderContentResult416.setOrderName("16");
+                    cpOrderContentResult416.setFullName("第三球");
+                    cpOrderContentResult416.setOrderState(cpbjscResult.getdata16());
+                    cpOrderContentResult416.setOrderId("16");
+                    cpOrderContentResultList31.add(cpOrderContentResult416);
+
+                    CPOrderContentResult cpOrderContentResult417 = new CPOrderContentResult();
+                    cpOrderContentResult417.setOrderName("17");
+                    cpOrderContentResult417.setFullName("第三球");
+                    cpOrderContentResult417.setOrderState(cpbjscResult.getdata17());
+                    cpOrderContentResult417.setOrderId("17");
+                    cpOrderContentResultList31.add(cpOrderContentResult417);
+
+                    CPOrderContentResult cpOrderContentResult418 = new CPOrderContentResult();
+                    cpOrderContentResult418.setOrderName("18");
+                    cpOrderContentResult418.setFullName("第三球");
+                    cpOrderContentResult418.setOrderState(cpbjscResult.getdata18());
+                    cpOrderContentResult418.setOrderId("18");
+                    cpOrderContentResultList31.add(cpOrderContentResult418);
+
+                    CPOrderContentListResult cpOrderContentListResult32 = new CPOrderContentListResult();
+                    cpOrderContentListResult32.setOrderContentListName("");
+                    cpOrderContentListResult32.setShowType("QIU");
+                    cpOrderContentListResult32.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList32 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult319 = new CPOrderContentResult();
+                    cpOrderContentResult319.setOrderName("19");
+                    cpOrderContentResult319.setFullName("第三球");
+                    cpOrderContentResult319.setOrderState(cpbjscResult.getdata19());
+                    cpOrderContentResult319.setOrderId("19");
+                    cpOrderContentResultList32.add(cpOrderContentResult319);
+
+                    CPOrderContentResult cpOrderContentResult320 = new CPOrderContentResult();
+                    cpOrderContentResult320.setOrderName("20");
+                    cpOrderContentResult320.setFullName("第三球");
+                    cpOrderContentResult320.setOrderState(cpbjscResult.getdata20());
+                    cpOrderContentResult320.setOrderId("20");
+                    cpOrderContentResultList32.add(cpOrderContentResult320);
+
+                    CPOrderContentListResult cpOrderContentListResult33 = new CPOrderContentListResult();
+                    cpOrderContentListResult33.setOrderContentListName("");
+                    cpOrderContentListResult33.setShowType("ZI");
+                    cpOrderContentListResult33.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList33 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult332009 = new CPOrderContentResult();
+                    cpOrderContentResult332009.setOrderName("大");
+                    cpOrderContentResult332009.setFullName("第三球");
+                    cpOrderContentResult332009.setOrderState(cpbjscResult.getdata2009());
+                    cpOrderContentResult332009.setOrderId("2009");
+                    cpOrderContentResultList33.add(cpOrderContentResult332009);
+
+                    CPOrderContentResult cpOrderContentResult332010 = new CPOrderContentResult();
+                    cpOrderContentResult332010.setOrderName("小");
+                    cpOrderContentResult332010.setFullName("第三球");
+                    cpOrderContentResult332010.setOrderState(cpbjscResult.getdata2010());
+                    cpOrderContentResult332010.setOrderId("2010");
+                    cpOrderContentResultList33.add(cpOrderContentResult332010);
+
+                    CPOrderContentResult cpOrderContentResult332011 = new CPOrderContentResult();
+                    cpOrderContentResult332011.setOrderName("单");
+                    cpOrderContentResult332011.setFullName("第三球");
+                    cpOrderContentResult332011.setOrderState(cpbjscResult.getdata2011());
+                    cpOrderContentResult332011.setOrderId("2011");
+                    cpOrderContentResultList33.add(cpOrderContentResult332011);
+
+                    CPOrderContentResult cpOrderContentResult332012 = new CPOrderContentResult();
+                    cpOrderContentResult332012.setOrderName("双");
+                    cpOrderContentResult332012.setFullName("第三球");
+                    cpOrderContentResult332012.setOrderState(cpbjscResult.getdata2012());
+                    cpOrderContentResult332012.setOrderId("2012");
+                    cpOrderContentResultList33.add(cpOrderContentResult332012);
+
+                    CPOrderContentResult cpOrderContentResult332013 = new CPOrderContentResult();
+                    cpOrderContentResult332013.setOrderName("尾大");
+                    cpOrderContentResult332013.setFullName("第三球");
+                    cpOrderContentResult332013.setOrderState(cpbjscResult.getdata2013());
+                    cpOrderContentResult332013.setOrderId("2013");
+                    cpOrderContentResultList33.add(cpOrderContentResult332013);
+
+                    CPOrderContentResult cpOrderContentResult332014 = new CPOrderContentResult();
+                    cpOrderContentResult332014.setOrderName("尾小");
+                    cpOrderContentResult332014.setFullName("第三球");
+                    cpOrderContentResult332014.setOrderState(cpbjscResult.getdata2014());
+                    cpOrderContentResult332014.setOrderId("2014");
+                    cpOrderContentResultList33.add(cpOrderContentResult332014);
+
+                    CPOrderContentResult cpOrderContentResult332015 = new CPOrderContentResult();
+                    cpOrderContentResult332015.setOrderName("合单");
+                    cpOrderContentResult332015.setFullName("第三球");
+                    cpOrderContentResult332015.setOrderState(cpbjscResult.getdata2015());
+                    cpOrderContentResult332015.setOrderId("2015");
+                    cpOrderContentResultList33.add(cpOrderContentResult332015);
+
+                    CPOrderContentResult cpOrderContentResult332016 = new CPOrderContentResult();
+                    cpOrderContentResult332016.setOrderName("合双");
+                    cpOrderContentResult332016.setFullName("第三球");
+                    cpOrderContentResult332016.setOrderState(cpbjscResult.getdata2016());
+                    cpOrderContentResult332016.setOrderId("2016");
+                    cpOrderContentResultList33.add(cpOrderContentResult332016);
+
+                    CPOrderContentResult cpOrderContentResult332017 = new CPOrderContentResult();
+                    cpOrderContentResult332017.setOrderName("东");
+                    cpOrderContentResult332017.setFullName("第三球");
+                    cpOrderContentResult332017.setOrderState(cpbjscResult.getdata2017());
+                    cpOrderContentResult332017.setOrderId("2017");
+                    cpOrderContentResultList33.add(cpOrderContentResult332017);
+
+                    CPOrderContentResult cpOrderContentResult332018 = new CPOrderContentResult();
+                    cpOrderContentResult332018.setOrderName("南");
+                    cpOrderContentResult332018.setFullName("第三球");
+                    cpOrderContentResult332018.setOrderState(cpbjscResult.getdata2018());
+                    cpOrderContentResult332018.setOrderId("2018");
+                    cpOrderContentResultList33.add(cpOrderContentResult332018);
+
+                    CPOrderContentResult cpOrderContentResult332019 = new CPOrderContentResult();
+                    cpOrderContentResult332019.setOrderName("西");
+                    cpOrderContentResult332019.setFullName("第三球");
+                    cpOrderContentResult332019.setOrderState(cpbjscResult.getdata2019());
+                    cpOrderContentResult332019.setOrderId("2019");
+                    cpOrderContentResultList33.add(cpOrderContentResult332019);
+
+                    CPOrderContentResult cpOrderContentResult1332020 = new CPOrderContentResult();
+                    cpOrderContentResult1332020.setOrderName("北");
+                    cpOrderContentResult1332020.setFullName("第三球");
+                    cpOrderContentResult1332020.setOrderState(cpbjscResult.getdata2020());
+                    cpOrderContentResult1332020.setOrderId("2020");
+                    cpOrderContentResultList33.add(cpOrderContentResult1332020);
+
+                    CPOrderContentListResult cpOrderContentListResult34 = new CPOrderContentListResult();
+                    cpOrderContentListResult34.setOrderContentListName("");
+                    cpOrderContentListResult34.setShowType("ZI");
+                    cpOrderContentListResult34.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList34 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult332021 = new CPOrderContentResult();
+                    cpOrderContentResult332021.setOrderName("中");
+                    cpOrderContentResult332021.setFullName("第三球");
+                    cpOrderContentResult332021.setOrderState(cpbjscResult.getdata2021());
+                    cpOrderContentResult332021.setOrderId("2021");
+                    cpOrderContentResultList34.add(cpOrderContentResult332021);
+
+                    CPOrderContentResult cpOrderContentResult332022 = new CPOrderContentResult();
+                    cpOrderContentResult332022.setOrderName("发");
+                    cpOrderContentResult332022.setFullName("第三球");
+                    cpOrderContentResult332022.setOrderState(cpbjscResult.getdata2022());
+                    cpOrderContentResult332022.setOrderId("2022");
+                    cpOrderContentResultList34.add(cpOrderContentResult332022);
+
+                    CPOrderContentResult cpOrderContentResult332023 = new CPOrderContentResult();
+                    cpOrderContentResult332023.setOrderName("白");
+                    cpOrderContentResult332023.setFullName("第三球");
+                    cpOrderContentResult332023.setOrderState(cpbjscResult.getdata2023());
+                    cpOrderContentResult332023.setOrderId("2023");
+                    cpOrderContentResultList34.add(cpOrderContentResult332023);
+
+                    cpOrderContentListResult31.setData(cpOrderContentResultList31);
+                    cpOrderContentListResult32.setData(cpOrderContentResultList32);
+                    cpOrderContentListResult33.setData(cpOrderContentResultList33);
+                    cpOrderContentListResult34.setData(cpOrderContentResultList34);
+                    CPOrderContentListResult31.add(cpOrderContentListResult31);
+                    CPOrderContentListResult31.add(cpOrderContentListResult32);
+                    CPOrderContentListResult31.add(cpOrderContentListResult33);
+                    CPOrderContentListResult31.add(cpOrderContentListResult34);
+
+                    allResult.setData(CPOrderContentListResult31);
+                    allResultList.add(allResult);*/
+
+                    return onXyncIdex(cpbjscResult,"第三球");
+                case 4:
+                    return onXyncIdex(cpbjscResult,"第四球");
+                case 5:
+                    return onXyncIdex(cpbjscResult,"第五球");
+                case 6:
+                    return onXyncIdex(cpbjscResult,"第六球");
+                case 7:
+                    return onXyncIdex(cpbjscResult,"第七球");
+                case 8:
+                    return onXyncIdex(cpbjscResult,"第八球");
+                case 9:
+                    CPOrderContentListResult cpOrderContentListResult91 = new CPOrderContentListResult();
+                    //cpOrderContentListResult91.setOrderContentListName("赔率:"+cpbjscResult.getdata2023());
+                    rX2 = cpbjscResult.getdata2032();
+                    rX3 = cpbjscResult.getdata2035();
+                    rX4 = cpbjscResult.getdata2038();
+                    rX5 = cpbjscResult.getdata2039();
+
+                    cpOrderContentListResult91.setShowType("QIU");
+                    cpOrderContentListResult91.setShowNumber(3);
+
+                    List<CPOrderContentResult> cpOrderContentResultList91 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
+                    cpOrderContentResult31.setOrderName("1");
+                    cpOrderContentResult31.setFullName("");
+                    cpOrderContentResult31.setOrderState("");
+                    cpOrderContentResult31.setOrderId("1");
+                    cpOrderContentResultList91.add(cpOrderContentResult31);
+
+                    CPOrderContentResult cpOrderContentResult32 = new CPOrderContentResult();
+                    cpOrderContentResult32.setOrderName("2");
+                    cpOrderContentResult32.setFullName("");
+                    cpOrderContentResult32.setOrderState("");
+                    cpOrderContentResult32.setOrderId("2");
+                    cpOrderContentResultList91.add(cpOrderContentResult32);
+
+                    CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+                    cpOrderContentResult33.setOrderName("3");
+                    cpOrderContentResult33.setFullName("");
+                    cpOrderContentResult33.setOrderState("");
+                    cpOrderContentResult33.setOrderId("3");
+                    cpOrderContentResultList91.add(cpOrderContentResult33);
+
+                    CPOrderContentResult cpOrderContentResult44 = new CPOrderContentResult();
+                    cpOrderContentResult44.setOrderName("4");
+                    cpOrderContentResult44.setFullName("");
+                    cpOrderContentResult44.setOrderState("");
+                    cpOrderContentResult44.setOrderId("4");
+                    cpOrderContentResultList91.add(cpOrderContentResult44);
+
+                    CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+                    cpOrderContentResult45.setOrderName("5");
+                    cpOrderContentResult45.setFullName("");
+                    cpOrderContentResult45.setOrderState("");
+                    cpOrderContentResult45.setOrderId("5");
+                    cpOrderContentResultList91.add(cpOrderContentResult45);
+
+                    CPOrderContentResult cpOrderContentResult46 = new CPOrderContentResult();
+                    cpOrderContentResult46.setOrderName("6");
+                    cpOrderContentResult46.setFullName("");
+                    cpOrderContentResult46.setOrderState("");
+                    cpOrderContentResult46.setOrderId("6");
+                    cpOrderContentResultList91.add(cpOrderContentResult46);
+
+                    CPOrderContentResult cpOrderContentResult47 = new CPOrderContentResult();
+                    cpOrderContentResult47.setOrderName("7");
+                    cpOrderContentResult47.setFullName("");
+                    cpOrderContentResult47.setOrderState("");
+                    cpOrderContentResult47.setOrderId("7");
+                    cpOrderContentResultList91.add(cpOrderContentResult47);
+
+                    CPOrderContentResult cpOrderContentResult48 = new CPOrderContentResult();
+                    cpOrderContentResult48.setOrderName("8");
+                    cpOrderContentResult48.setFullName("");
+                    cpOrderContentResult48.setOrderState("");
+                    cpOrderContentResult48.setOrderId("8");
+                    cpOrderContentResultList91.add(cpOrderContentResult48);
+
+                    CPOrderContentResult cpOrderContentResult49 = new CPOrderContentResult();
+                    cpOrderContentResult49.setOrderName("9");
+                    cpOrderContentResult49.setFullName("");
+                    cpOrderContentResult49.setOrderState("");
+                    cpOrderContentResult49.setOrderId("9");
+                    cpOrderContentResultList91.add(cpOrderContentResult49);
+
+                    CPOrderContentResult cpOrderContentResult410 = new CPOrderContentResult();
+                    cpOrderContentResult410.setOrderName("10");
+                    cpOrderContentResult410.setFullName("");
+                    cpOrderContentResult410.setOrderState("");
+                    cpOrderContentResult410.setOrderId("10");
+                    cpOrderContentResultList91.add(cpOrderContentResult410);
+
+                    CPOrderContentResult cpOrderContentResult411 = new CPOrderContentResult();
+                    cpOrderContentResult411.setOrderName("11");
+                    cpOrderContentResult411.setFullName("");
+                    cpOrderContentResult411.setOrderState("");
+                    cpOrderContentResult411.setOrderId("11");
+                    cpOrderContentResultList91.add(cpOrderContentResult411);
+
+                    CPOrderContentResult cpOrderContentResult412 = new CPOrderContentResult();
+                    cpOrderContentResult412.setOrderName("12");
+                    cpOrderContentResult412.setFullName("");
+                    cpOrderContentResult412.setOrderState("");
+                    cpOrderContentResult412.setOrderId("12");
+                    cpOrderContentResultList91.add(cpOrderContentResult412);
+
+                    CPOrderContentResult cpOrderContentResult413 = new CPOrderContentResult();
+                    cpOrderContentResult413.setOrderName("13");
+                    cpOrderContentResult413.setFullName("");
+                    cpOrderContentResult413.setOrderState("");
+                    cpOrderContentResult413.setOrderId("13");
+                    cpOrderContentResultList91.add(cpOrderContentResult413);
+
+                    CPOrderContentResult cpOrderContentResult414 = new CPOrderContentResult();
+                    cpOrderContentResult414.setOrderName("14");
+                    cpOrderContentResult414.setFullName("");
+                    cpOrderContentResult414.setOrderState("");
+                    cpOrderContentResult414.setOrderId("14");
+                    cpOrderContentResultList91.add(cpOrderContentResult414);
+
+
+                    CPOrderContentResult cpOrderContentResult415 = new CPOrderContentResult();
+                    cpOrderContentResult415.setOrderName("15");
+                    cpOrderContentResult415.setFullName("");
+                    cpOrderContentResult415.setOrderState("");
+                    cpOrderContentResult415.setOrderId("15");
+                    cpOrderContentResultList91.add(cpOrderContentResult415);
+
+                    CPOrderContentResult cpOrderContentResult416 = new CPOrderContentResult();
+                    cpOrderContentResult416.setOrderName("16");
+                    cpOrderContentResult416.setFullName("");
+                    cpOrderContentResult416.setOrderState("");
+                    cpOrderContentResult416.setOrderId("16");
+                    cpOrderContentResultList91.add(cpOrderContentResult416);
+
+                    CPOrderContentResult cpOrderContentResult417 = new CPOrderContentResult();
+                    cpOrderContentResult417.setOrderName("17");
+                    cpOrderContentResult417.setFullName("");
+                    cpOrderContentResult417.setOrderState("");
+                    cpOrderContentResult417.setOrderId("17");
+                    cpOrderContentResultList91.add(cpOrderContentResult417);
+
+                    CPOrderContentResult cpOrderContentResult418 = new CPOrderContentResult();
+                    cpOrderContentResult418.setOrderName("18");
+                    cpOrderContentResult418.setFullName("");
+                    cpOrderContentResult418.setOrderState("");
+                    cpOrderContentResult418.setOrderId("18");
+                    cpOrderContentResultList91.add(cpOrderContentResult418);
+
+
+                    CPOrderContentListResult cpOrderContentListResult92 = new CPOrderContentListResult();
+                    cpOrderContentListResult92.setOrderContentListName("");
+                    cpOrderContentListResult92.setShowType("QIU");
+                    cpOrderContentListResult92.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList92 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult419 = new CPOrderContentResult();
+                    cpOrderContentResult419.setOrderName("19");
+                    cpOrderContentResult419.setFullName("");
+                    cpOrderContentResult419.setOrderState("");
+                    cpOrderContentResult419.setOrderId("19");
+                    cpOrderContentResultList92.add(cpOrderContentResult419);
+
+                    CPOrderContentResult cpOrderContentResult420 = new CPOrderContentResult();
+                    cpOrderContentResult420.setOrderName("20");
+                    cpOrderContentResult420.setFullName("");
+                    cpOrderContentResult420.setOrderState("");
+                    cpOrderContentResult420.setOrderId("20");
+                    cpOrderContentResultList92.add(cpOrderContentResult420);
+
+                    cpOrderContentListResult91.setData(cpOrderContentResultList91);
+                    cpOrderContentListResult92.setData(cpOrderContentResultList92);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult91);
+                    CPOrderContentListResult.add(cpOrderContentListResult92);
+                    break;
+            }
+            return CPOrderContentListResult;
+    }
+
+    private List<CPOrderContentListResult> onXyncIdex(CPXYNCResult cpbjscResult,String otherName ){
         List<CPOrderContentListResult> CPOrderContentListResult31 = new ArrayList<CPOrderContentListResult>();
         CPOrderContentListResult cpOrderContentListResult31 = new CPOrderContentListResult();
         cpOrderContentListResult31.setOrderContentListName(otherName);
@@ -2187,9 +3795,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         CPOrderContentListResult31.add(cpOrderContentListResult33);
         CPOrderContentListResult31.add(cpOrderContentListResult34);
 
-        allResult.setData(CPOrderContentListResult31);
-        allResultList.add(allResult);
-
+        return CPOrderContentListResult31;
     }
 
     private void JSKS(CPJSKSResult cpbjscResult){
@@ -2283,7 +3889,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     cpOrderContentResult13.setOrderId("1524-25");
                     cpOrderContentResultList.add(cpOrderContentResult13);
 
-                    
+
                     CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
                     cpOrderContentResult14.setOrderName("14点");
                     cpOrderContentResult14.setFullName("和值");
@@ -2415,12 +4021,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                     allResult.setOrderAllName("三同号");
                     List<CPOrderContentListResult> CPOrderContentListResult4 = new ArrayList<CPOrderContentListResult>();
-                    
+
                     CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
                     cpOrderContentListResult4.setOrderContentListName("三同号");
                     cpOrderContentListResult4.setShowNumber(2);
                     cpOrderContentListResult4.setShowType("DANIEL");
-                    
+
                     List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
                     CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
                     cpOrderContentResult41.setOrderName("1_1_1");
@@ -4153,9 +5759,2186 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             }
 
         }
+    }
+
+    private  List<CPOrderContentListResult>  JSKS(CPJSKSResult cpbjscResult,int k){
+        List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
+            switch (k){
+                case 0:
+                    CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                    cpOrderContentListResult.setOrderContentListName("和值");
+                    cpOrderContentListResult.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                    cpOrderContentResult3.setOrderName("3点");
+                    cpOrderContentResult3.setFullName("和值");
+                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata1611112());
+                    cpOrderContentResult3.setOrderId("1611-112");
+                    cpOrderContentResultList.add(cpOrderContentResult3);
+
+                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                    cpOrderContentResult4.setOrderName("4点");
+                    cpOrderContentResult4.setFullName("和值");
+                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata151516());
+                    cpOrderContentResult4.setOrderId("1515-16");
+                    cpOrderContentResultList.add(cpOrderContentResult4);
+
+                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                    cpOrderContentResult5.setOrderName("5点");
+                    cpOrderContentResult5.setFullName("和值");
+                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata151617());
+                    cpOrderContentResult5.setOrderId("1516-17");
+                    cpOrderContentResultList.add(cpOrderContentResult5);
+
+                    CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+                    cpOrderContentResult6.setOrderName("6点");
+                    cpOrderContentResult6.setFullName("和值");
+                    cpOrderContentResult6.setOrderState(cpbjscResult.getdata151718());
+                    cpOrderContentResult6.setOrderId("1517-18");
+                    cpOrderContentResultList.add(cpOrderContentResult6);
+
+                    CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+                    cpOrderContentResult7.setOrderName("7点");
+                    cpOrderContentResult7.setFullName("和值");
+                    cpOrderContentResult7.setOrderState(cpbjscResult.getdata151819());
+                    cpOrderContentResult7.setOrderId("1518-19");
+                    cpOrderContentResultList.add(cpOrderContentResult7);
+
+                    CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+                    cpOrderContentResult8.setOrderName("8点");
+                    cpOrderContentResult8.setFullName("和值");
+                    cpOrderContentResult8.setOrderState(cpbjscResult.getdata151920());
+                    cpOrderContentResult8.setOrderId("1519-20");
+                    cpOrderContentResultList.add(cpOrderContentResult8);
 
 
+                    CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
+                    cpOrderContentResult9.setOrderName("9点");
+                    cpOrderContentResult9.setFullName("和值");
+                    cpOrderContentResult9.setOrderState(cpbjscResult.getdata152021());
+                    cpOrderContentResult9.setOrderId("1520-21");
+                    cpOrderContentResultList.add(cpOrderContentResult9);
 
+                    CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+                    cpOrderContentResult10.setOrderName("10点");
+                    cpOrderContentResult10.setFullName("和值");
+                    cpOrderContentResult10.setOrderState(cpbjscResult.getdata152122());
+                    cpOrderContentResult10.setOrderId("1521-22");
+                    cpOrderContentResultList.add(cpOrderContentResult10);
+
+                    CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
+                    cpOrderContentResult11.setOrderName("11点");
+                    cpOrderContentResult11.setFullName("和值");
+                    cpOrderContentResult11.setOrderState(cpbjscResult.getdata152223());
+                    cpOrderContentResult11.setOrderId("1522-23");
+                    cpOrderContentResultList.add(cpOrderContentResult11);
+
+                    CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
+                    cpOrderContentResult12.setOrderName("12点");
+                    cpOrderContentResult12.setFullName("和值");
+                    cpOrderContentResult12.setOrderState(cpbjscResult.getdata152324());
+                    cpOrderContentResult12.setOrderId("1523-24");
+                    cpOrderContentResultList.add(cpOrderContentResult12);
+
+                    CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
+                    cpOrderContentResult13.setOrderName("13点");
+                    cpOrderContentResult13.setFullName("和值");
+                    cpOrderContentResult13.setOrderState(cpbjscResult.getdata152425());
+                    cpOrderContentResult13.setOrderId("1524-25");
+                    cpOrderContentResultList.add(cpOrderContentResult13);
+
+                    
+                    CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
+                    cpOrderContentResult14.setOrderName("14点");
+                    cpOrderContentResult14.setFullName("和值");
+                    cpOrderContentResult14.setOrderState(cpbjscResult.getdata152526());
+                    cpOrderContentResult14.setOrderId("1525-26");
+                    cpOrderContentResultList.add(cpOrderContentResult14);
+
+                    CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
+                    cpOrderContentResult15.setOrderName("15点");
+                    cpOrderContentResult15.setFullName("和值");
+                    cpOrderContentResult15.setOrderState(cpbjscResult.getdata152627());
+                    cpOrderContentResult15.setOrderId("1526-27");
+                    cpOrderContentResultList.add(cpOrderContentResult15);
+
+                    CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
+                    cpOrderContentResult16.setOrderName("16点");
+                    cpOrderContentResult16.setFullName("和值");
+                    cpOrderContentResult16.setOrderState(cpbjscResult.getdata152728());
+                    cpOrderContentResult16.setOrderId("1527-28");
+                    cpOrderContentResultList.add(cpOrderContentResult16);
+
+                    CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
+                    cpOrderContentResult17.setOrderName("17点");
+                    cpOrderContentResult17.setFullName("和值");
+                    cpOrderContentResult17.setOrderState(cpbjscResult.getdata152829());
+                    cpOrderContentResult17.setOrderId("1528-29");
+                    cpOrderContentResultList.add(cpOrderContentResult17);
+
+                    CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
+                    cpOrderContentResult18.setOrderName("18点");
+                    cpOrderContentResult18.setFullName("和值");
+                    cpOrderContentResult18.setOrderState(cpbjscResult.getdata1612113());
+                    cpOrderContentResult18.setOrderId("1612-113");
+                    cpOrderContentResultList.add(cpOrderContentResult18);
+
+
+                    cpOrderContentListResult.setData(cpOrderContentResultList);
+                    CPOrderContentListResult .add(cpOrderContentListResult);
+
+                    break;
+                case 1:
+                    CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+                    cpOrderContentListResult2.setOrderContentListName("大小单双");
+                    cpOrderContentListResult2.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+                    cpOrderContentResult21.setOrderName("大");
+                    cpOrderContentResult21.setFullName("");
+                    cpOrderContentResult21.setOrderState(cpbjscResult.getdata15067());
+                    cpOrderContentResult21.setOrderId("1506-7");
+                    cpOrderContentResultList2.add(cpOrderContentResult21);
+
+                    CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+                    cpOrderContentResult22.setOrderName("小");
+                    cpOrderContentResult22.setFullName("");
+                    cpOrderContentResult22.setOrderState(cpbjscResult.getdata15078());
+                    cpOrderContentResult22.setOrderId("1507-8");
+                    cpOrderContentResultList2.add(cpOrderContentResult22);
+
+                    CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+                    cpOrderContentResult23.setOrderName("单");
+                    cpOrderContentResult23.setFullName("");
+                    cpOrderContentResult23.setOrderState(cpbjscResult.getdata155657());
+                    cpOrderContentResult23.setOrderId("1556-57");
+                    cpOrderContentResultList2.add(cpOrderContentResult23);
+
+                    CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
+                    cpOrderContentResult24.setOrderName("双");
+                    cpOrderContentResult24.setFullName("");
+                    cpOrderContentResult24.setOrderState(cpbjscResult.getdata155758());
+                    cpOrderContentResult24.setOrderId("1557-58");
+                    cpOrderContentResultList2.add(cpOrderContentResult24);
+
+                    cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult2);
+                    break;
+                case 2:
+                    CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+                    cpOrderContentListResult3.setOrderContentListName("通选");
+                    cpOrderContentListResult3.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
+                    cpOrderContentResult31.setOrderName("豹子");
+                    cpOrderContentResult31.setFullName("");
+                    cpOrderContentResult31.setOrderState(cpbjscResult.getdata15089());
+                    cpOrderContentResult31.setOrderId("1508-9");
+                    cpOrderContentResultList3.add(cpOrderContentResult31);
+
+                    CPOrderContentResult cpOrderContentResult32 = new CPOrderContentResult();
+                    cpOrderContentResult32.setOrderName("顺子");
+                    cpOrderContentResult32.setFullName("");
+                    cpOrderContentResult32.setOrderState(cpbjscResult.getdata155859());
+                    cpOrderContentResult32.setOrderId("1558-59");
+                    cpOrderContentResultList3.add(cpOrderContentResult32);
+
+                    CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+                    cpOrderContentResult33.setOrderName("对子");
+                    cpOrderContentResult33.setFullName("");
+                    cpOrderContentResult33.setOrderState(cpbjscResult.getdata155960());
+                    cpOrderContentResult33.setOrderId("1559-60");
+                    cpOrderContentResultList3.add(cpOrderContentResult33);
+
+                    CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
+                    cpOrderContentResult34.setOrderName("三不同");
+                    cpOrderContentResult34.setFullName("");
+                    cpOrderContentResult34.setOrderState(cpbjscResult.getdata156061());
+                    cpOrderContentResult34.setOrderId("1560-61");
+                    cpOrderContentResultList3.add(cpOrderContentResult34);
+
+                    cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult3);
+                    break;
+                case 3:
+
+                    CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+                    cpOrderContentListResult4.setOrderContentListName("三同号");
+                    cpOrderContentListResult4.setShowNumber(2);
+                    cpOrderContentListResult4.setShowType("DANIEL");
+                    
+                    List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
+                    cpOrderContentResult41.setOrderName("1_1_1");
+                    cpOrderContentResult41.setFullName("三同号");
+                    cpOrderContentResult41.setOrderState(cpbjscResult.getdata150910());
+                    cpOrderContentResult41.setOrderId("1509-10");
+                    cpOrderContentResultList4.add(cpOrderContentResult41);
+
+                    CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
+                    cpOrderContentResult42.setOrderName("2_2_2");
+                    cpOrderContentResult42.setFullName("三同号");
+                    cpOrderContentResult42.setOrderState(cpbjscResult.getdata151011());
+                    cpOrderContentResult42.setOrderId("1510-11");
+                    cpOrderContentResultList4.add(cpOrderContentResult42);
+
+                    CPOrderContentResult cpOrderContentResult43 = new CPOrderContentResult();
+                    cpOrderContentResult43.setOrderName("3_3_3");
+                    cpOrderContentResult43.setFullName("三同号");
+                    cpOrderContentResult43.setOrderState(cpbjscResult.getdata151112());
+                    cpOrderContentResult43.setOrderId("1511-12");
+                    cpOrderContentResultList4.add(cpOrderContentResult43);
+
+                    CPOrderContentResult cpOrderContentResult44 = new CPOrderContentResult();
+                    cpOrderContentResult44.setOrderName("4_4_4");
+                    cpOrderContentResult44.setFullName("三同号");
+                    cpOrderContentResult44.setOrderState(cpbjscResult.getdata151213());
+                    cpOrderContentResult44.setOrderId("1512-13");
+                    cpOrderContentResultList4.add(cpOrderContentResult44);
+
+                    CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+                    cpOrderContentResult45.setOrderName("5_5_5");
+                    cpOrderContentResult45.setFullName("三同号");
+                    cpOrderContentResult45.setOrderState(cpbjscResult.getdata151314());
+                    cpOrderContentResult45.setOrderId("1513-14");
+                    cpOrderContentResultList4.add(cpOrderContentResult45);
+
+                    CPOrderContentResult cpOrderContentResult46 = new CPOrderContentResult();
+                    cpOrderContentResult46.setOrderName("6_6_6");
+                    cpOrderContentResult46.setFullName("三同号");
+                    cpOrderContentResult46.setOrderState(cpbjscResult.getdata151415());
+                    cpOrderContentResult46.setOrderId("1514-15");
+                    cpOrderContentResultList4.add(cpOrderContentResult46);
+
+                    cpOrderContentListResult4.setData(cpOrderContentResultList4);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult4);
+                    break;
+                case 4:
+
+                    CPOrderContentListResult cpOrderContentListResult5 = new CPOrderContentListResult();
+                    cpOrderContentListResult5.setOrderContentListName("三不同");
+                    cpOrderContentListResult5.setShowNumber(2);
+                    cpOrderContentListResult5.setShowType("DANIEL");
+
+                    List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult123 = new CPOrderContentResult();
+                    cpOrderContentResult123.setOrderName("1_2_3");
+                    cpOrderContentResult123.setFullName("三不同");
+                    cpOrderContentResult123.setOrderState(cpbjscResult.getdata156162());
+                    cpOrderContentResult123.setOrderId("1561-62");
+                    cpOrderContentResultList5.add(cpOrderContentResult123);
+
+                    CPOrderContentResult cpOrderContentResult124 = new CPOrderContentResult();
+                    cpOrderContentResult124.setOrderName("1_2_4");
+                    cpOrderContentResult124.setFullName("三不同");
+                    cpOrderContentResult124.setOrderState(cpbjscResult.getdata156263());
+                    cpOrderContentResult124.setOrderId("1562-63");
+                    cpOrderContentResultList5.add(cpOrderContentResult124);
+
+                    CPOrderContentResult cpOrderContentResult125 = new CPOrderContentResult();
+                    cpOrderContentResult125.setOrderName("1_2_5");
+                    cpOrderContentResult125.setFullName("三不同");
+                    cpOrderContentResult125.setOrderState(cpbjscResult.getdata156364());
+                    cpOrderContentResult125.setOrderId("1563-64");
+                    cpOrderContentResultList5.add(cpOrderContentResult125);
+
+                    CPOrderContentResult cpOrderContentResult126 = new CPOrderContentResult();
+                    cpOrderContentResult126.setOrderName("1_2_6");
+                    cpOrderContentResult126.setFullName("三不同");
+                    cpOrderContentResult126.setOrderState(cpbjscResult.getdata156465());
+                    cpOrderContentResult126.setOrderId("1564-65");
+                    cpOrderContentResultList5.add(cpOrderContentResult126);
+
+                    CPOrderContentResult cpOrderContentResult134 = new CPOrderContentResult();
+                    cpOrderContentResult134.setOrderName("1_3_4");
+                    cpOrderContentResult134.setFullName("三不同");
+                    cpOrderContentResult134.setOrderState(cpbjscResult.getdata156566());
+                    cpOrderContentResult134.setOrderId("1565-66");
+                    cpOrderContentResultList5.add(cpOrderContentResult134);
+
+                    CPOrderContentResult cpOrderContentResult135 = new CPOrderContentResult();
+                    cpOrderContentResult135.setOrderName("1_3_5");
+                    cpOrderContentResult135.setFullName("三不同");
+                    cpOrderContentResult135.setOrderState(cpbjscResult.getdata156667());
+                    cpOrderContentResult135.setOrderId("1566-67");
+                    cpOrderContentResultList5.add(cpOrderContentResult135);
+
+                    CPOrderContentResult cpOrderContentResult136 = new CPOrderContentResult();
+                    cpOrderContentResult136.setOrderName("1_3_6");
+                    cpOrderContentResult136.setFullName("三不同");
+                    cpOrderContentResult136.setOrderState(cpbjscResult.getdata156768());
+                    cpOrderContentResult136.setOrderId("1567-68");
+                    cpOrderContentResultList5.add(cpOrderContentResult136);
+
+                    CPOrderContentResult cpOrderContentResult145 = new CPOrderContentResult();
+                    cpOrderContentResult145.setOrderName("1_4_5");
+                    cpOrderContentResult145.setFullName("三不同");
+                    cpOrderContentResult145.setOrderState(cpbjscResult.getdata156869());
+                    cpOrderContentResult145.setOrderId("1568-69");
+                    cpOrderContentResultList5.add(cpOrderContentResult145);
+
+                    CPOrderContentResult cpOrderContentResult146 = new CPOrderContentResult();
+                    cpOrderContentResult146.setOrderName("1_4_6");
+                    cpOrderContentResult146.setFullName("三不同");
+                    cpOrderContentResult146.setOrderState(cpbjscResult.getdata156970());
+                    cpOrderContentResult146.setOrderId("1569-70");
+                    cpOrderContentResultList5.add(cpOrderContentResult146);
+
+                    CPOrderContentResult cpOrderContentResult156 = new CPOrderContentResult();
+                    cpOrderContentResult156.setOrderName("1_5_6");
+                    cpOrderContentResult156.setFullName("三不同");
+                    cpOrderContentResult156.setOrderState(cpbjscResult.getdata157071());
+                    cpOrderContentResult156.setOrderId("1570-71");
+                    cpOrderContentResultList5.add(cpOrderContentResult156);
+
+                    CPOrderContentResult cpOrderContentResult234 = new CPOrderContentResult();
+                    cpOrderContentResult234.setOrderName("2_3_4");
+                    cpOrderContentResult234.setFullName("三不同");
+                    cpOrderContentResult234.setOrderState(cpbjscResult.getdata157172());
+                    cpOrderContentResult234.setOrderId("1571-72");
+                    cpOrderContentResultList5.add(cpOrderContentResult234);
+
+                    CPOrderContentResult cpOrderContentResult235 = new CPOrderContentResult();
+                    cpOrderContentResult235.setOrderName("2_3_5");
+                    cpOrderContentResult235.setFullName("三不同");
+                    cpOrderContentResult235.setOrderState(cpbjscResult.getdata157273());
+                    cpOrderContentResult235.setOrderId("1572-73");
+                    cpOrderContentResultList5.add(cpOrderContentResult235);
+
+                    CPOrderContentResult cpOrderContentResult236 = new CPOrderContentResult();
+                    cpOrderContentResult236.setOrderName("2_3_6");
+                    cpOrderContentResult236.setFullName("三不同");
+                    cpOrderContentResult236.setOrderState(cpbjscResult.getdata157374());
+                    cpOrderContentResult236.setOrderId("1573-74");
+                    cpOrderContentResultList5.add(cpOrderContentResult236);
+
+                    CPOrderContentResult cpOrderContentResult245 = new CPOrderContentResult();
+                    cpOrderContentResult245.setOrderName("2_4_5");
+                    cpOrderContentResult245.setFullName("三不同");
+                    cpOrderContentResult245.setOrderState(cpbjscResult.getdata157475());
+                    cpOrderContentResult245.setOrderId("1574-75");
+                    cpOrderContentResultList5.add(cpOrderContentResult245);
+
+                    CPOrderContentResult cpOrderContentResult246 = new CPOrderContentResult();
+                    cpOrderContentResult246.setOrderName("2_4_6");
+                    cpOrderContentResult246.setFullName("三不同");
+                    cpOrderContentResult246.setOrderState(cpbjscResult.getdata157576());
+                    cpOrderContentResult246.setOrderId("1575-76");
+                    cpOrderContentResultList5.add(cpOrderContentResult246);
+
+                    CPOrderContentResult cpOrderContentResult256 = new CPOrderContentResult();
+                    cpOrderContentResult256.setOrderName("2_5_6");
+                    cpOrderContentResult256.setFullName("三不同");
+                    cpOrderContentResult256.setOrderState(cpbjscResult.getdata157677());
+                    cpOrderContentResult256.setOrderId("1576-77");
+                    cpOrderContentResultList5.add(cpOrderContentResult256);
+
+                    CPOrderContentResult cpOrderContentResult345 = new CPOrderContentResult();
+                    cpOrderContentResult345.setOrderName("3_4_5");
+                    cpOrderContentResult345.setFullName("三不同");
+                    cpOrderContentResult345.setOrderState(cpbjscResult.getdata157778());
+                    cpOrderContentResult345.setOrderId("157778");
+                    cpOrderContentResultList5.add(cpOrderContentResult345);
+
+                    CPOrderContentResult cpOrderContentResult346 = new CPOrderContentResult();
+                    cpOrderContentResult346.setOrderName("3_4_6");
+                    cpOrderContentResult346.setFullName("三不同");
+                    cpOrderContentResult346.setOrderState(cpbjscResult.getdata157879());
+                    cpOrderContentResult346.setOrderId("1578-79");
+                    cpOrderContentResultList5.add(cpOrderContentResult346);
+
+                    CPOrderContentResult cpOrderContentResult356 = new CPOrderContentResult();
+                    cpOrderContentResult356.setOrderName("3_5_6");
+                    cpOrderContentResult356.setFullName("三不同");
+                    cpOrderContentResult356.setOrderState(cpbjscResult.getdata157980());
+                    cpOrderContentResult356.setOrderId("1579-80");
+                    cpOrderContentResultList5.add(cpOrderContentResult356);
+
+                    CPOrderContentResult cpOrderContentResult456 = new CPOrderContentResult();
+                    cpOrderContentResult456.setOrderName("4_5_6");
+                    cpOrderContentResult456.setFullName("三不同");
+                    cpOrderContentResult456.setOrderState(cpbjscResult.getdata158081());
+                    cpOrderContentResult456.setOrderId("1580-81");
+                    cpOrderContentResultList5.add(cpOrderContentResult456);
+
+                    cpOrderContentListResult5.setData(cpOrderContentResultList5);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult5);
+
+                    break;
+                case 5:
+
+                    CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();
+                    cpOrderContentListResult6.setOrderContentListName("二同号复选");
+                    cpOrderContentListResult6.setShowNumber(2);
+                    cpOrderContentListResult6.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult111 = new CPOrderContentResult();
+                    cpOrderContentResult111.setOrderName("1_1");
+                    cpOrderContentResult111.setFullName("二同号复选");
+                    cpOrderContentResult111.setOrderState(cpbjscResult.getdata154445());
+                    cpOrderContentResult111.setOrderId("1544-45");
+                    cpOrderContentResultList6.add(cpOrderContentResult111);
+
+                    CPOrderContentResult cpOrderContentResult222 = new CPOrderContentResult();
+                    cpOrderContentResult222.setOrderName("2_2");
+                    cpOrderContentResult222.setFullName("二同号复选");
+                    cpOrderContentResult222.setOrderState(cpbjscResult.getdata154546());
+                    cpOrderContentResult222.setOrderId("1545-46");
+                    cpOrderContentResultList6.add(cpOrderContentResult222);
+
+                    CPOrderContentResult cpOrderContentResult333 = new CPOrderContentResult();
+                    cpOrderContentResult333.setOrderName("3_3");
+                    cpOrderContentResult333.setFullName("二同号复选");
+                    cpOrderContentResult333.setOrderState(cpbjscResult.getdata154647());
+                    cpOrderContentResult333.setOrderId("1546-47");
+                    cpOrderContentResultList6.add(cpOrderContentResult333);
+
+                    CPOrderContentResult cpOrderContentResult444 = new CPOrderContentResult();
+                    cpOrderContentResult444.setOrderName("4_4");
+                    cpOrderContentResult444.setFullName("二同号复选");
+                    cpOrderContentResult444.setOrderState(cpbjscResult.getdata154748());
+                    cpOrderContentResult444.setOrderId("1547-48");
+                    cpOrderContentResultList6.add(cpOrderContentResult444);
+
+                    CPOrderContentResult cpOrderContentResult555 = new CPOrderContentResult();
+                    cpOrderContentResult555.setOrderName("5_5");
+                    cpOrderContentResult555.setFullName("二同号复选");
+                    cpOrderContentResult555.setOrderState(cpbjscResult.getdata154849());
+                    cpOrderContentResult555.setOrderId("1548-49");
+                    cpOrderContentResultList6.add(cpOrderContentResult555);
+
+                    CPOrderContentResult cpOrderContentResult666 = new CPOrderContentResult();
+                    cpOrderContentResult666.setOrderName("6_6");
+                    cpOrderContentResult666.setFullName("二同号复选");
+                    cpOrderContentResult666.setOrderState(cpbjscResult.getdata154950());
+                    cpOrderContentResult666.setOrderId("1549-50");
+                    cpOrderContentResultList6.add(cpOrderContentResult666);
+
+                    cpOrderContentListResult6.setData(cpOrderContentResultList6);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult6);
+
+                    break;
+                case 6:
+
+                    CPOrderContentListResult cpOrderContentListResult7 = new CPOrderContentListResult();
+                    cpOrderContentListResult7.setOrderContentListName("二同号单选");
+                    cpOrderContentListResult7.setShowNumber(2);
+                    cpOrderContentListResult7.setShowType("DANIEL");
+
+                    List<CPOrderContentResult> cpOrderContentResultList7 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult112 = new CPOrderContentResult();
+                    cpOrderContentResult112.setOrderName("1_1_2");
+                    cpOrderContentResult112.setFullName("二同号单选");
+                    cpOrderContentResult112.setOrderState(cpbjscResult.getdata158182());
+                    cpOrderContentResult112.setOrderId("1581-82");
+                    cpOrderContentResultList7.add(cpOrderContentResult112);
+
+                    CPOrderContentResult cpOrderContentResult113 = new CPOrderContentResult();
+                    cpOrderContentResult113.setOrderName("1_1_3");
+                    cpOrderContentResult113.setFullName("二同号单选");
+                    cpOrderContentResult113.setOrderState(cpbjscResult.getdata158283());
+                    cpOrderContentResult113.setOrderId("1582-83");
+                    cpOrderContentResultList7.add(cpOrderContentResult113);
+
+                    CPOrderContentResult cpOrderContentResult114 = new CPOrderContentResult();
+                    cpOrderContentResult114.setOrderName("1_1_4");
+                    cpOrderContentResult114.setFullName("二同号单选");
+                    cpOrderContentResult114.setOrderState(cpbjscResult.getdata158384());
+                    cpOrderContentResult114.setOrderId("1583-84");
+                    cpOrderContentResultList7.add(cpOrderContentResult114);
+
+                    CPOrderContentResult cpOrderContentResult115 = new CPOrderContentResult();
+                    cpOrderContentResult115.setOrderName("1_1_5");
+                    cpOrderContentResult115.setFullName("二同号单选");
+                    cpOrderContentResult115.setOrderState(cpbjscResult.getdata158485());
+                    cpOrderContentResult115.setOrderId("1584-85");
+                    cpOrderContentResultList7.add(cpOrderContentResult115);
+
+                    CPOrderContentResult cpOrderContentResult116 = new CPOrderContentResult();
+                    cpOrderContentResult116.setOrderName("1_1_6");
+                    cpOrderContentResult116.setFullName("二同号单选");
+                    cpOrderContentResult116.setOrderState(cpbjscResult.getdata158586());
+                    cpOrderContentResult116.setOrderId("1585-86");
+                    cpOrderContentResultList7.add(cpOrderContentResult116);
+
+                    CPOrderContentResult cpOrderContentResult221 = new CPOrderContentResult();
+                    cpOrderContentResult221.setOrderName("2_2_1");
+                    cpOrderContentResult221.setFullName("二同号单选");
+                    cpOrderContentResult221.setOrderState(cpbjscResult.getdata158687());
+                    cpOrderContentResult221.setOrderId("1586-87");
+                    cpOrderContentResultList7.add(cpOrderContentResult221);
+
+                    CPOrderContentResult cpOrderContentResult223 = new CPOrderContentResult();
+                    cpOrderContentResult223.setOrderName("2_2_3");
+                    cpOrderContentResult223.setFullName("二同号单选");
+                    cpOrderContentResult223.setOrderState(cpbjscResult.getdata158788());
+                    cpOrderContentResult223.setOrderId("1587-88");
+                    cpOrderContentResultList7.add(cpOrderContentResult223);
+
+                    CPOrderContentResult cpOrderContentResult224 = new CPOrderContentResult();
+                    cpOrderContentResult224.setOrderName("2_2_4");
+                    cpOrderContentResult224.setFullName("二同号单选");
+                    cpOrderContentResult224.setOrderState(cpbjscResult.getdata158889());
+                    cpOrderContentResult224.setOrderId("1588-89");
+                    cpOrderContentResultList7.add(cpOrderContentResult224);
+
+                    CPOrderContentResult cpOrderContentResult225 = new CPOrderContentResult();
+                    cpOrderContentResult225.setOrderName("2_2_5");
+                    cpOrderContentResult225.setFullName("二同号单选");
+                    cpOrderContentResult225.setOrderState(cpbjscResult.getdata158990());
+                    cpOrderContentResult225.setOrderId("1589-90");
+                    cpOrderContentResultList7.add(cpOrderContentResult225);
+
+                    CPOrderContentResult cpOrderContentResult226 = new CPOrderContentResult();
+                    cpOrderContentResult226.setOrderName("2_2_6");
+                    cpOrderContentResult226.setFullName("二同号单选");
+                    cpOrderContentResult226.setOrderState(cpbjscResult.getdata159091());
+                    cpOrderContentResult226.setOrderId("1590-91");
+                    cpOrderContentResultList7.add(cpOrderContentResult226);
+
+                    CPOrderContentResult cpOrderContentResult331 = new CPOrderContentResult();
+                    cpOrderContentResult331.setOrderName("3_3_1");
+                    cpOrderContentResult331.setFullName("二同号单选");
+                    cpOrderContentResult331.setOrderState(cpbjscResult.getdata159192());
+                    cpOrderContentResult331.setOrderId("1591-92");
+                    cpOrderContentResultList7.add(cpOrderContentResult331);
+
+                    CPOrderContentResult cpOrderContentResult332 = new CPOrderContentResult();
+                    cpOrderContentResult332.setOrderName("3_3_2");
+                    cpOrderContentResult332.setFullName("二同号单选");
+                    cpOrderContentResult332.setOrderState(cpbjscResult.getdata159293());
+                    cpOrderContentResult332.setOrderId("1592-93");
+                    cpOrderContentResultList7.add(cpOrderContentResult332);
+
+                    CPOrderContentResult cpOrderContentResult334 = new CPOrderContentResult();
+                    cpOrderContentResult334.setOrderName("3_3_4");
+                    cpOrderContentResult334.setFullName("二同号单选");
+                    cpOrderContentResult334.setOrderState(cpbjscResult.getdata159394());
+                    cpOrderContentResult334.setOrderId("1593-94");
+                    cpOrderContentResultList7.add(cpOrderContentResult334);
+
+                    CPOrderContentResult cpOrderContentResult335 = new CPOrderContentResult();
+                    cpOrderContentResult335.setOrderName("3_3_5");
+                    cpOrderContentResult335.setFullName("二同号单选");
+                    cpOrderContentResult335.setOrderState(cpbjscResult.getdata159495());
+                    cpOrderContentResult335.setOrderId("1594-95");
+                    cpOrderContentResultList7.add(cpOrderContentResult335);
+
+                    CPOrderContentResult cpOrderContentResult336 = new CPOrderContentResult();
+                    cpOrderContentResult336.setOrderName("3_3_6");
+                    cpOrderContentResult336.setFullName("二同号单选");
+                    cpOrderContentResult336.setOrderState(cpbjscResult.getdata159596());
+                    cpOrderContentResult336.setOrderId("1595-96");
+                    cpOrderContentResultList7.add(cpOrderContentResult336);
+
+                    CPOrderContentResult cpOrderContentResult441 = new CPOrderContentResult();
+                    cpOrderContentResult441.setOrderName("4_4_1");
+                    cpOrderContentResult441.setFullName("二同号单选");
+                    cpOrderContentResult441.setOrderState(cpbjscResult.getdata159697());
+                    cpOrderContentResult441.setOrderId("1596-97");
+                    cpOrderContentResultList7.add(cpOrderContentResult441);
+
+                    CPOrderContentResult cpOrderContentResult442 = new CPOrderContentResult();
+                    cpOrderContentResult442.setOrderName("4_4_2");
+                    cpOrderContentResult442.setFullName("二同号单选");
+                    cpOrderContentResult442.setOrderState(cpbjscResult.getdata159798());
+                    cpOrderContentResult442.setOrderId("1597-98");
+                    cpOrderContentResultList7.add(cpOrderContentResult442);
+
+                    CPOrderContentResult cpOrderContentResult443 = new CPOrderContentResult();
+                    cpOrderContentResult443.setOrderName("4_4_3");
+                    cpOrderContentResult443.setFullName("二同号单选");
+                    cpOrderContentResult443.setOrderState(cpbjscResult.getdata159899());
+                    cpOrderContentResult443.setOrderId("1598-99");
+                    cpOrderContentResultList7.add(cpOrderContentResult443);
+
+                    CPOrderContentResult cpOrderContentResult445 = new CPOrderContentResult();
+                    cpOrderContentResult445.setOrderName("4_4_5");
+                    cpOrderContentResult445.setFullName("二同号单选");
+                    cpOrderContentResult445.setOrderState(cpbjscResult.getdata1599100());
+                    cpOrderContentResult445.setOrderId("1599-100");
+                    cpOrderContentResultList7.add(cpOrderContentResult445);
+
+                    CPOrderContentResult cpOrderContentResult446 = new CPOrderContentResult();
+                    cpOrderContentResult446.setOrderName("4_4_6");
+                    cpOrderContentResult446.setFullName("二同号单选");
+                    cpOrderContentResult446.setOrderState(cpbjscResult.getdata1600101());
+                    cpOrderContentResult446.setOrderId("1600-101");
+                    cpOrderContentResultList7.add(cpOrderContentResult446);
+
+                    CPOrderContentResult cpOrderContentResult551 = new CPOrderContentResult();
+                    cpOrderContentResult551.setOrderName("5_5_1");
+                    cpOrderContentResult551.setFullName("二同号单选");
+                    cpOrderContentResult551.setOrderState(cpbjscResult.getdata1601102());
+                    cpOrderContentResult551.setOrderId("1601-102");
+                    cpOrderContentResultList7.add(cpOrderContentResult551);
+
+                    CPOrderContentResult cpOrderContentResult552 = new CPOrderContentResult();
+                    cpOrderContentResult552.setOrderName("5_5_2");
+                    cpOrderContentResult552.setFullName("二同号单选");
+                    cpOrderContentResult552.setOrderState(cpbjscResult.getdata1602103());
+                    cpOrderContentResult552.setOrderId("1602-103");
+                    cpOrderContentResultList7.add(cpOrderContentResult552);
+
+                    CPOrderContentResult cpOrderContentResult553 = new CPOrderContentResult();
+                    cpOrderContentResult553.setOrderName("5_5_3");
+                    cpOrderContentResult553.setFullName("二同号单选");
+                    cpOrderContentResult553.setOrderState(cpbjscResult.getdata1603104());
+                    cpOrderContentResult553.setOrderId("1603-104");
+                    cpOrderContentResultList7.add(cpOrderContentResult553);
+
+                    CPOrderContentResult cpOrderContentResult554 = new CPOrderContentResult();
+                    cpOrderContentResult554.setOrderName("5_5_4");
+                    cpOrderContentResult554.setFullName("二同号单选");
+                    cpOrderContentResult554.setOrderState(cpbjscResult.getdata1604105());
+                    cpOrderContentResult554.setOrderId("1604-105");
+                    cpOrderContentResultList7.add(cpOrderContentResult554);
+
+                    CPOrderContentResult cpOrderContentResult556 = new CPOrderContentResult();
+                    cpOrderContentResult556.setOrderName("5_5_6");
+                    cpOrderContentResult556.setFullName("二同号单选");
+                    cpOrderContentResult556.setOrderState(cpbjscResult.getdata1605106());
+                    cpOrderContentResult556.setOrderId("1605-106");
+                    cpOrderContentResultList7.add(cpOrderContentResult556);
+
+
+                    CPOrderContentResult cpOrderContentResult661 = new CPOrderContentResult();
+                    cpOrderContentResult661.setOrderName("6_6_1");
+                    cpOrderContentResult661.setFullName("二同号单选");
+                    cpOrderContentResult661.setOrderState(cpbjscResult.getdata1606107());
+                    cpOrderContentResult661.setOrderId("1606-107");
+                    cpOrderContentResultList7.add(cpOrderContentResult661);
+
+                    CPOrderContentResult cpOrderContentResult662 = new CPOrderContentResult();
+                    cpOrderContentResult662.setOrderName("6_6_2");
+                    cpOrderContentResult662.setFullName("二同号单选");
+                    cpOrderContentResult662.setOrderState(cpbjscResult.getdata1607108());
+                    cpOrderContentResult662.setOrderId("1607-108");
+                    cpOrderContentResultList7.add(cpOrderContentResult662);
+
+                    CPOrderContentResult cpOrderContentResult663 = new CPOrderContentResult();
+                    cpOrderContentResult663.setOrderName("6_6_3");
+                    cpOrderContentResult663.setFullName("二同号单选");
+                    cpOrderContentResult663.setOrderState(cpbjscResult.getdata1608109());
+                    cpOrderContentResult663.setOrderId("1608-109");
+                    cpOrderContentResultList7.add(cpOrderContentResult663);
+
+                    CPOrderContentResult cpOrderContentResult664 = new CPOrderContentResult();
+                    cpOrderContentResult664.setOrderName("6_6_4");
+                    cpOrderContentResult664.setFullName("二同号单选");
+                    cpOrderContentResult664.setOrderState(cpbjscResult.getdata1609110());
+                    cpOrderContentResult664.setOrderId("1609-110");
+                    cpOrderContentResultList7.add(cpOrderContentResult664);
+
+                    CPOrderContentResult cpOrderContentResult665 = new CPOrderContentResult();
+                    cpOrderContentResult665.setOrderName("6_6_5");
+                    cpOrderContentResult665.setFullName("二同号单选");
+                    cpOrderContentResult665.setOrderState(cpbjscResult.getdata1610111());
+                    cpOrderContentResult665.setOrderId("1610-111");
+                    cpOrderContentResultList7.add(cpOrderContentResult665);
+
+                    cpOrderContentListResult7.setData(cpOrderContentResultList7);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult7);
+
+                    break;
+
+                case 7:
+
+
+                    CPOrderContentListResult cpOrderContentListResult8 = new CPOrderContentListResult();
+                    cpOrderContentListResult8.setOrderContentListName("二不同号");
+                    cpOrderContentListResult8.setShowNumber(2);
+                    cpOrderContentListResult8.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult812 = new CPOrderContentResult();
+                    cpOrderContentResult812.setOrderName("1_2");
+                    cpOrderContentResult812.setFullName("二不同号");
+                    cpOrderContentResult812.setOrderState(cpbjscResult.getdata152930());
+                    cpOrderContentResult812.setOrderId("1529-30");
+                    cpOrderContentResultList8.add(cpOrderContentResult812);
+
+                    CPOrderContentResult cpOrderContentResult813 = new CPOrderContentResult();
+                    cpOrderContentResult813.setOrderName("1_3");
+                    cpOrderContentResult813.setFullName("二不同号");
+                    cpOrderContentResult813.setOrderState(cpbjscResult.getdata153031());
+                    cpOrderContentResult813.setOrderId("1530-31");
+                    cpOrderContentResultList8.add(cpOrderContentResult813);
+
+                    CPOrderContentResult cpOrderContentResult814 = new CPOrderContentResult();
+                    cpOrderContentResult814.setOrderName("1_4");
+                    cpOrderContentResult814.setFullName("二不同号");
+                    cpOrderContentResult814.setOrderState(cpbjscResult.getdata153132());
+                    cpOrderContentResult814.setOrderId("1531-32");
+                    cpOrderContentResultList8.add(cpOrderContentResult814);
+
+                    CPOrderContentResult cpOrderContentResult815 = new CPOrderContentResult();
+                    cpOrderContentResult815.setOrderName("1_5");
+                    cpOrderContentResult815.setFullName("二不同号");
+                    cpOrderContentResult815.setOrderState(cpbjscResult.getdata153233());
+                    cpOrderContentResult815.setOrderId("1532-33");
+                    cpOrderContentResultList8.add(cpOrderContentResult815);
+
+                    CPOrderContentResult cpOrderContentResult816 = new CPOrderContentResult();
+                    cpOrderContentResult816.setOrderName("1_6");
+                    cpOrderContentResult816.setFullName("二不同号");
+                    cpOrderContentResult816.setOrderState(cpbjscResult.getdata153334());
+                    cpOrderContentResult816.setOrderId("1533-34");
+                    cpOrderContentResultList8.add(cpOrderContentResult816);
+
+                    CPOrderContentResult cpOrderContentResult823 = new CPOrderContentResult();
+                    cpOrderContentResult823.setOrderName("2_3");
+                    cpOrderContentResult823.setFullName("二不同号");
+                    cpOrderContentResult823.setOrderState(cpbjscResult.getdata153435());
+                    cpOrderContentResult823.setOrderId("1534-35");
+                    cpOrderContentResultList8.add(cpOrderContentResult823);
+
+                    CPOrderContentResult cpOrderContentResult824 = new CPOrderContentResult();
+                    cpOrderContentResult824.setOrderName("2_4");
+                    cpOrderContentResult824.setFullName("二不同号");
+                    cpOrderContentResult824.setOrderState(cpbjscResult.getdata153536());
+                    cpOrderContentResult824.setOrderId("1535-36");
+                    cpOrderContentResultList8.add(cpOrderContentResult824);
+
+                    CPOrderContentResult cpOrderContentResult825 = new CPOrderContentResult();
+                    cpOrderContentResult825.setOrderName("2_5");
+                    cpOrderContentResult825.setFullName("二不同号");
+                    cpOrderContentResult825.setOrderState(cpbjscResult.getdata153637());
+                    cpOrderContentResult825.setOrderId("1536-37");
+                    cpOrderContentResultList8.add(cpOrderContentResult825);
+
+                    CPOrderContentResult cpOrderContentResult826 = new CPOrderContentResult();
+                    cpOrderContentResult826.setOrderName("2_5");
+                    cpOrderContentResult826.setFullName("二不同号");
+                    cpOrderContentResult826.setOrderState(cpbjscResult.getdata153738());
+                    cpOrderContentResult826.setOrderId("1537-38");
+                    cpOrderContentResultList8.add(cpOrderContentResult826);
+
+                    CPOrderContentResult cpOrderContentResult834 = new CPOrderContentResult();
+                    cpOrderContentResult834.setOrderName("3_4");
+                    cpOrderContentResult834.setFullName("二不同号");
+                    cpOrderContentResult834.setOrderState(cpbjscResult.getdata153839());
+                    cpOrderContentResult834.setOrderId("1538-39");
+                    cpOrderContentResultList8.add(cpOrderContentResult834);
+
+                    CPOrderContentResult cpOrderContentResult835 = new CPOrderContentResult();
+                    cpOrderContentResult835.setOrderName("3_5");
+                    cpOrderContentResult835.setFullName("二不同号");
+                    cpOrderContentResult835.setOrderState(cpbjscResult.getdata153940());
+                    cpOrderContentResult835.setOrderId("1539-40");
+                    cpOrderContentResultList8.add(cpOrderContentResult835);
+
+
+                    CPOrderContentResult cpOrderContentResult836 = new CPOrderContentResult();
+                    cpOrderContentResult836.setOrderName("3_6");
+                    cpOrderContentResult836.setFullName("二不同号");
+                    cpOrderContentResult836.setOrderState(cpbjscResult.getdata154041());
+                    cpOrderContentResult836.setOrderId("1540-41");
+                    cpOrderContentResultList8.add(cpOrderContentResult836);
+
+                    CPOrderContentResult cpOrderContentResult845 = new CPOrderContentResult();
+                    cpOrderContentResult845.setOrderName("4_5");
+                    cpOrderContentResult845.setFullName("二不同号");
+                    cpOrderContentResult845.setOrderState(cpbjscResult.getdata154142());
+                    cpOrderContentResult845.setOrderId("1541-42");
+                    cpOrderContentResultList8.add(cpOrderContentResult845);
+
+                    CPOrderContentResult cpOrderContentResult846 = new CPOrderContentResult();
+                    cpOrderContentResult846.setOrderName("4_6");
+                    cpOrderContentResult846.setFullName("二不同号");
+                    cpOrderContentResult846.setOrderState(cpbjscResult.getdata154243());
+                    cpOrderContentResult846.setOrderId("1542-43");
+                    cpOrderContentResultList8.add(cpOrderContentResult846);
+
+                    CPOrderContentResult cpOrderContentResult856 = new CPOrderContentResult();
+                    cpOrderContentResult856.setOrderName("5_6");
+                    cpOrderContentResult856.setFullName("二不同号");
+                    cpOrderContentResult856.setOrderState(cpbjscResult.getdata154344());
+                    cpOrderContentResult856.setOrderId("1543-44");
+                    cpOrderContentResultList8.add(cpOrderContentResult856);
+
+                    cpOrderContentListResult8.setData(cpOrderContentResultList8);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult8);
+                    break;
+                case 8:
+
+                    CPOrderContentListResult cpOrderContentListResult9 = new CPOrderContentListResult();
+                    cpOrderContentListResult9.setOrderContentListName("猜必出");
+                    cpOrderContentListResult9.setShowNumber(2);
+                    cpOrderContentListResult9.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList9 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult91 = new CPOrderContentResult();
+                    cpOrderContentResult91.setOrderName("1_");
+                    cpOrderContentResult91.setFullName("猜必出");
+                    cpOrderContentResult91.setOrderState(cpbjscResult.getdata15001());
+                    cpOrderContentResult91.setOrderId("1500-1");
+                    cpOrderContentResultList9.add(cpOrderContentResult91);
+
+                    CPOrderContentResult cpOrderContentResult92 = new CPOrderContentResult();
+                    cpOrderContentResult92.setOrderName("2_");
+                    cpOrderContentResult92.setFullName("猜必出");
+                    cpOrderContentResult92.setOrderState(cpbjscResult.getdata15012());
+                    cpOrderContentResult92.setOrderId("1501-2");
+                    cpOrderContentResultList9.add(cpOrderContentResult92);
+
+                    CPOrderContentResult cpOrderContentResult93 = new CPOrderContentResult();
+                    cpOrderContentResult93.setOrderName("3_");
+                    cpOrderContentResult93.setFullName("猜必出");
+                    cpOrderContentResult93.setOrderState(cpbjscResult.getdata15023());
+                    cpOrderContentResult93.setOrderId("1502-3");
+                    cpOrderContentResultList9.add(cpOrderContentResult93);
+
+                    CPOrderContentResult cpOrderContentResult94 = new CPOrderContentResult();
+                    cpOrderContentResult94.setOrderName("4_");
+                    cpOrderContentResult94.setFullName("猜必出");
+                    cpOrderContentResult94.setOrderState(cpbjscResult.getdata15034());
+                    cpOrderContentResult94.setOrderId("1503-4");
+                    cpOrderContentResultList9.add(cpOrderContentResult94);
+
+                    CPOrderContentResult cpOrderContentResult95 = new CPOrderContentResult();
+                    cpOrderContentResult95.setOrderName("5_");
+                    cpOrderContentResult95.setFullName("猜必出");
+                    cpOrderContentResult95.setOrderState(cpbjscResult.getdata15045());
+                    cpOrderContentResult95.setOrderId("1504-5");
+                    cpOrderContentResultList9.add(cpOrderContentResult95);
+
+                    CPOrderContentResult cpOrderContentResult96 = new CPOrderContentResult();
+                    cpOrderContentResult96.setOrderName("6_");
+                    cpOrderContentResult96.setFullName("猜必出");
+                    cpOrderContentResult96.setOrderState(cpbjscResult.getdata15056());
+                    cpOrderContentResult96.setOrderId("1505-6");
+                    cpOrderContentResultList9.add(cpOrderContentResult96);
+
+                    cpOrderContentListResult9.setData(cpOrderContentResultList9);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult9);
+
+                    break;
+                case 9:
+
+                    CPOrderContentListResult cpOrderContentListResult10 = new CPOrderContentListResult();
+                    cpOrderContentListResult10.setOrderContentListName("猜必不出");
+                    cpOrderContentListResult10.setShowNumber(2);
+                    cpOrderContentListResult10.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList10 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult101 = new CPOrderContentResult();
+                    cpOrderContentResult101.setOrderName("1_");
+                    cpOrderContentResult101.setFullName("猜必不出");
+                    cpOrderContentResult101.setOrderState(cpbjscResult.getdata155051());
+                    cpOrderContentResult101.setOrderId("1550-51");
+                    cpOrderContentResultList10.add(cpOrderContentResult101);
+
+                    CPOrderContentResult cpOrderContentResult102 = new CPOrderContentResult();
+                    cpOrderContentResult102.setOrderName("2_");
+                    cpOrderContentResult102.setFullName("猜必不出");
+                    cpOrderContentResult102.setOrderState(cpbjscResult.getdata155152());
+                    cpOrderContentResult102.setOrderId("1551-52");
+                    cpOrderContentResultList10.add(cpOrderContentResult102);
+
+                    CPOrderContentResult cpOrderContentResult103 = new CPOrderContentResult();
+                    cpOrderContentResult103.setOrderName("3_");
+                    cpOrderContentResult103.setFullName("猜必不出");
+                    cpOrderContentResult103.setOrderState(cpbjscResult.getdata155253());
+                    cpOrderContentResult103.setOrderId("1552-53");
+                    cpOrderContentResultList10.add(cpOrderContentResult103);
+
+                    CPOrderContentResult cpOrderContentResult104 = new CPOrderContentResult();
+                    cpOrderContentResult104.setOrderName("4_");
+                    cpOrderContentResult104.setFullName("猜必不出");
+                    cpOrderContentResult104.setOrderState(cpbjscResult.getdata155354());
+                    cpOrderContentResult104.setOrderId("1553-54");
+                    cpOrderContentResultList10.add(cpOrderContentResult104);
+
+                    CPOrderContentResult cpOrderContentResult105 = new CPOrderContentResult();
+                    cpOrderContentResult105.setOrderName("5_");
+                    cpOrderContentResult105.setFullName("猜必不出");
+                    cpOrderContentResult105.setOrderState(cpbjscResult.getdata155455());
+                    cpOrderContentResult105.setOrderId("1554-55");
+                    cpOrderContentResultList10.add(cpOrderContentResult105);
+
+                    CPOrderContentResult cpOrderContentResult106 = new CPOrderContentResult();
+                    cpOrderContentResult106.setOrderName("6_");
+                    cpOrderContentResult106.setFullName("猜必不出");
+                    cpOrderContentResult106.setOrderState(cpbjscResult.getdata155556());
+                    cpOrderContentResult106.setOrderId("1555-56");
+                    cpOrderContentResultList10.add(cpOrderContentResult106);
+
+                    cpOrderContentListResult10.setData(cpOrderContentResultList10);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult10);
+
+                    break;
+
+        }
+       return CPOrderContentListResult;
+    }
+
+
+    private List<CPOrderContentListResult>  JSKS2(CPJSK2Result cpbjscResult,int k){
+        List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
+        switch (k){
+                case 0:
+                    CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                    cpOrderContentListResult.setOrderContentListName("和值");
+                    cpOrderContentListResult.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                    cpOrderContentResult3.setOrderName("3点");
+                    cpOrderContentResult3.setFullName("和值");
+                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata2611112());
+                    cpOrderContentResult3.setOrderId("2611-112");
+                    cpOrderContentResultList.add(cpOrderContentResult3);
+
+                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                    cpOrderContentResult4.setOrderName("4点");
+                    cpOrderContentResult4.setFullName("和值");
+                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata251516());
+                    cpOrderContentResult4.setOrderId("2515-16");
+                    cpOrderContentResultList.add(cpOrderContentResult4);
+
+                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                    cpOrderContentResult5.setOrderName("5点");
+                    cpOrderContentResult5.setFullName("和值");
+                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata251617());
+                    cpOrderContentResult5.setOrderId("2516-17");
+                    cpOrderContentResultList.add(cpOrderContentResult5);
+
+                    CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+                    cpOrderContentResult6.setOrderName("6点");
+                    cpOrderContentResult6.setFullName("和值");
+                    cpOrderContentResult6.setOrderState(cpbjscResult.getdata251718());
+                    cpOrderContentResult6.setOrderId("2517-18");
+                    cpOrderContentResultList.add(cpOrderContentResult6);
+
+                    CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+                    cpOrderContentResult7.setOrderName("7点");
+                    cpOrderContentResult7.setFullName("和值");
+                    cpOrderContentResult7.setOrderState(cpbjscResult.getdata251819());
+                    cpOrderContentResult7.setOrderId("2518-19");
+                    cpOrderContentResultList.add(cpOrderContentResult7);
+
+                    CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+                    cpOrderContentResult8.setOrderName("8点");
+                    cpOrderContentResult8.setFullName("和值");
+                    cpOrderContentResult8.setOrderState(cpbjscResult.getdata251920());
+                    cpOrderContentResult8.setOrderId("2519-20");
+                    cpOrderContentResultList.add(cpOrderContentResult8);
+
+
+                    CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
+                    cpOrderContentResult9.setOrderName("9点");
+                    cpOrderContentResult9.setFullName("和值");
+                    cpOrderContentResult9.setOrderState(cpbjscResult.getdata252021());
+                    cpOrderContentResult9.setOrderId("2520-21");
+                    cpOrderContentResultList.add(cpOrderContentResult9);
+
+                    CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+                    cpOrderContentResult10.setOrderName("10点");
+                    cpOrderContentResult10.setFullName("和值");
+                    cpOrderContentResult10.setOrderState(cpbjscResult.getdata252122());
+                    cpOrderContentResult10.setOrderId("2521-22");
+                    cpOrderContentResultList.add(cpOrderContentResult10);
+
+                    CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
+                    cpOrderContentResult11.setOrderName("11点");
+                    cpOrderContentResult11.setFullName("和值");
+                    cpOrderContentResult11.setOrderState(cpbjscResult.getdata252223());
+                    cpOrderContentResult11.setOrderId("2522-23");
+                    cpOrderContentResultList.add(cpOrderContentResult11);
+
+                    CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
+                    cpOrderContentResult12.setOrderName("12点");
+                    cpOrderContentResult12.setFullName("和值");
+                    cpOrderContentResult12.setOrderState(cpbjscResult.getdata252324());
+                    cpOrderContentResult12.setOrderId("2523-24");
+                    cpOrderContentResultList.add(cpOrderContentResult12);
+
+                    CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
+                    cpOrderContentResult13.setOrderName("13点");
+                    cpOrderContentResult13.setFullName("和值");
+                    cpOrderContentResult13.setOrderState(cpbjscResult.getdata252425());
+                    cpOrderContentResult13.setOrderId("2524-25");
+                    cpOrderContentResultList.add(cpOrderContentResult13);
+
+
+                    CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
+                    cpOrderContentResult14.setOrderName("14点");
+                    cpOrderContentResult14.setFullName("和值");
+                    cpOrderContentResult14.setOrderState(cpbjscResult.getdata252526());
+                    cpOrderContentResult14.setOrderId("2525-26");
+                    cpOrderContentResultList.add(cpOrderContentResult14);
+
+                    CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
+                    cpOrderContentResult15.setOrderName("15点");
+                    cpOrderContentResult15.setFullName("和值");
+                    cpOrderContentResult15.setOrderState(cpbjscResult.getdata252627());
+                    cpOrderContentResult15.setOrderId("2526-27");
+                    cpOrderContentResultList.add(cpOrderContentResult15);
+
+                    CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
+                    cpOrderContentResult16.setOrderName("16点");
+                    cpOrderContentResult16.setFullName("和值");
+                    cpOrderContentResult16.setOrderState(cpbjscResult.getdata252728());
+                    cpOrderContentResult16.setOrderId("2527-28");
+                    cpOrderContentResultList.add(cpOrderContentResult16);
+
+                    CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
+                    cpOrderContentResult17.setOrderName("17点");
+                    cpOrderContentResult17.setFullName("和值");
+                    cpOrderContentResult17.setOrderState(cpbjscResult.getdata252829());
+                    cpOrderContentResult17.setOrderId("2528-29");
+                    cpOrderContentResultList.add(cpOrderContentResult17);
+
+                    CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
+                    cpOrderContentResult18.setOrderName("18点");
+                    cpOrderContentResult18.setFullName("和值");
+                    cpOrderContentResult18.setOrderState(cpbjscResult.getdata2612113());
+                    cpOrderContentResult18.setOrderId("2612-113");
+                    cpOrderContentResultList.add(cpOrderContentResult18);
+
+
+                    cpOrderContentListResult.setData(cpOrderContentResultList);
+                    CPOrderContentListResult .add(cpOrderContentListResult);
+
+                    break;
+                case 1:
+                    CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+                    cpOrderContentListResult2.setOrderContentListName("大小单双");
+                    cpOrderContentListResult2.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+                    cpOrderContentResult21.setOrderName("大");
+                    cpOrderContentResult21.setFullName("");
+                    cpOrderContentResult21.setOrderState(cpbjscResult.getdata25067());
+                    cpOrderContentResult21.setOrderId("2506-7");
+                    cpOrderContentResultList2.add(cpOrderContentResult21);
+
+                    CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+                    cpOrderContentResult22.setOrderName("小");
+                    cpOrderContentResult22.setFullName("");
+                    cpOrderContentResult22.setOrderState(cpbjscResult.getdata25078());
+                    cpOrderContentResult22.setOrderId("2507-8");
+                    cpOrderContentResultList2.add(cpOrderContentResult22);
+
+                    CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+                    cpOrderContentResult23.setOrderName("单");
+                    cpOrderContentResult23.setFullName("");
+                    cpOrderContentResult23.setOrderState(cpbjscResult.getdata255657());
+                    cpOrderContentResult23.setOrderId("2556-57");
+                    cpOrderContentResultList2.add(cpOrderContentResult23);
+
+                    CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
+                    cpOrderContentResult24.setOrderName("双");
+                    cpOrderContentResult24.setFullName("");
+                    cpOrderContentResult24.setOrderState(cpbjscResult.getdata255758());
+                    cpOrderContentResult24.setOrderId("2557-58");
+                    cpOrderContentResultList2.add(cpOrderContentResult24);
+
+                    cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult2);
+                    break;
+                case 2:
+                    CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+                    cpOrderContentListResult3.setOrderContentListName("通选");
+                    cpOrderContentListResult3.setShowNumber(2);
+
+                    List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
+                    cpOrderContentResult31.setOrderName("豹子");
+                    cpOrderContentResult31.setFullName("");
+                    cpOrderContentResult31.setOrderState(cpbjscResult.getdata25089());
+                    cpOrderContentResult31.setOrderId("2508-9");
+                    cpOrderContentResultList3.add(cpOrderContentResult31);
+
+                    CPOrderContentResult cpOrderContentResult32 = new CPOrderContentResult();
+                    cpOrderContentResult32.setOrderName("顺子");
+                    cpOrderContentResult32.setFullName("");
+                    cpOrderContentResult32.setOrderState(cpbjscResult.getdata255859());
+                    cpOrderContentResult32.setOrderId("2558-59");
+                    cpOrderContentResultList3.add(cpOrderContentResult32);
+
+                    CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+                    cpOrderContentResult33.setOrderName("对子");
+                    cpOrderContentResult33.setFullName("");
+                    cpOrderContentResult33.setOrderState(cpbjscResult.getdata255960());
+                    cpOrderContentResult33.setOrderId("2559-60");
+                    cpOrderContentResultList3.add(cpOrderContentResult33);
+
+                    CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
+                    cpOrderContentResult34.setOrderName("三不同");
+                    cpOrderContentResult34.setFullName("");
+                    cpOrderContentResult34.setOrderState(cpbjscResult.getdata256061());
+                    cpOrderContentResult34.setOrderId("2560-61");
+                    cpOrderContentResultList3.add(cpOrderContentResult34);
+
+                    cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult3);
+                    break;
+                case 3:
+
+                    CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+                    cpOrderContentListResult4.setOrderContentListName("三同号");
+                    cpOrderContentListResult4.setShowNumber(2);
+                    cpOrderContentListResult4.setShowType("DANIEL");
+
+                    List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
+                    cpOrderContentResult41.setOrderName("1_1_1");
+                    cpOrderContentResult41.setFullName("三同号");
+                    cpOrderContentResult41.setOrderState(cpbjscResult.getdata250910());
+                    cpOrderContentResult41.setOrderId("2509-10");
+                    cpOrderContentResultList4.add(cpOrderContentResult41);
+
+                    CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
+                    cpOrderContentResult42.setOrderName("2_2_2");
+                    cpOrderContentResult42.setFullName("三同号");
+                    cpOrderContentResult42.setOrderState(cpbjscResult.getdata251011());
+                    cpOrderContentResult42.setOrderId("2510-11");
+                    cpOrderContentResultList4.add(cpOrderContentResult42);
+
+                    CPOrderContentResult cpOrderContentResult43 = new CPOrderContentResult();
+                    cpOrderContentResult43.setOrderName("3_3_3");
+                    cpOrderContentResult43.setFullName("三同号");
+                    cpOrderContentResult43.setOrderState(cpbjscResult.getdata251112());
+                    cpOrderContentResult43.setOrderId("2511-12");
+                    cpOrderContentResultList4.add(cpOrderContentResult43);
+
+                    CPOrderContentResult cpOrderContentResult44 = new CPOrderContentResult();
+                    cpOrderContentResult44.setOrderName("4_4_4");
+                    cpOrderContentResult44.setFullName("三同号");
+                    cpOrderContentResult44.setOrderState(cpbjscResult.getdata251213());
+                    cpOrderContentResult44.setOrderId("2512-13");
+                    cpOrderContentResultList4.add(cpOrderContentResult44);
+
+                    CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+                    cpOrderContentResult45.setOrderName("5_5_5");
+                    cpOrderContentResult45.setFullName("三同号");
+                    cpOrderContentResult45.setOrderState(cpbjscResult.getdata251314());
+                    cpOrderContentResult45.setOrderId("2513-14");
+                    cpOrderContentResultList4.add(cpOrderContentResult45);
+
+                    CPOrderContentResult cpOrderContentResult46 = new CPOrderContentResult();
+                    cpOrderContentResult46.setOrderName("6_6_6");
+                    cpOrderContentResult46.setFullName("三同号");
+                    cpOrderContentResult46.setOrderState(cpbjscResult.getdata251415());
+                    cpOrderContentResult46.setOrderId("2514-15");
+                    cpOrderContentResultList4.add(cpOrderContentResult46);
+
+                    cpOrderContentListResult4.setData(cpOrderContentResultList4);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult4);
+                    break;
+                case 4:
+
+                    CPOrderContentListResult cpOrderContentListResult5 = new CPOrderContentListResult();
+                    cpOrderContentListResult5.setOrderContentListName("三不同");
+                    cpOrderContentListResult5.setShowNumber(2);
+                    cpOrderContentListResult5.setShowType("DANIEL");
+
+                    List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult123 = new CPOrderContentResult();
+                    cpOrderContentResult123.setOrderName("1_2_3");
+                    cpOrderContentResult123.setFullName("三不同");
+                    cpOrderContentResult123.setOrderState(cpbjscResult.getdata256162());
+                    cpOrderContentResult123.setOrderId("2561-62");
+                    cpOrderContentResultList5.add(cpOrderContentResult123);
+
+                    CPOrderContentResult cpOrderContentResult124 = new CPOrderContentResult();
+                    cpOrderContentResult124.setOrderName("1_2_4");
+                    cpOrderContentResult124.setFullName("三不同");
+                    cpOrderContentResult124.setOrderState(cpbjscResult.getdata256263());
+                    cpOrderContentResult124.setOrderId("2562-63");
+                    cpOrderContentResultList5.add(cpOrderContentResult124);
+
+                    CPOrderContentResult cpOrderContentResult125 = new CPOrderContentResult();
+                    cpOrderContentResult125.setOrderName("1_2_5");
+                    cpOrderContentResult125.setFullName("三不同");
+                    cpOrderContentResult125.setOrderState(cpbjscResult.getdata256364());
+                    cpOrderContentResult125.setOrderId("2563-64");
+                    cpOrderContentResultList5.add(cpOrderContentResult125);
+
+                    CPOrderContentResult cpOrderContentResult126 = new CPOrderContentResult();
+                    cpOrderContentResult126.setOrderName("1_2_6");
+                    cpOrderContentResult126.setFullName("三不同");
+                    cpOrderContentResult126.setOrderState(cpbjscResult.getdata256465());
+                    cpOrderContentResult126.setOrderId("2564-65");
+                    cpOrderContentResultList5.add(cpOrderContentResult126);
+
+                    CPOrderContentResult cpOrderContentResult134 = new CPOrderContentResult();
+                    cpOrderContentResult134.setOrderName("1_3_4");
+                    cpOrderContentResult134.setFullName("三不同");
+                    cpOrderContentResult134.setOrderState(cpbjscResult.getdata256566());
+                    cpOrderContentResult134.setOrderId("2565-66");
+                    cpOrderContentResultList5.add(cpOrderContentResult134);
+
+                    CPOrderContentResult cpOrderContentResult135 = new CPOrderContentResult();
+                    cpOrderContentResult135.setOrderName("1_3_5");
+                    cpOrderContentResult135.setFullName("三不同");
+                    cpOrderContentResult135.setOrderState(cpbjscResult.getdata256667());
+                    cpOrderContentResult135.setOrderId("2566-67");
+                    cpOrderContentResultList5.add(cpOrderContentResult135);
+
+                    CPOrderContentResult cpOrderContentResult136 = new CPOrderContentResult();
+                    cpOrderContentResult136.setOrderName("1_3_6");
+                    cpOrderContentResult136.setFullName("三不同");
+                    cpOrderContentResult136.setOrderState(cpbjscResult.getdata256768());
+                    cpOrderContentResult136.setOrderId("2567-68");
+                    cpOrderContentResultList5.add(cpOrderContentResult136);
+
+                    CPOrderContentResult cpOrderContentResult145 = new CPOrderContentResult();
+                    cpOrderContentResult145.setOrderName("1_4_5");
+                    cpOrderContentResult145.setFullName("三不同");
+                    cpOrderContentResult145.setOrderState(cpbjscResult.getdata256869());
+                    cpOrderContentResult145.setOrderId("2568-69");
+                    cpOrderContentResultList5.add(cpOrderContentResult145);
+
+                    CPOrderContentResult cpOrderContentResult146 = new CPOrderContentResult();
+                    cpOrderContentResult146.setOrderName("1_4_6");
+                    cpOrderContentResult146.setFullName("三不同");
+                    cpOrderContentResult146.setOrderState(cpbjscResult.getdata256970());
+                    cpOrderContentResult146.setOrderId("2569-70");
+                    cpOrderContentResultList5.add(cpOrderContentResult146);
+
+                    CPOrderContentResult cpOrderContentResult156 = new CPOrderContentResult();
+                    cpOrderContentResult156.setOrderName("1_5_6");
+                    cpOrderContentResult156.setFullName("三不同");
+                    cpOrderContentResult156.setOrderState(cpbjscResult.getdata257071());
+                    cpOrderContentResult156.setOrderId("2570-71");
+                    cpOrderContentResultList5.add(cpOrderContentResult156);
+
+                    CPOrderContentResult cpOrderContentResult234 = new CPOrderContentResult();
+                    cpOrderContentResult234.setOrderName("2_3_4");
+                    cpOrderContentResult234.setFullName("三不同");
+                    cpOrderContentResult234.setOrderState(cpbjscResult.getdata257172());
+                    cpOrderContentResult234.setOrderId("2571-72");
+                    cpOrderContentResultList5.add(cpOrderContentResult234);
+
+                    CPOrderContentResult cpOrderContentResult235 = new CPOrderContentResult();
+                    cpOrderContentResult235.setOrderName("2_3_5");
+                    cpOrderContentResult235.setFullName("三不同");
+                    cpOrderContentResult235.setOrderState(cpbjscResult.getdata257273());
+                    cpOrderContentResult235.setOrderId("2572-73");
+                    cpOrderContentResultList5.add(cpOrderContentResult235);
+
+                    CPOrderContentResult cpOrderContentResult236 = new CPOrderContentResult();
+                    cpOrderContentResult236.setOrderName("2_3_6");
+                    cpOrderContentResult236.setFullName("三不同");
+                    cpOrderContentResult236.setOrderState(cpbjscResult.getdata257374());
+                    cpOrderContentResult236.setOrderId("2573-74");
+                    cpOrderContentResultList5.add(cpOrderContentResult236);
+
+                    CPOrderContentResult cpOrderContentResult245 = new CPOrderContentResult();
+                    cpOrderContentResult245.setOrderName("2_4_5");
+                    cpOrderContentResult245.setFullName("三不同");
+                    cpOrderContentResult245.setOrderState(cpbjscResult.getdata257475());
+                    cpOrderContentResult245.setOrderId("2574-75");
+                    cpOrderContentResultList5.add(cpOrderContentResult245);
+
+                    CPOrderContentResult cpOrderContentResult246 = new CPOrderContentResult();
+                    cpOrderContentResult246.setOrderName("2_4_6");
+                    cpOrderContentResult246.setFullName("三不同");
+                    cpOrderContentResult246.setOrderState(cpbjscResult.getdata257576());
+                    cpOrderContentResult246.setOrderId("2575-76");
+                    cpOrderContentResultList5.add(cpOrderContentResult246);
+
+                    CPOrderContentResult cpOrderContentResult256 = new CPOrderContentResult();
+                    cpOrderContentResult256.setOrderName("2_5_6");
+                    cpOrderContentResult256.setFullName("三不同");
+                    cpOrderContentResult256.setOrderState(cpbjscResult.getdata257677());
+                    cpOrderContentResult256.setOrderId("2576-77");
+                    cpOrderContentResultList5.add(cpOrderContentResult256);
+
+                    CPOrderContentResult cpOrderContentResult345 = new CPOrderContentResult();
+                    cpOrderContentResult345.setOrderName("3_4_5");
+                    cpOrderContentResult345.setFullName("三不同");
+                    cpOrderContentResult345.setOrderState(cpbjscResult.getdata257778());
+                    cpOrderContentResult345.setOrderId("257778");
+                    cpOrderContentResultList5.add(cpOrderContentResult345);
+
+                    CPOrderContentResult cpOrderContentResult346 = new CPOrderContentResult();
+                    cpOrderContentResult346.setOrderName("3_4_6");
+                    cpOrderContentResult346.setFullName("三不同");
+                    cpOrderContentResult346.setOrderState(cpbjscResult.getdata257879());
+                    cpOrderContentResult346.setOrderId("2578-79");
+                    cpOrderContentResultList5.add(cpOrderContentResult346);
+
+                    CPOrderContentResult cpOrderContentResult356 = new CPOrderContentResult();
+                    cpOrderContentResult356.setOrderName("3_5_6");
+                    cpOrderContentResult356.setFullName("三不同");
+                    cpOrderContentResult356.setOrderState(cpbjscResult.getdata257980());
+                    cpOrderContentResult356.setOrderId("2579-80");
+                    cpOrderContentResultList5.add(cpOrderContentResult356);
+
+                    CPOrderContentResult cpOrderContentResult456 = new CPOrderContentResult();
+                    cpOrderContentResult456.setOrderName("4_5_6");
+                    cpOrderContentResult456.setFullName("三不同");
+                    cpOrderContentResult456.setOrderState(cpbjscResult.getdata258081());
+                    cpOrderContentResult456.setOrderId("2580-81");
+                    cpOrderContentResultList5.add(cpOrderContentResult456);
+
+                    cpOrderContentListResult5.setData(cpOrderContentResultList5);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult5);
+                    break;
+                case 5:
+
+                    CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();
+                    cpOrderContentListResult6.setOrderContentListName("二同号复选");
+                    cpOrderContentListResult6.setShowNumber(2);
+                    cpOrderContentListResult6.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult111 = new CPOrderContentResult();
+                    cpOrderContentResult111.setOrderName("1_1");
+                    cpOrderContentResult111.setFullName("二同号复选");
+                    cpOrderContentResult111.setOrderState(cpbjscResult.getdata254445());
+                    cpOrderContentResult111.setOrderId("2544-45");
+                    cpOrderContentResultList6.add(cpOrderContentResult111);
+
+                    CPOrderContentResult cpOrderContentResult222 = new CPOrderContentResult();
+                    cpOrderContentResult222.setOrderName("2_2");
+                    cpOrderContentResult222.setFullName("二同号复选");
+                    cpOrderContentResult222.setOrderState(cpbjscResult.getdata254546());
+                    cpOrderContentResult222.setOrderId("2545-46");
+                    cpOrderContentResultList6.add(cpOrderContentResult222);
+
+                    CPOrderContentResult cpOrderContentResult333 = new CPOrderContentResult();
+                    cpOrderContentResult333.setOrderName("3_3");
+                    cpOrderContentResult333.setFullName("二同号复选");
+                    cpOrderContentResult333.setOrderState(cpbjscResult.getdata254647());
+                    cpOrderContentResult333.setOrderId("2546-47");
+                    cpOrderContentResultList6.add(cpOrderContentResult333);
+
+                    CPOrderContentResult cpOrderContentResult444 = new CPOrderContentResult();
+                    cpOrderContentResult444.setOrderName("4_4");
+                    cpOrderContentResult444.setFullName("二同号复选");
+                    cpOrderContentResult444.setOrderState(cpbjscResult.getdata254748());
+                    cpOrderContentResult444.setOrderId("2547-48");
+                    cpOrderContentResultList6.add(cpOrderContentResult444);
+
+                    CPOrderContentResult cpOrderContentResult555 = new CPOrderContentResult();
+                    cpOrderContentResult555.setOrderName("5_5");
+                    cpOrderContentResult555.setFullName("二同号复选");
+                    cpOrderContentResult555.setOrderState(cpbjscResult.getdata254849());
+                    cpOrderContentResult555.setOrderId("2548-49");
+                    cpOrderContentResultList6.add(cpOrderContentResult555);
+
+                    CPOrderContentResult cpOrderContentResult666 = new CPOrderContentResult();
+                    cpOrderContentResult666.setOrderName("6_6");
+                    cpOrderContentResult666.setFullName("二同号复选");
+                    cpOrderContentResult666.setOrderState(cpbjscResult.getdata254950());
+                    cpOrderContentResult666.setOrderId("2549-50");
+                    cpOrderContentResultList6.add(cpOrderContentResult666);
+
+                    cpOrderContentListResult6.setData(cpOrderContentResultList6);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult6);
+                    break;
+                case 6:
+                    CPOrderContentListResult cpOrderContentListResult7 = new CPOrderContentListResult();
+                    cpOrderContentListResult7.setOrderContentListName("二同号单选");
+                    cpOrderContentListResult7.setShowNumber(2);
+                    cpOrderContentListResult7.setShowType("DANIEL");
+
+                    List<CPOrderContentResult> cpOrderContentResultList7 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult112 = new CPOrderContentResult();
+                    cpOrderContentResult112.setOrderName("1_1_2");
+                    cpOrderContentResult112.setFullName("二同号单选");
+                    cpOrderContentResult112.setOrderState(cpbjscResult.getdata258182());
+                    cpOrderContentResult112.setOrderId("2581-82");
+                    cpOrderContentResultList7.add(cpOrderContentResult112);
+
+                    CPOrderContentResult cpOrderContentResult113 = new CPOrderContentResult();
+                    cpOrderContentResult113.setOrderName("1_1_3");
+                    cpOrderContentResult113.setFullName("二同号单选");
+                    cpOrderContentResult113.setOrderState(cpbjscResult.getdata258283());
+                    cpOrderContentResult113.setOrderId("2582-83");
+                    cpOrderContentResultList7.add(cpOrderContentResult113);
+
+                    CPOrderContentResult cpOrderContentResult114 = new CPOrderContentResult();
+                    cpOrderContentResult114.setOrderName("1_1_4");
+                    cpOrderContentResult114.setFullName("二同号单选");
+                    cpOrderContentResult114.setOrderState(cpbjscResult.getdata258384());
+                    cpOrderContentResult114.setOrderId("2583-84");
+                    cpOrderContentResultList7.add(cpOrderContentResult114);
+
+                    CPOrderContentResult cpOrderContentResult115 = new CPOrderContentResult();
+                    cpOrderContentResult115.setOrderName("1_1_5");
+                    cpOrderContentResult115.setFullName("二同号单选");
+                    cpOrderContentResult115.setOrderState(cpbjscResult.getdata258485());
+                    cpOrderContentResult115.setOrderId("2584-85");
+                    cpOrderContentResultList7.add(cpOrderContentResult115);
+
+                    CPOrderContentResult cpOrderContentResult116 = new CPOrderContentResult();
+                    cpOrderContentResult116.setOrderName("1_1_6");
+                    cpOrderContentResult116.setFullName("二同号单选");
+                    cpOrderContentResult116.setOrderState(cpbjscResult.getdata258586());
+                    cpOrderContentResult116.setOrderId("2585-86");
+                    cpOrderContentResultList7.add(cpOrderContentResult116);
+
+                    CPOrderContentResult cpOrderContentResult221 = new CPOrderContentResult();
+                    cpOrderContentResult221.setOrderName("2_2_1");
+                    cpOrderContentResult221.setFullName("二同号单选");
+                    cpOrderContentResult221.setOrderState(cpbjscResult.getdata258687());
+                    cpOrderContentResult221.setOrderId("2586-87");
+                    cpOrderContentResultList7.add(cpOrderContentResult221);
+
+                    CPOrderContentResult cpOrderContentResult223 = new CPOrderContentResult();
+                    cpOrderContentResult223.setOrderName("2_2_3");
+                    cpOrderContentResult223.setFullName("二同号单选");
+                    cpOrderContentResult223.setOrderState(cpbjscResult.getdata258788());
+                    cpOrderContentResult223.setOrderId("2587-88");
+                    cpOrderContentResultList7.add(cpOrderContentResult223);
+
+                    CPOrderContentResult cpOrderContentResult224 = new CPOrderContentResult();
+                    cpOrderContentResult224.setOrderName("2_2_4");
+                    cpOrderContentResult224.setFullName("二同号单选");
+                    cpOrderContentResult224.setOrderState(cpbjscResult.getdata258889());
+                    cpOrderContentResult224.setOrderId("2588-89");
+                    cpOrderContentResultList7.add(cpOrderContentResult224);
+
+                    CPOrderContentResult cpOrderContentResult225 = new CPOrderContentResult();
+                    cpOrderContentResult225.setOrderName("2_2_5");
+                    cpOrderContentResult225.setFullName("二同号单选");
+                    cpOrderContentResult225.setOrderState(cpbjscResult.getdata258990());
+                    cpOrderContentResult225.setOrderId("2589-90");
+                    cpOrderContentResultList7.add(cpOrderContentResult225);
+
+                    CPOrderContentResult cpOrderContentResult226 = new CPOrderContentResult();
+                    cpOrderContentResult226.setOrderName("2_2_6");
+                    cpOrderContentResult226.setFullName("二同号单选");
+                    cpOrderContentResult226.setOrderState(cpbjscResult.getdata259091());
+                    cpOrderContentResult226.setOrderId("2590-91");
+                    cpOrderContentResultList7.add(cpOrderContentResult226);
+
+                    CPOrderContentResult cpOrderContentResult331 = new CPOrderContentResult();
+                    cpOrderContentResult331.setOrderName("3_3_1");
+                    cpOrderContentResult331.setFullName("二同号单选");
+                    cpOrderContentResult331.setOrderState(cpbjscResult.getdata259192());
+                    cpOrderContentResult331.setOrderId("2591-92");
+                    cpOrderContentResultList7.add(cpOrderContentResult331);
+
+                    CPOrderContentResult cpOrderContentResult332 = new CPOrderContentResult();
+                    cpOrderContentResult332.setOrderName("3_3_2");
+                    cpOrderContentResult332.setFullName("二同号单选");
+                    cpOrderContentResult332.setOrderState(cpbjscResult.getdata259293());
+                    cpOrderContentResult332.setOrderId("2592-93");
+                    cpOrderContentResultList7.add(cpOrderContentResult332);
+
+                    CPOrderContentResult cpOrderContentResult334 = new CPOrderContentResult();
+                    cpOrderContentResult334.setOrderName("3_3_4");
+                    cpOrderContentResult334.setFullName("二同号单选");
+                    cpOrderContentResult334.setOrderState(cpbjscResult.getdata259394());
+                    cpOrderContentResult334.setOrderId("2593-94");
+                    cpOrderContentResultList7.add(cpOrderContentResult334);
+
+                    CPOrderContentResult cpOrderContentResult335 = new CPOrderContentResult();
+                    cpOrderContentResult335.setOrderName("3_3_5");
+                    cpOrderContentResult335.setFullName("二同号单选");
+                    cpOrderContentResult335.setOrderState(cpbjscResult.getdata259495());
+                    cpOrderContentResult335.setOrderId("2594-95");
+                    cpOrderContentResultList7.add(cpOrderContentResult335);
+
+                    CPOrderContentResult cpOrderContentResult336 = new CPOrderContentResult();
+                    cpOrderContentResult336.setOrderName("3_3_6");
+                    cpOrderContentResult336.setFullName("二同号单选");
+                    cpOrderContentResult336.setOrderState(cpbjscResult.getdata259596());
+                    cpOrderContentResult336.setOrderId("2595-96");
+                    cpOrderContentResultList7.add(cpOrderContentResult336);
+
+                    CPOrderContentResult cpOrderContentResult441 = new CPOrderContentResult();
+                    cpOrderContentResult441.setOrderName("4_4_1");
+                    cpOrderContentResult441.setFullName("二同号单选");
+                    cpOrderContentResult441.setOrderState(cpbjscResult.getdata259697());
+                    cpOrderContentResult441.setOrderId("2596-97");
+                    cpOrderContentResultList7.add(cpOrderContentResult441);
+
+                    CPOrderContentResult cpOrderContentResult442 = new CPOrderContentResult();
+                    cpOrderContentResult442.setOrderName("4_4_2");
+                    cpOrderContentResult442.setFullName("二同号单选");
+                    cpOrderContentResult442.setOrderState(cpbjscResult.getdata259798());
+                    cpOrderContentResult442.setOrderId("2597-98");
+                    cpOrderContentResultList7.add(cpOrderContentResult442);
+
+                    CPOrderContentResult cpOrderContentResult443 = new CPOrderContentResult();
+                    cpOrderContentResult443.setOrderName("4_4_3");
+                    cpOrderContentResult443.setFullName("二同号单选");
+                    cpOrderContentResult443.setOrderState(cpbjscResult.getdata259899());
+                    cpOrderContentResult443.setOrderId("2598-99");
+                    cpOrderContentResultList7.add(cpOrderContentResult443);
+
+                    CPOrderContentResult cpOrderContentResult445 = new CPOrderContentResult();
+                    cpOrderContentResult445.setOrderName("4_4_5");
+                    cpOrderContentResult445.setFullName("二同号单选");
+                    cpOrderContentResult445.setOrderState(cpbjscResult.getdata2599100());
+                    cpOrderContentResult445.setOrderId("2599-100");
+                    cpOrderContentResultList7.add(cpOrderContentResult445);
+
+                    CPOrderContentResult cpOrderContentResult446 = new CPOrderContentResult();
+                    cpOrderContentResult446.setOrderName("4_4_6");
+                    cpOrderContentResult446.setFullName("二同号单选");
+                    cpOrderContentResult446.setOrderState(cpbjscResult.getdata2600101());
+                    cpOrderContentResult446.setOrderId("2600-101");
+                    cpOrderContentResultList7.add(cpOrderContentResult446);
+
+                    CPOrderContentResult cpOrderContentResult551 = new CPOrderContentResult();
+                    cpOrderContentResult551.setOrderName("5_5_1");
+                    cpOrderContentResult551.setFullName("二同号单选");
+                    cpOrderContentResult551.setOrderState(cpbjscResult.getdata2601102());
+                    cpOrderContentResult551.setOrderId("2601-102");
+                    cpOrderContentResultList7.add(cpOrderContentResult551);
+
+                    CPOrderContentResult cpOrderContentResult552 = new CPOrderContentResult();
+                    cpOrderContentResult552.setOrderName("5_5_2");
+                    cpOrderContentResult552.setFullName("二同号单选");
+                    cpOrderContentResult552.setOrderState(cpbjscResult.getdata2602103());
+                    cpOrderContentResult552.setOrderId("2602-103");
+                    cpOrderContentResultList7.add(cpOrderContentResult552);
+
+                    CPOrderContentResult cpOrderContentResult553 = new CPOrderContentResult();
+                    cpOrderContentResult553.setOrderName("5_5_3");
+                    cpOrderContentResult553.setFullName("二同号单选");
+                    cpOrderContentResult553.setOrderState(cpbjscResult.getdata2603104());
+                    cpOrderContentResult553.setOrderId("2603-104");
+                    cpOrderContentResultList7.add(cpOrderContentResult553);
+
+                    CPOrderContentResult cpOrderContentResult554 = new CPOrderContentResult();
+                    cpOrderContentResult554.setOrderName("5_5_4");
+                    cpOrderContentResult554.setFullName("二同号单选");
+                    cpOrderContentResult554.setOrderState(cpbjscResult.getdata2604105());
+                    cpOrderContentResult554.setOrderId("2604-105");
+                    cpOrderContentResultList7.add(cpOrderContentResult554);
+
+                    CPOrderContentResult cpOrderContentResult556 = new CPOrderContentResult();
+                    cpOrderContentResult556.setOrderName("5_5_6");
+                    cpOrderContentResult556.setFullName("二同号单选");
+                    cpOrderContentResult556.setOrderState(cpbjscResult.getdata2605106());
+                    cpOrderContentResult556.setOrderId("2605-106");
+                    cpOrderContentResultList7.add(cpOrderContentResult556);
+
+
+                    CPOrderContentResult cpOrderContentResult661 = new CPOrderContentResult();
+                    cpOrderContentResult661.setOrderName("6_6_1");
+                    cpOrderContentResult661.setFullName("二同号单选");
+                    cpOrderContentResult661.setOrderState(cpbjscResult.getdata2606107());
+                    cpOrderContentResult661.setOrderId("2606-107");
+                    cpOrderContentResultList7.add(cpOrderContentResult661);
+
+                    CPOrderContentResult cpOrderContentResult662 = new CPOrderContentResult();
+                    cpOrderContentResult662.setOrderName("6_6_2");
+                    cpOrderContentResult662.setFullName("二同号单选");
+                    cpOrderContentResult662.setOrderState(cpbjscResult.getdata2607108());
+                    cpOrderContentResult662.setOrderId("2607-108");
+                    cpOrderContentResultList7.add(cpOrderContentResult662);
+
+                    CPOrderContentResult cpOrderContentResult663 = new CPOrderContentResult();
+                    cpOrderContentResult663.setOrderName("6_6_3");
+                    cpOrderContentResult663.setFullName("二同号单选");
+                    cpOrderContentResult663.setOrderState(cpbjscResult.getdata2608109());
+                    cpOrderContentResult663.setOrderId("2608-109");
+                    cpOrderContentResultList7.add(cpOrderContentResult663);
+
+                    CPOrderContentResult cpOrderContentResult664 = new CPOrderContentResult();
+                    cpOrderContentResult664.setOrderName("6_6_4");
+                    cpOrderContentResult664.setFullName("二同号单选");
+                    cpOrderContentResult664.setOrderState(cpbjscResult.getdata2609110());
+                    cpOrderContentResult664.setOrderId("2609-110");
+                    cpOrderContentResultList7.add(cpOrderContentResult664);
+
+                    CPOrderContentResult cpOrderContentResult665 = new CPOrderContentResult();
+                    cpOrderContentResult665.setOrderName("6_6_5");
+                    cpOrderContentResult665.setFullName("二同号单选");
+                    cpOrderContentResult665.setOrderState(cpbjscResult.getdata2610111());
+                    cpOrderContentResult665.setOrderId("2610-111");
+                    cpOrderContentResultList7.add(cpOrderContentResult665);
+
+                    cpOrderContentListResult7.setData(cpOrderContentResultList7);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult7);
+                    break;
+
+                case 7:
+                    CPOrderContentListResult cpOrderContentListResult8 = new CPOrderContentListResult();
+                    cpOrderContentListResult8.setOrderContentListName("二不同号");
+                    cpOrderContentListResult8.setShowNumber(2);
+                    cpOrderContentListResult8.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult812 = new CPOrderContentResult();
+                    cpOrderContentResult812.setOrderName("1_2");
+                    cpOrderContentResult812.setFullName("二不同号");
+                    cpOrderContentResult812.setOrderState(cpbjscResult.getdata252930());
+                    cpOrderContentResult812.setOrderId("2529-30");
+                    cpOrderContentResultList8.add(cpOrderContentResult812);
+
+                    CPOrderContentResult cpOrderContentResult813 = new CPOrderContentResult();
+                    cpOrderContentResult813.setOrderName("1_3");
+                    cpOrderContentResult813.setFullName("二不同号");
+                    cpOrderContentResult813.setOrderState(cpbjscResult.getdata253031());
+                    cpOrderContentResult813.setOrderId("2530-31");
+                    cpOrderContentResultList8.add(cpOrderContentResult813);
+
+                    CPOrderContentResult cpOrderContentResult814 = new CPOrderContentResult();
+                    cpOrderContentResult814.setOrderName("1_4");
+                    cpOrderContentResult814.setFullName("二不同号");
+                    cpOrderContentResult814.setOrderState(cpbjscResult.getdata253132());
+                    cpOrderContentResult814.setOrderId("2531-32");
+                    cpOrderContentResultList8.add(cpOrderContentResult814);
+
+                    CPOrderContentResult cpOrderContentResult815 = new CPOrderContentResult();
+                    cpOrderContentResult815.setOrderName("1_5");
+                    cpOrderContentResult815.setFullName("二不同号");
+                    cpOrderContentResult815.setOrderState(cpbjscResult.getdata253233());
+                    cpOrderContentResult815.setOrderId("2532-33");
+                    cpOrderContentResultList8.add(cpOrderContentResult815);
+
+                    CPOrderContentResult cpOrderContentResult816 = new CPOrderContentResult();
+                    cpOrderContentResult816.setOrderName("1_6");
+                    cpOrderContentResult816.setFullName("二不同号");
+                    cpOrderContentResult816.setOrderState(cpbjscResult.getdata253334());
+                    cpOrderContentResult816.setOrderId("2533-34");
+                    cpOrderContentResultList8.add(cpOrderContentResult816);
+
+                    CPOrderContentResult cpOrderContentResult823 = new CPOrderContentResult();
+                    cpOrderContentResult823.setOrderName("2_3");
+                    cpOrderContentResult823.setFullName("二不同号");
+                    cpOrderContentResult823.setOrderState(cpbjscResult.getdata253435());
+                    cpOrderContentResult823.setOrderId("2534-35");
+                    cpOrderContentResultList8.add(cpOrderContentResult823);
+
+                    CPOrderContentResult cpOrderContentResult824 = new CPOrderContentResult();
+                    cpOrderContentResult824.setOrderName("2_4");
+                    cpOrderContentResult824.setFullName("二不同号");
+                    cpOrderContentResult824.setOrderState(cpbjscResult.getdata253536());
+                    cpOrderContentResult824.setOrderId("2535-36");
+                    cpOrderContentResultList8.add(cpOrderContentResult824);
+
+                    CPOrderContentResult cpOrderContentResult825 = new CPOrderContentResult();
+                    cpOrderContentResult825.setOrderName("2_5");
+                    cpOrderContentResult825.setFullName("二不同号");
+                    cpOrderContentResult825.setOrderState(cpbjscResult.getdata253637());
+                    cpOrderContentResult825.setOrderId("2536-37");
+                    cpOrderContentResultList8.add(cpOrderContentResult825);
+
+                    CPOrderContentResult cpOrderContentResult826 = new CPOrderContentResult();
+                    cpOrderContentResult826.setOrderName("2_5");
+                    cpOrderContentResult826.setFullName("二不同号");
+                    cpOrderContentResult826.setOrderState(cpbjscResult.getdata253738());
+                    cpOrderContentResult826.setOrderId("2537-38");
+                    cpOrderContentResultList8.add(cpOrderContentResult826);
+
+                    CPOrderContentResult cpOrderContentResult834 = new CPOrderContentResult();
+                    cpOrderContentResult834.setOrderName("3_4");
+                    cpOrderContentResult834.setFullName("二不同号");
+                    cpOrderContentResult834.setOrderState(cpbjscResult.getdata253839());
+                    cpOrderContentResult834.setOrderId("2538-39");
+                    cpOrderContentResultList8.add(cpOrderContentResult834);
+
+                    CPOrderContentResult cpOrderContentResult835 = new CPOrderContentResult();
+                    cpOrderContentResult835.setOrderName("3_5");
+                    cpOrderContentResult835.setFullName("二不同号");
+                    cpOrderContentResult835.setOrderState(cpbjscResult.getdata253940());
+                    cpOrderContentResult835.setOrderId("2539-40");
+                    cpOrderContentResultList8.add(cpOrderContentResult835);
+
+
+                    CPOrderContentResult cpOrderContentResult836 = new CPOrderContentResult();
+                    cpOrderContentResult836.setOrderName("3_6");
+                    cpOrderContentResult836.setFullName("二不同号");
+                    cpOrderContentResult836.setOrderState(cpbjscResult.getdata254041());
+                    cpOrderContentResult836.setOrderId("2540-41");
+                    cpOrderContentResultList8.add(cpOrderContentResult836);
+
+                    CPOrderContentResult cpOrderContentResult845 = new CPOrderContentResult();
+                    cpOrderContentResult845.setOrderName("4_5");
+                    cpOrderContentResult845.setFullName("二不同号");
+                    cpOrderContentResult845.setOrderState(cpbjscResult.getdata254142());
+                    cpOrderContentResult845.setOrderId("2541-42");
+                    cpOrderContentResultList8.add(cpOrderContentResult845);
+
+                    CPOrderContentResult cpOrderContentResult846 = new CPOrderContentResult();
+                    cpOrderContentResult846.setOrderName("4_6");
+                    cpOrderContentResult846.setFullName("二不同号");
+                    cpOrderContentResult846.setOrderState(cpbjscResult.getdata254243());
+                    cpOrderContentResult846.setOrderId("2542-43");
+                    cpOrderContentResultList8.add(cpOrderContentResult846);
+
+                    CPOrderContentResult cpOrderContentResult856 = new CPOrderContentResult();
+                    cpOrderContentResult856.setOrderName("5_6");
+                    cpOrderContentResult856.setFullName("二不同号");
+                    cpOrderContentResult856.setOrderState(cpbjscResult.getdata254344());
+                    cpOrderContentResult856.setOrderId("2543-44");
+                    cpOrderContentResultList8.add(cpOrderContentResult856);
+
+                    cpOrderContentListResult8.setData(cpOrderContentResultList8);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult8);
+                    break;
+                case 8:
+                    CPOrderContentListResult cpOrderContentListResult9 = new CPOrderContentListResult();
+                    cpOrderContentListResult9.setOrderContentListName("猜必出");
+                    cpOrderContentListResult9.setShowNumber(2);
+                    cpOrderContentListResult9.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList9 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult91 = new CPOrderContentResult();
+                    cpOrderContentResult91.setOrderName("1_");
+                    cpOrderContentResult91.setFullName("猜必出");
+                    cpOrderContentResult91.setOrderState(cpbjscResult.getdata25001());
+                    cpOrderContentResult91.setOrderId("2500-1");
+                    cpOrderContentResultList9.add(cpOrderContentResult91);
+
+                    CPOrderContentResult cpOrderContentResult92 = new CPOrderContentResult();
+                    cpOrderContentResult92.setOrderName("2_");
+                    cpOrderContentResult92.setFullName("猜必出");
+                    cpOrderContentResult92.setOrderState(cpbjscResult.getdata25012());
+                    cpOrderContentResult92.setOrderId("2501-2");
+                    cpOrderContentResultList9.add(cpOrderContentResult92);
+
+                    CPOrderContentResult cpOrderContentResult93 = new CPOrderContentResult();
+                    cpOrderContentResult93.setOrderName("3_");
+                    cpOrderContentResult93.setFullName("猜必出");
+                    cpOrderContentResult93.setOrderState(cpbjscResult.getdata25023());
+                    cpOrderContentResult93.setOrderId("2502-3");
+                    cpOrderContentResultList9.add(cpOrderContentResult93);
+
+                    CPOrderContentResult cpOrderContentResult94 = new CPOrderContentResult();
+                    cpOrderContentResult94.setOrderName("4_");
+                    cpOrderContentResult94.setFullName("猜必出");
+                    cpOrderContentResult94.setOrderState(cpbjscResult.getdata25034());
+                    cpOrderContentResult94.setOrderId("2503-4");
+                    cpOrderContentResultList9.add(cpOrderContentResult94);
+
+                    CPOrderContentResult cpOrderContentResult95 = new CPOrderContentResult();
+                    cpOrderContentResult95.setOrderName("5_");
+                    cpOrderContentResult95.setFullName("猜必出");
+                    cpOrderContentResult95.setOrderState(cpbjscResult.getdata25045());
+                    cpOrderContentResult95.setOrderId("2504-5");
+                    cpOrderContentResultList9.add(cpOrderContentResult95);
+
+                    CPOrderContentResult cpOrderContentResult96 = new CPOrderContentResult();
+                    cpOrderContentResult96.setOrderName("6_");
+                    cpOrderContentResult96.setFullName("猜必出");
+                    cpOrderContentResult96.setOrderState(cpbjscResult.getdata25056());
+                    cpOrderContentResult96.setOrderId("2505-6");
+                    cpOrderContentResultList9.add(cpOrderContentResult96);
+
+                    cpOrderContentListResult9.setData(cpOrderContentResultList9);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult9);
+                    break;
+                case 9:
+                    CPOrderContentListResult cpOrderContentListResult10 = new CPOrderContentListResult();
+                    cpOrderContentListResult10.setOrderContentListName("猜必不出");
+                    cpOrderContentListResult10.setShowNumber(2);
+                    cpOrderContentListResult10.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList10 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult101 = new CPOrderContentResult();
+                    cpOrderContentResult101.setOrderName("1_");
+                    cpOrderContentResult101.setFullName("猜必不出");
+                    cpOrderContentResult101.setOrderState(cpbjscResult.getdata255051());
+                    cpOrderContentResult101.setOrderId("2550-51");
+                    cpOrderContentResultList10.add(cpOrderContentResult101);
+
+                    CPOrderContentResult cpOrderContentResult102 = new CPOrderContentResult();
+                    cpOrderContentResult102.setOrderName("2_");
+                    cpOrderContentResult102.setFullName("猜必不出");
+                    cpOrderContentResult102.setOrderState(cpbjscResult.getdata255152());
+                    cpOrderContentResult102.setOrderId("2551-52");
+                    cpOrderContentResultList10.add(cpOrderContentResult102);
+
+                    CPOrderContentResult cpOrderContentResult103 = new CPOrderContentResult();
+                    cpOrderContentResult103.setOrderName("3_");
+                    cpOrderContentResult103.setFullName("猜必不出");
+                    cpOrderContentResult103.setOrderState(cpbjscResult.getdata255253());
+                    cpOrderContentResult103.setOrderId("2552-53");
+                    cpOrderContentResultList10.add(cpOrderContentResult103);
+
+                    CPOrderContentResult cpOrderContentResult104 = new CPOrderContentResult();
+                    cpOrderContentResult104.setOrderName("4_");
+                    cpOrderContentResult104.setFullName("猜必不出");
+                    cpOrderContentResult104.setOrderState(cpbjscResult.getdata255354());
+                    cpOrderContentResult104.setOrderId("2553-54");
+                    cpOrderContentResultList10.add(cpOrderContentResult104);
+
+                    CPOrderContentResult cpOrderContentResult105 = new CPOrderContentResult();
+                    cpOrderContentResult105.setOrderName("5_");
+                    cpOrderContentResult105.setFullName("猜必不出");
+                    cpOrderContentResult105.setOrderState(cpbjscResult.getdata255455());
+                    cpOrderContentResult105.setOrderId("2554-55");
+                    cpOrderContentResultList10.add(cpOrderContentResult105);
+
+                    CPOrderContentResult cpOrderContentResult106 = new CPOrderContentResult();
+                    cpOrderContentResult106.setOrderName("6_");
+                    cpOrderContentResult106.setFullName("猜必不出");
+                    cpOrderContentResult106.setOrderState(cpbjscResult.getdata255556());
+                    cpOrderContentResult106.setOrderId("2555-56");
+                    cpOrderContentResultList10.add(cpOrderContentResult106);
+
+                    cpOrderContentListResult10.setData(cpOrderContentResultList10);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult10);
+                    break;
+            }
+        return CPOrderContentListResult;
+    }
+
+    private List<CPOrderContentListResult> PCDDIndex(PCDDResult cpbjscResult,int k){
+        List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
+        if(k==0){
+                CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                cpOrderContentListResult.setOrderContentListName("混合");
+                cpOrderContentListResult.setShowNumber(2);
+
+                List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                cpOrderContentResult1.setOrderName("大");
+                cpOrderContentResult1.setFullName("混合");
+                cpOrderContentResult1.setOrderState(cpbjscResult.getData_5031());
+                cpOrderContentResult1.setOrderId("5031");
+                cpOrderContentResultList.add(cpOrderContentResult1);
+
+                CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                cpOrderContentResult2.setOrderName("小");
+                cpOrderContentResult2.setFullName("混合");
+                cpOrderContentResult2.setOrderState(cpbjscResult.getData_5032());
+                cpOrderContentResult2.setOrderId("5032");
+                cpOrderContentResultList.add(cpOrderContentResult2);
+
+                CPOrderContentResult cpOrderContentResult29 = new CPOrderContentResult();
+                cpOrderContentResult29.setOrderName("单");
+                cpOrderContentResult29.setFullName("混合");
+                cpOrderContentResult29.setOrderState(cpbjscResult.getData_5029());
+                cpOrderContentResult29.setOrderId("5029");
+                cpOrderContentResultList.add(cpOrderContentResult29);
+
+                CPOrderContentResult cpOrderContentResult30 = new CPOrderContentResult();
+                cpOrderContentResult30.setOrderName("双");
+                cpOrderContentResult30.setFullName("混合");
+                cpOrderContentResult30.setOrderState(cpbjscResult.getData_5030());
+                cpOrderContentResult30.setOrderId("5030");
+                cpOrderContentResultList.add(cpOrderContentResult30);
+
+                CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+                cpOrderContentResult33.setOrderName("大单");
+                cpOrderContentResult33.setFullName("混合");
+                cpOrderContentResult33.setOrderState(cpbjscResult.getData_5033());
+                cpOrderContentResult33.setOrderId("5033");
+                cpOrderContentResultList.add(cpOrderContentResult33);
+
+                CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
+                cpOrderContentResult34.setOrderName("小单");
+                cpOrderContentResult34.setFullName("混合");
+                cpOrderContentResult34.setOrderState(cpbjscResult.getData_5034());
+                cpOrderContentResult34.setOrderId("5034");
+                cpOrderContentResultList.add(cpOrderContentResult34);
+
+                CPOrderContentResult cpOrderContentResult35 = new CPOrderContentResult();
+                cpOrderContentResult35.setOrderName("大双");
+                cpOrderContentResult35.setFullName("混合");
+                cpOrderContentResult35.setOrderState(cpbjscResult.getData_5035());
+                cpOrderContentResult35.setOrderId("5035");
+                cpOrderContentResultList.add(cpOrderContentResult35);
+
+                CPOrderContentResult cpOrderContentResult36 = new CPOrderContentResult();
+                cpOrderContentResult36.setOrderName("小双");
+                cpOrderContentResult36.setFullName("混合");
+                cpOrderContentResult36.setOrderState(cpbjscResult.getData_5036());
+                cpOrderContentResult36.setOrderId("5036");
+                cpOrderContentResultList.add(cpOrderContentResult36);
+
+                cpOrderContentListResult.setData(cpOrderContentResultList);
+
+                CPOrderContentListResult.add(cpOrderContentListResult);
+
+                CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+                cpOrderContentListResult2.setOrderContentListName("");
+                cpOrderContentListResult2.setShowNumber(3);
+
+                List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                CPOrderContentResult cpOrderContentResult37 = new CPOrderContentResult();
+                cpOrderContentResult37.setOrderName("极大");
+                cpOrderContentResult37.setFullName("混合");
+                cpOrderContentResult37.setOrderState(cpbjscResult.getData_5037());
+                cpOrderContentResult37.setOrderId("5037");
+                cpOrderContentResultList2.add(cpOrderContentResult37);
+
+                CPOrderContentResult cpOrderContentResult38 = new CPOrderContentResult();
+                cpOrderContentResult38.setOrderName("极小");
+                cpOrderContentResult38.setFullName("混合");
+                cpOrderContentResult38.setOrderState(cpbjscResult.getData_5038());
+                cpOrderContentResult38.setOrderId("5038");
+                cpOrderContentResultList2.add(cpOrderContentResult38);
+
+                CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
+                cpOrderContentResult42.setOrderName("豹子");
+                cpOrderContentResult42.setFullName("混合");
+                cpOrderContentResult42.setOrderState(cpbjscResult.getData_5042());
+                cpOrderContentResult42.setOrderId("5042");
+                cpOrderContentResultList2.add(cpOrderContentResult42);
+
+                CPOrderContentResult cpOrderContentResult39 = new CPOrderContentResult();
+                cpOrderContentResult39.setOrderName("红波");
+                cpOrderContentResult39.setFullName("混合");
+                cpOrderContentResult39.setOrderState(cpbjscResult.getData_5039());
+                cpOrderContentResult39.setOrderId("5039");
+                cpOrderContentResultList2.add(cpOrderContentResult39);
+
+                CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
+                cpOrderContentResult41.setOrderName("蓝波");
+                cpOrderContentResult41.setFullName("混合");
+                cpOrderContentResult41.setOrderState(cpbjscResult.getData_5041());
+                cpOrderContentResult41.setOrderId("5041");
+                cpOrderContentResultList2.add(cpOrderContentResult41);
+
+                CPOrderContentResult cpOrderContentResult40 = new CPOrderContentResult();
+                cpOrderContentResult40.setOrderName("绿波");
+                cpOrderContentResult40.setFullName("混合");
+                cpOrderContentResult40.setOrderState(cpbjscResult.getData_5040());
+                cpOrderContentResult40.setOrderId("5040");
+                cpOrderContentResultList2.add(cpOrderContentResult40);
+
+                cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+                CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            }else{
+                CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                cpOrderContentListResult.setOrderContentListName("特码");
+                cpOrderContentListResult.setShowNumber(3);
+                cpOrderContentListResult.setShowType("QIU");
+
+                List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+
+                CPOrderContentResult cpOrderContentResult00 = new CPOrderContentResult();
+                cpOrderContentResult00.setOrderName("0");
+                cpOrderContentResult00.setFullName("特码");
+                cpOrderContentResult00.setOrderState(cpbjscResult.getData_5001());
+                cpOrderContentResult00.setOrderId("5001");
+                cpOrderContentResultList.add(cpOrderContentResult00);
+
+                CPOrderContentResult cpOrderContentResult01 = new CPOrderContentResult();
+                cpOrderContentResult01.setOrderName("1");
+                cpOrderContentResult01.setFullName("特码");
+                cpOrderContentResult01.setOrderState(cpbjscResult.getData_5002());
+                cpOrderContentResult01.setOrderId("5002");
+                cpOrderContentResultList.add(cpOrderContentResult01);
+
+                CPOrderContentResult cpOrderContentResult02 = new CPOrderContentResult();
+                cpOrderContentResult02.setOrderName("2");
+                cpOrderContentResult02.setFullName("特码");
+                cpOrderContentResult02.setOrderState(cpbjscResult.getData_5003());
+                cpOrderContentResult02.setOrderId("5003");
+                cpOrderContentResultList.add(cpOrderContentResult02);
+
+                CPOrderContentResult cpOrderContentResult03 = new CPOrderContentResult();
+                cpOrderContentResult03.setOrderName("3");
+                cpOrderContentResult03.setFullName("特码");
+                cpOrderContentResult03.setOrderState(cpbjscResult.getData_5004());
+                cpOrderContentResult03.setOrderId("5004");
+                cpOrderContentResultList.add(cpOrderContentResult03);
+
+                CPOrderContentResult cpOrderContentResult04 = new CPOrderContentResult();
+                cpOrderContentResult04.setOrderName("4");
+                cpOrderContentResult04.setFullName("特码");
+                cpOrderContentResult04.setOrderState(cpbjscResult.getData_5005());
+                cpOrderContentResult04.setOrderId("5005");
+                cpOrderContentResultList.add(cpOrderContentResult04);
+
+                CPOrderContentResult cpOrderContentResult05 = new CPOrderContentResult();
+                cpOrderContentResult05.setOrderName("5");
+                cpOrderContentResult05.setFullName("特码");
+                cpOrderContentResult05.setOrderState(cpbjscResult.getData_5006());
+                cpOrderContentResult05.setOrderId("5006");
+                cpOrderContentResultList.add(cpOrderContentResult05);
+
+                CPOrderContentResult cpOrderContentResult06 = new CPOrderContentResult();
+                cpOrderContentResult06.setOrderName("6");
+                cpOrderContentResult06.setFullName("特码");
+                cpOrderContentResult06.setOrderState(cpbjscResult.getData_5007());
+                cpOrderContentResult06.setOrderId("5007");
+                cpOrderContentResultList.add(cpOrderContentResult06);
+
+                CPOrderContentResult cpOrderContentResult07 = new CPOrderContentResult();
+                cpOrderContentResult07.setOrderName("7");
+                cpOrderContentResult07.setFullName("特码");
+                cpOrderContentResult07.setOrderState(cpbjscResult.getData_5008());
+                cpOrderContentResult07.setOrderId("5008");
+                cpOrderContentResultList.add(cpOrderContentResult07);
+
+                CPOrderContentResult cpOrderContentResult08 = new CPOrderContentResult();
+                cpOrderContentResult08.setOrderName("8");
+                cpOrderContentResult08.setFullName("特码");
+                cpOrderContentResult08.setOrderState(cpbjscResult.getData_5009());
+                cpOrderContentResult08.setOrderId("5009");
+                cpOrderContentResultList.add(cpOrderContentResult08);
+
+                CPOrderContentResult cpOrderContentResult09 = new CPOrderContentResult();
+                cpOrderContentResult09.setOrderName("9");
+                cpOrderContentResult09.setFullName("特码");
+                cpOrderContentResult09.setOrderState(cpbjscResult.getData_5010());
+                cpOrderContentResult09.setOrderId("5010");
+                cpOrderContentResultList.add(cpOrderContentResult09);
+
+                CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+                cpOrderContentResult10.setOrderName("10");
+                cpOrderContentResult10.setFullName("特码");
+                cpOrderContentResult10.setOrderState(cpbjscResult.getData_5011());
+                cpOrderContentResult10.setOrderId("5011");
+                cpOrderContentResultList.add(cpOrderContentResult10);
+
+                CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
+                cpOrderContentResult11.setOrderName("11");
+                cpOrderContentResult11.setFullName("特码");
+                cpOrderContentResult11.setOrderState(cpbjscResult.getData_5012());
+                cpOrderContentResult11.setOrderId("5012");
+                cpOrderContentResultList.add(cpOrderContentResult11);
+
+                CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
+                cpOrderContentResult12.setOrderName("12");
+                cpOrderContentResult12.setFullName("特码");
+                cpOrderContentResult12.setOrderState(cpbjscResult.getData_5013());
+                cpOrderContentResult12.setOrderId("5013");
+                cpOrderContentResultList.add(cpOrderContentResult12);
+
+                CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
+                cpOrderContentResult13.setOrderName("13");
+                cpOrderContentResult13.setFullName("特码");
+                cpOrderContentResult13.setOrderState(cpbjscResult.getData_5014());
+                cpOrderContentResult13.setOrderId("5014");
+                cpOrderContentResultList.add(cpOrderContentResult13);
+
+                CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
+                cpOrderContentResult14.setOrderName("14");
+                cpOrderContentResult14.setFullName("特码");
+                cpOrderContentResult14.setOrderState(cpbjscResult.getData_5015());
+                cpOrderContentResult14.setOrderId("5015");
+                cpOrderContentResultList.add(cpOrderContentResult14);
+
+                CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
+                cpOrderContentResult15.setOrderName("15");
+                cpOrderContentResult15.setFullName("特码");
+                cpOrderContentResult15.setOrderState(cpbjscResult.getData_5016());
+                cpOrderContentResult15.setOrderId("5016");
+                cpOrderContentResultList.add(cpOrderContentResult15);
+
+                CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
+                cpOrderContentResult16.setOrderName("16");
+                cpOrderContentResult16.setFullName("特码");
+                cpOrderContentResult16.setOrderState(cpbjscResult.getData_5017());
+                cpOrderContentResult16.setOrderId("5017");
+                cpOrderContentResultList.add(cpOrderContentResult16);
+
+                CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
+                cpOrderContentResult17.setOrderName("17");
+                cpOrderContentResult17.setFullName("特码");
+                cpOrderContentResult17.setOrderState(cpbjscResult.getData_5018());
+                cpOrderContentResult17.setOrderId("5018");
+                cpOrderContentResultList.add(cpOrderContentResult17);
+
+                CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
+                cpOrderContentResult18.setOrderName("18");
+                cpOrderContentResult18.setFullName("特码");
+                cpOrderContentResult18.setOrderState(cpbjscResult.getData_5019());
+                cpOrderContentResult18.setOrderId("5019");
+                cpOrderContentResultList.add(cpOrderContentResult18);
+
+                CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
+                cpOrderContentResult19.setOrderName("19");
+                cpOrderContentResult19.setFullName("特码");
+                cpOrderContentResult19.setOrderState(cpbjscResult.getData_5020());
+                cpOrderContentResult19.setOrderId("5020");
+                cpOrderContentResultList.add(cpOrderContentResult19);
+
+                CPOrderContentResult cpOrderContentResult20 = new CPOrderContentResult();
+                cpOrderContentResult20.setOrderName("20");
+                cpOrderContentResult20.setFullName("特码");
+                cpOrderContentResult20.setOrderState(cpbjscResult.getData_5021());
+                cpOrderContentResult20.setOrderId("5021");
+                cpOrderContentResultList.add(cpOrderContentResult20);
+
+                CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+                cpOrderContentResult21.setOrderName("21");
+                cpOrderContentResult21.setFullName("特码");
+                cpOrderContentResult21.setOrderState(cpbjscResult.getData_5022());
+                cpOrderContentResult21.setOrderId("5022");
+                cpOrderContentResultList.add(cpOrderContentResult21);
+
+                CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+                cpOrderContentResult22.setOrderName("22");
+                cpOrderContentResult22.setFullName("特码");
+                cpOrderContentResult22.setOrderState(cpbjscResult.getData_5023());
+                cpOrderContentResult22.setOrderId("5023");
+                cpOrderContentResultList.add(cpOrderContentResult22);
+
+                CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+                cpOrderContentResult23.setOrderName("23");
+                cpOrderContentResult23.setFullName("特码");
+                cpOrderContentResult23.setOrderState(cpbjscResult.getData_5024());
+                cpOrderContentResult23.setOrderId("5024");
+                cpOrderContentResultList.add(cpOrderContentResult23);
+
+                cpOrderContentListResult.setData(cpOrderContentResultList);
+
+                CPOrderContentListResult.add(cpOrderContentListResult);
+
+                CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+                cpOrderContentListResult2.setOrderContentListName("");
+                cpOrderContentListResult2.setShowNumber(2);
+                cpOrderContentListResult2.setShowType("QIU");
+
+                List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
+                cpOrderContentResult25.setOrderName("24");
+                cpOrderContentResult25.setFullName("特码");
+                cpOrderContentResult25.setOrderState(cpbjscResult.getData_5025());
+                cpOrderContentResult25.setOrderId("5025");
+                cpOrderContentResultList2.add(cpOrderContentResult25);
+
+                CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
+                cpOrderContentResult26.setOrderName("25");
+                cpOrderContentResult26.setFullName("特码");
+                cpOrderContentResult26.setOrderState(cpbjscResult.getData_5026());
+                cpOrderContentResult26.setOrderId("5026");
+                cpOrderContentResultList2.add(cpOrderContentResult26);
+
+                CPOrderContentResult cpOrderContentResult27 = new CPOrderContentResult();
+                cpOrderContentResult27.setOrderName("26");
+                cpOrderContentResult27.setFullName("特码");
+                cpOrderContentResult27.setOrderState(cpbjscResult.getData_5027());
+                cpOrderContentResult27.setOrderId("5027");
+                cpOrderContentResultList2.add(cpOrderContentResult27);
+
+                CPOrderContentResult cpOrderContentResult28 = new CPOrderContentResult();
+                cpOrderContentResult28.setOrderName("27");
+                cpOrderContentResult28.setFullName("特码");
+                cpOrderContentResult28.setOrderState(cpbjscResult.getData_5028());
+                cpOrderContentResult28.setOrderId("5028");
+                cpOrderContentResultList2.add(cpOrderContentResult28);
+
+                cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+                CPOrderContentListResult.add(cpOrderContentListResult2);
+            }
+            return CPOrderContentListResult;
     }
 
     private void PCDD(PCDDResult cpbjscResult){
@@ -9575,24 +13358,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("冠军");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30013011());
-                                        cpOrderContentResult0.setOrderId("3001-3011");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30013013());
+                                        cpOrderContentResult0.setOrderId("3001-3013");
                                         cpOrderContentResultList1.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("冠军");
-                                        cpOrderContentResult1.setOrderId("3001-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30013012());
+                                        cpOrderContentResult1.setOrderId("3001-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30013011());
                                         cpOrderContentResultList1.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("龙");
                                         cpOrderContentResult2.setFullName("冠军");
-                                        cpOrderContentResult2.setOrderId("3001-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30013013());
+                                        cpOrderContentResult2.setOrderId("3001-3015");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30013015());
                                         cpOrderContentResultList1.add(cpOrderContentResult2);
                                         break;
                                     case 3:
@@ -9607,8 +13390,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                         cpOrderContentResult4.setOrderName("小");
                                         cpOrderContentResult4.setFullName("冠军");
-                                        cpOrderContentResult4.setOrderId("3001-3015");
-                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30013015());
+                                        cpOrderContentResult4.setOrderId("3001-3012");
+                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30013012());
                                         cpOrderContentResultList1.add(cpOrderContentResult4);
                                         break;
                                     case 5:
@@ -9634,24 +13417,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("亚军");
-                                        cpOrderContentResult0.setOrderId("3002-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30023011());
+                                        cpOrderContentResult0.setOrderId("3002-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30023013());
                                         cpOrderContentResultList2.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("亚军");
-                                        cpOrderContentResult1.setOrderId("3002-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30023012());
+                                        cpOrderContentResult1.setOrderId("3002-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30023011());
                                         cpOrderContentResultList2.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("龙");
                                         cpOrderContentResult2.setFullName("亚军");
-                                        cpOrderContentResult2.setOrderId("3002-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30023013());
+                                        cpOrderContentResult2.setOrderId("3002-3015");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30023015());
                                         cpOrderContentResultList2.add(cpOrderContentResult2);
                                         break;
                                     case 3:
@@ -9666,8 +13449,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                         cpOrderContentResult4.setOrderName("小");
                                         cpOrderContentResult4.setFullName("亚军");
-                                        cpOrderContentResult4.setOrderId("3002-3015");
-                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30023015());
+                                        cpOrderContentResult4.setOrderId("3002-3012");
+                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30023012());
                                         cpOrderContentResultList2.add(cpOrderContentResult4);
                                         break;
                                     case 5:
@@ -9693,24 +13476,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第三名");
-                                        cpOrderContentResult0.setOrderId("3003-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30033011());
+                                        cpOrderContentResult0.setOrderId("3003-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30033013());
                                         cpOrderContentResultList3.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第三名");
-                                        cpOrderContentResult1.setOrderId("3003-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30033012());
+                                        cpOrderContentResult1.setOrderId("3003-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30033011());
                                         cpOrderContentResultList3.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("龙");
                                         cpOrderContentResult2.setFullName("第三名");
-                                        cpOrderContentResult2.setOrderId("3003-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30033013());
+                                        cpOrderContentResult2.setOrderId("3003-3015");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30033015());
                                         cpOrderContentResultList3.add(cpOrderContentResult2);
                                         break;
                                     case 3:
@@ -9725,8 +13508,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                         cpOrderContentResult4.setOrderName("小");
                                         cpOrderContentResult4.setFullName("第三名");
-                                        cpOrderContentResult4.setOrderId("3003-3015");
-                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30033015());
+                                        cpOrderContentResult4.setOrderId("3003-3012");
+                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30033012());
                                         cpOrderContentResultList3.add(cpOrderContentResult4);
                                         break;
                                     case 5:
@@ -9752,24 +13535,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第四名");
-                                        cpOrderContentResult0.setOrderId("3004-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30043011());
+                                        cpOrderContentResult0.setOrderId("3004-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30043013());
                                         cpOrderContentResultList4.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第四名");
-                                        cpOrderContentResult1.setOrderId("3004-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30043012());
+                                        cpOrderContentResult1.setOrderId("3004-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30043011());
                                         cpOrderContentResultList4.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("龙");
                                         cpOrderContentResult2.setFullName("第四名");
-                                        cpOrderContentResult2.setOrderId("3004-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30043013());
+                                        cpOrderContentResult2.setOrderId("3004-3015");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30043015());
                                         cpOrderContentResultList4.add(cpOrderContentResult2);
                                         break;
                                     case 3:
@@ -9784,8 +13567,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                         cpOrderContentResult4.setOrderName("小");
                                         cpOrderContentResult4.setFullName("第四名");
-                                        cpOrderContentResult4.setOrderId("3004-3015");
-                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30043015());
+                                        cpOrderContentResult4.setOrderId("3004-3012");
+                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30043012());
                                         cpOrderContentResultList4.add(cpOrderContentResult4);
                                         break;
                                     case 5:
@@ -9811,24 +13594,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第五名");
-                                        cpOrderContentResult0.setOrderId("3005-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30053011());
+                                        cpOrderContentResult0.setOrderId("3005-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30053013());
                                         cpOrderContentResultList5.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第五名");
-                                        cpOrderContentResult1.setOrderId("3005-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30053012());
+                                        cpOrderContentResult1.setOrderId("3005-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30053011());
                                         cpOrderContentResultList5.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("龙");
                                         cpOrderContentResult2.setFullName("第五名");
-                                        cpOrderContentResult2.setOrderId("3005-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30053013());
+                                        cpOrderContentResult2.setOrderId("3005-3015");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30053015());
                                         cpOrderContentResultList5.add(cpOrderContentResult2);
                                         break;
                                     case 3:
@@ -9843,8 +13626,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                         cpOrderContentResult4.setOrderName("小");
                                         cpOrderContentResult4.setFullName("第五名");
-                                        cpOrderContentResult4.setOrderId("3005-3015");
-                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30053015());
+                                        cpOrderContentResult4.setOrderId("3005-3012");
+                                        cpOrderContentResult4.setOrderState(cpbjscResult.getdata_30053012());
                                         cpOrderContentResultList5.add(cpOrderContentResult4);
                                         break;
                                     case 5:
@@ -9870,32 +13653,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第六名");
-                                        cpOrderContentResult0.setOrderId("3006-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30063011());
+                                        cpOrderContentResult0.setOrderId("3006-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30063013());
                                         cpOrderContentResultList6.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第六名");
-                                        cpOrderContentResult1.setOrderId("3006-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30063012());
+                                        cpOrderContentResult1.setOrderId("3006-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30063011());
                                         cpOrderContentResultList6.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("双");
                                         cpOrderContentResult2.setFullName("第六名");
-                                        cpOrderContentResult2.setOrderId("3006-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30063013());
+                                        cpOrderContentResult2.setOrderId("3006-3014");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30063014());
                                         cpOrderContentResultList6.add(cpOrderContentResult2);
                                         break;
                                     case 3:
                                         CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                         cpOrderContentResult3.setOrderName("小");
                                         cpOrderContentResult3.setFullName("第六名");
-                                        cpOrderContentResult3.setOrderId("3006-3014");
-                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30063014());
+                                        cpOrderContentResult3.setOrderId("3006-3012");
+                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30063012());
                                         cpOrderContentResultList6.add(cpOrderContentResult3);
                                         break;
                                 }
@@ -9913,32 +13696,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第七名");
-                                        cpOrderContentResult0.setOrderId("3007-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30073011());
+                                        cpOrderContentResult0.setOrderId("3007-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30073013());
                                         cpOrderContentResultList7.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第七名");
-                                        cpOrderContentResult1.setOrderId("3007-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30073012());
+                                        cpOrderContentResult1.setOrderId("3007-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30073011());
                                         cpOrderContentResultList7.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("双");
                                         cpOrderContentResult2.setFullName("第七名");
-                                        cpOrderContentResult2.setOrderId("3007-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30073013());
+                                        cpOrderContentResult2.setOrderId("3007-3014");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30073014());
                                         cpOrderContentResultList7.add(cpOrderContentResult2);
                                         break;
                                     case 3:
                                         CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                         cpOrderContentResult3.setOrderName("小");
                                         cpOrderContentResult3.setFullName("第七名");
-                                        cpOrderContentResult3.setOrderId("3007-3014");
-                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30073014());
+                                        cpOrderContentResult3.setOrderId("3007-3012");
+                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30073012());
                                         cpOrderContentResultList7.add(cpOrderContentResult3);
                                         break;
                                 }
@@ -9956,32 +13739,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第八名");
-                                        cpOrderContentResult0.setOrderId("3008-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30083011());
+                                        cpOrderContentResult0.setOrderId("3008-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30083013());
                                         cpOrderContentResultList8.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第八名");
-                                        cpOrderContentResult1.setOrderId("3008-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30083012());
+                                        cpOrderContentResult1.setOrderId("3008-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30083011());
                                         cpOrderContentResultList8.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("双");
                                         cpOrderContentResult2.setFullName("第八名");
-                                        cpOrderContentResult2.setOrderId("3008-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30083013());
+                                        cpOrderContentResult2.setOrderId("3008-3014");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30083014());
                                         cpOrderContentResultList8.add(cpOrderContentResult2);
                                         break;
                                     case 3:
                                         CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                         cpOrderContentResult3.setOrderName("小");
                                         cpOrderContentResult3.setFullName("第八名");
-                                        cpOrderContentResult3.setOrderId("3008-3014");
-                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30083014());
+                                        cpOrderContentResult3.setOrderId("3008-3012");
+                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30083012());
                                         cpOrderContentResultList8.add(cpOrderContentResult3);
                                         break;
                                 }
@@ -9999,32 +13782,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第九名");
-                                        cpOrderContentResult0.setOrderId("3009-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30093011());
+                                        cpOrderContentResult0.setOrderId("3009-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30093013());
                                         cpOrderContentResultList9.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第九名");
-                                        cpOrderContentResult1.setOrderId("3009-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30093012());
+                                        cpOrderContentResult1.setOrderId("3009-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30093011());
                                         cpOrderContentResultList9.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("双");
                                         cpOrderContentResult2.setFullName("第九名");
-                                        cpOrderContentResult2.setOrderId("3009-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30093013());
+                                        cpOrderContentResult2.setOrderId("3009-3014");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30093014());
                                         cpOrderContentResultList9.add(cpOrderContentResult2);
                                         break;
                                     case 3:
                                         CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                         cpOrderContentResult3.setOrderName("小");
                                         cpOrderContentResult3.setFullName("第九名");
-                                        cpOrderContentResult3.setOrderId("3009-3014");
-                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30093014());
+                                        cpOrderContentResult3.setOrderId("3009-3012");
+                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30093012());
                                         cpOrderContentResultList9.add(cpOrderContentResult3);
                                         break;
                                 }
@@ -10042,32 +13825,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                         CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                         cpOrderContentResult0.setOrderName("单");
                                         cpOrderContentResult0.setFullName("第十名");
-                                        cpOrderContentResult0.setOrderId("3010-3011");
-                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30103011());
+                                        cpOrderContentResult0.setOrderId("3010-3013");
+                                        cpOrderContentResult0.setOrderState(cpbjscResult.getdata_30103013());
                                         cpOrderContentResultList10.add(cpOrderContentResult0);
                                         break;
                                     case 1:
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第十名");
-                                        cpOrderContentResult1.setOrderId("3010-3012");
-                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30103012());
+                                        cpOrderContentResult1.setOrderId("3010-3011");
+                                        cpOrderContentResult1.setOrderState(cpbjscResult.getdata_30103011());
                                         cpOrderContentResultList10.add(cpOrderContentResult1);
                                         break;
                                     case 2:
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("双");
                                         cpOrderContentResult2.setFullName("第十名");
-                                        cpOrderContentResult2.setOrderId("3010-3013");
-                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30103013());
+                                        cpOrderContentResult2.setOrderId("3010-3014");
+                                        cpOrderContentResult2.setOrderState(cpbjscResult.getdata_30103014());
                                         cpOrderContentResultList10.add(cpOrderContentResult2);
                                         break;
                                     case 3:
                                         CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                         cpOrderContentResult3.setOrderName("小");
                                         cpOrderContentResult3.setFullName("第十名");
-                                        cpOrderContentResult3.setOrderId("3010-3014");
-                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30103014());
+                                        cpOrderContentResult3.setOrderId("3010-3012");
+                                        cpOrderContentResult3.setOrderState(cpbjscResult.getdata_30103012());
                                         cpOrderContentResultList10.add(cpOrderContentResult3);
                                         break;
                                 }
@@ -11195,24 +14978,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("龙");
                                     cpOrderContentResult2.setFullName("亚军");
-                                    cpOrderContentResult2.setOrderId("3202-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32023213());
+                                    cpOrderContentResult2.setOrderId("3202-3215");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32023215());
                                     cpOrderContentResultList2.add(cpOrderContentResult2);
                                     break;
                                 case 3:
                                     CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                     cpOrderContentResult3.setOrderName("双");
                                     cpOrderContentResult3.setFullName("亚军");
-                                    cpOrderContentResult3.setOrderId("3202-3215");
-                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32023215());
+                                    cpOrderContentResult3.setOrderId("3202-3214");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32023214());
                                     cpOrderContentResultList2.add(cpOrderContentResult3);
                                     break;
                                 case 4:
                                     CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                     cpOrderContentResult4.setOrderName("小");
                                     cpOrderContentResult4.setFullName("亚军");
-                                    cpOrderContentResult4.setOrderId("3202-3215");
-                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_32023215());
+                                    cpOrderContentResult4.setOrderId("3202-3212");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_32023212());
                                     cpOrderContentResultList2.add(cpOrderContentResult4);
                                     break;
                                 case 5:
@@ -11297,24 +15080,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第四名");
-                                    cpOrderContentResult0.setOrderId("3204-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32043211());
+                                    cpOrderContentResult0.setOrderId("3204-3213");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32043213());
                                     cpOrderContentResultList4.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第四名");
-                                    cpOrderContentResult1.setOrderId("3204-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32043212());
+                                    cpOrderContentResult1.setOrderId("3204-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32043211());
                                     cpOrderContentResultList4.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("龙");
                                     cpOrderContentResult2.setFullName("第四名");
-                                    cpOrderContentResult2.setOrderId("3204-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32043213());
+                                    cpOrderContentResult2.setOrderId("3204-3215");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32043215());
                                     cpOrderContentResultList4.add(cpOrderContentResult2);
                                     break;
                                 case 3:
@@ -11329,8 +15112,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                     cpOrderContentResult4.setOrderName("小");
                                     cpOrderContentResult4.setFullName("第四名");
-                                    cpOrderContentResult4.setOrderId("3204-3215");
-                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_32043215());
+                                    cpOrderContentResult4.setOrderId("3204-3212");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_32043212());
                                     cpOrderContentResultList4.add(cpOrderContentResult4);
                                     break;
                                 case 5:
@@ -11356,24 +15139,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第五名");
-                                    cpOrderContentResult0.setOrderId("3205-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32053211());
+                                    cpOrderContentResult0.setOrderId("3205-3213");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32053213());
                                     cpOrderContentResultList5.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第五名");
-                                    cpOrderContentResult1.setOrderId("3205-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32053212());
+                                    cpOrderContentResult1.setOrderId("3205-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32053211());
                                     cpOrderContentResultList5.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("龙");
                                     cpOrderContentResult2.setFullName("第五名");
-                                    cpOrderContentResult2.setOrderId("3205-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32053213());
+                                    cpOrderContentResult2.setOrderId("3205-3215");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32053215());
                                     cpOrderContentResultList5.add(cpOrderContentResult2);
                                     break;
                                 case 3:
@@ -11388,8 +15171,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                                     cpOrderContentResult4.setOrderName("小");
                                     cpOrderContentResult4.setFullName("第五名");
-                                    cpOrderContentResult4.setOrderId("3205-3215");
-                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_32053215());
+                                    cpOrderContentResult4.setOrderId("3205-3212");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_32053212());
                                     cpOrderContentResultList5.add(cpOrderContentResult4);
                                     break;
                                 case 5:
@@ -11415,32 +15198,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第六名");
-                                    cpOrderContentResult0.setOrderId("3206-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32063211());
+                                    cpOrderContentResult0.setOrderId("3206-3213");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32063213());
                                     cpOrderContentResultList6.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第六名");
-                                    cpOrderContentResult1.setOrderId("3206-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32063212());
+                                    cpOrderContentResult1.setOrderId("3206-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32063211());
                                     cpOrderContentResultList6.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("双");
                                     cpOrderContentResult2.setFullName("第六名");
-                                    cpOrderContentResult2.setOrderId("3206-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32063213());
+                                    cpOrderContentResult2.setOrderId("3206-3214");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32063214());
                                     cpOrderContentResultList6.add(cpOrderContentResult2);
                                     break;
                                 case 3:
                                     CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                     cpOrderContentResult3.setOrderName("小");
                                     cpOrderContentResult3.setFullName("第六名");
-                                    cpOrderContentResult3.setOrderId("3206-3214");
-                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32063214());
+                                    cpOrderContentResult3.setOrderId("3206-3212");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32063212());
                                     cpOrderContentResultList6.add(cpOrderContentResult3);
                                     break;
                             }
@@ -11458,32 +15241,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第七名");
-                                    cpOrderContentResult0.setOrderId("3207-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32073211());
+                                    cpOrderContentResult0.setOrderId("3207-3213");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32073213());
                                     cpOrderContentResultList7.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第七名");
-                                    cpOrderContentResult1.setOrderId("3207-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32073212());
+                                    cpOrderContentResult1.setOrderId("3207-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32073211());
                                     cpOrderContentResultList7.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("双");
                                     cpOrderContentResult2.setFullName("第七名");
-                                    cpOrderContentResult2.setOrderId("3207-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32073213());
+                                    cpOrderContentResult2.setOrderId("3207-3214");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32073214());
                                     cpOrderContentResultList7.add(cpOrderContentResult2);
                                     break;
                                 case 3:
                                     CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                     cpOrderContentResult3.setOrderName("小");
                                     cpOrderContentResult3.setFullName("第七名");
-                                    cpOrderContentResult3.setOrderId("3207-3214");
-                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32073214());
+                                    cpOrderContentResult3.setOrderId("3207-3212");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32073212());
                                     cpOrderContentResultList7.add(cpOrderContentResult3);
                                     break;
                             }
@@ -11501,32 +15284,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第八名");
-                                    cpOrderContentResult0.setOrderId("3208-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32083211());
+                                    cpOrderContentResult0.setOrderId("3208-3213");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32083213());
                                     cpOrderContentResultList8.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第八名");
-                                    cpOrderContentResult1.setOrderId("3208-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32083212());
+                                    cpOrderContentResult1.setOrderId("3208-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32083211());
                                     cpOrderContentResultList8.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("双");
                                     cpOrderContentResult2.setFullName("第八名");
-                                    cpOrderContentResult2.setOrderId("3208-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32083213());
+                                    cpOrderContentResult2.setOrderId("3208-3214");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32083214());
                                     cpOrderContentResultList8.add(cpOrderContentResult2);
                                     break;
                                 case 3:
                                     CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                     cpOrderContentResult3.setOrderName("小");
                                     cpOrderContentResult3.setFullName("第八名");
-                                    cpOrderContentResult3.setOrderId("3208-3214");
-                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32083214());
+                                    cpOrderContentResult3.setOrderId("3208-3212");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32083212());
                                     cpOrderContentResultList8.add(cpOrderContentResult3);
                                     break;
                             }
@@ -11544,32 +15327,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第九名");
-                                    cpOrderContentResult0.setOrderId("3209-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32093211());
+                                    cpOrderContentResult0.setOrderId("3209-323");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32093213());
                                     cpOrderContentResultList9.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第九名");
-                                    cpOrderContentResult1.setOrderId("3209-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32093212());
+                                    cpOrderContentResult1.setOrderId("3209-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32093211());
                                     cpOrderContentResultList9.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("双");
                                     cpOrderContentResult2.setFullName("第九名");
-                                    cpOrderContentResult2.setOrderId("3209-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32093213());
+                                    cpOrderContentResult2.setOrderId("3209-3214");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32093214());
                                     cpOrderContentResultList9.add(cpOrderContentResult2);
                                     break;
                                 case 3:
                                     CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                     cpOrderContentResult3.setOrderName("小");
                                     cpOrderContentResult3.setFullName("第九名");
-                                    cpOrderContentResult3.setOrderId("3209-3214");
-                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32093214());
+                                    cpOrderContentResult3.setOrderId("3209-3212");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32093212());
                                     cpOrderContentResultList9.add(cpOrderContentResult3);
                                     break;
                             }
@@ -11587,32 +15370,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
                                     cpOrderContentResult0.setOrderName("单");
                                     cpOrderContentResult0.setFullName("第十名");
-                                    cpOrderContentResult0.setOrderId("3210-3211");
-                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32103211());
+                                    cpOrderContentResult0.setOrderId("3210-3213");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_32103213());
                                     cpOrderContentResultList10.add(cpOrderContentResult0);
                                     break;
                                 case 1:
                                     CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                     cpOrderContentResult1.setOrderName("大");
                                     cpOrderContentResult1.setFullName("第十名");
-                                    cpOrderContentResult1.setOrderId("3210-3212");
-                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32103212());
+                                    cpOrderContentResult1.setOrderId("3210-3211");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_32103211());
                                     cpOrderContentResultList10.add(cpOrderContentResult1);
                                     break;
                                 case 2:
                                     CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                     cpOrderContentResult2.setOrderName("双");
                                     cpOrderContentResult2.setFullName("第十名");
-                                    cpOrderContentResult2.setOrderId("3210-3213");
-                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32103213());
+                                    cpOrderContentResult2.setOrderId("3210-3214");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_32103214());
                                     cpOrderContentResultList10.add(cpOrderContentResult2);
                                     break;
                                 case 3:
                                     CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
                                     cpOrderContentResult3.setOrderName("小");
                                     cpOrderContentResult3.setFullName("第十名");
-                                    cpOrderContentResult3.setOrderId("3210-3214");
-                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32103214());
+                                    cpOrderContentResult3.setOrderId("3210-3212");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_32103212());
                                     cpOrderContentResultList10.add(cpOrderContentResult3);
                                     break;
                             }
@@ -12605,6 +16388,1552 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             return CPOrderContentListResult;
         }
     }
+
+    private List<CPOrderContentListResult>   JSFT(CPJSFTResult cpbjscResult,int k){
+        List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
+        if(k==0){
+            for (int l = 0; l < 11; ++l) {
+                CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                switch (l) {
+                    case 0:
+                        cpOrderContentListResult.setOrderContentListName("冠亚和");
+                        cpOrderContentListResult.setShowNumber(2);
+                        List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                        for (int j = 0; j < 4; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("冠军大");
+                                    cpOrderContentResult0.setFullName("冠、亚军和");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_3317());
+                                    cpOrderContentResult0.setOrderId("3317");
+                                    cpOrderContentResultList.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("冠军小");
+                                    cpOrderContentResult1.setFullName("冠、亚军和");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_3318());
+                                    cpOrderContentResult1.setOrderId("3318");
+                                    cpOrderContentResultList.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("冠军单");
+                                    cpOrderContentResult2.setFullName("冠、亚军和");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_3319());
+                                    cpOrderContentResult2.setOrderId("3319");
+                                    cpOrderContentResultList.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("冠军双");
+                                    cpOrderContentResult3.setFullName("冠、亚军和");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_3320());
+                                    cpOrderContentResult3.setOrderId("3320");
+                                    cpOrderContentResultList.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 1:
+                        cpOrderContentListResult.setOrderContentListName("冠军");
+                        cpOrderContentListResult.setShowNumber(3);
+                        List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
+                        for (int j = 0; j < 6; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("冠军");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33013313());
+                                    cpOrderContentResult0.setOrderId("3301-3313");
+                                    cpOrderContentResultList1.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("冠军");
+                                    cpOrderContentResult1.setOrderId("3301-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33013311());
+                                    cpOrderContentResultList1.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setFullName("冠军");
+                                    cpOrderContentResult2.setOrderId("3301-3315");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33013315());
+                                    cpOrderContentResultList1.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setFullName("冠军");
+                                    cpOrderContentResult3.setOrderId("3301-3314");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33013314());
+                                    cpOrderContentResultList1.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setFullName("冠军");
+                                    cpOrderContentResult4.setOrderId("3301-3312");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33013312());
+                                    cpOrderContentResultList1.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setFullName("冠军");
+                                    cpOrderContentResult5.setOrderId("3301-3316");
+                                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33013316());
+                                    cpOrderContentResultList1.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList1);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 2:
+                        cpOrderContentListResult.setOrderContentListName("亚军");
+                        cpOrderContentListResult.setShowNumber(3);
+                        List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                        for (int j = 0; j < 6; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("亚军");
+                                    cpOrderContentResult0.setOrderId("3302-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33023313());
+                                    cpOrderContentResultList2.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("亚军");
+                                    cpOrderContentResult1.setOrderId("3302-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33023311());
+                                    cpOrderContentResultList2.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setFullName("亚军");
+                                    cpOrderContentResult2.setOrderId("3302-3315");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33023315());
+                                    cpOrderContentResultList2.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setFullName("亚军");
+                                    cpOrderContentResult3.setOrderId("3302-3314");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33023314());
+                                    cpOrderContentResultList2.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setFullName("亚军");
+                                    cpOrderContentResult4.setOrderId("3302-3312");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33023312());
+                                    cpOrderContentResultList2.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setFullName("亚军");
+                                    cpOrderContentResult5.setOrderId("3302-3316");
+                                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33023316());
+                                    cpOrderContentResultList2.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList2);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 3:
+                        cpOrderContentListResult.setOrderContentListName("第三名");
+                        cpOrderContentListResult.setShowNumber(3);
+                        List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+                        for (int j = 0; j < 6; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第三名");
+                                    cpOrderContentResult0.setOrderId("3303-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33033313());
+                                    cpOrderContentResultList3.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第三名");
+                                    cpOrderContentResult1.setOrderId("3303-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33033311());
+                                    cpOrderContentResultList3.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setFullName("第三名");
+                                    cpOrderContentResult2.setOrderId("3303-3315");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33033315());
+                                    cpOrderContentResultList3.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setFullName("第三名");
+                                    cpOrderContentResult3.setOrderId("3303-3314");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33033314());
+                                    cpOrderContentResultList3.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setFullName("第三名");
+                                    cpOrderContentResult4.setOrderId("3303-3312");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33033312());
+                                    cpOrderContentResultList3.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setFullName("第三名");
+                                    cpOrderContentResult5.setOrderId("3303-3316");
+                                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33033316());
+                                    cpOrderContentResultList3.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList3);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 4:
+                        cpOrderContentListResult.setOrderContentListName("第四名");
+                        cpOrderContentListResult.setShowNumber(3);
+                        List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+                        for (int j = 0; j < 6; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第四名");
+                                    cpOrderContentResult0.setOrderId("3304-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33043313());
+                                    cpOrderContentResultList4.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第四名");
+                                    cpOrderContentResult1.setOrderId("3304-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33043311());
+                                    cpOrderContentResultList4.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setFullName("第四名");
+                                    cpOrderContentResult2.setOrderId("3304-3315");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33043315());
+                                    cpOrderContentResultList4.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setFullName("第四名");
+                                    cpOrderContentResult3.setOrderId("3304-3314");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33043314());
+                                    cpOrderContentResultList4.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setFullName("第四名");
+                                    cpOrderContentResult4.setOrderId("3304-3312");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33043312());
+                                    cpOrderContentResultList4.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setFullName("第四名");
+                                    cpOrderContentResult5.setOrderId("3304-3316");
+                                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33043316());
+                                    cpOrderContentResultList4.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList4);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 5:
+                        cpOrderContentListResult.setOrderContentListName("第五名");
+                        cpOrderContentListResult.setShowNumber(3);
+                        List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+                        for (int j = 0; j < 6; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第五名");
+                                    cpOrderContentResult0.setOrderId("3305-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33053313());
+                                    cpOrderContentResultList5.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第五名");
+                                    cpOrderContentResult1.setOrderId("3305-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33053311());
+                                    cpOrderContentResultList5.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("龙");
+                                    cpOrderContentResult2.setFullName("第五名");
+                                    cpOrderContentResult2.setOrderId("3305-3315");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33053315());
+                                    cpOrderContentResultList5.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("双");
+                                    cpOrderContentResult3.setFullName("第五名");
+                                    cpOrderContentResult3.setOrderId("3305-3314");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33053314());
+                                    cpOrderContentResultList5.add(cpOrderContentResult3);
+                                    break;
+                                case 4:
+                                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                                    cpOrderContentResult4.setOrderName("小");
+                                    cpOrderContentResult4.setFullName("第五名");
+                                    cpOrderContentResult4.setOrderId("3305-3312");
+                                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33053312());
+                                    cpOrderContentResultList5.add(cpOrderContentResult4);
+                                    break;
+                                case 5:
+                                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                                    cpOrderContentResult5.setOrderName("虎");
+                                    cpOrderContentResult5.setFullName("第五名");
+                                    cpOrderContentResult5.setOrderId("3305-3316");
+                                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33053316());
+                                    cpOrderContentResultList5.add(cpOrderContentResult5);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList5);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 6:
+                        cpOrderContentListResult.setOrderContentListName("第六名");
+                        cpOrderContentListResult.setShowNumber(2);
+                        List<CPOrderContentResult> cpOrderContentResultList6 = new ArrayList<>();
+                        for (int j = 0; j < 4; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第六名");
+                                    cpOrderContentResult0.setOrderId("3306-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33063313());
+                                    cpOrderContentResultList6.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第六名");
+                                    cpOrderContentResult1.setOrderId("3306-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33063311());
+                                    cpOrderContentResultList6.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setFullName("第六名");
+                                    cpOrderContentResult2.setOrderId("3306-3314");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33063314());
+                                    cpOrderContentResultList6.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setFullName("第六名");
+                                    cpOrderContentResult3.setOrderId("3306-3312");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33063312());
+                                    cpOrderContentResultList6.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList6);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 7:
+                        cpOrderContentListResult.setOrderContentListName("第七名");
+                        cpOrderContentListResult.setShowNumber(2);
+                        List<CPOrderContentResult> cpOrderContentResultList7 = new ArrayList<>();
+                        for (int j = 0; j < 4; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第七名");
+                                    cpOrderContentResult0.setOrderId("3307-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33073313());
+                                    cpOrderContentResultList7.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第七名");
+                                    cpOrderContentResult1.setOrderId("3307-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33073311());
+                                    cpOrderContentResultList7.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setFullName("第七名");
+                                    cpOrderContentResult2.setOrderId("3307-3314");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33073314());
+                                    cpOrderContentResultList7.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setFullName("第七名");
+                                    cpOrderContentResult3.setOrderId("3307-3312");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33073312());
+                                    cpOrderContentResultList7.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList7);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 8:
+                        cpOrderContentListResult.setOrderContentListName("第八名");
+                        cpOrderContentListResult.setShowNumber(2);
+                        List<CPOrderContentResult> cpOrderContentResultList8 = new ArrayList<>();
+                        for (int j = 0; j < 4; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第八名");
+                                    cpOrderContentResult0.setOrderId("3308-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33083313());
+                                    cpOrderContentResultList8.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第八名");
+                                    cpOrderContentResult1.setOrderId("3308-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33083311());
+                                    cpOrderContentResultList8.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setFullName("第八名");
+                                    cpOrderContentResult2.setOrderId("3308-3314");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33083314());
+                                    cpOrderContentResultList8.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setFullName("第八名");
+                                    cpOrderContentResult3.setOrderId("3308-3312");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33083312());
+                                    cpOrderContentResultList8.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList8);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 9:
+                        cpOrderContentListResult.setOrderContentListName("第九名");
+                        cpOrderContentListResult.setShowNumber(2);
+                        List<CPOrderContentResult> cpOrderContentResultList9 = new ArrayList<>();
+                        for (int j = 0; j < 4; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第九名");
+                                    cpOrderContentResult0.setOrderId("3309-333");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33093313());
+                                    cpOrderContentResultList9.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第九名");
+                                    cpOrderContentResult1.setOrderId("3309-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33093311());
+                                    cpOrderContentResultList9.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setFullName("第九名");
+                                    cpOrderContentResult2.setOrderId("3309-3314");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33093314());
+                                    cpOrderContentResultList9.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setFullName("第九名");
+                                    cpOrderContentResult3.setOrderId("3309-3312");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33093312());
+                                    cpOrderContentResultList9.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList9);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                    case 10:
+                        cpOrderContentListResult.setOrderContentListName("第十名");
+                        cpOrderContentListResult.setShowNumber(2);
+                        List<CPOrderContentResult> cpOrderContentResultList10 = new ArrayList<>();
+                        for (int j = 0; j < 4; ++j) {
+                            switch (j) {
+                                case 0:
+                                    CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+                                    cpOrderContentResult0.setOrderName("单");
+                                    cpOrderContentResult0.setFullName("第十名");
+                                    cpOrderContentResult0.setOrderId("3310-3313");
+                                    cpOrderContentResult0.setOrderState(cpbjscResult.getdata_33103313());
+                                    cpOrderContentResultList10.add(cpOrderContentResult0);
+                                    break;
+                                case 1:
+                                    CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+                                    cpOrderContentResult1.setOrderName("大");
+                                    cpOrderContentResult1.setFullName("第十名");
+                                    cpOrderContentResult1.setOrderId("3310-3311");
+                                    cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33103311());
+                                    cpOrderContentResultList10.add(cpOrderContentResult1);
+                                    break;
+                                case 2:
+                                    CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+                                    cpOrderContentResult2.setOrderName("双");
+                                    cpOrderContentResult2.setFullName("第十名");
+                                    cpOrderContentResult2.setOrderId("3310-3314");
+                                    cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33103314());
+                                    cpOrderContentResultList10.add(cpOrderContentResult2);
+                                    break;
+                                case 3:
+                                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+                                    cpOrderContentResult3.setOrderName("小");
+                                    cpOrderContentResult3.setFullName("第十名");
+                                    cpOrderContentResult3.setOrderId("3310-3312");
+                                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33103312());
+                                    cpOrderContentResultList10.add(cpOrderContentResult3);
+                                    break;
+                            }
+                        }
+                        cpOrderContentListResult.setData(cpOrderContentResultList10);
+                        CPOrderContentListResult.add(cpOrderContentListResult);
+                        break;
+                }
+            }
+            return CPOrderContentListResult;
+        }else if(k==1){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("冠、亚军 组合");
+            cpOrderContentListResult.setShowNumber(2);
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult0 = new CPOrderContentResult();
+            cpOrderContentResult0.setOrderName("冠军大");
+            cpOrderContentResult0.setFullName("冠、亚军和");
+            cpOrderContentResult0.setOrderState(cpbjscResult.getdata_3317());
+            cpOrderContentResult0.setOrderId("3317");
+            cpOrderContentResultList.add(cpOrderContentResult0);
+
+            CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+            cpOrderContentResult1.setOrderName("冠军小");
+            cpOrderContentResult1.setFullName("冠、亚军和");
+            cpOrderContentResult1.setOrderState(cpbjscResult.getdata_3318());
+            cpOrderContentResult1.setOrderId("3318");
+            cpOrderContentResultList.add(cpOrderContentResult1);
+
+            CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+            cpOrderContentResult2.setOrderName("冠军单");
+            cpOrderContentResult2.setFullName("冠、亚军和");
+            cpOrderContentResult2.setOrderState(cpbjscResult.getdata_3319());
+            cpOrderContentResult2.setOrderId("3319");
+            cpOrderContentResultList.add(cpOrderContentResult2);
+
+            CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+            cpOrderContentResult3.setOrderName("冠军双");
+            cpOrderContentResult3.setFullName("冠、亚军和");
+            cpOrderContentResult3.setOrderState(cpbjscResult.getdata_3320());
+            cpOrderContentResult3.setOrderId("3320");
+            cpOrderContentResultList.add(cpOrderContentResult3);
+
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setShowNumber(3);
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+            cpOrderContentResult4.setOrderName("3");
+            cpOrderContentResult4.setFullName("冠、亚军和");
+            cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33213());
+            cpOrderContentResult4.setOrderId("3321-3");
+            cpOrderContentResultList2.add(cpOrderContentResult4);
+
+            CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+            cpOrderContentResult5.setOrderName("4");
+            cpOrderContentResult5.setFullName("冠、亚军和");
+            cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33214());
+            cpOrderContentResult5.setOrderId("3321-4");
+            cpOrderContentResultList2.add(cpOrderContentResult5);
+
+            CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+            cpOrderContentResult6.setOrderName("5");
+            cpOrderContentResult6.setFullName("冠、亚军和");
+            cpOrderContentResult6.setOrderState(cpbjscResult.getdata_33215());
+            cpOrderContentResult6.setOrderId("3321-5");
+            cpOrderContentResultList2.add(cpOrderContentResult6);
+
+            CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+            cpOrderContentResult7.setOrderName("6");
+            cpOrderContentResult7.setFullName("冠、亚军和");
+            cpOrderContentResult7.setOrderState(cpbjscResult.getdata_33216());
+            cpOrderContentResult7.setOrderId("3321-6");
+            cpOrderContentResultList2.add(cpOrderContentResult7);
+
+            CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+            cpOrderContentResult8.setOrderName("7");
+            cpOrderContentResult8.setFullName("冠、亚军和");
+            cpOrderContentResult8.setOrderState(cpbjscResult.getdata_33217());
+            cpOrderContentResult8.setOrderId("3321-7");
+            cpOrderContentResultList2.add(cpOrderContentResult8);
+
+            CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
+            cpOrderContentResult9.setOrderName("8");
+            cpOrderContentResult9.setFullName("冠、亚军和");
+            cpOrderContentResult9.setOrderState(cpbjscResult.getdata_33218());
+            cpOrderContentResult9.setOrderId("3321-8");
+            cpOrderContentResultList2.add(cpOrderContentResult9);
+
+            CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+            cpOrderContentResult10.setOrderName("9");
+            cpOrderContentResult10.setFullName("冠、亚军和");
+            cpOrderContentResult10.setOrderState(cpbjscResult.getdata_33219());
+            cpOrderContentResult10.setOrderId("3321-9");
+            cpOrderContentResultList2.add(cpOrderContentResult10);
+
+            CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
+            cpOrderContentResult11.setOrderName("10");
+            cpOrderContentResult11.setFullName("冠、亚军和");
+            cpOrderContentResult11.setOrderState(cpbjscResult.getdata_332110());
+            cpOrderContentResult11.setOrderId("3321-10");
+            cpOrderContentResultList2.add(cpOrderContentResult11);
+
+            CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
+            cpOrderContentResult12.setOrderName("11");
+            cpOrderContentResult12.setFullName("冠、亚军和");
+            cpOrderContentResult12.setOrderState(cpbjscResult.getdata_332111());
+            cpOrderContentResult12.setOrderId("3321-11");
+            cpOrderContentResultList2.add(cpOrderContentResult12);
+
+            CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
+            cpOrderContentResult13.setOrderName("12");
+            cpOrderContentResult13.setFullName("冠、亚军和");
+            cpOrderContentResult13.setOrderState(cpbjscResult.getdata_332112());
+            cpOrderContentResult13.setOrderId("3321-12");
+            cpOrderContentResultList2.add(cpOrderContentResult13);
+
+            CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
+            cpOrderContentResult14.setOrderName("13");
+            cpOrderContentResult14.setFullName("冠、亚军和");
+            cpOrderContentResult14.setOrderState(cpbjscResult.getdata_332113());
+            cpOrderContentResult14.setOrderId("3321-13");
+            cpOrderContentResultList2.add(cpOrderContentResult14);
+
+            CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
+            cpOrderContentResult15.setOrderName("14");
+            cpOrderContentResult15.setFullName("冠、亚军和");
+            cpOrderContentResult15.setOrderState(cpbjscResult.getdata_332114());
+            cpOrderContentResult15.setOrderId("3321-14");
+            cpOrderContentResultList2.add(cpOrderContentResult15);
+
+            CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
+            cpOrderContentResult16.setOrderName("15");
+            cpOrderContentResult16.setFullName("冠、亚军和");
+            cpOrderContentResult16.setOrderState(cpbjscResult.getdata_332115());
+            cpOrderContentResult16.setOrderId("3321-15");
+            cpOrderContentResultList2.add(cpOrderContentResult16);
+
+            CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
+            cpOrderContentResult17.setOrderName("16");
+            cpOrderContentResult17.setFullName("冠、亚军和");
+            cpOrderContentResult17.setOrderState(cpbjscResult.getdata_332116());
+            cpOrderContentResult17.setOrderId("3321-16");
+            cpOrderContentResultList2.add(cpOrderContentResult17);
+
+            CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
+            cpOrderContentResult18.setOrderName("17");
+            cpOrderContentResult18.setFullName("冠、亚军和");
+            cpOrderContentResult18.setOrderState(cpbjscResult.getdata_332117());
+            cpOrderContentResult18.setOrderId("3321-17");
+            cpOrderContentResultList2.add(cpOrderContentResult18);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setShowNumber(2);
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
+            cpOrderContentResult19.setOrderName("18");
+            cpOrderContentResult19.setFullName("冠、亚军和");
+            cpOrderContentResult19.setOrderState(cpbjscResult.getdata_332118());
+            cpOrderContentResult19.setOrderId("3321-18");
+            cpOrderContentResultList3.add(cpOrderContentResult19);
+
+            CPOrderContentResult cpOrderContentResult20 = new CPOrderContentResult();
+            cpOrderContentResult20.setOrderName("19");
+            cpOrderContentResult20.setFullName("冠、亚军和");
+            cpOrderContentResult20.setOrderState(cpbjscResult.getdata_332119());
+            cpOrderContentResult20.setOrderId("3321-19");
+            cpOrderContentResultList3.add(cpOrderContentResult20);
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+            return CPOrderContentListResult;
+        }else if(k==2){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("冠军");
+            cpOrderContentListResult.setShowType("TU");
+            cpOrderContentListResult.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+            cpOrderContentResult1.setOrderName("1");
+            cpOrderContentResult1.setFullName("冠军");
+            cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33011());
+            cpOrderContentResult1.setOrderId("3301-1");
+            cpOrderContentResultList1.add(cpOrderContentResult1);
+
+            CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+            cpOrderContentResult2.setOrderName("2");
+            cpOrderContentResult2.setFullName("冠军");
+            cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33012());
+            cpOrderContentResult2.setOrderId("3301-2");
+            cpOrderContentResultList1.add(cpOrderContentResult2);
+
+
+            CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+            cpOrderContentResult3.setOrderName("3");
+            cpOrderContentResult3.setFullName("冠军");
+            cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33013());
+            cpOrderContentResult3.setOrderId("3301-3");
+            cpOrderContentResultList1.add(cpOrderContentResult3);
+
+            CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+            cpOrderContentResult4.setOrderName("4");
+            cpOrderContentResult4.setFullName("冠军");
+            cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33014());
+            cpOrderContentResult4.setOrderId("3301-4");
+            cpOrderContentResultList1.add(cpOrderContentResult4);
+
+            CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+            cpOrderContentResult5.setOrderName("5");
+            cpOrderContentResult5.setFullName("冠军");
+            cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33015());
+            cpOrderContentResult5.setOrderId("3301-5");
+            cpOrderContentResultList1.add(cpOrderContentResult5);
+
+            CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+            cpOrderContentResult6.setOrderName("6");
+            cpOrderContentResult6.setFullName("冠军");
+            cpOrderContentResult6.setOrderState(cpbjscResult.getdata_33016());
+            cpOrderContentResult6.setOrderId("3301-6");
+            cpOrderContentResultList1.add(cpOrderContentResult6);
+
+            CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+            cpOrderContentResult7.setOrderName("7");
+            cpOrderContentResult7.setFullName("冠军");
+            cpOrderContentResult7.setOrderState(cpbjscResult.getdata_33017());
+            cpOrderContentResult7.setOrderId("3301-7");
+            cpOrderContentResultList1.add(cpOrderContentResult7);
+
+            CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+            cpOrderContentResult8.setOrderName("8");
+            cpOrderContentResult8.setFullName("冠军");
+            cpOrderContentResult8.setOrderState(cpbjscResult.getdata_33018());
+            cpOrderContentResult8.setOrderId("3301-8");
+            cpOrderContentResultList1.add(cpOrderContentResult8);
+
+            CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
+            cpOrderContentResult9.setOrderName("9");
+            cpOrderContentResult9.setFullName("冠军");
+            cpOrderContentResult9.setOrderState(cpbjscResult.getdata_33019());
+            cpOrderContentResult9.setOrderId("3301-9");
+            cpOrderContentResultList1.add(cpOrderContentResult9);
+
+
+            CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+            cpOrderContentResult10.setOrderName("10");
+            cpOrderContentResult10.setFullName("冠军");
+            cpOrderContentResult10.setOrderState(cpbjscResult.getdata_330110());
+            cpOrderContentResult10.setOrderId("3301-10");
+            cpOrderContentResultList1.add(cpOrderContentResult10);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList1);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("亚军");
+            cpOrderContentListResult2.setShowType("TU");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+            cpOrderContentResult21.setOrderName("1");
+            cpOrderContentResult21.setFullName("亚军");
+            cpOrderContentResult21.setOrderState(cpbjscResult.getdata_33021());
+            cpOrderContentResult21.setOrderId("3302-1");
+            cpOrderContentResultList2.add(cpOrderContentResult21);
+
+            CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+            cpOrderContentResult22.setOrderName("2");
+            cpOrderContentResult22.setFullName("亚军");
+            cpOrderContentResult22.setOrderState(cpbjscResult.getdata_33022());
+            cpOrderContentResult22.setOrderId("3302-2");
+            cpOrderContentResultList2.add(cpOrderContentResult22);
+
+
+            CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+            cpOrderContentResult23.setOrderName("3");
+            cpOrderContentResult23.setFullName("亚军");
+            cpOrderContentResult23.setOrderState(cpbjscResult.getdata_33023());
+            cpOrderContentResult23.setOrderId("3302-3");
+            cpOrderContentResultList2.add(cpOrderContentResult23);
+
+            CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
+            cpOrderContentResult24.setOrderName("4");
+            cpOrderContentResult24.setFullName("亚军");
+            cpOrderContentResult24.setOrderState(cpbjscResult.getdata_33024());
+            cpOrderContentResult24.setOrderId("3302-4");
+            cpOrderContentResultList2.add(cpOrderContentResult24);
+
+            CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
+            cpOrderContentResult25.setOrderName("5");
+            cpOrderContentResult25.setFullName("亚军");
+            cpOrderContentResult25.setOrderState(cpbjscResult.getdata_33025());
+            cpOrderContentResult25.setOrderId("3301-5");
+            cpOrderContentResultList2.add(cpOrderContentResult25);
+
+            CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
+            cpOrderContentResult26.setOrderName("6");
+            cpOrderContentResult26.setFullName("亚军");
+            cpOrderContentResult26.setOrderState(cpbjscResult.getdata_33026());
+            cpOrderContentResult26.setOrderId("3302-6");
+            cpOrderContentResultList2.add(cpOrderContentResult26);
+
+            CPOrderContentResult cpOrderContentResult27 = new CPOrderContentResult();
+            cpOrderContentResult27.setOrderName("7");
+            cpOrderContentResult27.setFullName("亚军");
+            cpOrderContentResult27.setOrderState(cpbjscResult.getdata_33027());
+            cpOrderContentResult27.setOrderId("3302-7");
+            cpOrderContentResultList2.add(cpOrderContentResult27);
+
+            CPOrderContentResult cpOrderContentResult28 = new CPOrderContentResult();
+            cpOrderContentResult28.setOrderName("8");
+            cpOrderContentResult28.setFullName("亚军");
+            cpOrderContentResult28.setOrderState(cpbjscResult.getdata_33028());
+            cpOrderContentResult28.setOrderId("3302-8");
+            cpOrderContentResultList2.add(cpOrderContentResult28);
+
+            CPOrderContentResult cpOrderContentResult29 = new CPOrderContentResult();
+            cpOrderContentResult29.setOrderName("9");
+            cpOrderContentResult29.setFullName("亚军");
+            cpOrderContentResult29.setOrderState(cpbjscResult.getdata_33029());
+            cpOrderContentResult29.setOrderId("3302-9");
+            cpOrderContentResultList2.add(cpOrderContentResult29);
+
+
+            CPOrderContentResult cpOrderContentResult210 = new CPOrderContentResult();
+            cpOrderContentResult210.setOrderName("10");
+            cpOrderContentResult210.setFullName("亚军");
+            cpOrderContentResult210.setOrderState(cpbjscResult.getdata_330210());
+            cpOrderContentResult210.setOrderId("3302-10");
+            cpOrderContentResultList2.add(cpOrderContentResult210);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("第三名");
+            cpOrderContentListResult3.setShowType("TU");
+            cpOrderContentListResult3.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
+            cpOrderContentResult31.setOrderName("1");
+            cpOrderContentResult31.setFullName("第三名");
+            cpOrderContentResult31.setOrderState(cpbjscResult.getdata_33031());
+            cpOrderContentResult31.setOrderId("3303-1");
+            cpOrderContentResultList3.add(cpOrderContentResult31);
+
+            CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+            cpOrderContentResult33.setOrderName("2");
+            cpOrderContentResult33.setFullName("第三名");
+            cpOrderContentResult33.setOrderState(cpbjscResult.getdata_33033());
+            cpOrderContentResult33.setOrderId("3303-2");
+            cpOrderContentResultList3.add(cpOrderContentResult33);
+
+            CPOrderContentResult cpOrderContentResult333 = new CPOrderContentResult();
+            cpOrderContentResult333.setOrderName("3");
+            cpOrderContentResult333.setFullName("第三名");
+            cpOrderContentResult333.setOrderState(cpbjscResult.getdata_33033());
+            cpOrderContentResult333.setOrderId("3303-3");
+            cpOrderContentResultList3.add(cpOrderContentResult333);
+
+            CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
+            cpOrderContentResult34.setOrderName("4");
+            cpOrderContentResult34.setFullName("第三名");
+            cpOrderContentResult34.setOrderState(cpbjscResult.getdata_33034());
+            cpOrderContentResult34.setOrderId("3303-4");
+            cpOrderContentResultList3.add(cpOrderContentResult34);
+
+            CPOrderContentResult cpOrderContentResult35 = new CPOrderContentResult();
+            cpOrderContentResult35.setOrderName("5");
+            cpOrderContentResult35.setFullName("第三名");
+            cpOrderContentResult35.setOrderState(cpbjscResult.getdata_33035());
+            cpOrderContentResult35.setOrderId("3303-5");
+            cpOrderContentResultList3.add(cpOrderContentResult35);
+
+            CPOrderContentResult cpOrderContentResult36 = new CPOrderContentResult();
+            cpOrderContentResult36.setOrderName("6");
+            cpOrderContentResult36.setFullName("第三名");
+            cpOrderContentResult36.setOrderState(cpbjscResult.getdata_33036());
+            cpOrderContentResult36.setOrderId("3303-6");
+            cpOrderContentResultList3.add(cpOrderContentResult36);
+
+            CPOrderContentResult cpOrderContentResult37 = new CPOrderContentResult();
+            cpOrderContentResult37.setOrderName("7");
+            cpOrderContentResult37.setFullName("第三名");
+            cpOrderContentResult37.setOrderState(cpbjscResult.getdata_33037());
+            cpOrderContentResult37.setOrderId("3303-7");
+            cpOrderContentResultList3.add(cpOrderContentResult37);
+
+            CPOrderContentResult cpOrderContentResult38 = new CPOrderContentResult();
+            cpOrderContentResult38.setOrderName("8");
+            cpOrderContentResult38.setFullName("第三名");
+            cpOrderContentResult38.setOrderState(cpbjscResult.getdata_33038());
+            cpOrderContentResult38.setOrderId("3303-8");
+            cpOrderContentResultList3.add(cpOrderContentResult38);
+
+            CPOrderContentResult cpOrderContentResult39 = new CPOrderContentResult();
+            cpOrderContentResult39.setOrderName("9");
+            cpOrderContentResult39.setFullName("第三名");
+            cpOrderContentResult39.setOrderState(cpbjscResult.getdata_33039());
+            cpOrderContentResult39.setOrderId("3303-9");
+            cpOrderContentResultList3.add(cpOrderContentResult39);
+
+
+            CPOrderContentResult cpOrderContentResult310 = new CPOrderContentResult();
+            cpOrderContentResult310.setOrderName("10");
+            cpOrderContentResult310.setFullName("第三名");
+            cpOrderContentResult310.setOrderState(cpbjscResult.getdata_330310());
+            cpOrderContentResult310.setOrderId("3303-10");
+            cpOrderContentResultList3.add(cpOrderContentResult310);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+            cpOrderContentListResult4.setOrderContentListName("第四名");
+            cpOrderContentListResult4.setShowType("TU");
+            cpOrderContentListResult4.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
+            cpOrderContentResult41.setOrderName("1");
+            cpOrderContentResult41.setFullName("第四名");
+            cpOrderContentResult41.setOrderState(cpbjscResult.getdata_33041());
+            cpOrderContentResult41.setOrderId("3304-1");
+            cpOrderContentResultList4.add(cpOrderContentResult41);
+
+            CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
+            cpOrderContentResult42.setOrderName("2");
+            cpOrderContentResult42.setFullName("第四名");
+            cpOrderContentResult42.setOrderState(cpbjscResult.getdata_33042());
+            cpOrderContentResult42.setOrderId("3304-2");
+            cpOrderContentResultList4.add(cpOrderContentResult42);
+
+
+            CPOrderContentResult cpOrderContentResult43 = new CPOrderContentResult();
+            cpOrderContentResult43.setOrderName("3");
+            cpOrderContentResult43.setFullName("第四名");
+            cpOrderContentResult43.setOrderState(cpbjscResult.getdata_33043());
+            cpOrderContentResult43.setOrderId("3304-3");
+            cpOrderContentResultList4.add(cpOrderContentResult43);
+
+            CPOrderContentResult cpOrderContentResult44 = new CPOrderContentResult();
+            cpOrderContentResult44.setOrderName("4");
+            cpOrderContentResult44.setFullName("第四名");
+            cpOrderContentResult44.setOrderState(cpbjscResult.getdata_33044());
+            cpOrderContentResult44.setOrderId("3304-4");
+            cpOrderContentResultList4.add(cpOrderContentResult44);
+
+            CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+            cpOrderContentResult45.setOrderName("5");
+            cpOrderContentResult45.setFullName("第四名");
+            cpOrderContentResult45.setOrderState(cpbjscResult.getdata_33045());
+            cpOrderContentResult45.setOrderId("3304-5");
+            cpOrderContentResultList4.add(cpOrderContentResult45);
+
+            CPOrderContentResult cpOrderContentResult46 = new CPOrderContentResult();
+            cpOrderContentResult46.setOrderName("6");
+            cpOrderContentResult46.setFullName("第四名");
+            cpOrderContentResult46.setOrderState(cpbjscResult.getdata_33046());
+            cpOrderContentResult46.setOrderId("3304-6");
+            cpOrderContentResultList4.add(cpOrderContentResult46);
+
+            CPOrderContentResult cpOrderContentResult47 = new CPOrderContentResult();
+            cpOrderContentResult47.setOrderName("7");
+            cpOrderContentResult47.setFullName("第四名");
+            cpOrderContentResult47.setOrderState(cpbjscResult.getdata_33047());
+            cpOrderContentResult47.setOrderId("3304-7");
+            cpOrderContentResultList4.add(cpOrderContentResult47);
+
+            CPOrderContentResult cpOrderContentResult48 = new CPOrderContentResult();
+            cpOrderContentResult48.setOrderName("8");
+            cpOrderContentResult48.setFullName("第四名");
+            cpOrderContentResult48.setOrderState(cpbjscResult.getdata_33048());
+            cpOrderContentResult48.setOrderId("3304-8");
+            cpOrderContentResultList4.add(cpOrderContentResult48);
+
+            CPOrderContentResult cpOrderContentResult49 = new CPOrderContentResult();
+            cpOrderContentResult49.setOrderName("9");
+            cpOrderContentResult49.setFullName("第四名");
+            cpOrderContentResult49.setOrderState(cpbjscResult.getdata_33049());
+            cpOrderContentResult49.setOrderId("3304-9");
+            cpOrderContentResultList4.add(cpOrderContentResult49);
+
+
+            CPOrderContentResult cpOrderContentResult410 = new CPOrderContentResult();
+            cpOrderContentResult410.setOrderName("10");
+            cpOrderContentResult410.setFullName("第四名");
+            cpOrderContentResult410.setOrderState(cpbjscResult.getdata_330410());
+            cpOrderContentResult410.setOrderId("3304-10");
+            cpOrderContentResultList4.add(cpOrderContentResult410);
+
+            cpOrderContentListResult4.setData(cpOrderContentResultList4);
+
+            CPOrderContentListResult cpOrderContentListResult5 = new CPOrderContentListResult();
+            cpOrderContentListResult5.setOrderContentListName("第五名");
+            cpOrderContentListResult5.setShowType("TU");
+            cpOrderContentListResult5.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult51 = new CPOrderContentResult();
+            cpOrderContentResult51.setOrderName("1");
+            cpOrderContentResult51.setFullName("第五名");
+            cpOrderContentResult51.setOrderState(cpbjscResult.getdata_33051());
+            cpOrderContentResult51.setOrderId("3305-1");
+            cpOrderContentResultList5.add(cpOrderContentResult51);
+
+            CPOrderContentResult cpOrderContentResult52 = new CPOrderContentResult();
+            cpOrderContentResult52.setOrderName("2");
+            cpOrderContentResult52.setFullName("第五名");
+            cpOrderContentResult52.setOrderState(cpbjscResult.getdata_33052());
+            cpOrderContentResult52.setOrderId("3305-2");
+            cpOrderContentResultList5.add(cpOrderContentResult52);
+
+
+            CPOrderContentResult cpOrderContentResult53 = new CPOrderContentResult();
+            cpOrderContentResult53.setOrderName("3");
+            cpOrderContentResult53.setFullName("第五名");
+            cpOrderContentResult53.setOrderState(cpbjscResult.getdata_33053());
+            cpOrderContentResult53.setOrderId("3305-3");
+            cpOrderContentResultList5.add(cpOrderContentResult53);
+
+            CPOrderContentResult cpOrderContentResult54 = new CPOrderContentResult();
+            cpOrderContentResult54.setOrderName("4");
+            cpOrderContentResult54.setFullName("第五名");
+            cpOrderContentResult54.setOrderState(cpbjscResult.getdata_33054());
+            cpOrderContentResult54.setOrderId("3305-4");
+            cpOrderContentResultList5.add(cpOrderContentResult54);
+
+            CPOrderContentResult cpOrderContentResult55 = new CPOrderContentResult();
+            cpOrderContentResult55.setOrderName("5");
+            cpOrderContentResult55.setFullName("第五名");
+            cpOrderContentResult55.setOrderState(cpbjscResult.getdata_33055());
+            cpOrderContentResult55.setOrderId("3305-5");
+            cpOrderContentResultList5.add(cpOrderContentResult55);
+
+            CPOrderContentResult cpOrderContentResult56 = new CPOrderContentResult();
+            cpOrderContentResult56.setOrderName("6");
+            cpOrderContentResult56.setFullName("第五名");
+            cpOrderContentResult56.setOrderState(cpbjscResult.getdata_33056());
+            cpOrderContentResult56.setOrderId("3305-6");
+            cpOrderContentResultList5.add(cpOrderContentResult56);
+
+            CPOrderContentResult cpOrderContentResult57 = new CPOrderContentResult();
+            cpOrderContentResult57.setOrderName("7");
+            cpOrderContentResult57.setFullName("第五名");
+            cpOrderContentResult57.setOrderState(cpbjscResult.getdata_33057());
+            cpOrderContentResult57.setOrderId("3305-7");
+            cpOrderContentResultList5.add(cpOrderContentResult57);
+
+            CPOrderContentResult cpOrderContentResult58 = new CPOrderContentResult();
+            cpOrderContentResult58.setOrderName("8");
+            cpOrderContentResult58.setFullName("第五名");
+            cpOrderContentResult58.setOrderState(cpbjscResult.getdata_33058());
+            cpOrderContentResult58.setOrderId("3305-8");
+            cpOrderContentResultList5.add(cpOrderContentResult58);
+
+            CPOrderContentResult cpOrderContentResult59 = new CPOrderContentResult();
+            cpOrderContentResult59.setOrderName("9");
+            cpOrderContentResult59.setFullName("第五名");
+            cpOrderContentResult59.setOrderState(cpbjscResult.getdata_33059());
+            cpOrderContentResult59.setOrderId("3305-9");
+            cpOrderContentResultList5.add(cpOrderContentResult59);
+
+
+            CPOrderContentResult cpOrderContentResult510 = new CPOrderContentResult();
+            cpOrderContentResult510.setOrderName("10");
+            cpOrderContentResult510.setFullName("第五名");
+            cpOrderContentResult510.setOrderState(cpbjscResult.getdata_330410());
+            cpOrderContentResult510.setOrderId("3304-10");
+            cpOrderContentResultList5.add(cpOrderContentResult510);
+
+            cpOrderContentListResult5.setData(cpOrderContentResultList5);
+
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+            CPOrderContentListResult.add(cpOrderContentListResult4);
+            CPOrderContentListResult.add(cpOrderContentListResult5);
+            return CPOrderContentListResult;
+        }else{
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("第六名");
+            cpOrderContentListResult.setShowType("TU");
+            cpOrderContentListResult.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
+            cpOrderContentResult1.setOrderName("1");
+            cpOrderContentResult1.setFullName("第六名");
+            cpOrderContentResult1.setOrderState(cpbjscResult.getdata_33061());
+            cpOrderContentResult1.setOrderId("3306-1");
+            cpOrderContentResultList1.add(cpOrderContentResult1);
+
+            CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
+            cpOrderContentResult2.setOrderName("2");
+            cpOrderContentResult2.setFullName("第六名");
+            cpOrderContentResult2.setOrderState(cpbjscResult.getdata_33062());
+            cpOrderContentResult2.setOrderId("3306-2");
+            cpOrderContentResultList1.add(cpOrderContentResult2);
+
+
+            CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+            cpOrderContentResult3.setOrderName("3");
+            cpOrderContentResult3.setFullName("第六名");
+            cpOrderContentResult3.setOrderState(cpbjscResult.getdata_33063());
+            cpOrderContentResult3.setOrderId("3306-3");
+            cpOrderContentResultList1.add(cpOrderContentResult3);
+
+            CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+            cpOrderContentResult4.setOrderName("4");
+            cpOrderContentResult4.setFullName("第六名");
+            cpOrderContentResult4.setOrderState(cpbjscResult.getdata_33064());
+            cpOrderContentResult4.setOrderId("3306-4");
+            cpOrderContentResultList1.add(cpOrderContentResult4);
+
+            CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+            cpOrderContentResult5.setOrderName("5");
+            cpOrderContentResult5.setFullName("第六名");
+            cpOrderContentResult5.setOrderState(cpbjscResult.getdata_33065());
+            cpOrderContentResult5.setOrderId("3306-5");
+            cpOrderContentResultList1.add(cpOrderContentResult5);
+
+            CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+            cpOrderContentResult6.setOrderName("6");
+            cpOrderContentResult6.setFullName("第六名");
+            cpOrderContentResult6.setOrderState(cpbjscResult.getdata_33066());
+            cpOrderContentResult6.setOrderId("3306-6");
+            cpOrderContentResultList1.add(cpOrderContentResult6);
+
+            CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+            cpOrderContentResult7.setOrderName("7");
+            cpOrderContentResult7.setFullName("第六名");
+            cpOrderContentResult7.setOrderState(cpbjscResult.getdata_33067());
+            cpOrderContentResult7.setOrderId("3306-7");
+            cpOrderContentResultList1.add(cpOrderContentResult7);
+
+            CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+            cpOrderContentResult8.setOrderName("8");
+            cpOrderContentResult8.setFullName("第六名");
+            cpOrderContentResult8.setOrderState(cpbjscResult.getdata_33068());
+            cpOrderContentResult8.setOrderId("3306-8");
+            cpOrderContentResultList1.add(cpOrderContentResult8);
+
+            CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
+            cpOrderContentResult9.setOrderName("9");
+            cpOrderContentResult9.setFullName("第六名");
+            cpOrderContentResult9.setOrderState(cpbjscResult.getdata_33069());
+            cpOrderContentResult9.setOrderId("3306-9");
+            cpOrderContentResultList1.add(cpOrderContentResult9);
+
+
+            CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
+            cpOrderContentResult10.setOrderName("10");
+            cpOrderContentResult10.setFullName("第六名");
+            cpOrderContentResult10.setOrderState(cpbjscResult.getdata_330610());
+            cpOrderContentResult10.setOrderId("3306-10");
+            cpOrderContentResultList1.add(cpOrderContentResult10);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList1);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("第七名");
+            cpOrderContentListResult2.setShowType("TU");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+            cpOrderContentResult21.setOrderName("1");
+            cpOrderContentResult21.setFullName("第七名");
+            cpOrderContentResult21.setOrderState(cpbjscResult.getdata_33071());
+            cpOrderContentResult21.setOrderId("3307-1");
+            cpOrderContentResultList2.add(cpOrderContentResult21);
+
+            CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+            cpOrderContentResult22.setOrderName("2");
+            cpOrderContentResult22.setFullName("第七名");
+            cpOrderContentResult22.setOrderState(cpbjscResult.getdata_33072());
+            cpOrderContentResult22.setOrderId("3307-2");
+            cpOrderContentResultList2.add(cpOrderContentResult22);
+
+
+            CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+            cpOrderContentResult23.setOrderName("3");
+            cpOrderContentResult23.setFullName("第七名");
+            cpOrderContentResult23.setOrderState(cpbjscResult.getdata_33073());
+            cpOrderContentResult23.setOrderId("3307-3");
+            cpOrderContentResultList2.add(cpOrderContentResult23);
+
+            CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
+            cpOrderContentResult24.setOrderName("4");
+            cpOrderContentResult24.setFullName("第七名");
+            cpOrderContentResult24.setOrderState(cpbjscResult.getdata_33074());
+            cpOrderContentResult24.setOrderId("3307-4");
+            cpOrderContentResultList2.add(cpOrderContentResult24);
+
+            CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
+            cpOrderContentResult25.setOrderName("5");
+            cpOrderContentResult25.setFullName("第七名");
+            cpOrderContentResult25.setOrderState(cpbjscResult.getdata_33075());
+            cpOrderContentResult25.setOrderId("3307-5");
+            cpOrderContentResultList2.add(cpOrderContentResult25);
+
+            CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
+            cpOrderContentResult26.setOrderName("6");
+            cpOrderContentResult26.setFullName("第七名");
+            cpOrderContentResult26.setOrderState(cpbjscResult.getdata_33076());
+            cpOrderContentResult26.setOrderId("3307-6");
+            cpOrderContentResultList2.add(cpOrderContentResult26);
+
+            CPOrderContentResult cpOrderContentResult27 = new CPOrderContentResult();
+            cpOrderContentResult27.setOrderName("7");
+            cpOrderContentResult27.setFullName("第七名");
+            cpOrderContentResult27.setOrderState(cpbjscResult.getdata_33077());
+            cpOrderContentResult27.setOrderId("3307-7");
+            cpOrderContentResultList2.add(cpOrderContentResult27);
+
+            CPOrderContentResult cpOrderContentResult28 = new CPOrderContentResult();
+            cpOrderContentResult28.setOrderName("8");
+            cpOrderContentResult28.setFullName("第七名");
+            cpOrderContentResult28.setOrderState(cpbjscResult.getdata_33078());
+            cpOrderContentResult28.setOrderId("3307-8");
+            cpOrderContentResultList2.add(cpOrderContentResult28);
+
+            CPOrderContentResult cpOrderContentResult29 = new CPOrderContentResult();
+            cpOrderContentResult29.setOrderName("9");
+            cpOrderContentResult29.setFullName("第七名");
+            cpOrderContentResult29.setOrderState(cpbjscResult.getdata_33079());
+            cpOrderContentResult29.setOrderId("3307-9");
+            cpOrderContentResultList2.add(cpOrderContentResult29);
+
+
+            CPOrderContentResult cpOrderContentResult210 = new CPOrderContentResult();
+            cpOrderContentResult210.setOrderName("10");
+            cpOrderContentResult210.setFullName("第七名");
+            cpOrderContentResult210.setOrderState(cpbjscResult.getdata_330710());
+            cpOrderContentResult210.setOrderId("3307-10");
+            cpOrderContentResultList2.add(cpOrderContentResult210);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("第八名");
+            cpOrderContentListResult3.setShowType("TU");
+            cpOrderContentListResult3.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
+            cpOrderContentResult31.setOrderName("1");
+            cpOrderContentResult31.setFullName("第八名");
+            cpOrderContentResult31.setOrderState(cpbjscResult.getdata_33081());
+            cpOrderContentResult31.setOrderId("3308-1");
+            cpOrderContentResultList3.add(cpOrderContentResult31);
+
+            CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
+            cpOrderContentResult33.setOrderName("2");
+            cpOrderContentResult33.setFullName("第八名");
+            cpOrderContentResult33.setOrderState(cpbjscResult.getdata_33082());
+            cpOrderContentResult33.setOrderId("3308-2");
+            cpOrderContentResultList3.add(cpOrderContentResult33);
+
+            CPOrderContentResult cpOrderContentResult33083 = new CPOrderContentResult();
+            cpOrderContentResult33083.setOrderName("3");
+            cpOrderContentResult33083.setFullName("第八名");
+            cpOrderContentResult33083.setOrderState(cpbjscResult.getdata_33083());
+            cpOrderContentResult33083.setOrderId("3308-3");
+            cpOrderContentResultList3.add(cpOrderContentResult33083);
+
+            CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
+            cpOrderContentResult34.setOrderName("4");
+            cpOrderContentResult34.setFullName("第八名");
+            cpOrderContentResult34.setOrderState(cpbjscResult.getdata_33084());
+            cpOrderContentResult34.setOrderId("3308-4");
+            cpOrderContentResultList3.add(cpOrderContentResult34);
+
+            CPOrderContentResult cpOrderContentResult35 = new CPOrderContentResult();
+            cpOrderContentResult35.setOrderName("5");
+            cpOrderContentResult35.setFullName("第八名");
+            cpOrderContentResult35.setOrderState(cpbjscResult.getdata_33085());
+            cpOrderContentResult35.setOrderId("3308-5");
+            cpOrderContentResultList3.add(cpOrderContentResult35);
+
+            CPOrderContentResult cpOrderContentResult36 = new CPOrderContentResult();
+            cpOrderContentResult36.setOrderName("6");
+            cpOrderContentResult36.setFullName("第八名");
+            cpOrderContentResult36.setOrderState(cpbjscResult.getdata_33086());
+            cpOrderContentResult36.setOrderId("3308-6");
+            cpOrderContentResultList3.add(cpOrderContentResult36);
+
+            CPOrderContentResult cpOrderContentResult37 = new CPOrderContentResult();
+            cpOrderContentResult37.setOrderName("7");
+            cpOrderContentResult37.setFullName("第八名");
+            cpOrderContentResult37.setOrderState(cpbjscResult.getdata_33037());
+            cpOrderContentResult37.setOrderId("3303-7");
+            cpOrderContentResultList3.add(cpOrderContentResult37);
+
+            CPOrderContentResult cpOrderContentResult38 = new CPOrderContentResult();
+            cpOrderContentResult38.setOrderName("8");
+            cpOrderContentResult38.setFullName("第八名");
+            cpOrderContentResult38.setOrderState(cpbjscResult.getdata_33088());
+            cpOrderContentResult38.setOrderId("3308-8");
+            cpOrderContentResultList3.add(cpOrderContentResult38);
+
+            CPOrderContentResult cpOrderContentResult39 = new CPOrderContentResult();
+            cpOrderContentResult39.setOrderName("9");
+            cpOrderContentResult39.setFullName("第八名");
+            cpOrderContentResult39.setOrderState(cpbjscResult.getdata_33089());
+            cpOrderContentResult39.setOrderId("3308-9");
+            cpOrderContentResultList3.add(cpOrderContentResult39);
+
+
+            CPOrderContentResult cpOrderContentResult310 = new CPOrderContentResult();
+            cpOrderContentResult310.setOrderName("10");
+            cpOrderContentResult310.setFullName("第八名");
+            cpOrderContentResult310.setOrderState(cpbjscResult.getdata_330810());
+            cpOrderContentResult310.setOrderId("3308-10");
+            cpOrderContentResultList3.add(cpOrderContentResult310);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+            cpOrderContentListResult4.setOrderContentListName("第九名");
+            cpOrderContentListResult4.setShowType("TU");
+            cpOrderContentListResult4.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
+            cpOrderContentResult41.setOrderName("1");
+            cpOrderContentResult41.setFullName("第九名");
+            cpOrderContentResult41.setOrderState(cpbjscResult.getdata_33091());
+            cpOrderContentResult41.setOrderId("3309-1");
+            cpOrderContentResultList4.add(cpOrderContentResult41);
+
+            CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
+            cpOrderContentResult42.setOrderName("2");
+            cpOrderContentResult42.setFullName("第九名");
+            cpOrderContentResult42.setOrderState(cpbjscResult.getdata_33092());
+            cpOrderContentResult42.setOrderId("3309-2");
+            cpOrderContentResultList4.add(cpOrderContentResult42);
+
+
+            CPOrderContentResult cpOrderContentResult43 = new CPOrderContentResult();
+            cpOrderContentResult43.setOrderName("3");
+            cpOrderContentResult43.setFullName("第九名");
+            cpOrderContentResult43.setOrderState(cpbjscResult.getdata_33093());
+            cpOrderContentResult43.setOrderId("3309-3");
+            cpOrderContentResultList4.add(cpOrderContentResult43);
+
+            CPOrderContentResult cpOrderContentResult44 = new CPOrderContentResult();
+            cpOrderContentResult44.setOrderName("4");
+            cpOrderContentResult44.setFullName("第九名");
+            cpOrderContentResult44.setOrderState(cpbjscResult.getdata_33094());
+            cpOrderContentResult44.setOrderId("3309-4");
+            cpOrderContentResultList4.add(cpOrderContentResult44);
+
+            CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+            cpOrderContentResult45.setOrderName("5");
+            cpOrderContentResult45.setFullName("第九名");
+            cpOrderContentResult45.setOrderState(cpbjscResult.getdata_33095());
+            cpOrderContentResult45.setOrderId("3309-5");
+            cpOrderContentResultList4.add(cpOrderContentResult45);
+
+            CPOrderContentResult cpOrderContentResult46 = new CPOrderContentResult();
+            cpOrderContentResult46.setOrderName("6");
+            cpOrderContentResult46.setFullName("第九名");
+            cpOrderContentResult46.setOrderState(cpbjscResult.getdata_33096());
+            cpOrderContentResult46.setOrderId("3309-6");
+            cpOrderContentResultList4.add(cpOrderContentResult46);
+
+            CPOrderContentResult cpOrderContentResult47 = new CPOrderContentResult();
+            cpOrderContentResult47.setOrderName("7");
+            cpOrderContentResult47.setFullName("第九名");
+            cpOrderContentResult47.setOrderState(cpbjscResult.getdata_33097());
+            cpOrderContentResult47.setOrderId("3309-7");
+            cpOrderContentResultList4.add(cpOrderContentResult47);
+
+            CPOrderContentResult cpOrderContentResult48 = new CPOrderContentResult();
+            cpOrderContentResult48.setOrderName("8");
+            cpOrderContentResult48.setFullName("第九名");
+            cpOrderContentResult48.setOrderState(cpbjscResult.getdata_33098());
+            cpOrderContentResult48.setOrderId("3309-8");
+            cpOrderContentResultList4.add(cpOrderContentResult48);
+
+            CPOrderContentResult cpOrderContentResult49 = new CPOrderContentResult();
+            cpOrderContentResult49.setOrderName("9");
+            cpOrderContentResult49.setFullName("第九名");
+            cpOrderContentResult49.setOrderState(cpbjscResult.getdata_33099());
+            cpOrderContentResult49.setOrderId("3309-9");
+            cpOrderContentResultList4.add(cpOrderContentResult49);
+
+
+            CPOrderContentResult cpOrderContentResult410 = new CPOrderContentResult();
+            cpOrderContentResult410.setOrderName("10");
+            cpOrderContentResult410.setFullName("第九名");
+            cpOrderContentResult410.setOrderState(cpbjscResult.getdata_330910());
+            cpOrderContentResult410.setOrderId("3309-10");
+            cpOrderContentResultList4.add(cpOrderContentResult410);
+
+            cpOrderContentListResult4.setData(cpOrderContentResultList4);
+
+            CPOrderContentListResult cpOrderContentListResult5 = new CPOrderContentListResult();
+            cpOrderContentListResult5.setOrderContentListName("第十名");
+            cpOrderContentListResult5.setShowType("TU");
+            cpOrderContentListResult5.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult51 = new CPOrderContentResult();
+            cpOrderContentResult51.setOrderName("1");
+            cpOrderContentResult51.setFullName("第十名");
+            cpOrderContentResult51.setOrderState(cpbjscResult.getdata_33101());
+            cpOrderContentResult51.setOrderId("3310-1");
+            cpOrderContentResultList5.add(cpOrderContentResult51);
+
+            CPOrderContentResult cpOrderContentResult52 = new CPOrderContentResult();
+            cpOrderContentResult52.setOrderName("2");
+            cpOrderContentResult52.setFullName("第十名");
+            cpOrderContentResult52.setOrderState(cpbjscResult.getdata_33102());
+            cpOrderContentResult52.setOrderId("3310-2");
+            cpOrderContentResultList5.add(cpOrderContentResult52);
+
+
+            CPOrderContentResult cpOrderContentResult53 = new CPOrderContentResult();
+            cpOrderContentResult53.setOrderName("3");
+            cpOrderContentResult53.setFullName("第十名");
+            cpOrderContentResult53.setOrderState(cpbjscResult.getdata_33103());
+            cpOrderContentResult53.setOrderId("3310-3");
+            cpOrderContentResultList5.add(cpOrderContentResult53);
+
+            CPOrderContentResult cpOrderContentResult54 = new CPOrderContentResult();
+            cpOrderContentResult54.setOrderName("4");
+            cpOrderContentResult54.setFullName("第十名");
+            cpOrderContentResult54.setOrderState(cpbjscResult.getdata_33104());
+            cpOrderContentResult54.setOrderId("3310-4");
+            cpOrderContentResultList5.add(cpOrderContentResult54);
+
+            CPOrderContentResult cpOrderContentResult55 = new CPOrderContentResult();
+            cpOrderContentResult55.setOrderName("5");
+            cpOrderContentResult55.setFullName("第十名");
+            cpOrderContentResult55.setOrderState(cpbjscResult.getdata_33105());
+            cpOrderContentResult55.setOrderId("3310-5");
+            cpOrderContentResultList5.add(cpOrderContentResult55);
+
+            CPOrderContentResult cpOrderContentResult56 = new CPOrderContentResult();
+            cpOrderContentResult56.setOrderName("6");
+            cpOrderContentResult56.setFullName("第十名");
+            cpOrderContentResult56.setOrderState(cpbjscResult.getdata_33106());
+            cpOrderContentResult56.setOrderId("3310-6");
+            cpOrderContentResultList5.add(cpOrderContentResult56);
+
+            CPOrderContentResult cpOrderContentResult57 = new CPOrderContentResult();
+            cpOrderContentResult57.setOrderName("7");
+            cpOrderContentResult57.setFullName("第十名");
+            cpOrderContentResult57.setOrderState(cpbjscResult.getdata_33107());
+            cpOrderContentResult57.setOrderId("3310-7");
+            cpOrderContentResultList5.add(cpOrderContentResult57);
+
+            CPOrderContentResult cpOrderContentResult58 = new CPOrderContentResult();
+            cpOrderContentResult58.setOrderName("8");
+            cpOrderContentResult58.setFullName("第十名");
+            cpOrderContentResult58.setOrderState(cpbjscResult.getdata_33108());
+            cpOrderContentResult58.setOrderId("3310-8");
+            cpOrderContentResultList5.add(cpOrderContentResult58);
+
+            CPOrderContentResult cpOrderContentResult59 = new CPOrderContentResult();
+            cpOrderContentResult59.setOrderName("9");
+            cpOrderContentResult59.setFullName("第十名");
+            cpOrderContentResult59.setOrderState(cpbjscResult.getdata_33109());
+            cpOrderContentResult59.setOrderId("3310-9");
+            cpOrderContentResultList5.add(cpOrderContentResult59);
+
+
+            CPOrderContentResult cpOrderContentResult510 = new CPOrderContentResult();
+            cpOrderContentResult510.setOrderName("10");
+            cpOrderContentResult510.setFullName("第十名");
+            cpOrderContentResult510.setOrderState(cpbjscResult.getdata_331010());
+            cpOrderContentResult510.setOrderId("3310-10");
+            cpOrderContentResultList5.add(cpOrderContentResult510);
+
+            cpOrderContentListResult5.setData(cpOrderContentResultList5);
+
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+            CPOrderContentListResult.add(cpOrderContentListResult4);
+            CPOrderContentListResult.add(cpOrderContentListResult5);
+            return CPOrderContentListResult;
+        }
+    }
+
 
     private void BJPK10(CPBJSCResult cpbjscResult){
 
@@ -14245,13 +19574,13 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     @Override
     public void postRateInfoJsscResult(CPJSSCResult cpbjscResult) {
-
+        cpOrderContentListResults =  JSSC(cpbjscResult,index);
         onResponseCQResult();
     }
 
     @Override
     public void postRateInfoJsftResult(CPJSFTResult cpbjscResult) {
-
+        cpOrderContentListResults =  JSFT(cpbjscResult,index);
         onResponseCQResult();
     }
 
@@ -14435,21 +19764,37 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     @Override
     public void postRateInfoPCDDResult(PCDDResult pcddResult) {
         GameLog.log("PC蛋蛋的数据： "+pcddResult.toString());
-        PCDD(pcddResult);
-        showContentView(0);
+        cpOrderContentListResults =  PCDDIndex(pcddResult,index);
+        onResponseCQResult();
     }
 
     @Override
     public void postRateInfoJsk3Result(CPJSKSResult cpjsksResult) {
         GameLog.log("江苏快3的数据： "+cpjsksResult.toString());
-        JSKS(cpjsksResult);
-        showContentView(0);
+        cpOrderContentListResults =  JSKS(cpjsksResult,index);
+        onResponseCQResult();
     }
     @Override
     public void postRateInfoJsk32Result(CPJSK2Result cpjsksResult) {
-        GameLog.log("江苏快3的数据： "+cpjsksResult.toString());
-        JSKS2(cpjsksResult);
-        showContentView(0);
+        GameLog.log("江苏快32的数据： "+cpjsksResult.toString());
+        cpOrderContentListResults =  JSKS2(cpjsksResult,index);
+        onResponseCQResult();
+    }
+
+    @Override
+    public void postRateInfoXyncResult(CPXYNCResult cpxyncResult) {
+        cpOrderContentListResults =  XYNC(cpxyncResult,index);
+        if(index==9){
+            cpOrderRXRadio.setText("赔率:"+rX2);
+            cpOrderTab.getTabAt(0).select();
+        }
+        onResponseCQResult();
+    }
+
+    @Override
+    public void postRateInfoKlsfResult(CPXYNCResult cpxyncResult) {
+        cpOrderContentListResults =  XYNC(cpxyncResult,index);
+        onResponseCQResult();
     }
 
 
@@ -14484,6 +19829,24 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }
     }
 
+    private void initViewXyncData(){
+        initXyncLeftData();
+        index = 0;
+        cpOrderListLeft.setAdapter(new CPOrederCQListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
+    }
+
+    private void initViewJSK3Data(){
+        initJsk3LeftData();
+        index = 0;
+        cpOrderListLeft.setAdapter(new CPOrederCQListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
+    }
+
+
+    private void initViewPcddData(){
+        initPcddLeftData();
+        index = 0;
+        cpOrderListLeft.setAdapter(new CPOrederCQListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
+    }
 
     private void initViewCqsscData(){
         initCqsscLeftData();
@@ -14549,6 +19912,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         presenter.postNextIssue(game_code,x_session_token);
         presenter.postLastResult(game_code,x_session_token);
         type = "0";
+        cpOrderLayout.setVisibility(View.GONE);
         switch (game_code){
             case "51":
                 initViewBjscData();
@@ -14584,16 +19948,26 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 break;
             case "304"://PC蛋蛋
                 //type = "undefined";
+                initViewPcddData();
                 presenter.postRateInfoPCDD(game_code,x_session_token);
                 break;
             case "159"://江苏快3
                 type = "1";
+                initViewJSK3Data();
                 presenter.postRateInfoJsk3(game_code,type,x_session_token);
                 break;
             case "384":// 极速快3
                 //type = "undefined";
                 type = "1";
+                initViewJSK3Data();
                 presenter.postRateInfoJsk32(game_code,type,x_session_token);
+                break;
+            case "47":// 幸运农场
+            case "3":// 快乐十分
+                //type = "undefined";
+                type = "0";
+                initViewXyncData();
+                presenter.postRateInfoXync(game_code,type,x_session_token);
                 break;
         }
 
@@ -14642,6 +20016,134 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             }
         });
+    }
+
+    private void initXyncLeftData(){
+        allResultList.clear();
+        CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
+        cpOrderAllResult1.setEventChecked(true);
+        cpOrderAllResult1.setType("0");
+        cpOrderAllResult1.setOrderAllName("两面");
+
+        CPOrderAllResult cpOrderAllResult2 = new CPOrderAllResult();
+        cpOrderAllResult2.setOrderAllName("第一球");
+        cpOrderAllResult2.setType("1");
+
+        CPOrderAllResult cpOrderAllResult3 = new CPOrderAllResult();
+        cpOrderAllResult3.setOrderAllName("第二球");
+        cpOrderAllResult3.setType("2");
+
+        CPOrderAllResult cpOrderAllResult4 = new CPOrderAllResult();
+        cpOrderAllResult4.setOrderAllName("第三球");
+        cpOrderAllResult4.setType("3");
+
+        CPOrderAllResult cpOrderAllResult5 = new CPOrderAllResult();
+        cpOrderAllResult5.setOrderAllName("第四球");
+        cpOrderAllResult5.setType("4");
+
+        CPOrderAllResult cpOrderAllResult6 = new CPOrderAllResult();
+        cpOrderAllResult6.setOrderAllName("第五球");
+        cpOrderAllResult6.setType("5");
+
+        CPOrderAllResult cpOrderAllResult7 = new CPOrderAllResult();
+        cpOrderAllResult7.setOrderAllName("第六球");
+        cpOrderAllResult7.setType("6");
+
+        CPOrderAllResult cpOrderAllResult8 = new CPOrderAllResult();
+        cpOrderAllResult8.setOrderAllName("第七球");
+        cpOrderAllResult8.setType("7");
+
+        CPOrderAllResult cpOrderAllResult9 = new CPOrderAllResult();
+        cpOrderAllResult9.setOrderAllName("第八球");
+        cpOrderAllResult9.setType("8");
+
+        CPOrderAllResult cpOrderAllResult10 = new CPOrderAllResult();
+        cpOrderAllResult10.setOrderAllName("连码");
+        cpOrderAllResult10.setType("10");
+
+        allResultList.add(cpOrderAllResult1);
+        allResultList.add(cpOrderAllResult2);
+        allResultList.add(cpOrderAllResult3);
+        allResultList.add(cpOrderAllResult4);
+        allResultList.add(cpOrderAllResult5);
+        allResultList.add(cpOrderAllResult6);
+        allResultList.add(cpOrderAllResult7);
+        allResultList.add(cpOrderAllResult8);
+        allResultList.add(cpOrderAllResult9);
+        allResultList.add(cpOrderAllResult10);
+
+    }
+
+    private void initJsk3LeftData(){
+        allResultList.clear();
+        CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
+        cpOrderAllResult1.setEventChecked(true);
+        cpOrderAllResult1.setType("1");
+        cpOrderAllResult1.setOrderAllName("和值");
+
+        CPOrderAllResult cpOrderAllResult2 = new CPOrderAllResult();
+        cpOrderAllResult2.setOrderAllName("大小单双");
+        cpOrderAllResult2.setType("1");
+
+        CPOrderAllResult cpOrderAllResult3 = new CPOrderAllResult();
+        cpOrderAllResult3.setOrderAllName("通选");
+        cpOrderAllResult3.setType("1");
+
+        CPOrderAllResult cpOrderAllResult4 = new CPOrderAllResult();
+        cpOrderAllResult4.setOrderAllName("三同号");
+        cpOrderAllResult4.setType("1");
+
+        CPOrderAllResult cpOrderAllResult5 = new CPOrderAllResult();
+        cpOrderAllResult5.setOrderAllName("三不同");
+        cpOrderAllResult5.setType("1");
+
+        CPOrderAllResult cpOrderAllResult6 = new CPOrderAllResult();
+        cpOrderAllResult6.setOrderAllName("二同号复选");
+        cpOrderAllResult6.setType("1");
+
+        CPOrderAllResult cpOrderAllResult7 = new CPOrderAllResult();
+        cpOrderAllResult7.setOrderAllName("二同号单选");
+        cpOrderAllResult7.setType("1");
+
+        CPOrderAllResult cpOrderAllResult8 = new CPOrderAllResult();
+        cpOrderAllResult8.setOrderAllName("二不同号");
+        cpOrderAllResult8.setType("1");
+
+        CPOrderAllResult cpOrderAllResult9 = new CPOrderAllResult();
+        cpOrderAllResult9.setOrderAllName("猜必出");
+        cpOrderAllResult9.setType("1");
+
+        CPOrderAllResult cpOrderAllResult10 = new CPOrderAllResult();
+        cpOrderAllResult10.setOrderAllName("猜必不出");
+        cpOrderAllResult10.setType("1");
+
+        allResultList.add(cpOrderAllResult1);
+        allResultList.add(cpOrderAllResult2);
+        allResultList.add(cpOrderAllResult3);
+        allResultList.add(cpOrderAllResult4);
+        allResultList.add(cpOrderAllResult5);
+        allResultList.add(cpOrderAllResult6);
+        allResultList.add(cpOrderAllResult7);
+        allResultList.add(cpOrderAllResult8);
+        allResultList.add(cpOrderAllResult9);
+        allResultList.add(cpOrderAllResult10);
+
+    }
+
+    private void initPcddLeftData(){
+        allResultList.clear();
+        CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
+        cpOrderAllResult1.setEventChecked(true);
+        cpOrderAllResult1.setType("undefined");
+        cpOrderAllResult1.setOrderAllName("混合");
+
+        CPOrderAllResult cpOrderAllResult2 = new CPOrderAllResult();
+        cpOrderAllResult2.setOrderAllName("特码");
+        cpOrderAllResult2.setType("undefined");
+
+        allResultList.add(cpOrderAllResult1);
+        allResultList.add(cpOrderAllResult2);
+
     }
 
     private void initCqsscLeftData(){
@@ -15122,7 +20624,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postRateInfo5FC(game_code,type,x_session_token);
                 break;
             case "304"://PC蛋蛋
-                //type = "undefined";
+                type = "undefined";
                 presenter.postRateInfoPCDD(game_code,x_session_token);
                 break;
             case "159"://江苏快3
@@ -15134,7 +20636,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 type = "1";
                 presenter.postRateInfoJsk32(game_code,type,x_session_token);
                 break;
+            case "47":// 幸运农场
+            case "3":// 快乐十分
+                presenter.postRateInfoXync(game_code,type,x_session_token);
+                break;
         }
+
+        if(index==9){
+            if(game_code.equals("47")||game_code.equals("3")){
+                rX0 = 2;
+                onResetData();
+                cpOrderLayout.setVisibility(View.VISIBLE);
+            }else{
+                cpOrderLayout.setVisibility(View.GONE);
+            }
+        }else{
+
+            if(rX0 == 2||rX0 ==3 ||rX0 ==42||rX0 ==5){
+                rX0 = 0;
+                onResetData();
+            }
+            /*cpOrderTab.setVisibility(View.GONE);
+            cpOrderRXRadio.setVisibility(View.GONE);
+            cpOrderRXLine.setVisibility(View.GONE);*/
+            cpOrderLayout.setVisibility(View.GONE);
+        }
+
     }
 
 

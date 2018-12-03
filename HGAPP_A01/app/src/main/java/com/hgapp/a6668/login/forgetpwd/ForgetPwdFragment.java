@@ -207,7 +207,7 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
     private void onCheckRegisterMember(){
         String userName = etRegisterUserName.getText().toString().trim();
         String userPwd = etRegisterPwd.getText().toString().trim();
-        String userBrithday = etRegisterBrithday.getText().toString().trim();
+        //String userBrithday = etRegisterBrithday.getText().toString().trim();
         String userPwdVerify = etRegisterPwdVerify.getText().toString().trim();
         String userDrawName = etRegisterWithDrawName.getText().toString().trim();
         String userDrawPwd = etRegisterWithDrawPwd.getText().toString().trim();
@@ -227,10 +227,10 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
             return;
         }
 
-        if(Check.isEmpty(userBrithday)){
+        /*if(Check.isEmpty(userBrithday)){
             showMessage("请输入出生日期！");
             return;
-        }
+        }*/
 
         if(Check.isEmpty(userPwd)||userPwd.length()<6){
             showMessage("请输入有效密码！");
@@ -247,10 +247,7 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
             return;
         }
 
-
-
-
-        presenter.postForgetPwd("","reset",userName,userDrawName,userDrawPwd,userBrithday,userPwd,userPwdVerify);
+        presenter.postForgetPwd("","reset",userName,userDrawName,userDrawPwd,"",userPwd,userPwdVerify);
 
     }
 

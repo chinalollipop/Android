@@ -206,7 +206,6 @@
             <TextView
                 android:id="@+id/cpOrderRXRadio"
                 android:text="赔率:"
-                android:visibility="gone"
                 android:textColor="@color/cp_hall_tv"
                 android:textSize="16sp"
                 android:layout_gravity="center"

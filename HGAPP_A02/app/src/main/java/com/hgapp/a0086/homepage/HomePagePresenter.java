@@ -233,6 +233,32 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
+    public void postVGQipai(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postVGQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<QipaiResult> response) {
+                        if(response.isSuccess()){
+                            if(!Check.isNull(response.getData())){
+                                view.postVGQipaiResult(response.getData());
+                            }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postCP() {
         subscriptionHelper.add(RxHelper.addSugar(api.postCP(HGConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<CPResult>>() {

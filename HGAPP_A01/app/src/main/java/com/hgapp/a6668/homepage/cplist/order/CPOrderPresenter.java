@@ -11,6 +11,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
 import com.hgapp.a6668.data.CQ3FCResult;
@@ -258,6 +259,46 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
                     @Override
                     public void success(CPJSK2Result response) {
                         view.postRateInfoJsk32Result(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postRateInfoXync(String game_code, String type, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoXYnc(game_code,type,x_session_token))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<CPXYNCResult>() {
+                    @Override
+                    public void success(CPXYNCResult response) {
+                        view.postRateInfoXyncResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postRateInfoKlsf(String game_code, String type, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoKlsf(game_code,type,x_session_token))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<CPXYNCResult>() {
+                    @Override
+                    public void success(CPXYNCResult response) {
+                        view.postRateInfoKlsfResult(response);
                     }
 
                     @Override
