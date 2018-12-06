@@ -17950,6 +17950,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("特码B");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
@@ -18275,6 +18276,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -18466,6 +18468,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("特码A");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -18791,6 +18794,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -18980,6 +18984,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正码A");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -19305,6 +19310,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -19384,6 +19390,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正码B");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -19709,6 +19716,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -19788,6 +19796,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正1特");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -20113,6 +20122,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -20237,6 +20247,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正2特");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -20562,6 +20573,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -20686,6 +20698,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正3特");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -21011,6 +21024,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -21135,6 +21149,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正4特");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -21460,6 +21475,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -21584,6 +21600,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正5特");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -21909,6 +21926,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -22033,6 +22051,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("正6特");
             cpOrderContentListResult.setShowNumber(3);
+            cpOrderContentListResult.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
@@ -22358,6 +22377,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
             cpOrderContentListResult11.setOrderContentListName("");
             cpOrderContentListResult11.setShowNumber(2);
+            cpOrderContentListResult11.setShowType("QIUHK");
 
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
 
@@ -26883,6 +26903,84 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             context = context;
         }
 
+        private void onSetQIUHKView(String data,ViewHolder holder){
+            switch (data){
+                /*
+                 *  香港六合彩波色
+                 *  红波：01,02,07,08,12,13,18,19,23,24,29,30,34,35,40,45,46
+                 *  蓝波：03,04,09,10,14,15,20,25,26,31,36,37,41,42,47,48
+                 *  绿波：05,06,11,16,17,21,22,27,28,32,33,38,39,43,44,49
+                 * */
+                case "01":
+                case "02":
+                case "07":
+                case "08":
+                case "1":
+                case "2":
+                case "7":
+                case "8":
+                case "12":
+                case "13":
+                case "18":
+                case "19":
+                case "23":
+                case "24":
+                case "29":
+                case "30":
+                case "34":
+                case "35":
+                case "40":
+                case "45":
+                case "46":
+                    holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_hk_red);
+                    break;
+                case "03":
+                case "04":
+                case "09":
+                case "3":
+                case "4":
+                case "9":
+                case "10":
+                case "14":
+                case "15":
+                case "20":
+                case "25":
+                case "26":
+                case "31":
+                case "36":
+                case "37":
+                case "41":
+                case "42":
+                case "47":
+                case "48":
+                    holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_hk_blue);
+                    break;
+                case "05":
+                case "06":
+                case "5":
+                case "6":
+                case "11":
+                case "16":
+                case "17":
+                case "21":
+                case "22":
+                case "27":
+                case "28":
+                case "32":
+                case "33":
+                case "38":
+                case "39":
+                case "43":
+                case "44":
+                case "49":
+                    holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_hk_green);
+                    break;
+                default:
+                    holder.setBackgroundRes(R.id.cpOrderContentName2,0);
+
+            }
+        }
+
 
         private void onSetKSImageView01(String data,ViewHolder holder){
             switch (data){
@@ -26993,6 +27091,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                             break;
                     }
 
+                    break;
+                case "QIUHK":
+                    holder.setText(R.id.cpOrderContentState, data.getOrderState());
+                    holder.setText(R.id.cpOrderContentName2, data.getOrderName());
+                    //holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_qiu);
+                    onSetQIUHKView(data.getOrderName(),holder);
                     break;
                 case "QIU":
                     holder.setText(R.id.cpOrderContentState, data.getOrderState());
