@@ -2275,6 +2275,775 @@ public class CPHKResult {
     private data80Bean data619;
     @SerializedName("808")
     private data80Bean data808;
+    /**
+     * 700 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"牛","rate":"2.09","locked":"0"}
+     * 701 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"兔","rate":"2.09","locked":"0"}
+     * 702 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"蛇","rate":"2.09","locked":"0"}
+     * 703 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"羊","rate":"2.09","locked":"0"}
+     * 704 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"鸡","rate":"2.09","locked":"0"}
+     * 705 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"猪","rate":"2.09","locked":"0"}
+     * 706 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"虎","rate":"2.09","locked":"0"}
+     * 707 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"龙","rate":"2.09","locked":"0"}
+     * 708 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"马","rate":"2.09","locked":"0"}
+     * 709 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"猴","rate":"2.09","locked":"0"}
+     * 710 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"狗","rate":"1.78","locked":"0"}
+     * 711 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"鼠","rate":"2.09","locked":"0"}
+     * 769 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"0","rate":"2.09","locked":"0"}
+     * 770 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"1","rate":"1.8","locked":"0"}
+     * 771 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"2","rate":"1.8","locked":"0"}
+     * 772 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"3","rate":"1.8","locked":"0"}
+     * 773 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"4","rate":"1.8","locked":"0"}
+     * 774 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"5","rate":"1.8","locked":"0"}
+     * 775 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"6","rate":"1.8","locked":"0"}
+     * 776 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"7","rate":"1.8","locked":"0"}
+     * 777 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"8","rate":"1.8","locked":"0"}
+     * 778 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"9","rate":"1.8","locked":"0"}
+     */
+
+    @SerializedName("700")
+    private data80Bean data700;
+    @SerializedName("701")
+    private data80Bean data701;
+    @SerializedName("702")
+    private data80Bean data702;
+    @SerializedName("703")
+    private data80Bean data703;
+    @SerializedName("704")
+    private data80Bean data704;
+    @SerializedName("705")
+    private data80Bean data705;
+    @SerializedName("706")
+    private data80Bean data706;
+    @SerializedName("707")
+    private data80Bean data707;
+    @SerializedName("708")
+    private data80Bean data708;
+    @SerializedName("709")
+    private data80Bean data709;
+    @SerializedName("710")
+    private data80Bean data710;
+    @SerializedName("711")
+    private data80Bean data711;
+    @SerializedName("769")
+    private data80Bean data769;
+    @SerializedName("770")
+    private data80Bean data770;
+    @SerializedName("771")
+    private data80Bean data771;
+    @SerializedName("772")
+    private data80Bean data772;
+    @SerializedName("773")
+    private data80Bean data773;
+    @SerializedName("774")
+    private data80Bean data774;
+    @SerializedName("775")
+    private data80Bean data775;
+    @SerializedName("776")
+    private data80Bean data776;
+    @SerializedName("777")
+    private data80Bean data777;
+    @SerializedName("778")
+    private data80Bean data778;
+    /**
+     * 674 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"牛","rate":"11.5","locked":"0"}
+     * 675 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"兔","rate":"11.5","locked":"0"}
+     * 676 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"蛇","rate":"11.5","locked":"0"}
+     * 677 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"羊","rate":"11.5","locked":"0"}
+     * 678 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"鸡","rate":"11.5","locked":"0"}
+     * 679 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"猪","rate":"11.5","locked":"0"}
+     * 680 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"虎","rate":"11.5","locked":"0"}
+     * 681 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"龙","rate":"11.5","locked":"0"}
+     * 682 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"马","rate":"11.5","locked":"0"}
+     * 683 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"猴","rate":"11.5","locked":"0"}
+     * 684 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"狗","rate":"9.2","locked":"0"}
+     * 685 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"鼠","rate":"11.5","locked":"0"}
+     */
+
+    @SerializedName("674")
+    private data80Bean data674;
+    @SerializedName("675")
+    private data80Bean data675;
+    @SerializedName("676")
+    private data80Bean data676;
+    @SerializedName("677")
+    private data80Bean data677;
+    @SerializedName("678")
+    private data80Bean data678;
+    @SerializedName("679")
+    private data80Bean data679;
+    @SerializedName("680")
+    private data80Bean data680;
+    @SerializedName("681")
+    private data80Bean data681;
+    @SerializedName("682")
+    private data80Bean data682;
+    @SerializedName("683")
+    private data80Bean data683;
+    @SerializedName("684")
+    private data80Bean data684;
+    @SerializedName("685")
+    private data80Bean data685;
+    /**
+     * 901 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"牛","rate":"5.82","locked":"0"}
+     * 902 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"兔","rate":"5.82","locked":"0"}
+     * 903 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"蛇","rate":"5.82","locked":"0"}
+     * 904 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"羊","rate":"5.82","locked":"0"}
+     * 905 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"鸡","rate":"5.82","locked":"0"}
+     * 906 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"猪","rate":"5.82","locked":"0"}
+     * 907 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"虎","rate":"5.82","locked":"0"}
+     * 908 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"龙","rate":"5.82","locked":"0"}
+     * 909 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"马","rate":"5.82","locked":"0"}
+     * 910 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"猴","rate":"5.82","locked":"0"}
+     * 911 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"狗","rate":"5.82","locked":"0"}
+     * 912 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"鼠","rate":"5.82","locked":"0"}
+     */
+
+    @SerializedName("901")
+    private data80Bean data901;
+    @SerializedName("902")
+    private data80Bean data902;
+    @SerializedName("903")
+    private data80Bean data903;
+    @SerializedName("904")
+    private data80Bean data904;
+    @SerializedName("905")
+    private data80Bean data905;
+    @SerializedName("906")
+    private data80Bean data906;
+    @SerializedName("907")
+    private data80Bean data907;
+    @SerializedName("908")
+    private data80Bean data908;
+    @SerializedName("909")
+    private data80Bean data909;
+    @SerializedName("910")
+    private data80Bean data910;
+    @SerializedName("911")
+    private data80Bean data911;
+    @SerializedName("912")
+    private data80Bean data912;
+    /**
+     * 1401 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"牛","rate":"4.5","locked":"0"}
+     * 1402 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"兔","rate":"4.5","locked":"0"}
+     * 1403 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"蛇","rate":"4.5","locked":"0"}
+     * 1404 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"羊","rate":"4.5","locked":"0"}
+     * 1405 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"鸡","rate":"4.5","locked":"0"}
+     * 1406 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"猪","rate":"4.5","locked":"0"}
+     * 1407 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"虎","rate":"4.5","locked":"0"}
+     * 1408 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"龙","rate":"4.5","locked":"0"}
+     * 1409 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"马","rate":"4.5","locked":"0"}
+     * 1410 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"猴","rate":"4.5","locked":"0"}
+     * 1411 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"狗","rate":"4","locked":"0"}
+     * 1412 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"鼠","rate":"4.5","locked":"0"}
+     */
+
+    @SerializedName("1401")
+    private data80Bean data1401;
+    @SerializedName("1402")
+    private data80Bean data1402;
+    @SerializedName("1403")
+    private data80Bean data1403;
+    @SerializedName("1404")
+    private data80Bean data1404;
+    @SerializedName("1405")
+    private data80Bean data1405;
+    @SerializedName("1406")
+    private data80Bean data1406;
+    @SerializedName("1407")
+    private data80Bean data1407;
+    @SerializedName("1408")
+    private data80Bean data1408;
+    @SerializedName("1409")
+    private data80Bean data1409;
+    @SerializedName("1410")
+    private data80Bean data1410;
+    @SerializedName("1411")
+    private data80Bean data1411;
+    @SerializedName("1412")
+    private data80Bean data1412;
+    /**
+     * 1413 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"牛","rate":"12","locked":"0"}
+     * 1414 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"兔","rate":"12","locked":"0"}
+     * 1415 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"蛇","rate":"12","locked":"0"}
+     * 1416 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"羊","rate":"12","locked":"0"}
+     * 1417 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"鸡","rate":"12","locked":"0"}
+     * 1418 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"猪","rate":"12","locked":"0"}
+     * 1419 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"虎","rate":"12","locked":"0"}
+     * 1420 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"龙","rate":"12","locked":"0"}
+     * 1421 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"马","rate":"12","locked":"0"}
+     * 1422 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"猴","rate":"12","locked":"0"}
+     * 1423 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"狗","rate":"9.5","locked":"0"}
+     * 1424 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"鼠","rate":"12","locked":"0"}
+     */
+
+    @SerializedName("1413")
+    private data80Bean data1413;
+    @SerializedName("1414")
+    private data80Bean data1414;
+    @SerializedName("1415")
+    private data80Bean data1415;
+    @SerializedName("1416")
+    private data80Bean data1416;
+    @SerializedName("1417")
+    private data80Bean data1417;
+    @SerializedName("1418")
+    private data80Bean data1418;
+    @SerializedName("1419")
+    private data80Bean data1419;
+    @SerializedName("1420")
+    private data80Bean data1420;
+    @SerializedName("1421")
+    private data80Bean data1421;
+    @SerializedName("1422")
+    private data80Bean data1422;
+    @SerializedName("1423")
+    private data80Bean data1423;
+    @SerializedName("1424")
+    private data80Bean data1424;
+    /**
+     * 1425 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"牛","rate":"35","locked":"0"}
+     * 1426 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"兔","rate":"35","locked":"0"}
+     * 1427 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"蛇","rate":"35","locked":"0"}
+     * 1428 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"羊","rate":"35","locked":"0"}
+     * 1429 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"鸡","rate":"35","locked":"0"}
+     * 1430 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"猪","rate":"35","locked":"0"}
+     * 1431 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"虎","rate":"35","locked":"0"}
+     * 1432 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"龙","rate":"35","locked":"0"}
+     * 1433 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"马","rate":"35","locked":"0"}
+     * 1434 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"猴","rate":"35","locked":"0"}
+     * 1435 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"狗","rate":"28","locked":"0"}
+     * 1436 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"鼠","rate":"35","locked":"0"}
+     */
+
+    @SerializedName("1425")
+    private data80Bean data1425;
+    @SerializedName("1426")
+    private data80Bean data1426;
+    @SerializedName("1427")
+    private data80Bean data1427;
+    @SerializedName("1428")
+    private data80Bean data1428;
+    @SerializedName("1429")
+    private data80Bean data1429;
+    @SerializedName("1430")
+    private data80Bean data1430;
+    @SerializedName("1431")
+    private data80Bean data1431;
+    @SerializedName("1432")
+    private data80Bean data1432;
+    @SerializedName("1433")
+    private data80Bean data1433;
+    @SerializedName("1434")
+    private data80Bean data1434;
+    @SerializedName("1435")
+    private data80Bean data1435;
+    @SerializedName("1436")
+    private data80Bean data1436;
+
+    /**
+     * 1473 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"牛","rate":"85","locked":"0"}
+     * 1474 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"兔","rate":"85","locked":"0"}
+     * 1475 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"蛇","rate":"85","locked":"0"}
+     * 1476 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"羊","rate":"85","locked":"0"}
+     * 1477 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"鸡","rate":"85","locked":"0"}
+     * 1478 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"猪","rate":"85","locked":"0"}
+     * 1479 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"虎","rate":"85","locked":"0"}
+     * 1480 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"龙","rate":"85","locked":"0"}
+     * 1481 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"马","rate":"85","locked":"0"}
+     * 1482 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"猴","rate":"85","locked":"0"}
+     * 1483 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"狗","rate":"75","locked":"0"}
+     * 1484 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"鼠","rate":"85","locked":"0"}
+     */
+
+    @SerializedName("1473")
+    private data80Bean data1473;
+    @SerializedName("1474")
+    private data80Bean data1474;
+    @SerializedName("1475")
+    private data80Bean data1475;
+    @SerializedName("1476")
+    private data80Bean data1476;
+    @SerializedName("1477")
+    private data80Bean data1477;
+    @SerializedName("1478")
+    private data80Bean data1478;
+    @SerializedName("1479")
+    private data80Bean data1479;
+    @SerializedName("1480")
+    private data80Bean data1480;
+    @SerializedName("1481")
+    private data80Bean data1481;
+    @SerializedName("1482")
+    private data80Bean data1482;
+    @SerializedName("1483")
+    private data80Bean data1483;
+    @SerializedName("1484")
+    private data80Bean data1484;
+    /**
+     * 1437 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"牛","rate":"3.5","locked":"0"}
+     * 1438 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"兔","rate":"3.5","locked":"0"}
+     * 1439 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"蛇","rate":"3.5","locked":"0"}
+     * 1440 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"羊","rate":"3.5","locked":"0"}
+     * 1441 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"鸡","rate":"3.5","locked":"0"}
+     * 1442 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"猪","rate":"3.5","locked":"0"}
+     * 1443 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"虎","rate":"3.5","locked":"0"}
+     * 1444 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"龙","rate":"3.5","locked":"0"}
+     * 1445 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"马","rate":"3.5","locked":"0"}
+     * 1446 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"猴","rate":"3.5","locked":"0"}
+     * 1447 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"狗","rate":"3.5","locked":"0"}
+     * 1448 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"鼠","rate":"3.5","locked":"0"}
+     */
+
+    @SerializedName("1437")
+    private data80Bean data1437;
+    @SerializedName("1438")
+    private data80Bean data1438;
+    @SerializedName("1439")
+    private data80Bean data1439;
+    @SerializedName("1440")
+    private data80Bean data1440;
+    @SerializedName("1441")
+    private data80Bean data1441;
+    @SerializedName("1442")
+    private data80Bean data1442;
+    @SerializedName("1443")
+    private data80Bean data1443;
+    @SerializedName("1444")
+    private data80Bean data1444;
+    @SerializedName("1445")
+    private data80Bean data1445;
+    @SerializedName("1446")
+    private data80Bean data1446;
+    @SerializedName("1447")
+    private data80Bean data1447;
+    @SerializedName("1448")
+    private data80Bean data1448;
+    /**
+     * 1449 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"牛","rate":"8","locked":"0"}
+     * 1450 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"兔","rate":"8","locked":"0"}
+     * 1451 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"蛇","rate":"8","locked":"0"}
+     * 1452 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"羊","rate":"8","locked":"0"}
+     * 1453 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"鸡","rate":"8","locked":"0"}
+     * 1454 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"猪","rate":"8","locked":"0"}
+     * 1455 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"虎","rate":"8","locked":"0"}
+     * 1456 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"龙","rate":"8","locked":"0"}
+     * 1457 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"马","rate":"8","locked":"0"}
+     * 1458 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"猴","rate":"8","locked":"0"}
+     * 1459 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"狗","rate":"8","locked":"0"}
+     * 1460 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"鼠","rate":"8","locked":"0"}
+     */
+
+    @SerializedName("1449")
+    private data80Bean data1449;
+    @SerializedName("1450")
+    private data80Bean data1450;
+    @SerializedName("1451")
+    private data80Bean data1451;
+    @SerializedName("1452")
+    private data80Bean data1452;
+    @SerializedName("1453")
+    private data80Bean data1453;
+    @SerializedName("1454")
+    private data80Bean data1454;
+    @SerializedName("1455")
+    private data80Bean data1455;
+    @SerializedName("1456")
+    private data80Bean data1456;
+    @SerializedName("1457")
+    private data80Bean data1457;
+    @SerializedName("1458")
+    private data80Bean data1458;
+    @SerializedName("1459")
+    private data80Bean data1459;
+    @SerializedName("1460")
+    private data80Bean data1460;
+    /**
+     * 1461 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"牛","rate":"20","locked":"0"}
+     * 1462 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"兔","rate":"20","locked":"0"}
+     * 1463 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"蛇","rate":"20","locked":"0"}
+     * 1464 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"羊","rate":"20","locked":"0"}
+     * 1465 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"鸡","rate":"20","locked":"0"}
+     * 1466 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"猪","rate":"20","locked":"0"}
+     * 1467 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"虎","rate":"20","locked":"0"}
+     * 1468 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"龙","rate":"20","locked":"0"}
+     * 1469 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"马","rate":"20","locked":"0"}
+     * 1470 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"猴","rate":"20","locked":"0"}
+     * 1471 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"狗","rate":"20","locked":"0"}
+     * 1472 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"鼠","rate":"20","locked":"0"}
+     */
+
+    @SerializedName("1461")
+    private data80Bean data1461;
+    @SerializedName("1462")
+    private data80Bean data1462;
+    @SerializedName("1463")
+    private data80Bean data1463;
+    @SerializedName("1464")
+    private data80Bean data1464;
+    @SerializedName("1465")
+    private data80Bean data1465;
+    @SerializedName("1466")
+    private data80Bean data1466;
+    @SerializedName("1467")
+    private data80Bean data1467;
+    @SerializedName("1468")
+    private data80Bean data1468;
+    @SerializedName("1469")
+    private data80Bean data1469;
+    @SerializedName("1470")
+    private data80Bean data1470;
+    @SerializedName("1471")
+    private data80Bean data1471;
+    @SerializedName("1472")
+    private data80Bean data1472;
+    /**
+     * 1301 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"1","rate":"3.4","locked":"0"}
+     * 1302 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"2","rate":"3.4","locked":"0"}
+     * 1303 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"3","rate":"3.4","locked":"0"}
+     * 1304 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"4","rate":"3.4","locked":"0"}
+     * 1305 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"5","rate":"3.4","locked":"0"}
+     * 1306 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"6","rate":"3.4","locked":"0"}
+     * 1307 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"7","rate":"3.4","locked":"0"}
+     * 1308 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"8","rate":"3.4","locked":"0"}
+     * 1309 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"9","rate":"3.4","locked":"0"}
+     * 1310 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"0","rate":"3.4","locked":"0"}
+     */
+
+    @SerializedName("1301")
+    private data80Bean data1301;
+    @SerializedName("1302")
+    private data80Bean data1302;
+    @SerializedName("1303")
+    private data80Bean data1303;
+    @SerializedName("1304")
+    private data80Bean data1304;
+    @SerializedName("1305")
+    private data80Bean data1305;
+    @SerializedName("1306")
+    private data80Bean data1306;
+    @SerializedName("1307")
+    private data80Bean data1307;
+    @SerializedName("1308")
+    private data80Bean data1308;
+    @SerializedName("1309")
+    private data80Bean data1309;
+    @SerializedName("1310")
+    private data80Bean data1310;
+    /**
+     * 1311 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"1","rate":"7.2","locked":"0"}
+     * 1312 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"2","rate":"7.2","locked":"0"}
+     * 1313 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"3","rate":"7.2","locked":"0"}
+     * 1314 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"4","rate":"7.2","locked":"0"}
+     * 1315 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"5","rate":"7.2","locked":"0"}
+     * 1316 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"6","rate":"7.2","locked":"0"}
+     * 1317 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"7","rate":"7.2","locked":"0"}
+     * 1318 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"8","rate":"7.2","locked":"0"}
+     * 1319 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"9","rate":"7.2","locked":"0"}
+     * 1320 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"0","rate":"7.2","locked":"0"}
+     */
+
+    @SerializedName("1311")
+    private data80Bean data1311;
+    @SerializedName("1312")
+    private data80Bean data1312;
+    @SerializedName("1313")
+    private data80Bean data1313;
+    @SerializedName("1314")
+    private data80Bean data1314;
+    @SerializedName("1315")
+    private data80Bean data1315;
+    @SerializedName("1316")
+    private data80Bean data1316;
+    @SerializedName("1317")
+    private data80Bean data1317;
+    @SerializedName("1318")
+    private data80Bean data1318;
+    @SerializedName("1319")
+    private data80Bean data1319;
+    @SerializedName("1320")
+    private data80Bean data1320;
+    /**
+     * 1321 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"1","rate":"17","locked":"0"}
+     * 1322 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"2","rate":"17","locked":"0"}
+     * 1323 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"3","rate":"17","locked":"0"}
+     * 1324 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"4","rate":"17","locked":"0"}
+     * 1325 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"5","rate":"17","locked":"0"}
+     * 1326 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"6","rate":"17","locked":"0"}
+     * 1327 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"7","rate":"17","locked":"0"}
+     * 1328 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"8","rate":"17","locked":"0"}
+     * 1329 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"9","rate":"17","locked":"0"}
+     * 1330 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"0","rate":"17","locked":"0"}
+     */
+
+    @SerializedName("1321")
+    private data80Bean data1321;
+    @SerializedName("1322")
+    private data80Bean data1322;
+    @SerializedName("1323")
+    private data80Bean data1323;
+    @SerializedName("1324")
+    private data80Bean data1324;
+    @SerializedName("1325")
+    private data80Bean data1325;
+    @SerializedName("1326")
+    private data80Bean data1326;
+    @SerializedName("1327")
+    private data80Bean data1327;
+    @SerializedName("1328")
+    private data80Bean data1328;
+    @SerializedName("1329")
+    private data80Bean data1329;
+    @SerializedName("1330")
+    private data80Bean data1330;
+    /**
+     * 1331 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"1","rate":"5.1","locked":"0"}
+     * 1332 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"2","rate":"5.1","locked":"0"}
+     * 1333 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"3","rate":"5.1","locked":"0"}
+     * 1334 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"4","rate":"5.1","locked":"0"}
+     * 1335 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"5","rate":"5.1","locked":"0"}
+     * 1336 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"6","rate":"5.1","locked":"0"}
+     * 1337 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"7","rate":"5.1","locked":"0"}
+     * 1338 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"8","rate":"5.1","locked":"0"}
+     * 1339 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"9","rate":"5.1","locked":"0"}
+     * 1340 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"0","rate":"4","locked":"0"}
+     */
+
+    @SerializedName("1331")
+    private data80Bean data1331;
+    @SerializedName("1332")
+    private data80Bean data1332;
+    @SerializedName("1333")
+    private data80Bean data1333;
+    @SerializedName("1334")
+    private data80Bean data1334;
+    @SerializedName("1335")
+    private data80Bean data1335;
+    @SerializedName("1336")
+    private data80Bean data1336;
+    @SerializedName("1337")
+    private data80Bean data1337;
+    @SerializedName("1338")
+    private data80Bean data1338;
+    @SerializedName("1339")
+    private data80Bean data1339;
+    @SerializedName("1340")
+    private data80Bean data1340;
+    /**
+     * 1341 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"1","rate":"15","locked":"0"}
+     * 1342 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"2","rate":"15","locked":"0"}
+     * 1343 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"3","rate":"15","locked":"0"}
+     * 1344 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"4","rate":"15","locked":"0"}
+     * 1345 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"5","rate":"15","locked":"0"}
+     * 1346 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"6","rate":"15","locked":"0"}
+     * 1347 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"7","rate":"15","locked":"0"}
+     * 1348 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"8","rate":"15","locked":"0"}
+     * 1349 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"9","rate":"15","locked":"0"}
+     * 1350 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"0","rate":"12","locked":"0"}
+     */
+
+    @SerializedName("1341")
+    private data80Bean data1341;
+    @SerializedName("1342")
+    private data80Bean data1342;
+    @SerializedName("1343")
+    private data80Bean data1343;
+    @SerializedName("1344")
+    private data80Bean data1344;
+    @SerializedName("1345")
+    private data80Bean data1345;
+    @SerializedName("1346")
+    private data80Bean data1346;
+    @SerializedName("1347")
+    private data80Bean data1347;
+    @SerializedName("1348")
+    private data80Bean data1348;
+    @SerializedName("1349")
+    private data80Bean data1349;
+    @SerializedName("1350")
+    private data80Bean data1350;
+    /**
+     * 1351 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"1","rate":"51","locked":"0"}
+     * 1352 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"2","rate":"51","locked":"0"}
+     * 1353 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"3","rate":"51","locked":"0"}
+     * 1354 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"4","rate":"51","locked":"0"}
+     * 1355 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"5","rate":"51","locked":"0"}
+     * 1356 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"6","rate":"51","locked":"0"}
+     * 1357 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"7","rate":"51","locked":"0"}
+     * 1358 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"8","rate":"51","locked":"0"}
+     * 1359 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"9","rate":"51","locked":"0"}
+     * 1360 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"0","rate":"41","locked":"0"}
+     */
+
+    @SerializedName("1351")
+    private data80Bean data1351;
+    @SerializedName("1352")
+    private data80Bean data1352;
+    @SerializedName("1353")
+    private data80Bean data1353;
+    @SerializedName("1354")
+    private data80Bean data1354;
+    @SerializedName("1355")
+    private data80Bean data1355;
+    @SerializedName("1356")
+    private data80Bean data1356;
+    @SerializedName("1357")
+    private data80Bean data1357;
+    @SerializedName("1358")
+    private data80Bean data1358;
+    @SerializedName("1359")
+    private data80Bean data1359;
+    @SerializedName("1360")
+    private data80Bean data1360;
+    /**
+     * 1101 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"1","rate":"2.18","locked":"0"}
+     * 1102 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"2","rate":"2.18","locked":"0"}
+     * 1103 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"3","rate":"2.18","locked":"0"}
+     * 1104 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"4","rate":"2.18","locked":"0"}
+     * 1105 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"5","rate":"2.18","locked":"0"}
+     * 1106 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"6","rate":"2.18","locked":"0"}
+     * 1107 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"7","rate":"2.18","locked":"0"}
+     * 1108 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"8","rate":"2.18","locked":"0"}
+     * 1109 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"9","rate":"2.18","locked":"0"}
+     * 1110 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"10","rate":"2.18","locked":"0"}
+     * 1111 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"11","rate":"2.18","locked":"0"}
+     * 1112 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"12","rate":"2.18","locked":"0"}
+     * 1113 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"13","rate":"2.18","locked":"0"}
+     * 1114 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"14","rate":"2.18","locked":"0"}
+     * 1115 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"15","rate":"2.18","locked":"0"}
+     * 1116 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"16","rate":"2.18","locked":"0"}
+     * 1117 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"17","rate":"2.18","locked":"0"}
+     * 1118 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"18","rate":"2.18","locked":"0"}
+     * 1119 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"19","rate":"2.18","locked":"0"}
+     * 1120 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"20","rate":"2.18","locked":"0"}
+     * 1121 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"21","rate":"2.18","locked":"0"}
+     * 1122 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"22","rate":"2.18","locked":"0"}
+     * 1123 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"23","rate":"2.18","locked":"0"}
+     * 1124 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"24","rate":"2.18","locked":"0"}
+     * 1125 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"25","rate":"2.18","locked":"0"}
+     * 1126 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"26","rate":"2.18","locked":"0"}
+     * 1127 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"27","rate":"2.18","locked":"0"}
+     * 1128 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"28","rate":"2.18","locked":"0"}
+     * 1129 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"29","rate":"2.18","locked":"0"}
+     * 1130 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"30","rate":"2.18","locked":"0"}
+     * 1131 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"31","rate":"2.18","locked":"0"}
+     * 1132 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"32","rate":"2.18","locked":"0"}
+     * 1133 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"33","rate":"2.18","locked":"0"}
+     * 1134 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"34","rate":"2.18","locked":"0"}
+     * 1135 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"35","rate":"2.18","locked":"0"}
+     * 1136 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"36","rate":"2.18","locked":"0"}
+     * 1137 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"37","rate":"2.18","locked":"0"}
+     * 1138 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"38","rate":"2.18","locked":"0"}
+     * 1139 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"39","rate":"2.18","locked":"0"}
+     * 1140 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"40","rate":"2.18","locked":"0"}
+     * 1141 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"41","rate":"2.18","locked":"0"}
+     * 1142 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"42","rate":"2.18","locked":"0"}
+     * 1143 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"43","rate":"2.18","locked":"0"}
+     * 1144 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"44","rate":"2.18","locked":"0"}
+     * 1145 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"45","rate":"2.18","locked":"0"}
+     * 1146 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"46","rate":"2.18","locked":"0"}
+     * 1147 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"47","rate":"2.18","locked":"0"}
+     * 1148 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"48","rate":"2.18","locked":"0"}
+     * 1149 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"49","rate":"2.18","locked":"0"}
+     */
+
+    @SerializedName("1101")
+    private data80Bean data1101;
+    @SerializedName("1102")
+    private data80Bean data1102;
+    @SerializedName("1103")
+    private data80Bean data1103;
+    @SerializedName("1104")
+    private data80Bean data1104;
+    @SerializedName("1105")
+    private data80Bean data1105;
+    @SerializedName("1106")
+    private data80Bean data1106;
+    @SerializedName("1107")
+    private data80Bean data1107;
+    @SerializedName("1108")
+    private data80Bean data1108;
+    @SerializedName("1109")
+    private data80Bean data1109;
+    @SerializedName("1110")
+    private data80Bean data1110;
+    @SerializedName("1111")
+    private data80Bean data1111;
+    @SerializedName("1112")
+    private data80Bean data1112;
+    @SerializedName("1113")
+    private data80Bean data1113;
+    @SerializedName("1114")
+    private data80Bean data1114;
+    @SerializedName("1115")
+    private data80Bean data1115;
+    @SerializedName("1116")
+    private data80Bean data1116;
+    @SerializedName("1117")
+    private data80Bean data1117;
+    @SerializedName("1118")
+    private data80Bean data1118;
+    @SerializedName("1119")
+    private data80Bean data1119;
+    @SerializedName("1120")
+    private data80Bean data1120;
+    @SerializedName("1121")
+    private data80Bean data1121;
+    @SerializedName("1122")
+    private data80Bean data1122;
+    @SerializedName("1123")
+    private data80Bean data1123;
+    @SerializedName("1124")
+    private data80Bean data1124;
+    @SerializedName("1125")
+    private data80Bean data1125;
+    @SerializedName("1126")
+    private data80Bean data1126;
+    @SerializedName("1127")
+    private data80Bean data1127;
+    @SerializedName("1128")
+    private data80Bean data1128;
+    @SerializedName("1129")
+    private data80Bean data1129;
+    @SerializedName("1130")
+    private data80Bean data1130;
+    @SerializedName("1131")
+    private data80Bean data1131;
+    @SerializedName("1132")
+    private data80Bean data1132;
+    @SerializedName("1133")
+    private data80Bean data1133;
+    @SerializedName("1134")
+    private data80Bean data1134;
+    @SerializedName("1135")
+    private data80Bean data1135;
+    @SerializedName("1136")
+    private data80Bean data1136;
+    @SerializedName("1137")
+    private data80Bean data1137;
+    @SerializedName("1138")
+    private data80Bean data1138;
+    @SerializedName("1139")
+    private data80Bean data1139;
+    @SerializedName("1140")
+    private data80Bean data1140;
+    @SerializedName("1141")
+    private data80Bean data1141;
+    @SerializedName("1142")
+    private data80Bean data1142;
+    @SerializedName("1143")
+    private data80Bean data1143;
+    @SerializedName("1144")
+    private data80Bean data1144;
+    @SerializedName("1145")
+    private data80Bean data1145;
+    @SerializedName("1146")
+    private data80Bean data1146;
+    @SerializedName("1147")
+    private data80Bean data1147;
+    @SerializedName("1148")
+    private data80Bean data1148;
+    @SerializedName("1149")
+    private data80Bean data1149;
 
 
     public data1Bean getdata1() {
@@ -8227,6 +8996,1918 @@ public class CPHKResult {
 
     public void setdata808(data80Bean data808) {
         this.data808 = data808;
+    }
+
+    public data80Bean getdata700() {
+        return data700;
+    }
+
+    public void setdata700(data80Bean data700) {
+        this.data700 = data700;
+    }
+
+    public data80Bean getdata701() {
+        return data701;
+    }
+
+    public void setdata701(data80Bean data701) {
+        this.data701 = data701;
+    }
+
+    public data80Bean getdata702() {
+        return data702;
+    }
+
+    public void setdata702(data80Bean data702) {
+        this.data702 = data702;
+    }
+
+    public data80Bean getdata703() {
+        return data703;
+    }
+
+    public void setdata703(data80Bean data703) {
+        this.data703 = data703;
+    }
+
+    public data80Bean getdata704() {
+        return data704;
+    }
+
+    public void setdata704(data80Bean data704) {
+        this.data704 = data704;
+    }
+
+    public data80Bean getdata705() {
+        return data705;
+    }
+
+    public void setdata705(data80Bean data705) {
+        this.data705 = data705;
+    }
+
+    public data80Bean getdata706() {
+        return data706;
+    }
+
+    public void setdata706(data80Bean data706) {
+        this.data706 = data706;
+    }
+
+    public data80Bean getdata707() {
+        return data707;
+    }
+
+    public void setdata707(data80Bean data707) {
+        this.data707 = data707;
+    }
+
+    public data80Bean getdata708() {
+        return data708;
+    }
+
+    public void setdata708(data80Bean data708) {
+        this.data708 = data708;
+    }
+
+    public data80Bean getdata709() {
+        return data709;
+    }
+
+    public void setdata709(data80Bean data709) {
+        this.data709 = data709;
+    }
+
+    public data80Bean getdata710() {
+        return data710;
+    }
+
+    public void setdata710(data80Bean data710) {
+        this.data710 = data710;
+    }
+
+    public data80Bean getdata711() {
+        return data711;
+    }
+
+    public void setdata711(data80Bean data711) {
+        this.data711 = data711;
+    }
+
+    public data80Bean getdata769() {
+        return data769;
+    }
+
+    public void setdata769(data80Bean data769) {
+        this.data769 = data769;
+    }
+
+    public data80Bean getdata770() {
+        return data770;
+    }
+
+    public void setdata770(data80Bean data770) {
+        this.data770 = data770;
+    }
+
+    public data80Bean getdata771() {
+        return data771;
+    }
+
+    public void setdata771(data80Bean data771) {
+        this.data771 = data771;
+    }
+
+    public data80Bean getdata772() {
+        return data772;
+    }
+
+    public void setdata772(data80Bean data772) {
+        this.data772 = data772;
+    }
+
+    public data80Bean getdata773() {
+        return data773;
+    }
+
+    public void setdata773(data80Bean data773) {
+        this.data773 = data773;
+    }
+
+    public data80Bean getdata774() {
+        return data774;
+    }
+
+    public void setdata774(data80Bean data774) {
+        this.data774 = data774;
+    }
+
+    public data80Bean getdata775() {
+        return data775;
+    }
+
+    public void setdata775(data80Bean data775) {
+        this.data775 = data775;
+    }
+
+    public data80Bean getdata776() {
+        return data776;
+    }
+
+    public void setdata776(data80Bean data776) {
+        this.data776 = data776;
+    }
+
+    public data80Bean getdata777() {
+        return data777;
+    }
+
+    public void setdata777(data80Bean data777) {
+        this.data777 = data777;
+    }
+
+    public data80Bean getdata778() {
+        return data778;
+    }
+
+    public void setdata778(data80Bean data778) {
+        this.data778 = data778;
+    }
+
+    public data80Bean getdata674() {
+        return data674;
+    }
+
+    public void setdata674(data80Bean data674) {
+        this.data674 = data674;
+    }
+
+    public data80Bean getdata675() {
+        return data675;
+    }
+
+    public void setdata675(data80Bean data675) {
+        this.data675 = data675;
+    }
+
+    public data80Bean getdata676() {
+        return data676;
+    }
+
+    public void setdata676(data80Bean data676) {
+        this.data676 = data676;
+    }
+
+    public data80Bean getdata677() {
+        return data677;
+    }
+
+    public void setdata677(data80Bean data677) {
+        this.data677 = data677;
+    }
+
+    public data80Bean getdata678() {
+        return data678;
+    }
+
+    public void setdata678(data80Bean data678) {
+        this.data678 = data678;
+    }
+
+    public data80Bean getdata679() {
+        return data679;
+    }
+
+    public void setdata679(data80Bean data679) {
+        this.data679 = data679;
+    }
+
+    public data80Bean getdata680() {
+        return data680;
+    }
+
+    public void setdata680(data80Bean data680) {
+        this.data680 = data680;
+    }
+
+    public data80Bean getdata681() {
+        return data681;
+    }
+
+    public void setdata681(data80Bean data681) {
+        this.data681 = data681;
+    }
+
+    public data80Bean getdata682() {
+        return data682;
+    }
+
+    public void setdata682(data80Bean data682) {
+        this.data682 = data682;
+    }
+
+    public data80Bean getdata683() {
+        return data683;
+    }
+
+    public void setdata683(data80Bean data683) {
+        this.data683 = data683;
+    }
+
+    public data80Bean getdata684() {
+        return data684;
+    }
+
+    public void setdata684(data80Bean data684) {
+        this.data684 = data684;
+    }
+
+    public data80Bean getdata685() {
+        return data685;
+    }
+
+    public void setdata685(data80Bean data685) {
+        this.data685 = data685;
+    }
+
+    public data80Bean getdata901() {
+        return data901;
+    }
+
+    public void setdata901(data80Bean data901) {
+        this.data901 = data901;
+    }
+
+    public data80Bean getdata902() {
+        return data902;
+    }
+
+    public void setdata902(data80Bean data902) {
+        this.data902 = data902;
+    }
+
+    public data80Bean getdata903() {
+        return data903;
+    }
+
+    public void setdata903(data80Bean data903) {
+        this.data903 = data903;
+    }
+
+    public data80Bean getdata904() {
+        return data904;
+    }
+
+    public void setdata904(data80Bean data904) {
+        this.data904 = data904;
+    }
+
+    public data80Bean getdata905() {
+        return data905;
+    }
+
+    public void setdata905(data80Bean data905) {
+        this.data905 = data905;
+    }
+
+    public data80Bean getdata906() {
+        return data906;
+    }
+
+    public void setdata906(data80Bean data906) {
+        this.data906 = data906;
+    }
+
+    public data80Bean getdata907() {
+        return data907;
+    }
+
+    public void setdata907(data80Bean data907) {
+        this.data907 = data907;
+    }
+
+    public data80Bean getdata908() {
+        return data908;
+    }
+
+    public void setdata908(data80Bean data908) {
+        this.data908 = data908;
+    }
+
+    public data80Bean getdata909() {
+        return data909;
+    }
+
+    public void setdata909(data80Bean data909) {
+        this.data909 = data909;
+    }
+
+    public data80Bean getdata910() {
+        return data910;
+    }
+
+    public void setdata910(data80Bean data910) {
+        this.data910 = data910;
+    }
+
+    public data80Bean getdata911() {
+        return data911;
+    }
+
+    public void setdata911(data80Bean data911) {
+        this.data911 = data911;
+    }
+
+    public data80Bean getdata912() {
+        return data912;
+    }
+
+    public void setdata912(data80Bean data912) {
+        this.data912 = data912;
+    }
+
+    public data80Bean getdata1401() {
+        return data1401;
+    }
+
+    public void setdata1401(data80Bean data1401) {
+        this.data1401 = data1401;
+    }
+
+    public data80Bean getdata1402() {
+        return data1402;
+    }
+
+    public void setdata1402(data80Bean data1402) {
+        this.data1402 = data1402;
+    }
+
+    public data80Bean getdata1403() {
+        return data1403;
+    }
+
+    public void setdata1403(data80Bean data1403) {
+        this.data1403 = data1403;
+    }
+
+    public data80Bean getdata1404() {
+        return data1404;
+    }
+
+    public void setdata1404(data80Bean data1404) {
+        this.data1404 = data1404;
+    }
+
+    public data80Bean getdata1405() {
+        return data1405;
+    }
+
+    public void setdata1405(data80Bean data1405) {
+        this.data1405 = data1405;
+    }
+
+    public data80Bean getdata1406() {
+        return data1406;
+    }
+
+    public void setdata1406(data80Bean data1406) {
+        this.data1406 = data1406;
+    }
+
+    public data80Bean getdata1407() {
+        return data1407;
+    }
+
+    public void setdata1407(data80Bean data1407) {
+        this.data1407 = data1407;
+    }
+
+    public data80Bean getdata1408() {
+        return data1408;
+    }
+
+    public void setdata1408(data80Bean data1408) {
+        this.data1408 = data1408;
+    }
+
+    public data80Bean getdata1409() {
+        return data1409;
+    }
+
+    public void setdata1409(data80Bean data1409) {
+        this.data1409 = data1409;
+    }
+
+    public data80Bean getdata1410() {
+        return data1410;
+    }
+
+    public void setdata1410(data80Bean data1410) {
+        this.data1410 = data1410;
+    }
+
+    public data80Bean getdata1411() {
+        return data1411;
+    }
+
+    public void setdata1411(data80Bean data1411) {
+        this.data1411 = data1411;
+    }
+
+    public data80Bean getdata1412() {
+        return data1412;
+    }
+
+    public void setdata1412(data80Bean data1412) {
+        this.data1412 = data1412;
+    }
+
+    public data80Bean getdata1413() {
+        return data1413;
+    }
+
+    public void setdata1413(data80Bean data1413) {
+        this.data1413 = data1413;
+    }
+
+    public data80Bean getdata1414() {
+        return data1414;
+    }
+
+    public void setdata1414(data80Bean data1414) {
+        this.data1414 = data1414;
+    }
+
+    public data80Bean getdata1415() {
+        return data1415;
+    }
+
+    public void setdata1415(data80Bean data1415) {
+        this.data1415 = data1415;
+    }
+
+    public data80Bean getdata1416() {
+        return data1416;
+    }
+
+    public void setdata1416(data80Bean data1416) {
+        this.data1416 = data1416;
+    }
+
+    public data80Bean getdata1417() {
+        return data1417;
+    }
+
+    public void setdata1417(data80Bean data1417) {
+        this.data1417 = data1417;
+    }
+
+    public data80Bean getdata1418() {
+        return data1418;
+    }
+
+    public void setdata1418(data80Bean data1418) {
+        this.data1418 = data1418;
+    }
+
+    public data80Bean getdata1419() {
+        return data1419;
+    }
+
+    public void setdata1419(data80Bean data1419) {
+        this.data1419 = data1419;
+    }
+
+    public data80Bean getdata1420() {
+        return data1420;
+    }
+
+    public void setdata1420(data80Bean data1420) {
+        this.data1420 = data1420;
+    }
+
+    public data80Bean getdata1421() {
+        return data1421;
+    }
+
+    public void setdata1421(data80Bean data1421) {
+        this.data1421 = data1421;
+    }
+
+    public data80Bean getdata1422() {
+        return data1422;
+    }
+
+    public void setdata1422(data80Bean data1422) {
+        this.data1422 = data1422;
+    }
+
+    public data80Bean getdata1423() {
+        return data1423;
+    }
+
+    public void setdata1423(data80Bean data1423) {
+        this.data1423 = data1423;
+    }
+
+    public data80Bean getdata1424() {
+        return data1424;
+    }
+
+    public void setdata1424(data80Bean data1424) {
+        this.data1424 = data1424;
+    }
+
+    public data80Bean getdata1425() {
+        return data1425;
+    }
+
+    public void setdata1425(data80Bean data1425) {
+        this.data1425 = data1425;
+    }
+
+    public data80Bean getdata1426() {
+        return data1426;
+    }
+
+    public void setdata1426(data80Bean data1426) {
+        this.data1426 = data1426;
+    }
+
+    public data80Bean getdata1427() {
+        return data1427;
+    }
+
+    public void setdata1427(data80Bean data1427) {
+        this.data1427 = data1427;
+    }
+
+    public data80Bean getdata1428() {
+        return data1428;
+    }
+
+    public void setdata1428(data80Bean data1428) {
+        this.data1428 = data1428;
+    }
+
+    public data80Bean getdata1429() {
+        return data1429;
+    }
+
+    public void setdata1429(data80Bean data1429) {
+        this.data1429 = data1429;
+    }
+
+    public data80Bean getdata1430() {
+        return data1430;
+    }
+
+    public void setdata1430(data80Bean data1430) {
+        this.data1430 = data1430;
+    }
+
+    public data80Bean getdata1431() {
+        return data1431;
+    }
+
+    public void setdata1431(data80Bean data1431) {
+        this.data1431 = data1431;
+    }
+
+    public data80Bean getdata1432() {
+        return data1432;
+    }
+
+    public void setdata1432(data80Bean data1432) {
+        this.data1432 = data1432;
+    }
+
+    public data80Bean getdata1433() {
+        return data1433;
+    }
+
+    public void setdata1433(data80Bean data1433) {
+        this.data1433 = data1433;
+    }
+
+    public data80Bean getdata1434() {
+        return data1434;
+    }
+
+    public void setdata1434(data80Bean data1434) {
+        this.data1434 = data1434;
+    }
+
+    public data80Bean getdata1435() {
+        return data1435;
+    }
+
+    public void setdata1435(data80Bean data1435) {
+        this.data1435 = data1435;
+    }
+
+    public data80Bean getdata1436() {
+        return data1436;
+    }
+
+    public void setdata1436(data80Bean data1436) {
+        this.data1436 = data1436;
+    }
+
+    public data80Bean getdata1473() {
+        return data1473;
+    }
+
+    public void setdata1473(data80Bean data1473) {
+        this.data1473 = data1473;
+    }
+
+    public data80Bean getdata1474() {
+        return data1474;
+    }
+
+    public void setdata1474(data80Bean data1474) {
+        this.data1474 = data1474;
+    }
+
+    public data80Bean getdata1475() {
+        return data1475;
+    }
+
+    public void setdata1475(data80Bean data1475) {
+        this.data1475 = data1475;
+    }
+
+    public data80Bean getdata1476() {
+        return data1476;
+    }
+
+    public void setdata1476(data80Bean data1476) {
+        this.data1476 = data1476;
+    }
+
+    public data80Bean getdata1477() {
+        return data1477;
+    }
+
+    public void setdata1477(data80Bean data1477) {
+        this.data1477 = data1477;
+    }
+
+    public data80Bean getdata1478() {
+        return data1478;
+    }
+
+    public void setdata1478(data80Bean data1478) {
+        this.data1478 = data1478;
+    }
+
+    public data80Bean getdata1479() {
+        return data1479;
+    }
+
+    public void setdata1479(data80Bean data1479) {
+        this.data1479 = data1479;
+    }
+
+    public data80Bean getdata1480() {
+        return data1480;
+    }
+
+    public void setdata1480(data80Bean data1480) {
+        this.data1480 = data1480;
+    }
+
+    public data80Bean getdata1481() {
+        return data1481;
+    }
+
+    public void setdata1481(data80Bean data1481) {
+        this.data1481 = data1481;
+    }
+
+    public data80Bean getdata1482() {
+        return data1482;
+    }
+
+    public void setdata1482(data80Bean data1482) {
+        this.data1482 = data1482;
+    }
+
+    public data80Bean getdata1483() {
+        return data1483;
+    }
+
+    public void setdata1483(data80Bean data1483) {
+        this.data1483 = data1483;
+    }
+
+    public data80Bean getdata1484() {
+        return data1484;
+    }
+
+    public void setdata1484(data80Bean data1484) {
+        this.data1484 = data1484;
+    }
+
+    public data80Bean getdata1437() {
+        return data1437;
+    }
+
+    public void setdata1437(data80Bean data1437) {
+        this.data1437 = data1437;
+    }
+
+    public data80Bean getdata1438() {
+        return data1438;
+    }
+
+    public void setdata1438(data80Bean data1438) {
+        this.data1438 = data1438;
+    }
+
+    public data80Bean getdata1439() {
+        return data1439;
+    }
+
+    public void setdata1439(data80Bean data1439) {
+        this.data1439 = data1439;
+    }
+
+    public data80Bean getdata1440() {
+        return data1440;
+    }
+
+    public void setdata1440(data80Bean data1440) {
+        this.data1440 = data1440;
+    }
+
+    public data80Bean getdata1441() {
+        return data1441;
+    }
+
+    public void setdata1441(data80Bean data1441) {
+        this.data1441 = data1441;
+    }
+
+    public data80Bean getdata1442() {
+        return data1442;
+    }
+
+    public void setdata1442(data80Bean data1442) {
+        this.data1442 = data1442;
+    }
+
+    public data80Bean getdata1443() {
+        return data1443;
+    }
+
+    public void setdata1443(data80Bean data1443) {
+        this.data1443 = data1443;
+    }
+
+    public data80Bean getdata1444() {
+        return data1444;
+    }
+
+    public void setdata1444(data80Bean data1444) {
+        this.data1444 = data1444;
+    }
+
+    public data80Bean getdata1445() {
+        return data1445;
+    }
+
+    public void setdata1445(data80Bean data1445) {
+        this.data1445 = data1445;
+    }
+
+    public data80Bean getdata1446() {
+        return data1446;
+    }
+
+    public void setdata1446(data80Bean data1446) {
+        this.data1446 = data1446;
+    }
+
+    public data80Bean getdata1447() {
+        return data1447;
+    }
+
+    public void setdata1447(data80Bean data1447) {
+        this.data1447 = data1447;
+    }
+
+    public data80Bean getdata1448() {
+        return data1448;
+    }
+
+    public void setdata1448(data80Bean data1448) {
+        this.data1448 = data1448;
+    }
+
+    public data80Bean getdata1449() {
+        return data1449;
+    }
+
+    public void setdata1449(data80Bean data1449) {
+        this.data1449 = data1449;
+    }
+
+    public data80Bean getdata1450() {
+        return data1450;
+    }
+
+    public void setdata1450(data80Bean data1450) {
+        this.data1450 = data1450;
+    }
+
+    public data80Bean getdata1451() {
+        return data1451;
+    }
+
+    public void setdata1451(data80Bean data1451) {
+        this.data1451 = data1451;
+    }
+
+    public data80Bean getdata1452() {
+        return data1452;
+    }
+
+    public void setdata1452(data80Bean data1452) {
+        this.data1452 = data1452;
+    }
+
+    public data80Bean getdata1453() {
+        return data1453;
+    }
+
+    public void setdata1453(data80Bean data1453) {
+        this.data1453 = data1453;
+    }
+
+    public data80Bean getdata1454() {
+        return data1454;
+    }
+
+    public void setdata1454(data80Bean data1454) {
+        this.data1454 = data1454;
+    }
+
+    public data80Bean getdata1455() {
+        return data1455;
+    }
+
+    public void setdata1455(data80Bean data1455) {
+        this.data1455 = data1455;
+    }
+
+    public data80Bean getdata1456() {
+        return data1456;
+    }
+
+    public void setdata1456(data80Bean data1456) {
+        this.data1456 = data1456;
+    }
+
+    public data80Bean getdata1457() {
+        return data1457;
+    }
+
+    public void setdata1457(data80Bean data1457) {
+        this.data1457 = data1457;
+    }
+
+    public data80Bean getdata1458() {
+        return data1458;
+    }
+
+    public void setdata1458(data80Bean data1458) {
+        this.data1458 = data1458;
+    }
+
+    public data80Bean getdata1459() {
+        return data1459;
+    }
+
+    public void setdata1459(data80Bean data1459) {
+        this.data1459 = data1459;
+    }
+
+    public data80Bean getdata1460() {
+        return data1460;
+    }
+
+    public void setdata1460(data80Bean data1460) {
+        this.data1460 = data1460;
+    }
+
+    public data80Bean getdata1461() {
+        return data1461;
+    }
+
+    public void setdata1461(data80Bean data1461) {
+        this.data1461 = data1461;
+    }
+
+    public data80Bean getdata1462() {
+        return data1462;
+    }
+
+    public void setdata1462(data80Bean data1462) {
+        this.data1462 = data1462;
+    }
+
+    public data80Bean getdata1463() {
+        return data1463;
+    }
+
+    public void setdata1463(data80Bean data1463) {
+        this.data1463 = data1463;
+    }
+
+    public data80Bean getdata1464() {
+        return data1464;
+    }
+
+    public void setdata1464(data80Bean data1464) {
+        this.data1464 = data1464;
+    }
+
+    public data80Bean getdata1465() {
+        return data1465;
+    }
+
+    public void setdata1465(data80Bean data1465) {
+        this.data1465 = data1465;
+    }
+
+    public data80Bean getdata1466() {
+        return data1466;
+    }
+
+    public void setdata1466(data80Bean data1466) {
+        this.data1466 = data1466;
+    }
+
+    public data80Bean getdata1467() {
+        return data1467;
+    }
+
+    public void setdata1467(data80Bean data1467) {
+        this.data1467 = data1467;
+    }
+
+    public data80Bean getdata1468() {
+        return data1468;
+    }
+
+    public void setdata1468(data80Bean data1468) {
+        this.data1468 = data1468;
+    }
+
+    public data80Bean getdata1469() {
+        return data1469;
+    }
+
+    public void setdata1469(data80Bean data1469) {
+        this.data1469 = data1469;
+    }
+
+    public data80Bean getdata1470() {
+        return data1470;
+    }
+
+    public void setdata1470(data80Bean data1470) {
+        this.data1470 = data1470;
+    }
+
+    public data80Bean getdata1471() {
+        return data1471;
+    }
+
+    public void setdata1471(data80Bean data1471) {
+        this.data1471 = data1471;
+    }
+
+    public data80Bean getdata1472() {
+        return data1472;
+    }
+
+    public void setdata1472(data80Bean data1472) {
+        this.data1472 = data1472;
+    }
+
+    public data80Bean getdata1301() {
+        return data1301;
+    }
+
+    public void setdata1301(data80Bean data1301) {
+        this.data1301 = data1301;
+    }
+
+    public data80Bean getdata1302() {
+        return data1302;
+    }
+
+    public void setdata1302(data80Bean data1302) {
+        this.data1302 = data1302;
+    }
+
+    public data80Bean getdata1303() {
+        return data1303;
+    }
+
+    public void setdata1303(data80Bean data1303) {
+        this.data1303 = data1303;
+    }
+
+    public data80Bean getdata1304() {
+        return data1304;
+    }
+
+    public void setdata1304(data80Bean data1304) {
+        this.data1304 = data1304;
+    }
+
+    public data80Bean getdata1305() {
+        return data1305;
+    }
+
+    public void setdata1305(data80Bean data1305) {
+        this.data1305 = data1305;
+    }
+
+    public data80Bean getdata1306() {
+        return data1306;
+    }
+
+    public void setdata1306(data80Bean data1306) {
+        this.data1306 = data1306;
+    }
+
+    public data80Bean getdata1307() {
+        return data1307;
+    }
+
+    public void setdata1307(data80Bean data1307) {
+        this.data1307 = data1307;
+    }
+
+    public data80Bean getdata1308() {
+        return data1308;
+    }
+
+    public void setdata1308(data80Bean data1308) {
+        this.data1308 = data1308;
+    }
+
+    public data80Bean getdata1309() {
+        return data1309;
+    }
+
+    public void setdata1309(data80Bean data1309) {
+        this.data1309 = data1309;
+    }
+
+    public data80Bean getdata1310() {
+        return data1310;
+    }
+
+    public void setdata1310(data80Bean data1310) {
+        this.data1310 = data1310;
+    }
+
+    public data80Bean getdata1311() {
+        return data1311;
+    }
+
+    public void setdata1311(data80Bean data1311) {
+        this.data1311 = data1311;
+    }
+
+    public data80Bean getdata1312() {
+        return data1312;
+    }
+
+    public void setdata1312(data80Bean data1312) {
+        this.data1312 = data1312;
+    }
+
+    public data80Bean getdata1313() {
+        return data1313;
+    }
+
+    public void setdata1313(data80Bean data1313) {
+        this.data1313 = data1313;
+    }
+
+    public data80Bean getdata1314() {
+        return data1314;
+    }
+
+    public void setdata1314(data80Bean data1314) {
+        this.data1314 = data1314;
+    }
+
+    public data80Bean getdata1315() {
+        return data1315;
+    }
+
+    public void setdata1315(data80Bean data1315) {
+        this.data1315 = data1315;
+    }
+
+    public data80Bean getdata1316() {
+        return data1316;
+    }
+
+    public void setdata1316(data80Bean data1316) {
+        this.data1316 = data1316;
+    }
+
+    public data80Bean getdata1317() {
+        return data1317;
+    }
+
+    public void setdata1317(data80Bean data1317) {
+        this.data1317 = data1317;
+    }
+
+    public data80Bean getdata1318() {
+        return data1318;
+    }
+
+    public void setdata1318(data80Bean data1318) {
+        this.data1318 = data1318;
+    }
+
+    public data80Bean getdata1319() {
+        return data1319;
+    }
+
+    public void setdata1319(data80Bean data1319) {
+        this.data1319 = data1319;
+    }
+
+    public data80Bean getdata1320() {
+        return data1320;
+    }
+
+    public void setdata1320(data80Bean data1320) {
+        this.data1320 = data1320;
+    }
+
+    public data80Bean getdata1321() {
+        return data1321;
+    }
+
+    public void setdata1321(data80Bean data1321) {
+        this.data1321 = data1321;
+    }
+
+    public data80Bean getdata1322() {
+        return data1322;
+    }
+
+    public void setdata1322(data80Bean data1322) {
+        this.data1322 = data1322;
+    }
+
+    public data80Bean getdata1323() {
+        return data1323;
+    }
+
+    public void setdata1323(data80Bean data1323) {
+        this.data1323 = data1323;
+    }
+
+    public data80Bean getdata1324() {
+        return data1324;
+    }
+
+    public void setdata1324(data80Bean data1324) {
+        this.data1324 = data1324;
+    }
+
+    public data80Bean getdata1325() {
+        return data1325;
+    }
+
+    public void setdata1325(data80Bean data1325) {
+        this.data1325 = data1325;
+    }
+
+    public data80Bean getdata1326() {
+        return data1326;
+    }
+
+    public void setdata1326(data80Bean data1326) {
+        this.data1326 = data1326;
+    }
+
+    public data80Bean getdata1327() {
+        return data1327;
+    }
+
+    public void setdata1327(data80Bean data1327) {
+        this.data1327 = data1327;
+    }
+
+    public data80Bean getdata1328() {
+        return data1328;
+    }
+
+    public void setdata1328(data80Bean data1328) {
+        this.data1328 = data1328;
+    }
+
+    public data80Bean getdata1329() {
+        return data1329;
+    }
+
+    public void setdata1329(data80Bean data1329) {
+        this.data1329 = data1329;
+    }
+
+    public data80Bean getdata1330() {
+        return data1330;
+    }
+
+    public void setdata1330(data80Bean data1330) {
+        this.data1330 = data1330;
+    }
+
+    public data80Bean getdata1331() {
+        return data1331;
+    }
+
+    public void setdata1331(data80Bean data1331) {
+        this.data1331 = data1331;
+    }
+
+    public data80Bean getdata1332() {
+        return data1332;
+    }
+
+    public void setdata1332(data80Bean data1332) {
+        this.data1332 = data1332;
+    }
+
+    public data80Bean getdata1333() {
+        return data1333;
+    }
+
+    public void setdata1333(data80Bean data1333) {
+        this.data1333 = data1333;
+    }
+
+    public data80Bean getdata1334() {
+        return data1334;
+    }
+
+    public void setdata1334(data80Bean data1334) {
+        this.data1334 = data1334;
+    }
+
+    public data80Bean getdata1335() {
+        return data1335;
+    }
+
+    public void setdata1335(data80Bean data1335) {
+        this.data1335 = data1335;
+    }
+
+    public data80Bean getdata1336() {
+        return data1336;
+    }
+
+    public void setdata1336(data80Bean data1336) {
+        this.data1336 = data1336;
+    }
+
+    public data80Bean getdata1337() {
+        return data1337;
+    }
+
+    public void setdata1337(data80Bean data1337) {
+        this.data1337 = data1337;
+    }
+
+    public data80Bean getdata1338() {
+        return data1338;
+    }
+
+    public void setdata1338(data80Bean data1338) {
+        this.data1338 = data1338;
+    }
+
+    public data80Bean getdata1339() {
+        return data1339;
+    }
+
+    public void setdata1339(data80Bean data1339) {
+        this.data1339 = data1339;
+    }
+
+    public data80Bean getdata1340() {
+        return data1340;
+    }
+
+    public void setdata1340(data80Bean data1340) {
+        this.data1340 = data1340;
+    }
+
+    public data80Bean getdata1341() {
+        return data1341;
+    }
+
+    public void setdata1341(data80Bean data1341) {
+        this.data1341 = data1341;
+    }
+
+    public data80Bean getdata1342() {
+        return data1342;
+    }
+
+    public void setdata1342(data80Bean data1342) {
+        this.data1342 = data1342;
+    }
+
+    public data80Bean getdata1343() {
+        return data1343;
+    }
+
+    public void setdata1343(data80Bean data1343) {
+        this.data1343 = data1343;
+    }
+
+    public data80Bean getdata1344() {
+        return data1344;
+    }
+
+    public void setdata1344(data80Bean data1344) {
+        this.data1344 = data1344;
+    }
+
+    public data80Bean getdata1345() {
+        return data1345;
+    }
+
+    public void setdata1345(data80Bean data1345) {
+        this.data1345 = data1345;
+    }
+
+    public data80Bean getdata1346() {
+        return data1346;
+    }
+
+    public void setdata1346(data80Bean data1346) {
+        this.data1346 = data1346;
+    }
+
+    public data80Bean getdata1347() {
+        return data1347;
+    }
+
+    public void setdata1347(data80Bean data1347) {
+        this.data1347 = data1347;
+    }
+
+    public data80Bean getdata1348() {
+        return data1348;
+    }
+
+    public void setdata1348(data80Bean data1348) {
+        this.data1348 = data1348;
+    }
+
+    public data80Bean getdata1349() {
+        return data1349;
+    }
+
+    public void setdata1349(data80Bean data1349) {
+        this.data1349 = data1349;
+    }
+
+    public data80Bean getdata1350() {
+        return data1350;
+    }
+
+    public void setdata1350(data80Bean data1350) {
+        this.data1350 = data1350;
+    }
+
+    public data80Bean getdata1351() {
+        return data1351;
+    }
+
+    public void setdata1351(data80Bean data1351) {
+        this.data1351 = data1351;
+    }
+
+    public data80Bean getdata1352() {
+        return data1352;
+    }
+
+    public void setdata1352(data80Bean data1352) {
+        this.data1352 = data1352;
+    }
+
+    public data80Bean getdata1353() {
+        return data1353;
+    }
+
+    public void setdata1353(data80Bean data1353) {
+        this.data1353 = data1353;
+    }
+
+    public data80Bean getdata1354() {
+        return data1354;
+    }
+
+    public void setdata1354(data80Bean data1354) {
+        this.data1354 = data1354;
+    }
+
+    public data80Bean getdata1355() {
+        return data1355;
+    }
+
+    public void setdata1355(data80Bean data1355) {
+        this.data1355 = data1355;
+    }
+
+    public data80Bean getdata1356() {
+        return data1356;
+    }
+
+    public void setdata1356(data80Bean data1356) {
+        this.data1356 = data1356;
+    }
+
+    public data80Bean getdata1357() {
+        return data1357;
+    }
+
+    public void setdata1357(data80Bean data1357) {
+        this.data1357 = data1357;
+    }
+
+    public data80Bean getdata1358() {
+        return data1358;
+    }
+
+    public void setdata1358(data80Bean data1358) {
+        this.data1358 = data1358;
+    }
+
+    public data80Bean getdata1359() {
+        return data1359;
+    }
+
+    public void setdata1359(data80Bean data1359) {
+        this.data1359 = data1359;
+    }
+
+    public data80Bean getdata1360() {
+        return data1360;
+    }
+
+    public void setdata1360(data80Bean data1360) {
+        this.data1360 = data1360;
+    }
+
+    public data80Bean getdata1101() {
+        return data1101;
+    }
+
+    public void setdata1101(data80Bean data1101) {
+        this.data1101 = data1101;
+    }
+
+    public data80Bean getdata1102() {
+        return data1102;
+    }
+
+    public void setdata1102(data80Bean data1102) {
+        this.data1102 = data1102;
+    }
+
+    public data80Bean getdata1103() {
+        return data1103;
+    }
+
+    public void setdata1103(data80Bean data1103) {
+        this.data1103 = data1103;
+    }
+
+    public data80Bean getdata1104() {
+        return data1104;
+    }
+
+    public void setdata1104(data80Bean data1104) {
+        this.data1104 = data1104;
+    }
+
+    public data80Bean getdata1105() {
+        return data1105;
+    }
+
+    public void setdata1105(data80Bean data1105) {
+        this.data1105 = data1105;
+    }
+
+    public data80Bean getdata1106() {
+        return data1106;
+    }
+
+    public void setdata1106(data80Bean data1106) {
+        this.data1106 = data1106;
+    }
+
+    public data80Bean getdata1107() {
+        return data1107;
+    }
+
+    public void setdata1107(data80Bean data1107) {
+        this.data1107 = data1107;
+    }
+
+    public data80Bean getdata1108() {
+        return data1108;
+    }
+
+    public void setdata1108(data80Bean data1108) {
+        this.data1108 = data1108;
+    }
+
+    public data80Bean getdata1109() {
+        return data1109;
+    }
+
+    public void setdata1109(data80Bean data1109) {
+        this.data1109 = data1109;
+    }
+
+    public data80Bean getdata1110() {
+        return data1110;
+    }
+
+    public void setdata1110(data80Bean data1110) {
+        this.data1110 = data1110;
+    }
+
+    public data80Bean getdata1111() {
+        return data1111;
+    }
+
+    public void setdata1111(data80Bean data1111) {
+        this.data1111 = data1111;
+    }
+
+    public data80Bean getdata1112() {
+        return data1112;
+    }
+
+    public void setdata1112(data80Bean data1112) {
+        this.data1112 = data1112;
+    }
+
+    public data80Bean getdata1113() {
+        return data1113;
+    }
+
+    public void setdata1113(data80Bean data1113) {
+        this.data1113 = data1113;
+    }
+
+    public data80Bean getdata1114() {
+        return data1114;
+    }
+
+    public void setdata1114(data80Bean data1114) {
+        this.data1114 = data1114;
+    }
+
+    public data80Bean getdata1115() {
+        return data1115;
+    }
+
+    public void setdata1115(data80Bean data1115) {
+        this.data1115 = data1115;
+    }
+
+    public data80Bean getdata1116() {
+        return data1116;
+    }
+
+    public void setdata1116(data80Bean data1116) {
+        this.data1116 = data1116;
+    }
+
+    public data80Bean getdata1117() {
+        return data1117;
+    }
+
+    public void setdata1117(data80Bean data1117) {
+        this.data1117 = data1117;
+    }
+
+    public data80Bean getdata1118() {
+        return data1118;
+    }
+
+    public void setdata1118(data80Bean data1118) {
+        this.data1118 = data1118;
+    }
+
+    public data80Bean getdata1119() {
+        return data1119;
+    }
+
+    public void setdata1119(data80Bean data1119) {
+        this.data1119 = data1119;
+    }
+
+    public data80Bean getdata1120() {
+        return data1120;
+    }
+
+    public void setdata1120(data80Bean data1120) {
+        this.data1120 = data1120;
+    }
+
+    public data80Bean getdata1121() {
+        return data1121;
+    }
+
+    public void setdata1121(data80Bean data1121) {
+        this.data1121 = data1121;
+    }
+
+    public data80Bean getdata1122() {
+        return data1122;
+    }
+
+    public void setdata1122(data80Bean data1122) {
+        this.data1122 = data1122;
+    }
+
+    public data80Bean getdata1123() {
+        return data1123;
+    }
+
+    public void setdata1123(data80Bean data1123) {
+        this.data1123 = data1123;
+    }
+
+    public data80Bean getdata1124() {
+        return data1124;
+    }
+
+    public void setdata1124(data80Bean data1124) {
+        this.data1124 = data1124;
+    }
+
+    public data80Bean getdata1125() {
+        return data1125;
+    }
+
+    public void setdata1125(data80Bean data1125) {
+        this.data1125 = data1125;
+    }
+
+    public data80Bean getdata1126() {
+        return data1126;
+    }
+
+    public void setdata1126(data80Bean data1126) {
+        this.data1126 = data1126;
+    }
+
+    public data80Bean getdata1127() {
+        return data1127;
+    }
+
+    public void setdata1127(data80Bean data1127) {
+        this.data1127 = data1127;
+    }
+
+    public data80Bean getdata1128() {
+        return data1128;
+    }
+
+    public void setdata1128(data80Bean data1128) {
+        this.data1128 = data1128;
+    }
+
+    public data80Bean getdata1129() {
+        return data1129;
+    }
+
+    public void setdata1129(data80Bean data1129) {
+        this.data1129 = data1129;
+    }
+
+    public data80Bean getdata1130() {
+        return data1130;
+    }
+
+    public void setdata1130(data80Bean data1130) {
+        this.data1130 = data1130;
+    }
+
+    public data80Bean getdata1131() {
+        return data1131;
+    }
+
+    public void setdata1131(data80Bean data1131) {
+        this.data1131 = data1131;
+    }
+
+    public data80Bean getdata1132() {
+        return data1132;
+    }
+
+    public void setdata1132(data80Bean data1132) {
+        this.data1132 = data1132;
+    }
+
+    public data80Bean getdata1133() {
+        return data1133;
+    }
+
+    public void setdata1133(data80Bean data1133) {
+        this.data1133 = data1133;
+    }
+
+    public data80Bean getdata1134() {
+        return data1134;
+    }
+
+    public void setdata1134(data80Bean data1134) {
+        this.data1134 = data1134;
+    }
+
+    public data80Bean getdata1135() {
+        return data1135;
+    }
+
+    public void setdata1135(data80Bean data1135) {
+        this.data1135 = data1135;
+    }
+
+    public data80Bean getdata1136() {
+        return data1136;
+    }
+
+    public void setdata1136(data80Bean data1136) {
+        this.data1136 = data1136;
+    }
+
+    public data80Bean getdata1137() {
+        return data1137;
+    }
+
+    public void setdata1137(data80Bean data1137) {
+        this.data1137 = data1137;
+    }
+
+    public data80Bean getdata1138() {
+        return data1138;
+    }
+
+    public void setdata1138(data80Bean data1138) {
+        this.data1138 = data1138;
+    }
+
+    public data80Bean getdata1139() {
+        return data1139;
+    }
+
+    public void setdata1139(data80Bean data1139) {
+        this.data1139 = data1139;
+    }
+
+    public data80Bean getdata1140() {
+        return data1140;
+    }
+
+    public void setdata1140(data80Bean data1140) {
+        this.data1140 = data1140;
+    }
+
+    public data80Bean getdata1141() {
+        return data1141;
+    }
+
+    public void setdata1141(data80Bean data1141) {
+        this.data1141 = data1141;
+    }
+
+    public data80Bean getdata1142() {
+        return data1142;
+    }
+
+    public void setdata1142(data80Bean data1142) {
+        this.data1142 = data1142;
+    }
+
+    public data80Bean getdata1143() {
+        return data1143;
+    }
+
+    public void setdata1143(data80Bean data1143) {
+        this.data1143 = data1143;
+    }
+
+    public data80Bean getdata1144() {
+        return data1144;
+    }
+
+    public void setdata1144(data80Bean data1144) {
+        this.data1144 = data1144;
+    }
+
+    public data80Bean getdata1145() {
+        return data1145;
+    }
+
+    public void setdata1145(data80Bean data1145) {
+        this.data1145 = data1145;
+    }
+
+    public data80Bean getdata1146() {
+        return data1146;
+    }
+
+    public void setdata1146(data80Bean data1146) {
+        this.data1146 = data1146;
+    }
+
+    public data80Bean getdata1147() {
+        return data1147;
+    }
+
+    public void setdata1147(data80Bean data1147) {
+        this.data1147 = data1147;
+    }
+
+    public data80Bean getdata1148() {
+        return data1148;
+    }
+
+    public void setdata1148(data80Bean data1148) {
+        this.data1148 = data1148;
+    }
+
+    public data80Bean getdata1149() {
+        return data1149;
+    }
+
+    public void setdata1149(data80Bean data1149) {
+        this.data1149 = data1149;
     }
 
     public static class data1Bean {
