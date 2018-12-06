@@ -4,7 +4,9 @@ import com.hgapp.a6668.base.IMessageView;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.base.IProgressView;
 import com.hgapp.a6668.base.IView;
+import com.hgapp.a6668.data.COLastResultHK;
 import com.hgapp.a6668.data.CPBJSCResult;
+import com.hgapp.a6668.data.CPHKResult;
 import com.hgapp.a6668.data.CPJSFTResult;
 import com.hgapp.a6668.data.CPJSK2Result;
 import com.hgapp.a6668.data.CPJSKSResult;
@@ -38,11 +40,14 @@ public interface CPOrderContract {
         public void postRateInfoJsk32(String game_code,String type,String x_session_token);
         public void postRateInfoXync(String game_code,String type,String x_session_token);
         public void postRateInfoKlsf(String game_code,String type,String x_session_token);
+        public void postRateInfoHK(String game_code,String type,String x_session_token);
         public void postRateInfoPCDD(String game_code,String x_session_token);
         /*public void postRateInfo6(String game_code,String type,String x_session_token);
         public void postRateInfo1(String game_code,String type,String x_session_token);*/
         public void postLastResult(String game_code,String x_session_token);
+        public void postLastResultHK(String game_code,String x_session_token);
         public void postNextIssue(String game_code,String x_session_token);
+        public void postNextIssueHK(String game_code,String x_session_token);
 
     }
     public interface View extends IView<CPOrderContract.Presenter>,IMessageView,IProgressView
@@ -58,6 +63,7 @@ public interface CPOrderContract {
        /* public void postRateInfo6Result(CQSSCResult cqsscResult);
         public void postRateInfo1Result(CQSSCResult cqsscResult);*/
         public void postLastResultResult(CPLastResult cpLastResult);
+        public void postLastResultHKResult(COLastResultHK coLastResultHK);
         public void postNextIssueResult(CPNextIssueResult cpNextIssueResult);
         public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult);
         public void postRateInfoPCDDResult(PCDDResult pcddResult);
@@ -65,6 +71,7 @@ public interface CPOrderContract {
         public void postRateInfoJsk32Result(CPJSK2Result cpjsk2Result);
         public void postRateInfoXyncResult(CPXYNCResult cpxyncResult);
         public void postRateInfoKlsfResult(CPXYNCResult cpxyncResult);
+        public void postRateInfoHKResult(CPHKResult cphkResult);
     }
 
 }

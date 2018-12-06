@@ -28,7 +28,9 @@ import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.TimeHelper;
+import com.hgapp.a6668.data.COLastResultHK;
 import com.hgapp.a6668.data.CPBJSCResult;
+import com.hgapp.a6668.data.CPHKResult;
 import com.hgapp.a6668.data.CPJSFTResult;
 import com.hgapp.a6668.data.CPJSK2Result;
 import com.hgapp.a6668.data.CPJSKSResult;
@@ -99,6 +101,14 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     TextView cpOrderRXRadio;
     @BindView(R.id.cpOrderRXLine)
     TextView cpOrderRXLine;
+    @BindView(R.id.cpOrderTeMaLay)
+    LinearLayout cpOrderTeMaLay;
+    @BindView(R.id.cpOrderTeMaA)
+    TextView cpOrderTeMaA;
+    @BindView(R.id.cpOrderTeMaB)
+    TextView cpOrderTeMaB;
+    @BindView(R.id.cpOrderZTTab)
+    TabLayout cpOrderZTTab;
     @BindView(R.id.cpOrderListRight)
     RecyclerView cpOrderListRight;
    /* @BindView(R.id.cpOrderListViewRight)
@@ -17934,6 +17944,5760 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }
     }
 
+    private List<CPOrderContentListResult> HK(CPHKResult cpbjscResult,int k){
+        List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
+        if(k==2){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("特码B");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("01");
+            cpOrderContentResult2201.setFullName("");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata59().getRate());
+            cpOrderContentResult2201.setOrderId("59");
+            cpOrderContentResultList.add(cpOrderContentResult2201);
+
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("02");
+            cpOrderContentResult2202.setFullName("");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata60().getRate());
+            cpOrderContentResult2202.setOrderId("60");
+            cpOrderContentResultList.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("03");
+            cpOrderContentResult2203.setFullName("");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata61().getRate());
+            cpOrderContentResult2203.setOrderId("61");
+            cpOrderContentResultList.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("04");
+            cpOrderContentResult2204.setFullName("");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata62().getRate());
+            cpOrderContentResult2204.setOrderId("62");
+            cpOrderContentResultList.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("05");
+            cpOrderContentResult2205.setFullName("");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata63().getRate());
+            cpOrderContentResult2205.setOrderId("63");
+            cpOrderContentResultList.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("06");
+            cpOrderContentResult2206.setFullName("");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata64().getRate());
+            cpOrderContentResult2206.setOrderId("64");
+            cpOrderContentResultList.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("07");
+            cpOrderContentResult2207.setFullName("");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata65().getRate());
+            cpOrderContentResult2207.setOrderId("65");
+            cpOrderContentResultList.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("08");
+            cpOrderContentResult2208.setFullName("");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata66().getRate());
+            cpOrderContentResult2208.setOrderId("66");
+            cpOrderContentResultList.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("09");
+            cpOrderContentResult2209.setFullName("");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata67().getRate());
+            cpOrderContentResult2209.setOrderId("67");
+            cpOrderContentResultList.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("10");
+            cpOrderContentResult2210.setFullName("");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata68().getRate());
+            cpOrderContentResult2210.setOrderId("68");
+            cpOrderContentResultList.add(cpOrderContentResult2210);
+
+            CPOrderContentResult cpOrderContentResult2211 = new CPOrderContentResult();
+            cpOrderContentResult2211.setOrderName("11");
+            cpOrderContentResult2211.setFullName("");
+            cpOrderContentResult2211.setOrderState(cpbjscResult.getdata69().getRate());
+            cpOrderContentResult2211.setOrderId("69");
+            cpOrderContentResultList.add(cpOrderContentResult2211);
+
+            CPOrderContentResult cpOrderContentResult2212 = new CPOrderContentResult();
+            cpOrderContentResult2212.setOrderName("12");
+            cpOrderContentResult2212.setFullName("");
+            cpOrderContentResult2212.setOrderState(cpbjscResult.getdata70().getRate());
+            cpOrderContentResult2212.setOrderId("70");
+            cpOrderContentResultList.add(cpOrderContentResult2212);
+
+            CPOrderContentResult cpOrderContentResult2213 = new CPOrderContentResult();
+            cpOrderContentResult2213.setOrderName("13");
+            cpOrderContentResult2213.setFullName("");
+            cpOrderContentResult2213.setOrderState(cpbjscResult.getdata71().getRate());
+            cpOrderContentResult2213.setOrderId("71");
+            cpOrderContentResultList.add(cpOrderContentResult2213);
+
+            CPOrderContentResult cpOrderContentResult2214 = new CPOrderContentResult();
+            cpOrderContentResult2214.setOrderName("14");
+            cpOrderContentResult2214.setFullName("");
+            cpOrderContentResult2214.setOrderState(cpbjscResult.getdata72().getRate());
+            cpOrderContentResult2214.setOrderId("72");
+            cpOrderContentResultList.add(cpOrderContentResult2214);
+
+            CPOrderContentResult cpOrderContentResult2215 = new CPOrderContentResult();
+            cpOrderContentResult2215.setOrderName("15");
+            cpOrderContentResult2215.setFullName("");
+            cpOrderContentResult2215.setOrderState(cpbjscResult.getdata73().getRate());
+            cpOrderContentResult2215.setOrderId("73");
+            cpOrderContentResultList.add(cpOrderContentResult2215);
+
+            CPOrderContentResult cpOrderContentResult2216 = new CPOrderContentResult();
+            cpOrderContentResult2216.setOrderName("16");
+            cpOrderContentResult2216.setFullName("");
+            cpOrderContentResult2216.setOrderState(cpbjscResult.getdata74().getRate());
+            cpOrderContentResult2216.setOrderId("74");
+            cpOrderContentResultList.add(cpOrderContentResult2216);
+
+            CPOrderContentResult cpOrderContentResult2217 = new CPOrderContentResult();
+            cpOrderContentResult2217.setOrderName("17");
+            cpOrderContentResult2217.setFullName("");
+            cpOrderContentResult2217.setOrderState(cpbjscResult.getdata75().getRate());
+            cpOrderContentResult2217.setOrderId("75");
+            cpOrderContentResultList.add(cpOrderContentResult2217);
+
+            CPOrderContentResult cpOrderContentResult2218 = new CPOrderContentResult();
+            cpOrderContentResult2218.setOrderName("18");
+            cpOrderContentResult2218.setFullName("");
+            cpOrderContentResult2218.setOrderState(cpbjscResult.getdata76().getRate());
+            cpOrderContentResult2218.setOrderId("76");
+            cpOrderContentResultList.add(cpOrderContentResult2218);
+
+            CPOrderContentResult cpOrderContentResult2219 = new CPOrderContentResult();
+            cpOrderContentResult2219.setOrderName("19");
+            cpOrderContentResult2219.setFullName("");
+            cpOrderContentResult2219.setOrderState(cpbjscResult.getdata77().getRate());
+            cpOrderContentResult2219.setOrderId("77");
+            cpOrderContentResultList.add(cpOrderContentResult2219);
+
+            CPOrderContentResult cpOrderContentResult2220 = new CPOrderContentResult();
+            cpOrderContentResult2220.setOrderName("20");
+            cpOrderContentResult2220.setFullName("");
+            cpOrderContentResult2220.setOrderState(cpbjscResult.getdata78().getRate());
+            cpOrderContentResult2220.setOrderId("78");
+            cpOrderContentResultList.add(cpOrderContentResult2220);
+
+            CPOrderContentResult cpOrderContentResult2221 = new CPOrderContentResult();
+            cpOrderContentResult2221.setOrderName("21");
+            cpOrderContentResult2221.setFullName("");
+            cpOrderContentResult2221.setOrderState(cpbjscResult.getdata79().getRate());
+            cpOrderContentResult2221.setOrderId("79");
+            cpOrderContentResultList.add(cpOrderContentResult2221);
+
+            CPOrderContentResult cpOrderContentResult2222 = new CPOrderContentResult();
+            cpOrderContentResult2222.setOrderName("22");
+            cpOrderContentResult2222.setFullName("");
+            cpOrderContentResult2222.setOrderState(cpbjscResult.getdata80().getRate());
+            cpOrderContentResult2222.setOrderId("80");
+            cpOrderContentResultList.add(cpOrderContentResult2222);
+
+            CPOrderContentResult cpOrderContentResult2223 = new CPOrderContentResult();
+            cpOrderContentResult2223.setOrderName("23");
+            cpOrderContentResult2223.setFullName("");
+            cpOrderContentResult2223.setOrderState(cpbjscResult.getdata81().getRate());
+            cpOrderContentResult2223.setOrderId("81");
+            cpOrderContentResultList.add(cpOrderContentResult2223);
+
+            CPOrderContentResult cpOrderContentResult2224 = new CPOrderContentResult();
+            cpOrderContentResult2224.setOrderName("24");
+            cpOrderContentResult2224.setFullName("");
+            cpOrderContentResult2224.setOrderState(cpbjscResult.getdata82().getRate());
+            cpOrderContentResult2224.setOrderId("82");
+            cpOrderContentResultList.add(cpOrderContentResult2224);
+
+            CPOrderContentResult cpOrderContentResult2225 = new CPOrderContentResult();
+            cpOrderContentResult2225.setOrderName("25");
+            cpOrderContentResult2225.setFullName("");
+            cpOrderContentResult2225.setOrderState(cpbjscResult.getdata83().getRate());
+            cpOrderContentResult2225.setOrderId("83");
+            cpOrderContentResultList.add(cpOrderContentResult2225);
+
+            CPOrderContentResult cpOrderContentResult2226 = new CPOrderContentResult();
+            cpOrderContentResult2226.setOrderName("26");
+            cpOrderContentResult2226.setFullName("");
+            cpOrderContentResult2226.setOrderState(cpbjscResult.getdata84().getRate());
+            cpOrderContentResult2226.setOrderId("84");
+            cpOrderContentResultList.add(cpOrderContentResult2226);
+
+            CPOrderContentResult cpOrderContentResult2227 = new CPOrderContentResult();
+            cpOrderContentResult2227.setOrderName("27");
+            cpOrderContentResult2227.setFullName("");
+            cpOrderContentResult2227.setOrderState(cpbjscResult.getdata85().getRate());
+            cpOrderContentResult2227.setOrderId("85");
+            cpOrderContentResultList.add(cpOrderContentResult2227);
+
+            CPOrderContentResult cpOrderContentResult2228 = new CPOrderContentResult();
+            cpOrderContentResult2228.setOrderName("28");
+            cpOrderContentResult2228.setFullName("");
+            cpOrderContentResult2228.setOrderState(cpbjscResult.getdata86().getRate());
+            cpOrderContentResult2228.setOrderId("86");
+            cpOrderContentResultList.add(cpOrderContentResult2228);
+
+            CPOrderContentResult cpOrderContentResult2229 = new CPOrderContentResult();
+            cpOrderContentResult2229.setOrderName("29");
+            cpOrderContentResult2229.setFullName("");
+            cpOrderContentResult2229.setOrderState(cpbjscResult.getdata87().getRate());
+            cpOrderContentResult2229.setOrderId("87");
+            cpOrderContentResultList.add(cpOrderContentResult2229);
+
+            CPOrderContentResult cpOrderContentResult2230 = new CPOrderContentResult();
+            cpOrderContentResult2230.setOrderName("30");
+            cpOrderContentResult2230.setFullName("");
+            cpOrderContentResult2230.setOrderState(cpbjscResult.getdata88().getRate());
+            cpOrderContentResult2230.setOrderId("88");
+            cpOrderContentResultList.add(cpOrderContentResult2230);
+
+            CPOrderContentResult cpOrderContentResult2231 = new CPOrderContentResult();
+            cpOrderContentResult2231.setOrderName("31");
+            cpOrderContentResult2231.setFullName("");
+            cpOrderContentResult2231.setOrderState(cpbjscResult.getdata88().getRate());
+            cpOrderContentResult2231.setOrderId("89");
+            cpOrderContentResultList.add(cpOrderContentResult2231);
+
+            CPOrderContentResult cpOrderContentResult2232 = new CPOrderContentResult();
+            cpOrderContentResult2232.setOrderName("32");
+            cpOrderContentResult2232.setFullName("");
+            cpOrderContentResult2232.setOrderState(cpbjscResult.getdata90().getRate());
+            cpOrderContentResult2232.setOrderId("90");
+            cpOrderContentResultList.add(cpOrderContentResult2232);
+
+            CPOrderContentResult cpOrderContentResult2233 = new CPOrderContentResult();
+            cpOrderContentResult2233.setOrderName("33");
+            cpOrderContentResult2233.setFullName("");
+            cpOrderContentResult2233.setOrderState(cpbjscResult.getdata91().getRate());
+            cpOrderContentResult2233.setOrderId("91");
+            cpOrderContentResultList.add(cpOrderContentResult2233);
+
+            CPOrderContentResult cpOrderContentResult2234 = new CPOrderContentResult();
+            cpOrderContentResult2234.setOrderName("34");
+            cpOrderContentResult2234.setFullName("");
+            cpOrderContentResult2234.setOrderState(cpbjscResult.getdata92().getRate());
+            cpOrderContentResult2234.setOrderId("92");
+            cpOrderContentResultList.add(cpOrderContentResult2234);
+
+            CPOrderContentResult cpOrderContentResult2235 = new CPOrderContentResult();
+            cpOrderContentResult2235.setOrderName("35");
+            cpOrderContentResult2235.setFullName("");
+            cpOrderContentResult2235.setOrderState(cpbjscResult.getdata93().getRate());
+            cpOrderContentResult2235.setOrderId("93");
+            cpOrderContentResultList.add(cpOrderContentResult2235);
+
+            CPOrderContentResult cpOrderContentResult2236 = new CPOrderContentResult();
+            cpOrderContentResult2236.setOrderName("36");
+            cpOrderContentResult2236.setFullName("");
+            cpOrderContentResult2236.setOrderState(cpbjscResult.getdata94().getRate());
+            cpOrderContentResult2236.setOrderId("94");
+            cpOrderContentResultList.add(cpOrderContentResult2236);
+
+            CPOrderContentResult cpOrderContentResult2237 = new CPOrderContentResult();
+            cpOrderContentResult2237.setOrderName("37");
+            cpOrderContentResult2237.setFullName("");
+            cpOrderContentResult2237.setOrderState(cpbjscResult.getdata95().getRate());
+            cpOrderContentResult2237.setOrderId("95");
+            cpOrderContentResultList.add(cpOrderContentResult2237);
+
+            CPOrderContentResult cpOrderContentResult2238 = new CPOrderContentResult();
+            cpOrderContentResult2238.setOrderName("38");
+            cpOrderContentResult2238.setFullName("");
+            cpOrderContentResult2238.setOrderState(cpbjscResult.getdata96().getRate());
+            cpOrderContentResult2238.setOrderId("96");
+            cpOrderContentResultList.add(cpOrderContentResult2238);
+
+            CPOrderContentResult cpOrderContentResult2239 = new CPOrderContentResult();
+            cpOrderContentResult2239.setOrderName("39");
+            cpOrderContentResult2239.setFullName("");
+            cpOrderContentResult2239.setOrderState(cpbjscResult.getdata97().getRate());
+            cpOrderContentResult2239.setOrderId("97");
+            cpOrderContentResultList.add(cpOrderContentResult2239);
+
+            CPOrderContentResult cpOrderContentResult2240 = new CPOrderContentResult();
+            cpOrderContentResult2240.setOrderName("40");
+            cpOrderContentResult2240.setFullName("");
+            cpOrderContentResult2240.setOrderState(cpbjscResult.getdata98().getRate());
+            cpOrderContentResult2240.setOrderId("98");
+            cpOrderContentResultList.add(cpOrderContentResult2240);
+
+
+            CPOrderContentResult cpOrderContentResult2241 = new CPOrderContentResult();
+            cpOrderContentResult2241.setOrderName("41");
+            cpOrderContentResult2241.setFullName("");
+            cpOrderContentResult2241.setOrderState(cpbjscResult.getdata99().getRate());
+            cpOrderContentResult2241.setOrderId("99");
+            cpOrderContentResultList.add(cpOrderContentResult2241);
+
+
+            CPOrderContentResult cpOrderContentResult2242 = new CPOrderContentResult();
+            cpOrderContentResult2242.setOrderName("42");
+            cpOrderContentResult2242.setFullName("");
+            cpOrderContentResult2242.setOrderState(cpbjscResult.getdata100().getRate());
+            cpOrderContentResult2242.setOrderId("100");
+            cpOrderContentResultList.add(cpOrderContentResult2242);
+
+
+            CPOrderContentResult cpOrderContentResult2243 = new CPOrderContentResult();
+            cpOrderContentResult2243.setOrderName("43");
+            cpOrderContentResult2243.setFullName("");
+            cpOrderContentResult2243.setOrderState(cpbjscResult.getdata101().getRate());
+            cpOrderContentResult2243.setOrderId("101");
+            cpOrderContentResultList.add(cpOrderContentResult2243);
+
+
+            CPOrderContentResult cpOrderContentResult2244 = new CPOrderContentResult();
+            cpOrderContentResult2244.setOrderName("44");
+            cpOrderContentResult2244.setFullName("");
+            cpOrderContentResult2244.setOrderState(cpbjscResult.getdata102().getRate());
+            cpOrderContentResult2244.setOrderId("102");
+            cpOrderContentResultList.add(cpOrderContentResult2244);
+
+
+            CPOrderContentResult cpOrderContentResult2245 = new CPOrderContentResult();
+            cpOrderContentResult2245.setOrderName("45");
+            cpOrderContentResult2245.setFullName("");
+            cpOrderContentResult2245.setOrderState(cpbjscResult.getdata103().getRate());
+            cpOrderContentResult2245.setOrderId("103");
+            cpOrderContentResultList.add(cpOrderContentResult2245);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2246 = new CPOrderContentResult();
+            cpOrderContentResult2246.setOrderName("46");
+            cpOrderContentResult2246.setFullName("");
+            cpOrderContentResult2246.setOrderState(cpbjscResult.getdata104().getRate());
+            cpOrderContentResult2246.setOrderId("104");
+            cpOrderContentResultList11.add(cpOrderContentResult2246);
+
+
+            CPOrderContentResult cpOrderContentResult2247 = new CPOrderContentResult();
+            cpOrderContentResult2247.setOrderName("47");
+            cpOrderContentResult2247.setFullName("");
+            cpOrderContentResult2247.setOrderState(cpbjscResult.getdata105().getRate());
+            cpOrderContentResult2247.setOrderId("105");
+            cpOrderContentResultList11.add(cpOrderContentResult2247);
+
+
+            CPOrderContentResult cpOrderContentResult2248 = new CPOrderContentResult();
+            cpOrderContentResult2248.setOrderName("48");
+            cpOrderContentResult2248.setFullName("");
+            cpOrderContentResult2248.setOrderState(cpbjscResult.getdata106().getRate());
+            cpOrderContentResult2248.setOrderId("106");
+            cpOrderContentResultList11.add(cpOrderContentResult2248);
+
+            CPOrderContentResult cpOrderContentResult2249 = new CPOrderContentResult();
+            cpOrderContentResult2249.setOrderName("49");
+            cpOrderContentResult2249.setFullName("");
+            cpOrderContentResult2249.setOrderState(cpbjscResult.getdata107().getRate());
+            cpOrderContentResult2249.setOrderId("107");
+            cpOrderContentResultList11.add(cpOrderContentResult2249);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult22108 = new CPOrderContentResult();
+            cpOrderContentResult22108.setOrderName("单");
+            cpOrderContentResult22108.setFullName("");
+            cpOrderContentResult22108.setOrderState(cpbjscResult.getdata108().getRate());
+            cpOrderContentResult22108.setOrderId("108");
+            cpOrderContentResultList2.add(cpOrderContentResult22108);
+
+            CPOrderContentResult cpOrderContentResult22109 = new CPOrderContentResult();
+            cpOrderContentResult22109.setOrderName("双");
+            cpOrderContentResult22109.setFullName("");
+            cpOrderContentResult22109.setOrderState(cpbjscResult.getdata109().getRate());
+            cpOrderContentResult22109.setOrderId("109");
+            cpOrderContentResultList2.add(cpOrderContentResult22109);
+
+            CPOrderContentResult cpOrderContentResult22110 = new CPOrderContentResult();
+            cpOrderContentResult22110.setOrderName("大");
+            cpOrderContentResult22110.setFullName("");
+            cpOrderContentResult22110.setOrderState(cpbjscResult.getdata110().getRate());
+            cpOrderContentResult22110.setOrderId("110");
+            cpOrderContentResultList2.add(cpOrderContentResult22110);
+
+            CPOrderContentResult cpOrderContentResult22111 = new CPOrderContentResult();
+            cpOrderContentResult22111.setOrderName("小");
+            cpOrderContentResult22111.setFullName("");
+            cpOrderContentResult22111.setOrderState(cpbjscResult.getdata111().getRate());
+            cpOrderContentResult22111.setOrderId("111");
+            cpOrderContentResultList2.add(cpOrderContentResult22111);
+
+            CPOrderContentResult cpOrderContentResult22112 = new CPOrderContentResult();
+            cpOrderContentResult22112.setOrderName("合单");
+            cpOrderContentResult22112.setFullName("");
+            cpOrderContentResult22112.setOrderState(cpbjscResult.getdata112().getRate());
+            cpOrderContentResult22112.setOrderId("112");
+            cpOrderContentResultList2.add(cpOrderContentResult22112);
+
+            CPOrderContentResult cpOrderContentResult40 = new CPOrderContentResult();
+            cpOrderContentResult40.setOrderName("合双");
+            cpOrderContentResult40.setFullName("");
+            cpOrderContentResult40.setOrderState(cpbjscResult.getdata113().getRate());
+            cpOrderContentResult40.setOrderId("113");
+            cpOrderContentResultList2.add(cpOrderContentResult40);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult22114 = new CPOrderContentResult();
+            cpOrderContentResult22114.setOrderName("红波");
+            cpOrderContentResult22114.setFullName("");
+            cpOrderContentResult22114.setOrderState(cpbjscResult.getdata114().getRate());
+            cpOrderContentResult22114.setOrderId("114");
+            cpOrderContentResultList3.add(cpOrderContentResult22114);
+
+            CPOrderContentResult cpOrderContentResult22115 = new CPOrderContentResult();
+            cpOrderContentResult22115.setOrderName("绿波");
+            cpOrderContentResult22115.setFullName("");
+            cpOrderContentResult22115.setOrderState(cpbjscResult.getdata115().getRate());
+            cpOrderContentResult22115.setOrderId("115");
+            cpOrderContentResultList3.add(cpOrderContentResult22115);
+
+            CPOrderContentResult cpOrderContentResult22116 = new CPOrderContentResult();
+            cpOrderContentResult22116.setOrderName("蓝波");
+            cpOrderContentResult22116.setFullName("");
+            cpOrderContentResult22116.setOrderState(cpbjscResult.getdata116().getRate());
+            cpOrderContentResult22116.setOrderId("116");
+            cpOrderContentResultList3.add(cpOrderContentResult22116);
+
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+
+            CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+            cpOrderContentListResult4.setOrderContentListName("");
+            cpOrderContentListResult4.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult22750 = new CPOrderContentResult();
+            cpOrderContentResult22750.setOrderName("家禽");
+            cpOrderContentResult22750.setFullName("");
+            cpOrderContentResult22750.setOrderState(cpbjscResult.getdata750().getRate());
+            cpOrderContentResult22750.setOrderId("750");
+            cpOrderContentResultList4.add(cpOrderContentResult22750);
+
+            CPOrderContentResult cpOrderContentResult22751 = new CPOrderContentResult();
+            cpOrderContentResult22751.setOrderName("野兽");
+            cpOrderContentResult22751.setFullName("");
+            cpOrderContentResult22751.setOrderState(cpbjscResult.getdata751().getRate());
+            cpOrderContentResult22751.setOrderId("751");
+            cpOrderContentResultList4.add(cpOrderContentResult22751);
+
+            CPOrderContentResult cpOrderContentResult22801 = new CPOrderContentResult();
+            cpOrderContentResult22801.setOrderName("尾大");
+            cpOrderContentResult22801.setFullName("");
+            cpOrderContentResult22801.setOrderState(cpbjscResult.getdata801().getRate());
+            cpOrderContentResult22801.setOrderId("801");
+            cpOrderContentResultList4.add(cpOrderContentResult22801);
+
+            CPOrderContentResult cpOrderContentResult22802 = new CPOrderContentResult();
+            cpOrderContentResult22802.setOrderName("尾小");
+            cpOrderContentResult22802.setFullName("");
+            cpOrderContentResult22802.setOrderState(cpbjscResult.getdata802().getRate());
+            cpOrderContentResult22802.setOrderId("802");
+            cpOrderContentResultList4.add(cpOrderContentResult22802);
+
+            CPOrderContentResult cpOrderContentResult22803 = new CPOrderContentResult();
+            cpOrderContentResult22803.setOrderName("大单");
+            cpOrderContentResult22803.setFullName("");
+            cpOrderContentResult22803.setOrderState(cpbjscResult.getdata803().getRate());
+            cpOrderContentResult22803.setOrderId("803");
+            cpOrderContentResultList4.add(cpOrderContentResult22803);
+
+            CPOrderContentResult cpOrderContentResult22804 = new CPOrderContentResult();
+            cpOrderContentResult22804.setOrderName("小单");
+            cpOrderContentResult22804.setFullName("");
+            cpOrderContentResult22804.setOrderState(cpbjscResult.getdata804().getRate());
+            cpOrderContentResult22804.setOrderId("804");
+            cpOrderContentResultList4.add(cpOrderContentResult22804);
+
+            CPOrderContentResult cpOrderContentResult22805 = new CPOrderContentResult();
+            cpOrderContentResult22805.setOrderName("大双");
+            cpOrderContentResult22805.setFullName("");
+            cpOrderContentResult22805.setOrderState(cpbjscResult.getdata805().getRate());
+            cpOrderContentResult22805.setOrderId("805");
+            cpOrderContentResultList4.add(cpOrderContentResult22805);
+
+            CPOrderContentResult cpOrderContentResult22806 = new CPOrderContentResult();
+            cpOrderContentResult22806.setOrderName("小双");
+            cpOrderContentResult22806.setFullName("");
+            cpOrderContentResult22806.setOrderState(cpbjscResult.getdata806().getRate());
+            cpOrderContentResult22806.setOrderId("806");
+            cpOrderContentResultList4.add(cpOrderContentResult22806);
+
+            cpOrderContentListResult4.setData(cpOrderContentResultList4);
+
+            CPOrderContentListResult.add(cpOrderContentListResult4);
+
+
+        } else if(k==1){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("特码A");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1().getRate());
+            cpOrderContentResult2101.setOrderId("1");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata2().getRate());
+            cpOrderContentResult2102.setOrderId("2");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata3().getRate());
+            cpOrderContentResult2103.setOrderId("3");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata4().getRate());
+            cpOrderContentResult2104.setOrderId("4");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata5().getRate());
+            cpOrderContentResult2105.setOrderId("5");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata6().getRate());
+            cpOrderContentResult2106.setOrderId("6");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata7().getRate());
+            cpOrderContentResult2107.setOrderId("7");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata8().getRate());
+            cpOrderContentResult2108.setOrderId("8");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata9().getRate());
+            cpOrderContentResult2109.setOrderId("9");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata10().getRate());
+            cpOrderContentResult2110.setOrderId("10");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata11().getRate());
+            cpOrderContentResult2111.setOrderId("11");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata12().getRate());
+            cpOrderContentResult2112.setOrderId("12");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata13().getRate());
+            cpOrderContentResult2113.setOrderId("13");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata14().getRate());
+            cpOrderContentResult2114.setOrderId("14");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata15().getRate());
+            cpOrderContentResult2115.setOrderId("15");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata16().getRate());
+            cpOrderContentResult2116.setOrderId("16");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata17().getRate());
+            cpOrderContentResult2117.setOrderId("17");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata18().getRate());
+            cpOrderContentResult2118.setOrderId("18");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata19().getRate());
+            cpOrderContentResult2119.setOrderId("19");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata20().getRate());
+            cpOrderContentResult2120.setOrderId("20");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata21().getRate());
+            cpOrderContentResult2121.setOrderId("21");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata22().getRate());
+            cpOrderContentResult2122.setOrderId("80");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata23().getRate());
+            cpOrderContentResult2123.setOrderId("23");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata24().getRate());
+            cpOrderContentResult2124.setOrderId("24");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata25().getRate());
+            cpOrderContentResult2125.setOrderId("25");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata26().getRate());
+            cpOrderContentResult2126.setOrderId("26");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata27().getRate());
+            cpOrderContentResult2127.setOrderId("27");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata28().getRate());
+            cpOrderContentResult2128.setOrderId("28");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata29().getRate());
+            cpOrderContentResult2129.setOrderId("29");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata30().getRate());
+            cpOrderContentResult2130.setOrderId("30");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata31().getRate());
+            cpOrderContentResult2131.setOrderId("31");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata32().getRate());
+            cpOrderContentResult2132.setOrderId("32");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata33().getRate());
+            cpOrderContentResult2133.setOrderId("33");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata34().getRate());
+            cpOrderContentResult2134.setOrderId("34");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata35().getRate());
+            cpOrderContentResult2135.setOrderId("35");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata36().getRate());
+            cpOrderContentResult2136.setOrderId("36");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata37().getRate());
+            cpOrderContentResult2137.setOrderId("37");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata38().getRate());
+            cpOrderContentResult2138.setOrderId("38");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata39().getRate());
+            cpOrderContentResult2139.setOrderId("39");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata40().getRate());
+            cpOrderContentResult2140.setOrderId("40");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata41().getRate());
+            cpOrderContentResult2141.setOrderId("41");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata42().getRate());
+            cpOrderContentResult2142.setOrderId("42");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata43().getRate());
+            cpOrderContentResult2143.setOrderId("43");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata44().getRate());
+            cpOrderContentResult2144.setOrderId("44");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata45().getRate());
+            cpOrderContentResult2145.setOrderId("45");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata46().getRate());
+            cpOrderContentResult2146.setOrderId("46");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata47().getRate());
+            cpOrderContentResult2147.setOrderId("47");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata48().getRate());
+            cpOrderContentResult2148.setOrderId("48");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata49().getRate());
+            cpOrderContentResult2149.setOrderId("49");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata50().getRate());
+            cpOrderContentResult21108.setOrderId("50");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata51().getRate());
+            cpOrderContentResult21109.setOrderId("51");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata52().getRate());
+            cpOrderContentResult21110.setOrderId("52");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata53().getRate());
+            cpOrderContentResult21111.setOrderId("53");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata54().getRate());
+            cpOrderContentResult21112.setOrderId("54");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult40 = new CPOrderContentResult();
+            cpOrderContentResult40.setOrderName("合双");
+            cpOrderContentResult40.setFullName("");
+            cpOrderContentResult40.setOrderState(cpbjscResult.getdata55().getRate());
+            cpOrderContentResult40.setOrderId("55");
+            cpOrderContentResultList2.add(cpOrderContentResult40);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata56().getRate());
+            cpOrderContentResult21114.setOrderId("56");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata57().getRate());
+            cpOrderContentResult21115.setOrderId("57");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata58().getRate());
+            cpOrderContentResult21116.setOrderId("58");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+
+            CPOrderContentListResult cpOrderContentListResult4 = new CPOrderContentListResult();
+            cpOrderContentListResult4.setOrderContentListName("");
+            cpOrderContentListResult4.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList4 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21750 = new CPOrderContentResult();
+            cpOrderContentResult21750.setOrderName("家禽");
+            cpOrderContentResult21750.setFullName("");
+            cpOrderContentResult21750.setOrderState(cpbjscResult.getdata748().getRate());
+            cpOrderContentResult21750.setOrderId("748");
+            cpOrderContentResultList4.add(cpOrderContentResult21750);
+
+            CPOrderContentResult cpOrderContentResult21751 = new CPOrderContentResult();
+            cpOrderContentResult21751.setOrderName("野兽");
+            cpOrderContentResult21751.setFullName("");
+            cpOrderContentResult21751.setOrderState(cpbjscResult.getdata749().getRate());
+            cpOrderContentResult21751.setOrderId("749");
+            cpOrderContentResultList4.add(cpOrderContentResult21751);
+
+            CPOrderContentResult cpOrderContentResult21801 = new CPOrderContentResult();
+            cpOrderContentResult21801.setOrderName("尾大");
+            cpOrderContentResult21801.setFullName("");
+            cpOrderContentResult21801.setOrderState(cpbjscResult.getdata795().getRate());
+            cpOrderContentResult21801.setOrderId("795");
+            cpOrderContentResultList4.add(cpOrderContentResult21801);
+
+            CPOrderContentResult cpOrderContentResult21802 = new CPOrderContentResult();
+            cpOrderContentResult21802.setOrderName("尾小");
+            cpOrderContentResult21802.setFullName("");
+            cpOrderContentResult21802.setOrderState(cpbjscResult.getdata796().getRate());
+            cpOrderContentResult21802.setOrderId("796");
+            cpOrderContentResultList4.add(cpOrderContentResult21802);
+
+            CPOrderContentResult cpOrderContentResult21803 = new CPOrderContentResult();
+            cpOrderContentResult21803.setOrderName("大单");
+            cpOrderContentResult21803.setFullName("");
+            cpOrderContentResult21803.setOrderState(cpbjscResult.getdata797().getRate());
+            cpOrderContentResult21803.setOrderId("797");
+            cpOrderContentResultList4.add(cpOrderContentResult21803);
+
+            CPOrderContentResult cpOrderContentResult21804 = new CPOrderContentResult();
+            cpOrderContentResult21804.setOrderName("小单");
+            cpOrderContentResult21804.setFullName("");
+            cpOrderContentResult21804.setOrderState(cpbjscResult.getdata798().getRate());
+            cpOrderContentResult21804.setOrderId("798");
+            cpOrderContentResultList4.add(cpOrderContentResult21804);
+
+            CPOrderContentResult cpOrderContentResult21805 = new CPOrderContentResult();
+            cpOrderContentResult21805.setOrderName("大双");
+            cpOrderContentResult21805.setFullName("");
+            cpOrderContentResult21805.setOrderState(cpbjscResult.getdata799().getRate());
+            cpOrderContentResult21805.setOrderId("799");
+            cpOrderContentResultList4.add(cpOrderContentResult21805);
+
+            CPOrderContentResult cpOrderContentResult21806 = new CPOrderContentResult();
+            cpOrderContentResult21806.setOrderName("小双");
+            cpOrderContentResult21806.setFullName("");
+            cpOrderContentResult21806.setOrderState(cpbjscResult.getdata800().getRate());
+            cpOrderContentResult21806.setOrderId("800");
+            cpOrderContentResultList4.add(cpOrderContentResult21806);
+
+            cpOrderContentListResult4.setData(cpOrderContentResultList4);
+
+            CPOrderContentListResult.add(cpOrderContentListResult4);
+        }else if(k == 3){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正码A");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata465().getRate());
+            cpOrderContentResult2101.setOrderId("465");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata466().getRate());
+            cpOrderContentResult2102.setOrderId("466");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata467().getRate());
+            cpOrderContentResult2103.setOrderId("467");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata468().getRate());
+            cpOrderContentResult2104.setOrderId("468");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata469().getRate());
+            cpOrderContentResult2105.setOrderId("469");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata470().getRate());
+            cpOrderContentResult2106.setOrderId("470");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata471().getRate());
+            cpOrderContentResult2107.setOrderId("471");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata472().getRate());
+            cpOrderContentResult2108.setOrderId("472");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata473().getRate());
+            cpOrderContentResult2109.setOrderId("473");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata474().getRate());
+            cpOrderContentResult2110.setOrderId("474");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata475().getRate());
+            cpOrderContentResult2111.setOrderId("475");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata476().getRate());
+            cpOrderContentResult2112.setOrderId("476");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata477().getRate());
+            cpOrderContentResult2113.setOrderId("477");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata478().getRate());
+            cpOrderContentResult2114.setOrderId("478");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata479().getRate());
+            cpOrderContentResult2115.setOrderId("479");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata480().getRate());
+            cpOrderContentResult2116.setOrderId("480");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata481().getRate());
+            cpOrderContentResult2117.setOrderId("481");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata482().getRate());
+            cpOrderContentResult2118.setOrderId("482");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata483().getRate());
+            cpOrderContentResult2119.setOrderId("483");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata484().getRate());
+            cpOrderContentResult2120.setOrderId("484");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata485().getRate());
+            cpOrderContentResult2121.setOrderId("485");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata486().getRate());
+            cpOrderContentResult2122.setOrderId("486");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata487().getRate());
+            cpOrderContentResult2123.setOrderId("487");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata488().getRate());
+            cpOrderContentResult2124.setOrderId("488");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata489().getRate());
+            cpOrderContentResult2125.setOrderId("489");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata490().getRate());
+            cpOrderContentResult2126.setOrderId("490");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata491().getRate());
+            cpOrderContentResult2127.setOrderId("491");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata492().getRate());
+            cpOrderContentResult2128.setOrderId("492");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata493().getRate());
+            cpOrderContentResult2129.setOrderId("493");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata494().getRate());
+            cpOrderContentResult2130.setOrderId("494");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata495().getRate());
+            cpOrderContentResult2131.setOrderId("495");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata496().getRate());
+            cpOrderContentResult2132.setOrderId("496");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata497().getRate());
+            cpOrderContentResult2133.setOrderId("497");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata498().getRate());
+            cpOrderContentResult2134.setOrderId("498");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata499().getRate());
+            cpOrderContentResult2135.setOrderId("499");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata500().getRate());
+            cpOrderContentResult2136.setOrderId("500");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata501().getRate());
+            cpOrderContentResult2137.setOrderId("501");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata502().getRate());
+            cpOrderContentResult2138.setOrderId("502");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata503().getRate());
+            cpOrderContentResult2139.setOrderId("503");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata504().getRate());
+            cpOrderContentResult2140.setOrderId("504");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata505().getRate());
+            cpOrderContentResult2141.setOrderId("505");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata506().getRate());
+            cpOrderContentResult2142.setOrderId("506");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata507().getRate());
+            cpOrderContentResult2143.setOrderId("507");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata508().getRate());
+            cpOrderContentResult2144.setOrderId("508");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata509().getRate());
+            cpOrderContentResult2145.setOrderId("509");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata510().getRate());
+            cpOrderContentResult2146.setOrderId("510");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata511().getRate());
+            cpOrderContentResult2147.setOrderId("511");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata512().getRate());
+            cpOrderContentResult2148.setOrderId("512");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata513().getRate());
+            cpOrderContentResult2149.setOrderId("513");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("总单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata514().getRate());
+            cpOrderContentResult21108.setOrderId("514");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("总双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata515().getRate());
+            cpOrderContentResult21109.setOrderId("515");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("总大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata516().getRate());
+            cpOrderContentResult21110.setOrderId("516");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("总小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata517().getRate());
+            cpOrderContentResult21111.setOrderId("517");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+        }else if(k == 4){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正码B");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata518().getRate());
+            cpOrderContentResult2101.setOrderId("518");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata519().getRate());
+            cpOrderContentResult2102.setOrderId("519");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata520().getRate());
+            cpOrderContentResult2103.setOrderId("520");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata521().getRate());
+            cpOrderContentResult2104.setOrderId("521");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata522().getRate());
+            cpOrderContentResult2105.setOrderId("522");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata523().getRate());
+            cpOrderContentResult2106.setOrderId("523");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata524().getRate());
+            cpOrderContentResult2107.setOrderId("524");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata525().getRate());
+            cpOrderContentResult2108.setOrderId("525");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata526().getRate());
+            cpOrderContentResult2109.setOrderId("526");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata527().getRate());
+            cpOrderContentResult2110.setOrderId("527");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata528().getRate());
+            cpOrderContentResult2111.setOrderId("528");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata529().getRate());
+            cpOrderContentResult2112.setOrderId("529");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata530().getRate());
+            cpOrderContentResult2113.setOrderId("530");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata531().getRate());
+            cpOrderContentResult2114.setOrderId("531");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata532().getRate());
+            cpOrderContentResult2115.setOrderId("532");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata533().getRate());
+            cpOrderContentResult2116.setOrderId("533");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata534().getRate());
+            cpOrderContentResult2117.setOrderId("534");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata535().getRate());
+            cpOrderContentResult2118.setOrderId("535");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata536().getRate());
+            cpOrderContentResult2119.setOrderId("536");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata537().getRate());
+            cpOrderContentResult2120.setOrderId("537");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata538().getRate());
+            cpOrderContentResult2121.setOrderId("538");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata539().getRate());
+            cpOrderContentResult2122.setOrderId("539");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata540().getRate());
+            cpOrderContentResult2123.setOrderId("540");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata541().getRate());
+            cpOrderContentResult2124.setOrderId("541");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata542().getRate());
+            cpOrderContentResult2125.setOrderId("542");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata543().getRate());
+            cpOrderContentResult2126.setOrderId("543");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata544().getRate());
+            cpOrderContentResult2127.setOrderId("544");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata545().getRate());
+            cpOrderContentResult2128.setOrderId("545");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata546().getRate());
+            cpOrderContentResult2129.setOrderId("546");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata547().getRate());
+            cpOrderContentResult2130.setOrderId("547");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata548().getRate());
+            cpOrderContentResult2131.setOrderId("548");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata549().getRate());
+            cpOrderContentResult2132.setOrderId("549");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata550().getRate());
+            cpOrderContentResult2133.setOrderId("550");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata551().getRate());
+            cpOrderContentResult2134.setOrderId("551");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata552().getRate());
+            cpOrderContentResult2135.setOrderId("552");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata553().getRate());
+            cpOrderContentResult2136.setOrderId("553");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata554().getRate());
+            cpOrderContentResult2137.setOrderId("554");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata555().getRate());
+            cpOrderContentResult2138.setOrderId("555");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata556().getRate());
+            cpOrderContentResult2139.setOrderId("556");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata557().getRate());
+            cpOrderContentResult2140.setOrderId("557");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata558().getRate());
+            cpOrderContentResult2141.setOrderId("558");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata559().getRate());
+            cpOrderContentResult2142.setOrderId("559");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata560().getRate());
+            cpOrderContentResult2143.setOrderId("560");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata561().getRate());
+            cpOrderContentResult2144.setOrderId("561");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata562().getRate());
+            cpOrderContentResult2145.setOrderId("562");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata563().getRate());
+            cpOrderContentResult2146.setOrderId("563");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata564().getRate());
+            cpOrderContentResult2147.setOrderId("564");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata565().getRate());
+            cpOrderContentResult2148.setOrderId("565");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata566().getRate());
+            cpOrderContentResult2149.setOrderId("566");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("总单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata567().getRate());
+            cpOrderContentResult21108.setOrderId("567");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("总双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata568().getRate());
+            cpOrderContentResult21109.setOrderId("568");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("总大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata569().getRate());
+            cpOrderContentResult21110.setOrderId("569");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("总小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata570().getRate());
+            cpOrderContentResult21111.setOrderId("570");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+        }else if(k == 5){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正1特");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata117().getRate());
+            cpOrderContentResult2101.setOrderId("117");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata118().getRate());
+            cpOrderContentResult2102.setOrderId("118");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata119().getRate());
+            cpOrderContentResult2103.setOrderId("119");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata120().getRate());
+            cpOrderContentResult2104.setOrderId("120");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata121().getRate());
+            cpOrderContentResult2105.setOrderId("121");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata122().getRate());
+            cpOrderContentResult2106.setOrderId("122");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata123().getRate());
+            cpOrderContentResult2107.setOrderId("123");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata124().getRate());
+            cpOrderContentResult2108.setOrderId("124");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata125().getRate());
+            cpOrderContentResult2109.setOrderId("125");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata126().getRate());
+            cpOrderContentResult2110.setOrderId("126");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata127().getRate());
+            cpOrderContentResult2111.setOrderId("127");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata128().getRate());
+            cpOrderContentResult2112.setOrderId("128");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata129().getRate());
+            cpOrderContentResult2113.setOrderId("129");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata130().getRate());
+            cpOrderContentResult2114.setOrderId("130");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata131().getRate());
+            cpOrderContentResult2115.setOrderId("131");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata132().getRate());
+            cpOrderContentResult2116.setOrderId("132");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata133().getRate());
+            cpOrderContentResult2117.setOrderId("133");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata134().getRate());
+            cpOrderContentResult2118.setOrderId("134");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata135().getRate());
+            cpOrderContentResult2119.setOrderId("135");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata136().getRate());
+            cpOrderContentResult2120.setOrderId("136");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata137().getRate());
+            cpOrderContentResult2121.setOrderId("137");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata138().getRate());
+            cpOrderContentResult2122.setOrderId("138");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata139().getRate());
+            cpOrderContentResult2123.setOrderId("139");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata140().getRate());
+            cpOrderContentResult2124.setOrderId("140");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata141().getRate());
+            cpOrderContentResult2125.setOrderId("141");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata142().getRate());
+            cpOrderContentResult2126.setOrderId("142");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata143().getRate());
+            cpOrderContentResult2127.setOrderId("143");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata144().getRate());
+            cpOrderContentResult2128.setOrderId("144");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata145().getRate());
+            cpOrderContentResult2129.setOrderId("145");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata146().getRate());
+            cpOrderContentResult2130.setOrderId("146");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata147().getRate());
+            cpOrderContentResult2131.setOrderId("147");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata148().getRate());
+            cpOrderContentResult2132.setOrderId("148");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata149().getRate());
+            cpOrderContentResult2133.setOrderId("149");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata150().getRate());
+            cpOrderContentResult2134.setOrderId("150");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata151().getRate());
+            cpOrderContentResult2135.setOrderId("151");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata152().getRate());
+            cpOrderContentResult2136.setOrderId("152");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata153().getRate());
+            cpOrderContentResult2137.setOrderId("153");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata154().getRate());
+            cpOrderContentResult2138.setOrderId("154");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata155().getRate());
+            cpOrderContentResult2139.setOrderId("155");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata156().getRate());
+            cpOrderContentResult2140.setOrderId("156");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata157().getRate());
+            cpOrderContentResult2141.setOrderId("157");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata158().getRate());
+            cpOrderContentResult2142.setOrderId("158");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata159().getRate());
+            cpOrderContentResult2143.setOrderId("159");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata160().getRate());
+            cpOrderContentResult2144.setOrderId("160");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata161().getRate());
+            cpOrderContentResult2145.setOrderId("161");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata162().getRate());
+            cpOrderContentResult2146.setOrderId("162");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata163().getRate());
+            cpOrderContentResult2147.setOrderId("163");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata164().getRate());
+            cpOrderContentResult2148.setOrderId("164");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata165().getRate());
+            cpOrderContentResult2149.setOrderId("165");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata166().getRate());
+            cpOrderContentResult21108.setOrderId("166");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata167().getRate());
+            cpOrderContentResult21109.setOrderId("167");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata168().getRate());
+            cpOrderContentResult21110.setOrderId("168");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata169().getRate());
+            cpOrderContentResult21111.setOrderId("169");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata170().getRate());
+            cpOrderContentResult21112.setOrderId("170");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult21113 = new CPOrderContentResult();
+            cpOrderContentResult21113.setOrderName("合双");
+            cpOrderContentResult21113.setFullName("");
+            cpOrderContentResult21113.setOrderState(cpbjscResult.getdata171().getRate());
+            cpOrderContentResult21113.setOrderId("171");
+            cpOrderContentResultList2.add(cpOrderContentResult21113);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata172().getRate());
+            cpOrderContentResult21114.setOrderId("172");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata173().getRate());
+            cpOrderContentResult21115.setOrderId("173");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata174().getRate());
+            cpOrderContentResult21116.setOrderId("174");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+        }else if(k == 6){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正2特");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata175().getRate());
+            cpOrderContentResult2101.setOrderId("175");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata176().getRate());
+            cpOrderContentResult2102.setOrderId("176");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata177().getRate());
+            cpOrderContentResult2103.setOrderId("177");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata178().getRate());
+            cpOrderContentResult2104.setOrderId("178");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata179().getRate());
+            cpOrderContentResult2105.setOrderId("179");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata180().getRate());
+            cpOrderContentResult2106.setOrderId("180");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata181().getRate());
+            cpOrderContentResult2107.setOrderId("181");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata182().getRate());
+            cpOrderContentResult2108.setOrderId("182");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata183().getRate());
+            cpOrderContentResult2109.setOrderId("183");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata184().getRate());
+            cpOrderContentResult2110.setOrderId("184");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata185().getRate());
+            cpOrderContentResult2111.setOrderId("185");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata186().getRate());
+            cpOrderContentResult2112.setOrderId("186");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata187().getRate());
+            cpOrderContentResult2113.setOrderId("187");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata188().getRate());
+            cpOrderContentResult2114.setOrderId("188");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata189().getRate());
+            cpOrderContentResult2115.setOrderId("189");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata190().getRate());
+            cpOrderContentResult2116.setOrderId("190");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata191().getRate());
+            cpOrderContentResult2117.setOrderId("191");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata192().getRate());
+            cpOrderContentResult2118.setOrderId("192");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata193().getRate());
+            cpOrderContentResult2119.setOrderId("193");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata194().getRate());
+            cpOrderContentResult2120.setOrderId("194");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata195().getRate());
+            cpOrderContentResult2121.setOrderId("195");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata196().getRate());
+            cpOrderContentResult2122.setOrderId("196");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata197().getRate());
+            cpOrderContentResult2123.setOrderId("197");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata198().getRate());
+            cpOrderContentResult2124.setOrderId("198");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata199().getRate());
+            cpOrderContentResult2125.setOrderId("199");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata200().getRate());
+            cpOrderContentResult2126.setOrderId("200");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata201().getRate());
+            cpOrderContentResult2127.setOrderId("201");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata202().getRate());
+            cpOrderContentResult2128.setOrderId("202");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata203().getRate());
+            cpOrderContentResult2129.setOrderId("203");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata204().getRate());
+            cpOrderContentResult2130.setOrderId("204");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata205().getRate());
+            cpOrderContentResult2131.setOrderId("205");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata206().getRate());
+            cpOrderContentResult2132.setOrderId("206");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata207().getRate());
+            cpOrderContentResult2133.setOrderId("207");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata208().getRate());
+            cpOrderContentResult2134.setOrderId("208");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata209().getRate());
+            cpOrderContentResult2135.setOrderId("209");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata210().getRate());
+            cpOrderContentResult2136.setOrderId("210");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata211().getRate());
+            cpOrderContentResult2137.setOrderId("211");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata212().getRate());
+            cpOrderContentResult2138.setOrderId("212");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata213().getRate());
+            cpOrderContentResult2139.setOrderId("213");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata214().getRate());
+            cpOrderContentResult2140.setOrderId("214");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata215().getRate());
+            cpOrderContentResult2141.setOrderId("215");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata216().getRate());
+            cpOrderContentResult2142.setOrderId("216");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata217().getRate());
+            cpOrderContentResult2143.setOrderId("217");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata218().getRate());
+            cpOrderContentResult2144.setOrderId("218");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata219().getRate());
+            cpOrderContentResult2145.setOrderId("219");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata220().getRate());
+            cpOrderContentResult2146.setOrderId("220");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata221().getRate());
+            cpOrderContentResult2147.setOrderId("221");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata222().getRate());
+            cpOrderContentResult2148.setOrderId("222");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata223().getRate());
+            cpOrderContentResult2149.setOrderId("223");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata224().getRate());
+            cpOrderContentResult21108.setOrderId("224");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata225().getRate());
+            cpOrderContentResult21109.setOrderId("225");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata226().getRate());
+            cpOrderContentResult21110.setOrderId("226");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata227().getRate());
+            cpOrderContentResult21111.setOrderId("227");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata228().getRate());
+            cpOrderContentResult21112.setOrderId("228");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult21113 = new CPOrderContentResult();
+            cpOrderContentResult21113.setOrderName("合双");
+            cpOrderContentResult21113.setFullName("");
+            cpOrderContentResult21113.setOrderState(cpbjscResult.getdata229().getRate());
+            cpOrderContentResult21113.setOrderId("229");
+            cpOrderContentResultList2.add(cpOrderContentResult21113);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata230().getRate());
+            cpOrderContentResult21114.setOrderId("230");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata231().getRate());
+            cpOrderContentResult21115.setOrderId("231");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata232().getRate());
+            cpOrderContentResult21116.setOrderId("232");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+        }else if(k == 7){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正3特");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata233().getRate());
+            cpOrderContentResult2101.setOrderId("233");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata234().getRate());
+            cpOrderContentResult2102.setOrderId("234");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata235().getRate());
+            cpOrderContentResult2103.setOrderId("235");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata236().getRate());
+            cpOrderContentResult2104.setOrderId("236");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata237().getRate());
+            cpOrderContentResult2105.setOrderId("237");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata238().getRate());
+            cpOrderContentResult2106.setOrderId("238");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata239().getRate());
+            cpOrderContentResult2107.setOrderId("239");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata240().getRate());
+            cpOrderContentResult2108.setOrderId("240");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata241().getRate());
+            cpOrderContentResult2109.setOrderId("241");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata242().getRate());
+            cpOrderContentResult2110.setOrderId("242");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata243().getRate());
+            cpOrderContentResult2111.setOrderId("243");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata244().getRate());
+            cpOrderContentResult2112.setOrderId("244");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata245().getRate());
+            cpOrderContentResult2113.setOrderId("245");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata246().getRate());
+            cpOrderContentResult2114.setOrderId("246");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata247().getRate());
+            cpOrderContentResult2115.setOrderId("247");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata248().getRate());
+            cpOrderContentResult2116.setOrderId("248");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata249().getRate());
+            cpOrderContentResult2117.setOrderId("249");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata250().getRate());
+            cpOrderContentResult2118.setOrderId("250");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata251().getRate());
+            cpOrderContentResult2119.setOrderId("251");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata252().getRate());
+            cpOrderContentResult2120.setOrderId("252");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata253().getRate());
+            cpOrderContentResult2121.setOrderId("253");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata254().getRate());
+            cpOrderContentResult2122.setOrderId("254");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata255().getRate());
+            cpOrderContentResult2123.setOrderId("255");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata256().getRate());
+            cpOrderContentResult2124.setOrderId("256");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata257().getRate());
+            cpOrderContentResult2125.setOrderId("257");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata258().getRate());
+            cpOrderContentResult2126.setOrderId("258");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata259().getRate());
+            cpOrderContentResult2127.setOrderId("259");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata260().getRate());
+            cpOrderContentResult2128.setOrderId("260");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata261().getRate());
+            cpOrderContentResult2129.setOrderId("261");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata262().getRate());
+            cpOrderContentResult2130.setOrderId("262");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata263().getRate());
+            cpOrderContentResult2131.setOrderId("263");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata264().getRate());
+            cpOrderContentResult2132.setOrderId("264");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata265().getRate());
+            cpOrderContentResult2133.setOrderId("265");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata266().getRate());
+            cpOrderContentResult2134.setOrderId("266");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata267().getRate());
+            cpOrderContentResult2135.setOrderId("267");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata268().getRate());
+            cpOrderContentResult2136.setOrderId("268");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata269().getRate());
+            cpOrderContentResult2137.setOrderId("269");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata270().getRate());
+            cpOrderContentResult2138.setOrderId("270");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata271().getRate());
+            cpOrderContentResult2139.setOrderId("271");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata272().getRate());
+            cpOrderContentResult2140.setOrderId("272");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata273().getRate());
+            cpOrderContentResult2141.setOrderId("273");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata274().getRate());
+            cpOrderContentResult2142.setOrderId("274");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata275().getRate());
+            cpOrderContentResult2143.setOrderId("275");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata276().getRate());
+            cpOrderContentResult2144.setOrderId("276");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata277().getRate());
+            cpOrderContentResult2145.setOrderId("277");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata278().getRate());
+            cpOrderContentResult2146.setOrderId("278");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata279().getRate());
+            cpOrderContentResult2147.setOrderId("279");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata280().getRate());
+            cpOrderContentResult2148.setOrderId("280");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata281().getRate());
+            cpOrderContentResult2149.setOrderId("281");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata282().getRate());
+            cpOrderContentResult21108.setOrderId("282");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata283().getRate());
+            cpOrderContentResult21109.setOrderId("283");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata284().getRate());
+            cpOrderContentResult21110.setOrderId("284");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata285().getRate());
+            cpOrderContentResult21111.setOrderId("285");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata286().getRate());
+            cpOrderContentResult21112.setOrderId("286");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult21113 = new CPOrderContentResult();
+            cpOrderContentResult21113.setOrderName("合双");
+            cpOrderContentResult21113.setFullName("");
+            cpOrderContentResult21113.setOrderState(cpbjscResult.getdata287().getRate());
+            cpOrderContentResult21113.setOrderId("287");
+            cpOrderContentResultList2.add(cpOrderContentResult21113);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata288().getRate());
+            cpOrderContentResult21114.setOrderId("288");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata289().getRate());
+            cpOrderContentResult21115.setOrderId("289");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata290().getRate());
+            cpOrderContentResult21116.setOrderId("290");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+        }else if(k == 8){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正4特");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata291().getRate());
+            cpOrderContentResult2101.setOrderId("291");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata292().getRate());
+            cpOrderContentResult2102.setOrderId("292");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata293().getRate());
+            cpOrderContentResult2103.setOrderId("293");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata294().getRate());
+            cpOrderContentResult2104.setOrderId("294");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata295().getRate());
+            cpOrderContentResult2105.setOrderId("295");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata296().getRate());
+            cpOrderContentResult2106.setOrderId("296");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata297().getRate());
+            cpOrderContentResult2107.setOrderId("297");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata298().getRate());
+            cpOrderContentResult2108.setOrderId("298");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata299().getRate());
+            cpOrderContentResult2109.setOrderId("299");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata300().getRate());
+            cpOrderContentResult2110.setOrderId("300");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata301().getRate());
+            cpOrderContentResult2111.setOrderId("301");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata302().getRate());
+            cpOrderContentResult2112.setOrderId("302");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata303().getRate());
+            cpOrderContentResult2113.setOrderId("303");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata304().getRate());
+            cpOrderContentResult2114.setOrderId("304");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata305().getRate());
+            cpOrderContentResult2115.setOrderId("305");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata306().getRate());
+            cpOrderContentResult2116.setOrderId("306");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata307().getRate());
+            cpOrderContentResult2117.setOrderId("307");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata308().getRate());
+            cpOrderContentResult2118.setOrderId("308");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata309().getRate());
+            cpOrderContentResult2119.setOrderId("309");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata310().getRate());
+            cpOrderContentResult2120.setOrderId("310");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata311().getRate());
+            cpOrderContentResult2121.setOrderId("311");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata312().getRate());
+            cpOrderContentResult2122.setOrderId("312");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata313().getRate());
+            cpOrderContentResult2123.setOrderId("313");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata314().getRate());
+            cpOrderContentResult2124.setOrderId("314");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata315().getRate());
+            cpOrderContentResult2125.setOrderId("315");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata316().getRate());
+            cpOrderContentResult2126.setOrderId("316");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata317().getRate());
+            cpOrderContentResult2127.setOrderId("317");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata318().getRate());
+            cpOrderContentResult2128.setOrderId("318");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata319().getRate());
+            cpOrderContentResult2129.setOrderId("319");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata320().getRate());
+            cpOrderContentResult2130.setOrderId("320");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata321().getRate());
+            cpOrderContentResult2131.setOrderId("321");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata322().getRate());
+            cpOrderContentResult2132.setOrderId("322");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata323().getRate());
+            cpOrderContentResult2133.setOrderId("323");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata324().getRate());
+            cpOrderContentResult2134.setOrderId("324");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata325().getRate());
+            cpOrderContentResult2135.setOrderId("325");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata326().getRate());
+            cpOrderContentResult2136.setOrderId("326");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata327().getRate());
+            cpOrderContentResult2137.setOrderId("327");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata328().getRate());
+            cpOrderContentResult2138.setOrderId("328");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata329().getRate());
+            cpOrderContentResult2139.setOrderId("329");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata330().getRate());
+            cpOrderContentResult2140.setOrderId("330");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata331().getRate());
+            cpOrderContentResult2141.setOrderId("331");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata332().getRate());
+            cpOrderContentResult2142.setOrderId("332");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata333().getRate());
+            cpOrderContentResult2143.setOrderId("333");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata334().getRate());
+            cpOrderContentResult2144.setOrderId("334");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata335().getRate());
+            cpOrderContentResult2145.setOrderId("335");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata336().getRate());
+            cpOrderContentResult2146.setOrderId("336");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata337().getRate());
+            cpOrderContentResult2147.setOrderId("337");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata338().getRate());
+            cpOrderContentResult2148.setOrderId("338");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata339().getRate());
+            cpOrderContentResult2149.setOrderId("339");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata340().getRate());
+            cpOrderContentResult21108.setOrderId("340");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata341().getRate());
+            cpOrderContentResult21109.setOrderId("341");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata342().getRate());
+            cpOrderContentResult21110.setOrderId("342");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata343().getRate());
+            cpOrderContentResult21111.setOrderId("343");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata344().getRate());
+            cpOrderContentResult21112.setOrderId("344");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult21113 = new CPOrderContentResult();
+            cpOrderContentResult21113.setOrderName("合双");
+            cpOrderContentResult21113.setFullName("");
+            cpOrderContentResult21113.setOrderState(cpbjscResult.getdata345().getRate());
+            cpOrderContentResult21113.setOrderId("345");
+            cpOrderContentResultList2.add(cpOrderContentResult21113);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata346().getRate());
+            cpOrderContentResult21114.setOrderId("346");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata347().getRate());
+            cpOrderContentResult21115.setOrderId("347");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata348().getRate());
+            cpOrderContentResult21116.setOrderId("348");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+        }else if(k == 9){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正5特");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata349().getRate());
+            cpOrderContentResult2101.setOrderId("349");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata350().getRate());
+            cpOrderContentResult2102.setOrderId("350");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata351().getRate());
+            cpOrderContentResult2103.setOrderId("351");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata352().getRate());
+            cpOrderContentResult2104.setOrderId("352");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata353().getRate());
+            cpOrderContentResult2105.setOrderId("353");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata354().getRate());
+            cpOrderContentResult2106.setOrderId("354");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata355().getRate());
+            cpOrderContentResult2107.setOrderId("355");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata356().getRate());
+            cpOrderContentResult2108.setOrderId("356");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata357().getRate());
+            cpOrderContentResult2109.setOrderId("357");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata358().getRate());
+            cpOrderContentResult2110.setOrderId("358");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata359().getRate());
+            cpOrderContentResult2111.setOrderId("359");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata360().getRate());
+            cpOrderContentResult2112.setOrderId("360");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata361().getRate());
+            cpOrderContentResult2113.setOrderId("361");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata362().getRate());
+            cpOrderContentResult2114.setOrderId("362");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata363().getRate());
+            cpOrderContentResult2115.setOrderId("363");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata364().getRate());
+            cpOrderContentResult2116.setOrderId("364");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata365().getRate());
+            cpOrderContentResult2117.setOrderId("365");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata366().getRate());
+            cpOrderContentResult2118.setOrderId("366");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata367().getRate());
+            cpOrderContentResult2119.setOrderId("367");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata368().getRate());
+            cpOrderContentResult2120.setOrderId("368");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata369().getRate());
+            cpOrderContentResult2121.setOrderId("369");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata370().getRate());
+            cpOrderContentResult2122.setOrderId("370");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata371().getRate());
+            cpOrderContentResult2123.setOrderId("371");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata372().getRate());
+            cpOrderContentResult2124.setOrderId("372");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata373().getRate());
+            cpOrderContentResult2125.setOrderId("373");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata374().getRate());
+            cpOrderContentResult2126.setOrderId("374");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata375().getRate());
+            cpOrderContentResult2127.setOrderId("375");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata376().getRate());
+            cpOrderContentResult2128.setOrderId("376");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata377().getRate());
+            cpOrderContentResult2129.setOrderId("377");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata378().getRate());
+            cpOrderContentResult2130.setOrderId("378");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata379().getRate());
+            cpOrderContentResult2131.setOrderId("379");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata380().getRate());
+            cpOrderContentResult2132.setOrderId("380");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata381().getRate());
+            cpOrderContentResult2133.setOrderId("381");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata382().getRate());
+            cpOrderContentResult2134.setOrderId("382");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata383().getRate());
+            cpOrderContentResult2135.setOrderId("383");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata384().getRate());
+            cpOrderContentResult2136.setOrderId("384");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata385().getRate());
+            cpOrderContentResult2137.setOrderId("385");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata386().getRate());
+            cpOrderContentResult2138.setOrderId("386");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata387().getRate());
+            cpOrderContentResult2139.setOrderId("387");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata388().getRate());
+            cpOrderContentResult2140.setOrderId("388");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata389().getRate());
+            cpOrderContentResult2141.setOrderId("389");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata390().getRate());
+            cpOrderContentResult2142.setOrderId("390");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata391().getRate());
+            cpOrderContentResult2143.setOrderId("391");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata392().getRate());
+            cpOrderContentResult2144.setOrderId("392");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata393().getRate());
+            cpOrderContentResult2145.setOrderId("393");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata394().getRate());
+            cpOrderContentResult2146.setOrderId("394");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata395().getRate());
+            cpOrderContentResult2147.setOrderId("395");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata396().getRate());
+            cpOrderContentResult2148.setOrderId("396");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata397().getRate());
+            cpOrderContentResult2149.setOrderId("397");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata398().getRate());
+            cpOrderContentResult21108.setOrderId("398");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata399().getRate());
+            cpOrderContentResult21109.setOrderId("399");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata400().getRate());
+            cpOrderContentResult21110.setOrderId("400");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata401().getRate());
+            cpOrderContentResult21111.setOrderId("401");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata402().getRate());
+            cpOrderContentResult21112.setOrderId("402");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult21113 = new CPOrderContentResult();
+            cpOrderContentResult21113.setOrderName("合双");
+            cpOrderContentResult21113.setFullName("");
+            cpOrderContentResult21113.setOrderState(cpbjscResult.getdata403().getRate());
+            cpOrderContentResult21113.setOrderId("403");
+            cpOrderContentResultList2.add(cpOrderContentResult21113);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata404().getRate());
+            cpOrderContentResult21114.setOrderId("404");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata405().getRate());
+            cpOrderContentResult21115.setOrderId("405");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata406().getRate());
+            cpOrderContentResult21116.setOrderId("406");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+        }else if(k == 10){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("正6特");
+            cpOrderContentListResult.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata407().getRate());
+            cpOrderContentResult2101.setOrderId("407");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata408().getRate());
+            cpOrderContentResult2102.setOrderId("408");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata409().getRate());
+            cpOrderContentResult2103.setOrderId("409");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata410().getRate());
+            cpOrderContentResult2104.setOrderId("410");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata411().getRate());
+            cpOrderContentResult2105.setOrderId("411");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata412().getRate());
+            cpOrderContentResult2106.setOrderId("412");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata413().getRate());
+            cpOrderContentResult2107.setOrderId("413");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata414().getRate());
+            cpOrderContentResult2108.setOrderId("414");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata415().getRate());
+            cpOrderContentResult2109.setOrderId("415");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata416().getRate());
+            cpOrderContentResult2110.setOrderId("416");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata417().getRate());
+            cpOrderContentResult2111.setOrderId("417");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata418().getRate());
+            cpOrderContentResult2112.setOrderId("418");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata419().getRate());
+            cpOrderContentResult2113.setOrderId("419");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata420().getRate());
+            cpOrderContentResult2114.setOrderId("420");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata421().getRate());
+            cpOrderContentResult2115.setOrderId("421");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata422().getRate());
+            cpOrderContentResult2116.setOrderId("422");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata423().getRate());
+            cpOrderContentResult2117.setOrderId("423");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata424().getRate());
+            cpOrderContentResult2118.setOrderId("424");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState(cpbjscResult.getdata425().getRate());
+            cpOrderContentResult2119.setOrderId("425");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState(cpbjscResult.getdata426().getRate());
+            cpOrderContentResult2120.setOrderId("426");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState(cpbjscResult.getdata427().getRate());
+            cpOrderContentResult2121.setOrderId("427");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState(cpbjscResult.getdata428().getRate());
+            cpOrderContentResult2122.setOrderId("428");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState(cpbjscResult.getdata429().getRate());
+            cpOrderContentResult2123.setOrderId("429");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState(cpbjscResult.getdata430().getRate());
+            cpOrderContentResult2124.setOrderId("430");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState(cpbjscResult.getdata431().getRate());
+            cpOrderContentResult2125.setOrderId("431");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState(cpbjscResult.getdata432().getRate());
+            cpOrderContentResult2126.setOrderId("432");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState(cpbjscResult.getdata433().getRate());
+            cpOrderContentResult2127.setOrderId("433");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState(cpbjscResult.getdata434().getRate());
+            cpOrderContentResult2128.setOrderId("434");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState(cpbjscResult.getdata435().getRate());
+            cpOrderContentResult2129.setOrderId("435");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState(cpbjscResult.getdata436().getRate());
+            cpOrderContentResult2130.setOrderId("436");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState(cpbjscResult.getdata437().getRate());
+            cpOrderContentResult2131.setOrderId("437");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState(cpbjscResult.getdata438().getRate());
+            cpOrderContentResult2132.setOrderId("438");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState(cpbjscResult.getdata439().getRate());
+            cpOrderContentResult2133.setOrderId("439");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState(cpbjscResult.getdata440().getRate());
+            cpOrderContentResult2134.setOrderId("440");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState(cpbjscResult.getdata441().getRate());
+            cpOrderContentResult2135.setOrderId("441");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState(cpbjscResult.getdata442().getRate());
+            cpOrderContentResult2136.setOrderId("442");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState(cpbjscResult.getdata443().getRate());
+            cpOrderContentResult2137.setOrderId("443");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState(cpbjscResult.getdata444().getRate());
+            cpOrderContentResult2138.setOrderId("444");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState(cpbjscResult.getdata445().getRate());
+            cpOrderContentResult2139.setOrderId("445");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState(cpbjscResult.getdata446().getRate());
+            cpOrderContentResult2140.setOrderId("446");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState(cpbjscResult.getdata447().getRate());
+            cpOrderContentResult2141.setOrderId("447");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState(cpbjscResult.getdata448().getRate());
+            cpOrderContentResult2142.setOrderId("448");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState(cpbjscResult.getdata449().getRate());
+            cpOrderContentResult2143.setOrderId("449");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState(cpbjscResult.getdata450().getRate());
+            cpOrderContentResult2144.setOrderId("450");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState(cpbjscResult.getdata451().getRate());
+            cpOrderContentResult2145.setOrderId("451");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState(cpbjscResult.getdata452().getRate());
+            cpOrderContentResult2146.setOrderId("452");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState(cpbjscResult.getdata453().getRate());
+            cpOrderContentResult2147.setOrderId("453");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState(cpbjscResult.getdata454().getRate());
+            cpOrderContentResult2148.setOrderId("454");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState(cpbjscResult.getdata455().getRate());
+            cpOrderContentResult2149.setOrderId("455");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("两面");
+            cpOrderContentListResult2.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult21108 = new CPOrderContentResult();
+            cpOrderContentResult21108.setOrderName("单");
+            cpOrderContentResult21108.setFullName("");
+            cpOrderContentResult21108.setOrderState(cpbjscResult.getdata456().getRate());
+            cpOrderContentResult21108.setOrderId("456");
+            cpOrderContentResultList2.add(cpOrderContentResult21108);
+
+            CPOrderContentResult cpOrderContentResult21109 = new CPOrderContentResult();
+            cpOrderContentResult21109.setOrderName("双");
+            cpOrderContentResult21109.setFullName("");
+            cpOrderContentResult21109.setOrderState(cpbjscResult.getdata457().getRate());
+            cpOrderContentResult21109.setOrderId("457");
+            cpOrderContentResultList2.add(cpOrderContentResult21109);
+
+            CPOrderContentResult cpOrderContentResult21110 = new CPOrderContentResult();
+            cpOrderContentResult21110.setOrderName("大");
+            cpOrderContentResult21110.setFullName("");
+            cpOrderContentResult21110.setOrderState(cpbjscResult.getdata458().getRate());
+            cpOrderContentResult21110.setOrderId("458");
+            cpOrderContentResultList2.add(cpOrderContentResult21110);
+
+            CPOrderContentResult cpOrderContentResult21111 = new CPOrderContentResult();
+            cpOrderContentResult21111.setOrderName("小");
+            cpOrderContentResult21111.setFullName("");
+            cpOrderContentResult21111.setOrderState(cpbjscResult.getdata459().getRate());
+            cpOrderContentResult21111.setOrderId("459");
+            cpOrderContentResultList2.add(cpOrderContentResult21111);
+
+            CPOrderContentResult cpOrderContentResult21112 = new CPOrderContentResult();
+            cpOrderContentResult21112.setOrderName("合单");
+            cpOrderContentResult21112.setFullName("");
+            cpOrderContentResult21112.setOrderState(cpbjscResult.getdata460().getRate());
+            cpOrderContentResult21112.setOrderId("460");
+            cpOrderContentResultList2.add(cpOrderContentResult21112);
+
+            CPOrderContentResult cpOrderContentResult21113 = new CPOrderContentResult();
+            cpOrderContentResult21113.setOrderName("合双");
+            cpOrderContentResult21113.setFullName("");
+            cpOrderContentResult21113.setOrderState(cpbjscResult.getdata461().getRate());
+            cpOrderContentResult21113.setOrderId("461");
+            cpOrderContentResultList2.add(cpOrderContentResult21113);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+            CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+            cpOrderContentListResult3.setOrderContentListName("");
+            cpOrderContentListResult3.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
+            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setFullName("");
+            cpOrderContentResult21114.setOrderState(cpbjscResult.getdata462().getRate());
+            cpOrderContentResult21114.setOrderId("462");
+            cpOrderContentResultList3.add(cpOrderContentResult21114);
+
+            CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
+            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setFullName("");
+            cpOrderContentResult21115.setOrderState(cpbjscResult.getdata463().getRate());
+            cpOrderContentResult21115.setOrderId("463");
+            cpOrderContentResultList3.add(cpOrderContentResult21115);
+
+            CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
+            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setFullName("");
+            cpOrderContentResult21116.setOrderState(cpbjscResult.getdata464().getRate());
+            cpOrderContentResult21116.setOrderId("464");
+            cpOrderContentResultList3.add(cpOrderContentResult21116);
+
+            cpOrderContentListResult3.setData(cpOrderContentResultList3);
+
+            CPOrderContentListResult.add(cpOrderContentListResult3);
+
+        }else if(k == 11){
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("正码一");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("大");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata571().getRate());
+            cpOrderContentResult2101.setOrderId("571");
+            cpOrderContentResultList11.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("小");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata572().getRate());
+            cpOrderContentResult2102.setOrderId("572");
+            cpOrderContentResultList11.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("单");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata573().getRate());
+            cpOrderContentResult2103.setOrderId("573");
+            cpOrderContentResultList11.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("双");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata574().getRate());
+            cpOrderContentResult2104.setOrderId("574");
+            cpOrderContentResultList11.add(cpOrderContentResult2104);
+
+            CPOrderContentListResult cpOrderContentListResult12 = new CPOrderContentListResult();
+            cpOrderContentListResult12.setOrderContentListName("");
+            cpOrderContentListResult12.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList12 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult112105 = new CPOrderContentResult();
+            cpOrderContentResult112105.setOrderName("红波");
+            cpOrderContentResult112105.setFullName("");
+            cpOrderContentResult112105.setOrderState(cpbjscResult.getdata575().getRate());
+            cpOrderContentResult112105.setOrderId("575");
+            cpOrderContentResultList12.add(cpOrderContentResult112105);
+
+            CPOrderContentResult cpOrderContentResult112106 = new CPOrderContentResult();
+            cpOrderContentResult112106.setOrderName("绿波");
+            cpOrderContentResult112106.setFullName("");
+            cpOrderContentResult112106.setOrderState(cpbjscResult.getdata576().getRate());
+            cpOrderContentResult112106.setOrderId("576");
+            cpOrderContentResultList12.add(cpOrderContentResult112106);
+
+            CPOrderContentResult cpOrderContentResult112107 = new CPOrderContentResult();
+            cpOrderContentResult112107.setOrderName("蓝波");
+            cpOrderContentResult112107.setFullName("");
+            cpOrderContentResult112107.setOrderState(cpbjscResult.getdata577().getRate());
+            cpOrderContentResult112107.setOrderId("577");
+            cpOrderContentResultList12.add(cpOrderContentResult112107);
+
+            CPOrderContentListResult cpOrderContentListResult13 = new CPOrderContentListResult();
+            cpOrderContentListResult13.setOrderContentListName("");
+            cpOrderContentListResult13.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList13 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("合大");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1047().getRate());
+            cpOrderContentResult2105.setOrderId("1047");
+            cpOrderContentResultList13.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("合小");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1048().getRate());
+            cpOrderContentResult2106.setOrderId("1048");
+            cpOrderContentResultList13.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("和单");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1049().getRate());
+            cpOrderContentResult2107.setOrderId("1049");
+            cpOrderContentResultList13.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("和双");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1050().getRate());
+            cpOrderContentResult2108.setOrderId("1050");
+            cpOrderContentResultList13.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("尾大");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1051().getRate());
+            cpOrderContentResult2109.setOrderId("1051");
+            cpOrderContentResultList13.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("尾小");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1052().getRate());
+            cpOrderContentResult2110.setOrderId("1052");
+            cpOrderContentResultList13.add(cpOrderContentResult2110);
+
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            cpOrderContentListResult12.setData(cpOrderContentResultList12);
+            cpOrderContentListResult13.setData(cpOrderContentResultList13);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+            CPOrderContentListResult.add(cpOrderContentListResult12);
+            CPOrderContentListResult.add(cpOrderContentListResult13);
+
+            CPOrderContentListResult cpOrderContentListResult21 = new CPOrderContentListResult();
+            cpOrderContentListResult21.setOrderContentListName("正码二");
+            cpOrderContentListResult21.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList21 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult22101 = new CPOrderContentResult();
+            cpOrderContentResult22101.setOrderName("大");
+            cpOrderContentResult22101.setFullName("");
+            cpOrderContentResult22101.setOrderState(cpbjscResult.getdata578().getRate());
+            cpOrderContentResult22101.setOrderId("578");
+            cpOrderContentResultList21.add(cpOrderContentResult22101);
+
+            CPOrderContentResult cpOrderContentResult22102 = new CPOrderContentResult();
+            cpOrderContentResult22102.setOrderName("小");
+            cpOrderContentResult22102.setFullName("");
+            cpOrderContentResult22102.setOrderState(cpbjscResult.getdata579().getRate());
+            cpOrderContentResult22102.setOrderId("579");
+            cpOrderContentResultList21.add(cpOrderContentResult22102);
+
+            CPOrderContentResult cpOrderContentResult22103 = new CPOrderContentResult();
+            cpOrderContentResult22103.setOrderName("单");
+            cpOrderContentResult22103.setFullName("");
+            cpOrderContentResult22103.setOrderState(cpbjscResult.getdata580().getRate());
+            cpOrderContentResult22103.setOrderId("580");
+            cpOrderContentResultList21.add(cpOrderContentResult22103);
+
+            CPOrderContentResult cpOrderContentResult22104 = new CPOrderContentResult();
+            cpOrderContentResult22104.setOrderName("双");
+            cpOrderContentResult22104.setFullName("");
+            cpOrderContentResult22104.setOrderState(cpbjscResult.getdata581().getRate());
+            cpOrderContentResult22104.setOrderId("581");
+            cpOrderContentResultList21.add(cpOrderContentResult22104);
+
+            CPOrderContentListResult cpOrderContentListResult22 = new CPOrderContentListResult();
+            cpOrderContentListResult22.setOrderContentListName("");
+            cpOrderContentListResult22.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList22 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1122105 = new CPOrderContentResult();
+            cpOrderContentResult1122105.setOrderName("红波");
+            cpOrderContentResult1122105.setFullName("");
+            cpOrderContentResult1122105.setOrderState(cpbjscResult.getdata582().getRate());
+            cpOrderContentResult1122105.setOrderId("582");
+            cpOrderContentResultList22.add(cpOrderContentResult1122105);
+
+            CPOrderContentResult cpOrderContentResult1122106 = new CPOrderContentResult();
+            cpOrderContentResult1122106.setOrderName("绿波");
+            cpOrderContentResult1122106.setFullName("");
+            cpOrderContentResult1122106.setOrderState(cpbjscResult.getdata583().getRate());
+            cpOrderContentResult1122106.setOrderId("583");
+            cpOrderContentResultList22.add(cpOrderContentResult1122106);
+
+            CPOrderContentResult cpOrderContentResult1122107 = new CPOrderContentResult();
+            cpOrderContentResult1122107.setOrderName("蓝波");
+            cpOrderContentResult1122107.setFullName("");
+            cpOrderContentResult1122107.setOrderState(cpbjscResult.getdata584().getRate());
+            cpOrderContentResult1122107.setOrderId("584");
+            cpOrderContentResultList22.add(cpOrderContentResult1122107);
+
+            CPOrderContentListResult cpOrderContentListResult23 = new CPOrderContentListResult();
+            cpOrderContentListResult23.setOrderContentListName("");
+            cpOrderContentListResult23.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList23 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult22105 = new CPOrderContentResult();
+            cpOrderContentResult22105.setOrderName("合大");
+            cpOrderContentResult22105.setFullName("");
+            cpOrderContentResult22105.setOrderState(cpbjscResult.getdata1053().getRate());
+            cpOrderContentResult22105.setOrderId("1053");
+            cpOrderContentResultList23.add(cpOrderContentResult22105);
+
+            CPOrderContentResult cpOrderContentResult22106 = new CPOrderContentResult();
+            cpOrderContentResult22106.setOrderName("合小");
+            cpOrderContentResult22106.setFullName("");
+            cpOrderContentResult22106.setOrderState(cpbjscResult.getdata1054().getRate());
+            cpOrderContentResult22106.setOrderId("1054");
+            cpOrderContentResultList23.add(cpOrderContentResult22106);
+
+            CPOrderContentResult cpOrderContentResult22107 = new CPOrderContentResult();
+            cpOrderContentResult22107.setOrderName("和单");
+            cpOrderContentResult22107.setFullName("");
+            cpOrderContentResult22107.setOrderState(cpbjscResult.getdata1055().getRate());
+            cpOrderContentResult22107.setOrderId("1055");
+            cpOrderContentResultList23.add(cpOrderContentResult22107);
+
+            CPOrderContentResult cpOrderContentResult22108 = new CPOrderContentResult();
+            cpOrderContentResult22108.setOrderName("和双");
+            cpOrderContentResult22108.setFullName("");
+            cpOrderContentResult22108.setOrderState(cpbjscResult.getdata1056().getRate());
+            cpOrderContentResult22108.setOrderId("1056");
+            cpOrderContentResultList23.add(cpOrderContentResult22108);
+
+            CPOrderContentResult cpOrderContentResult22109 = new CPOrderContentResult();
+            cpOrderContentResult22109.setOrderName("尾大");
+            cpOrderContentResult22109.setFullName("");
+            cpOrderContentResult22109.setOrderState(cpbjscResult.getdata1057().getRate());
+            cpOrderContentResult22109.setOrderId("1057");
+            cpOrderContentResultList23.add(cpOrderContentResult22109);
+
+            CPOrderContentResult cpOrderContentResult22110 = new CPOrderContentResult();
+            cpOrderContentResult22110.setOrderName("尾小");
+            cpOrderContentResult22110.setFullName("");
+            cpOrderContentResult22110.setOrderState(cpbjscResult.getdata1058().getRate());
+            cpOrderContentResult22110.setOrderId("1058");
+            cpOrderContentResultList23.add(cpOrderContentResult22110);
+
+            cpOrderContentListResult21.setData(cpOrderContentResultList21);
+            cpOrderContentListResult22.setData(cpOrderContentResultList22);
+            cpOrderContentListResult23.setData(cpOrderContentResultList23);
+            CPOrderContentListResult.add(cpOrderContentListResult21);
+            CPOrderContentListResult.add(cpOrderContentListResult22);
+            CPOrderContentListResult.add(cpOrderContentListResult23);
+
+            CPOrderContentListResult cpOrderContentListResult31 = new CPOrderContentListResult();
+            cpOrderContentListResult31.setOrderContentListName("正码三");
+            cpOrderContentListResult31.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList31 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult23101 = new CPOrderContentResult();
+            cpOrderContentResult23101.setOrderName("大");
+            cpOrderContentResult23101.setFullName("");
+            cpOrderContentResult23101.setOrderState(cpbjscResult.getdata585().getRate());
+            cpOrderContentResult23101.setOrderId("585");
+            cpOrderContentResultList31.add(cpOrderContentResult23101);
+
+            CPOrderContentResult cpOrderContentResult23102 = new CPOrderContentResult();
+            cpOrderContentResult23102.setOrderName("小");
+            cpOrderContentResult23102.setFullName("");
+            cpOrderContentResult23102.setOrderState(cpbjscResult.getdata586().getRate());
+            cpOrderContentResult23102.setOrderId("586");
+            cpOrderContentResultList31.add(cpOrderContentResult23102);
+
+            CPOrderContentResult cpOrderContentResult23103 = new CPOrderContentResult();
+            cpOrderContentResult23103.setOrderName("单");
+            cpOrderContentResult23103.setFullName("");
+            cpOrderContentResult23103.setOrderState(cpbjscResult.getdata587().getRate());
+            cpOrderContentResult23103.setOrderId("587");
+            cpOrderContentResultList31.add(cpOrderContentResult23103);
+
+            CPOrderContentResult cpOrderContentResult23104 = new CPOrderContentResult();
+            cpOrderContentResult23104.setOrderName("双");
+            cpOrderContentResult23104.setFullName("");
+            cpOrderContentResult23104.setOrderState(cpbjscResult.getdata588().getRate());
+            cpOrderContentResult23104.setOrderId("588");
+            cpOrderContentResultList31.add(cpOrderContentResult23104);
+
+            CPOrderContentListResult cpOrderContentListResult32 = new CPOrderContentListResult();
+            cpOrderContentListResult32.setOrderContentListName("");
+            cpOrderContentListResult32.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList32 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1123105 = new CPOrderContentResult();
+            cpOrderContentResult1123105.setOrderName("红波");
+            cpOrderContentResult1123105.setFullName("");
+            cpOrderContentResult1123105.setOrderState(cpbjscResult.getdata589().getRate());
+            cpOrderContentResult1123105.setOrderId("589");
+            cpOrderContentResultList32.add(cpOrderContentResult1123105);
+
+            CPOrderContentResult cpOrderContentResult1123106 = new CPOrderContentResult();
+            cpOrderContentResult1123106.setOrderName("绿波");
+            cpOrderContentResult1123106.setFullName("");
+            cpOrderContentResult1123106.setOrderState(cpbjscResult.getdata590().getRate());
+            cpOrderContentResult1123106.setOrderId("590");
+            cpOrderContentResultList32.add(cpOrderContentResult1123106);
+
+            CPOrderContentResult cpOrderContentResult1123107 = new CPOrderContentResult();
+            cpOrderContentResult1123107.setOrderName("蓝波");
+            cpOrderContentResult1123107.setFullName("");
+            cpOrderContentResult1123107.setOrderState(cpbjscResult.getdata591().getRate());
+            cpOrderContentResult1123107.setOrderId("591");
+            cpOrderContentResultList32.add(cpOrderContentResult1123107);
+
+            CPOrderContentListResult cpOrderContentListResult33 = new CPOrderContentListResult();
+            cpOrderContentListResult33.setOrderContentListName("");
+            cpOrderContentListResult33.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList33 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult23105 = new CPOrderContentResult();
+            cpOrderContentResult23105.setOrderName("合大");
+            cpOrderContentResult23105.setFullName("");
+            cpOrderContentResult23105.setOrderState(cpbjscResult.getdata1059().getRate());
+            cpOrderContentResult23105.setOrderId("1059");
+            cpOrderContentResultList33.add(cpOrderContentResult23105);
+
+            CPOrderContentResult cpOrderContentResult23106 = new CPOrderContentResult();
+            cpOrderContentResult23106.setOrderName("合小");
+            cpOrderContentResult23106.setFullName("");
+            cpOrderContentResult23106.setOrderState(cpbjscResult.getdata1060().getRate());
+            cpOrderContentResult23106.setOrderId("1060");
+            cpOrderContentResultList33.add(cpOrderContentResult23106);
+
+            CPOrderContentResult cpOrderContentResult23107 = new CPOrderContentResult();
+            cpOrderContentResult23107.setOrderName("和单");
+            cpOrderContentResult23107.setFullName("");
+            cpOrderContentResult23107.setOrderState(cpbjscResult.getdata1061().getRate());
+            cpOrderContentResult23107.setOrderId("1061");
+            cpOrderContentResultList33.add(cpOrderContentResult23107);
+
+            CPOrderContentResult cpOrderContentResult23108 = new CPOrderContentResult();
+            cpOrderContentResult23108.setOrderName("和双");
+            cpOrderContentResult23108.setFullName("");
+            cpOrderContentResult23108.setOrderState(cpbjscResult.getdata1062().getRate());
+            cpOrderContentResult23108.setOrderId("1062");
+            cpOrderContentResultList33.add(cpOrderContentResult23108);
+
+            CPOrderContentResult cpOrderContentResult23109 = new CPOrderContentResult();
+            cpOrderContentResult23109.setOrderName("尾大");
+            cpOrderContentResult23109.setFullName("");
+            cpOrderContentResult23109.setOrderState(cpbjscResult.getdata1063().getRate());
+            cpOrderContentResult23109.setOrderId("1063");
+            cpOrderContentResultList33.add(cpOrderContentResult23109);
+
+            CPOrderContentResult cpOrderContentResult23110 = new CPOrderContentResult();
+            cpOrderContentResult23110.setOrderName("尾小");
+            cpOrderContentResult23110.setFullName("");
+            cpOrderContentResult23110.setOrderState(cpbjscResult.getdata1064().getRate());
+            cpOrderContentResult23110.setOrderId("1064");
+            cpOrderContentResultList33.add(cpOrderContentResult23110);
+
+            cpOrderContentListResult31.setData(cpOrderContentResultList31);
+            cpOrderContentListResult32.setData(cpOrderContentResultList32);
+            cpOrderContentListResult33.setData(cpOrderContentResultList33);
+            CPOrderContentListResult.add(cpOrderContentListResult31);
+            CPOrderContentListResult.add(cpOrderContentListResult32);
+            CPOrderContentListResult.add(cpOrderContentListResult33);
+
+            CPOrderContentListResult cpOrderContentListResult41 = new CPOrderContentListResult();
+            cpOrderContentListResult41.setOrderContentListName("正码四");
+            cpOrderContentListResult41.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList41 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult24101 = new CPOrderContentResult();
+            cpOrderContentResult24101.setOrderName("大");
+            cpOrderContentResult24101.setFullName("");
+            cpOrderContentResult24101.setOrderState(cpbjscResult.getdata592().getRate());
+            cpOrderContentResult24101.setOrderId("592");
+            cpOrderContentResultList41.add(cpOrderContentResult24101);
+
+            CPOrderContentResult cpOrderContentResult24102 = new CPOrderContentResult();
+            cpOrderContentResult24102.setOrderName("小");
+            cpOrderContentResult24102.setFullName("");
+            cpOrderContentResult24102.setOrderState(cpbjscResult.getdata593().getRate());
+            cpOrderContentResult24102.setOrderId("593");
+            cpOrderContentResultList41.add(cpOrderContentResult24102);
+
+            CPOrderContentResult cpOrderContentResult24103 = new CPOrderContentResult();
+            cpOrderContentResult24103.setOrderName("单");
+            cpOrderContentResult24103.setFullName("");
+            cpOrderContentResult24103.setOrderState(cpbjscResult.getdata594().getRate());
+            cpOrderContentResult24103.setOrderId("594");
+            cpOrderContentResultList41.add(cpOrderContentResult24103);
+
+            CPOrderContentResult cpOrderContentResult24104 = new CPOrderContentResult();
+            cpOrderContentResult24104.setOrderName("双");
+            cpOrderContentResult24104.setFullName("");
+            cpOrderContentResult24104.setOrderState(cpbjscResult.getdata595().getRate());
+            cpOrderContentResult24104.setOrderId("595");
+            cpOrderContentResultList41.add(cpOrderContentResult24104);
+
+            CPOrderContentListResult cpOrderContentListResult42 = new CPOrderContentListResult();
+            cpOrderContentListResult42.setOrderContentListName("");
+            cpOrderContentListResult42.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList42 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1124105 = new CPOrderContentResult();
+            cpOrderContentResult1124105.setOrderName("红波");
+            cpOrderContentResult1124105.setFullName("");
+            cpOrderContentResult1124105.setOrderState(cpbjscResult.getdata596().getRate());
+            cpOrderContentResult1124105.setOrderId("596");
+            cpOrderContentResultList42.add(cpOrderContentResult1124105);
+
+            CPOrderContentResult cpOrderContentResult1124106 = new CPOrderContentResult();
+            cpOrderContentResult1124106.setOrderName("绿波");
+            cpOrderContentResult1124106.setFullName("");
+            cpOrderContentResult1124106.setOrderState(cpbjscResult.getdata597().getRate());
+            cpOrderContentResult1124106.setOrderId("597");
+            cpOrderContentResultList42.add(cpOrderContentResult1124106);
+
+            CPOrderContentResult cpOrderContentResult1124107 = new CPOrderContentResult();
+            cpOrderContentResult1124107.setOrderName("蓝波");
+            cpOrderContentResult1124107.setFullName("");
+            cpOrderContentResult1124107.setOrderState(cpbjscResult.getdata598().getRate());
+            cpOrderContentResult1124107.setOrderId("598");
+            cpOrderContentResultList42.add(cpOrderContentResult1124107);
+
+            CPOrderContentListResult cpOrderContentListResult43 = new CPOrderContentListResult();
+            cpOrderContentListResult43.setOrderContentListName("");
+            cpOrderContentListResult43.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList43 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult24105 = new CPOrderContentResult();
+            cpOrderContentResult24105.setOrderName("合大");
+            cpOrderContentResult24105.setFullName("");
+            cpOrderContentResult24105.setOrderState(cpbjscResult.getdata1065().getRate());
+            cpOrderContentResult24105.setOrderId("1065");
+            cpOrderContentResultList43.add(cpOrderContentResult24105);
+
+            CPOrderContentResult cpOrderContentResult24106 = new CPOrderContentResult();
+            cpOrderContentResult24106.setOrderName("合小");
+            cpOrderContentResult24106.setFullName("");
+            cpOrderContentResult24106.setOrderState(cpbjscResult.getdata1066().getRate());
+            cpOrderContentResult24106.setOrderId("1066");
+            cpOrderContentResultList43.add(cpOrderContentResult24106);
+
+            CPOrderContentResult cpOrderContentResult24107 = new CPOrderContentResult();
+            cpOrderContentResult24107.setOrderName("和单");
+            cpOrderContentResult24107.setFullName("");
+            cpOrderContentResult24107.setOrderState(cpbjscResult.getdata1067().getRate());
+            cpOrderContentResult24107.setOrderId("1067");
+            cpOrderContentResultList43.add(cpOrderContentResult24107);
+
+            CPOrderContentResult cpOrderContentResult24108 = new CPOrderContentResult();
+            cpOrderContentResult24108.setOrderName("和双");
+            cpOrderContentResult24108.setFullName("");
+            cpOrderContentResult24108.setOrderState(cpbjscResult.getdata1068().getRate());
+            cpOrderContentResult24108.setOrderId("1068");
+            cpOrderContentResultList43.add(cpOrderContentResult24108);
+
+            CPOrderContentResult cpOrderContentResult24109 = new CPOrderContentResult();
+            cpOrderContentResult24109.setOrderName("尾大");
+            cpOrderContentResult24109.setFullName("");
+            cpOrderContentResult24109.setOrderState(cpbjscResult.getdata1069().getRate());
+            cpOrderContentResult24109.setOrderId("1069");
+            cpOrderContentResultList43.add(cpOrderContentResult24109);
+
+            CPOrderContentResult cpOrderContentResult24110 = new CPOrderContentResult();
+            cpOrderContentResult24110.setOrderName("尾小");
+            cpOrderContentResult24110.setFullName("");
+            cpOrderContentResult24110.setOrderState(cpbjscResult.getdata1070().getRate());
+            cpOrderContentResult24110.setOrderId("1070");
+            cpOrderContentResultList43.add(cpOrderContentResult24110);
+
+            cpOrderContentListResult41.setData(cpOrderContentResultList41);
+            cpOrderContentListResult42.setData(cpOrderContentResultList42);
+            cpOrderContentListResult43.setData(cpOrderContentResultList43);
+            CPOrderContentListResult.add(cpOrderContentListResult41);
+            CPOrderContentListResult.add(cpOrderContentListResult42);
+            CPOrderContentListResult.add(cpOrderContentListResult43);
+
+            CPOrderContentListResult cpOrderContentListResult51 = new CPOrderContentListResult();
+            cpOrderContentListResult51.setOrderContentListName("正码五");
+            cpOrderContentListResult51.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList51 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult25101 = new CPOrderContentResult();
+            cpOrderContentResult25101.setOrderName("大");
+            cpOrderContentResult25101.setFullName("");
+            cpOrderContentResult25101.setOrderState(cpbjscResult.getdata599().getRate());
+            cpOrderContentResult25101.setOrderId("599");
+            cpOrderContentResultList51.add(cpOrderContentResult25101);
+
+            CPOrderContentResult cpOrderContentResult25102 = new CPOrderContentResult();
+            cpOrderContentResult25102.setOrderName("小");
+            cpOrderContentResult25102.setFullName("");
+            cpOrderContentResult25102.setOrderState(cpbjscResult.getdata600().getRate());
+            cpOrderContentResult25102.setOrderId("600");
+            cpOrderContentResultList51.add(cpOrderContentResult25102);
+
+            CPOrderContentResult cpOrderContentResult25103 = new CPOrderContentResult();
+            cpOrderContentResult25103.setOrderName("单");
+            cpOrderContentResult25103.setFullName("");
+            cpOrderContentResult25103.setOrderState(cpbjscResult.getdata601().getRate());
+            cpOrderContentResult25103.setOrderId("601");
+            cpOrderContentResultList51.add(cpOrderContentResult25103);
+
+            CPOrderContentResult cpOrderContentResult25104 = new CPOrderContentResult();
+            cpOrderContentResult25104.setOrderName("双");
+            cpOrderContentResult25104.setFullName("");
+            cpOrderContentResult25104.setOrderState(cpbjscResult.getdata602().getRate());
+            cpOrderContentResult25104.setOrderId("602");
+            cpOrderContentResultList51.add(cpOrderContentResult25104);
+
+            CPOrderContentListResult cpOrderContentListResult52 = new CPOrderContentListResult();
+            cpOrderContentListResult52.setOrderContentListName("");
+            cpOrderContentListResult52.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList52 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1125105 = new CPOrderContentResult();
+            cpOrderContentResult1125105.setOrderName("红波");
+            cpOrderContentResult1125105.setFullName("");
+            cpOrderContentResult1125105.setOrderState(cpbjscResult.getdata603().getRate());
+            cpOrderContentResult1125105.setOrderId("603");
+            cpOrderContentResultList52.add(cpOrderContentResult1125105);
+
+            CPOrderContentResult cpOrderContentResult1125106 = new CPOrderContentResult();
+            cpOrderContentResult1125106.setOrderName("绿波");
+            cpOrderContentResult1125106.setFullName("");
+            cpOrderContentResult1125106.setOrderState(cpbjscResult.getdata604().getRate());
+            cpOrderContentResult1125106.setOrderId("604");
+            cpOrderContentResultList52.add(cpOrderContentResult1125106);
+
+            CPOrderContentResult cpOrderContentResult1125107 = new CPOrderContentResult();
+            cpOrderContentResult1125107.setOrderName("蓝波");
+            cpOrderContentResult1125107.setFullName("");
+            cpOrderContentResult1125107.setOrderState(cpbjscResult.getdata605().getRate());
+            cpOrderContentResult1125107.setOrderId("605");
+            cpOrderContentResultList52.add(cpOrderContentResult1125107);
+
+            CPOrderContentListResult cpOrderContentListResult53 = new CPOrderContentListResult();
+            cpOrderContentListResult53.setOrderContentListName("");
+            cpOrderContentListResult53.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList53 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult25105 = new CPOrderContentResult();
+            cpOrderContentResult25105.setOrderName("合大");
+            cpOrderContentResult25105.setFullName("");
+            cpOrderContentResult25105.setOrderState(cpbjscResult.getdata1071().getRate());
+            cpOrderContentResult25105.setOrderId("1071");
+            cpOrderContentResultList53.add(cpOrderContentResult25105);
+
+            CPOrderContentResult cpOrderContentResult25106 = new CPOrderContentResult();
+            cpOrderContentResult25106.setOrderName("合小");
+            cpOrderContentResult25106.setFullName("");
+            cpOrderContentResult25106.setOrderState(cpbjscResult.getdata1072().getRate());
+            cpOrderContentResult25106.setOrderId("1072");
+            cpOrderContentResultList53.add(cpOrderContentResult25106);
+
+            CPOrderContentResult cpOrderContentResult25107 = new CPOrderContentResult();
+            cpOrderContentResult25107.setOrderName("和单");
+            cpOrderContentResult25107.setFullName("");
+            cpOrderContentResult25107.setOrderState(cpbjscResult.getdata1073().getRate());
+            cpOrderContentResult25107.setOrderId("1073");
+            cpOrderContentResultList53.add(cpOrderContentResult25107);
+
+            CPOrderContentResult cpOrderContentResult25108 = new CPOrderContentResult();
+            cpOrderContentResult25108.setOrderName("和双");
+            cpOrderContentResult25108.setFullName("");
+            cpOrderContentResult25108.setOrderState(cpbjscResult.getdata1074().getRate());
+            cpOrderContentResult25108.setOrderId("1074");
+            cpOrderContentResultList53.add(cpOrderContentResult25108);
+
+            CPOrderContentResult cpOrderContentResult25109 = new CPOrderContentResult();
+            cpOrderContentResult25109.setOrderName("尾大");
+            cpOrderContentResult25109.setFullName("");
+            cpOrderContentResult25109.setOrderState(cpbjscResult.getdata1075().getRate());
+            cpOrderContentResult25109.setOrderId("1075");
+            cpOrderContentResultList53.add(cpOrderContentResult25109);
+
+            CPOrderContentResult cpOrderContentResult25110 = new CPOrderContentResult();
+            cpOrderContentResult25110.setOrderName("尾小");
+            cpOrderContentResult25110.setFullName("");
+            cpOrderContentResult25110.setOrderState(cpbjscResult.getdata1076().getRate());
+            cpOrderContentResult25110.setOrderId("1076");
+            cpOrderContentResultList53.add(cpOrderContentResult25110);
+
+            cpOrderContentListResult51.setData(cpOrderContentResultList51);
+            cpOrderContentListResult52.setData(cpOrderContentResultList52);
+            cpOrderContentListResult53.setData(cpOrderContentResultList53);
+            CPOrderContentListResult.add(cpOrderContentListResult51);
+            CPOrderContentListResult.add(cpOrderContentListResult52);
+            CPOrderContentListResult.add(cpOrderContentListResult53);
+
+            CPOrderContentListResult cpOrderContentListResult61 = new CPOrderContentListResult();
+            cpOrderContentListResult61.setOrderContentListName("正码六");
+            cpOrderContentListResult61.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList61 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult26101 = new CPOrderContentResult();
+            cpOrderContentResult26101.setOrderName("大");
+            cpOrderContentResult26101.setFullName("");
+            cpOrderContentResult26101.setOrderState(cpbjscResult.getdata606().getRate());
+            cpOrderContentResult26101.setOrderId("606");
+            cpOrderContentResultList61.add(cpOrderContentResult26101);
+
+            CPOrderContentResult cpOrderContentResult26102 = new CPOrderContentResult();
+            cpOrderContentResult26102.setOrderName("小");
+            cpOrderContentResult26102.setFullName("");
+            cpOrderContentResult26102.setOrderState(cpbjscResult.getdata607().getRate());
+            cpOrderContentResult26102.setOrderId("607");
+            cpOrderContentResultList61.add(cpOrderContentResult26102);
+
+            CPOrderContentResult cpOrderContentResult26103 = new CPOrderContentResult();
+            cpOrderContentResult26103.setOrderName("单");
+            cpOrderContentResult26103.setFullName("");
+            cpOrderContentResult26103.setOrderState(cpbjscResult.getdata608().getRate());
+            cpOrderContentResult26103.setOrderId("608");
+            cpOrderContentResultList61.add(cpOrderContentResult26103);
+
+            CPOrderContentResult cpOrderContentResult26104 = new CPOrderContentResult();
+            cpOrderContentResult26104.setOrderName("双");
+            cpOrderContentResult26104.setFullName("");
+            cpOrderContentResult26104.setOrderState(cpbjscResult.getdata609().getRate());
+            cpOrderContentResult26104.setOrderId("609");
+            cpOrderContentResultList61.add(cpOrderContentResult26104);
+
+            CPOrderContentListResult cpOrderContentListResult62 = new CPOrderContentListResult();
+            cpOrderContentListResult62.setOrderContentListName("");
+            cpOrderContentListResult62.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList62 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1126105 = new CPOrderContentResult();
+            cpOrderContentResult1126105.setOrderName("红波");
+            cpOrderContentResult1126105.setFullName("");
+            cpOrderContentResult1126105.setOrderState(cpbjscResult.getdata610().getRate());
+            cpOrderContentResult1126105.setOrderId("610");
+            cpOrderContentResultList62.add(cpOrderContentResult1126105);
+
+            CPOrderContentResult cpOrderContentResult1126106 = new CPOrderContentResult();
+            cpOrderContentResult1126106.setOrderName("绿波");
+            cpOrderContentResult1126106.setFullName("");
+            cpOrderContentResult1126106.setOrderState(cpbjscResult.getdata611().getRate());
+            cpOrderContentResult1126106.setOrderId("611");
+            cpOrderContentResultList62.add(cpOrderContentResult1126106);
+
+            CPOrderContentResult cpOrderContentResult1126107 = new CPOrderContentResult();
+            cpOrderContentResult1126107.setOrderName("蓝波");
+            cpOrderContentResult1126107.setFullName("");
+            cpOrderContentResult1126107.setOrderState(cpbjscResult.getdata612().getRate());
+            cpOrderContentResult1126107.setOrderId("612");
+            cpOrderContentResultList62.add(cpOrderContentResult1126107);
+
+            CPOrderContentListResult cpOrderContentListResult63 = new CPOrderContentListResult();
+            cpOrderContentListResult63.setOrderContentListName("");
+            cpOrderContentListResult63.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList63 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult26105 = new CPOrderContentResult();
+            cpOrderContentResult26105.setOrderName("合大");
+            cpOrderContentResult26105.setFullName("");
+            cpOrderContentResult26105.setOrderState(cpbjscResult.getdata1077().getRate());
+            cpOrderContentResult26105.setOrderId("1077");
+            cpOrderContentResultList63.add(cpOrderContentResult26105);
+
+            CPOrderContentResult cpOrderContentResult26106 = new CPOrderContentResult();
+            cpOrderContentResult26106.setOrderName("合小");
+            cpOrderContentResult26106.setFullName("");
+            cpOrderContentResult26106.setOrderState(cpbjscResult.getdata1078().getRate());
+            cpOrderContentResult26106.setOrderId("1078");
+            cpOrderContentResultList63.add(cpOrderContentResult26106);
+
+            CPOrderContentResult cpOrderContentResult26107 = new CPOrderContentResult();
+            cpOrderContentResult26107.setOrderName("和单");
+            cpOrderContentResult26107.setFullName("");
+            cpOrderContentResult26107.setOrderState(cpbjscResult.getdata1079().getRate());
+            cpOrderContentResult26107.setOrderId("1079");
+            cpOrderContentResultList63.add(cpOrderContentResult26107);
+
+            CPOrderContentResult cpOrderContentResult26108 = new CPOrderContentResult();
+            cpOrderContentResult26108.setOrderName("和双");
+            cpOrderContentResult26108.setFullName("");
+            cpOrderContentResult26108.setOrderState(cpbjscResult.getdata1080().getRate());
+            cpOrderContentResult26108.setOrderId("1080");
+            cpOrderContentResultList63.add(cpOrderContentResult26108);
+
+            CPOrderContentResult cpOrderContentResult26109 = new CPOrderContentResult();
+            cpOrderContentResult26109.setOrderName("尾大");
+            cpOrderContentResult26109.setFullName("");
+            cpOrderContentResult26109.setOrderState(cpbjscResult.getdata1081().getRate());
+            cpOrderContentResult26109.setOrderId("1081");
+            cpOrderContentResultList63.add(cpOrderContentResult26109);
+
+            CPOrderContentResult cpOrderContentResult26110 = new CPOrderContentResult();
+            cpOrderContentResult26110.setOrderName("尾小");
+            cpOrderContentResult26110.setFullName("");
+            cpOrderContentResult26110.setOrderState(cpbjscResult.getdata1082().getRate());
+            cpOrderContentResult26110.setOrderId("1082");
+            cpOrderContentResultList63.add(cpOrderContentResult26110);
+
+            cpOrderContentListResult61.setData(cpOrderContentResultList61);
+            cpOrderContentListResult62.setData(cpOrderContentResultList62);
+            cpOrderContentListResult63.setData(cpOrderContentResultList63);
+            CPOrderContentListResult.add(cpOrderContentListResult61);
+            CPOrderContentListResult.add(cpOrderContentListResult62);
+            CPOrderContentListResult.add(cpOrderContentListResult63);
+
+        }else if(k == 12){
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("正码一");
+            cpOrderContentListResult11.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("单");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata620().getRate());
+            cpOrderContentResult2101.setOrderId("620");
+            cpOrderContentResultList11.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("双");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata621().getRate());
+            cpOrderContentResult2102.setOrderId("621");
+            cpOrderContentResultList11.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("大");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata622().getRate());
+            cpOrderContentResult2103.setOrderId("622");
+            cpOrderContentResultList11.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("小");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata623().getRate());
+            cpOrderContentResult2104.setOrderId("623");
+            cpOrderContentResultList11.add(cpOrderContentResult2104);
+
+            CPOrderContentListResult cpOrderContentListResult12 = new CPOrderContentListResult();
+            cpOrderContentListResult12.setOrderContentListName("");
+            cpOrderContentListResult12.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList12 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult112105 = new CPOrderContentResult();
+            cpOrderContentResult112105.setOrderName("红波");
+            cpOrderContentResult112105.setFullName("");
+            cpOrderContentResult112105.setOrderState(cpbjscResult.getdata624().getRate());
+            cpOrderContentResult112105.setOrderId("624");
+            cpOrderContentResultList12.add(cpOrderContentResult112105);
+
+            CPOrderContentResult cpOrderContentResult112106 = new CPOrderContentResult();
+            cpOrderContentResult112106.setOrderName("绿波");
+            cpOrderContentResult112106.setFullName("");
+            cpOrderContentResult112106.setOrderState(cpbjscResult.getdata625().getRate());
+            cpOrderContentResult112106.setOrderId("625");
+            cpOrderContentResultList12.add(cpOrderContentResult112106);
+
+            CPOrderContentResult cpOrderContentResult112107 = new CPOrderContentResult();
+            cpOrderContentResult112107.setOrderName("蓝波");
+            cpOrderContentResult112107.setFullName("");
+            cpOrderContentResult112107.setOrderState(cpbjscResult.getdata626().getRate());
+            cpOrderContentResult112107.setOrderId("626");
+            cpOrderContentResultList12.add(cpOrderContentResult112107);
+
+
+            CPOrderContentListResult cpOrderContentListResult21 = new CPOrderContentListResult();
+            cpOrderContentListResult21.setOrderContentListName("正码二");
+            cpOrderContentListResult21.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList21 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult22101 = new CPOrderContentResult();
+            cpOrderContentResult22101.setOrderName("单");
+            cpOrderContentResult22101.setFullName("");
+            cpOrderContentResult22101.setOrderState(cpbjscResult.getdata627().getRate());
+            cpOrderContentResult22101.setOrderId("627");
+            cpOrderContentResultList21.add(cpOrderContentResult22101);
+
+            CPOrderContentResult cpOrderContentResult22102 = new CPOrderContentResult();
+            cpOrderContentResult22102.setOrderName("双");
+            cpOrderContentResult22102.setFullName("");
+            cpOrderContentResult22102.setOrderState(cpbjscResult.getdata628().getRate());
+            cpOrderContentResult22102.setOrderId("628");
+            cpOrderContentResultList21.add(cpOrderContentResult22102);
+
+            CPOrderContentResult cpOrderContentResult22103 = new CPOrderContentResult();
+            cpOrderContentResult22103.setOrderName("大");
+            cpOrderContentResult22103.setFullName("");
+            cpOrderContentResult22103.setOrderState(cpbjscResult.getdata629().getRate());
+            cpOrderContentResult22103.setOrderId("629");
+            cpOrderContentResultList21.add(cpOrderContentResult22103);
+
+            CPOrderContentResult cpOrderContentResult22104 = new CPOrderContentResult();
+            cpOrderContentResult22104.setOrderName("小");
+            cpOrderContentResult22104.setFullName("");
+            cpOrderContentResult22104.setOrderState(cpbjscResult.getdata630().getRate());
+            cpOrderContentResult22104.setOrderId("630");
+            cpOrderContentResultList21.add(cpOrderContentResult22104);
+
+            CPOrderContentListResult cpOrderContentListResult22 = new CPOrderContentListResult();
+            cpOrderContentListResult22.setOrderContentListName("");
+            cpOrderContentListResult22.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList22 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1122105 = new CPOrderContentResult();
+            cpOrderContentResult1122105.setOrderName("红波");
+            cpOrderContentResult1122105.setFullName("");
+            cpOrderContentResult1122105.setOrderState(cpbjscResult.getdata631().getRate());
+            cpOrderContentResult1122105.setOrderId("631");
+            cpOrderContentResultList22.add(cpOrderContentResult1122105);
+
+            CPOrderContentResult cpOrderContentResult1122106 = new CPOrderContentResult();
+            cpOrderContentResult1122106.setOrderName("绿波");
+            cpOrderContentResult1122106.setFullName("");
+            cpOrderContentResult1122106.setOrderState(cpbjscResult.getdata632().getRate());
+            cpOrderContentResult1122106.setOrderId("632");
+            cpOrderContentResultList22.add(cpOrderContentResult1122106);
+
+            CPOrderContentResult cpOrderContentResult1122107 = new CPOrderContentResult();
+            cpOrderContentResult1122107.setOrderName("蓝波");
+            cpOrderContentResult1122107.setFullName("");
+            cpOrderContentResult1122107.setOrderState(cpbjscResult.getdata633().getRate());
+            cpOrderContentResult1122107.setOrderId("633");
+            cpOrderContentResultList22.add(cpOrderContentResult1122107);
+
+
+            CPOrderContentListResult cpOrderContentListResult31 = new CPOrderContentListResult();
+            cpOrderContentListResult31.setOrderContentListName("正码三");
+            cpOrderContentListResult31.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList31 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult23101 = new CPOrderContentResult();
+            cpOrderContentResult23101.setOrderName("单");
+            cpOrderContentResult23101.setFullName("");
+            cpOrderContentResult23101.setOrderState(cpbjscResult.getdata634().getRate());
+            cpOrderContentResult23101.setOrderId("634");
+            cpOrderContentResultList31.add(cpOrderContentResult23101);
+
+            CPOrderContentResult cpOrderContentResult23102 = new CPOrderContentResult();
+            cpOrderContentResult23102.setOrderName("双");
+            cpOrderContentResult23102.setFullName("");
+            cpOrderContentResult23102.setOrderState(cpbjscResult.getdata635().getRate());
+            cpOrderContentResult23102.setOrderId("635");
+            cpOrderContentResultList31.add(cpOrderContentResult23102);
+
+            CPOrderContentResult cpOrderContentResult23103 = new CPOrderContentResult();
+            cpOrderContentResult23103.setOrderName("大");
+            cpOrderContentResult23103.setFullName("");
+            cpOrderContentResult23103.setOrderState(cpbjscResult.getdata636().getRate());
+            cpOrderContentResult23103.setOrderId("636");
+            cpOrderContentResultList31.add(cpOrderContentResult23103);
+
+            CPOrderContentResult cpOrderContentResult23104 = new CPOrderContentResult();
+            cpOrderContentResult23104.setOrderName("小");
+            cpOrderContentResult23104.setFullName("");
+            cpOrderContentResult23104.setOrderState(cpbjscResult.getdata637().getRate());
+            cpOrderContentResult23104.setOrderId("637");
+            cpOrderContentResultList31.add(cpOrderContentResult23104);
+
+            CPOrderContentListResult cpOrderContentListResult32 = new CPOrderContentListResult();
+            cpOrderContentListResult32.setOrderContentListName("");
+            cpOrderContentListResult32.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList32 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1123105 = new CPOrderContentResult();
+            cpOrderContentResult1123105.setOrderName("红波");
+            cpOrderContentResult1123105.setFullName("");
+            cpOrderContentResult1123105.setOrderState(cpbjscResult.getdata638().getRate());
+            cpOrderContentResult1123105.setOrderId("638");
+            cpOrderContentResultList32.add(cpOrderContentResult1123105);
+
+            CPOrderContentResult cpOrderContentResult1123106 = new CPOrderContentResult();
+            cpOrderContentResult1123106.setOrderName("绿波");
+            cpOrderContentResult1123106.setFullName("");
+            cpOrderContentResult1123106.setOrderState(cpbjscResult.getdata639().getRate());
+            cpOrderContentResult1123106.setOrderId("639");
+            cpOrderContentResultList32.add(cpOrderContentResult1123106);
+
+            CPOrderContentResult cpOrderContentResult1123107 = new CPOrderContentResult();
+            cpOrderContentResult1123107.setOrderName("蓝波");
+            cpOrderContentResult1123107.setFullName("");
+            cpOrderContentResult1123107.setOrderState(cpbjscResult.getdata640().getRate());
+            cpOrderContentResult1123107.setOrderId("640");
+            cpOrderContentResultList32.add(cpOrderContentResult1123107);
+
+
+            CPOrderContentListResult cpOrderContentListResult41 = new CPOrderContentListResult();
+            cpOrderContentListResult41.setOrderContentListName("正码四");
+            cpOrderContentListResult41.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList41 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult24101 = new CPOrderContentResult();
+            cpOrderContentResult24101.setOrderName("单");
+            cpOrderContentResult24101.setFullName("");
+            cpOrderContentResult24101.setOrderState(cpbjscResult.getdata641().getRate());
+            cpOrderContentResult24101.setOrderId("641");
+            cpOrderContentResultList41.add(cpOrderContentResult24101);
+
+            CPOrderContentResult cpOrderContentResult24102 = new CPOrderContentResult();
+            cpOrderContentResult24102.setOrderName("双");
+            cpOrderContentResult24102.setFullName("");
+            cpOrderContentResult24102.setOrderState(cpbjscResult.getdata642().getRate());
+            cpOrderContentResult24102.setOrderId("642");
+            cpOrderContentResultList41.add(cpOrderContentResult24102);
+
+            CPOrderContentResult cpOrderContentResult24103 = new CPOrderContentResult();
+            cpOrderContentResult24103.setOrderName("大");
+            cpOrderContentResult24103.setFullName("");
+            cpOrderContentResult24103.setOrderState(cpbjscResult.getdata643().getRate());
+            cpOrderContentResult24103.setOrderId("643");
+            cpOrderContentResultList41.add(cpOrderContentResult24103);
+
+            CPOrderContentResult cpOrderContentResult24104 = new CPOrderContentResult();
+            cpOrderContentResult24104.setOrderName("小");
+            cpOrderContentResult24104.setFullName("");
+            cpOrderContentResult24104.setOrderState(cpbjscResult.getdata644().getRate());
+            cpOrderContentResult24104.setOrderId("644");
+            cpOrderContentResultList41.add(cpOrderContentResult24104);
+
+            CPOrderContentListResult cpOrderContentListResult42 = new CPOrderContentListResult();
+            cpOrderContentListResult42.setOrderContentListName("");
+            cpOrderContentListResult42.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList42 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1124105 = new CPOrderContentResult();
+            cpOrderContentResult1124105.setOrderName("红波");
+            cpOrderContentResult1124105.setFullName("");
+            cpOrderContentResult1124105.setOrderState(cpbjscResult.getdata645().getRate());
+            cpOrderContentResult1124105.setOrderId("645");
+            cpOrderContentResultList42.add(cpOrderContentResult1124105);
+
+            CPOrderContentResult cpOrderContentResult1124106 = new CPOrderContentResult();
+            cpOrderContentResult1124106.setOrderName("绿波");
+            cpOrderContentResult1124106.setFullName("");
+            cpOrderContentResult1124106.setOrderState(cpbjscResult.getdata646().getRate());
+            cpOrderContentResult1124106.setOrderId("646");
+            cpOrderContentResultList42.add(cpOrderContentResult1124106);
+
+            CPOrderContentResult cpOrderContentResult1124107 = new CPOrderContentResult();
+            cpOrderContentResult1124107.setOrderName("蓝波");
+            cpOrderContentResult1124107.setFullName("");
+            cpOrderContentResult1124107.setOrderState(cpbjscResult.getdata647().getRate());
+            cpOrderContentResult1124107.setOrderId("647");
+            cpOrderContentResultList42.add(cpOrderContentResult1124107);
+
+            CPOrderContentListResult cpOrderContentListResult51 = new CPOrderContentListResult();
+            cpOrderContentListResult51.setOrderContentListName("正码五");
+            cpOrderContentListResult51.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList51 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult25101 = new CPOrderContentResult();
+            cpOrderContentResult25101.setOrderName("单");
+            cpOrderContentResult25101.setFullName("");
+            cpOrderContentResult25101.setOrderState(cpbjscResult.getdata648().getRate());
+            cpOrderContentResult25101.setOrderId("648");
+            cpOrderContentResultList51.add(cpOrderContentResult25101);
+
+            CPOrderContentResult cpOrderContentResult25102 = new CPOrderContentResult();
+            cpOrderContentResult25102.setOrderName("双");
+            cpOrderContentResult25102.setFullName("");
+            cpOrderContentResult25102.setOrderState(cpbjscResult.getdata649().getRate());
+            cpOrderContentResult25102.setOrderId("649");
+            cpOrderContentResultList51.add(cpOrderContentResult25102);
+
+            CPOrderContentResult cpOrderContentResult25103 = new CPOrderContentResult();
+            cpOrderContentResult25103.setOrderName("大");
+            cpOrderContentResult25103.setFullName("");
+            cpOrderContentResult25103.setOrderState(cpbjscResult.getdata650().getRate());
+            cpOrderContentResult25103.setOrderId("650");
+            cpOrderContentResultList51.add(cpOrderContentResult25103);
+
+            CPOrderContentResult cpOrderContentResult25104 = new CPOrderContentResult();
+            cpOrderContentResult25104.setOrderName("小");
+            cpOrderContentResult25104.setFullName("");
+            cpOrderContentResult25104.setOrderState(cpbjscResult.getdata651().getRate());
+            cpOrderContentResult25104.setOrderId("651");
+            cpOrderContentResultList51.add(cpOrderContentResult25104);
+
+            CPOrderContentListResult cpOrderContentListResult52 = new CPOrderContentListResult();
+            cpOrderContentListResult52.setOrderContentListName("");
+            cpOrderContentListResult52.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList52 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1125105 = new CPOrderContentResult();
+            cpOrderContentResult1125105.setOrderName("红波");
+            cpOrderContentResult1125105.setFullName("");
+            cpOrderContentResult1125105.setOrderState(cpbjscResult.getdata652().getRate());
+            cpOrderContentResult1125105.setOrderId("652");
+            cpOrderContentResultList52.add(cpOrderContentResult1125105);
+
+            CPOrderContentResult cpOrderContentResult1125106 = new CPOrderContentResult();
+            cpOrderContentResult1125106.setOrderName("绿波");
+            cpOrderContentResult1125106.setFullName("");
+            cpOrderContentResult1125106.setOrderState(cpbjscResult.getdata653().getRate());
+            cpOrderContentResult1125106.setOrderId("653");
+            cpOrderContentResultList52.add(cpOrderContentResult1125106);
+
+            CPOrderContentResult cpOrderContentResult1125107 = new CPOrderContentResult();
+            cpOrderContentResult1125107.setOrderName("蓝波");
+            cpOrderContentResult1125107.setFullName("");
+            cpOrderContentResult1125107.setOrderState(cpbjscResult.getdata654().getRate());
+            cpOrderContentResult1125107.setOrderId("654");
+            cpOrderContentResultList52.add(cpOrderContentResult1125107);
+
+
+            CPOrderContentListResult cpOrderContentListResult61 = new CPOrderContentListResult();
+            cpOrderContentListResult61.setOrderContentListName("正码六");
+            cpOrderContentListResult61.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList61 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult26101 = new CPOrderContentResult();
+            cpOrderContentResult26101.setOrderName("单");
+            cpOrderContentResult26101.setFullName("");
+            cpOrderContentResult26101.setOrderState(cpbjscResult.getdata655().getRate());
+            cpOrderContentResult26101.setOrderId("655");
+            cpOrderContentResultList61.add(cpOrderContentResult26101);
+
+            CPOrderContentResult cpOrderContentResult26102 = new CPOrderContentResult();
+            cpOrderContentResult26102.setOrderName("双");
+            cpOrderContentResult26102.setFullName("");
+            cpOrderContentResult26102.setOrderState(cpbjscResult.getdata656().getRate());
+            cpOrderContentResult26102.setOrderId("656");
+            cpOrderContentResultList61.add(cpOrderContentResult26102);
+
+            CPOrderContentResult cpOrderContentResult26103 = new CPOrderContentResult();
+            cpOrderContentResult26103.setOrderName("大");
+            cpOrderContentResult26103.setFullName("");
+            cpOrderContentResult26103.setOrderState(cpbjscResult.getdata657().getRate());
+            cpOrderContentResult26103.setOrderId("657");
+            cpOrderContentResultList61.add(cpOrderContentResult26103);
+
+            CPOrderContentResult cpOrderContentResult26104 = new CPOrderContentResult();
+            cpOrderContentResult26104.setOrderName("小");
+            cpOrderContentResult26104.setFullName("");
+            cpOrderContentResult26104.setOrderState(cpbjscResult.getdata658().getRate());
+            cpOrderContentResult26104.setOrderId("658");
+            cpOrderContentResultList61.add(cpOrderContentResult26104);
+
+            CPOrderContentListResult cpOrderContentListResult62 = new CPOrderContentListResult();
+            cpOrderContentListResult62.setOrderContentListName("");
+            cpOrderContentListResult62.setShowNumber(3);
+
+            List<CPOrderContentResult> cpOrderContentResultList62 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult1126105 = new CPOrderContentResult();
+            cpOrderContentResult1126105.setOrderName("红波");
+            cpOrderContentResult1126105.setFullName("");
+            cpOrderContentResult1126105.setOrderState(cpbjscResult.getdata659().getRate());
+            cpOrderContentResult1126105.setOrderId("659");
+            cpOrderContentResultList62.add(cpOrderContentResult1126105);
+
+            CPOrderContentResult cpOrderContentResult1126106 = new CPOrderContentResult();
+            cpOrderContentResult1126106.setOrderName("绿波");
+            cpOrderContentResult1126106.setFullName("");
+            cpOrderContentResult1126106.setOrderState(cpbjscResult.getdata660().getRate());
+            cpOrderContentResult1126106.setOrderId("660");
+            cpOrderContentResultList62.add(cpOrderContentResult1126106);
+
+            CPOrderContentResult cpOrderContentResult1126107 = new CPOrderContentResult();
+            cpOrderContentResult1126107.setOrderName("蓝波");
+            cpOrderContentResult1126107.setFullName("");
+            cpOrderContentResult1126107.setOrderState(cpbjscResult.getdata661().getRate());
+            cpOrderContentResult1126107.setOrderId("661");
+            cpOrderContentResultList62.add(cpOrderContentResult1126107);
+
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            cpOrderContentListResult12.setData(cpOrderContentResultList12);
+            cpOrderContentListResult21.setData(cpOrderContentResultList21);
+            cpOrderContentListResult22.setData(cpOrderContentResultList22);
+            cpOrderContentListResult31.setData(cpOrderContentResultList31);
+            cpOrderContentListResult32.setData(cpOrderContentResultList32);
+            cpOrderContentListResult41.setData(cpOrderContentResultList41);
+            cpOrderContentListResult42.setData(cpOrderContentResultList42);
+            cpOrderContentListResult51.setData(cpOrderContentResultList51);
+            cpOrderContentListResult52.setData(cpOrderContentResultList52);
+            cpOrderContentListResult61.setData(cpOrderContentResultList61);
+            cpOrderContentListResult62.setData(cpOrderContentResultList62);
+
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+            CPOrderContentListResult.add(cpOrderContentListResult12);
+            CPOrderContentListResult.add(cpOrderContentListResult21);
+            CPOrderContentListResult.add(cpOrderContentListResult22);
+            CPOrderContentListResult.add(cpOrderContentListResult31);
+            CPOrderContentListResult.add(cpOrderContentListResult32);
+            CPOrderContentListResult.add(cpOrderContentListResult41);
+            CPOrderContentListResult.add(cpOrderContentListResult42);
+            CPOrderContentListResult.add(cpOrderContentListResult51);
+            CPOrderContentListResult.add(cpOrderContentListResult52);
+            CPOrderContentListResult.add(cpOrderContentListResult61);
+            CPOrderContentListResult.add(cpOrderContentListResult62);
+
+        }else if(k == 14){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("半波");
+            cpOrderContentListResult.setShowNumber(2);
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("红单");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata662().getRate());
+            cpOrderContentResult2101.setOrderId("662");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("红双");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata663().getRate());
+            cpOrderContentResult2102.setOrderId("663");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("红大");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata664().getRate());
+            cpOrderContentResult2103.setOrderId("664");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("红小");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata665().getRate());
+            cpOrderContentResult2104.setOrderId("665");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("绿单");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata666().getRate());
+            cpOrderContentResult2105.setOrderId("666");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("绿双");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata667().getRate());
+            cpOrderContentResult2106.setOrderId("667");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("绿大");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata668().getRate());
+            cpOrderContentResult2107.setOrderId("668");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("绿小");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata669().getRate());
+            cpOrderContentResult2108.setOrderId("669");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("蓝单");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata670().getRate());
+            cpOrderContentResult2109.setOrderId("670");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("蓝双");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata671().getRate());
+            cpOrderContentResult2110.setOrderId("671");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("蓝大");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata672().getRate());
+            cpOrderContentResult2111.setOrderId("672");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("蓝小");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata673().getRate());
+            cpOrderContentResult2112.setOrderId("673");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("红合单");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState(cpbjscResult.getdata718().getRate());
+            cpOrderContentResult2113.setOrderId("718");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("红合双");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState(cpbjscResult.getdata719().getRate());
+            cpOrderContentResult2114.setOrderId("719");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("绿合单");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState(cpbjscResult.getdata720().getRate());
+            cpOrderContentResult2115.setOrderId("720");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("绿合双");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState(cpbjscResult.getdata721().getRate());
+            cpOrderContentResult2116.setOrderId("721");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("蓝合单");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState(cpbjscResult.getdata722().getRate());
+            cpOrderContentResult2117.setOrderId("722");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("蓝合双");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState(cpbjscResult.getdata723().getRate());
+            cpOrderContentResult2118.setOrderId("723");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+
+        }
+        return CPOrderContentListResult;
+    }
 
     private void BJPK10(CPBJSCResult cpbjscResult){
 
@@ -19619,6 +25383,23 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         showContentView(0);
     }*/
 
+
+    @Override
+    public void postLastResultHKResult(COLastResultHK coLastResultHK) {
+        cpOrderLotteryLastTime.setText(coLastResultHK.getIssue()+"期");
+        cpLeftEventList2.clear();
+        cpLeftEventList1.clear();
+        List<String> nums = coLastResultHK.getNums();
+        String lastNums = nums.get(nums.size()-1);
+        nums.remove(nums.size()-1);
+        nums.add("+");
+        nums.add(lastNums);
+        cpOrderLotteryOpen1.setAdapter(new OpenHKQIUGameAdapter(getContext(), R.layout.item_cp_order_hk, nums));
+        cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
+        GameLog.log("六合彩的数据");
+    }
+
+
     @Override
     public void postLastResultResult(CPLastResult cpLastResult) {
 
@@ -19736,6 +25517,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     }
 
+
     @Override
     public void postNextIssueResult(CPNextIssueResult cpNextIssueResult) {
         isCloseLottery = false;
@@ -19797,6 +25579,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         onResponseCQResult();
     }
 
+    @Override
+    public void postRateInfoHKResult(CPHKResult cpxyncResult) {
+        cpOrderContentListResults =  HK(cpxyncResult,Integer.parseInt(type));
+        onResponseCQResult();
+    }
+
 
     class CPLeftMenuGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
         private Context context;
@@ -19829,6 +25617,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }
     }
 
+    private void initViewLhcData(){
+        initLhcLeftData();
+        index = 0;
+        cpOrderListLeft.setAdapter(new CPOrederCQListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
+    }
+
     private void initViewXyncData(){
         initXyncLeftData();
         index = 0;
@@ -19858,6 +25652,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         initBjscLeftData();
         index = 0;
         cpOrderListLeft.setAdapter(new CPOrederCQListLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
+    }
+
+    private void initDataSsc(){
+        presenter.postNextIssue(game_code,x_session_token);
+        presenter.postLastResult(game_code,x_session_token);
+        type = "0";
     }
 
 
@@ -19909,16 +25709,17 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
          *  极速快三    game_code 384
          */
         presenter.postCPLeftInfo("1",x_session_token);
-        presenter.postNextIssue(game_code,x_session_token);
-        presenter.postLastResult(game_code,x_session_token);
-        type = "0";
         cpOrderLayout.setVisibility(View.GONE);
+        cpOrderTeMaLay.setVisibility(View.GONE);
+        cpOrderZTTab.setVisibility(View.GONE);
         switch (game_code){
             case "51":
+                initDataSsc();
                 initViewBjscData();
                 presenter.postRateInfoBjsc(game_code,type,x_session_token);
                 break;
             case "189":
+                initDataSsc();
                 initViewBjscData();
                 presenter.postRateInfoJssc(game_code,type,x_session_token);
                 break;
@@ -19927,36 +25728,44 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postRateInfoJsft(game_code,type,x_session_token);
                 break;
             case "2":
+                initDataSsc();
                 initViewCqsscData();
                 presenter.postRateInfo(game_code,type,x_session_token);
                 break;
             case "207":
+                initDataSsc();
                 initViewCqsscData();
                 presenter.postRateInfo1FC(game_code,type,x_session_token);
                 break;
             case "607"://时时彩的请求方式
+                initDataSsc();
                 initViewCqsscData();
                 presenter.postRateInfo2FC(game_code,type,x_session_token);
                 break;
             case "407":
+                initDataSsc();
                 initViewCqsscData();
                 presenter.postRateInfo3FC(game_code,type,x_session_token);
                 break;
             case "507":
+                initDataSsc();
                 initViewCqsscData();
                 presenter.postRateInfo5FC(game_code,type,x_session_token);
                 break;
             case "304"://PC蛋蛋
+                initDataSsc();
                 //type = "undefined";
                 initViewPcddData();
                 presenter.postRateInfoPCDD(game_code,x_session_token);
                 break;
             case "159"://江苏快3
+                initDataSsc();
                 type = "1";
                 initViewJSK3Data();
                 presenter.postRateInfoJsk3(game_code,type,x_session_token);
                 break;
             case "384":// 极速快3
+                initDataSsc();
                 //type = "undefined";
                 type = "1";
                 initViewJSK3Data();
@@ -19964,13 +25773,70 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 break;
             case "47":// 幸运农场
             case "3":// 快乐十分
+                initDataSsc();
                 //type = "undefined";
                 type = "0";
                 initViewXyncData();
                 presenter.postRateInfoXync(game_code,type,x_session_token);
                 break;
+            case "69":// 香港六合彩
+                //type = "undefined";
+                type = "2";
+                cpOrderTeMaLay.setVisibility(View.VISIBLE);
+                presenter.postLastResultHK(game_code,x_session_token);
+                presenter.postNextIssueHK(game_code,x_session_token);
+                initViewLhcData();
+                presenter.postRateInfoHK(game_code,type,x_session_token);
+                break;
         }
 
+    }
+
+    private void initZTTablayout(){
+        cpOrderZTTab.addTab(cpOrderZTTab.newTab().setText("正1特"));
+        cpOrderZTTab.addTab(cpOrderZTTab.newTab().setText("正2特"));
+        cpOrderZTTab.addTab(cpOrderZTTab.newTab().setText("正3特"));
+        cpOrderZTTab.addTab(cpOrderZTTab.newTab().setText("正4特"));
+        cpOrderZTTab.addTab(cpOrderZTTab.newTab().setText("正5特"));
+        cpOrderZTTab.addTab(cpOrderZTTab.newTab().setText("正6特"));
+        cpOrderZTTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                onResetData();
+                switch (tab.getPosition()){
+                    case 0:
+                        type = "5";
+                        break;
+                    case 1:
+                        type = "6";
+                        break;
+                    case 2:
+                        type = "7";
+                        break;
+                    case 3:
+                        type = "8";
+                        break;
+                    case 4:
+                        type = "9";
+                        break;
+                    case 5:
+                        type = "10";
+                        break;
+                }
+                onRefreshRightCQ(type);
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     private void initTablayout(){
@@ -20016,6 +25882,77 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             }
         });
+    }
+
+    private void initLhcLeftData(){
+        allResultList.clear();
+        CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
+        cpOrderAllResult1.setEventChecked(true);
+        cpOrderAllResult1.setType("2");
+        cpOrderAllResult1.setOrderAllName("特码");
+
+        CPOrderAllResult cpOrderAllResult2 = new CPOrderAllResult();
+        cpOrderAllResult2.setOrderAllName("正码");
+        cpOrderAllResult2.setType("3");
+
+        CPOrderAllResult cpOrderAllResult3 = new CPOrderAllResult();
+        cpOrderAllResult3.setOrderAllName("正特码");
+        cpOrderAllResult3.setType("5");
+
+        CPOrderAllResult cpOrderAllResult4 = new CPOrderAllResult();
+        cpOrderAllResult4.setOrderAllName("正码1-6");
+        cpOrderAllResult4.setType("11");
+
+        CPOrderAllResult cpOrderAllResult5 = new CPOrderAllResult();
+        cpOrderAllResult5.setOrderAllName("过关");
+        cpOrderAllResult5.setType("12");
+
+        CPOrderAllResult cpOrderAllResult6 = new CPOrderAllResult();
+        cpOrderAllResult6.setOrderAllName("连码");
+        cpOrderAllResult6.setType("13");
+
+        CPOrderAllResult cpOrderAllResult7 = new CPOrderAllResult();
+        cpOrderAllResult7.setOrderAllName("半波");
+        cpOrderAllResult7.setType("14");
+
+        CPOrderAllResult cpOrderAllResult8 = new CPOrderAllResult();
+        cpOrderAllResult8.setOrderAllName("一肖");
+        cpOrderAllResult8.setType("15");
+
+        CPOrderAllResult cpOrderAllResult9 = new CPOrderAllResult();
+        cpOrderAllResult9.setOrderAllName("特码生肖");
+        cpOrderAllResult9.setType("16");
+
+        CPOrderAllResult cpOrderAllResult10 = new CPOrderAllResult();
+        cpOrderAllResult10.setOrderAllName("合肖");
+        cpOrderAllResult10.setType("17");
+
+        CPOrderAllResult cpOrderAllResult11 = new CPOrderAllResult();
+        cpOrderAllResult11.setOrderAllName("生肖连");
+        cpOrderAllResult11.setType("27");
+
+        CPOrderAllResult cpOrderAllResult12 = new CPOrderAllResult();
+        cpOrderAllResult12.setOrderAllName("尾数连");
+        cpOrderAllResult12.setType("34");
+
+        CPOrderAllResult cpOrderAllResult13 = new CPOrderAllResult();
+        cpOrderAllResult13.setOrderAllName("自选不中");
+        cpOrderAllResult13.setType("40");
+
+        allResultList.add(cpOrderAllResult1);
+        allResultList.add(cpOrderAllResult2);
+        allResultList.add(cpOrderAllResult3);
+        allResultList.add(cpOrderAllResult4);
+        allResultList.add(cpOrderAllResult5);
+        allResultList.add(cpOrderAllResult6);
+        allResultList.add(cpOrderAllResult7);
+        allResultList.add(cpOrderAllResult8);
+        allResultList.add(cpOrderAllResult9);
+        allResultList.add(cpOrderAllResult10);
+        allResultList.add(cpOrderAllResult11);
+        allResultList.add(cpOrderAllResult12);
+        allResultList.add(cpOrderAllResult13);
+
     }
 
     private void initXyncLeftData(){
@@ -20194,6 +26131,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         initTablayout();
+        initZTTablayout();
         CPBetManager.getSingleton().onClearData();
         x_session_token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         onChangeData();
@@ -20348,6 +26286,99 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     break;
             }
 
+        }
+    }
+
+    /**
+     * 设置六合彩文字+球
+     */
+    class OpenHKQIUGameAdapter extends AutoSizeRVAdapter<String> {
+        private Context context;
+
+        public OpenHKQIUGameAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, String data, final int position) {
+            switch (data){
+                /*
+                 *  香港六合彩波色
+                 *  红波：01,02,07,08,12,13,18,19,23,24,29,30,34,35,40,45,46
+                 *  蓝波：03,04,09,10,14,15,20,25,26,31,36,37,41,42,47,48
+                 *  绿波：05,06,11,16,17,21,22,27,28,32,33,38,39,43,44,49
+                 * */
+                case "01":
+                case "02":
+                case "07":
+                case "08":
+                case "1":
+                case "2":
+                case "7":
+                case "8":
+                case "12":
+                case "13":
+                case "18":
+                case "19":
+                case "23":
+                case "24":
+                case "29":
+                case "30":
+                case "34":
+                case "35":
+                case "40":
+                case "45":
+                case "46":
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_hk_red);
+                    break;
+                case "03":
+                case "04":
+                case "09":
+                case "3":
+                case "4":
+                case "9":
+                case "10":
+                case "14":
+                case "15":
+                case "20":
+                case "25":
+                case "26":
+                case "31":
+                case "36":
+                case "37":
+                case "41":
+                case "42":
+                case "47":
+                case "48":
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_hk_blue);
+                    break;
+                case "05":
+                case "06":
+                case "5":
+                case "6":
+                case "11":
+                case "16":
+                case "17":
+                case "21":
+                case "22":
+                case "27":
+                case "28":
+                case "32":
+                case "33":
+                case "38":
+                case "39":
+                case "43":
+                case "44":
+                case "49":
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_hk_green);
+                    break;
+                default:
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,0);
+
+            }
+
+            holder.setText(R.id.itemOrderOpen2,data);
         }
     }
 
@@ -20639,6 +26670,31 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             case "47":// 幸运农场
             case "3":// 快乐十分
                 presenter.postRateInfoXync(game_code,type,x_session_token);
+                break;
+            case "69":// 六合彩
+                cpOrderZTTab.setVisibility(View.GONE);
+                if(index==0){
+                    cpOrderTeMaA.setText("特码B");
+                    cpOrderTeMaB.setText("特码A");
+                    cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));
+                    cpOrderTeMaB.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_nor));
+                    cpOrderTeMaLay.setVisibility(View.VISIBLE);
+                }else if(index==1){
+                    cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));
+                    cpOrderTeMaB.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_nor));
+                    cpOrderTeMaA.setText("正码A");
+                    cpOrderTeMaB.setText("正码B");
+                    cpOrderTeMaLay.setVisibility(View.VISIBLE);
+                }else{
+                    cpOrderTeMaLay.setVisibility(View.GONE);
+                    if(index==2){
+                        cpOrderZTTab.setVisibility(View.VISIBLE);
+                        if("5".equals(type)){
+                            cpOrderZTTab.getTabAt(0).select();
+                        }
+                    }
+                }
+                presenter.postRateInfoHK(game_code,type,x_session_token);
                 break;
         }
 
@@ -21577,6 +27633,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             }
         }*/
 
+        if(Check.isNull(cpOrderContentListResults)){
+            return;
+        }
         int size2 = cpOrderContentListResults.size();
         for(int j=0;j<size2;++j){
             CPOrderContentListResult cpOrderContentListResult = cpOrderContentListResults.get(j);
@@ -21602,9 +27661,29 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         GameLog.log("重置了 ");
     }
 
-    @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu,R.id.cpOrderReset,R.id.cpOrderSubmit})
+    @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu,R.id.cpOrderReset,R.id.cpOrderSubmit,R.id.cpOrderTeMaB,R.id.cpOrderTeMaA})
     public void onClickedView(View view ){
         switch (view.getId()){
+            case R.id.cpOrderTeMaA:
+                cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));
+                cpOrderTeMaB.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_nor));
+                if(index == 0){
+                    type = "2";
+                }else{
+                    type = "3";
+                }
+                presenter.postRateInfoHK(game_code,type,x_session_token);
+                break;
+            case R.id.cpOrderTeMaB:
+                cpOrderTeMaB.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));
+                cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_nor));
+                if(index == 0){
+                    type = "1";
+                }else{
+                    type = "4";
+                }
+                presenter.postRateInfoHK(game_code,type,x_session_token);
+                break;
             case R.id.cpOrderSubmit:
                 String gold = cpOrderGold.getText().toString();
                 if(Check.isEmpty(gold)){

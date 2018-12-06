@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.google.gson.Gson;
 import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
@@ -38,7 +37,6 @@ import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
 import com.hgapp.a6668.data.ValidResult;
-import com.hgapp.a6668.data.XCC;
 import com.hgapp.a6668.homepage.aglist.AGListFragment;
 import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
 import com.hgapp.a6668.homepage.cplist.CPListFragment;
@@ -66,9 +64,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -156,41 +152,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         return R.layout.fragment_home;
     }
 
-    public String getFromAssets(String fileName) {
-        try {
-            InputStreamReader inputReader = new InputStreamReader(getResources().getAssets().open(fileName));
-            BufferedReader bufReader = new BufferedReader(inputReader);
-            String line = "";
-            String Result = "";
-            while ((line = bufReader.readLine()) != null)
-                Result += line;
-            return Result;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-        /*String  data = getFromAssets("sxx.txt");
-        //GameLog.log("屏幕的宽度："+data);
-        Gson gson = new Gson();
-        XCC cpbjscResult2 = gson.fromJson(data,XCC.class);
-        MyHttpClient myHttpClient = new MyHttpClient();
 
-        myHttpClient.execute("http://hg01455.com/app/member/dianjing/order_finish_api.php", cpbjscResult2, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                GameLog.log("cuowu sjj ");
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                GameLog.log(""+response);
-            }
-        });*/
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
         rvHomapageGameHall.setLayoutManager(gridLayoutManager);
         rvHomapageGameHall.setHasFixedSize(true);
@@ -561,6 +526,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postValidGift2Result(ValidResult validResult) {
+        GameLog.log("=============红包的地址是否正常=============");
+        EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
+        //ACache.get(getContext()).put(HGConstant.USERNAME_GIFT_URL,"true");
+    }
+
+    @Override
     public void postMaintainResult(List<MaintainResult> maintainResult) {
         GameLog.log("=============维护日志=============");
        for(MaintainResult maintainResult1:maintainResult){
@@ -623,7 +595,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         String gift_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL);
         if(Check.isEmpty(gift_url)){
             showMessage("正在加载中，请稍后再试!");
-            presenter.postValidGift("","get_valid");
+            presenter.postValidGift2("","get_valid");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
@@ -687,7 +659,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         if(Check.isEmpty(cp_url)){
             presenter.postCP();
         }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
-            presenter.postCP();
+			presenter.postCP();
             showMessage("正在加载中，请稍后再试!");
         }else{
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
@@ -758,12 +730,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tvHomePageLogin.setVisibility(View.GONE);
         }
         //presenter.postAGLiveCheckRegister("");
+        presenter.postValidGift("","get_valid");
         presenter.postMaintain();
         presenter.postCP();
         presenter.postQipai("","");
-		presenter.postHGQipai("","");
+        presenter.postHGQipai("","");
         presenter.postVGQipai("","");
-        presenter.postValidGift("","get_valid");
 
     }
 

@@ -1,6 +1,8 @@
 package com.hgapp.a6668.homepage.cplist.order;
 
+import com.hgapp.a6668.data.COLastResultHK;
 import com.hgapp.a6668.data.CPBJSCResult;
+import com.hgapp.a6668.data.CPHKResult;
 import com.hgapp.a6668.data.CPHallResult;
 import com.hgapp.a6668.data.CPJSFTResult;
 import com.hgapp.a6668.data.CPJSK2Result;
@@ -76,10 +78,20 @@ public interface ICPOrderApi {
     @FormUrlEncoded
     public Observable<CPLastResult> postLastResult(@Field("game_code") String game_code, @Field("x-session-token") String x_session_token);
 
+    @POST("gamessc/lastresult")
+    @FormUrlEncoded
+    public Observable<COLastResultHK> postLastResultHK(@Field("game_code") String game_code, @Field("x-session-token") String x_session_token);
+
     @Headers({"Domain-Name: CpUrl"})
     @POST("gamessc/getNextIssue")
     @FormUrlEncoded
     public Observable<CPNextIssueResult> postNextIssue(@Field("game_code") String game_code, @Field("x-session-token") String x_session_token);
+
+
+    @POST("gamexq/getNextIssue")
+    @FormUrlEncoded
+    public Observable<CPNextIssueResult> postNextIssueHK(@Field("game_code") String game_code, @Field("x-session-token") String x_session_token);
+
 
     @POST("gamessc/getrateinfo")
     @FormUrlEncoded
@@ -103,5 +115,8 @@ public interface ICPOrderApi {
     @FormUrlEncoded
     Observable<CPXYNCResult> postRateInfoKlsf(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
 
+    @POST("gamexq/getrateinfo")
+    @FormUrlEncoded
+    Observable<CPHKResult> postRateInfoHK(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
 
 }

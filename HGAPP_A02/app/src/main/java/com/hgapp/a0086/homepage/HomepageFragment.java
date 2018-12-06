@@ -519,6 +519,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postValidGift2Result(ValidResult validResult) {
+        GameLog.log("=============红包的地址是否正常=============");
+        //ACache.get(getContext()).put(HGConstant.USERNAME_GIFT_URL,"true");
+        EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
+    }
+
+    @Override
     public void postMaintainResult(List<MaintainResult> maintainResult) {
         GameLog.log("=============维护日志=============");
         for(MaintainResult maintainResult1:maintainResult){
@@ -580,7 +587,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         String gift_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL);
         if(Check.isEmpty(gift_url)){
             showMessage("正在加载中，请稍后再试!");
-            presenter.postValidGift("","get_valid");
+            presenter.postValidGift2("","get_valid");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
@@ -716,12 +723,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tvHomePageLogin.setVisibility(View.GONE);
         }
         //presenter.postAGLiveCheckRegister("");
+        presenter.postValidGift("","get_valid");
         presenter.postMaintain();
         presenter.postCP();
         presenter.postQipai("","");
         presenter.postHGQipai("","");
         presenter.postVGQipai("","");
-        presenter.postValidGift("","get_valid");
     }
 
     @Subscribe

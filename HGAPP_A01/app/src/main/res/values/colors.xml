@@ -20,6 +20,8 @@
     <color name="cp_hall_tv">#191919</color>
     <color name="cp_order_bg">#4f7ecc</color>
     <color name="cp_order_tv">#acc6d3</color>
+    <color name="cp_order_hk_nor">#F9F9F9</color>
+    <color name="cp_order_hk_click">#D6E5EF</color>
     <color name="cp_order_tv_clicked">#93b1de</color>
     <color name="cp_order_submit">#ff1010</color>
     <color name="cp_order_reset">#181eaf</color>

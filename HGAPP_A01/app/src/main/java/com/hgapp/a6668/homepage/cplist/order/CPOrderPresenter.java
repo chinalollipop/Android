@@ -3,7 +3,9 @@ package com.hgapp.a6668.homepage.cplist.order;
 import com.hgapp.a6668.common.http.ResponseSubscriber;
 import com.hgapp.a6668.common.util.RxHelper;
 import com.hgapp.a6668.common.util.SubscriptionHelper;
+import com.hgapp.a6668.data.COLastResultHK;
 import com.hgapp.a6668.data.CPBJSCResult;
+import com.hgapp.a6668.data.CPHKResult;
 import com.hgapp.a6668.data.CPJSFTResult;
 import com.hgapp.a6668.data.CPJSK2Result;
 import com.hgapp.a6668.data.CPJSKSResult;
@@ -313,6 +315,26 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
     }
 
     @Override
+    public void postRateInfoHK(String game_code, String type, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoHK(game_code,type,x_session_token))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<CPHKResult>() {
+                    @Override
+                    public void success(CPHKResult response) {
+                        view.postRateInfoHKResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postRateInfoPCDD(String game_code, String x_session_token) {
         subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoPCDD(game_code,x_session_token))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<PCDDResult>() {
@@ -396,8 +418,50 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
     }
 
     @Override
+    public void postLastResultHK(String game_code, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postLastResultHK(game_code,x_session_token))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<COLastResultHK>() {
+                    @Override
+                    public void success(COLastResultHK response) {
+                        GameLog.log(""+response.toString());
+                        view.postLastResultHKResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postNextIssue(String game_code, String x_session_token) {
         subscriptionHelper.add(RxHelper.addSugar(api.postNextIssue(game_code,x_session_token))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<CPNextIssueResult>() {
+                    @Override
+                    public void success(CPNextIssueResult response) {
+                        GameLog.log(""+response.toString());
+                        view.postNextIssueResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postNextIssueHK(String game_code, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postNextIssueHK(game_code,x_session_token))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<CPNextIssueResult>() {
                     @Override
                     public void success(CPNextIssueResult response) {

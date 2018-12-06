@@ -31,6 +31,7 @@ public interface HomePageContract {
         public void postVGQipai(String appRefer,String action);
         public void postCP();
         public void postValidGift(String appRefer,String action);
+        public void postValidGift2(String appRefer,String action);
         public void postMaintain();
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
@@ -46,6 +47,7 @@ public interface HomePageContract {
         public void postVGQipaiResult(QipaiResult qipaiResult);
         public void postCPResult(CPResult cpResult);
         public void postValidGiftResult(ValidResult validResult);
+        public void postValidGift2Result(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);
     }
 

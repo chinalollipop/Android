@@ -309,6 +309,31 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
+    public void postValidGift2(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postValidGift(HGConstant.PRODUCT_PLATFORM,action))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<ValidResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<ValidResult> response) {
+                        //view.postDownAppGiftResult("38");
+                        if(response.isSuccess()){
+                            view.postValidGift2Result(response.getData().get(0));
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postMaintain() {
         subscriptionHelper.add(RxHelper.addSugar(api.postMaintain(HGConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<MaintainResult>>() {
