@@ -260,6 +260,16 @@
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="scrollable" />
 
+            <!--hk连码-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/cpOrderLMTab"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/tab_background"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="scrollable" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cpOrderListRight"
                 android:layout_width="match_parent"

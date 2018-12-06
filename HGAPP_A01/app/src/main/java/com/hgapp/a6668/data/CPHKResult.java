@@ -2248,6 +2248,33 @@ public class CPHKResult {
     private data80Bean data1041;
     @SerializedName("1087")
     private data80Bean data1087;
+    /**
+     * 613 : {"classid":"84","class1":"连码","class2":"二全中","class3":"二全中","rate":"60","locked":"0"}
+     * 614 : {"classid":"87","class1":"连码","class2":"二中特","class3":"中特","rate":"25","locked":"0"}
+     * 615 : {"classid":"87","class1":"连码","class2":"二中特","class3":"中二","rate":"50","locked":"0"}
+     * 616 : {"classid":"88","class1":"连码","class2":"特串","class3":"特串","rate":"150","locked":"0"}
+     * 617 : {"classid":"85","class1":"连码","class2":"三全中","class3":"三全中","rate":"670","locked":"0"}
+     * 618 : {"classid":"86","class1":"连码","class2":"三中二","class3":"中二","rate":"20","locked":"0"}
+     * 619 : {"classid":"86","class1":"连码","class2":"三中二","class3":"中三","rate":"110","locked":"0"}
+     * 808 : {"classid":"116","class1":"连码","class2":"四中一","class3":"四中一","rate":"1.96","locked":"0"}
+     */
+
+    @SerializedName("613")
+    private data80Bean data613;
+    @SerializedName("614")
+    private data80Bean data614;
+    @SerializedName("615")
+    private data80Bean data615;
+    @SerializedName("616")
+    private data80Bean data616;
+    @SerializedName("617")
+    private data80Bean data617;
+    @SerializedName("618")
+    private data80Bean data618;
+    @SerializedName("619")
+    private data80Bean data619;
+    @SerializedName("808")
+    private data80Bean data808;
 
 
     public data1Bean getdata1() {
@@ -8136,6 +8163,70 @@ public class CPHKResult {
 
     public void setdata1087(data80Bean data1087) {
         this.data1087 = data1087;
+    }
+
+    public data80Bean getdata613() {
+        return data613;
+    }
+
+    public void setdata613(data80Bean data613) {
+        this.data613 = data613;
+    }
+
+    public data80Bean getdata614() {
+        return data614;
+    }
+
+    public void setdata614(data80Bean data614) {
+        this.data614 = data614;
+    }
+
+    public data80Bean getdata615() {
+        return data615;
+    }
+
+    public void setdata615(data80Bean data615) {
+        this.data615 = data615;
+    }
+
+    public data80Bean getdata616() {
+        return data616;
+    }
+
+    public void setdata616(data80Bean data616) {
+        this.data616 = data616;
+    }
+
+    public data80Bean getdata617() {
+        return data617;
+    }
+
+    public void setdata617(data80Bean data617) {
+        this.data617 = data617;
+    }
+
+    public data80Bean getdata618() {
+        return data618;
+    }
+
+    public void setdata618(data80Bean data618) {
+        this.data618 = data618;
+    }
+
+    public data80Bean getdata619() {
+        return data619;
+    }
+
+    public void setdata619(data80Bean data619) {
+        this.data619 = data619;
+    }
+
+    public data80Bean getdata808() {
+        return data808;
+    }
+
+    public void setdata808(data80Bean data808) {
+        this.data808 = data808;
     }
 
     public static class data1Bean {
