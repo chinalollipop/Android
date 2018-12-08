@@ -25786,6 +25786,376 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             cpOrderContentListResult2.setData(cpOrderContentResultList2);
             CPOrderContentListResult.add(cpOrderContentListResult2);
+        }else if(k == 40){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("");
+            cpOrderContentListResult.setShowNumber(5);
+            cpOrderContentListResult.setShowType("QIUHK_ZX");
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("01");
+            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setOrderState("");
+            cpOrderContentResult2101.setOrderId("1101");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("02");
+            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setOrderState("");
+            cpOrderContentResult2102.setOrderId("1102");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("03");
+            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setOrderState("");
+            cpOrderContentResult2103.setOrderId("1103");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("04");
+            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setOrderState("");
+            cpOrderContentResult2104.setOrderId("1104");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("05");
+            cpOrderContentResult2105.setFullName("");
+            cpOrderContentResult2105.setOrderState("");
+            cpOrderContentResult2105.setOrderId("1105");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("06");
+            cpOrderContentResult2106.setFullName("");
+            cpOrderContentResult2106.setOrderState("");
+            cpOrderContentResult2106.setOrderId("1106");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("07");
+            cpOrderContentResult2107.setFullName("");
+            cpOrderContentResult2107.setOrderState("");
+            cpOrderContentResult2107.setOrderId("1107");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("08");
+            cpOrderContentResult2108.setFullName("");
+            cpOrderContentResult2108.setOrderState("");
+            cpOrderContentResult2108.setOrderId("1108");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("09");
+            cpOrderContentResult2109.setFullName("");
+            cpOrderContentResult2109.setOrderState("");
+            cpOrderContentResult2109.setOrderId("1109");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("10");
+            cpOrderContentResult2110.setFullName("");
+            cpOrderContentResult2110.setOrderState("");
+            cpOrderContentResult2110.setOrderId("1110");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("11");
+            cpOrderContentResult2111.setFullName("");
+            cpOrderContentResult2111.setOrderState("");
+            cpOrderContentResult2111.setOrderId("1111");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("12");
+            cpOrderContentResult2112.setFullName("");
+            cpOrderContentResult2112.setOrderState("");
+            cpOrderContentResult2112.setOrderId("1112");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            CPOrderContentResult cpOrderContentResult2113 = new CPOrderContentResult();
+            cpOrderContentResult2113.setOrderName("13");
+            cpOrderContentResult2113.setFullName("");
+            cpOrderContentResult2113.setOrderState("");
+            cpOrderContentResult2113.setOrderId("1113");
+            cpOrderContentResultList.add(cpOrderContentResult2113);
+
+            CPOrderContentResult cpOrderContentResult2114 = new CPOrderContentResult();
+            cpOrderContentResult2114.setOrderName("14");
+            cpOrderContentResult2114.setFullName("");
+            cpOrderContentResult2114.setOrderState("");
+            cpOrderContentResult2114.setOrderId("1114");
+            cpOrderContentResultList.add(cpOrderContentResult2114);
+
+            CPOrderContentResult cpOrderContentResult2115 = new CPOrderContentResult();
+            cpOrderContentResult2115.setOrderName("15");
+            cpOrderContentResult2115.setFullName("");
+            cpOrderContentResult2115.setOrderState("");
+            cpOrderContentResult2115.setOrderId("1115");
+            cpOrderContentResultList.add(cpOrderContentResult2115);
+
+            CPOrderContentResult cpOrderContentResult2116 = new CPOrderContentResult();
+            cpOrderContentResult2116.setOrderName("16");
+            cpOrderContentResult2116.setFullName("");
+            cpOrderContentResult2116.setOrderState("");
+            cpOrderContentResult2116.setOrderId("1116");
+            cpOrderContentResultList.add(cpOrderContentResult2116);
+
+            CPOrderContentResult cpOrderContentResult2117 = new CPOrderContentResult();
+            cpOrderContentResult2117.setOrderName("17");
+            cpOrderContentResult2117.setFullName("");
+            cpOrderContentResult2117.setOrderState("");
+            cpOrderContentResult2117.setOrderId("1117");
+            cpOrderContentResultList.add(cpOrderContentResult2117);
+
+            CPOrderContentResult cpOrderContentResult2118 = new CPOrderContentResult();
+            cpOrderContentResult2118.setOrderName("18");
+            cpOrderContentResult2118.setFullName("");
+            cpOrderContentResult2118.setOrderState("");
+            cpOrderContentResult2118.setOrderId("1118");
+            cpOrderContentResultList.add(cpOrderContentResult2118);
+
+            CPOrderContentResult cpOrderContentResult2119 = new CPOrderContentResult();
+            cpOrderContentResult2119.setOrderName("19");
+            cpOrderContentResult2119.setFullName("");
+            cpOrderContentResult2119.setOrderState("");
+            cpOrderContentResult2119.setOrderId("1119");
+            cpOrderContentResultList.add(cpOrderContentResult2119);
+
+            CPOrderContentResult cpOrderContentResult2120 = new CPOrderContentResult();
+            cpOrderContentResult2120.setOrderName("20");
+            cpOrderContentResult2120.setFullName("");
+            cpOrderContentResult2120.setOrderState("");
+            cpOrderContentResult2120.setOrderId("1120");
+            cpOrderContentResultList.add(cpOrderContentResult2120);
+
+            CPOrderContentResult cpOrderContentResult2121 = new CPOrderContentResult();
+            cpOrderContentResult2121.setOrderName("21");
+            cpOrderContentResult2121.setFullName("");
+            cpOrderContentResult2121.setOrderState("");
+            cpOrderContentResult2121.setOrderId("1121");
+            cpOrderContentResultList.add(cpOrderContentResult2121);
+
+            CPOrderContentResult cpOrderContentResult2122 = new CPOrderContentResult();
+            cpOrderContentResult2122.setOrderName("22");
+            cpOrderContentResult2122.setFullName("");
+            cpOrderContentResult2122.setOrderState("");
+            cpOrderContentResult2122.setOrderId("1122");
+            cpOrderContentResultList.add(cpOrderContentResult2122);
+
+            CPOrderContentResult cpOrderContentResult2123 = new CPOrderContentResult();
+            cpOrderContentResult2123.setOrderName("23");
+            cpOrderContentResult2123.setFullName("");
+            cpOrderContentResult2123.setOrderState("");
+            cpOrderContentResult2123.setOrderId("1123");
+            cpOrderContentResultList.add(cpOrderContentResult2123);
+
+            CPOrderContentResult cpOrderContentResult2124 = new CPOrderContentResult();
+            cpOrderContentResult2124.setOrderName("24");
+            cpOrderContentResult2124.setFullName("");
+            cpOrderContentResult2124.setOrderState("");
+            cpOrderContentResult2124.setOrderId("1124");
+            cpOrderContentResultList.add(cpOrderContentResult2124);
+
+            CPOrderContentResult cpOrderContentResult2125 = new CPOrderContentResult();
+            cpOrderContentResult2125.setOrderName("25");
+            cpOrderContentResult2125.setFullName("");
+            cpOrderContentResult2125.setOrderState("");
+            cpOrderContentResult2125.setOrderId("1125");
+            cpOrderContentResultList.add(cpOrderContentResult2125);
+
+            CPOrderContentResult cpOrderContentResult2126 = new CPOrderContentResult();
+            cpOrderContentResult2126.setOrderName("26");
+            cpOrderContentResult2126.setFullName("");
+            cpOrderContentResult2126.setOrderState("");
+            cpOrderContentResult2126.setOrderId("1126");
+            cpOrderContentResultList.add(cpOrderContentResult2126);
+
+            CPOrderContentResult cpOrderContentResult2127 = new CPOrderContentResult();
+            cpOrderContentResult2127.setOrderName("27");
+            cpOrderContentResult2127.setFullName("");
+            cpOrderContentResult2127.setOrderState("");
+            cpOrderContentResult2127.setOrderId("1127");
+            cpOrderContentResultList.add(cpOrderContentResult2127);
+
+            CPOrderContentResult cpOrderContentResult2128 = new CPOrderContentResult();
+            cpOrderContentResult2128.setOrderName("28");
+            cpOrderContentResult2128.setFullName("");
+            cpOrderContentResult2128.setOrderState("");
+            cpOrderContentResult2128.setOrderId("1128");
+            cpOrderContentResultList.add(cpOrderContentResult2128);
+
+            CPOrderContentResult cpOrderContentResult2129 = new CPOrderContentResult();
+            cpOrderContentResult2129.setOrderName("29");
+            cpOrderContentResult2129.setFullName("");
+            cpOrderContentResult2129.setOrderState("");
+            cpOrderContentResult2129.setOrderId("1129");
+            cpOrderContentResultList.add(cpOrderContentResult2129);
+
+            CPOrderContentResult cpOrderContentResult2130 = new CPOrderContentResult();
+            cpOrderContentResult2130.setOrderName("30");
+            cpOrderContentResult2130.setFullName("");
+            cpOrderContentResult2130.setOrderState("");
+            cpOrderContentResult2130.setOrderId("1130");
+            cpOrderContentResultList.add(cpOrderContentResult2130);
+
+            CPOrderContentResult cpOrderContentResult2131 = new CPOrderContentResult();
+            cpOrderContentResult2131.setOrderName("31");
+            cpOrderContentResult2131.setFullName("");
+            cpOrderContentResult2131.setOrderState("");
+            cpOrderContentResult2131.setOrderId("1131");
+            cpOrderContentResultList.add(cpOrderContentResult2131);
+
+            CPOrderContentResult cpOrderContentResult2132 = new CPOrderContentResult();
+            cpOrderContentResult2132.setOrderName("32");
+            cpOrderContentResult2132.setFullName("");
+            cpOrderContentResult2132.setOrderState("");
+            cpOrderContentResult2132.setOrderId("1132");
+            cpOrderContentResultList.add(cpOrderContentResult2132);
+
+            CPOrderContentResult cpOrderContentResult2133 = new CPOrderContentResult();
+            cpOrderContentResult2133.setOrderName("33");
+            cpOrderContentResult2133.setFullName("");
+            cpOrderContentResult2133.setOrderState("");
+            cpOrderContentResult2133.setOrderId("1133");
+            cpOrderContentResultList.add(cpOrderContentResult2133);
+
+            CPOrderContentResult cpOrderContentResult2134 = new CPOrderContentResult();
+            cpOrderContentResult2134.setOrderName("34");
+            cpOrderContentResult2134.setFullName("");
+            cpOrderContentResult2134.setOrderState("");
+            cpOrderContentResult2134.setOrderId("1134");
+            cpOrderContentResultList.add(cpOrderContentResult2134);
+
+            CPOrderContentResult cpOrderContentResult2135 = new CPOrderContentResult();
+            cpOrderContentResult2135.setOrderName("35");
+            cpOrderContentResult2135.setFullName("");
+            cpOrderContentResult2135.setOrderState("");
+            cpOrderContentResult2135.setOrderId("1135");
+            cpOrderContentResultList.add(cpOrderContentResult2135);
+
+            CPOrderContentResult cpOrderContentResult2136 = new CPOrderContentResult();
+            cpOrderContentResult2136.setOrderName("36");
+            cpOrderContentResult2136.setFullName("");
+            cpOrderContentResult2136.setOrderState("");
+            cpOrderContentResult2136.setOrderId("1136");
+            cpOrderContentResultList.add(cpOrderContentResult2136);
+
+            CPOrderContentResult cpOrderContentResult2137 = new CPOrderContentResult();
+            cpOrderContentResult2137.setOrderName("37");
+            cpOrderContentResult2137.setFullName("");
+            cpOrderContentResult2137.setOrderState("");
+            cpOrderContentResult2137.setOrderId("1137");
+            cpOrderContentResultList.add(cpOrderContentResult2137);
+
+            CPOrderContentResult cpOrderContentResult2138 = new CPOrderContentResult();
+            cpOrderContentResult2138.setOrderName("38");
+            cpOrderContentResult2138.setFullName("");
+            cpOrderContentResult2138.setOrderState("");
+            cpOrderContentResult2138.setOrderId("1138");
+            cpOrderContentResultList.add(cpOrderContentResult2138);
+
+            CPOrderContentResult cpOrderContentResult2139 = new CPOrderContentResult();
+            cpOrderContentResult2139.setOrderName("39");
+            cpOrderContentResult2139.setFullName("");
+            cpOrderContentResult2139.setOrderState("");
+            cpOrderContentResult2139.setOrderId("1139");
+            cpOrderContentResultList.add(cpOrderContentResult2139);
+
+            CPOrderContentResult cpOrderContentResult2140 = new CPOrderContentResult();
+            cpOrderContentResult2140.setOrderName("40");
+            cpOrderContentResult2140.setFullName("");
+            cpOrderContentResult2140.setOrderState("");
+            cpOrderContentResult2140.setOrderId("1140");
+            cpOrderContentResultList.add(cpOrderContentResult2140);
+
+
+            CPOrderContentResult cpOrderContentResult2141 = new CPOrderContentResult();
+            cpOrderContentResult2141.setOrderName("41");
+            cpOrderContentResult2141.setFullName("");
+            cpOrderContentResult2141.setOrderState("");
+            cpOrderContentResult2141.setOrderId("1141");
+            cpOrderContentResultList.add(cpOrderContentResult2141);
+
+
+            CPOrderContentResult cpOrderContentResult2142 = new CPOrderContentResult();
+            cpOrderContentResult2142.setOrderName("42");
+            cpOrderContentResult2142.setFullName("");
+            cpOrderContentResult2142.setOrderState("");
+            cpOrderContentResult2142.setOrderId("1142");
+            cpOrderContentResultList.add(cpOrderContentResult2142);
+
+
+            CPOrderContentResult cpOrderContentResult2143 = new CPOrderContentResult();
+            cpOrderContentResult2143.setOrderName("43");
+            cpOrderContentResult2143.setFullName("");
+            cpOrderContentResult2143.setOrderState("");
+            cpOrderContentResult2143.setOrderId("1143");
+            cpOrderContentResultList.add(cpOrderContentResult2143);
+
+
+            CPOrderContentResult cpOrderContentResult2144 = new CPOrderContentResult();
+            cpOrderContentResult2144.setOrderName("44");
+            cpOrderContentResult2144.setFullName("");
+            cpOrderContentResult2144.setOrderState("");
+            cpOrderContentResult2144.setOrderId("1144");
+            cpOrderContentResultList.add(cpOrderContentResult2144);
+
+
+            CPOrderContentResult cpOrderContentResult2145 = new CPOrderContentResult();
+            cpOrderContentResult2145.setOrderName("45");
+            cpOrderContentResult2145.setFullName("");
+            cpOrderContentResult2145.setOrderState("");
+            cpOrderContentResult2145.setOrderId("1145");
+            cpOrderContentResultList.add(cpOrderContentResult2145);
+
+            CPOrderContentListResult cpOrderContentListResult11 = new CPOrderContentListResult();
+            cpOrderContentListResult11.setOrderContentListName("");
+            cpOrderContentListResult11.setShowNumber(4);
+            cpOrderContentListResult11.setShowType("QIUHK_ZX");
+
+            List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
+
+            CPOrderContentResult cpOrderContentResult2146 = new CPOrderContentResult();
+            cpOrderContentResult2146.setOrderName("46");
+            cpOrderContentResult2146.setFullName("");
+            cpOrderContentResult2146.setOrderState("");
+            cpOrderContentResult2146.setOrderId("1146");
+            cpOrderContentResultList11.add(cpOrderContentResult2146);
+
+
+            CPOrderContentResult cpOrderContentResult2147 = new CPOrderContentResult();
+            cpOrderContentResult2147.setOrderName("47");
+            cpOrderContentResult2147.setFullName("");
+            cpOrderContentResult2147.setOrderState("");
+            cpOrderContentResult2147.setOrderId("1147");
+            cpOrderContentResultList11.add(cpOrderContentResult2147);
+
+
+            CPOrderContentResult cpOrderContentResult2148 = new CPOrderContentResult();
+            cpOrderContentResult2148.setOrderName("48");
+            cpOrderContentResult2148.setFullName("");
+            cpOrderContentResult2148.setOrderState("");
+            cpOrderContentResult2148.setOrderId("1148");
+            cpOrderContentResultList11.add(cpOrderContentResult2148);
+
+            CPOrderContentResult cpOrderContentResult2149 = new CPOrderContentResult();
+            cpOrderContentResult2149.setOrderName("49");
+            cpOrderContentResult2149.setFullName("");
+            cpOrderContentResult2149.setOrderState("");
+            cpOrderContentResult2149.setOrderId("1149");
+            cpOrderContentResultList11.add(cpOrderContentResult2149);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            cpOrderContentListResult11.setData(cpOrderContentResultList11);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+            CPOrderContentListResult.add(cpOrderContentListResult11);
+
+
         }
         return CPOrderContentListResult;
     }
@@ -29869,13 +30239,30 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 holder.setVisible(R.id.cpOrderContentLine, true);
             }
             GridLayoutManager gridLayoutManager = null;
-            if(data.getShowNumber()==3){
+            switch (data.getShowNumber()){
+                case 1:
+                    gridLayoutManager= new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
+                    break;
+                case 2:
+                    gridLayoutManager= new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
+                    break;
+                case 3:
+                    gridLayoutManager= new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
+                    break;
+                case 4:
+                    gridLayoutManager= new GridLayoutManager(getContext(), 4, OrientationHelper.VERTICAL, false);
+                    break;
+                case 5:
+                    gridLayoutManager= new GridLayoutManager(getContext(), 5, OrientationHelper.VERTICAL, false);
+                    break;
+            }
+           /* if(data.getShowNumber()==3){
                 gridLayoutManager= new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
             }else if(data.getShowNumber()==2){
                 gridLayoutManager= new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
             }else{
                 gridLayoutManager= new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
-            }
+            }*/
             RecyclerView recyclerView = holder.getView(R.id.cpOrderContentList1);
             recyclerView.setLayoutManager(gridLayoutManager);
             CPOreder2ContentGameAdapter cpOrederContentGameAdapter = null;
@@ -30249,6 +30636,15 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     holder.setText(R.id.cpOrderContentName2, data.getOrderName());
                     holder.setVisible(R.id.cpOrderContentName2, true);
                     holder.setVisible(R.id.cpOrderContentState, true);
+                    //holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_qiu);
+                    onSetQIUHKView(data.getOrderName(),holder);
+                    break;
+                case "QIUHK_ZX":
+                    holder.setVisible(R.id.cpOrderContentSX, false);
+                    //holder.setText(R.id.cpOrderContentState, data.getOrderState());
+                    holder.setText(R.id.cpOrderContentName2, data.getOrderName());
+                    holder.setVisible(R.id.cpOrderContentName2, true);
+                    holder.setVisible(R.id.cpOrderContentState, false);
                     //holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_qiu);
                     onSetQIUHKView(data.getOrderName(),holder);
                     break;
