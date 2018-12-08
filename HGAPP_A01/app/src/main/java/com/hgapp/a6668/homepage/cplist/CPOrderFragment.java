@@ -113,6 +113,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     TabLayout cpOrderLMTab;
     @BindView(R.id.cpOrderSXLTab)
     TabLayout cpOrderSXLTab;
+    @BindView(R.id.cpOrderWSLTab)
+    TabLayout cpOrderWSLTab;
     @BindView(R.id.cpOrderListRight)
     RecyclerView cpOrderListRight;
    /* @BindView(R.id.cpOrderListViewRight)
@@ -25244,6 +25246,546 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentListResult.setData(cpOrderContentResultList);
             CPOrderContentListResult.add(cpOrderContentListResult);
 
+        }else if(k == 34){
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("二尾连中");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("二尾连中");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata1301().getRate());
+            cpOrderContentResult2202.setOrderId("1301");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("二尾连中");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata1302().getRate());
+            cpOrderContentResult2203.setOrderId("1302");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("二尾连中");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata1303().getRate());
+            cpOrderContentResult2204.setOrderId("1303");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("二尾连中");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata1304().getRate());
+            cpOrderContentResult2205.setOrderId("1304");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("二尾连中");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata1305().getRate());
+            cpOrderContentResult2206.setOrderId("1305");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("二尾连中");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata1306().getRate());
+            cpOrderContentResult2207.setOrderId("1306");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("二尾连中");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata1307().getRate());
+            cpOrderContentResult2208.setOrderId("1307");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("二尾连中");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata1308().getRate());
+            cpOrderContentResult2209.setOrderId("1308");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("二尾连中");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata1309().getRate());
+            cpOrderContentResult2210.setOrderId("1309");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("二尾连中");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata1310().getRate());
+            cpOrderContentResult2201.setOrderId("1310");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+        }else if(k == 35){
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("三尾连中");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("三尾连中");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata1311().getRate());
+            cpOrderContentResult2202.setOrderId("1311");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("三尾连中");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata1312().getRate());
+            cpOrderContentResult2203.setOrderId("1312");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("三尾连中");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata1313().getRate());
+            cpOrderContentResult2204.setOrderId("1313");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("三尾连中");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata1314().getRate());
+            cpOrderContentResult2205.setOrderId("1314");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("三尾连中");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata1315().getRate());
+            cpOrderContentResult2206.setOrderId("1315");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("三尾连中");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata1316().getRate());
+            cpOrderContentResult2207.setOrderId("1316");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("三尾连中");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata1317().getRate());
+            cpOrderContentResult2208.setOrderId("1317");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("三尾连中");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata1318().getRate());
+            cpOrderContentResult2209.setOrderId("1318");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("三尾连中");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata1319().getRate());
+            cpOrderContentResult2210.setOrderId("1319");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("三尾连中");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata1320().getRate());
+            cpOrderContentResult2201.setOrderId("1320");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+        }else if(k == 36){
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("四尾连中");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("四尾连中");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata1321().getRate());
+            cpOrderContentResult2202.setOrderId("1321");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("四尾连中");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata1322().getRate());
+            cpOrderContentResult2203.setOrderId("1322");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("四尾连中");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata1323().getRate());
+            cpOrderContentResult2204.setOrderId("1323");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("四尾连中");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata1324().getRate());
+            cpOrderContentResult2205.setOrderId("1324");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("四尾连中");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata1325().getRate());
+            cpOrderContentResult2206.setOrderId("1325");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("四尾连中");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata1326().getRate());
+            cpOrderContentResult2207.setOrderId("1326");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("四尾连中");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata1327().getRate());
+            cpOrderContentResult2208.setOrderId("1327");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("四尾连中");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata1328().getRate());
+            cpOrderContentResult2209.setOrderId("1328");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("四尾连中");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata1329().getRate());
+            cpOrderContentResult2210.setOrderId("1329");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("四尾连中");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata1330().getRate());
+            cpOrderContentResult2201.setOrderId("1330");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+        }else if(k == 37){
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("二尾连不中");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("二尾连不中");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata1331().getRate());
+            cpOrderContentResult2202.setOrderId("1331");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("二尾连不中");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata1332().getRate());
+            cpOrderContentResult2203.setOrderId("1332");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("二尾连不中");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata1333().getRate());
+            cpOrderContentResult2204.setOrderId("1333");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("二尾连不中");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata1334().getRate());
+            cpOrderContentResult2205.setOrderId("1334");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("二尾连不中");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata1335().getRate());
+            cpOrderContentResult2206.setOrderId("1335");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("二尾连不中");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata1336().getRate());
+            cpOrderContentResult2207.setOrderId("1336");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("二尾连不中");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata1337().getRate());
+            cpOrderContentResult2208.setOrderId("1337");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("二尾连不中");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata1338().getRate());
+            cpOrderContentResult2209.setOrderId("1338");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("二尾连不中");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata1339().getRate());
+            cpOrderContentResult2210.setOrderId("1339");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("二尾连不中");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata1340().getRate());
+            cpOrderContentResult2201.setOrderId("1340");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+        }else if(k == 38){
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("三尾连不中");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("三尾连不中");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata1341().getRate());
+            cpOrderContentResult2202.setOrderId("1341");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("三尾连不中");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata1342().getRate());
+            cpOrderContentResult2203.setOrderId("1342");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("三尾连不中");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata1343().getRate());
+            cpOrderContentResult2204.setOrderId("1343");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("三尾连不中");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata1344().getRate());
+            cpOrderContentResult2205.setOrderId("1344");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("三尾连不中");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata1345().getRate());
+            cpOrderContentResult2206.setOrderId("1345");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("三尾连不中");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata1346().getRate());
+            cpOrderContentResult2207.setOrderId("1346");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("三尾连不中");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata1347().getRate());
+            cpOrderContentResult2208.setOrderId("1347");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("三尾连不中");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata1348().getRate());
+            cpOrderContentResult2209.setOrderId("1348");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("三尾连不中");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata1349().getRate());
+            cpOrderContentResult2210.setOrderId("1349");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("三尾连不中");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata1350().getRate());
+            cpOrderContentResult2201.setOrderId("1350");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+        }else if(k == 39){
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("四尾连不中");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("四尾连不中");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata1351().getRate());
+            cpOrderContentResult2202.setOrderId("1351");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("四尾连不中");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata1352().getRate());
+            cpOrderContentResult2203.setOrderId("1352");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("四尾连不中");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata1353().getRate());
+            cpOrderContentResult2204.setOrderId("1353");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("四尾连不中");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata1354().getRate());
+            cpOrderContentResult2205.setOrderId("1354");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("四尾连不中");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata1355().getRate());
+            cpOrderContentResult2206.setOrderId("1355");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("四尾连不中");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata1356().getRate());
+            cpOrderContentResult2207.setOrderId("1356");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("四尾连不中");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata1357().getRate());
+            cpOrderContentResult2208.setOrderId("1357");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("四尾连不中");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata1358().getRate());
+            cpOrderContentResult2209.setOrderId("1358");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("四尾连不中");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata1359().getRate());
+            cpOrderContentResult2210.setOrderId("1359");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("四尾连不中");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata1360().getRate());
+            cpOrderContentResult2201.setOrderId("1360");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
         }
         return CPOrderContentListResult;
     }
@@ -27263,6 +27805,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderZTTab.setVisibility(View.GONE);
         cpOrderLMTab.setVisibility(View.GONE);
         cpOrderSXLTab.setVisibility(View.GONE);
+        cpOrderWSLTab.setVisibility(View.GONE);
         switch (game_code){
             case "51":
                 initDataSsc();
@@ -28097,6 +28640,53 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         return CPOrderContentListResult;
     }
 
+    private void initWSLTablayout(){
+        cpOrderWSLTab.addTab(cpOrderWSLTab.newTab().setText("二尾连中"));
+        cpOrderWSLTab.addTab(cpOrderWSLTab.newTab().setText("三尾连中"));
+        cpOrderWSLTab.addTab(cpOrderWSLTab.newTab().setText("四尾连中"));
+        cpOrderWSLTab.addTab(cpOrderWSLTab.newTab().setText("二尾连不中"));
+        cpOrderWSLTab.addTab(cpOrderWSLTab.newTab().setText("三尾连不中"));
+        cpOrderWSLTab.addTab(cpOrderWSLTab.newTab().setText("四尾连不中"));
+        cpOrderWSLTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                onResetData();
+                switch (tab.getPosition()){
+                    case 0:
+                        type = "34";
+                        break;
+                    case 1:
+                        type = "35";
+                        break;
+                    case 2:
+                        type = "36";
+                        break;
+                    case 3:
+                        type = "37";
+                        break;
+                    case 4:
+                        type = "38";
+                        break;
+                    case 5:
+                        type = "39";
+                        break;
+                }
+                onRefreshRightCQ(type);
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
     private void initSXLTablayout(){
         cpOrderSXLTab.addTab(cpOrderSXLTab.newTab().setText("二肖连中"));
         cpOrderSXLTab.addTab(cpOrderSXLTab.newTab().setText("三肖连中"));
@@ -28538,6 +29128,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         initZTTablayout();
         initLMTablayout();
         initSXLTablayout();
+        initWSLTablayout();
         CPBetManager.getSingleton().onClearData();
         x_session_token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         onChangeData();
@@ -29081,6 +29672,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 cpOrderZTTab.setVisibility(View.GONE);
                 cpOrderLMTab.setVisibility(View.GONE);
                 cpOrderSXLTab.setVisibility(View.GONE);
+                cpOrderWSLTab.setVisibility(View.GONE);
                 if(index==0){
                     cpOrderTeMaA.setText("特码B");
                     cpOrderTeMaB.setText("特码A");
@@ -29109,6 +29701,11 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         cpOrderSXLTab.setVisibility(View.VISIBLE);
                         if("27".equals(type)){
                             cpOrderSXLTab.getTabAt(0).select();
+                        }
+                    }else if(index==11){
+                        cpOrderWSLTab.setVisibility(View.VISIBLE);
+                        if("34".equals(type)){
+                            cpOrderWSLTab.getTabAt(0).select();
                         }
                     }
                 }

@@ -279,6 +279,15 @@
                 app:tabBackground="@drawable/tab_background"
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="scrollable" />
+            <!--hk尾数连-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/cpOrderWSLTab"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:tabBackground="@drawable/tab_background"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="scrollable" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cpOrderListRight"
