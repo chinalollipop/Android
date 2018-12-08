@@ -5,6 +5,7 @@ public class CPOrderContentResult {
     private String orderName;
     private String fullName;
     private String orderState;
+    private String orderSX ="";
     private boolean isChecked;
 
     public String getOrderId() {
@@ -37,6 +38,14 @@ public class CPOrderContentResult {
 
     public void setOrderState(String orderState) {
         this.orderState = orderState;
+    }
+
+    public String getOrderSX() {
+        return orderSX;
+    }
+
+    public void setOrderSX(String orderSX) {
+        this.orderSX = orderSX;
     }
 
     public boolean isChecked() {

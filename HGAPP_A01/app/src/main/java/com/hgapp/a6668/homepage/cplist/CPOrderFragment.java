@@ -24093,6 +24093,413 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentListResult.setData(cpOrderContentResultList);
             CPOrderContentListResult.add(cpOrderContentListResult);
 
+        }else if(k == 15){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("一肖");
+            cpOrderContentListResult.setShowNumber(1);
+            cpOrderContentListResult.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("牛");
+            cpOrderContentResult2101.setFullName("一肖/尾数");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata700().getRate());
+            cpOrderContentResult2101.setOrderId("700");
+            cpOrderContentResult2101.setOrderSX("10,22,34,46");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("虎");
+            cpOrderContentResult2102.setFullName("一肖/尾数");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata706().getRate());
+            cpOrderContentResult2102.setOrderId("706");
+            cpOrderContentResult2102.setOrderSX("9,21,33,45");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("兔");
+            cpOrderContentResult2103.setFullName("一肖/尾数");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata701().getRate());
+            cpOrderContentResult2103.setOrderId("701");
+            cpOrderContentResult2103.setOrderSX("8,20,32,44");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("龙");
+            cpOrderContentResult2104.setFullName("一肖/尾数");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata707().getRate());
+            cpOrderContentResult2104.setOrderId("707");
+            cpOrderContentResult2104.setOrderSX("7,19,31,43");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("蛇");
+            cpOrderContentResult2105.setFullName("一肖/尾数");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata702().getRate());
+            cpOrderContentResult2105.setOrderId("702");
+            cpOrderContentResult2105.setOrderSX("6,18,30,42");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("马");
+            cpOrderContentResult2106.setFullName("一肖/尾数");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata708().getRate());
+            cpOrderContentResult2106.setOrderId("708");
+            cpOrderContentResult2106.setOrderSX("5,17,29,41");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("羊");
+            cpOrderContentResult2107.setFullName("一肖/尾数");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata703().getRate());
+            cpOrderContentResult2107.setOrderId("703");
+            cpOrderContentResult2107.setOrderSX("4,16,28,40");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("猴");
+            cpOrderContentResult2108.setFullName("一肖/尾数");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata709().getRate());
+            cpOrderContentResult2108.setOrderId("709");
+            cpOrderContentResult2108.setOrderSX("3,15,27,39");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("鸡");
+            cpOrderContentResult2109.setFullName("一肖/尾数");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata704().getRate());
+            cpOrderContentResult2109.setOrderId("704");
+            cpOrderContentResult2109.setOrderSX("2,14,26,38");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("狗");
+            cpOrderContentResult2110.setFullName("一肖/尾数");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata710().getRate());
+            cpOrderContentResult2110.setOrderId("710");
+            cpOrderContentResult2110.setOrderSX("1,13,25,37,49");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("猪");
+            cpOrderContentResult2111.setFullName("一肖/尾数");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata705().getRate());
+            cpOrderContentResult2111.setOrderId("705");
+            cpOrderContentResult2111.setOrderSX("12,34,36,48");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("鼠");
+            cpOrderContentResult2112.setFullName("一肖/尾数");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata711().getRate());
+            cpOrderContentResult2112.setOrderId("711");
+            cpOrderContentResult2112.setOrderSX("11,23,35,47");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+
+            CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+            cpOrderContentListResult2.setOrderContentListName("尾数");
+            cpOrderContentListResult2.setShowNumber(1);
+            cpOrderContentListResult2.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2201 = new CPOrderContentResult();
+            cpOrderContentResult2201.setOrderName("0尾");
+            cpOrderContentResult2201.setFullName("一肖/尾数");
+            cpOrderContentResult2201.setOrderState(cpbjscResult.getdata769().getRate());
+            cpOrderContentResult2201.setOrderId("769");
+            cpOrderContentResult2201.setOrderSX("10,20,30,40");
+            cpOrderContentResultList2.add(cpOrderContentResult2201);
+
+            CPOrderContentResult cpOrderContentResult2202 = new CPOrderContentResult();
+            cpOrderContentResult2202.setOrderName("1尾");
+            cpOrderContentResult2202.setFullName("一肖/尾数");
+            cpOrderContentResult2202.setOrderState(cpbjscResult.getdata770().getRate());
+            cpOrderContentResult2202.setOrderId("770");
+            cpOrderContentResult2202.setOrderSX("01,11,21,31,41");
+            cpOrderContentResultList2.add(cpOrderContentResult2202);
+
+            CPOrderContentResult cpOrderContentResult2203 = new CPOrderContentResult();
+            cpOrderContentResult2203.setOrderName("2尾");
+            cpOrderContentResult2203.setFullName("一肖/尾数");
+            cpOrderContentResult2203.setOrderState(cpbjscResult.getdata771().getRate());
+            cpOrderContentResult2203.setOrderId("771");
+            cpOrderContentResult2203.setOrderSX("02,12,22,32,42");
+            cpOrderContentResultList2.add(cpOrderContentResult2203);
+
+            CPOrderContentResult cpOrderContentResult2204 = new CPOrderContentResult();
+            cpOrderContentResult2204.setOrderName("3尾");
+            cpOrderContentResult2204.setFullName("一肖/尾数");
+            cpOrderContentResult2204.setOrderState(cpbjscResult.getdata772().getRate());
+            cpOrderContentResult2204.setOrderId("772");
+            cpOrderContentResult2204.setOrderSX("03,13,23,33,43");
+            cpOrderContentResultList2.add(cpOrderContentResult2204);
+
+            CPOrderContentResult cpOrderContentResult2205 = new CPOrderContentResult();
+            cpOrderContentResult2205.setOrderName("4尾");
+            cpOrderContentResult2205.setFullName("一肖/尾数");
+            cpOrderContentResult2205.setOrderState(cpbjscResult.getdata773().getRate());
+            cpOrderContentResult2205.setOrderId("773");
+            cpOrderContentResult2205.setOrderSX("04,14,24,34,44");
+            cpOrderContentResultList2.add(cpOrderContentResult2205);
+
+            CPOrderContentResult cpOrderContentResult2206 = new CPOrderContentResult();
+            cpOrderContentResult2206.setOrderName("5尾");
+            cpOrderContentResult2206.setFullName("一肖/尾数");
+            cpOrderContentResult2206.setOrderState(cpbjscResult.getdata774().getRate());
+            cpOrderContentResult2206.setOrderId("774");
+            cpOrderContentResult2206.setOrderSX("05,15,25,35,45");
+            cpOrderContentResultList2.add(cpOrderContentResult2206);
+
+            CPOrderContentResult cpOrderContentResult2207 = new CPOrderContentResult();
+            cpOrderContentResult2207.setOrderName("6尾");
+            cpOrderContentResult2207.setFullName("一肖/尾数");
+            cpOrderContentResult2207.setOrderState(cpbjscResult.getdata775().getRate());
+            cpOrderContentResult2207.setOrderId("775");
+            cpOrderContentResult2207.setOrderSX("06,16,26,36,46");
+            cpOrderContentResultList2.add(cpOrderContentResult2207);
+
+            CPOrderContentResult cpOrderContentResult2208 = new CPOrderContentResult();
+            cpOrderContentResult2208.setOrderName("7尾");
+            cpOrderContentResult2208.setFullName("一肖/尾数");
+            cpOrderContentResult2208.setOrderState(cpbjscResult.getdata776().getRate());
+            cpOrderContentResult2208.setOrderId("776");
+            cpOrderContentResult2208.setOrderSX("07,17,27,37,47");
+            cpOrderContentResultList2.add(cpOrderContentResult2208);
+
+            CPOrderContentResult cpOrderContentResult2209 = new CPOrderContentResult();
+            cpOrderContentResult2209.setOrderName("8尾");
+            cpOrderContentResult2209.setFullName("一肖/尾数");
+            cpOrderContentResult2209.setOrderState(cpbjscResult.getdata777().getRate());
+            cpOrderContentResult2209.setOrderId("777");
+            cpOrderContentResult2209.setOrderSX("08,18,28,38,48");
+            cpOrderContentResultList2.add(cpOrderContentResult2209);
+
+            CPOrderContentResult cpOrderContentResult2210 = new CPOrderContentResult();
+            cpOrderContentResult2210.setOrderName("9尾");
+            cpOrderContentResult2210.setFullName("一肖/尾数");
+            cpOrderContentResult2210.setOrderState(cpbjscResult.getdata778().getRate());
+            cpOrderContentResult2210.setOrderId("778");
+            cpOrderContentResult2210.setOrderSX("09,19,29,39,49");
+            cpOrderContentResultList2.add(cpOrderContentResult2210);
+
+            cpOrderContentListResult2.setData(cpOrderContentResultList2);
+            CPOrderContentListResult.add(cpOrderContentListResult2);
+
+        }else if(k == 16){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("特肖");
+            cpOrderContentListResult.setShowNumber(1);
+            cpOrderContentListResult.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("牛");
+            cpOrderContentResult2101.setFullName("特肖");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata674().getRate());
+            cpOrderContentResult2101.setOrderId("674");
+            cpOrderContentResult2101.setOrderSX("10,22,34,46");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("虎");
+            cpOrderContentResult2102.setFullName("特肖");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata680().getRate());
+            cpOrderContentResult2102.setOrderId("680");
+            cpOrderContentResult2102.setOrderSX("9,21,33,45");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("兔");
+            cpOrderContentResult2103.setFullName("特肖");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata675().getRate());
+            cpOrderContentResult2103.setOrderId("675");
+            cpOrderContentResult2103.setOrderSX("8,20,32,44");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("龙");
+            cpOrderContentResult2104.setFullName("特肖");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata681().getRate());
+            cpOrderContentResult2104.setOrderId("681");
+            cpOrderContentResult2104.setOrderSX("7,19,31,43");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("蛇");
+            cpOrderContentResult2105.setFullName("特肖");
+            cpOrderContentResult2105.setOrderState(cpbjscResult.getdata676().getRate());
+            cpOrderContentResult2105.setOrderId("676");
+            cpOrderContentResult2105.setOrderSX("6,18,30,42");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("马");
+            cpOrderContentResult2106.setFullName("特肖");
+            cpOrderContentResult2106.setOrderState(cpbjscResult.getdata682().getRate());
+            cpOrderContentResult2106.setOrderId("682");
+            cpOrderContentResult2106.setOrderSX("5,17,29,41");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("羊");
+            cpOrderContentResult2107.setFullName("特肖");
+            cpOrderContentResult2107.setOrderState(cpbjscResult.getdata677().getRate());
+            cpOrderContentResult2107.setOrderId("677");
+            cpOrderContentResult2107.setOrderSX("4,16,28,40");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("猴");
+            cpOrderContentResult2108.setFullName("特肖");
+            cpOrderContentResult2108.setOrderState(cpbjscResult.getdata683().getRate());
+            cpOrderContentResult2108.setOrderId("683");
+            cpOrderContentResult2108.setOrderSX("3,15,27,39");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("鸡");
+            cpOrderContentResult2109.setFullName("特肖");
+            cpOrderContentResult2109.setOrderState(cpbjscResult.getdata678().getRate());
+            cpOrderContentResult2109.setOrderId("678");
+            cpOrderContentResult2109.setOrderSX("2,14,26,38");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("狗");
+            cpOrderContentResult2110.setFullName("特肖");
+            cpOrderContentResult2110.setOrderState(cpbjscResult.getdata684().getRate());
+            cpOrderContentResult2110.setOrderId("684");
+            cpOrderContentResult2110.setOrderSX("1,13,25,37,49");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("猪");
+            cpOrderContentResult2111.setFullName("特肖");
+            cpOrderContentResult2111.setOrderState(cpbjscResult.getdata679().getRate());
+            cpOrderContentResult2111.setOrderId("679");
+            cpOrderContentResult2111.setOrderSX("12,34,36,48");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("鼠");
+            cpOrderContentResult2112.setFullName("特肖");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata685().getRate());
+            cpOrderContentResult2112.setOrderId("685");
+            cpOrderContentResult2112.setOrderSX("11,23,35,47");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+
+        }else if(k == 17){
+            CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+            cpOrderContentListResult.setOrderContentListName("");
+            cpOrderContentListResult.setShowNumber(1);
+            cpOrderContentListResult.setShowType("QIUHK_SX");
+
+            List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+            CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
+            cpOrderContentResult2101.setOrderName("牛");
+            cpOrderContentResult2101.setFullName("合肖");
+            cpOrderContentResult2101.setOrderState("");
+            cpOrderContentResult2101.setOrderId("901");
+            cpOrderContentResult2101.setOrderSX("10,22,34,46");
+            cpOrderContentResultList.add(cpOrderContentResult2101);
+
+            CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
+            cpOrderContentResult2102.setOrderName("虎");
+            cpOrderContentResult2102.setFullName("合肖");
+            cpOrderContentResult2102.setOrderState("");
+            cpOrderContentResult2102.setOrderId("907");
+            cpOrderContentResult2102.setOrderSX("9,21,33,45");
+            cpOrderContentResultList.add(cpOrderContentResult2102);
+
+            CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
+            cpOrderContentResult2103.setOrderName("兔");
+            cpOrderContentResult2103.setFullName("合肖");
+            cpOrderContentResult2103.setOrderState("");
+            cpOrderContentResult2103.setOrderId("902");
+            cpOrderContentResult2103.setOrderSX("8,20,32,44");
+            cpOrderContentResultList.add(cpOrderContentResult2103);
+
+            CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
+            cpOrderContentResult2104.setOrderName("龙");
+            cpOrderContentResult2104.setFullName("合肖");
+            cpOrderContentResult2104.setOrderState("");
+            cpOrderContentResult2104.setOrderId("908");
+            cpOrderContentResult2104.setOrderSX("7,19,31,43");
+            cpOrderContentResultList.add(cpOrderContentResult2104);
+
+            CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
+            cpOrderContentResult2105.setOrderName("蛇");
+            cpOrderContentResult2105.setFullName("合肖");
+            cpOrderContentResult2105.setOrderState("");
+            cpOrderContentResult2105.setOrderId("903");
+            cpOrderContentResult2105.setOrderSX("6,18,30,42");
+            cpOrderContentResultList.add(cpOrderContentResult2105);
+
+            CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
+            cpOrderContentResult2106.setOrderName("马");
+            cpOrderContentResult2106.setFullName("合肖");
+            cpOrderContentResult2106.setOrderState("");
+            cpOrderContentResult2106.setOrderId("909");
+            cpOrderContentResult2106.setOrderSX("5,17,29,41");
+            cpOrderContentResultList.add(cpOrderContentResult2106);
+
+            CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
+            cpOrderContentResult2107.setOrderName("羊");
+            cpOrderContentResult2107.setFullName("合肖");
+            cpOrderContentResult2107.setOrderState("");
+            cpOrderContentResult2107.setOrderId("904");
+            cpOrderContentResult2107.setOrderSX("4,16,28,40");
+            cpOrderContentResultList.add(cpOrderContentResult2107);
+
+            CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
+            cpOrderContentResult2108.setOrderName("猴");
+            cpOrderContentResult2108.setFullName("合肖");
+            cpOrderContentResult2108.setOrderState("");
+            cpOrderContentResult2108.setOrderId("910");
+            cpOrderContentResult2108.setOrderSX("3,15,27,39");
+            cpOrderContentResultList.add(cpOrderContentResult2108);
+
+            CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
+            cpOrderContentResult2109.setOrderName("鸡");
+            cpOrderContentResult2109.setFullName("合肖");
+            cpOrderContentResult2109.setOrderState("");
+            cpOrderContentResult2109.setOrderId("905");
+            cpOrderContentResult2109.setOrderSX("2,14,26,38");
+            cpOrderContentResultList.add(cpOrderContentResult2109);
+
+            CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
+            cpOrderContentResult2110.setOrderName("狗");
+            cpOrderContentResult2110.setFullName("合肖");
+            cpOrderContentResult2110.setOrderState("");
+            cpOrderContentResult2110.setOrderId("911");
+            cpOrderContentResult2110.setOrderSX("1,13,25,37,49");
+            cpOrderContentResultList.add(cpOrderContentResult2110);
+
+            CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
+            cpOrderContentResult2111.setOrderName("猪");
+            cpOrderContentResult2111.setFullName("合肖");
+            cpOrderContentResult2111.setOrderState("");
+            cpOrderContentResult2111.setOrderId("906");
+            cpOrderContentResult2111.setOrderSX("12,34,36,48");
+            cpOrderContentResultList.add(cpOrderContentResult2111);
+
+            CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
+            cpOrderContentResult2112.setOrderName("鼠");
+            cpOrderContentResult2112.setFullName("合肖");
+            cpOrderContentResult2112.setOrderState("");
+            cpOrderContentResult2112.setOrderId("912");
+            cpOrderContentResult2112.setOrderSX("11,23,35,47");
+            cpOrderContentResultList.add(cpOrderContentResult2112);
+
+            cpOrderContentListResult.setData(cpOrderContentResultList);
+            CPOrderContentListResult.add(cpOrderContentListResult);
+
         }
         return CPOrderContentListResult;
     }
@@ -28091,6 +28498,84 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             context = context;
         }
 
+        private void onSetQIUHKSXView(String data,TextView holder){
+            switch (data){
+                /*
+                 *  香港六合彩波色
+                 *  红波：01,02,07,08,12,13,18,19,23,24,29,30,34,35,40,45,46
+                 *  蓝波：03,04,09,10,14,15,20,25,26,31,36,37,41,42,47,48
+                 *  绿波：05,06,11,16,17,21,22,27,28,32,33,38,39,43,44,49
+                 * */
+                case "01":
+                case "02":
+                case "07":
+                case "08":
+                case "1":
+                case "2":
+                case "7":
+                case "8":
+                case "12":
+                case "13":
+                case "18":
+                case "19":
+                case "23":
+                case "24":
+                case "29":
+                case "30":
+                case "34":
+                case "35":
+                case "40":
+                case "45":
+                case "46":
+                    holder.setBackgroundResource(R.mipmap.cp_hk_red);
+                    break;
+                case "03":
+                case "04":
+                case "09":
+                case "3":
+                case "4":
+                case "9":
+                case "10":
+                case "14":
+                case "15":
+                case "20":
+                case "25":
+                case "26":
+                case "31":
+                case "36":
+                case "37":
+                case "41":
+                case "42":
+                case "47":
+                case "48":
+                    holder.setBackgroundResource(R.mipmap.cp_hk_blue);
+                    break;
+                case "05":
+                case "06":
+                case "5":
+                case "6":
+                case "11":
+                case "16":
+                case "17":
+                case "21":
+                case "22":
+                case "27":
+                case "28":
+                case "32":
+                case "33":
+                case "38":
+                case "39":
+                case "43":
+                case "44":
+                case "49":
+                    holder.setBackgroundResource(R.mipmap.cp_hk_green);
+                    break;
+                default:
+                    holder.setBackgroundResource(0);
+
+            }
+        }
+
         private void onSetQIUHKUPView(String data,ViewHolder holder){
             switch (data){
                 /*
@@ -28359,6 +28844,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                     break;
                 case "QIUHK":
+                    holder.setVisible(R.id.cpOrderContentSX, false);
                     holder.setText(R.id.cpOrderContentState, data.getOrderState());
                     holder.setText(R.id.cpOrderContentName2, data.getOrderName());
                     holder.setVisible(R.id.cpOrderContentName2, true);
@@ -28366,7 +28852,44 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     //holder.setBackgroundRes(R.id.cpOrderContentName2,R.mipmap.cp_qiu);
                     onSetQIUHKView(data.getOrderName(),holder);
                     break;
+                case "QIUHK_SX":
+                    holder.setVisible(R.id.cpOrderContentSX, true);
+                    holder.setVisible(R.id.cpOrderContentKS, false);
+                    holder.setVisible(R.id.cpOrderContentNormal, false);
+                    holder.setText(R.id.cpOrderContentSXName, data.getOrderName());
+                    holder.setText(R.id.cpOrderContentSXRate, data.getOrderState());
+                    String[] sxdata = data.getOrderSX().split(",");
+                    if(sxdata.length==4){
+                        holder.setText(R.id.cpOrderContentSXRate1,sxdata[0]);
+                        holder.setText(R.id.cpOrderContentSXRate2,sxdata[0]);
+                        holder.setText(R.id.cpOrderContentSXRate3,sxdata[1]);
+                        holder.setText(R.id.cpOrderContentSXRate4,sxdata[2]);
+                        holder.setText(R.id.cpOrderContentSXRate5,sxdata[3]);
+                        TextView tv5 = (TextView)  holder.getView(R.id.cpOrderContentSXRate1);
+                        tv5.setVisibility(View.INVISIBLE);
+                        onSetQIUHKSXView(sxdata[0],(TextView) holder.getView(R.id.cpOrderContentSXRate1));
+                        onSetQIUHKSXView(sxdata[0],(TextView) holder.getView(R.id.cpOrderContentSXRate2));
+                        onSetQIUHKSXView(sxdata[1],(TextView) holder.getView(R.id.cpOrderContentSXRate3));
+                        onSetQIUHKSXView(sxdata[2],(TextView) holder.getView(R.id.cpOrderContentSXRate4));
+                        onSetQIUHKSXView(sxdata[3],(TextView) holder.getView(R.id.cpOrderContentSXRate5));
+                    }else{
+                        /*TextView tv5 = (TextView)  holder.getView(R.id.cpOrderContentSXRate1);
+                        tv5.setVisibility(View.VISIBLE);*/
+                        holder.setVisible(R.id.cpOrderContentSXRate1, true);
+                        holder.setText(R.id.cpOrderContentSXRate1,sxdata[0]);
+                        holder.setText(R.id.cpOrderContentSXRate2,sxdata[1]);
+                        holder.setText(R.id.cpOrderContentSXRate3,sxdata[2]);
+                        holder.setText(R.id.cpOrderContentSXRate4,sxdata[3]);
+                        holder.setText(R.id.cpOrderContentSXRate5,sxdata[4]);
+                        onSetQIUHKSXView(sxdata[0],(TextView) holder.getView(R.id.cpOrderContentSXRate1));
+                        onSetQIUHKSXView(sxdata[1],(TextView) holder.getView(R.id.cpOrderContentSXRate2));
+                        onSetQIUHKSXView(sxdata[2],(TextView) holder.getView(R.id.cpOrderContentSXRate3));
+                        onSetQIUHKSXView(sxdata[3],(TextView) holder.getView(R.id.cpOrderContentSXRate4));
+                        onSetQIUHKSXView(sxdata[4],(TextView) holder.getView(R.id.cpOrderContentSXRate5));
+                    }
+                    break;
                 case "QIUHK_UP":
+                    holder.setVisible(R.id.cpOrderContentSX, false);
                     holder.setVisible(R.id.cpOrderContentKS, true);
                     holder.setVisible(R.id.cpOrderContentNormal, true);
                     holder.setVisible(R.id.cpOrderContentState04, true);
