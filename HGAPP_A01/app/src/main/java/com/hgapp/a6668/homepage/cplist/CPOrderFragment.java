@@ -151,7 +151,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     private static List<CPOrderAllResult> allResultList = new ArrayList<CPOrderAllResult>();
     List<CPOrderContentListResult> data  = new ArrayList<>();
     private int postionAll;
-    private int rX0 = 0;
+    private int rX0 = 0,rX1 = 0;
     private int xiazhuValue = 0;
     private String rX2,rX3,rX4,rX5;
     private CPOrederListRightGameAdapter cpOrederListRightGameAdapter;
@@ -28176,6 +28176,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderLMTab.setVisibility(View.GONE);
         cpOrderSXLTab.setVisibility(View.GONE);
         cpOrderWSLTab.setVisibility(View.GONE);
+        rX0 = 0;
+        rX1 = 0;
         switch (game_code){
             case "51":
                 initDataSsc();
@@ -29023,21 +29025,27 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 onResetData();
                 switch (tab.getPosition()){
                     case 0:
+                        rX0 = 2;
                         type = "34";
                         break;
                     case 1:
+                        rX0 = 3;
                         type = "35";
                         break;
                     case 2:
+                        rX0 = 4;
                         type = "36";
                         break;
                     case 3:
+                        rX0 = 2;
                         type = "37";
                         break;
                     case 4:
+                        rX0 = 3;
                         type = "38";
                         break;
                     case 5:
+                        rX0 = 4;
                         type = "39";
                         break;
                 }
@@ -29071,24 +29079,31 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 onResetData();
                 switch (tab.getPosition()){
                     case 0:
+                        rX0 = 2;
                         type = "27";
                         break;
                     case 1:
+                        rX0 = 3;
                         type = "28";
                         break;
                     case 2:
+                        rX0 = 4;
                         type = "29";
                         break;
                     case 3:
+                        rX0 = 5;
                         type = "30";
                         break;
                     case 4:
+                        rX0 = 2;
                         type = "31";
                         break;
                     case 5:
+                        rX0 = 3;
                         type = "32";
                         break;
                     case 6:
+                        rX0 = 4;
                         type = "33";
                         break;
                 }
@@ -29122,21 +29137,27 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 type = "13";
                 switch (tab.getPosition()){
                     case 0:
+                        rX0 = 3;
                         onRefreashLMData("三全中",hkLM1);
                         break;
                     case 1:
+                        rX0 = 3;
                         onRefreashLMDataUp("三中二",hkLM2);
                         break;
                     case 2:
+                        rX0 = 2;
                         onRefreashLMData("二全中",hkLM3);
                         break;
                     case 3:
+                        rX0 = 2;
                         onRefreashLMDataUp("二中特",hkLM4);
                         break;
                     case 4:
+                        rX0 = 2;
                         onRefreashLMData("特串",hkLM5);
                         break;
                     case 5:
+                        rX0 = 4;
                         onRefreashLMData("四中一",hkLM6);
                         break;
                 }
@@ -30043,6 +30064,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 cpOrderLMTab.setVisibility(View.GONE);
                 cpOrderSXLTab.setVisibility(View.GONE);
                 cpOrderWSLTab.setVisibility(View.GONE);
+                /*rX0 = 0;
+                rX1 = 0;*/
                 if(index==0){
                     cpOrderTeMaA.setText("特码B");
                     cpOrderTeMaB.setText("特码A");
@@ -30065,18 +30088,27 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     }else if(index==5){
                         cpOrderLMTab.setVisibility(View.VISIBLE);
                         if("13".equals(type)){
+                            rX1 = 6;
+                            rX0 = 3;
                             cpOrderLMTab.getTabAt(0).select();
                         }
                     }else if(index==10){
                         cpOrderSXLTab.setVisibility(View.VISIBLE);
                         if("27".equals(type)){
+                            rX1 = 7;
+                            rX0 = 2;
                             cpOrderSXLTab.getTabAt(0).select();
                         }
                     }else if(index==11){
                         cpOrderWSLTab.setVisibility(View.VISIBLE);
                         if("34".equals(type)){
+                            rX1 = 7;
+                            rX0 = 2;
                             cpOrderWSLTab.getTabAt(0).select();
                         }
+                    }else if(index == 12){
+                        rX1 = 8;
+                        rX0 = 5;
                     }
                 }
                 presenter.postRateInfoHK(game_code,type,x_session_token);
@@ -30088,19 +30120,91 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 rX0 = 2;
                 onResetData();
                 cpOrderLayout.setVisibility(View.VISIBLE);
+                cpOrderTab.setVisibility(View.VISIBLE);
             }else{
-                cpOrderLayout.setVisibility(View.GONE);
+                if(game_code.equals("69")){
+                    cpOrderLayout.setVisibility(View.VISIBLE);
+                    cpOrderTab.setVisibility(View.GONE);
+                    cpOrderRXRadio.setText("合肖");
+                }else{
+                    cpOrderLayout.setVisibility(View.GONE);
+                }
             }
         }else{
-
-            if(rX0 == 2||rX0 ==3 ||rX0 ==42||rX0 ==5){
-                rX0 = 0;
-                onResetData();
+            if(game_code.equals("47")||game_code.equals("3")) {
+                if (rX0 == 2 || rX0 == 3 || rX0 == 4 || rX0 == 5) {
+                    rX0 = 0;
+                    onResetData();
+                }
             }
+            if(game_code.equals("69")){
+                switch (index) {
+                    case 0:
+                        onResetData();
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 1:
+                        onResetData();
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 2:
+                        onResetData();
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 3:
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 4:
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 5:
+                        onResetData();
+                        break;
+                    case 6:
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 7:
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 8:
+                        onResetData();
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 9:
+                        onResetData();
+                        rX0 = 0;
+                        rX1 = 0;
+                        break;
+                    case 10:
+                        onResetData();
+                        break;
+                    case 11:
+                        onResetData();
+                        break;
+                    case 12:
+                        onResetData();
+                        break;
+                }
+            }
+
             /*cpOrderTab.setVisibility(View.GONE);
             cpOrderRXRadio.setVisibility(View.GONE);
             cpOrderRXLine.setVisibility(View.GONE);*/
-            cpOrderLayout.setVisibility(View.GONE);
+            if(index == 12){
+                cpOrderLayout.setVisibility(View.VISIBLE);
+                cpOrderTab.setVisibility(View.GONE);
+                cpOrderRXRadio.setText("自选不中");
+            }else{
+                cpOrderLayout.setVisibility(View.GONE);
+            }
         }
 
     }
@@ -30755,20 +30859,48 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     if("_".equals(name.substring(name.length() -1, name.length()))){
                         name = name.substring(0, name.length() -1);
                     }
-                    if(rX0 == 2|| rX0 == 3){
-                        if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
-                            int size = CPBetManager.getSingleton().onListSize();
-                            if(size>=8){
-                                showMessage("不允许超过8个选项");
-                                return;
+                    if(game_code.equals("3")||game_code.equals("47")){
+                        if(rX0 == 2|| rX0 == 3){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=8){
+                                    showMessage("不允许超过8个选项");
+                                    return;
+                                }
+                            }
+                        }else if(rX0 == 4|| rX0 == 5){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=6){
+                                    showMessage("不允许超过6个选项");
+                                    return;
+                                }
                             }
                         }
-                    }else if(rX0 == 4|| rX0 == 5){
-                        if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
-                            int size = CPBetManager.getSingleton().onListSize();
-                            if(size>=6){
-                                showMessage("不允许超过6个选项");
-                                return;
+                    }else if(game_code.equals("69")){
+                        if(rX1 == 6){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=10){
+                                    showMessage("不允许超过10个选项");
+                                    return;
+                                }
+                            }
+                        }else if(rX1 == 7){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=8){
+                                    showMessage("不允许超过8个选项");
+                                    return;
+                                }
+                            }
+                        }else if(rX1 == 8){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=12){
+                                    showMessage("不允许超过12个选项");
+                                    return;
+                                }
                             }
                         }
                     }
@@ -31370,6 +31502,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     public void onClickedView(View view ){
         switch (view.getId()){
             case R.id.cpOrderTeMaA:
+                onResetData();
                 cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));
                 cpOrderTeMaB.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_nor));
                 if(index == 0){
@@ -31380,6 +31513,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postRateInfoHK(game_code,type,x_session_token);
                 break;
             case R.id.cpOrderTeMaB:
+                onResetData();
                 cpOrderTeMaB.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));
                 cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_nor));
                 if(index == 0){
