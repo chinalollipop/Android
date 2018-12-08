@@ -30108,7 +30108,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         }
                     }else if(index == 12){
                         rX1 = 8;
-                        rX0 = 5;
+                        rX0 = 0;
                     }
                 }
                 presenter.postRateInfoHK(game_code,type,x_session_token);
@@ -30123,6 +30123,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 cpOrderTab.setVisibility(View.VISIBLE);
             }else{
                 if(game_code.equals("69")){
+                    rX0 = 0;
+                    rX1 = 9;
+                    onResetData();
                     cpOrderLayout.setVisibility(View.VISIBLE);
                     cpOrderTab.setVisibility(View.GONE);
                     cpOrderRXRadio.setText("合肖");
@@ -30181,7 +30184,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     case 9:
                         onResetData();
                         rX0 = 0;
-                        rX1 = 0;
+                        rX1 = 9;
                         break;
                     case 10:
                         onResetData();
@@ -30902,6 +30905,14 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     return;
                                 }
                             }
+                        }else if(rX1 == 9){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=6){
+                                    showMessage("不允许超过6个选项");
+                                    return;
+                                }
+                            }
                         }
                     }
 
@@ -30919,7 +30930,75 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                             return;
                         }
                     }else{
-                        cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                        if(type.equals("17")){
+                            int initSize = CPBetManager.getSingleton().onListSize();
+                            switch (initSize){
+                                case 2:
+                                    cpOrderRXRadio.setText("赔率：5.6");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 3:
+                                    cpOrderRXRadio.setText("赔率：3.7");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 4:
+                                    cpOrderRXRadio.setText("赔率：2.8");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 5:
+                                    cpOrderRXRadio.setText("赔率：2.2");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 6:
+                                    cpOrderRXRadio.setText("赔率：1.96");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                default:
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("0")+"注"));
+                                    cpOrderRXRadio.setText("合肖");
+                            }
+                        }else if(type.equals("40")){
+                            int initSize = CPBetManager.getSingleton().onListSize();
+                            switch (initSize){
+                                case 5:
+                                    cpOrderRXRadio.setText("赔率：2.17");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 6:
+                                    cpOrderRXRadio.setText("赔率：2.63");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 7:
+                                    cpOrderRXRadio.setText("赔率：3.18");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 8:
+                                    cpOrderRXRadio.setText("赔率：3.72");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 9:
+                                    cpOrderRXRadio.setText("赔率：4.5");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 10:
+                                    cpOrderRXRadio.setText("赔率：5.58");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 11:
+                                    cpOrderRXRadio.setText("赔率：6.8");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 12:
+                                    cpOrderRXRadio.setText("赔率：8.5");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                default:
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("0")+"注"));
+                                    cpOrderRXRadio.setText("自选不中");
+                            }
+                        }else{
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                        }
                     }
                     GameLog.log("下注的id是："+data.getOrderId());
                     //myAdapter.notifyDataSetChanged();
@@ -31491,6 +31570,11 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));
         CPBetManager.getSingleton().onClearData();
         cpOrderGold.setText("");
+        if(type.equals("17")){
+            cpOrderRXRadio.setText("合肖");
+        }else if(type.equals("40")){
+            cpOrderRXRadio.setText("自选不中");
+        }
         if(!Check.isNull(cpOreder2ListRightGameAdapter))
             cpOreder2ListRightGameAdapter.notifyDataSetChanged();
         if(!Check.isNull(cpOrederListRightGameAdapter))
