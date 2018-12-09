@@ -48,6 +48,7 @@ import com.hgapp.a6668.data.PCDDResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.cplist.bet.BetCPOrderDialog;
+import com.hgapp.a6668.homepage.cplist.bet.CPBetParams;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
 import com.hgapp.a6668.homepage.cplist.events.LeftMenuEvents;
@@ -153,7 +154,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     private int postionAll;
     private int rX0 = 0,rX1 = 0;
     private int xiazhuValue = 0;
-    private String rX2,rX3,rX4,rX5;
+    private String rX2,rX3,rX4,rX5,typeCode;
     private CPOrederListRightGameAdapter cpOrederListRightGameAdapter;
     private CPOreder2ListRightGameAdapter cpOreder2ListRightGameAdapter;
     private CPOrederContentGameAdapter cpOrederContentGameAdapter;
@@ -1753,6 +1754,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     CPOrderContentListResult cpOrderContentListResult91 = new CPOrderContentListResult();
                     //cpOrderContentListResult91.setOrderContentListName("赔率:"+cpbjscResult.getdata2023());
                     rX2 = cpbjscResult.getdata2032();
+                    typeCode = "2032";
                     rX3 = cpbjscResult.getdata2035();
                     rX4 = cpbjscResult.getdata2038();
                     rX5 = cpbjscResult.getdata2039();
@@ -28029,6 +28031,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderContentListResults =  XYNC(cpxyncResult,index);
         if(index==9){
             cpOrderRXRadio.setText("赔率:"+rX2);
+            typeCode = "2032";
             cpOrderTab.getTabAt(0).select();
         }
         onResponseCQResult();
@@ -29240,18 +29243,22 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 switch (tab.getPosition()){
                     case 0:
                         rX0 = 2;
+                        typeCode = "2032";
                         cpOrderRXRadio.setText("赔率:"+rX2);
                         break;
                     case 1:
                         rX0 = 3;
+                        typeCode = "2035";
                         cpOrderRXRadio.setText("赔率:"+rX3);
                         break;
                     case 2:
                         rX0 = 4;
+                        typeCode = "2038";
                         cpOrderRXRadio.setText("赔率:"+rX4);
                         break;
                     case 3:
                         rX0 = 5;
+                        typeCode = "2039";
                         cpOrderRXRadio.setText("赔率:"+rX5);
                         break;
                 }
@@ -31824,7 +31831,34 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     return;
                 }
                 if(CPBetManager.getSingleton().onListSize()>0){
-                    BetCPOrderDialog.newInstance(CPBetManager.getSingleton().onShowViewListData(),gold,game_code,round,x_session_token).show(getSupportFragmentManager());
+                    CPBetParams cpBetParams = new CPBetParams();
+                    cpBetParams.setGold(gold);
+                    cpBetParams.setGame_code(game_code);
+                    cpBetParams.setRound(round);
+                    cpBetParams.setX_session_token(x_session_token);
+                    if(game_code.equals("3")){
+                        cpBetParams.setType("LM");
+                        cpBetParams.setTypeCode(typeCode);
+                        cpBetParams.setTypeNumber(""+xiazhuValue);
+                        switch (typeCode){
+                            case "2032":
+                                cpBetParams.setTypeName("任选二");
+                                break;
+                            case "2035":
+                                cpBetParams.setTypeName("任选三");
+                                break;
+                            case "2038":
+                                cpBetParams.setTypeName("任选四");
+                                break;
+                            case "2039":
+                                cpBetParams.setTypeName("任选五");
+                                break;
+                        }
+                    }else{
+                        cpBetParams.setType("");
+                    }
+                    BetCPOrderDialog.newInstances(CPBetManager.getSingleton().onShowViewListData(),cpBetParams).show(getSupportFragmentManager());
+                    //BetCPOrderDialog.newInstance(CPBetManager.getSingleton().onShowViewListData(),gold,game_code,round,x_session_token).show(getSupportFragmentManager());
                 }else{
                     showMessage("请选择玩法");
                 }

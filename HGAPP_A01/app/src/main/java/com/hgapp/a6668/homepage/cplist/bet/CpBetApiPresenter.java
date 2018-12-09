@@ -46,6 +46,54 @@ public class CpBetApiPresenter implements CpBetApiContract.Presenter {
     }
 
     @Override
+    public void postCpBetsHK(String game_code, String round, String totalNums, String totalMoney, String number, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBetsHK(game_code,round,totalNums,totalMoney,number,x_session_token))
+                .subscribe(new ResponseSubscriber<CPBetResult>() {
+                    @Override
+                    public void success(CPBetResult response) {
+                        if(response.getCode().equals("200")){
+                            view.postCpBetResult(response);
+                        }else{
+                            view.showMessage(response.getMsg());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postCpBetsLM(String game_code, String round, String totalNums, String totalMoney, String number,String betmoney,String typecode, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBetsLM(game_code,round,totalNums,totalMoney,number,betmoney,typecode,x_session_token))
+                .subscribe(new ResponseSubscriber<CPBetResult>() {
+                    @Override
+                    public void success(CPBetResult response) {
+                        if(response.getCode().equals("200")){
+                            view.postCpBetResult(response);
+                        }else{
+                            view.showMessage(response.getMsg());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void start() {
 
     }

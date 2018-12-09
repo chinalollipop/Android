@@ -33,6 +33,40 @@ public interface ICpBetApi {
                                                    @Field("totalMoney") String totalMoney,@Field("number") String number,@Field("x-session-token") String x_session_token);
 
 
+    /**
+     * 六合彩下单
+     * @param game_code
+     * @param round
+     * @param totalNums
+     * @param totalMoney
+     * @param number
+     * @param x_session_token
+     * @return
+     */
+    @POST("billxq/bet")
+    @FormUrlEncoded
+    public Observable<CPBetResult> postCpBetsHK(@Field("game_code") String game_code, @Field("round") String round, @Field("totalNums") String totalNums,
+                                              @Field("totalMoney") String totalMoney,@Field("number") String number,@Field("x-session-token") String x_session_token);
+
+
+    /**
+     * 连码下单
+     * @param game_code
+     * @param round
+     * @param totalNums
+     * @param totalMoney
+     * @param number
+     * @param betmoney
+     * @param typecode
+     * @param x_session_token
+     * @return
+     */
+    @POST("bill/lianmaten_ok")
+    @FormUrlEncoded
+    public Observable<CPBetResult> postCpBetsLM(@Field("game_code") String game_code, @Field("round") String round, @Field("totalNums") String totalNums,
+                                                @Field("totalMoney") String totalMoney,@Field("number") String number,
+                                                @Field("betmoney") String betmoney,@Field("typecode") String typecode,@Field("x-session-token") String x_session_token);
+
 
 
 
