@@ -30,9 +30,9 @@ public class CPBetManager {
         int size = listData.size();
         for (int k = 0; k < size; ++k) {
             CPOrderList comPassListData1 = listData.get(k);
-            if (gid.equals(comPassListData1.gid)) {//如果有这个gid的游戏，再看这个gid是否一致，
+            if (gid.equals(comPassListData1.otherName)) {//如果有这个gid的游戏，再看这个gid是否一致，
                 listData.remove(comPassListData1);
-                hashSetGid.remove(comPassListData1.gid);
+                hashSetGid.remove(comPassListData1.otherName);
                 --size;
             }
         }

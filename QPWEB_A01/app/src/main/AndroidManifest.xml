@@ -24,6 +24,7 @@
         android:name=".QPWEBApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.qpweb.a01.LaunchActivity"
@@ -37,6 +38,8 @@
         <activity android:name="com.qpweb.a01.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:hardwareAccelerated="true"
+            android:launchMode="singleTask" android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             />
         <provider
             android:name="android.support.v4.content.FileProvider"

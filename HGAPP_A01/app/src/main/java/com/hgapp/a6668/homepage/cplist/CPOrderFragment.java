@@ -23204,28 +23204,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList11 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
             cpOrderContentResult2101.setOrderName("单");
-            cpOrderContentResult2101.setFullName("");
+            cpOrderContentResult2101.setFullName("正码一");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata620().getRate());
             cpOrderContentResult2101.setOrderId("620");
             cpOrderContentResultList11.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
             cpOrderContentResult2102.setOrderName("双");
-            cpOrderContentResult2102.setFullName("");
+            cpOrderContentResult2102.setFullName("正码一");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata621().getRate());
             cpOrderContentResult2102.setOrderId("621");
             cpOrderContentResultList11.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
             cpOrderContentResult2103.setOrderName("大");
-            cpOrderContentResult2103.setFullName("");
+            cpOrderContentResult2103.setFullName("正码一");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata622().getRate());
             cpOrderContentResult2103.setOrderId("622");
             cpOrderContentResultList11.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
             cpOrderContentResult2104.setOrderName("小");
-            cpOrderContentResult2104.setFullName("");
+            cpOrderContentResult2104.setFullName("正码一");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata623().getRate());
             cpOrderContentResult2104.setOrderId("623");
             cpOrderContentResultList11.add(cpOrderContentResult2104);
@@ -23238,21 +23238,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult112105 = new CPOrderContentResult();
             cpOrderContentResult112105.setOrderName("红波");
-            cpOrderContentResult112105.setFullName("");
+            cpOrderContentResult112105.setFullName("正码一");
             cpOrderContentResult112105.setOrderState(cpbjscResult.getdata624().getRate());
             cpOrderContentResult112105.setOrderId("624");
             cpOrderContentResultList12.add(cpOrderContentResult112105);
 
             CPOrderContentResult cpOrderContentResult112106 = new CPOrderContentResult();
             cpOrderContentResult112106.setOrderName("绿波");
-            cpOrderContentResult112106.setFullName("");
+            cpOrderContentResult112106.setFullName("正码一");
             cpOrderContentResult112106.setOrderState(cpbjscResult.getdata625().getRate());
             cpOrderContentResult112106.setOrderId("625");
             cpOrderContentResultList12.add(cpOrderContentResult112106);
 
             CPOrderContentResult cpOrderContentResult112107 = new CPOrderContentResult();
             cpOrderContentResult112107.setOrderName("蓝波");
-            cpOrderContentResult112107.setFullName("");
+            cpOrderContentResult112107.setFullName("正码一");
             cpOrderContentResult112107.setOrderState(cpbjscResult.getdata626().getRate());
             cpOrderContentResult112107.setOrderId("626");
             cpOrderContentResultList12.add(cpOrderContentResult112107);
@@ -23265,28 +23265,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList21 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult22101 = new CPOrderContentResult();
             cpOrderContentResult22101.setOrderName("单");
-            cpOrderContentResult22101.setFullName("");
+            cpOrderContentResult22101.setFullName("正码二");
             cpOrderContentResult22101.setOrderState(cpbjscResult.getdata627().getRate());
             cpOrderContentResult22101.setOrderId("627");
             cpOrderContentResultList21.add(cpOrderContentResult22101);
 
             CPOrderContentResult cpOrderContentResult22102 = new CPOrderContentResult();
             cpOrderContentResult22102.setOrderName("双");
-            cpOrderContentResult22102.setFullName("");
+            cpOrderContentResult22102.setFullName("正码二");
             cpOrderContentResult22102.setOrderState(cpbjscResult.getdata628().getRate());
             cpOrderContentResult22102.setOrderId("628");
             cpOrderContentResultList21.add(cpOrderContentResult22102);
 
             CPOrderContentResult cpOrderContentResult22103 = new CPOrderContentResult();
             cpOrderContentResult22103.setOrderName("大");
-            cpOrderContentResult22103.setFullName("");
+            cpOrderContentResult22103.setFullName("正码二");
             cpOrderContentResult22103.setOrderState(cpbjscResult.getdata629().getRate());
             cpOrderContentResult22103.setOrderId("629");
             cpOrderContentResultList21.add(cpOrderContentResult22103);
 
             CPOrderContentResult cpOrderContentResult22104 = new CPOrderContentResult();
             cpOrderContentResult22104.setOrderName("小");
-            cpOrderContentResult22104.setFullName("");
+            cpOrderContentResult22104.setFullName("正码二");
             cpOrderContentResult22104.setOrderState(cpbjscResult.getdata630().getRate());
             cpOrderContentResult22104.setOrderId("630");
             cpOrderContentResultList21.add(cpOrderContentResult22104);
@@ -23299,21 +23299,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult1122105 = new CPOrderContentResult();
             cpOrderContentResult1122105.setOrderName("红波");
-            cpOrderContentResult1122105.setFullName("");
+            cpOrderContentResult1122105.setFullName("正码二");
             cpOrderContentResult1122105.setOrderState(cpbjscResult.getdata631().getRate());
             cpOrderContentResult1122105.setOrderId("631");
             cpOrderContentResultList22.add(cpOrderContentResult1122105);
 
             CPOrderContentResult cpOrderContentResult1122106 = new CPOrderContentResult();
             cpOrderContentResult1122106.setOrderName("绿波");
-            cpOrderContentResult1122106.setFullName("");
+            cpOrderContentResult1122106.setFullName("正码二");
             cpOrderContentResult1122106.setOrderState(cpbjscResult.getdata632().getRate());
             cpOrderContentResult1122106.setOrderId("632");
             cpOrderContentResultList22.add(cpOrderContentResult1122106);
 
             CPOrderContentResult cpOrderContentResult1122107 = new CPOrderContentResult();
             cpOrderContentResult1122107.setOrderName("蓝波");
-            cpOrderContentResult1122107.setFullName("");
+            cpOrderContentResult1122107.setFullName("正码二");
             cpOrderContentResult1122107.setOrderState(cpbjscResult.getdata633().getRate());
             cpOrderContentResult1122107.setOrderId("633");
             cpOrderContentResultList22.add(cpOrderContentResult1122107);
@@ -23326,28 +23326,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList31 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult23101 = new CPOrderContentResult();
             cpOrderContentResult23101.setOrderName("单");
-            cpOrderContentResult23101.setFullName("");
+            cpOrderContentResult23101.setFullName("正码三");
             cpOrderContentResult23101.setOrderState(cpbjscResult.getdata634().getRate());
             cpOrderContentResult23101.setOrderId("634");
             cpOrderContentResultList31.add(cpOrderContentResult23101);
 
             CPOrderContentResult cpOrderContentResult23102 = new CPOrderContentResult();
             cpOrderContentResult23102.setOrderName("双");
-            cpOrderContentResult23102.setFullName("");
+            cpOrderContentResult23102.setFullName("正码三");
             cpOrderContentResult23102.setOrderState(cpbjscResult.getdata635().getRate());
             cpOrderContentResult23102.setOrderId("635");
             cpOrderContentResultList31.add(cpOrderContentResult23102);
 
             CPOrderContentResult cpOrderContentResult23103 = new CPOrderContentResult();
             cpOrderContentResult23103.setOrderName("大");
-            cpOrderContentResult23103.setFullName("");
+            cpOrderContentResult23103.setFullName("正码三");
             cpOrderContentResult23103.setOrderState(cpbjscResult.getdata636().getRate());
             cpOrderContentResult23103.setOrderId("636");
             cpOrderContentResultList31.add(cpOrderContentResult23103);
 
             CPOrderContentResult cpOrderContentResult23104 = new CPOrderContentResult();
             cpOrderContentResult23104.setOrderName("小");
-            cpOrderContentResult23104.setFullName("");
+            cpOrderContentResult23104.setFullName("正码三");
             cpOrderContentResult23104.setOrderState(cpbjscResult.getdata637().getRate());
             cpOrderContentResult23104.setOrderId("637");
             cpOrderContentResultList31.add(cpOrderContentResult23104);
@@ -23360,21 +23360,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult1123105 = new CPOrderContentResult();
             cpOrderContentResult1123105.setOrderName("红波");
-            cpOrderContentResult1123105.setFullName("");
+            cpOrderContentResult1123105.setFullName("正码三");
             cpOrderContentResult1123105.setOrderState(cpbjscResult.getdata638().getRate());
             cpOrderContentResult1123105.setOrderId("638");
             cpOrderContentResultList32.add(cpOrderContentResult1123105);
 
             CPOrderContentResult cpOrderContentResult1123106 = new CPOrderContentResult();
             cpOrderContentResult1123106.setOrderName("绿波");
-            cpOrderContentResult1123106.setFullName("");
+            cpOrderContentResult1123106.setFullName("正码三");
             cpOrderContentResult1123106.setOrderState(cpbjscResult.getdata639().getRate());
             cpOrderContentResult1123106.setOrderId("639");
             cpOrderContentResultList32.add(cpOrderContentResult1123106);
 
             CPOrderContentResult cpOrderContentResult1123107 = new CPOrderContentResult();
             cpOrderContentResult1123107.setOrderName("蓝波");
-            cpOrderContentResult1123107.setFullName("");
+            cpOrderContentResult1123107.setFullName("正码三");
             cpOrderContentResult1123107.setOrderState(cpbjscResult.getdata640().getRate());
             cpOrderContentResult1123107.setOrderId("640");
             cpOrderContentResultList32.add(cpOrderContentResult1123107);
@@ -23387,28 +23387,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList41 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult24101 = new CPOrderContentResult();
             cpOrderContentResult24101.setOrderName("单");
-            cpOrderContentResult24101.setFullName("");
+            cpOrderContentResult24101.setFullName("正码四");
             cpOrderContentResult24101.setOrderState(cpbjscResult.getdata641().getRate());
             cpOrderContentResult24101.setOrderId("641");
             cpOrderContentResultList41.add(cpOrderContentResult24101);
 
             CPOrderContentResult cpOrderContentResult24102 = new CPOrderContentResult();
             cpOrderContentResult24102.setOrderName("双");
-            cpOrderContentResult24102.setFullName("");
+            cpOrderContentResult24102.setFullName("正码四");
             cpOrderContentResult24102.setOrderState(cpbjscResult.getdata642().getRate());
             cpOrderContentResult24102.setOrderId("642");
             cpOrderContentResultList41.add(cpOrderContentResult24102);
 
             CPOrderContentResult cpOrderContentResult24103 = new CPOrderContentResult();
             cpOrderContentResult24103.setOrderName("大");
-            cpOrderContentResult24103.setFullName("");
+            cpOrderContentResult24103.setFullName("正码四");
             cpOrderContentResult24103.setOrderState(cpbjscResult.getdata643().getRate());
             cpOrderContentResult24103.setOrderId("643");
             cpOrderContentResultList41.add(cpOrderContentResult24103);
 
             CPOrderContentResult cpOrderContentResult24104 = new CPOrderContentResult();
             cpOrderContentResult24104.setOrderName("小");
-            cpOrderContentResult24104.setFullName("");
+            cpOrderContentResult24104.setFullName("正码四");
             cpOrderContentResult24104.setOrderState(cpbjscResult.getdata644().getRate());
             cpOrderContentResult24104.setOrderId("644");
             cpOrderContentResultList41.add(cpOrderContentResult24104);
@@ -23421,21 +23421,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult1124105 = new CPOrderContentResult();
             cpOrderContentResult1124105.setOrderName("红波");
-            cpOrderContentResult1124105.setFullName("");
+            cpOrderContentResult1124105.setFullName("正码四");
             cpOrderContentResult1124105.setOrderState(cpbjscResult.getdata645().getRate());
             cpOrderContentResult1124105.setOrderId("645");
             cpOrderContentResultList42.add(cpOrderContentResult1124105);
 
             CPOrderContentResult cpOrderContentResult1124106 = new CPOrderContentResult();
             cpOrderContentResult1124106.setOrderName("绿波");
-            cpOrderContentResult1124106.setFullName("");
+            cpOrderContentResult1124106.setFullName("正码四");
             cpOrderContentResult1124106.setOrderState(cpbjscResult.getdata646().getRate());
             cpOrderContentResult1124106.setOrderId("646");
             cpOrderContentResultList42.add(cpOrderContentResult1124106);
 
             CPOrderContentResult cpOrderContentResult1124107 = new CPOrderContentResult();
             cpOrderContentResult1124107.setOrderName("蓝波");
-            cpOrderContentResult1124107.setFullName("");
+            cpOrderContentResult1124107.setFullName("正码四");
             cpOrderContentResult1124107.setOrderState(cpbjscResult.getdata647().getRate());
             cpOrderContentResult1124107.setOrderId("647");
             cpOrderContentResultList42.add(cpOrderContentResult1124107);
@@ -23447,28 +23447,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList51 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult25101 = new CPOrderContentResult();
             cpOrderContentResult25101.setOrderName("单");
-            cpOrderContentResult25101.setFullName("");
+            cpOrderContentResult25101.setFullName("正码五");
             cpOrderContentResult25101.setOrderState(cpbjscResult.getdata648().getRate());
             cpOrderContentResult25101.setOrderId("648");
             cpOrderContentResultList51.add(cpOrderContentResult25101);
 
             CPOrderContentResult cpOrderContentResult25102 = new CPOrderContentResult();
             cpOrderContentResult25102.setOrderName("双");
-            cpOrderContentResult25102.setFullName("");
+            cpOrderContentResult25102.setFullName("正码五");
             cpOrderContentResult25102.setOrderState(cpbjscResult.getdata649().getRate());
             cpOrderContentResult25102.setOrderId("649");
             cpOrderContentResultList51.add(cpOrderContentResult25102);
 
             CPOrderContentResult cpOrderContentResult25103 = new CPOrderContentResult();
             cpOrderContentResult25103.setOrderName("大");
-            cpOrderContentResult25103.setFullName("");
+            cpOrderContentResult25103.setFullName("正码五");
             cpOrderContentResult25103.setOrderState(cpbjscResult.getdata650().getRate());
             cpOrderContentResult25103.setOrderId("650");
             cpOrderContentResultList51.add(cpOrderContentResult25103);
 
             CPOrderContentResult cpOrderContentResult25104 = new CPOrderContentResult();
             cpOrderContentResult25104.setOrderName("小");
-            cpOrderContentResult25104.setFullName("");
+            cpOrderContentResult25104.setFullName("正码五");
             cpOrderContentResult25104.setOrderState(cpbjscResult.getdata651().getRate());
             cpOrderContentResult25104.setOrderId("651");
             cpOrderContentResultList51.add(cpOrderContentResult25104);
@@ -23481,21 +23481,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult1125105 = new CPOrderContentResult();
             cpOrderContentResult1125105.setOrderName("红波");
-            cpOrderContentResult1125105.setFullName("");
+            cpOrderContentResult1125105.setFullName("正码五");
             cpOrderContentResult1125105.setOrderState(cpbjscResult.getdata652().getRate());
             cpOrderContentResult1125105.setOrderId("652");
             cpOrderContentResultList52.add(cpOrderContentResult1125105);
 
             CPOrderContentResult cpOrderContentResult1125106 = new CPOrderContentResult();
             cpOrderContentResult1125106.setOrderName("绿波");
-            cpOrderContentResult1125106.setFullName("");
+            cpOrderContentResult1125106.setFullName("正码五");
             cpOrderContentResult1125106.setOrderState(cpbjscResult.getdata653().getRate());
             cpOrderContentResult1125106.setOrderId("653");
             cpOrderContentResultList52.add(cpOrderContentResult1125106);
 
             CPOrderContentResult cpOrderContentResult1125107 = new CPOrderContentResult();
             cpOrderContentResult1125107.setOrderName("蓝波");
-            cpOrderContentResult1125107.setFullName("");
+            cpOrderContentResult1125107.setFullName("正码五");
             cpOrderContentResult1125107.setOrderState(cpbjscResult.getdata654().getRate());
             cpOrderContentResult1125107.setOrderId("654");
             cpOrderContentResultList52.add(cpOrderContentResult1125107);
@@ -23508,28 +23508,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList61 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult26101 = new CPOrderContentResult();
             cpOrderContentResult26101.setOrderName("单");
-            cpOrderContentResult26101.setFullName("");
+            cpOrderContentResult26101.setFullName("正码六");
             cpOrderContentResult26101.setOrderState(cpbjscResult.getdata655().getRate());
             cpOrderContentResult26101.setOrderId("655");
             cpOrderContentResultList61.add(cpOrderContentResult26101);
 
             CPOrderContentResult cpOrderContentResult26102 = new CPOrderContentResult();
             cpOrderContentResult26102.setOrderName("双");
-            cpOrderContentResult26102.setFullName("");
+            cpOrderContentResult26102.setFullName("正码六");
             cpOrderContentResult26102.setOrderState(cpbjscResult.getdata656().getRate());
             cpOrderContentResult26102.setOrderId("656");
             cpOrderContentResultList61.add(cpOrderContentResult26102);
 
             CPOrderContentResult cpOrderContentResult26103 = new CPOrderContentResult();
             cpOrderContentResult26103.setOrderName("大");
-            cpOrderContentResult26103.setFullName("");
+            cpOrderContentResult26103.setFullName("正码六");
             cpOrderContentResult26103.setOrderState(cpbjscResult.getdata657().getRate());
             cpOrderContentResult26103.setOrderId("657");
             cpOrderContentResultList61.add(cpOrderContentResult26103);
 
             CPOrderContentResult cpOrderContentResult26104 = new CPOrderContentResult();
             cpOrderContentResult26104.setOrderName("小");
-            cpOrderContentResult26104.setFullName("");
+            cpOrderContentResult26104.setFullName("正码六");
             cpOrderContentResult26104.setOrderState(cpbjscResult.getdata658().getRate());
             cpOrderContentResult26104.setOrderId("658");
             cpOrderContentResultList61.add(cpOrderContentResult26104);
@@ -23542,21 +23542,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult1126105 = new CPOrderContentResult();
             cpOrderContentResult1126105.setOrderName("红波");
-            cpOrderContentResult1126105.setFullName("");
+            cpOrderContentResult1126105.setFullName("正码六");
             cpOrderContentResult1126105.setOrderState(cpbjscResult.getdata659().getRate());
             cpOrderContentResult1126105.setOrderId("659");
             cpOrderContentResultList62.add(cpOrderContentResult1126105);
 
             CPOrderContentResult cpOrderContentResult1126106 = new CPOrderContentResult();
             cpOrderContentResult1126106.setOrderName("绿波");
-            cpOrderContentResult1126106.setFullName("");
+            cpOrderContentResult1126106.setFullName("正码六");
             cpOrderContentResult1126106.setOrderState(cpbjscResult.getdata660().getRate());
             cpOrderContentResult1126106.setOrderId("660");
             cpOrderContentResultList62.add(cpOrderContentResult1126106);
 
             CPOrderContentResult cpOrderContentResult1126107 = new CPOrderContentResult();
             cpOrderContentResult1126107.setOrderName("蓝波");
-            cpOrderContentResult1126107.setFullName("");
+            cpOrderContentResult1126107.setFullName("正码六");
             cpOrderContentResult1126107.setOrderState(cpbjscResult.getdata661().getRate());
             cpOrderContentResult1126107.setOrderId("661");
             cpOrderContentResultList62.add(cpOrderContentResult1126107);
@@ -30470,6 +30470,83 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             }
         }
 
+        private void onAllGG2DataChange(String  dataC,String  dataB,String name,CPOrderContentResult data){
+            if(!CPBetManager.getSingleton().inContain(dataC)){
+                if(!CPBetManager.getSingleton().inContain(dataB)){
+                    GameLog.log("是否包含这个数字-------- 12_624不包含");
+                    onSetOtherChange(dataB);
+                    CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                    if(!data.isChecked()){
+                        data.setChecked(true);
+                    }else{
+                        data.setChecked(false);
+                    }
+                    notifyDataSetChanged();
+                }else{
+                    GameLog.log("是否包含这个数字--------12_624 包含");
+                    CPBetManager.getSingleton().onRemoveItem(dataC);
+                    CPBetManager.getSingleton().onRemoveItem(dataB);
+                    CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                    onSetOtherChange(dataC);
+                    onSetOtherChange(dataB);
+                }
+            }else{
+                GameLog.log("是否包含这个数字--------12_624 包含");
+                CPBetManager.getSingleton().onRemoveItem(dataC);
+                CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                onSetOtherChange(dataC);
+            }
+            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+        }
+
+        private void onAllGGDataChange(String  dataC,String name,CPOrderContentResult data){
+            if(!CPBetManager.getSingleton().inContain(dataC)){
+                GameLog.log("是否包含这个数字-------- 12_621不包含");
+                onSetOtherChange(dataC);
+                CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                if(!data.isChecked()){
+                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
+                    data.setChecked(true);
+                }else{
+                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(false);
+                    data.setChecked(false);
+                }
+                notifyDataSetChanged();
+            }else{
+                GameLog.log("是否包含这个数字--------12_621 包含");
+                CPBetManager.getSingleton().onRemoveItem(dataC);
+                CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                                /*if(!data.isChecked()){
+                                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
+                                    data.setChecked(true);
+                                }else{
+                                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(false);
+                                    data.setChecked(false);
+                                }
+                                notifyDataSetChanged();*/
+                onSetOtherChange(dataC);
+            }
+            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+        }
+
+        private void onSetOtherChange(String dataChange){
+            int size2 = cpOrderContentListResults.size();
+            for(int j=0;j<size2;++j){
+                CPOrderContentListResult cpOrderContentListResult = cpOrderContentListResults.get(j);
+                int size3 = cpOrderContentListResult.getData().size();
+                for(int k=0;k<size3;++k){
+                    CPOrderContentResult cpOrderContentResult = cpOrderContentListResult.getData().get(k);
+                    if(CPBetManager.getSingleton().inContain(type+"_"+cpOrderContentResult.getOrderId())){
+                        cpOrderContentResult.setChecked(true);
+                    }
+                    if((type+"_"+cpOrderContentResult.getOrderId()).equals(dataChange)){//"12_620"
+                        cpOrderContentResult.setChecked(false);
+                    }
+                }
+            }
+            cpOreder2ListRightGameAdapter.notifyDataSetChanged();
+        }
+
         private void onSetQIUHKUPView(String data,ViewHolder holder){
             switch (data){
                 /*
@@ -30854,10 +30931,10 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             holder.setOnClickListener(R.id.cpOrderContentItem, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(isCloseLottery){
+                    /*if(isCloseLottery){
                         onResetData();
                         return;
-                    }
+                    }*/
                     String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
                     if("_".equals(name.substring(name.length() -1, name.length()))){
                         name = name.substring(0, name.length() -1);
@@ -30914,6 +30991,139 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                 }
                             }
                         }
+                    }
+
+                    if(game_code.equals("69")&&"12".equals(type)){
+                        String iid = type+"_"+data.getOrderId();
+                        switch (iid){
+                            case "12_620":
+                                onAllGGDataChange("12_621",name,data);
+                                break;
+                            case "12_621":
+                                onAllGGDataChange("12_620",name,data);
+                                break;
+                            case "12_622":
+                                onAllGGDataChange("12_623",name,data);
+                                break;
+                            case "12_623":
+                                onAllGGDataChange("12_622",name,data);
+                                break;
+                            case "12_627":
+                                onAllGGDataChange("12_628",name,data);
+                                break;
+                            case "12_628":
+                                onAllGGDataChange("12_627",name,data);
+                                break;
+                            case "12_629":
+                                onAllGGDataChange("12_630",name,data);
+                                break;
+                            case "12_630":
+                                onAllGGDataChange("12_629",name,data);
+                                break;
+                            case "12_634":
+                                onAllGGDataChange("12_635",name,data);
+                                break;
+                            case "12_635":
+                                onAllGGDataChange("12_634",name,data);
+                                break;
+                            case "12_636":
+                                onAllGGDataChange("12_637",name,data);
+                                break;
+                            case "12_637":
+                                onAllGGDataChange("12_636",name,data);
+                                break;
+                            case "12_641":
+                                onAllGGDataChange("12_642",name,data);
+                                break;
+                            case "12_642":
+                                onAllGGDataChange("12_641",name,data);
+                                break;
+                            case "12_643":
+                                onAllGGDataChange("12_644",name,data);
+                                break;
+                            case "12_644":
+                                onAllGGDataChange("12_643",name,data);
+                                break;
+                            case "12_648":
+                                onAllGGDataChange("12_649",name,data);
+                                break;
+                            case "12_649":
+                                onAllGGDataChange("12_648",name,data);
+                                break;
+                            case "12_650":
+                                onAllGGDataChange("12_651",name,data);
+                                break;
+                            case "12_651":
+                                onAllGGDataChange("12_650",name,data);
+                                break;
+                            case "12_655":
+                                onAllGGDataChange("12_656",name,data);
+                                break;
+                            case "12_656":
+                                onAllGGDataChange("12_655",name,data);
+                                break;
+                            case "12_657":
+                                onAllGGDataChange("12_658",name,data);
+                                break;
+                            case "12_658":
+                                onAllGGDataChange("12_657",name,data);
+                                break;
+                            case "12_624":
+                                onAllGG2DataChange("12_625","12_626",name,data);
+                                break;
+                            case "12_625":
+                                onAllGG2DataChange("12_624","12_626",name,data);
+                                break;
+                            case "12_626":
+                                onAllGG2DataChange("12_624","12_625",name,data);
+                                break;
+                            case "12_631":
+                                onAllGG2DataChange("12_632","12_633",name,data);
+                                break;
+                            case "12_632":
+                                onAllGG2DataChange("12_631","12_633",name,data);
+                                break;
+                            case "12_633":
+                                onAllGG2DataChange("12_631","12_632",name,data);
+                                break;
+                            case "12_638":
+                                onAllGG2DataChange("12_639","12_640",name,data);
+                                break;
+                            case "12_639":
+                                onAllGG2DataChange("12_638","12_640",name,data);
+                                break;
+                            case "12_640":
+                                onAllGG2DataChange("12_638","12_639",name,data);
+                                break;
+                            case "12_645":
+                                onAllGG2DataChange("12_646","12_647",name,data);
+                                break;
+                            case "12_646":
+                                onAllGG2DataChange("12_645","12_647",name,data);
+                                break;
+                            case "12_647":
+                                onAllGG2DataChange("12_645","12_646",name,data);
+                                break;
+                            case "12_652":
+                                onAllGG2DataChange("12_653","12_654",name,data);
+                                break;
+                            case "12_653":
+                                onAllGG2DataChange("12_652","12_654",name,data);
+                                break;
+                            case "12_654":
+                                onAllGG2DataChange("12_652","12_653",name,data);
+                                break;
+                            case "12_659":
+                                onAllGG2DataChange("12_660","12_661",name,data);
+                                break;
+                            case "12_660":
+                                onAllGG2DataChange("12_659","12_661",name,data);
+                                break;
+                            case "12_661":
+                                onAllGG2DataChange("12_659","12_660",name,data);
+                                break;
+                        }
+                        return;
                     }
 
                     CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
@@ -31700,8 +31910,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             titleName = leftMenuEvents.getEventName();
             cpOrderTitle.setText(titleName);
             game_code = leftMenuEvents.getEventId();
-            presenter.postNextIssue(game_code, x_session_token);
-            presenter.postLastResult(game_code, x_session_token);
+            /*presenter.postNextIssue(game_code, x_session_token);
+            presenter.postLastResult(game_code, x_session_token);*/
             switch (game_code) {
                 case "2":
                 case "207":

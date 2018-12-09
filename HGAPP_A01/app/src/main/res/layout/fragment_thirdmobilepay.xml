@@ -37,7 +37,7 @@
             android:layout_marginLeft="20dp"
             android:hint="请输入汇款金额"
             android:textSize="15sp"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <TextView
