@@ -50,6 +50,7 @@ import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.cplist.bet.BetCPOrderDialog;
 import com.hgapp.a6668.homepage.cplist.bet.CPBetParams;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
+import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
 import com.hgapp.a6668.homepage.cplist.events.LeftMenuEvents;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderContract;
@@ -30938,10 +30939,10 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             holder.setOnClickListener(R.id.cpOrderContentItem, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    /*if(isCloseLottery){
+                    if(isCloseLottery){
                         onResetData();
                         return;
-                    }*/
+                    }
                     String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
                     if("_".equals(name.substring(name.length() -1, name.length()))){
                         name = name.substring(0, name.length() -1);
@@ -31701,6 +31702,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         cpOrderNoYet.setVisibility(View.VISIBLE);
                         onResetData();
                         rightCloseLotteryTime.setText("已封盘");
+                        EventBus.getDefault().post(new CloseLotteryEvent());
                         GameLog.log("已封盘  等待开奖");
                     }
                 });

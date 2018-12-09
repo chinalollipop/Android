@@ -19,15 +19,19 @@ import com.hgapp.a6668.common.util.CalcHelper;
 import com.hgapp.a6668.data.CPBetResult;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderList;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
+import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
 import com.hgapp.a6668.homepage.handicap.leaguedetail.CalosEvent;
 import com.hgapp.a6668.personpage.betrecord.BetRecordFragment;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -146,7 +150,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
         game_code =  getArguments().getString(PARAM2);
         round =  getArguments().getString(PARAM3);
         x_session_token =  getArguments().getString(PARAM4);*/
-
+        EventBus.getDefault().register(this);
 
     }
 
@@ -228,13 +232,26 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
                     number = number.substring(0,number.length()-1);
                     presenter.postCpBetsLM(game_code,  round, totalNums,totalMoney,number,betGold,typeCode, x_session_token);
                 }else{
+                    Map data = new HashMap<>();
                     for(int i=0;i<size;++i){
-                        number += "betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]: "+betGold+"\n";
+                        //number += "betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]: "+betGold+"\n";
+                        data.put("betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]",betGold);
                     }
-                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,number, x_session_token);
+                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",data, x_session_token);
                 }
                 break;
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void onEventMain(CloseLotteryEvent closeLotteryEvent){
+        showMessage("已封盘，请稍后下注！");
+        hide();
+    }
 }

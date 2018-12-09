@@ -7,6 +7,7 @@ import com.hgapp.a6668.common.util.SubscriptionHelper;
 import com.hgapp.a6668.data.BetResult;
 import com.hgapp.a6668.data.CPBetResult;
 
+import java.util.Map;
 import java.util.Random;
 
 
@@ -21,9 +22,10 @@ public class CpBetApiPresenter implements CpBetApiContract.Presenter {
         this.view.setPresenter(this);
     }
 
+
     @Override
-    public void postCpBets(String game_code, String round, String totalNums, String totalMoney, String number, String x_session_token) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postCpBets(game_code,round,totalNums,totalMoney,number,x_session_token))
+    public void postCpBets(String game_code, String round, String totalNums, String totalMoney, String number, Map<String, String> fields, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBets(game_code,round,totalNums,totalMoney,number,fields,x_session_token))
                 .subscribe(new ResponseSubscriber<CPBetResult>() {
                     @Override
                     public void success(CPBetResult response) {
