@@ -29,6 +29,9 @@ import com.hgapp.a6668.homepage.cplist.ICPListApi;
 import com.hgapp.a6668.homepage.cplist.bet.CpBetApiContract;
 import com.hgapp.a6668.homepage.cplist.bet.CpBetApiPresenter;
 import com.hgapp.a6668.homepage.cplist.bet.ICpBetApi;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.CpBetRecordsContract;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.CpBetRecordsPresenter;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.ICpBetRecordsApi;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListPresenter;
 import com.hgapp.a6668.homepage.cplist.hall.ICPHallListApi;
@@ -149,6 +152,15 @@ public class CPInjections {
         }
 
         return new CpBetApiPresenter(api,view);
+    }
+
+    public static CpBetRecordsContract.Presenter inject(@NonNull CpBetRecordsContract.View view, @Nullable ICpBetRecordsApi api)
+    {
+        if(null == api)
+        {
+            api = CPClient.getRetrofit().create(ICpBetRecordsApi.class);
+        }
+        return new CpBetRecordsPresenter(api,view);
     }
 
 }

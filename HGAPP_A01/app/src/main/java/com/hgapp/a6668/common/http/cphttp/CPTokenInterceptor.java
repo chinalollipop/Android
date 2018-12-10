@@ -92,9 +92,13 @@ public class CPTokenInterceptor implements Interceptor {
                     return response;
                 }
                 //GameLog.log(resposeData);
-                ServiceEvent restartLoginResult =  JSON.parseObject(resposeData, ServiceEvent.class);
-                if(restartLoginResult.getCode() == 500){
-                    EventBus.getDefault().post(new ServiceEvent(restartLoginResult.getMsg()));
+                try {
+                    ServiceEvent restartLoginResult = JSON.parseObject(resposeData, ServiceEvent.class);
+                    if (restartLoginResult.getCode() == 500) {
+                        EventBus.getDefault().post(new ServiceEvent(restartLoginResult.getMsg()));
+                    }
+                }catch (Exception e){
+
                 }
             }
 

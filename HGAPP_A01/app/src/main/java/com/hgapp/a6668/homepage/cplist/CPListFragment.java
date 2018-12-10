@@ -25,6 +25,7 @@ import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.jaeger.library.StatusBarUtil;
@@ -153,6 +154,10 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                         finish();
                         break;
                     case 1:
+                        Intent intent  = new Intent(getContext(),CPBetRecordsFragment.class);
+                        intent.putExtra("gameId","51");
+                        intent.putExtra("gameName","北京赛车");
+                        startActivity(intent);
                         break;
                     case 2:
                         EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
@@ -174,6 +179,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                     finish();
                 } else if (position == 2) {
                     EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
+                }else if(position == 1){
+                    Intent intent  = new Intent(getContext(),CPBetRecordsFragment.class);
+                    intent.putExtra("gameId","51");
+                    intent.putExtra("gameName","北京赛车");
+                    startActivity(intent);
                 }
                 GameLog.log("----------------------------- " + position);
             }
