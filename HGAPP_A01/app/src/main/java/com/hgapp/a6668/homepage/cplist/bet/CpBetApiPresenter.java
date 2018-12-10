@@ -38,18 +38,18 @@ public class CpBetApiPresenter implements CpBetApiContract.Presenter {
 
                     @Override
                     public void fail(String msg) {
-                        if(null != view)
+                        /*if(null != view)
                         {
                             view.setError(0,0);
                             view.showMessage(msg);
-                        }
+                        }*/
                     }
                 }));
     }
 
     @Override
-    public void postCpBetsHK(String game_code, String round, String totalNums, String totalMoney, String number, String x_session_token) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postCpBetsHK(game_code,round,totalNums,totalMoney,number,x_session_token))
+    public void postCpBetsHK(String game_code, String round, String totalNums, String totalMoney, String number,String betmoney,String typecode,String rtype, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBetsHK(game_code,round,totalNums,totalMoney,number,betmoney,typecode,rtype,x_session_token))
                 .subscribe(new ResponseSubscriber<CPBetResult>() {
                     @Override
                     public void success(CPBetResult response) {
@@ -62,11 +62,35 @@ public class CpBetApiPresenter implements CpBetApiContract.Presenter {
 
                     @Override
                     public void fail(String msg) {
-                        if(null != view)
+                        /*if(null != view)
                         {
                             view.setError(0,0);
                             view.showMessage(msg);
+                        }*/
+                    }
+                }));
+    }
+
+    @Override
+    public void postCpBetsHKMap(String game_code, String round, String totalNums, String totalMoney, String number, Map<String, String> fields, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBetsHKMap(game_code,round,totalNums,totalMoney,number,fields,x_session_token))
+                .subscribe(new ResponseSubscriber<CPBetResult>() {
+                    @Override
+                    public void success(CPBetResult response) {
+                        if(response.getCode().equals("200")){
+                            view.postCpBetResult(response);
+                        }else{
+                            view.showMessage(response.getMsg());
                         }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        /*if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }*/
                     }
                 }));
     }

@@ -52,7 +52,14 @@ public interface ICpBetApi {
     @POST("billxq/bet")
     @FormUrlEncoded
     public Observable<CPBetResult> postCpBetsHK(@Field("game_code") String game_code, @Field("round") String round, @Field("totalNums") String totalNums,
-                                                @Field("totalMoney") String totalMoney, @Field("number") String number, @Field("x-session-token") String x_session_token);
+                                                @Field("totalMoney") String totalMoney, @Field("number") String number,@Field("betmoney") String betmoney,
+                                                @Field("typecode") String typecode,@Field("rtype") String rtype, @Field("x-session-token") String x_session_token);
+
+    //键值对
+    @POST("billxq/bet")
+    @FormUrlEncoded
+    public Observable<CPBetResult> postCpBetsHKMap(@Field("game_code") String game_code, @Field("round") String round, @Field("totalNums") String totalNums,
+                                              @Field("totalMoney") String totalMoney,@Field("number") String number,@FieldMap Map<String, String> fields,@Field("x-session-token") String x_session_token);
 
 
     /**

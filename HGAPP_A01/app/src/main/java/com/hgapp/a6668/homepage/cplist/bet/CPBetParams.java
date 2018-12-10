@@ -7,6 +7,7 @@ public class CPBetParams implements Parcelable {
     // LM HK RX
     private String type;
     private String typeCode;
+    private String rtype;
     private String typeName;
     private String typeNumber;
     private String gold;
@@ -28,6 +29,14 @@ public class CPBetParams implements Parcelable {
 
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
+    }
+
+    public String getRtype() {
+        return rtype;
+    }
+
+    public void setRtype(String rtype) {
+        this.rtype = rtype;
     }
 
     public String getTypeName() {
@@ -87,6 +96,7 @@ public class CPBetParams implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.type);
         dest.writeString(this.typeCode);
+        dest.writeString(this.rtype);
         dest.writeString(this.typeName);
         dest.writeString(this.typeNumber);
         dest.writeString(this.gold);
@@ -101,6 +111,7 @@ public class CPBetParams implements Parcelable {
     protected CPBetParams(Parcel in) {
         this.type = in.readString();
         this.typeCode = in.readString();
+        this.rtype = in.readString();
         this.typeName = in.readString();
         this.typeNumber = in.readString();
         this.gold = in.readString();

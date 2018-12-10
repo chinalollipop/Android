@@ -7,6 +7,7 @@ import com.hgapp.a6668.common.http.ClientConfig;
 import com.hgapp.a6668.common.http.request.AppTextMessageRequest;
 import com.hgapp.a6668.common.http.util.MacUtil;
 import com.hgapp.a6668.data.RestartLoginResult;
+import com.hgapp.a6668.homepage.cplist.events.ServiceEvent;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
@@ -91,6 +92,10 @@ public class CPTokenInterceptor implements Interceptor {
                     return response;
                 }
                 //GameLog.log(resposeData);
+                ServiceEvent restartLoginResult =  JSON.parseObject(resposeData, ServiceEvent.class);
+                if(restartLoginResult.getCode() == 500){
+                    EventBus.getDefault().post(new ServiceEvent(restartLoginResult.getMsg()));
+                }
             }
 
             GameLog.log("<-- END HTTP (" + var34.size() + "-byte body)");

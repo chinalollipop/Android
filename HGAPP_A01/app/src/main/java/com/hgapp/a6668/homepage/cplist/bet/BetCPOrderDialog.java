@@ -20,6 +20,7 @@ import com.hgapp.a6668.data.CPBetResult;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderList;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
+import com.hgapp.a6668.homepage.cplist.events.ServiceEvent;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
 import com.hgapp.a6668.homepage.handicap.leaguedetail.CalosEvent;
 import com.hgapp.a6668.personpage.betrecord.BetRecordFragment;
@@ -73,7 +74,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
     String userMoney;
     private String betGold="",betType;
 
-    String game_code,  round, totalNums,totalMoney,number,typeCode, x_session_token;
+    String game_code,  round, totalNums,totalMoney,number,typeCode,rtype, x_session_token;
     CpBetApiContract.Presenter presenter;
 
     public static BetCPOrderDialog newInstance(ArrayList<CPOrderList> cpOrderListArrayList, String gold, String game_code, String round, String x_session_token) {
@@ -113,11 +114,11 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
         game_code = cpBetParams.getGame_code();
         round =  cpBetParams.getRound();
         x_session_token =  cpBetParams.getX_session_token();
-
-        if("LM".equals(betType)){
+        typeCode = cpBetParams.getTypeCode();
+        rtype = cpBetParams.getRtype();
+        if("LM".equals(betType)||"HKLM".equals(betType)){
             totalNums = cpBetParams.getTypeNumber();
             totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
-            typeCode = cpBetParams.getTypeCode();
             betOrderLM.setVisibility(View.VISIBLE);
             betOrderCp.setVisibility(View.GONE);
             betOrderCpBottom.setVisibility(View.GONE);
@@ -128,6 +129,38 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             }
             number = number.substring(0,number.length()-1);
             betOrderLMNumber.setText(cpBetParams.getTypeName()+"【"+number+"】");
+            betOrderLMZH.setText("组合数："+cpBetParams.getTypeNumber());
+            betOrderLMMoneyOne.setText("单注金额："+betGold);
+            betOrderLMMoney.setText("总金额："+totalMoney);
+        }else if("HKHX".equals(betType)){
+            totalNums = cpBetParams.getTypeNumber();
+            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            betOrderLM.setVisibility(View.VISIBLE);
+            betOrderCp.setVisibility(View.GONE);
+            betOrderCpBottom.setVisibility(View.GONE);
+            int size = betResult.size();
+            number ="";
+            for(int i=0;i<size;++i){
+                number += betResult.get(i).getgName()+",";
+            }
+            number = number.substring(0,number.length()-1);
+            betOrderLMNumber.setText(cpBetParams.getTypeName()+"-合肖"+size+"【"+number+"】");
+            betOrderLMZH.setText("组合数："+cpBetParams.getTypeNumber());
+            betOrderLMMoneyOne.setText("单注金额："+betGold);
+            betOrderLMMoney.setText("总金额："+totalMoney);
+        }else if("HKZXBZ".equals(betType)){
+            totalNums = cpBetParams.getTypeNumber();
+            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            betOrderLM.setVisibility(View.VISIBLE);
+            betOrderCp.setVisibility(View.GONE);
+            betOrderCpBottom.setVisibility(View.GONE);
+            int size = betResult.size();
+            number ="";
+            for(int i=0;i<size;++i){
+                number += betResult.get(i).getgName()+",";
+            }
+            number = number.substring(0,number.length()-1);
+            betOrderLMNumber.setText(cpBetParams.getTypeName()+" - "+size+"【"+number+"】");
             betOrderLMZH.setText("组合数："+cpBetParams.getTypeNumber());
             betOrderLMMoneyOne.setText("单注金额："+betGold);
             betOrderLMMoney.setText("总金额："+totalMoney);
@@ -231,6 +264,19 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
                     }
                     number = number.substring(0,number.length()-1);
                     presenter.postCpBetsLM(game_code,  round, totalNums,totalMoney,number,betGold,typeCode, x_session_token);
+                }else if("HKLM".equals(betType)||"HKHX".equals(betType)||"HKZXBZ".equals(betType)||"HKGG".equals(betType)){
+                    for(int i=0;i<size;++i){
+                        number += betResult.get(i).getGid()+",";
+                    }
+                    number = number.substring(0,number.length()-1);
+                    presenter.postCpBetsHK(game_code,  round, totalNums,totalMoney,number,betGold,typeCode,rtype, x_session_token);
+                }else if("HK".equals(betType)){
+                    Map data = new HashMap<>();
+                    for(int i=0;i<size;++i){
+                        //number += "betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]: "+betGold+"\n";
+                        data.put("betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]",betGold);
+                    }
+                    presenter.postCpBetsHKMap(game_code,  round, totalNums,totalMoney,"",data, x_session_token);
                 }else{
                     Map data = new HashMap<>();
                     for(int i=0;i<size;++i){
@@ -252,6 +298,12 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
     @Subscribe
     public void onEventMain(CloseLotteryEvent closeLotteryEvent){
         showMessage("已封盘，请稍后下注！");
+        hide();
+    }
+
+    @Subscribe
+    public void onEventMain(ServiceEvent serviceEvent){
+        showMessage(serviceEvent.getMsg());
         hide();
     }
 }
