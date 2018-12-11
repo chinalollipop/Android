@@ -142,6 +142,7 @@ public class BetRecordsResult {
             private int datetime;
             private String dateformat;
             private String week;
+            private String money;
 
             public int getDatetime() {
                 return datetime;
@@ -165,6 +166,14 @@ public class BetRecordsResult {
 
             public void setWeek(String week) {
                 this.week = week;
+            }
+
+            public String getMoney() {
+                return money;
+            }
+
+            public void setMoney(String money) {
+                this.money = money;
             }
         }
 
