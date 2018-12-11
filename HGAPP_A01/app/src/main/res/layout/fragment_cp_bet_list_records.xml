@@ -15,62 +15,72 @@
 
         <ImageView
             android:id="@+id/cpBetRecordsbackHome"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@mipmap/cp_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
+            android:src="@mipmap/cp_back"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="下注记录"
+            android:text="当天已结"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_height="40dp">
         <TextView
-            android:text="时间"
-            android:textSize="16sp"
+            android:text="期号"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="笔数"
-            android:layout_weight="1"
+            android:text="下注明细"
             android:gravity="center"
-            android:textSize="16sp"
             android:textColor="@color/cp_hall_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="投注额"
-            android:textSize="16sp"
-            android:layout_weight="1"
+            android:text="下注金额"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content" />
+        <View
+            android:id="@+id/tv_item_game_line"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="输赢"
-            android:textSize="16sp"
-            android:layout_weight="1"
+            android:text="退水后结果"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/n_edittext_hint" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/cpBetRecordsList"
         android:layout_marginBottom="40dp"
         android:layout_width="match_parent"
@@ -90,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
-            android:text="总笔数："
+            android:text="下注金额："
             android:textColor="@color/title_text"
             android:textSize="16sp" />
 
@@ -101,7 +111,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="20dp"
-            android:text="总输赢："
+            android:text="输赢金额："
             android:textColor="@color/title_text"
             android:textSize="16sp" />
 

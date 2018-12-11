@@ -1,6 +1,4 @@
-package com.hgapp.a6668.homepage.cplist.bet.betrecords;
-
-import com.hgapp.a6668.data.BetRecordsResult;
+package com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords;
 
 import java.util.List;
 
@@ -40,7 +38,6 @@ public class BetRecordsList {
         private String AllWin;
         private String AllCut;
         private String bet_time;
-        private String time;
 
         public String getAllnum() {
             return Allnum;
@@ -80,14 +77,6 @@ public class BetRecordsList {
 
         public void setBet_time(String bet_time) {
             this.bet_time = bet_time;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-        public void setTime(String time) {
-            this.time = time;
         }
     }
 

@@ -36,6 +36,7 @@ import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
 import com.hgapp.a6668.homepage.cplist.CPOrderFragment;
 import com.hgapp.a6668.homepage.cplist.bet.CpBetApiContract;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
 import com.hgapp.common.util.GameLog;
 import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -92,7 +93,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
         switch (view.getId()) {
             case R.id.cpBetRecordsbackHome:
                 //刷新用户余额
-
+                finish();
                 break;
         }
     }
@@ -139,7 +140,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
         }
 
         @Override
-        protected void convert(ViewHolder holder, BetRecordsList.dataBean data, final int position) {
+        protected void convert(ViewHolder holder, final BetRecordsList.dataBean data, final int position) {
             if(position==7){
                 holder.setText(R.id.cpBetRecord2time, "点击日期可查看下注详情");
                 holder.setVisible(R.id.cpBetRecord2time,true);
@@ -165,7 +166,14 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                         showMessage("点击到钢板了");
                         return;
                     }
-                    showMessage("点击时间");
+                    GameLog.log("时间是："+data.getTime()+" 次数是 "+data.getAllnum());
+                    if(Integer.parseInt(data.getAllnum())>0){
+                        Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
+                        intent.putExtra("gameId","51");
+                        intent.putExtra("gameTime",data.getTime());
+                        startActivity(intent);
+                    }
+
                    // startActivity(new Intent(getContext(),CPOrderFragment.class));
                     //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
                 }
@@ -220,6 +228,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata1().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
                 thisweekList.add(thisdataBean1);
             }
 
@@ -230,6 +239,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata1().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
@@ -260,6 +270,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata2().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
@@ -281,6 +292,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata3().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
@@ -301,6 +313,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata4().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
@@ -321,6 +334,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata5().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
@@ -341,6 +355,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata6().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
@@ -361,6 +376,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
                 lastdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
                 lastdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+lastWeek.getdata7().getWeek());
+                lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
         }
