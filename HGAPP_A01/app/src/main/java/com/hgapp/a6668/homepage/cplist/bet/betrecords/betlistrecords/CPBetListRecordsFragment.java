@@ -40,6 +40,8 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.cpBetRecordsTitle)
+    TextView cpBetRecordsTitle;
     @BindView(R.id.cpBetRecordsList)
     XRecyclerView cpBetRecordsList;
     @BindView(R.id.cpBetRecordsbackHome)
@@ -48,10 +50,12 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     TextView cpBetRecordsNumber;
     @BindView(R.id.cpBetRecordsMoney)
     TextView cpBetRecordsMoney;
+    @BindView(R.id.cpBetRecordsListNodata)
+    TextView cpBetRecordsListNodata;
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
     CpBetListRecordsContract.Presenter presenter;
     private String agMoney, hgMoney;
-    private String gameTime = "";
+    private String gameTime = "",gameForm = "";
     private String dzTitileName = "";
 
     int page =1;
@@ -72,10 +76,15 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         Intent intent = getIntent();
-//        game_code = intent.getStringExtra("gameId");
+        gameForm = intent.getStringExtra("gameForm");
         gameTime = intent.getStringExtra("gameTime");
         GameLog.log("船只的时间是才 "+gameTime);
-        presenter.getCpBetRecords(gameTime+"/1/20");
+        if(gameForm.equals("today")){
+            cpBetRecordsTitle.setText("今日已结");
+            presenter.getCpBetRecords("page=1&rows=20","today");
+        }else{
+            presenter.getCpBetRecords(gameTime+"/1/20","");
+        }
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
         cpBetRecordsList.setLayoutManager(gridLayoutManager);
         cpBetRecordsList.setHasFixedSize(true);
@@ -101,7 +110,11 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     }
 
     private void onSearchRecordList(){
-        presenter.getCpBetRecords(gameTime+"/"+page+"/20");
+        if(gameForm.equals("today")){
+            presenter.getCpBetRecords("page="+page+"&rows=20","today");
+        }else{
+            presenter.getCpBetRecords(gameTime+"/"+page+"/20","");
+        }
     }
 
     @OnClick({  R.id.cpBetRecordsbackHome})
@@ -233,6 +246,8 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
 
         //cpBetRecordsList.addItemDecoration(new GridRvItemDecoration2(getContext()));
         if(betRecordsResult.getData().size()>0){
+            cpBetRecordsListNodata.setVisibility(View.GONE);
+            cpBetRecordsList.setVisibility(View.VISIBLE);
             if(page == 1){
                 dataBeans.clear();
                 cpBetRecordsList.refreshComplete();
@@ -248,7 +263,12 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
             }
             cpOrederContentGameAdapter.notifyDataSetChanged();
         }else{
-            cpBetRecordsList.setNoMore(true);
+            showMessage("暂无数据！");
+            if(page==1){
+                cpBetRecordsList.setVisibility(View.GONE);
+                cpBetRecordsListNodata.setVisibility(View.VISIBLE);
+            }
+            //cpBetRecordsList.setNoMore(true);
         }
 
     }

@@ -14,8 +14,10 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,8 +28,11 @@ import com.hgapp.a6668.base.BaseSlidingActivity;
 import com.hgapp.a6668.common.adapters.AutoSizeAdapter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.a6668.common.util.DateHelper;
+import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.TimeHelper;
+import com.hgapp.a6668.common.widgets.CustomPopWindow;
 import com.hgapp.a6668.data.COLastResultHK;
 import com.hgapp.a6668.data.CPBJSCResult;
 import com.hgapp.a6668.data.CPHKResult;
@@ -49,6 +54,9 @@ import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.cplist.bet.BetCPOrderDialog;
 import com.hgapp.a6668.homepage.cplist.bet.CPBetParams;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
@@ -80,9 +88,12 @@ import butterknife.OnClick;
 public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContract.View {
 
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";/*
+    private static final String ARG_PARAM2 = "param2";
+    /*
     @BindView(R.id.drawer_layout)
     HGDrawerLayout drawer_layout;*/
+    @BindView(R.id.cpOrderMenu)
+    ImageView cpOrderMenu;
     @BindView(R.id.llCPOrderAll)
     LinearLayout llCPOrderAll;
     @BindView(R.id.cpOrderLotteryOpen1)
@@ -198,7 +209,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     private String  type = "0";
     private int index =0;
     private String hkLM1,hkLM2,hkLM3,hkLM4,hkLM5,hkLM6;
-
+    private CustomPopWindow mCustomPopWindowIn;
+    TextView moneyText,todaywinText;
+    String moneyStr="0.00",todaywinStr="0.00";
     private boolean isCloseLottery = false;
     static {
         //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
@@ -28004,6 +28017,14 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     @Override
     public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult) {
         cpOrderUserMoney.setText(cpLeftInfoResult.getMoney());
+        moneyStr = cpLeftInfoResult.getUnsettledMoney();
+        todaywinStr = cpLeftInfoResult.getTodaywin();
+        if(!Check.isNull(todaywinText)){
+            todaywinText.setText(Html.fromHtml("今日输赢<br>"+onMarkRed("("+GameShipHelper.formatMoney(todaywinStr)+")")));
+        }
+        if(!Check.isNull(moneyText)) {
+            moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
+        }
         GameLog.log("彩票的用户金额 "+cpLeftInfoResult.getMoney());
     }
 
@@ -31951,11 +31972,82 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 }*/
                 break;
             case R.id.cpOrderMenu:
-                showMessage("开发中。。。");
+                showPopMenuIn();
+                presenter.postCPLeftInfo("",x_session_token);
                 break;
         }
 
     }
+
+    private void showPopMenuIn(){
+        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_cp_order,null);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*if(mCustomPopWindow!=null){
+                    mCustomPopWindow.dissmiss();
+                }*/
+                switch (v.getId()){
+                    case R.id.popCPOrder2:
+                    case R.id.popCPOrder7:
+                        Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
+                        intent.putExtra("gameForm","today");
+                        intent.putExtra("gameTime",DateHelper.getToday());
+                        startActivity(intent);
+                        break;
+                    case R.id.popCPOrder1:
+                        Intent intent1  = new Intent(getContext(),CPBetNowFragment.class);
+                        intent1.putExtra("gameId","51");
+                        intent1.putExtra("gameName","北京赛车");
+                        startActivity(intent1);
+                        break;
+                    case R.id.popCPOrder3:
+                        Intent intent3  = new Intent(getContext(),CPBetRecordsFragment.class);
+                        intent3.putExtra("gameId","51");
+                        intent3.putExtra("gameName","北京赛车");
+                        startActivity(intent3);
+                        break;
+                    case R.id.popCPOrder4:
+                        showMessage("4");
+                        break;
+                    case R.id.popCPOrder5:
+                        showMessage("5");
+                        break;
+                    case R.id.popCPOrder6:
+                        showMessage("6");
+                        break;
+
+                }
+                //showMessage(showContent);
+                mCustomPopWindowIn.dissmiss();
+            }
+        };
+        //处理popWindow 显示内容
+        moneyText = contentView.findViewById(R.id.popCPOrder1);
+        moneyText.setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder2).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder3).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder4).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder5).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder6).setOnClickListener(listener);
+        todaywinText = contentView.findViewById(R.id.popCPOrder7);
+        todaywinText.setOnClickListener(listener);
+        todaywinText.setText(Html.fromHtml("今日输赢<br>"+onMarkRed("("+GameShipHelper.formatMoney(todaywinStr)+")")));
+        moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
+
+        //创建并显示popWindow
+        /*if(mCustomPopWindow !=null){
+            mCustomPopWindow.dissmiss();
+        }else{*/
+        mCustomPopWindowIn= new CustomPopWindow.PopupWindowBuilder(getContext())
+                .setView(contentView)
+                .size( getWindowManager().getDefaultDisplay().getWidth() * 1 / 4, getWindowManager().getDefaultDisplay().getHeight()* 1 / 2)
+                .enableBackgroundDark(true)
+                .create()
+                .showAsDropDown(cpOrderMenu,0,20);
+    }
+
 
     private void onCpGameItemClick(int position) {
         switch (position){

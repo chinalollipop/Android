@@ -69,6 +69,7 @@
         <activity android:name="com.hgapp.a6668.common.service.ServiceOnlineActivity"/>
         <activity android:name="com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment" android:screenOrientation="portrait"/>
         <activity android:name="com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment" android:screenOrientation="portrait"/>
         <activity android:name="com.hgapp.a6668.homepage.cplist.CPListFragment" android:screenOrientation="portrait"/>
         <activity android:name="com.hgapp.a6668.homepage.cplist.CPHallFragment" android:screenOrientation="portrait"/>
         <activity android:name="com.hgapp.a6668.homepage.cplist.CPOrderFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>

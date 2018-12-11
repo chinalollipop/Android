@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="当天已结"
+            android:text="即时注单"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
     </RelativeLayout>
@@ -37,20 +37,20 @@
         android:layout_gravity="center"
         android:layout_height="40dp">
         <TextView
-            android:text="期号"
+            android:text="彩种"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content" />
         <View
             android:layout_width="1px"
             android:layout_height="match_parent"
             android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="下注明细"
+            android:text="注单笔数"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content" />
         <View
             android:layout_width="1px"
@@ -60,17 +60,6 @@
             android:text="下注金额"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content" />
-        <View
-            android:id="@+id/tv_item_game_line"
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:background="@color/n_edittext_hint" />
-        <TextView
-            android:text="退水后结果"
-            android:gravity="center"
-            android:textColor="@color/cp_hall_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -78,52 +67,10 @@
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
         android:background="@color/n_edittext_hint" />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/cpBetRecordsList"
-        android:layout_marginBottom="40dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/cpBetRecordsListNodata"
-            android:text="暂无数据"
-            android:gravity="center"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="bottom"
-        android:background="@mipmap/cp_title">
-
-        <TextView
-            android:id="@+id/cpBetRecordsNumber"
-            android:layout_toLeftOf="@+id/cpBetRecordsMoney"
-            android:gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:text="下注金额："
-            android:textColor="@color/title_text"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/cpBetRecordsMoney"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="20dp"
-            android:text="输赢金额："
-            android:textColor="@color/title_text"
-            android:textSize="16sp" />
-
-    </RelativeLayout>
-    </FrameLayout>
 
 </LinearLayout>

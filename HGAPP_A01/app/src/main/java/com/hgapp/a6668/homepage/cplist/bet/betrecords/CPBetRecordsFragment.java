@@ -169,7 +169,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                     GameLog.log("时间是："+data.getTime()+" 次数是 "+data.getAllnum());
                     if(Integer.parseInt(data.getAllnum())>0){
                         Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
-                        intent.putExtra("gameId","51");
+                        intent.putExtra("gameForm","before");
                         intent.putExtra("gameTime",data.getTime());
                         startActivity(intent);
                     }
