@@ -155,7 +155,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
     }
 
     private void initDataView(){
-        gameId ="51";
+        gameId ="2";
         gameTime = DateHelper.getToday();
         cpLotteryTime.setText(gameTime);
         //时间选择器
@@ -225,6 +225,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
             }
         }).build();
         optionsPickerViewState.setPicker(lotteryList);
+        optionsPickerViewState.setSelectOptions (1);
     }
 
     @OnClick({R.id.backHome,R.id.cpLotteryName,R.id.cpLotteryTime})
@@ -244,7 +245,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
 
     @Override
     public void postCPLotteryListResult(CPLotteryListResult cpLotteryListResult) {
-        if(Check.isNull(cpLotteryListResult.getData())){
+        if(!Check.isNull(cpLotteryListResult.getData())&&cpLotteryListResult.getData().size()==0){
             showMessage("暂无数据！");
             cpLotteryList.setVisibility(View.GONE);
         }else{
@@ -358,8 +359,8 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                     cpLeftEventList1.remove(cpLeftEventList1.size()-1);
                     cpLeftEventList1.add("+");
                     cpLeftEventList1.add(lastNums);
-                    cpOrderLotteryOpen1.setAdapter(new OpenHKQIUGameAdapter(getContext(), R.layout.item_cp_order_hk, cpLeftEventList2));
-                    cpOrderLotteryOpen2.setAdapter(new OpenHKQIUGameAdapter(getContext(), R.layout.item_cp_order_hk, cpLeftEventList1));
+                    cpOrderLotteryOpen1.setAdapter(new OpenHKQIUGameAdapter(getContext(), R.layout.item_cp_order_hk, cpLeftEventList1));
+                    holder.setVisible(R.id.cpOrderLotteryOpen2,false);
                     break;
                 case "304":
                     cpLeftEventList2.add(total+"");
