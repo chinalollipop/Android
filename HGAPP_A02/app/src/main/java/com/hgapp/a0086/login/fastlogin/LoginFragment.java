@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
@@ -76,6 +77,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     TextView tvLoginForgetPwd;
     @BindView(R.id.btnLoginRegister)
     Button btnLoginRegister;
+    @BindView(R.id.btnLoginDemo)
+    Button btnLoginDemo;
     Unbinder unbinder1;
     private Random mRandom = new Random();
 
@@ -108,6 +111,10 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
             etLoginPwd.setText(pwd);
         }else{
             loginRemeberPwd.setChecked(false);
+        }
+        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+            etLoginType.setText("");
+            etLoginPwd.setText("");
         }
         //etLoginPwd.setText("123qwe");
         tvLoginBack.setBackListener(new View.OnClickListener() {
@@ -212,7 +219,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,R.id.tvLoginUserName, R.id.tvLoginUserPhone, R.id.cbLoginRemeber, R.id.btnLoginSubmit, R.id.btnLoginRegister})
+    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,R.id.tvLoginUserName, R.id.tvLoginUserPhone, R.id.cbLoginRemeber, R.id.btnLoginSubmit, R.id.btnLoginRegister,R.id.btnLoginDemo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -253,6 +260,9 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
             case R.id.btnLoginRegister:
                 EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
                 //start(RegisterFragment.newInstance());
+                break;
+            case R.id.btnLoginDemo:
+                presenter.postLoginDemo("","demoguest","nicainicainicaicaicaicai");
                 break;
         }
     }

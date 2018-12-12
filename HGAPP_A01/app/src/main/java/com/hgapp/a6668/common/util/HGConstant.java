@@ -105,6 +105,9 @@ public abstract class HGConstant {
     public static final String USERNAME_LOGIN_ACCOUNT = "username_login_account";
 
 
+    //用户的试玩账号
+    public static final String USERNAME_LOGIN_DEMO = "username_login_demo";
+
     //用户的登录密码
     public static final String USERNAME_LOGIN_PWD = "username_login_pwd";
 

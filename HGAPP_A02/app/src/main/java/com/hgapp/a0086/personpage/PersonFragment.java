@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
@@ -135,16 +136,32 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     GameLog.log("用户的金额："+personMoney);
                     switch (position){
                         case 0:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
                             //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
                             EventBus.getDefault().post(new ShowMainEvent(1));
                             break;
                         case 1:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
                             EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 2:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
                             EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             break;
                         case 3:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
                             String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
                             if(Check.isEmpty(alias)){
                                 EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
@@ -161,12 +178,20 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             }
                             break;
                         case 4:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
                             EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                             break;
                         case 5:
 
                             break;
                         case 6:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
                             EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney)));
                             break;
                         case 7:
@@ -300,7 +325,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         if(!Check.isEmpty(loginResult.getMoney())){
             personMoney = GameShipHelper.formatMoney(loginResult.getMoney());
             tvPersonBack.setMoreText(personMoney);
-            tvPersonUsername.setText(loginResult.getUserName());
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                tvPersonUsername.setText("试玩玩家");
+            }else {
+                tvPersonUsername.setText(loginResult.getUserName());
+            }
             tvPersonHg.setText(personMoney);
         }
     }

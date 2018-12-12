@@ -24,6 +24,10 @@ public interface ILoginApi {
     @POST("login_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<LoginResult>> login(@Field("appRefer") String appRefer, @Field("username") String username,@Field("passwd") String passwd);
+    //试玩登录
+    @POST("login_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<LoginResult>> loginDemo(@Field("appRefer") String appRefer,@Field("demoplay") String demoplay, @Field("username") String username,@Field("passwd") String passwd);
 
     //会员注册
     @POST("mem_reg_add.php")

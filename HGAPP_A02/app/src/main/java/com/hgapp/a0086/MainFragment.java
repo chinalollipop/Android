@@ -176,6 +176,11 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position, int prePosition) {
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))&&position==1){
+                    mBottomBar.setCurrentItem(prePosition);
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 try{
                     String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
                 GameLog.log("用户的登录状态 [ 1登录成功 ] [ 0 未登录 ] ："+userStatus+" 当前的位置是 "+prePosition+" 目前位置是 "+position);

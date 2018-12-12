@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
@@ -174,6 +175,10 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                 pop();
                 break;
             case R.id.ivClickOldestMember:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 presenter.postDownAppGift("");
                 ivClickOldestMember.setClickable(false);
                 ivClickOldestMember.postDelayed(new Runnable() {
@@ -186,6 +191,10 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                 },3000);
                 break;
             case R.id.btnClickRed:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 presenter.postLuckGift("","extract_lucky_red_envelope");
                 btnClickRed.setClickable(false);
                 btnClickRed.postDelayed(new Runnable() {
@@ -198,6 +207,10 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                 },3000);
                 break;
             case R.id.ivEventRefresh:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 if(null !=ivEventRefresh){
                     ivEventRefresh.startAnimation(animation);
                 }

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
@@ -234,6 +235,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 break;
             case 1:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 userState = "1";
                 String video_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
                 if("1".equals(video_url)){
@@ -253,6 +258,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                  break;
             case 3:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 userState = "3";
                 String hg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_MAINTAIN);
                 if("1".equals(hg_url)){
@@ -262,6 +271,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 break;
             case 4:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 userState = "4";
                 String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
                 if("1".equals(qp_url)){
@@ -271,6 +284,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 break;
             case 5:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 userState = "6";
                 String vg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VG_MAINTAIN);
                 if("1".equals(vg_url)){
@@ -280,6 +297,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 break;
             case 6:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 userState = "5";
                 String game_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
                 if("1".equals(game_url)){

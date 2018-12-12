@@ -194,7 +194,13 @@
             android:layout_width="match_parent"
             android:layout_height="33dp" />
 
-
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnLoginDemo"
+            android:text="试玩参观"
+            android:background="@drawable/btn_register_demo"
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
         <com.hgapp.a0086.common.widgets.InputCodeLayout
             android:id="@+id/inputCodeLayout"
             android:layout_width="match_parent"
