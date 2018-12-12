@@ -3,10 +3,16 @@ package com.hgapp.a6668.homepage;
 public class HomePageIcon {
     private String iconName;
     private int iconId;
+    private int id;
 
     public HomePageIcon(String iconName, int iconId) {
         this.iconName = iconName;
         this.iconId = iconId;
+    }
+    public HomePageIcon(String iconName, int iconId,int id) {
+        this.iconName = iconName;
+        this.iconId = iconId;
+        this.id = id;
     }
 
     public String getIconName() {
@@ -23,5 +29,13 @@ public class HomePageIcon {
 
     public void setIconId(int iconId) {
         this.iconId = iconId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -3,27 +3,6 @@ package com.hgapp.a6668.data;
 import com.google.gson.annotations.SerializedName;
 
 public class CPHallResult {
-    @Override
-    public String toString() {
-        return "CPHallResult{" +
-                "_$2=" + _$2 +
-                ", _$3=" + _$3 +
-                ", _$47=" + _$47 +
-                ", _$51=" + _$51 +
-                ", _$69=" + _$69 +
-                ", _$159=" + _$159 +
-                ", _$189=" + _$189 +
-                ", _$207=" + _$207 +
-                ", _$222=" + _$222 +
-                ", _$240=" + _$240 +
-                ", _$304=" + _$304 +
-                ", _$351=" + _$351 +
-                ", _$384=" + _$384 +
-                ", _$407=" + _$407 +
-                ", _$507=" + _$507 +
-                ", _$607=" + _$607 +
-                '}';
-    }
 
     /**
      * 2 : {"gameId":2,"issue":"20181125-049","endtime":"2018-11-25 14:08:30","lotteryTime":"2018-11-25 14:10:00","serverTime":"2018-11-25 14:05:14","isopen":1}
@@ -45,167 +24,167 @@ public class CPHallResult {
      */
 
     @SerializedName("2")
-    private _$2Bean _$2;
+    private DataBean data2;
     @SerializedName("3")
-    private _$3Bean _$3;
+    private DataBean data3;
     @SerializedName("47")
-    private _$47Bean _$47;
+    private DataBean data47;
     @SerializedName("51")
-    private _$51Bean _$51;
+    private DataBean data51;
     @SerializedName("69")
-    private _$69Bean _$69;
+    private DataBean data69;
     @SerializedName("159")
-    private _$159Bean _$159;
+    private DataBean data159;
     @SerializedName("189")
-    private _$189Bean _$189;
+    private DataBean data189;
     @SerializedName("207")
-    private _$207Bean _$207;
+    private DataBean data207;
     @SerializedName("222")
-    private _$222Bean _$222;
+    private DataBean data222;
     @SerializedName("240")
-    private boolean _$240;
+    private boolean data240;
     @SerializedName("304")
-    private _$304Bean _$304;
+    private DataBean data304;
     @SerializedName("351")
-    private boolean _$351;
+    private boolean data351;
     @SerializedName("384")
-    private _$384Bean _$384;
+    private DataBean data384;
     @SerializedName("407")
-    private _$407Bean _$407;
+    private DataBean data407;
     @SerializedName("507")
-    private _$507Bean _$507;
+    private DataBean data507;
     @SerializedName("607")
-    private _$607Bean _$607;
+    private DataBean data607;
 
-    public _$2Bean get_$2() {
-        return _$2;
+    public DataBean getdata2() {
+        return data2;
     }
 
-    public void set_$2(_$2Bean _$2) {
-        this._$2 = _$2;
+    public void setdata2(DataBean data2) {
+        this.data2 = data2;
     }
 
-    public _$3Bean get_$3() {
-        return _$3;
+    public DataBean getdata3() {
+        return data3;
     }
 
-    public void set_$3(_$3Bean _$3) {
-        this._$3 = _$3;
+    public void setdata3(DataBean data3) {
+        this.data3 = data3;
     }
 
-    public _$47Bean get_$47() {
-        return _$47;
+    public DataBean getdata47() {
+        return data47;
     }
 
-    public void set_$47(_$47Bean _$47) {
-        this._$47 = _$47;
+    public void setdata47(DataBean data47) {
+        this.data47 = data47;
     }
 
-    public _$51Bean get_$51() {
-        return _$51;
+    public DataBean getdata51() {
+        return data51;
     }
 
-    public void set_$51(_$51Bean _$51) {
-        this._$51 = _$51;
+    public void setdata51(DataBean data51) {
+        this.data51 = data51;
     }
 
-    public _$69Bean get_$69() {
-        return _$69;
+    public DataBean getdata69() {
+        return data69;
     }
 
-    public void set_$69(_$69Bean _$69) {
-        this._$69 = _$69;
+    public void setdata69(DataBean data69) {
+        this.data69 = data69;
     }
 
-    public _$159Bean get_$159() {
-        return _$159;
+    public DataBean getdata159() {
+        return data159;
     }
 
-    public void set_$159(_$159Bean _$159) {
-        this._$159 = _$159;
+    public void setdata159(DataBean data159) {
+        this.data159 = data159;
     }
 
-    public _$189Bean get_$189() {
-        return _$189;
+    public DataBean getdata189() {
+        return data189;
     }
 
-    public void set_$189(_$189Bean _$189) {
-        this._$189 = _$189;
+    public void setdata189(DataBean data189) {
+        this.data189 = data189;
     }
 
-    public _$207Bean get_$207() {
-        return _$207;
+    public DataBean getdata207() {
+        return data207;
     }
 
-    public void set_$207(_$207Bean _$207) {
-        this._$207 = _$207;
+    public void setdata207(DataBean data207) {
+        this.data207 = data207;
     }
 
-    public _$222Bean get_$222() {
-        return _$222;
+    public DataBean getdata222() {
+        return data222;
     }
 
-    public void set_$222(_$222Bean _$222) {
-        this._$222 = _$222;
+    public void setdata222(DataBean data222) {
+        this.data222 = data222;
     }
 
-    public boolean is_$240() {
-        return _$240;
+    public boolean isdata240() {
+        return data240;
     }
 
-    public void set_$240(boolean _$240) {
-        this._$240 = _$240;
+    public void setdata240(boolean data240) {
+        this.data240 = data240;
     }
 
-    public _$304Bean get_$304() {
-        return _$304;
+    public DataBean getdata304() {
+        return data304;
     }
 
-    public void set_$304(_$304Bean _$304) {
-        this._$304 = _$304;
+    public void setdata304(DataBean data304) {
+        this.data304 = data304;
     }
 
-    public boolean is_$351() {
-        return _$351;
+    public boolean isdata351() {
+        return data351;
     }
 
-    public void set_$351(boolean _$351) {
-        this._$351 = _$351;
+    public void setdata351(boolean data351) {
+        this.data351 = data351;
     }
 
-    public _$384Bean get_$384() {
-        return _$384;
+    public DataBean getdata384() {
+        return data384;
     }
 
-    public void set_$384(_$384Bean _$384) {
-        this._$384 = _$384;
+    public void setdata384(DataBean data384) {
+        this.data384 = data384;
     }
 
-    public _$407Bean get_$407() {
-        return _$407;
+    public DataBean getdata407() {
+        return data407;
     }
 
-    public void set_$407(_$407Bean _$407) {
-        this._$407 = _$407;
+    public void setdata407(DataBean data407) {
+        this.data407 = data407;
     }
 
-    public _$507Bean get_$507() {
-        return _$507;
+    public DataBean getdata507() {
+        return data507;
     }
 
-    public void set_$507(_$507Bean _$507) {
-        this._$507 = _$507;
+    public void setdata507(DataBean data507) {
+        this.data507 = data507;
     }
 
-    public _$607Bean get_$607() {
-        return _$607;
+    public DataBean getdata607() {
+        return data607;
     }
 
-    public void set_$607(_$607Bean _$607) {
-        this._$607 = _$607;
+    public void setdata607(DataBean data607) {
+        this.data607 = data607;
     }
 
-    public static class _$2Bean {
+    public static class DataBean {
         /**
          * gameId : 2
          * issue : 20181125-049
@@ -271,851 +250,4 @@ public class CPHallResult {
         }
     }
 
-    public static class _$3Bean {
-        /**
-         * gameId : 3
-         * issue : 20181125-31
-         * endtime : 2018-11-25 14:08:45
-         * lotteryTime : 2018-11-25 14:10:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$47Bean {
-        /**
-         * gameId : 47
-         * issue : 20181125-39
-         * endtime : 2018-11-25 14:11:45
-         * lotteryTime : 2018-11-25 14:13:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$51Bean {
-        /**
-         * gameId : 51
-         * issue : 716564
-         * endtime : 2018-11-25 14:06:40
-         * lotteryTime : 2018-11-25 14:07:30
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$69Bean {
-        /**
-         * issue :
-         * endtime : 0
-         * lotteryTime : 0
-         * isopen : 0
-         * opentime : 0
-         */
-
-        private String issue;
-        private String endtime;
-        private int lotteryTime;
-        private int isopen;
-        private int opentime;
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public int getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(int lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-
-        public int getOpentime() {
-            return opentime;
-        }
-
-        public void setOpentime(int opentime) {
-            this.opentime = opentime;
-        }
-    }
-
-    public static class _$159Bean {
-        /**
-         * gameId : 159
-         * issue : 181125034
-         * endtime : 2018-11-25 14:07:40
-         * lotteryTime : 2018-11-25 14:10:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$189Bean {
-        /**
-         * gameId : 189
-         * issue : 1811250240
-         * endtime : 2018-11-25 14:06:00
-         * lotteryTime : 2018-11-25 14:06:15
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$207Bean {
-        /**
-         * gameId : 207
-         * issue : 1811250240
-         * endtime : 2018-11-25 14:06:00
-         * lotteryTime : 2018-11-25 14:06:15
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$222Bean {
-        /**
-         * gameId : 222
-         * issue : 1811250240
-         * endtime : 2018-11-25 14:06:00
-         * lotteryTime : 2018-11-25 14:06:15
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$304Bean {
-        /**
-         * gameId : 304
-         * issue : 922543
-         * endtime : 2018-11-25 14:09:10
-         * lotteryTime : 2018-11-25 14:10:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$384Bean {
-        /**
-         * gameId : 384
-         * issue : 1811250240
-         * endtime : 2018-11-25 14:05:30
-         * lotteryTime : 2018-11-25 14:05:45
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$407Bean {
-        /**
-         * gameId : 407
-         * issue : 1811250282
-         * endtime : 2018-11-25 14:05:45
-         * lotteryTime : 2018-11-25 14:06:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$507Bean {
-        /**
-         * gameId : 507
-         * issue : 1811250170
-         * endtime : 2018-11-25 14:09:45
-         * lotteryTime : 2018-11-25 14:10:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
-
-    public static class _$607Bean {
-        /**
-         * gameId : 607
-         * issue : 1811250423
-         * endtime : 2018-11-25 14:05:45
-         * lotteryTime : 2018-11-25 14:06:00
-         * serverTime : 2018-11-25 14:05:14
-         * isopen : 1
-         */
-
-        private int gameId;
-        private String issue;
-        private String endtime;
-        private String lotteryTime;
-        private String serverTime;
-        private int isopen;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public String getIssue() {
-            return issue;
-        }
-
-        public void setIssue(String issue) {
-            this.issue = issue;
-        }
-
-        public String getEndtime() {
-            return endtime;
-        }
-
-        public void setEndtime(String endtime) {
-            this.endtime = endtime;
-        }
-
-        public String getLotteryTime() {
-            return lotteryTime;
-        }
-
-        public void setLotteryTime(String lotteryTime) {
-            this.lotteryTime = lotteryTime;
-        }
-
-        public String getServerTime() {
-            return serverTime;
-        }
-
-        public void setServerTime(String serverTime) {
-            this.serverTime = serverTime;
-        }
-
-        public int getIsopen() {
-            return isopen;
-        }
-
-        public void setIsopen(int isopen) {
-            this.isopen = isopen;
-        }
-    }
 }

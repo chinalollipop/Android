@@ -61,6 +61,7 @@ import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
 import com.hgapp.a6668.homepage.cplist.events.LeftMenuEvents;
+import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderContract;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
@@ -29594,7 +29595,6 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderListRight.setHasFixedSize(true);
         cpOrderListRight.setNestedScrollingEnabled(false);
 
-
         //cpOrderListViewtLeft.setAdapter(new CPOrederListViewLeftGameAdapter(getContext(), R.layout.item_cp_order_left_list, allResultList));
         LinearLayoutManager cpOrderLotteryOpen11 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         cpOrderLotteryOpen1.setLayoutManager(cpOrderLotteryOpen11);
@@ -31991,15 +31991,15 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 switch (v.getId()){
                     case R.id.popCPOrder2:
                     case R.id.popCPOrder7:
-                        Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
-                        intent.putExtra("gameForm","today");
-                        intent.putExtra("gameTime",DateHelper.getToday());
+                        Intent intent  = new Intent(getContext(),CPBetNowFragment.class);
+                        intent.putExtra("gameId","51");
+                        intent.putExtra("gameName","北京赛车");
                         startActivity(intent);
                         break;
                     case R.id.popCPOrder1:
-                        Intent intent1  = new Intent(getContext(),CPBetNowFragment.class);
-                        intent1.putExtra("gameId","51");
-                        intent1.putExtra("gameName","北京赛车");
+                        Intent intent1  = new Intent(getContext(),CPBetListRecordsFragment.class);
+                        intent1.putExtra("gameForm","today");
+                        intent1.putExtra("gameTime",DateHelper.getToday());
                         startActivity(intent1);
                         break;
                     case R.id.popCPOrder3:
@@ -32009,7 +32009,10 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         startActivity(intent3);
                         break;
                     case R.id.popCPOrder4:
-                        showMessage("4");
+                        Intent intent4 = new Intent(getContext(),CPLotteryListFragment.class);
+                        intent4.putExtra("gameId","51");
+                        intent4.putExtra("gameName","北京赛车");
+                        startActivity(intent4);
                         break;
                     case R.id.popCPOrder5:
                         showMessage("5");

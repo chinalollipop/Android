@@ -6,6 +6,7 @@ import com.hgapp.a6668.base.IProgressView;
 import com.hgapp.a6668.base.IView;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
+import com.hgapp.a6668.data.CPNoteResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 
@@ -20,6 +21,7 @@ public interface CPListContract {
     }
     public interface View extends IView<CPListContract.Presenter>,IMessageView,IProgressView
     {
+        public void postCPNoteResult(CPNoteResult cpNoteResult);
 
     }
 

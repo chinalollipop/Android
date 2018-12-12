@@ -5,6 +5,7 @@ import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CPInitResult;
+import com.hgapp.a6668.data.CPNoteResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 
@@ -39,4 +40,9 @@ public interface ICPListApi {
     @POST
     @FormUrlEncoded
     public Observable<CPInitResult> postCPInit(@Url String path, @Field("x-session-token") String x_session_token);
+
+    @GET
+    public Observable<CPNoteResult> postCPNote(@Url String url);
+
+
 }

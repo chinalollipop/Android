@@ -18,17 +18,16 @@ import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.service.ServiceOnlineFragment;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
-import com.hgapp.a6668.common.util.StatusBarUtil2;
 import com.hgapp.a6668.common.widgets.CPBottomBar;
 import com.hgapp.a6668.common.widgets.CPBottomBarTab;
 import com.hgapp.a6668.common.widgets.MarqueeTextView;
-import com.hgapp.a6668.data.NoticeResult;
+import com.hgapp.a6668.data.CPNoteResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.me.CPMeFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
-import com.jaeger.library.StatusBarUtil;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
@@ -42,7 +41,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
-import me.yokeyword.sample.demo_wechat.ui.view.BottomBarTab;
 
 public class CPListFragment extends BaseActivity2 implements CPListContract.View {
 
@@ -160,7 +158,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                         startActivity(intent);
                         break;
                     case 2:
-                        EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
+                        Intent intent2  = new Intent(getContext(),CPMeFragment.class);
+                        intent2.putExtra("gameId","51");
+                        intent2.putExtra("gameName","北京赛车");
+                        startActivity(intent2);
+                       // EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
                         break;
                     case 3:
                         EventBus.getDefault().post(new StartBrotherEvent(ServiceOnlineFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -178,7 +180,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                 if (position == 0) {
                     finish();
                 } else if (position == 2) {
-                    EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
+                    Intent intent2  = new Intent(getContext(),CPMeFragment.class);
+                    intent2.putExtra("gameId","51");
+                    intent2.putExtra("gameName","北京赛车");
+                    startActivity(intent2);
+                    //EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
                 }else if(position == 1){
                     Intent intent  = new Intent(getContext(),CPBetRecordsFragment.class);
                     intent.putExtra("gameId","51");
@@ -188,12 +194,16 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                 GameLog.log("----------------------------- " + position);
             }
         });
-        NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
+        CPNoteResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_HOME_NOTICE), CPNoteResult.class);
         if (!Check.isNull(noticeResult)) {
             List<String> stringList = new ArrayList<String>();
             int size = noticeResult.getData().size();
             for (int i = 0; i < size; ++i) {
-                stringList.add(noticeResult.getData().get(i).getNotice());
+                stringList.add(noticeResult.getData().get(i).getComment());
+            }
+            GameLog.log("本地的公告 "+stringList);
+            if(stringList.size()==1){
+                stringList.add(noticeResult.getData().get(0).getComment());
             }
             cpPageBulletin.setContentList(stringList);
         }
@@ -300,6 +310,24 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             case R.id.cpTv11:
                 startActivity(new Intent(getContext(),CPHallFragment.class));
                 break;
+        }
+    }
+
+    @Override
+    public void postCPNoteResult(CPNoteResult cpNoteResult) {
+
+        if (!Check.isNull(cpNoteResult)) {
+            ACache.get(getContext()).put(HGConstant.USERNAME_CP_HOME_NOTICE,JSON.toJSONString(cpNoteResult));
+            List<String> stringList = new ArrayList<String>();
+            int size = cpNoteResult.getData().size();
+            for (int i = 0; i < size; ++i) {
+                stringList.add(cpNoteResult.getData().get(i).getComment());
+            }
+            if(stringList.size()==1){
+                stringList.add(cpNoteResult.getData().get(0).getComment());
+            }
+            GameLog.log("服务器的公告");
+            cpPageBulletin.setContentList(stringList);
         }
     }
 

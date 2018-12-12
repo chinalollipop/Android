@@ -11,6 +11,7 @@ import com.hgapp.a6668.common.util.SubscriptionHelper;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CPInitResult;
+import com.hgapp.a6668.data.CPNoteResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.common.util.GameLog;
@@ -36,9 +37,6 @@ public class CPListPresenter implements CPListContract.Presenter {
         this.api = api;
         this.view.setPresenter(this);
     }
-
-
-
 
 
     @Override
@@ -126,6 +124,26 @@ public class CPListPresenter implements CPListContract.Presenter {
                     public void success(CPInitResult response) {
                         GameLog.log("联合登录的CPInitResult日志信息是 "+response.getToken());
                         ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_X_SESSION_TOKEN,response.getToken());
+                        postCPNote();
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.setError(0, 0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    private void postCPNote() {
+        String token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
+        subscriptionHelper.add(RxHelper.addSugar(api.postCPNote("home/getnote?x-session-token=" + token))
+                .subscribe(new ResponseSubscriber<CPNoteResult>() {
+                    @Override
+                    public void success(CPNoteResult response) {
+                        view.postCPNoteResult(response);
                     }
 
                     @Override

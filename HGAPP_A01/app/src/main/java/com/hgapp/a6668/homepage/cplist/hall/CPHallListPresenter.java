@@ -58,67 +58,9 @@ public class CPHallListPresenter implements CPHallListContract.Presenter {
 
 
     @Override
-    public void postLogin(String appRefer) {
-        String yloginurl = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
-        yloginurl.replace("http://mc.hg01455.com/","");
-        subscriptionHelper.add(RxHelper.addSugar(api.getLoginCP(yloginurl))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
-                    @Override
-                    public void success(AppTextMessageResponse<Object> response) {
-                        if(response.isSuccess())
-                        {
-                            //view.postPersonBalanceResult(response.getData().get(0));
-                        }
-                        else
-                        {
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-    }
-
-    @Override
-    public void postCPHallList(String appRefer) {
-        //postLogin("");
-        String date= System.currentTimeMillis()+"";
-        GameLog.log("当前的时间戳 "+date.substring(0,10));
-        String getUtl3 = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
-        GameLog.log("cp 的之前的token "+getUtl3);
-       /* try {
-            getUtl2 = URLDecoder.decode("gamessc/getAllNextIssue?_"+date+"&x-session-token="+getUtl3,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }*/
-        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
-        ACache.get(HGApplication.instance().getApplicationContext()).put("KKKKK","true");
-        //GameLog.log("========token "+getUtl2);
-        subscriptionHelper.add(RxHelper.addSugar(api.get("gamessc/getAllNextIssue?_"+date+"&x-session-token="+getUtl3))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<CPHallResult>() {
-                    @Override
-                    public void success(CPHallResult response) {
-                            view.postCPHallListResult(response);
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-
-        subscriptionHelper.add(RxHelper.addSugar(api.postCPHallList("1",getUtl3))//loginGet() login(appRefer,username,pwd)
+    public void postCPLeftInfo(String appRefer) {
+        String token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
+        subscriptionHelper.add(RxHelper.addSugar(api.postLeftInfo("1",token))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<CPLeftInfoResult>() {
                     @Override
                     public void success(CPLeftInfoResult response) {
@@ -158,5 +100,40 @@ public class CPHallListPresenter implements CPHallListContract.Presenter {
                         }
                     }
                 }));*/
+    }
+
+    @Override
+    public void postCPHallList(String appRefer) {
+        //postLogin("");
+        String date= System.currentTimeMillis()+"";
+        GameLog.log("当前的时间戳 "+date.substring(0,10));
+        String getUtl3 = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
+        GameLog.log("cp 的之前的token "+getUtl3);
+       /* try {
+            getUtl2 = URLDecoder.decode("gamessc/getAllNextIssue?_"+date+"&x-session-token="+getUtl3,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }*/
+        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
+        ACache.get(HGApplication.instance().getApplicationContext()).put("KKKKK","true");
+        //GameLog.log("========token "+getUtl2);
+        subscriptionHelper.add(RxHelper.addSugar(api.get("gamessc/getAllNextIssue?_"+date+"&x-session-token="+getUtl3))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<CPHallResult>() {
+                    @Override
+                    public void success(CPHallResult response) {
+                            view.postCPHallListResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+
+
     }
 }

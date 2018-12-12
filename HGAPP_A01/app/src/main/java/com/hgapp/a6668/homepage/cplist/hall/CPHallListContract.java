@@ -17,7 +17,7 @@ public interface CPHallListContract {
 
     public interface Presenter extends IPresenter
     {
-        public void postLogin(String appRefer);
+        public void postCPLeftInfo(String appRefer);
         public void postCPHallList(String appRefer);
     }
     public interface View extends IView<CPHallListContract.Presenter>,IMessageView,IProgressView

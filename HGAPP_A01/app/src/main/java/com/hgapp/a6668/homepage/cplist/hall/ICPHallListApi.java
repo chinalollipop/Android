@@ -36,6 +36,6 @@ public interface ICPHallListApi {
     @Headers({"Domain-Name: CpUrl"})
     @POST("main/leftinfo")
     @FormUrlEncoded
-    public Observable<CPLeftInfoResult> postCPHallList(@Field("optype") String optype, @Field("x-session-token") String x_session_token);
+    public Observable<CPLeftInfoResult> postLeftInfo(@Field("optype") String optype, @Field("x-session-token") String x_session_token);
 
 }

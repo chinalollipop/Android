@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +25,11 @@ import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.http.Client;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
+import com.hgapp.a6668.common.util.DateHelper;
+import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.TimeHelper;
+import com.hgapp.a6668.common.widgets.CustomPopWindow;
 import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
 import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
@@ -33,11 +37,16 @@ import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
 import com.hgapp.a6668.data.CPHallResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
+import com.hgapp.a6668.data.CPNoteResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
+import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
@@ -92,7 +101,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     private int scpHallIcon0, scpHallIcon1, scpHallIcon2, scpHallIcon3, scpHallIcon4, scpHallIcon5, scpHallIcon6, scpHallIcon7,
             scpHallIcon8, scpHallIcon9, scpHallIcon10, scpHallIcon11, scpHallIcon12, scpHallIcon13;
     private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
-
+    private CustomPopWindow mCustomPopWindowIn;
+    TextView moneyText;
+    String moneyStr="0.00";
     static {
         cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
         cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 0,2));
@@ -160,15 +171,20 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         executorService2.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
+                presenter.postCPLeftInfo("");
                 presenter.postCPHallList("");
             }
          }, 0, 10000, TimeUnit.MILLISECONDS);
-        NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
+        CPNoteResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_HOME_NOTICE), CPNoteResult.class);
         if (!Check.isNull(noticeResult)) {
             List<String> stringList = new ArrayList<String>();
             int size = noticeResult.getData().size();
             for (int i = 0; i < size; ++i) {
-                stringList.add(noticeResult.getData().get(i).getNotice());
+                stringList.add(noticeResult.getData().get(i).getComment());
+            }
+            GameLog.log("本地的公告 "+stringList);
+            if(stringList.size()==1){
+                stringList.add(noticeResult.getData().get(0).getComment());
             }
             cpPageBulletin.setContentList(stringList);
         }
@@ -260,8 +276,79 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                 finish();
                 break;
             case R.id.cpHallMenu:
+                showPopMenuIn();
+                presenter.postCPLeftInfo("");
                 break;
         }
+    }
+
+    private void showPopMenuIn(){
+        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_cp_hall,null);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*if(mCustomPopWindow!=null){
+                    mCustomPopWindow.dissmiss();
+                }*/
+                switch (v.getId()){
+                    case R.id.popCPOrder2:
+                        Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
+                        intent.putExtra("gameForm","today");
+                        intent.putExtra("gameTime",DateHelper.getToday());
+                        startActivity(intent);
+                        break;
+                    case R.id.popCPOrder1:
+                        Intent intent1  = new Intent(getContext(),CPBetNowFragment.class);
+                        intent1.putExtra("gameId","51");
+                        intent1.putExtra("gameName","北京赛车");
+                        startActivity(intent1);
+                        break;
+                    case R.id.popCPOrder3:
+                        Intent intent3  = new Intent(getContext(),CPBetRecordsFragment.class);
+                        intent3.putExtra("gameId","51");
+                        intent3.putExtra("gameName","北京赛车");
+                        startActivity(intent3);
+                        break;
+                    case R.id.popCPOrder4:
+                        Intent intent4 = new Intent(getContext(),CPLotteryListFragment.class);
+                        intent4.putExtra("gameId","51");
+                        intent4.putExtra("gameName","北京赛车");
+                        startActivity(intent4);
+                        break;
+                    case R.id.popCPOrder5:
+                        showMessage("5");
+                        break;
+
+                }
+                //showMessage(showContent);
+                mCustomPopWindowIn.dissmiss();
+            }
+        };
+        //处理popWindow 显示内容
+        moneyText = contentView.findViewById(R.id.popCPOrder1);
+        moneyText.setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder2).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder3).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder4).setOnClickListener(listener);
+        contentView.findViewById(R.id.popCPOrder5).setOnClickListener(listener);
+        moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
+
+        //创建并显示popWindow
+        /*if(mCustomPopWindow !=null){
+            mCustomPopWindow.dissmiss();
+        }else{*/
+        mCustomPopWindowIn= new CustomPopWindow.PopupWindowBuilder(getContext())
+                .setView(contentView)
+                .size( getWindowManager().getDefaultDisplay().getWidth() * 1 / 4, getWindowManager().getDefaultDisplay().getHeight()* 1 / 2)
+                .enableBackgroundDark(true)
+                .create()
+                .showAsDropDown(cpHallMenu,0,20);
+    }
+
+    //标记为红色
+    private String onMarkRed(String sign){
+        return " <font color='#fdb22b'>" + sign+"</font>";
     }
 
     @Override
@@ -294,7 +381,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
         cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,69));
         cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_jss, 0,384));
-       /* CPHallResult._$51Bean _51Bean = cpHallResult.get_$51();
+       /* CPHallResult.data51Bean _51Bean = cpHallResult.getdata51();
         cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
         cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_jsft, 0,2));
         cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_cqssc, 0,189));
@@ -317,119 +404,119 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpHallIcon.setEndtime(_51Bean.getEndtime());
         cpGameList.
 
-        cpGameList.get(0).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(1).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(2).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(3).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(4).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(5).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(6).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(7).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(8).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(9).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(10).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(11).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(12).setIsopen(cpHallResult.get_$51().getIsopen());
-        cpGameList.get(13).setIsopen(cpHallResult.get_$51().getIsopen());*/
+        cpGameList.get(0).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(1).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(2).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(3).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(4).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(5).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(6).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(7).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(8).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(9).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(10).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(11).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(12).setIsopen(cpHallResult.getdata51().getIsopen());
+        cpGameList.get(13).setIsopen(cpHallResult.getdata51().getIsopen());*/
        String systTime =TimeUtils.convertToDetailTime(System.currentTimeMillis());
-       if(Check.isNumericNull(cpHallResult.get_$51().getEndtime())){
+       if(Check.isNumericNull(cpHallResult.getdata51().getEndtime())){
            cpHallIcon0 = 0;
            scpHallIcon0 = 1;
        }else{
            scpHallIcon0 = 0;
-           cpHallIcon0 = TimeHelper.timeToSecond(cpHallResult.get_$51().getEndtime(),systTime)+20;
+           cpHallIcon0 = TimeHelper.timeToSecond(cpHallResult.getdata51().getEndtime(),systTime)+20;
        }
         Date date = new Date(System.currentTimeMillis());
-        GameLog.log("倒计时的时间 "+TimeUtils.string2Milliseconds(cpHallResult.get_$51().getEndtime())+" 系统的时间 "+systTime+" 秒的计算 "+date.getTime());
-        if(Check.isNumericNull(cpHallResult.get_$2().getEndtime())){
+        GameLog.log("倒计时的时间 "+TimeUtils.string2Milliseconds(cpHallResult.getdata51().getEndtime())+" 系统的时间 "+systTime+" 秒的计算 "+date.getTime());
+        if(Check.isNumericNull(cpHallResult.getdata2().getEndtime())){
             cpHallIcon1 = 0;
             scpHallIcon1 = 1;
         }else {
             scpHallIcon1 = 0;
-            cpHallIcon1 = TimeHelper.timeToSecond(cpHallResult.get_$2().getEndtime(),systTime) +70;
+            cpHallIcon1 = TimeHelper.timeToSecond(cpHallResult.getdata2().getEndtime(),systTime) +70;
         }
-        if(Check.isNumericNull(cpHallResult.get_$189().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata189().getEndtime())){
             cpHallIcon2 = 0;
             scpHallIcon2 = 1;
         }else {
             scpHallIcon2 = 0;
-            cpHallIcon2 =  TimeHelper.timeToSecond(cpHallResult.get_$189().getEndtime(),systTime)+100 ;
+            cpHallIcon2 =  TimeHelper.timeToSecond(cpHallResult.getdata189().getEndtime(),systTime)+100 ;
         }
-        if(Check.isNumericNull(cpHallResult.get_$222().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata222().getEndtime())){
             cpHallIcon3 = 0;
             scpHallIcon3 = 1;
         }else {
             scpHallIcon3 = 0;
-            cpHallIcon3 =  TimeHelper.timeToSecond(cpHallResult.get_$222().getEndtime(),systTime)+20;
+            cpHallIcon3 =  TimeHelper.timeToSecond(cpHallResult.getdata222().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$207().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata207().getEndtime())){
             cpHallIcon4 = 0;
             scpHallIcon4 = 1;
         }else {
             scpHallIcon4 = 0;
-            cpHallIcon4 =  TimeHelper.timeToSecond(cpHallResult.get_$207().getEndtime(),systTime) +20;
+            cpHallIcon4 =  TimeHelper.timeToSecond(cpHallResult.getdata207().getEndtime(),systTime) +20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$407().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata407().getEndtime())){
             cpHallIcon5 = 0;
             scpHallIcon5 = 1;
         }else {
             scpHallIcon5 = 0;
-            cpHallIcon5 = TimeHelper.timeToSecond(cpHallResult.get_$407().getEndtime(),systTime)+20;
+            cpHallIcon5 = TimeHelper.timeToSecond(cpHallResult.getdata407().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$507().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata507().getEndtime())){
             cpHallIcon6 = 0;
             scpHallIcon6 = 1;
         }else {
             scpHallIcon6 = 0;
-            cpHallIcon6 = TimeHelper.timeToSecond(cpHallResult.get_$507().getEndtime(),systTime)+20;
+            cpHallIcon6 = TimeHelper.timeToSecond(cpHallResult.getdata507().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$607().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata607().getEndtime())){
             cpHallIcon7 = 0;
             scpHallIcon7 = 1;
         }else {
             scpHallIcon7 = 0;
-            cpHallIcon7 = TimeHelper.timeToSecond(cpHallResult.get_$607().getEndtime(),systTime)+20;
+            cpHallIcon7 = TimeHelper.timeToSecond(cpHallResult.getdata607().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$304().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata304().getEndtime())){
             cpHallIcon8 = 0;
             scpHallIcon8 = 1;
         }else {
             scpHallIcon8 = 8;
-            cpHallIcon8 = TimeHelper.timeToSecond(cpHallResult.get_$304().getEndtime(),systTime)+20;
+            cpHallIcon8 = TimeHelper.timeToSecond(cpHallResult.getdata304().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$159().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata159().getEndtime())){
             cpHallIcon9 = 0;
             scpHallIcon9 = 1;
         }else {
             scpHallIcon9 = 0;
-            cpHallIcon9 = TimeHelper.timeToSecond(cpHallResult.get_$159().getEndtime(),systTime)+20;
+            cpHallIcon9 = TimeHelper.timeToSecond(cpHallResult.getdata159().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$47().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata47().getEndtime())){
             cpHallIcon10 = 0;
             scpHallIcon10 = 1;
         }else {
             scpHallIcon10 = 0;
-            cpHallIcon10 = TimeHelper.timeToSecond(cpHallResult.get_$47().getEndtime(),systTime)+20;
+            cpHallIcon10 = TimeHelper.timeToSecond(cpHallResult.getdata47().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$3().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata3().getEndtime())){
             cpHallIcon11 = 0;
             scpHallIcon11 = 1;
         }else {
             scpHallIcon11 = 0;
-            cpHallIcon11 = TimeHelper.timeToSecond(cpHallResult.get_$3().getEndtime(),systTime)+20;
+            cpHallIcon11 = TimeHelper.timeToSecond(cpHallResult.getdata3().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$69().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata69().getEndtime())){
             cpHallIcon12 = 0;
             scpHallIcon12 = 1;
         }else {
             scpHallIcon12 = 0;
-            cpHallIcon12 = TimeHelper.timeToSecond(cpHallResult.get_$69().getEndtime(),systTime)+20;
+            cpHallIcon12 = TimeHelper.timeToSecond(cpHallResult.getdata69().getEndtime(),systTime)+20;
         }
-        if(Check.isNumericNull(cpHallResult.get_$384().getEndtime())){
+        if(Check.isNumericNull(cpHallResult.getdata384().getEndtime())){
             cpHallIcon13 = 0;
             scpHallIcon13 = 1;
         }else {
-            cpHallIcon13 = TimeHelper.timeToSecond(cpHallResult.get_$384().getEndtime(),systTime)+20 ;
+            cpHallIcon13 = TimeHelper.timeToSecond(cpHallResult.getdata384().getEndtime(),systTime)+20 ;
             scpHallIcon13 = 0;
         }
         GameLog.log("最后的时间  "+cpHallIcon0+"|"+cpHallIcon1+"|"+cpHallIcon2+"|"+cpHallIcon3+"|"+cpHallIcon4+"|"+cpHallIcon5+"|"+cpHallIcon6+"|"+cpHallIcon7+"|"+cpHallIcon8+"|"+cpHallIcon9+"|"+cpHallIcon10+"|"+cpHallIcon11+"|"+cpHallIcon12+"|"+cpHallIcon13);
@@ -440,6 +527,11 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     @Override
     public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult) {
         GameLog.log("postCPLeftInfoResult "+cpLeftInfoResult.toString());
+        moneyStr = cpLeftInfoResult.getUnsettledMoney();
+        cpHallUserMoney.setText(GameShipHelper.formatMoney(cpLeftInfoResult.getMoney()));
+        if(!Check.isNull(moneyText)) {
+            moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
+        }
     }
 
     class HallPageGameAdapter extends AutoSizeRVAdapter<CPHallIcon> {

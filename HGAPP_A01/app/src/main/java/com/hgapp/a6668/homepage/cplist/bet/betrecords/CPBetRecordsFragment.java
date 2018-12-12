@@ -220,6 +220,8 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
         List<BetRecordsList.dataBean>  thisweekList=  new ArrayList<>();
         BetRecordsList lastWeekBetRecordsData = new BetRecordsList();
         lastWeekBetRecordsData.recordsname = "上 周";
+        BetRecordsList thisWeekBetRecordsData = new BetRecordsList();
+        thisWeekBetRecordsData.recordsname ="本 周";
 
         for(int k=0;k<rowBeansSize;++k){
             if(rowBeans.get(k).getDate().equals(thisWeek.getdata1().getDateformat())){
@@ -253,6 +255,15 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastweekList.add(lastdataBean1);
         }
 
+        if(thisweekList.size()==0){
+            BetRecordsList.dataBean lastdataBean1 = new BetRecordsList.dataBean();
+            lastdataBean1.setAllnum("0");
+            lastdataBean1.setAllMoney("0.00");
+            lastdataBean1.setAllWin("0.00");
+            lastdataBean1.setBet_time(thisWeek.getdata1().getDateformat()+"\n"+thisWeek.getdata1().getWeek());
+            thisweekList.add(lastdataBean1);
+        }
+
         List<String> win1  = new ArrayList<>();//负数
         List<String> win2  = new ArrayList<>();//正数
         int betNumber = 0;
@@ -273,6 +284,17 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
+
+            if(rowBeans.get(k).getDate().equals(thisWeek.getdata2().getDateformat())){
+                BetRecordsList.dataBean thisdataBean1 = new BetRecordsList.dataBean();
+                thisdataBean1.setAllnum(rowBeans.get(k).getAllnum());
+                thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
+                thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
+                thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata2().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
+                thisweekList.add(thisdataBean1);
+            }
+
         }
 
         if(lastweekList.size()==1){
@@ -282,6 +304,16 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastdataBean1.setAllWin("0.00");
             lastdataBean1.setBet_time(lastWeek.getdata2().getDateformat()+"\n"+lastWeek.getdata2().getWeek());
             lastweekList.add(lastdataBean1);
+        }
+
+
+        if(thisweekList.size()==1){
+            BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
+            thisdataBean2.setAllnum("0");
+            thisdataBean2.setAllMoney("0.00");
+            thisdataBean2.setAllWin("0.00");
+            thisdataBean2.setBet_time(thisWeek.getdata2().getDateformat()+"\n"+thisWeek.getdata2().getWeek());
+            thisweekList.add(thisdataBean2);
         }
 
 
@@ -295,6 +327,16 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
+
+            if(rowBeans.get(k).getDate().equals(thisWeek.getdata3().getDateformat())){
+                BetRecordsList.dataBean thisdataBean1 = new BetRecordsList.dataBean();
+                thisdataBean1.setAllnum(rowBeans.get(k).getAllnum());
+                thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
+                thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
+                thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata3().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
+                thisweekList.add(thisdataBean1);
+            }
         }
 
         if(lastweekList.size()==2){
@@ -304,6 +346,15 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastdataBean1.setAllWin("0.00");
             lastdataBean1.setBet_time(lastWeek.getdata3().getDateformat()+"\n"+lastWeek.getdata3().getWeek());
             lastweekList.add(lastdataBean1);
+        }
+
+        if(thisweekList.size()==2){
+            BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
+            thisdataBean2.setAllnum("0");
+            thisdataBean2.setAllMoney("0.00");
+            thisdataBean2.setAllWin("0.00");
+            thisdataBean2.setBet_time(thisWeek.getdata3().getDateformat()+"\n"+thisWeek.getdata3().getWeek());
+            thisweekList.add(thisdataBean2);
         }
 
         for(int k=0;k<rowBeansSize;++k){
@@ -316,6 +367,16 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
+
+            if(rowBeans.get(k).getDate().equals(thisWeek.getdata4().getDateformat())){
+                BetRecordsList.dataBean thisdataBean1 = new BetRecordsList.dataBean();
+                thisdataBean1.setAllnum(rowBeans.get(k).getAllnum());
+                thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
+                thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
+                thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata4().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
+                thisweekList.add(thisdataBean1);
+            }
         }
 
         if(lastweekList.size()==3){
@@ -325,6 +386,15 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastdataBean1.setAllWin("0.00");
             lastdataBean1.setBet_time(lastWeek.getdata4().getDateformat()+"\n"+lastWeek.getdata4().getWeek());
             lastweekList.add(lastdataBean1);
+        }
+
+        if(thisweekList.size()==3){
+            BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
+            thisdataBean2.setAllnum("0");
+            thisdataBean2.setAllMoney("0.00");
+            thisdataBean2.setAllWin("0.00");
+            thisdataBean2.setBet_time(thisWeek.getdata4().getDateformat()+"\n"+thisWeek.getdata4().getWeek());
+            thisweekList.add(thisdataBean2);
         }
 
         for(int k=0;k<rowBeansSize;++k){
@@ -337,6 +407,16 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
+
+            if(rowBeans.get(k).getDate().equals(thisWeek.getdata5().getDateformat())){
+                BetRecordsList.dataBean thisdataBean1 = new BetRecordsList.dataBean();
+                thisdataBean1.setAllnum(rowBeans.get(k).getAllnum());
+                thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
+                thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
+                thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata5().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
+                thisweekList.add(thisdataBean1);
+            }
         }
 
         if(lastweekList.size()==4){
@@ -346,6 +426,15 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastdataBean1.setAllWin("0.00");
             lastdataBean1.setBet_time(lastWeek.getdata5().getDateformat()+"\n"+lastWeek.getdata5().getWeek());
             lastweekList.add(lastdataBean1);
+        }
+
+        if(thisweekList.size()==4){
+            BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
+            thisdataBean2.setAllnum("0");
+            thisdataBean2.setAllMoney("0.00");
+            thisdataBean2.setAllWin("0.00");
+            thisdataBean2.setBet_time(thisWeek.getdata5().getDateformat()+"\n"+thisWeek.getdata5().getWeek());
+            thisweekList.add(thisdataBean2);
         }
 
         for(int k=0;k<rowBeansSize;++k){
@@ -358,6 +447,16 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
+
+            if(rowBeans.get(k).getDate().equals(thisWeek.getdata6().getDateformat())){
+                BetRecordsList.dataBean thisdataBean1 = new BetRecordsList.dataBean();
+                thisdataBean1.setAllnum(rowBeans.get(k).getAllnum());
+                thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
+                thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
+                thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata6().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
+                thisweekList.add(thisdataBean1);
+            }
         }
 
         if(lastweekList.size()==5){
@@ -367,6 +466,15 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastdataBean1.setAllWin("0.00");
             lastdataBean1.setBet_time(lastWeek.getdata6().getDateformat()+"\n"+lastWeek.getdata6().getWeek());
             lastweekList.add(lastdataBean1);
+        }
+
+        if(thisweekList.size()==5){
+            BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
+            thisdataBean2.setAllnum("0");
+            thisdataBean2.setAllMoney("0.00");
+            thisdataBean2.setAllWin("0.00");
+            thisdataBean2.setBet_time(thisWeek.getdata6().getDateformat()+"\n"+thisWeek.getdata6().getWeek());
+            thisweekList.add(thisdataBean2);
         }
 
         for(int k=0;k<rowBeansSize;++k){
@@ -379,6 +487,16 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 lastdataBean1.setTime(rowBeans.get(k).getDate());
                 lastweekList.add(lastdataBean1);
             }
+
+            if(rowBeans.get(k).getDate().equals(thisWeek.getdata7().getDateformat())){
+                BetRecordsList.dataBean thisdataBean1 = new BetRecordsList.dataBean();
+                thisdataBean1.setAllnum(rowBeans.get(k).getAllnum());
+                thisdataBean1.setAllMoney(GameShipHelper.formatMoney2(rowBeans.get(k).getAllMoney()));
+                thisdataBean1.setAllWin(GameShipHelper.formatMoney2(rowBeans.get(k).getAllWin()));
+                thisdataBean1.setBet_time(rowBeans.get(k).getDate()+"\n"+thisWeek.getdata7().getWeek());
+                thisdataBean1.setTime(rowBeans.get(k).getDate());
+                thisweekList.add(thisdataBean1);
+            }
         }
 
         if(lastweekList.size()==6){
@@ -390,69 +508,20 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
             lastweekList.add(lastdataBean1);
         }
 
-       /* lastweekList.add(lastdataBean2);
-        lastweekList.add(lastWeek.getdata3());
-        lastweekList.add(lastWeek.getdata4());
-        lastweekList.add(lastWeek.getdata5());
-        lastweekList.add(lastWeek.getdata6());
-        lastweekList.add(lastWeek.getdata7());
-        lastWeekBetRecordsData.arrayListData = lastweekList;*/
-
-
-        BetRecordsList thisWeekBetRecordsData = new BetRecordsList();
-        thisWeekBetRecordsData.recordsname ="本 周";
-
-        if(thisweekList.size()==0){
-            BetRecordsList.dataBean lastdataBean1 = new BetRecordsList.dataBean();
-            lastdataBean1.setAllnum("0");
-            lastdataBean1.setAllMoney("0.00");
-            lastdataBean1.setAllWin("0.00");
-            lastdataBean1.setBet_time(thisWeek.getdata1().getDateformat()+"\n"+thisWeek.getdata1().getWeek());
-            thisweekList.add(lastdataBean1);
+        if(thisweekList.size()==6){
+            BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
+            thisdataBean2.setAllnum("0");
+            thisdataBean2.setAllMoney("0.00");
+            thisdataBean2.setAllWin("0.00");
+            thisdataBean2.setBet_time(thisWeek.getdata7().getDateformat()+"\n"+thisWeek.getdata7().getWeek());
+            thisweekList.add(thisdataBean2);
         }
-
-        BetRecordsList.dataBean thisdataBean2 = new BetRecordsList.dataBean();
-        thisdataBean2.setAllnum("0");
-        thisdataBean2.setAllMoney("0.00");
-        thisdataBean2.setAllWin("0.00");
-        thisdataBean2.setBet_time(thisWeek.getdata2().getDateformat()+"\n"+thisWeek.getdata2().getWeek());
-        thisweekList.add(thisdataBean2);
-
-        BetRecordsList.dataBean thisdataBean3 = new BetRecordsList.dataBean();
-        thisdataBean3.setAllnum("0");
-        thisdataBean3.setAllMoney("0.00");
-        thisdataBean3.setAllWin("0.00");
-        thisdataBean3.setBet_time(thisWeek.getdata3().getDateformat()+"\n"+thisWeek.getdata3().getWeek());
-        thisweekList.add(thisdataBean3);
-
-
-        BetRecordsList.dataBean thisdataBean4 = new BetRecordsList.dataBean();
-        thisdataBean4.setAllnum("0");
-        thisdataBean4.setAllMoney("0.00");
-        thisdataBean4.setAllWin("0.00");
-        thisdataBean4.setBet_time(thisWeek.getdata4().getDateformat()+"\n"+thisWeek.getdata4().getWeek());
-        thisweekList.add(thisdataBean4);
-
-        BetRecordsList.dataBean thisdataBean5 = new BetRecordsList.dataBean();
-        thisdataBean5.setAllnum("0");
-        thisdataBean5.setAllMoney("0.00");
-        thisdataBean5.setAllWin("0.00");
-        thisdataBean5.setBet_time(thisWeek.getdata5().getDateformat()+"\n"+thisWeek.getdata5().getWeek());
-        thisweekList.add(thisdataBean5);
-
-        BetRecordsList.dataBean thisdataBean6 = new BetRecordsList.dataBean();
-        thisdataBean6.setAllnum("0");
-        thisdataBean6.setAllMoney("0.00");
-        thisdataBean6.setAllWin("0.00");
-        thisdataBean6.setBet_time(thisWeek.getdata6().getDateformat()+"\n"+thisWeek.getdata6().getWeek());
-        thisweekList.add(thisdataBean6);
 
         BetRecordsList.dataBean thisdataBean7 = new BetRecordsList.dataBean();
         thisdataBean7.setAllnum("0");
         thisdataBean7.setAllMoney("0.00");
         thisdataBean7.setAllWin("0.00");
         thisdataBean7.setBet_time(thisWeek.getdata7().getDateformat()+"\n"+thisWeek.getdata7().getWeek());
-        thisweekList.add(thisdataBean7);
         thisweekList.add(thisdataBean7);
 
         lastWeekBetRecordsData.arrayListData = lastweekList;

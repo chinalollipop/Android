@@ -135,6 +135,11 @@ public abstract class HGConstant {
     //首页notice
     public static final String USERNAME_HOME_NOTICE = "username_home_notice";
 
+
+
+    //CP首页notice
+    public static final String USERNAME_CP_HOME_NOTICE = "username_cp_home_notice";
+
     //用户当前的状态
     public static final String USERNAME_CURRENT_STATE = "username_current_state";
 
@@ -178,6 +183,10 @@ public abstract class HGConstant {
 
     //用户的登录状态  后的banner
     public static final String USERNAME_LOGIN_BANNER = "username_login_banner";
+
+
+    //用户的登录状态  用户名
+    public static final String USERNAME_LOGIN_NAME = "username_login_name";
 
     //用户的初始化下注的选中状态
     public static final String USERNAME_AUTO_ADD = "username_auto_add";

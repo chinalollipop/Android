@@ -1,4 +1,4 @@
-package com.hgapp.a6668.homepage.cplist;
+package com.hgapp.a6668.homepage.cplist.me;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,29 +7,41 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hgapp.a6668.CPInjections;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
+import com.hgapp.a6668.base.BaseActivity2;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.http.Client;
+import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.ArrayListHelper;
+import com.hgapp.a6668.common.util.DateHelper;
+import com.hgapp.a6668.common.util.GameShipHelper;
+import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.GridRvItemDecoration2;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.AGLiveResult;
+import com.hgapp.a6668.data.CPHallResult;
+import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.aglist.AGListContract;
+import com.hgapp.a6668.homepage.cplist.CPOrderFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
+import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
+import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
 import com.hgapp.common.util.GameLog;
 import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -39,15 +51,13 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
-import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
-public class CPMeFragment extends HGBaseFragment implements AGListContract.View {
+public class CPMeFragment extends BaseActivity2 implements CPHallListContract.View {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -65,40 +75,38 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
     @BindView(R.id.userMoneyRefresh)
     ImageView userMoneyRefresh;
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
-    AGListContract.Presenter presenter;
+    CPHallListContract.Presenter presenter;
     private String agMoney, hgMoney;
     private String titleName = "";
     private String dzTitileName = "";
     Animation animation ;
     static {
-        cpGameList.add(new HomePageIcon("个人资料", R.mipmap.cp_profile));
-        cpGameList.add(new HomePageIcon("登录密码", R.mipmap.cp_modifypwd));
-        cpGameList.add(new HomePageIcon("信息中心", R.mipmap.cp_message));
-        cpGameList.add(new HomePageIcon("资金管理", R.mipmap.cp_funds));
-        cpGameList.add(new HomePageIcon("取款密码", R.mipmap.cp_transfer));
-        cpGameList.add(new HomePageIcon("银行卡", R.mipmap.cp_bankaccount));
-        cpGameList.add(new HomePageIcon("今日已结", R.mipmap.cp_record));
-        cpGameList.add(new HomePageIcon("今日下注", R.mipmap.cp_record));
-        cpGameList.add(new HomePageIcon("在线客服", R.mipmap.cp_service));
+        cpGameList.add(new HomePageIcon("即时注单", R.mipmap.cp_profile,1));
+        cpGameList.add(new HomePageIcon("今日已结", R.mipmap.cp_modifypwd,2));
+        cpGameList.add(new HomePageIcon("下注记录", R.mipmap.cp_message,3));
+        cpGameList.add(new HomePageIcon("开奖结果", R.mipmap.cp_funds,4));
+        cpGameList.add(new HomePageIcon("今日输赢", R.mipmap.cp_transfer,5));
+        cpGameList.add(new HomePageIcon("在线客服", R.mipmap.cp_service,6));
     }
 
-    public static CPMeFragment newInstance(List<String> param1) {
+   /* public static CPMeFragment newInstance(List<String> param1) {
         CPMeFragment fragment = new CPMeFragment();
         Bundle args = new Bundle();
         args.putStringArrayList(ARG_PARAM1, ArrayListHelper.convertListToArrayList(param1));
         Injections.inject(null, fragment);
         fragment.setArguments(args);
         return fragment;
-    }
+    }*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        CPInjections.inject(this,null);
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+       /* if (getArguments() != null) {
             userName = getArguments().getStringArrayList(ARG_PARAM1).get(0);
             userMoney = getArguments().getStringArrayList(ARG_PARAM1).get(1);
             fshowtype = getArguments().getStringArrayList(ARG_PARAM1).get(2);
-        }
+        }*/
     }
 
     @Override
@@ -108,9 +116,12 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        presenter.postCPLeftInfo("");
+        GregorianCalendar ca = new GregorianCalendar();
+        int time =  ca.get(GregorianCalendar.AM_PM);
+        GameLog.log("当前的时间是 "+(time==0?"上午":"下午"));
+        cpUserName.setText((time==0?"上午好！":"下午好！")+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_NAME));
         animation = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
-        /*cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.VERTICAL,5,getContext().getColor(R.color.textview_normal),8));
-        cpList.addItemDecoration(new RecyclerViewItemDecoration(LinearLayoutManager.HORIZONTAL,5,getContext().getColor(R.color.textview_normal),8));*/
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
         cpMeList.setLayoutManager(gridLayoutManager);
         cpMeList.setHasFixedSize(true);
@@ -123,7 +134,7 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.backHome:
-                pop();
+                finish();
                 break;
             case R.id.userLogout:
                 ///退出
@@ -131,9 +142,25 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
             case R.id.userMoneyRefresh:
                 userMoneyRefresh.startAnimation(animation);
                 //刷新用户余额
-
+                presenter.postCPLeftInfo("");
                 break;
         }
+    }
+
+    @Override
+    public void postCPHallListResult(CPHallResult cpHallResult) {
+
+    }
+
+    @Override
+    public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult) {
+        userMoneyRefresh.clearAnimation();
+        cpUserMoney.setText("用户余额："+GameShipHelper.formatMoney(cpLeftInfoResult.getMoney()));
+    }
+
+    @Override
+    public void setPresenter(CPHallListContract.Presenter presenter) {
+        this.presenter = presenter;
     }
 
     class MePageGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
@@ -145,14 +172,41 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
         }
 
         @Override
-        protected void convert(ViewHolder holder, HomePageIcon data, final int position) {
+        protected void convert(ViewHolder holder, final HomePageIcon data, final int position) {
             holder.setText(R.id.tv_item_game_name, data.getIconName());
             holder.setBackgroundRes(R.id.iv_item_game_icon, data.getIconId());
             holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
-                    startActivity(new Intent(getContext(),CPOrderFragment.class));
+                    Intent intent = null;
+                    switch (data.getId()){
+                        case 1:
+                            intent = new Intent(getContext(),CPBetNowFragment.class);
+                            intent.putExtra("gameForm","now");
+                            intent.putExtra("gameTime",DateHelper.getToday());
+                            break;
+                        case 2:
+                        case 5:
+                            intent = new Intent(getContext(),CPBetListRecordsFragment.class);
+                            intent.putExtra("gameForm","today");
+                            intent.putExtra("gameTime",DateHelper.getToday());
+                            break;
+                        case 3:
+                            intent = new Intent(getContext(),CPBetRecordsFragment.class);
+                            intent.putExtra("gameId","51");
+                            intent.putExtra("gameName","北京赛车");
+                            break;
+                        case 4:
+                            intent = new Intent(getContext(),CPLotteryListFragment.class);
+                            intent.putExtra("gameId","51");
+                            intent.putExtra("gameName","北京赛车");
+                            break;
+                        case 6:
+
+                            break;
+                    }
+                    startActivity(intent);
                     //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("111", "222", "333"))));
                 }
             });
@@ -166,84 +220,8 @@ public class CPMeFragment extends HGBaseFragment implements AGListContract.View 
     }
 
     @Override
-    public void setPresenter(AGListContract.Presenter presenter) {
-
-        this.presenter = presenter;
-    }
-
-    @Override
     protected List<IPresenter> presenters() {
         return Arrays.asList((IPresenter) presenter);
-    }
-
-    @Override
-    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
-
-    }
-
-    @Override
-    public void postCheckAgLiveAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    @Override
-    public void postCheckAgGameAccountResult(CheckAgLiveResult checkAgLiveResult) {
-    }
-
-    @Override
-    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        GameLog.log("用户的真人账户：" + personBalance.getBalance_ag());
-    }
-
-    @Override
-    public void postAGGameResult(List<AGLiveResult> agLiveResult) {
-        GameLog.log("游戏列表：" + agLiveResult);
-    }
-
-    @Override
-    public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    @Override
-    public void postCreateAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
-
-    }
-
-    class AGGameAdapter extends AutoSizeRVAdapter<AGLiveResult> {
-        private Context context;
-
-        public AGGameAdapter(Context context, int layoutId, List datas) {
-            super(context, layoutId, datas);
-            this.context = context;
-        }
-
-        @Override
-        protected void convert(ViewHolder holder, final AGLiveResult data, final int position) {
-            holder.setText(R.id.tv_item_game_name, data.getName());
-            RoundCornerImageView roundCornerImageView = (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
-            roundCornerImageView.onCornerAll(roundCornerImageView);
-            String ur = Client.baseUrl().substring(0, Client.baseUrl().length() - 1) + data.getGameurl();
-            //GameLog.log("图片地址："+ur);
-            Picasso.with(context)
-                    .load(ur)
-                    .placeholder(null)
-                    .into(roundCornerImageView);
-            holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dzTitileName = data.getName();
-                    presenter.postGoPlayGame("", data.getGameid());
-                }
-            });
-        }
-    }
-
-    @Subscribe
-    public void onPersonBalanceResult(PersonBalanceResult personBalanceResult) {
-        GameLog.log("通过发送消息得的的数据" + personBalanceResult.getBalance_ag());
-        agMoney = personBalanceResult.getBalance_ag();
-        hgMoney = personBalanceResult.getBalance_hg();
     }
 
 
