@@ -18,6 +18,7 @@ import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.data.BetRecordsListItemResult;
 import com.hgapp.a6668.data.CPBetNowResult;
+import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -117,7 +118,7 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
         }
 
         @Override
-        protected void convert(ViewHolder holder, BetNow data, final int position) {
+        protected void convert(ViewHolder holder, final BetNow data, final int position) {
             /** 北京赛车    game_code 51
              *  重庆时时彩    game_code 2
              *  极速赛车    game_code 189
@@ -183,6 +184,19 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
             holder.setText(R.id.cpBetRecord2time, name);
             holder.setText(R.id.cpBetRecord2number, data.num);
             holder.setText(R.id.cpBetRecord2money, data.moeny);
+            holder.setOnClickListener(R.id.cpBetRecordLay, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(Integer.parseInt(data.num)>0){
+                        showMessage("可以点击的地方");
+                        Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
+                        intent.putExtra("gameForm","now");
+                        intent.putExtra("gameTime",data.id);
+                        intent.putExtra("gameId",data.id);
+                        startActivity(intent);
+                    }
+                }
+            });
         }
     }
 
@@ -433,7 +447,7 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
         }
 
         cpBetRecordsList.refreshComplete();
-        cpBetRecordsList.setNoMore(true);
+        cpBetRecordsList.loadMoreComplete();
         if(null == cpOrederContentGameAdapter){
             cpOrederContentGameAdapter = new BetListRecordsItemGameAdapter(getContext(), R.layout.item_cp_records_4, betNowList);
             cpBetRecordsList.setAdapter(cpOrederContentGameAdapter);

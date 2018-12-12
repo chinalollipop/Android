@@ -42,6 +42,10 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.cpBetRecordsTitle)
     TextView cpBetRecordsTitle;
+    @BindView(R.id.cpBetRecordsTitleName)
+    TextView cpBetRecordsTitleName;
+    @BindView(R.id.cpBetNowName)
+    TextView cpBetNowName;
     @BindView(R.id.cpBetRecordsList)
     XRecyclerView cpBetRecordsList;
     @BindView(R.id.cpBetRecordsbackHome)
@@ -55,7 +59,7 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     private String userName, userMoney, fshowtype, M_League, getArgParam4, fromType;
     CpBetListRecordsContract.Presenter presenter;
     private String agMoney, hgMoney;
-    private String gameTime = "",gameForm = "";
+    private String gameTime = "",gameForm = "",gameId = "";
     private String dzTitileName = "";
 
     int page =1;
@@ -82,8 +86,61 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
         if(gameForm.equals("today")){
             cpBetRecordsTitle.setText("今日已结");
             presenter.getCpBetRecords("page=1&rows=20","today");
+        }else if(gameForm.equals("before")){
+            presenter.getCpBetRecords(gameTime+"/1/20","before");
         }else{
-            presenter.getCpBetRecords(gameTime+"/1/20","");
+            cpBetRecordsTitle.setText("即时注单");
+            cpBetNowName.setText("可盈金额");
+            gameId =  intent.getStringExtra("gameId");
+            String name = "";
+            switch (gameId){
+                case "51":
+                    name ="北京赛车";
+                    break;
+                case "2":
+                    name ="重庆时时彩";
+                    break;
+                case "189":
+                    name ="极速赛车";
+                    break;
+                case "222":
+                    name ="极速飞艇";
+                    break;
+                case "207":
+                    name ="分分彩";
+                    break;
+                case "407":
+                    name ="三分彩";
+                    break;
+                case "507":
+                    name ="五分彩";
+                    break;
+                case "607":
+                    name ="腾讯二分彩";
+                    break;
+                case "304":
+                    name ="PC蛋蛋";
+                    break;
+                case "159":
+                    name ="江苏快3";
+                    break;
+                case "47":
+                    name ="幸运农场";
+                    break;
+                case "3":
+                    name ="快乐十分";
+                    break;
+                case "69":
+                    name ="香港六合彩";
+                    break;
+                case "384":
+                    name ="极速快三";
+                    break;
+
+            }
+            cpBetRecordsTitleName.setVisibility(View.VISIBLE);
+            cpBetRecordsTitleName.setText(name+">下注明细");
+            presenter.getCpBetRecords(gameId,"now");
         }
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
         cpBetRecordsList.setLayoutManager(gridLayoutManager);
@@ -112,8 +169,10 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     private void onSearchRecordList(){
         if(gameForm.equals("today")){
             presenter.getCpBetRecords("page="+page+"&rows=20","today");
+        }else if(gameForm.equals("before")){
+            presenter.getCpBetRecords(gameTime+"/"+page+"/20","before");
         }else{
-            presenter.getCpBetRecords(gameTime+"/"+page+"/20","");
+            presenter.getCpBetRecords(gameId,"now");
         }
     }
 
@@ -203,8 +262,18 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
             }
             holder.setText(R.id.cpBetRecord2time, name+"\n"+data.getRound());
             holder.setText(R.id.cpBetRecord2number, data.getBetInfo());
-            holder.setText(R.id.cpBetRecord2money, data.getMayWin()+"");
-            holder.setText(R.id.cpBetRecord2win, data.getRebateResult()+"");
+            holder.setText(R.id.cpBetRecord2money, GameShipHelper.formatMoney2(data.getDrop_money()));
+            if(gameForm.equals("now")){
+                holder.setText(R.id.cpBetRecord2time, data.getRound());
+                holder.setText(R.id.cpBetRecord2win, GameShipHelper.formatMoney2(data.getMayWin()));
+            }else{
+                if("-".equals(data.getRebateResult().substring(0,1))){
+                    holder.setTextColor(R.id.cpBetRecord2win,getResources().getColor(R.color.login_tv));
+                }else{
+                    holder.setTextColor(R.id.cpBetRecord2win,getResources().getColor(R.color.event_line));
+                }
+                holder.setText(R.id.cpBetRecord2win, GameShipHelper.formatMoney2(data.getRebateResult()));
+            }
         }
     }
 
@@ -238,11 +307,17 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
 
     @Override
     public void getBetRecordsResult(BetRecordsListItemResult betRecordsResult) {
-
-        pageTotal = betRecordsResult.getTotalCount()/20;
+        if(gameForm.equals("now")){
+            pageTotal =1;
+            cpBetRecordsMoney.setText(Html.fromHtml("总下注金额："+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
+            cpBetRecordsNumber.setVisibility(View.GONE);
+        }else{
+            pageTotal = betRecordsResult.getTotalCount()/20;
+            cpBetRecordsNumber.setText(Html.fromHtml("下注金额："+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
+            cpBetRecordsMoney.setText(Html.fromHtml("输赢金额："+onMarkRed(betRecordsResult.getOtherData().getTotalResultMoney()+"")));
+        }
         GameLog.log("当前是第 【"+page+" 】页  总共的页数是 【"+pageTotal+"】");
-        cpBetRecordsNumber.setText(Html.fromHtml("下注金额："+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
-        cpBetRecordsMoney.setText(Html.fromHtml("输赢金额："+onMarkRed(betRecordsResult.getOtherData().getTotalResultMoney()+"")));
+
 
         //cpBetRecordsList.addItemDecoration(new GridRvItemDecoration2(getContext()));
         if(betRecordsResult.getData().size()>0){
@@ -251,8 +326,12 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
             if(page == 1){
                 dataBeans.clear();
                 cpBetRecordsList.refreshComplete();
+                if(gameForm.equals("now")){
+                    cpBetRecordsList.setNoMore(true);
+                    cpBetRecordsList.loadMoreComplete();
+                }
             }else if(page>=pageTotal){
-                cpBetRecordsList.setNoMore(true);
+                    cpBetRecordsList.setNoMore(true);
             }else{
                 cpBetRecordsList.loadMoreComplete();
             }

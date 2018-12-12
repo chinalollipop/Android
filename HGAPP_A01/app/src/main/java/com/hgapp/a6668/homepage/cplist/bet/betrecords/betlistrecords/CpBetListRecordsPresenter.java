@@ -28,9 +28,11 @@ public class CpBetListRecordsPresenter implements CpBetListRecordsContract.Prese
         String x_session_token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         if(from.equals("today")){
             requestUrl = "main/todaybill?"+dataTime+"&x-session-token="+x_session_token;//page=1&rows=20
-        }else{
+        }else if(from.equals("before")){
             requestUrl = "main/betcount_list_less_12hours/"+dataTime+"?x-session-token="+x_session_token;//2018-12-06/1/20
-
+        }else{
+            //main/getNotcountDetail?gameId=51&rows=100&x-session-token=f03744fb19f25a4d15f8238d76ad3c11
+            requestUrl = "main/getNotcountDetail?gameId="+dataTime+"&rows=100&x-session-token="+x_session_token;//2018-12-06/1/20
         }
         subscriptionHelper.add(RxHelper.addSugar(api.getCpBetRecords(requestUrl))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<BetRecordsListItemResult>() {
