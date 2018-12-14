@@ -144,10 +144,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             EventBus.getDefault().post(new ShowMainEvent(1));
                             break;
                         case 1:
-                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                            /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
-                            }
+                            }*/
                             EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 2:
@@ -178,10 +178,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             }
                             break;
                         case 4:
-                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                           /* if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
-                            }
+                            }*/
                             EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                             break;
                         case 5:

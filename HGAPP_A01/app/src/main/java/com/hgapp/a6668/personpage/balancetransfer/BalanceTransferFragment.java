@@ -13,11 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeAdapter;
+import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.CustomPopWindow;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.data.BetRecordResult;
@@ -182,24 +185,56 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
            return;
        }
         if(from.equals("hg")&&to.equals("ag")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransfer("","hg","ag",transferMoney);
         }else if(from.equals("ag")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransfer("","ag","hg",transferMoney);
         }else if(from.equals("hg")&&to.equals("cp")){
             presenter.postBanalceTransferCP("","fundLimitTrans","hg","cp",transferMoney);
         }else if(from.equals("cp")&&to.equals("hg")){
             presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg",transferMoney);
         }else if(from.equals("hg")&&to.equals("ky")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransferKY("","hg","ky",transferMoney);
         }else if(from.equals("ky")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransferKY("","ky","hg",transferMoney);
         }else if(from.equals("ff")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransferHG("","ff","hg",transferMoney);
         }else if(from.equals("hg")&&to.equals("ff")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransferHG("","hg","ff",transferMoney);
         }else if(from.equals("vg")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransferVG("","vg","hg",transferMoney);
         }else if(from.equals("hg")&&to.equals("vg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
             presenter.postBanalceTransferVG("","hg","vg",transferMoney);
         }else {
             showMessage("转账方式不支持");
