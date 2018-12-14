@@ -43,6 +43,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPQuickBetResult;
 import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
@@ -27809,6 +27810,11 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     }
 
     @Override
+    public void postQuickBetResult(CPQuickBetResult cpQuickBetResult) {
+        GameLog.log("快捷投注的数据：" +cpQuickBetResult.getData());
+    }
+
+    @Override
     public void postRateInfoBjscResult(CPBJSCResult cpbjscResult) {
         cpOrderContentListResults =  BJPK10(cpbjscResult,index);
         onResponseCQResult();
@@ -28281,6 +28287,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postRateInfoHK(game_code,type,x_session_token);
                 break;
         }
+        presenter.postQuickBet(game_code,type,x_session_token);
 
     }
 

@@ -11,6 +11,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPQuickBetResult;
 import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
@@ -37,6 +38,11 @@ public interface ICPOrderApi {
     @Headers({"Domain-Name: CpUrl"})
     @GET
     Observable<CPHallResult> get(@Url String path);
+
+    @POST("game/quick_bet_android")
+    @FormUrlEncoded
+    Observable<CPQuickBetResult> postQuickBet(@Field("game_code") String game_code, @Field("type") String type, @Field("sort") String sort, @Field("x-session-token") String x_session_token);
+
 
     @POST("gamessc/getrateinfo")
     @FormUrlEncoded

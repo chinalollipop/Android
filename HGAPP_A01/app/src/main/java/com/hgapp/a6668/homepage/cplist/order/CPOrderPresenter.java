@@ -13,6 +13,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPQuickBetResult;
 import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
@@ -52,6 +53,27 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
                     public void success(CPLeftInfoResult response) {
                         GameLog.log(""+response.toString());
                         view.postCPLeftInfoResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postQuickBet(String game_code, String type, String x_session_token) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postQuickBet(game_code,type,"0",x_session_token))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<CPQuickBetResult>() {
+                    @Override
+                    public void success(CPQuickBetResult response) {
+                        GameLog.log(""+response.toString());
+                        view.postQuickBetResult(response);
                     }
 
                     @Override

@@ -14,6 +14,7 @@ import com.hgapp.a6668.data.CPJSSCResult;
 import com.hgapp.a6668.data.CPLastResult;
 import com.hgapp.a6668.data.CPLeftInfoResult;
 import com.hgapp.a6668.data.CPNextIssueResult;
+import com.hgapp.a6668.data.CPQuickBetResult;
 import com.hgapp.a6668.data.CPXYNCResult;
 import com.hgapp.a6668.data.CQ1FCResult;
 import com.hgapp.a6668.data.CQ2FCResult;
@@ -28,6 +29,7 @@ public interface CPOrderContract {
     {
 
         public void postCPLeftInfo(String type,String x_session_token);
+        public void postQuickBet(String game_code,String type,String x_session_token);
         public void postRateInfoBjsc(String game_code,String type,String x_session_token);
         public void postRateInfoJssc(String game_code,String type,String x_session_token);
         public void postRateInfoJsft(String game_code,String type,String x_session_token);
@@ -53,6 +55,7 @@ public interface CPOrderContract {
     public interface View extends IView<CPOrderContract.Presenter>,IMessageView,IProgressView
     {
         public void postRateInfoResult(CQSSCResult cqsscResult);
+        public void postQuickBetResult(CPQuickBetResult cpQuickBetResult);
         public void postRateInfoBjscResult(CPBJSCResult cpbjscResult);
         public void postRateInfoJsscResult(CPJSSCResult cpbjscResult );
         public void postRateInfoJsftResult(CPJSFTResult cpbjscResult);
