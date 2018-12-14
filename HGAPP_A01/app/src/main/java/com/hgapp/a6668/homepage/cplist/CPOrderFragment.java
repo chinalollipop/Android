@@ -14,7 +14,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -62,6 +61,7 @@ import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
 import com.hgapp.a6668.homepage.cplist.events.LeftMenuEvents;
+import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetFragment;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderContract;
 import com.hgapp.common.util.Check;
@@ -215,6 +215,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     TextView moneyText,todaywinText;
     String moneyStr="0.00",todaywinStr="0.00";
     private boolean isCloseLottery = false;
+    CPQuickBetResult cpQuickBetResult;
     static {
         //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
         cpGameList.add(new HomePageIcon("系统菜单", R.mipmap.home_hgty));
@@ -27811,6 +27812,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     @Override
     public void postQuickBetResult(CPQuickBetResult cpQuickBetResult) {
+        this.cpQuickBetResult = cpQuickBetResult;
         GameLog.log("快捷投注的数据：" +cpQuickBetResult.getData());
     }
 
@@ -31843,7 +31845,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         GameLog.log("重置了 ");
     }
 
-    @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu,R.id.cpOrderReset,R.id.cpOrderSubmit,R.id.cpOrderTeMaB,R.id.cpOrderTeMaA})
+    @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu,R.id.cpOrderReset,R.id.cpOrderSubmit,R.id.cpOrderTeMaB,R.id.cpOrderTeMaA,R.id.cpOrderFastSubmit})
     public void onClickedView(View view ){
         switch (view.getId()){
             case R.id.cpOrderTeMaA:
@@ -31981,6 +31983,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             case R.id.cpOrderMenu:
                 showPopMenuIn();
                 presenter.postCPLeftInfo("",x_session_token);
+                break;
+            case R.id.cpOrderFastSubmit:
+                QuickBetFragment.newInstance(cpQuickBetResult).show(getSupportFragmentManager());
                 break;
         }
 

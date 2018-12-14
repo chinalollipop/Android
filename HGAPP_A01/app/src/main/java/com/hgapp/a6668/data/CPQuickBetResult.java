@@ -1,8 +1,11 @@
 package com.hgapp.a6668.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class CPQuickBetResult {
+public class CPQuickBetResult implements Parcelable {
 
     private List<DataBean> data;
 
@@ -14,7 +17,7 @@ public class CPQuickBetResult {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Parcelable {
         /**
          * id : 21
          * userid : 3994
@@ -98,5 +101,77 @@ public class CPQuickBetResult {
         public void setUpdate_time(String update_time) {
             this.update_time = update_time;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.id);
+            dest.writeString(this.userid);
+            dest.writeString(this.sort);
+            dest.writeString(this.game_code);
+            dest.writeString(this.code_number);
+            dest.writeString(this.code);
+            dest.writeString(this.create_time);
+            dest.writeString(this.update_time);
+        }
+
+        public DataBean() {
+        }
+
+        protected DataBean(Parcel in) {
+            this.id = in.readString();
+            this.userid = in.readString();
+            this.sort = in.readString();
+            this.game_code = in.readString();
+            this.code_number = in.readString();
+            this.code = in.readString();
+            this.create_time = in.readString();
+            this.update_time = in.readString();
+        }
+
+        public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel source) {
+                return new DataBean(source);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(this.data);
+    }
+
+    public CPQuickBetResult() {
+    }
+
+    protected CPQuickBetResult(Parcel in) {
+        this.data = in.createTypedArrayList(DataBean.CREATOR);
+    }
+
+    public static final Parcelable.Creator<CPQuickBetResult> CREATOR = new Parcelable.Creator<CPQuickBetResult>() {
+        @Override
+        public CPQuickBetResult createFromParcel(Parcel source) {
+            return new CPQuickBetResult(source);
+        }
+
+        @Override
+        public CPQuickBetResult[] newArray(int size) {
+            return new CPQuickBetResult[size];
+        }
+    };
 }

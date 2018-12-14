@@ -22,12 +22,18 @@ import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.ICpBetNowApi;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListPresenter;
 import com.hgapp.a6668.homepage.cplist.hall.ICPHallListApi;
+import com.hgapp.a6668.homepage.cplist.quickbet.IQuickBetApi;
+import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetContract;
+import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetPresenter;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListContract;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListPresenter;
 import com.hgapp.a6668.homepage.cplist.lottery.ICPLotteryListApi;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderContract;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderPresenter;
 import com.hgapp.a6668.homepage.cplist.order.ICPOrderApi;
+import com.hgapp.a6668.homepage.cplist.quickbet.mothed.IQuickBetMethodApi;
+import com.hgapp.a6668.homepage.cplist.quickbet.mothed.QuickBetMethodContract;
+import com.hgapp.a6668.homepage.cplist.quickbet.mothed.QuickBetMethodPresenter;
 
 public class CPInjections {
     private CPInjections(){}
@@ -107,5 +113,23 @@ public class CPInjections {
             api = CPClient.getRetrofit().create(ICPLotteryListApi.class);
         }
         return new CPLotteryListPresenter(api,view);
+    }
+
+    public static QuickBetContract.Presenter inject(@NonNull QuickBetContract.View view, @Nullable IQuickBetApi api)
+    {
+        if(null == api)
+        {
+            api = CPClient.getRetrofit().create(IQuickBetApi.class);
+        }
+        return new QuickBetPresenter(api,view);
+    }
+
+    public static QuickBetMethodContract.Presenter inject(@NonNull QuickBetMethodContract.View view, @Nullable IQuickBetMethodApi api)
+    {
+        if(null == api)
+        {
+            api = CPClient.getRetrofit().create(IQuickBetMethodApi.class);
+        }
+        return new QuickBetMethodPresenter(api,view);
     }
 }
