@@ -57,13 +57,16 @@ import com.hgapp.a6668.homepage.cplist.bet.CPBetParams;
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
+import com.hgapp.a6668.homepage.cplist.events.CPOrderList;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a6668.homepage.cplist.events.CloseLotteryEvent;
 import com.hgapp.a6668.homepage.cplist.events.LeftEvents;
 import com.hgapp.a6668.homepage.cplist.events.LeftMenuEvents;
+import com.hgapp.a6668.homepage.cplist.events.QuickBetMothedEvent;
 import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetFragment;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderContract;
+import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetParam;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
@@ -30969,6 +30972,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             }
 
             if(data.isChecked()){
+                if(data.getIsQuick().equals("1")){
+                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
+                    if("_".equals(name.substring(name.length() -1, name.length()))){
+                        name = name.substring(0, name.length() -1);
+                    }
+                    if(game_code.equals("69")){
+                        if("17".equals(type)||"40".equals(type)||"5".equals(type)||"6".equals(type)||"7".equals(type)||"8".equals(type)||"9".equals(type)||"10".equals(type)){
+                            name = data.getOrderName();
+                        }else{
+                            name = data.getFullName()+" - "+data.getOrderName();
+                        }
+                    }
+                    CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                    //cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                }
                 holder.setBackgroundRes(R.id.cpOrderContentItem,R.color.cp_order_tv_clicked);
             }else{
                 holder.setBackgroundRes(R.id.cpOrderContentItem,R.color.title_text);
@@ -31985,7 +32003,22 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postCPLeftInfo("",x_session_token);
                 break;
             case R.id.cpOrderFastSubmit:
-                QuickBetFragment.newInstance(cpQuickBetResult).show(getSupportFragmentManager());
+                QuickBetParam quickBetParam = new QuickBetParam();
+                ArrayList<CPOrderList>  cpOrderListArrayList= CPBetManager.getSingleton().onShowViewListData();
+                if(cpOrderListArrayList.size()==0){
+                    quickBetParam.code = "";
+                }else{
+                    String codeNumber ="";
+                    int sizeAll = cpOrderListArrayList.size();
+                    for(int l=0;l<sizeAll;++l){
+                        codeNumber += cpOrderListArrayList.get(l).gid+",";
+                    }
+                    quickBetParam.code =  codeNumber;
+                }
+                quickBetParam.game_code = game_code;
+                quickBetParam.code_number = type;
+                quickBetParam.token = x_session_token;
+                QuickBetFragment.newInstance(cpQuickBetResult,quickBetParam).show(getSupportFragmentManager());
                 break;
         }
 
@@ -32100,6 +32133,97 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         CPBetManager.getSingleton().onClearData();
         cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));
         cpOrderGold.setText("");
+    }
+
+    @Subscribe
+    public void onEventMain(QuickBetMothedEvent quickBetMothedEvent){
+        List<CPQuickBetResult.DataBean> dataBeanList = cpQuickBetResult.getData();
+        int sizeList = dataBeanList.size();
+        if(quickBetMothedEvent.sort.equals("1")){
+            for(int k=0;k<sizeList;++k){
+                if(dataBeanList.get(k).getSort().equals("1")){
+                    GameLog.log("方式一："+dataBeanList.get(k).getCode());
+                    String[] code = dataBeanList.get(k).getCode().split(",");
+                   /* for(int jk=0;jk<code.length;++jk){
+                        CPBetManager.getSingleton().onAddData(postionAll+"",code[jk],"jk","jk",postionAll+"_"+code[jk]);
+                    }*/
+                    int size2 = cpOrderContentListResults.size();
+                    for(int j=0;j<size2;++j){
+                        CPOrderContentListResult cpOrderContentListResult = cpOrderContentListResults.get(j);
+                        int size3 = cpOrderContentListResult.getData().size();
+                        for(int kk=0;kk<size3;++kk){
+                            CPOrderContentResult cpOrderContentResult = cpOrderContentListResult.getData().get(kk);
+                            String[] code2 = dataBeanList.get(k).getCode().split(",");
+                            for(int c=0;c<code2.length;++c){
+                                if(cpOrderContentResult.getOrderId().equals(code2[c])){
+                                    if(!cpOrderContentResult.isChecked()){
+                                        cpOrderContentResult.setChecked(true);
+                                        cpOrderContentResult.setIsQuick("1");
+                                        GameLog.log("当前设置为true的id  "+cpOrderContentResult.getOrderId());
+                                    }else{
+                                        cpOrderContentResult.setChecked(false);
+                                        cpOrderContentResult.setIsQuick("0");
+                                        CPBetManager.getSingleton().onRemoveItem(type+"_"+cpOrderContentResult.getOrderId());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if(!Check.isNull(cpOreder2ListRightGameAdapter))
+                        cpOreder2ListRightGameAdapter.notifyDataSetChanged();
+                }
+            }
+        }else if(quickBetMothedEvent.sort.equals("2")){
+            for(int k=0;k<sizeList;++k){
+                if(dataBeanList.get(k).getSort().equals("2")){
+                    GameLog.log("方式二："+dataBeanList.get(k).getCode());
+                    String[] code = dataBeanList.get(k).getCode().split(",");
+                    /*for(int jk=0;jk<code.length;++jk){
+                        CPBetManager.getSingleton().onAddData(postionAll+"",code[jk],"jk","jk",postionAll+"_"+code[jk]);
+                    }*/
+                    int size2 = cpOrderContentListResults.size();
+                    for(int j=0;j<size2;++j){
+                        CPOrderContentListResult cpOrderContentListResult = cpOrderContentListResults.get(j);
+                        int size3 = cpOrderContentListResult.getData().size();
+                        for(int kk=0;kk<size3;++kk){
+                            CPOrderContentResult cpOrderContentResult = cpOrderContentListResult.getData().get(kk);
+                            String[] code2 = dataBeanList.get(k).getCode().split(",");
+                            for(int c=0;c<code2.length;++c){
+                                if(cpOrderContentResult.getOrderId().equals(code2[c])){
+                                    if(!cpOrderContentResult.isChecked()){
+                                        cpOrderContentResult.setChecked(true);
+                                        cpOrderContentResult.setIsQuick("1");
+                                        GameLog.log("当前设置为true的id  "+cpOrderContentResult.getOrderId());
+                                    }else{
+                                        cpOrderContentResult.setChecked(false);
+                                        cpOrderContentResult.setIsQuick("0");
+                                        CPBetManager.getSingleton().onRemoveItem(type+"_"+cpOrderContentResult.getOrderId());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if(!Check.isNull(cpOreder2ListRightGameAdapter))
+                        cpOreder2ListRightGameAdapter.notifyDataSetChanged();
+
+                }
+            }
+        }else{
+            presenter.postQuickBet(game_code,type,x_session_token);
+        }
+        cpOrderNumber.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+            }
+        },500);
+        cpOrderNumber.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+            }
+        },1500);
+
     }
 
 

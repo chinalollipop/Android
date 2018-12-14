@@ -42,7 +42,6 @@ public class QuickBetMethodPresenter implements QuickBetMethodContract.Presenter
                 .subscribe(new ResponseSubscriber<CPQuickBetMothedResult>() {
                     @Override
                     public void success(CPQuickBetMothedResult response) {
-                        GameLog.log(""+response.toString());
                         view.postQuickBetMothedResult(response);
                     }
 

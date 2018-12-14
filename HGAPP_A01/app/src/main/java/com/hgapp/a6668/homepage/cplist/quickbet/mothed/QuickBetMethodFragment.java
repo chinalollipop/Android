@@ -12,7 +12,11 @@ import com.hgapp.a6668.base.HGBaseDialogFragment;
 import com.hgapp.a6668.common.widgets.bottomdialog.NBaseBottomDialog;
 import com.hgapp.a6668.data.CPQuickBetMothedResult;
 import com.hgapp.a6668.data.CPQuickBetResult;
+import com.hgapp.a6668.homepage.cplist.events.QuickBetMothedEvent;
+import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetParam;
 import com.hgapp.common.util.Check;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -23,6 +27,7 @@ import butterknife.OnClick;
 
 public class QuickBetMethodFragment extends HGBaseDialogFragment implements QuickBetMethodContract.View {
     private static final String TYPE1 = "type1";
+    private static final String TYPE2 = "type2";
     @BindView(R.id.radioGroupId)
     RadioGroup radioGroupId;
     @BindView(R.id.quickBetMethod1)
@@ -35,14 +40,16 @@ public class QuickBetMethodFragment extends HGBaseDialogFragment implements Quic
     Button betMethodCpSubmit;
     private QuickBetMethodContract.Presenter presenter;
     CPQuickBetResult cpQuickBetResult;
-
+    QuickBetParam quickBetParam;
+    String sort = "1";
     public QuickBetMethodFragment() {
     }
 
-    public static QuickBetMethodFragment newInstance(CPQuickBetResult cpQuickBetResult) {
+    public static QuickBetMethodFragment newInstance(CPQuickBetResult cpQuickBetResult,QuickBetParam quickBetParam) {
         QuickBetMethodFragment logoutFragment = new QuickBetMethodFragment();
         Bundle args = new Bundle();
         args.putParcelable(TYPE1, cpQuickBetResult);
+        args.putParcelable(TYPE2,quickBetParam);
         logoutFragment.setArguments(args);
         CPInjections.inject((QuickBetMethodContract.View) logoutFragment, null);
         return logoutFragment;
@@ -55,6 +62,7 @@ public class QuickBetMethodFragment extends HGBaseDialogFragment implements Quic
                 dismiss();
                 break;
             case R.id.betMethodCpSubmit:
+                presenter.postQuickBetMothed(quickBetParam.code,quickBetParam.game_code,quickBetParam.code_number,sort,quickBetParam.token);
                 break;
         }
 
@@ -87,6 +95,7 @@ public class QuickBetMethodFragment extends HGBaseDialogFragment implements Quic
     protected void initView(View view, Bundle bundle) {
         if (null != getArguments()) {
             cpQuickBetResult = getArguments().getParcelable(TYPE1);
+            quickBetParam =  getArguments().getParcelable(TYPE2);
         }
         radioGroupId.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -94,9 +103,11 @@ public class QuickBetMethodFragment extends HGBaseDialogFragment implements Quic
                 switch (i) {
                     case R.id.quickBetMethod1:
                         showMessage("方式一");
+                        sort = "1";
                         break;
                     case R.id.quickBetMethod2:
                         showMessage("方式二");
+                        sort = "2";
                         break;
                 }
             }
@@ -118,7 +129,11 @@ public class QuickBetMethodFragment extends HGBaseDialogFragment implements Quic
 
     @Override
     public void postQuickBetMothedResult(CPQuickBetMothedResult cpQuickBetMothedResult) {
-
+        if(cpQuickBetMothedResult.getCode()==200){
+            EventBus.getDefault().post(new QuickBetMothedEvent("0"));
+            dismiss();
+        }
+        showMessage(cpQuickBetMothedResult.getMsg());
     }
 
 }

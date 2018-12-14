@@ -12,7 +12,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.hgapp.a6668.R;
+import com.hgapp.a6668.base.IMessageView;
 import com.hgapp.a6668.base.IPresenter;
+import com.hgapp.common.util.ToastUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
@@ -24,7 +26,7 @@ import butterknife.Unbinder;
  * Created by ak on 2017/5/27.
  */
 
-public abstract class NBaseBottomDialog extends DialogFragment {
+public abstract class NBaseBottomDialog extends DialogFragment  implements IMessageView {
 
     private static final String TAG = "base_bottom_dialog";
 
@@ -122,4 +124,10 @@ public abstract class NBaseBottomDialog extends DialogFragment {
     {
         return null;
     }
+
+    @Override
+    public void showMessage(String message) {
+        ToastUtils.showLongToast(message);
+    }
+
 }

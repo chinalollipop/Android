@@ -7,6 +7,7 @@ public class CPOrderContentResult {
     private String orderState;
     private String orderSX ="";
     private boolean isChecked;
+    private String isQuick = "0";
 
     public String getOrderId() {
         return orderId;
@@ -54,5 +55,13 @@ public class CPOrderContentResult {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public String getIsQuick() {
+        return isQuick;
+    }
+
+    public void setIsQuick(String isQuick) {
+        this.isQuick = isQuick;
     }
 }
