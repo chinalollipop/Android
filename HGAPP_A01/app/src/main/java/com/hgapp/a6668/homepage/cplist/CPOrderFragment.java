@@ -32259,7 +32259,11 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             @Override
             public void run() {
                 if(rX0 ==0){
-                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                    if(rX1==9){
+                        renXuan2();
+                    }else{
+                        cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                    }
                 }else{
                     renXuan2();
                 }
@@ -32269,7 +32273,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             @Override
             public void run() {
                 if(rX0 ==0){
-                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                    if(rX1==9){
+                        renXuan2();
+                    }else{
+
+                        cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                    }
                 }else{
                     renXuan2();
                 }
