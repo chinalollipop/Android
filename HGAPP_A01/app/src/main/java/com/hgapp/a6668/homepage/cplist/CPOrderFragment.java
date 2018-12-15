@@ -32258,13 +32258,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderNumber.postDelayed(new Runnable() {
             @Override
             public void run() {
-                cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                if(rX0 ==0){
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                }else{
+                    renXuan2();
+                }
             }
         },500);
         cpOrderNumber.postDelayed(new Runnable() {
             @Override
             public void run() {
-                cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                if(rX0 ==0){
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                }else{
+                    renXuan2();
+                }
             }
         },2500);
 
