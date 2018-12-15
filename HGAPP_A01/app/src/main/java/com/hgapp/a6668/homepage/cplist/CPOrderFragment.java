@@ -24535,7 +24535,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
             cpOrderContentResult2101.setOrderName("牛");
-            cpOrderContentResult2101.setFullName("二连肖");
+            cpOrderContentResult2101.setFullName("二肖连中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1401().getRate());
             cpOrderContentResult2101.setOrderId("1401");
             cpOrderContentResult2101.setOrderSX("10,22,34,46");
@@ -24543,7 +24543,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
             cpOrderContentResult2102.setOrderName("虎");
-            cpOrderContentResult2102.setFullName("二连肖");
+            cpOrderContentResult2102.setFullName("二肖连中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1407().getRate());
             cpOrderContentResult2102.setOrderId("1407");
             cpOrderContentResult2102.setOrderSX("9,21,33,45");
@@ -24551,7 +24551,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
             cpOrderContentResult2103.setOrderName("兔");
-            cpOrderContentResult2103.setFullName("二连肖");
+            cpOrderContentResult2103.setFullName("二肖连中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1402().getRate());
             cpOrderContentResult2103.setOrderId("1402");
             cpOrderContentResult2103.setOrderSX("8,20,32,44");
@@ -24559,7 +24559,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
             cpOrderContentResult2104.setOrderName("龙");
-            cpOrderContentResult2104.setFullName("二连肖");
+            cpOrderContentResult2104.setFullName("二肖连中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1408().getRate());
             cpOrderContentResult2104.setOrderId("1408");
             cpOrderContentResult2104.setOrderSX("7,19,31,43");
@@ -24567,7 +24567,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
             cpOrderContentResult2105.setOrderName("蛇");
-            cpOrderContentResult2105.setFullName("二连肖");
+            cpOrderContentResult2105.setFullName("二肖连中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1403().getRate());
             cpOrderContentResult2105.setOrderId("1403");
             cpOrderContentResult2105.setOrderSX("6,18,30,42");
@@ -24575,7 +24575,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
             cpOrderContentResult2106.setOrderName("马");
-            cpOrderContentResult2106.setFullName("二连肖");
+            cpOrderContentResult2106.setFullName("二肖连中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1409().getRate());
             cpOrderContentResult2106.setOrderId("1409");
             cpOrderContentResult2106.setOrderSX("5,17,29,41");
@@ -24583,7 +24583,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
             cpOrderContentResult2107.setOrderName("羊");
-            cpOrderContentResult2107.setFullName("二连肖");
+            cpOrderContentResult2107.setFullName("二肖连中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1404().getRate());
             cpOrderContentResult2107.setOrderId("1404");
             cpOrderContentResult2107.setOrderSX("4,16,28,40");
@@ -24591,7 +24591,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
             cpOrderContentResult2108.setOrderName("猴");
-            cpOrderContentResult2108.setFullName("二连肖");
+            cpOrderContentResult2108.setFullName("二肖连中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1410().getRate());
             cpOrderContentResult2108.setOrderId("1410");
             cpOrderContentResult2108.setOrderSX("3,15,27,39");
@@ -24599,7 +24599,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
             cpOrderContentResult2109.setOrderName("鸡");
-            cpOrderContentResult2109.setFullName("二连肖");
+            cpOrderContentResult2109.setFullName("二肖连中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1405().getRate());
             cpOrderContentResult2109.setOrderId("1405");
             cpOrderContentResult2109.setOrderSX("2,14,26,38");
@@ -24607,7 +24607,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
             cpOrderContentResult2110.setOrderName("狗");
-            cpOrderContentResult2110.setFullName("二连肖");
+            cpOrderContentResult2110.setFullName("二肖连中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1411().getRate());
             cpOrderContentResult2110.setOrderId("1411");
             cpOrderContentResult2110.setOrderSX("1,13,25,37,49");
@@ -24615,7 +24615,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
             cpOrderContentResult2111.setOrderName("猪");
-            cpOrderContentResult2111.setFullName("二连肖");
+            cpOrderContentResult2111.setFullName("二肖连中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1406().getRate());
             cpOrderContentResult2111.setOrderId("1406");
             cpOrderContentResult2111.setOrderSX("12,34,36,48");
@@ -24623,7 +24623,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
             cpOrderContentResult2112.setOrderName("鼠");
-            cpOrderContentResult2112.setFullName("二连肖");
+            cpOrderContentResult2112.setFullName("二肖连中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1412().getRate());
             cpOrderContentResult2112.setOrderId("1412");
             cpOrderContentResult2112.setOrderSX("11,23,35,47");
@@ -29205,8 +29205,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         typeCode ="808";
                         break;
                 }
-
-
+                presenter.postQuickBet(game_code,type,x_session_token);
             }
 
             @Override
@@ -29303,6 +29302,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         cpOrderRXRadio.setText("赔率:"+rX5);
                         break;
                 }
+                presenter.postQuickBet(game_code,type,x_session_token);
             }
 
             @Override
@@ -30257,7 +30257,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 cpOrderLayout.setVisibility(View.GONE);
             }
         }
-
+        presenter.postQuickBet(game_code,type,x_session_token);
     }
 
 
@@ -30984,7 +30984,10 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                             name = data.getFullName()+" - "+data.getOrderName();
                         }
                     }
-                    CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                    GameLog.log("添加为true的id 是"+data.getOrderId());
+                    if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                        CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
+                    }
                     //cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
                 }
                 holder.setBackgroundRes(R.id.cpOrderContentItem,R.color.cp_order_tv_clicked);
@@ -31195,14 +31198,15 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         }
                         return;
                     }
-
                     CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
                     if(!data.isChecked()){
                         //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
+                        data.setIsQuick("0");
                         data.setChecked(true);
                     }else{
                         //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(false);
                         data.setChecked(false);
+                        data.setIsQuick("0");
                     }
                     notifyDataSetChanged();
                     if(rX0 == 2 || rX0 == 3|| rX0 == 4||rX0 == 5){
@@ -31277,7 +31281,19 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     cpOrderRXRadio.setText("自选不中");
                             }
                         }else{
-                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                            cpOrderNumber.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                                }
+                            },500);
+                            cpOrderNumber.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
+                                }
+                            },1500);
+
                         }
                     }
                     GameLog.log("下注的id是："+data.getOrderId());
@@ -31876,6 +31892,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     type = "3";
                 }
                 presenter.postRateInfoHK(game_code,type,x_session_token);
+                presenter.postQuickBet(game_code,type,x_session_token);
                 break;
             case R.id.cpOrderTeMaB:
                 onResetData();
@@ -31887,8 +31904,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     type = "4";
                 }
                 presenter.postRateInfoHK(game_code,type,x_session_token);
+                presenter.postQuickBet(game_code,type,x_session_token);
                 break;
             case R.id.cpOrderSubmit:
+                if(isCloseLottery){
+                    return;
+                }
                 String gold = cpOrderGold.getText().toString();
                 if(Check.isEmpty(gold)){
                     showMessage("请输入投注金额");
@@ -31951,6 +31972,12 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                             cpBetParams.setRtype("");
                             cpBetParams.setTypeNumber("1");
                             cpBetParams.setTypeName("合肖");
+                        }else if(Integer.parseInt(type)>=27&&Integer.parseInt(type)<40){//type.equals("27")||type.equals("34")
+                            cpBetParams.setType("HKSXL");
+                            cpBetParams.setTypeCode(type);
+                            cpBetParams.setRtype("");
+                            cpBetParams.setTypeNumber(""+xiazhuValue);
+                            cpBetParams.setTypeName("组合数");
                         }else if(type.equals("40")){
                             cpBetParams.setType("HKZXBZ");
                             cpBetParams.setTypeCode(type);
@@ -32011,7 +32038,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     String codeNumber ="";
                     int sizeAll = cpOrderListArrayList.size();
                     for(int l=0;l<sizeAll;++l){
-                        codeNumber += cpOrderListArrayList.get(l).gid+",";
+                        if(type.equals(cpOrderListArrayList.get(l).position)){
+                            codeNumber += cpOrderListArrayList.get(l).gid+",";
+                        }
                     }
                     quickBetParam.code =  codeNumber;
                 }
@@ -32144,9 +32173,6 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 if(dataBeanList.get(k).getSort().equals("1")){
                     GameLog.log("方式一："+dataBeanList.get(k).getCode());
                     String[] code = dataBeanList.get(k).getCode().split(",");
-                   /* for(int jk=0;jk<code.length;++jk){
-                        CPBetManager.getSingleton().onAddData(postionAll+"",code[jk],"jk","jk",postionAll+"_"+code[jk]);
-                    }*/
                     int size2 = cpOrderContentListResults.size();
                     for(int j=0;j<size2;++j){
                         CPOrderContentListResult cpOrderContentListResult = cpOrderContentListResults.get(j);
@@ -32159,8 +32185,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     if(!cpOrderContentResult.isChecked()){
                                         cpOrderContentResult.setChecked(true);
                                         cpOrderContentResult.setIsQuick("1");
-                                        GameLog.log("当前设置为true的id  "+cpOrderContentResult.getOrderId());
+                                        //GameLog.log("方式一：当前设置为true的id  "+cpOrderContentResult.getOrderId());
                                     }else{
+                                       // GameLog.log("方式一 取消为true的id  "+cpOrderContentResult.getOrderId());
                                         cpOrderContentResult.setChecked(false);
                                         cpOrderContentResult.setIsQuick("0");
                                         CPBetManager.getSingleton().onRemoveItem(type+"_"+cpOrderContentResult.getOrderId());
@@ -32168,7 +32195,16 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                 }
                             }
                         }
+                        for(int kk=0;kk<size3;++kk){
+                            CPOrderContentResult cpOrderContentResult = cpOrderContentListResult.getData().get(kk);
+                            if(cpOrderContentResult.isChecked()){
+                                if(cpOrderContentResult.getIsQuick().equals("1")){
+                                    CPBetManager.getSingleton().onRemoveItem(type+"_"+cpOrderContentResult.getOrderId());
+                                }
+                            }
+                        }
                     }
+                    //CPBetManager.getSingleton().onClearData();
                     if(!Check.isNull(cpOreder2ListRightGameAdapter))
                         cpOreder2ListRightGameAdapter.notifyDataSetChanged();
                 }
@@ -32178,9 +32214,6 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 if(dataBeanList.get(k).getSort().equals("2")){
                     GameLog.log("方式二："+dataBeanList.get(k).getCode());
                     String[] code = dataBeanList.get(k).getCode().split(",");
-                    /*for(int jk=0;jk<code.length;++jk){
-                        CPBetManager.getSingleton().onAddData(postionAll+"",code[jk],"jk","jk",postionAll+"_"+code[jk]);
-                    }*/
                     int size2 = cpOrderContentListResults.size();
                     for(int j=0;j<size2;++j){
                         CPOrderContentListResult cpOrderContentListResult = cpOrderContentListResults.get(j);
@@ -32193,16 +32226,26 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                     if(!cpOrderContentResult.isChecked()){
                                         cpOrderContentResult.setChecked(true);
                                         cpOrderContentResult.setIsQuick("1");
-                                        GameLog.log("当前设置为true的id  "+cpOrderContentResult.getOrderId());
+                                        //GameLog.log("方式二 当前设置为true的id  "+cpOrderContentResult.getOrderId());
                                     }else{
                                         cpOrderContentResult.setChecked(false);
                                         cpOrderContentResult.setIsQuick("0");
                                         CPBetManager.getSingleton().onRemoveItem(type+"_"+cpOrderContentResult.getOrderId());
+                                        //GameLog.log("方式二 取消为true的id  "+cpOrderContentResult.getOrderId());
                                     }
                                 }
                             }
                         }
+                        for(int kk=0;kk<size3;++kk){
+                            CPOrderContentResult cpOrderContentResult = cpOrderContentListResult.getData().get(kk);
+                            if(cpOrderContentResult.isChecked()){
+                                if(cpOrderContentResult.getIsQuick().equals("1")){
+                                    CPBetManager.getSingleton().onRemoveItem(type+"_"+cpOrderContentResult.getOrderId());
+                                }
+                            }
+                        }
                     }
+
                     if(!Check.isNull(cpOreder2ListRightGameAdapter))
                         cpOreder2ListRightGameAdapter.notifyDataSetChanged();
 
@@ -32211,6 +32254,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }else{
             presenter.postQuickBet(game_code,type,x_session_token);
         }
+
         cpOrderNumber.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -32222,7 +32266,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             public void run() {
                 cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
             }
-        },1500);
+        },2500);
 
     }
 

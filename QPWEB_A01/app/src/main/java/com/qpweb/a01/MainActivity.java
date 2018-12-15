@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.coolindicator.sdk.CoolIndicator;
 import com.qpweb.a01.http.UpdateAppHttpUtil;
+import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.CommentUtils;
 import com.qpweb.a01.utils.FileIOUtils;
@@ -56,7 +57,12 @@ public class MainActivity extends AppCompatActivity {
         mCoolIndicator = this.findViewById(R.id.indicator);
         mCoolIndicator.setMax(100);
         TBSWebSetting.init(wvPayGame);
-        wvPayGame.loadUrl("http://hg06606.com/");
+        String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
+        if(Check.isEmpty(demainUrl)){
+            demainUrl = "http://www.cfqp55.com/";
+        }
+        GameLog.log("域名地址是"+demainUrl);
+        wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");
         wvPayGame.setWebChromeClient(new WebChromeClient(){
 

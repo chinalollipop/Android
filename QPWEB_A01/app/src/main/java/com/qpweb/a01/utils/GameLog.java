@@ -1,12 +1,12 @@
 package com.qpweb.a01.utils;
 
 /**
- * Created by Danile on 2017/7/17.
+ * Created by Nereus on 2017/4/17.
  * log类，推荐使用{@linkplain Timber}
  */
 
 public class GameLog {
-    public static boolean PRINT_LOG=true;
+    public static boolean PRINT_LOG=false;
     private GameLog(){}
 
     public static void log(String msg)
