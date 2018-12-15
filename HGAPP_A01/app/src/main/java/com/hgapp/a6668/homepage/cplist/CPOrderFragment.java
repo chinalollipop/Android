@@ -32259,8 +32259,18 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             @Override
             public void run() {
                 if(rX0 ==0){
-                    if(rX1==9){
-                        renXuan2();
+                    if(rX1==8){
+                        if(CPBetManager.getSingleton().onListSize()>=5){
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                        }else{
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("0")+"注"));
+                        }
+                    }else if(rX1==9){
+                        if(CPBetManager.getSingleton().onListSize()>=2){
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                        }else{
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("0")+"注"));
+                        }
                     }else{
                         cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
                     }
@@ -32273,10 +32283,19 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             @Override
             public void run() {
                 if(rX0 ==0){
-                    if(rX1==9){
-                        renXuan2();
+                    if(rX1==8){
+                        if(CPBetManager.getSingleton().onListSize()>=5){
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                        }else{
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("0")+"注"));
+                        }
+                    }else if(rX1==9){
+                        if(CPBetManager.getSingleton().onListSize()>=2){
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                        }else{
+                            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("0")+"注"));
+                        }
                     }else{
-
                         cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
                     }
                 }else{
