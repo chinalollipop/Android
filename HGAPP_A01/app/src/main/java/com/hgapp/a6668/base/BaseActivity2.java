@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.hgapp.a6668.R;
@@ -49,11 +50,25 @@ public abstract class BaseActivity2 extends SupportActivity implements IMessageV
         ToastUtils.showShortToastSafe(text);
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if( hasFocus ) {
+            hideNavigationBar();
+        }
+    }
+
+    private void hideNavigationBar() {
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE;
+        getWindow().setAttributes(params);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         baseContext = this;
+        hideNavigationBar();
         if(0!= setLayoutId())
         {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_base,null,false);

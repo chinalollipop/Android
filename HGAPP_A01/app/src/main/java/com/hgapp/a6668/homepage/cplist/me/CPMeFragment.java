@@ -42,6 +42,7 @@ import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRe
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
+import com.hgapp.a6668.homepage.cplist.role.CPServiceActivity;
 import com.hgapp.common.util.GameLog;
 import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -203,7 +204,9 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
                             intent.putExtra("gameName","北京赛车");
                             break;
                         case 6:
-
+                            intent = new Intent(getContext(),CPServiceActivity.class);
+                            intent.putExtra("gameId","51");
+                            intent.putExtra("gameName",titleName);
                             break;
                     }
                     startActivity(intent);

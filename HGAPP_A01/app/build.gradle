@@ -6,7 +6,7 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
 //        applicationId "com.hgapp.a6668" //线上环境
-//        versionName "2.6" //线上环境
+//        versionName "2.7" //线上环境
         applicationId "com.cndodricideh.daniel"//测试环境
         versionName "1.5" //测试环境环境
         minSdkVersion 19
@@ -69,7 +69,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation project(':commonliberary')
-    implementation project(path: ':swipemenu')
     implementation project(path: ':slidingmenu')
     implementation(name: 'rxandroid-1.1.0', ext: 'aar')
     implementation(name: 'ultra-ptr-1.0.11', ext: 'aar')

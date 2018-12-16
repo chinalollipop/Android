@@ -253,12 +253,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 //ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
                 getActivity().startActivity(new Intent(getContext(),CPListFragment.class));
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
-                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
-                if("1".equals(cp_url)){
-                    presenter.postMaintain();
-                }else {
-                    postCPGo();
-                }*/
+//                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+//                if("1".equals(cp_url)){
+//                    presenter.postMaintain();
+//                }else {
+//                    postCPGo();
+//                }
                  break;
             case 3:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){

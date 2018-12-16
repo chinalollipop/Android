@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/commonliberary" />
             <option value="$PROJECT_DIR$/slidingmenu" />
-            <option value="$PROJECT_DIR$/swipemenu" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

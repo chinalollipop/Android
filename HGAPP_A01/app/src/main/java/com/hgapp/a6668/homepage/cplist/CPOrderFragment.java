@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -67,6 +68,8 @@ import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetFragment;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
 import com.hgapp.a6668.homepage.cplist.order.CPOrderContract;
 import com.hgapp.a6668.homepage.cplist.quickbet.QuickBetParam;
+import com.hgapp.a6668.homepage.cplist.role.CPServiceActivity;
+import com.hgapp.a6668.homepage.cplist.role.RoleActivity;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
@@ -89,6 +92,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 
 public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContract.View {
 
@@ -29562,7 +29566,22 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     }
 
     @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if( hasFocus ) {
+            hideNavigationBar();
+        }
+    }
+
+    private void hideNavigationBar() {
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE;
+        getWindow().setAttributes(params);
+    }
+
+    @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        hideNavigationBar();
         initTablayout();
         initZTTablayout();
         initLMTablayout();
@@ -29571,7 +29590,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         CPBetManager.getSingleton().onClearData();
         x_session_token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         onChangeData();
-        setSystemUIVisible(false);
+
+        //setSystemUIVisible(false);
         cpOrderTitle.setText(titleName);
         /*ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 getActivity(), drawer_layout, R.string.account, R.string.password);
@@ -32089,12 +32109,17 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         startActivity(intent4);
                         break;
                     case R.id.popCPOrder5:
-                        showMessage("5");
+                        Intent intent5 = new Intent(getContext(),RoleActivity.class);
+                        intent5.putExtra("gameId",game_code);
+                        intent5.putExtra("gameName",titleName);
+                        startActivity(intent5);
                         break;
                     case R.id.popCPOrder6:
-                        showMessage("6");
+                        Intent intent6 = new Intent(getContext(),CPServiceActivity.class);
+                        intent6.putExtra("gameId",game_code);
+                        intent6.putExtra("gameName",titleName);
+                        startActivity(intent6);
                         break;
-
                 }
                 //showMessage(showContent);
                 mCustomPopWindowIn.dissmiss();

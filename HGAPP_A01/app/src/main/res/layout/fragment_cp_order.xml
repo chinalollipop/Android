@@ -5,10 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <include layout="@layout/right_content" />
+    <include layout="@layout/right_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/cpOrderBottom"/>
 
     <FrameLayout
+        android:id="@+id/cpOrderBottom"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
@@ -107,6 +110,7 @@
             android:textColor="@color/title_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
     </FrameLayout>
     <!--<include layout="@layout/right_content" />
     <include layout="@layout/left_menu" />

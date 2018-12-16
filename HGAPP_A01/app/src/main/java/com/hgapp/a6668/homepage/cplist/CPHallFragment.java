@@ -47,6 +47,7 @@ import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRe
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
+import com.hgapp.a6668.homepage.cplist.role.CPServiceActivity;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
@@ -317,7 +318,10 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                         startActivity(intent4);
                         break;
                     case R.id.popCPOrder5:
-                        showMessage("5");
+                        Intent intent6 = new Intent(getContext(),CPServiceActivity.class);
+                        intent6.putExtra("gameId","51");
+                        intent6.putExtra("gameName",titleName);
+                        startActivity(intent6);
                         break;
 
                 }
