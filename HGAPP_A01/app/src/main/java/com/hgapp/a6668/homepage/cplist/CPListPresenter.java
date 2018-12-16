@@ -53,12 +53,13 @@ public class CPListPresenter implements CPListContract.Presenter {
     public void postCPLogin(final String path) {
         GameLog.log("转移字符 " + path);//http://api.tianapi.com/social/?key=980945417cdcd426d6a391e5993c9cc8&num=10
         // RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg01455.com/");
-        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE,"1");
+        //ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE,"1");
         subscriptionHelper.add(RxHelper.addSugar(api.postCPLogin(path))
                 .subscribe(new ResponseSubscriber<Object>() {
                     @Override
                     public void success(Object response) {
                         GameLog.log("联合登录的日志信息是 "+response);
+                        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
                         postCPInit();
                     }
 

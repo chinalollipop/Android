@@ -24,6 +24,7 @@ public class ReadCookiesInterceptor implements Interceptor {
         CookieStore cookieJar = manager.getCookieStore();
         List<HttpCookie> cookies = cookieJar.getCookies();*/
        try{
+           builder.addHeader("User-Agent",DeviceUtils.getUserAgent());
            builder.addHeader("Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("tySet-Cookie") );
            //builder.addHeader("Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("Set-Cookie") );
 

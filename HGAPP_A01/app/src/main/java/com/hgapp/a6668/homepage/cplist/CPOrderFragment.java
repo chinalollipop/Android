@@ -28231,6 +28231,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postRateInfoJssc(game_code,type,x_session_token);
                 break;
             case "222":
+                initDataSsc();
                 initViewBjscData();
                 presenter.postRateInfoJsft(game_code,type,x_session_token);
                 break;

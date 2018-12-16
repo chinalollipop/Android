@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.hgapp.a6668.CPInjections;
+import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.BaseActivity2;
 import com.hgapp.a6668.base.IPresenter;
@@ -129,13 +130,18 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
         //StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
 //            StatusBarUtil.setTranslucentForImageView(this,cpListTitle);
        // RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg01455.com/");
-        presenter.postCPLogin(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM));
-       /* cpBottomBar.postDelayed(new Runnable() {
+        String isLoginAlread = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_COOKIE_AVIABLE);
+        if("false".equals(isLoginAlread)){//如果没有登录过 ，就需要登录
+            presenter.postCPLogin(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM));
+        }else{
+            presenter.postCPInit();
+        }
+        /*cpBottomBar.postDelayed(new Runnable() {
             @Override
             public void run() {
                 presenter.postCPInit();
             }
-        },1000);*/
+        },10000);*/
 
 //        RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg50080.com/#/home/");
         cpBottomBar

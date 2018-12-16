@@ -250,15 +250,23 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case 2:
                 userState = "2";
+                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
+                String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
+                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)){
+                    presenter.postCP();
+                    showMessage("正在加载中，请稍后再试!");
+                }else{
+                    getActivity().startActivity(new Intent(getContext(),CPListFragment.class));
+                }*/
                 //ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
-                getActivity().startActivity(new Intent(getContext(),CPListFragment.class));
+
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
-//                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
-//                if("1".equals(cp_url)){
-//                    presenter.postMaintain();
-//                }else {
-//                    postCPGo();
-//                }
+                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                if("1".equals(cp_url)){
+                    presenter.postMaintain();
+                }else {
+                    postCPGo();
+                }
                  break;
             case 3:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -348,7 +356,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void onVisible() {
         super.onVisible();
-        ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"false");
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
 
     }
@@ -534,7 +541,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         CPClient.setClientDomain(cpResult.getCpUrl());
         HGApplication.instance().configCPClient();
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
-        //initWebView(cpResult.getUrlLogin());
+        initWebView(cpResult.getUrlLogin());
     }
 
     @Override
@@ -755,7 +762,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postQipai("","");
         presenter.postHGQipai("","");
         presenter.postVGQipai("","");
-
+        ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"false");
     }
 
     @Subscribe
@@ -774,6 +781,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         userMoney = "";
         userState = "9";
 		ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
+        ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"false");
     }
 
 }
