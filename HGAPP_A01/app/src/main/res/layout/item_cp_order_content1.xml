@@ -11,6 +11,7 @@
         android:layout_height="30dp"
         android:gravity="center"
         android:text="冠亚和"
+        android:background="@drawable/tab_background_selected"
         android:textColor="@color/color_bg_dialog"
         android:textSize="16sp" />
     <TextView
