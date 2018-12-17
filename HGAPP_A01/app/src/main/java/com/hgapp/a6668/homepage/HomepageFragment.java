@@ -250,23 +250,23 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case 2:
                 userState = "2";
-                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
+                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
                 String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
-                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)){
+                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)||CPClient.getRetrofit()==null){
                     presenter.postCP();
                     showMessage("正在加载中，请稍后再试!");
                 }else{
                     getActivity().startActivity(new Intent(getContext(),CPListFragment.class));
-                }*/
+                }
                 //ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
 
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
-                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
                 if("1".equals(cp_url)){
                     presenter.postMaintain();
                 }else {
                     postCPGo();
-                }
+                }*/
                  break;
             case 3:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -537,11 +537,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postCPResult(CPResult cpResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
-        ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         CPClient.setClientDomain(cpResult.getCpUrl());
         HGApplication.instance().configCPClient();
+        ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
-        initWebView(cpResult.getUrlLogin());
+        //initWebView(cpResult.getUrlLogin());
     }
 
     @Override

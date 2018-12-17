@@ -82,8 +82,11 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -145,6 +148,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     TextView cpOrderUserMoney;
     @BindView(R.id.cpOrderTitle)
     TextView cpOrderTitle;
+    @BindView(R.id.cpOrderLastTime)
+    LinearLayout cpOrderLastTime;
     @BindView(R.id.cpOrderLotteryLastTime)
     TextView cpOrderLotteryLastTime;
     @BindView(R.id.cpOrderLotteryNextTime)
@@ -279,6 +284,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         Intent intent = getIntent();
         game_code = intent.getStringExtra("gameId");
         titleName = intent.getStringExtra("gameName");
+        GameLog.log("接受到的 gameId 【"+game_code+" 】gameName --->"+titleName);
         if(0!= setLayoutId())
         {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_base,null,false);
@@ -28019,14 +28025,32 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderGold.setFocusableInTouchMode(true);
         cpOrderGold.requestFocus();
         cpOrderNoYet.setVisibility(View.GONE);
+        if(0 == cpNextIssueResult.getIsopen()){
+            cpOrderLastTime.setVisibility(View.INVISIBLE);
+            isCloseLottery = true;
+            if(null!=executorEndService){
+                executorEndService.shutdownNow();
+                executorEndService.shutdown();
+                executorEndService = null;
+            }
+            cpOrderGold.setClickable(false);
+            cpOrderGold.setFocusable(false);
+            cpOrderGold.setFocusableInTouchMode(false);
+            cpOrderNoYet.setVisibility(View.VISIBLE);
+            onResetData();
+            EventBus.getDefault().post(new CloseLotteryEvent());
+            return;
+        }
+        cpOrderLastTime.setVisibility(View.VISIBLE);
         round =cpNextIssueResult.getIssue();
         cpOrderLotteryNextTime.setText(round+"期");
-        String systTime =TimeUtils.convertToDetailTime(System.currentTimeMillis());
-        sendEndTime = TimeHelper.timeToSecond(cpNextIssueResult.getEndtime(),systTime)+20;
+        String systTime =TimeUtils.getDateAndTimeString();
+        sendEndTime = TimeHelper.timeToSecond(cpNextIssueResult.getEndtime(),systTime);
 //        sendEndTime = TimeHelper.timeToSecond("2018-11-28 11:28:00","2018-11-28 11:20:15");
-        sendAuthTime = TimeHelper.timeToSecond(cpNextIssueResult.getLotteryTime(),systTime)+20;
-        GameLog.log("getEndtime："+cpNextIssueResult.getEndtime()+"systTime："+systTime);
-        GameLog.log("封盘时间："+sendEndTime+"开奖时间："+sendAuthTime);
+        sendAuthTime = TimeHelper.timeToSecond(cpNextIssueResult.getLotteryTime(),systTime);
+//        GameLog.log("getEndtime："+cpNextIssueResult.getEndtime()+" - systTime："+systTime+" 剩余时间："+sendEndTime+ " 转换成时间："+TimeHelper.getTimeString(sendEndTime));
+//        GameLog.log("getLotteryTime：【"+cpNextIssueResult.getLotteryTime()+"】 - systTime：【 "+systTime+" 】 剩余时间：【"+sendAuthTime+ "】 转换成时间：--> "+TimeHelper.getTimeString(sendAuthTime));
+//        GameLog.log("封盘时间："+sendEndTime+" 开奖时间："+sendAuthTime);
         onSartTime();
     }
 
@@ -31943,7 +31967,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     cpBetParams.setGame_code(game_code);
                     cpBetParams.setRound(round);
                     cpBetParams.setX_session_token(x_session_token);
-                    if(game_code.equals("3")){
+                    if((game_code.equals("3")&&type.equals("10")||((game_code.equals("47")&&type.equals("10"))))){
                         cpBetParams.setType("LM");
                         cpBetParams.setTypeCode(typeCode);
                         cpBetParams.setTypeNumber(""+xiazhuValue);
@@ -31961,7 +31985,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                                 cpBetParams.setTypeName("任选五");
                                 break;
                         }
-                    }if(game_code.equals("69")){
+                    }else if(game_code.equals("69")){
                         if(type.equals("13")){
                             cpBetParams.setType("HKLM");
                             cpBetParams.setTypeCode(type);
@@ -32051,6 +32075,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 presenter.postCPLeftInfo("",x_session_token);
                 break;
             case R.id.cpOrderFastSubmit:
+                if(isCloseLottery){
+                    return;
+                }
                 QuickBetParam quickBetParam = new QuickBetParam();
                 ArrayList<CPOrderList>  cpOrderListArrayList= CPBetManager.getSingleton().onShowViewListData();
                 if(cpOrderListArrayList.size()==0){

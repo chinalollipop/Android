@@ -591,9 +591,41 @@ public class TimeHelper {
             e.printStackTrace();
         }*/
 
-        return aftertime;
+        return Math.abs(aftertime);
 
     }
+
+    public static long compareToNowDate(Date date){
+        Date nowdate=new Date();
+        //format date pattern
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //convert to millions seconds
+        long time=StringToDate(formatter.format(nowdate));
+        long serverTime=StringToDate(formatter.format(date));
+        //convert to seconds
+        long minTime=Math.abs(serverTime-time)/1000;
+        return minTime;
+    }
+
+    private static long DateToLong(Date time){
+        SimpleDateFormat st=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//yyyyMMddHHmmss
+        return Long.parseLong(st.format(time.getTime()));
+    }
+
+    private static long StringToDate(String s){
+        long time=0;
+        SimpleDateFormat sd=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            time=sd.parse(s).getTime();
+        } catch (java.text.ParseException e) {
+            System.out.println("输入的日期格式有误！");
+            e.printStackTrace();
+        }
+        return time;
+    }
+
+
+
 
     /**
      *
@@ -601,7 +633,7 @@ public class TimeHelper {
      * @return 时间戳转成成剩余的时间
      */
     public static String getTimeString(long second) {
-       // GameLog.log("时间戳的长度 "+second);
+        //GameLog.log("时间戳的长度 "+second);
         //int days = (int) (second / (60 * 60 * 24));
         /*int hours = (int) ((second % (60 * 60 * 24)) / (60 * 60));
         int min = (int) (second % (60 * 60)) / 60;
@@ -615,9 +647,9 @@ public class TimeHelper {
 
         StringBuffer sb = new StringBuffer();
 
-        //sb.append(hours).append("时").append(min).append("分").append(sec).append("秒");
-        sb.append(hours>9?hours:"0"+hours).append(":").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
-//        sb.append(hours>9?hours:hours>0?"0"+hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
+//        sb.append(hours).append("时").append(min).append("分").append(sec).append("秒");
+        //sb.append(hours>9?hours:"0"+hours).append(":").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
+        sb.append(hours>9?hours:hours>0?"0"+hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
 		/*if (days > 0) {
 			sb.append(days).append("天");
 		}
@@ -641,7 +673,8 @@ public class TimeHelper {
 		 * ((days > 0) || (hours > 0) || (min > 0) || (sec > 0)) {
 		 * sb.append(sec).append(getString(R.string.seckill_time_sec)); }
 		 */
-		//GameLog.log("最后的时间是："+sb.toString());
+		//GameLog.log("时间戳的长度 【 "+second+" 】 最后的时间是："+sb.toString());
+
         return sb.toString();
     }
 }

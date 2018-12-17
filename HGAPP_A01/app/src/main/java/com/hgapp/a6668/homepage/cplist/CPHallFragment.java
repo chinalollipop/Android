@@ -220,24 +220,6 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpHallIcon11 = 0;
         cpHallIcon12 = 0;
         cpHallIcon13 = 0;
-        /*cpHallIcon0 = 11000;
-        cpHallIcon1 = 90;
-        cpHallIcon2 = 90;
-        cpHallIcon3 = 15;
-        cpHallIcon4 = 90;
-        cpHallIcon5 = 30;
-        cpHallIcon6 = 90;
-        cpHallIcon7 = 7100;
-        cpHallIcon8 = 90;
-        cpHallIcon9 = 70;
-        cpHallIcon10 = 990;
-        cpHallIcon11 = 20;
-        cpHallIcon12 = 90;
-        cpHallIcon13 = 5000;*/
-        /*hallPageGameAdapter = null;
-        hallPageGameAdapter = new HallPageGameAdapter(getContext(), R.layout.item_cp_hall, cpGameList);
-        cpHallList.setAdapter(hallPageGameAdapter);
-        hallPageGameAdapter.notifyDataSetChanged();*/
     }
 
     private synchronized void onRequestData() {
@@ -370,7 +352,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             executorService = null;
         }
         executorService = Executors.newScheduledThreadPool(14);
-        cpGameList.clear();
+        /*cpGameList.clear();
         cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
         cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 0,2));
         cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsfc, 0,189));
@@ -384,7 +366,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
         cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
         cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,69));
-        cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_jss, 0,384));
+        cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_jss, 0,384));*/
        /* CPHallResult.data51Bean _51Bean = cpHallResult.getdata51();
         cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
         cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_jsft, 0,2));
@@ -422,106 +404,104 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.get(11).setIsopen(cpHallResult.getdata51().getIsopen());
         cpGameList.get(12).setIsopen(cpHallResult.getdata51().getIsopen());
         cpGameList.get(13).setIsopen(cpHallResult.getdata51().getIsopen());*/
-       String systTime =TimeUtils.convertToDetailTime(System.currentTimeMillis());
+        String systTime =TimeUtils.getDateAndTimeString();
        if(Check.isNumericNull(cpHallResult.getdata51().getEndtime())){
            cpHallIcon0 = 0;
            scpHallIcon0 = 1;
        }else{
            scpHallIcon0 = 0;
-           cpHallIcon0 = TimeHelper.timeToSecond(cpHallResult.getdata51().getEndtime(),systTime)+20;
+           cpHallIcon0 = TimeHelper.timeToSecond(cpHallResult.getdata51().getEndtime(),systTime);
        }
-        Date date = new Date(System.currentTimeMillis());
-        GameLog.log("倒计时的时间 "+TimeUtils.string2Milliseconds(cpHallResult.getdata51().getEndtime())+" 系统的时间 "+systTime+" 秒的计算 "+date.getTime());
         if(Check.isNumericNull(cpHallResult.getdata2().getEndtime())){
             cpHallIcon1 = 0;
             scpHallIcon1 = 1;
         }else {
             scpHallIcon1 = 0;
-            cpHallIcon1 = TimeHelper.timeToSecond(cpHallResult.getdata2().getEndtime(),systTime) +70;
+            cpHallIcon1 = TimeHelper.timeToSecond(cpHallResult.getdata2().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata189().getEndtime())){
             cpHallIcon2 = 0;
             scpHallIcon2 = 1;
         }else {
             scpHallIcon2 = 0;
-            cpHallIcon2 =  TimeHelper.timeToSecond(cpHallResult.getdata189().getEndtime(),systTime)+100 ;
+            cpHallIcon2 =  TimeHelper.timeToSecond(cpHallResult.getdata189().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata222().getEndtime())){
             cpHallIcon3 = 0;
             scpHallIcon3 = 1;
         }else {
             scpHallIcon3 = 0;
-            cpHallIcon3 =  TimeHelper.timeToSecond(cpHallResult.getdata222().getEndtime(),systTime)+20;
+            cpHallIcon3 =  TimeHelper.timeToSecond(cpHallResult.getdata222().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata207().getEndtime())){
             cpHallIcon4 = 0;
             scpHallIcon4 = 1;
         }else {
             scpHallIcon4 = 0;
-            cpHallIcon4 =  TimeHelper.timeToSecond(cpHallResult.getdata207().getEndtime(),systTime) +20;
+            cpHallIcon4 =  TimeHelper.timeToSecond(cpHallResult.getdata207().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata407().getEndtime())){
             cpHallIcon5 = 0;
             scpHallIcon5 = 1;
         }else {
             scpHallIcon5 = 0;
-            cpHallIcon5 = TimeHelper.timeToSecond(cpHallResult.getdata407().getEndtime(),systTime)+20;
+            cpHallIcon5 = TimeHelper.timeToSecond(cpHallResult.getdata407().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata507().getEndtime())){
             cpHallIcon6 = 0;
             scpHallIcon6 = 1;
         }else {
             scpHallIcon6 = 0;
-            cpHallIcon6 = TimeHelper.timeToSecond(cpHallResult.getdata507().getEndtime(),systTime)+20;
+            cpHallIcon6 = TimeHelper.timeToSecond(cpHallResult.getdata507().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata607().getEndtime())){
             cpHallIcon7 = 0;
             scpHallIcon7 = 1;
         }else {
             scpHallIcon7 = 0;
-            cpHallIcon7 = TimeHelper.timeToSecond(cpHallResult.getdata607().getEndtime(),systTime)+20;
+            cpHallIcon7 = TimeHelper.timeToSecond(cpHallResult.getdata607().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata304().getEndtime())){
             cpHallIcon8 = 0;
             scpHallIcon8 = 1;
         }else {
-            scpHallIcon8 = 8;
-            cpHallIcon8 = TimeHelper.timeToSecond(cpHallResult.getdata304().getEndtime(),systTime)+20;
+            scpHallIcon8 = 0;
+            cpHallIcon8 = TimeHelper.timeToSecond(cpHallResult.getdata304().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata159().getEndtime())){
             cpHallIcon9 = 0;
             scpHallIcon9 = 1;
         }else {
             scpHallIcon9 = 0;
-            cpHallIcon9 = TimeHelper.timeToSecond(cpHallResult.getdata159().getEndtime(),systTime)+20;
+            cpHallIcon9 = TimeHelper.timeToSecond(cpHallResult.getdata159().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata47().getEndtime())){
             cpHallIcon10 = 0;
             scpHallIcon10 = 1;
         }else {
             scpHallIcon10 = 0;
-            cpHallIcon10 = TimeHelper.timeToSecond(cpHallResult.getdata47().getEndtime(),systTime)+20;
+            cpHallIcon10 = TimeHelper.timeToSecond(cpHallResult.getdata47().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata3().getEndtime())){
             cpHallIcon11 = 0;
             scpHallIcon11 = 1;
         }else {
             scpHallIcon11 = 0;
-            cpHallIcon11 = TimeHelper.timeToSecond(cpHallResult.getdata3().getEndtime(),systTime)+20;
+            cpHallIcon11 = TimeHelper.timeToSecond(cpHallResult.getdata3().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata69().getEndtime())){
             cpHallIcon12 = 0;
             scpHallIcon12 = 1;
         }else {
             scpHallIcon12 = 0;
-            cpHallIcon12 = TimeHelper.timeToSecond(cpHallResult.getdata69().getEndtime(),systTime)+20;
+            cpHallIcon12 = TimeHelper.timeToSecond(cpHallResult.getdata69().getEndtime(),systTime);
         }
         if(Check.isNumericNull(cpHallResult.getdata384().getEndtime())){
             cpHallIcon13 = 0;
             scpHallIcon13 = 1;
         }else {
-            cpHallIcon13 = TimeHelper.timeToSecond(cpHallResult.getdata384().getEndtime(),systTime)+20 ;
             scpHallIcon13 = 0;
+            cpHallIcon13 = TimeHelper.timeToSecond(cpHallResult.getdata384().getEndtime(),systTime) ;
         }
         GameLog.log("最后的时间  "+cpHallIcon0+"|"+cpHallIcon1+"|"+cpHallIcon2+"|"+cpHallIcon3+"|"+cpHallIcon4+"|"+cpHallIcon5+"|"+cpHallIcon6+"|"+cpHallIcon7+"|"+cpHallIcon8+"|"+cpHallIcon9+"|"+cpHallIcon10+"|"+cpHallIcon11+"|"+cpHallIcon12+"|"+cpHallIcon13);
         hallPageGameAdapter.notifyDataSetChanged();
@@ -889,8 +869,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                 @Override
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
+                    GameLog.log("传递的 gameId 【"+data.getGameId()+" 】gameName --->"+data.getIconName());
                     Intent intent  = new Intent(getContext(),CPOrderFragment.class);
-                    intent.putExtra("gameId",data.getGameId());
+                    intent.putExtra("gameId",data.getGameId()+"");
                     intent.putExtra("gameName",data.getIconName());
                     startActivity(intent);
                     //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList(data.getGameId()+"", data.getIconName(), "333"))));

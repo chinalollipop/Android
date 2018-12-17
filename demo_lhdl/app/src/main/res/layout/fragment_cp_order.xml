@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/right_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/cpOrderBottom"/>
+
+    <FrameLayout
+        android:id="@+id/cpOrderBottom"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@mipmap/cp_bottom"
+        android:gravity="bottom">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/cpOrderNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_text"
+                android:padding="5dp"
+                android:text="已选中0注" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/cpOrderGold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:inputType="number"
+                    android:background="@drawable/bg_cp_oder_edit"
+                    android:hint="请输入金额"
+                    android:padding="5dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:id="@+id/cpOrderSubmit"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/cpOrderReset"
+                        android:background="@drawable/bg_cp_oder_submit"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="下注"
+                        android:textColor="@color/cp_order_submit" />
+
+                    <TextView
+                        android:id="@+id/cpOrderReset"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/cpOrderFastSubmit"
+                        android:background="@drawable/bg_cp_oder_reset"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="重置"
+                        android:textColor="@color/cp_order_reset" />
+
+                    <TextView
+                        android:id="@+id/cpOrderFastSubmit"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/bg_cp_oder_fast_submit"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="快投"
+                        android:textColor="@color/cp_order_fast_submit" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cpOrderNoYet"
+            android:text="已封盘"
+            android:background="@color/title_bg"
+            android:alpha="0.8"
+            android:visibility="gone"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+    <!--<include layout="@layout/right_content" />
+    <include layout="@layout/left_menu" />
+</com.hgapp.a6668.common.widgets.HGDrawerLayout>-->
+</RelativeLayout>

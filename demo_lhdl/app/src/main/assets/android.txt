@@ -1,0 +1,251 @@
+{
+    "status": "200",
+    "describe": "success",
+    "timestamp": "20181013103047",
+    "data": [
+        {
+            "name": "日本J3联赛",
+            "result": [
+                {
+                    "MID": "3419122",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "00:01a",
+                    "MB_Team": "藤枝MYFC",
+                    "TG_Team": "大阪飞脚U23",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "2",
+                    "TG_Inball": "1",
+                    "MB_Inball_HR": "2",
+                    "TG_Inball_HR": "1",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419124",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "00:01a",
+                    "MB_Team": "藤枝MYFC",
+                    "TG_Team": "大阪飞脚U23",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "2",
+                    "TG_Inball": "1",
+                    "MB_Inball_HR": "2",
+                    "TG_Inball_HR": "1",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3423062",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "00:01a",
+                    "MB_Team": "藤枝MYFC -角球数",
+                    "TG_Team": "大阪飞脚U23 -角球数",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "5",
+                    "TG_Inball": "4",
+                    "MB_Inball_HR": "4",
+                    "TG_Inball_HR": "2",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419126",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "04:00a",
+                    "MB_Team": "SC相模原",
+                    "TG_Team": "北九州向日葵",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "1",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "0",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419128",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "04:00a",
+                    "MB_Team": "SC相模原",
+                    "TG_Team": "北九州向日葵",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "1",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "0",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3423064",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "04:00a",
+                    "MB_Team": "SC相模原 -角球数",
+                    "TG_Team": "北九州向日葵 -角球数",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "6",
+                    "TG_Inball": "5",
+                    "MB_Inball_HR": "3",
+                    "TG_Inball_HR": "3",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419130",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "05:00a",
+                    "MB_Team": "琉球",
+                    "TG_Team": "福岛联队",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "3",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "3",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419132",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "05:00a",
+                    "MB_Team": "琉球",
+                    "TG_Team": "福岛联队",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "3",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "3",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3423066",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "05:00a",
+                    "MB_Team": "琉球 -角球数",
+                    "TG_Team": "福岛联队 -角球数",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "7",
+                    "TG_Inball": "4",
+                    "MB_Inball_HR": "6",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                }
+            ]
+        },
+        {
+            "name": "日本J3联赛",
+            "result": [
+                {
+                    "MID": "3419122",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "00:01a",
+                    "MB_Team": "藤枝MYFC",
+                    "TG_Team": "大阪飞脚U23",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "2",
+                    "TG_Inball": "1",
+                    "MB_Inball_HR": "2",
+                    "TG_Inball_HR": "1",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419124",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "00:01a",
+                    "MB_Team": "藤枝MYFC",
+                    "TG_Team": "大阪飞脚U23",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "2",
+                    "TG_Inball": "1",
+                    "MB_Inball_HR": "2",
+                    "TG_Inball_HR": "1",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3423062",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "00:01a",
+                    "MB_Team": "藤枝MYFC -角球数",
+                    "TG_Team": "大阪飞脚U23 -角球数",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "5",
+                    "TG_Inball": "4",
+                    "MB_Inball_HR": "4",
+                    "TG_Inball_HR": "2",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419126",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "04:00a",
+                    "MB_Team": "SC相模原",
+                    "TG_Team": "北九州向日葵",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "1",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "0",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419128",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "04:00a",
+                    "MB_Team": "SC相模原",
+                    "TG_Team": "北九州向日葵",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "1",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "0",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3423064",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "04:00a",
+                    "MB_Team": "SC相模原 -角球数",
+                    "TG_Team": "北九州向日葵 -角球数",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "6",
+                    "TG_Inball": "5",
+                    "MB_Inball_HR": "3",
+                    "TG_Inball_HR": "3",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419130",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "05:00a",
+                    "MB_Team": "琉球",
+                    "TG_Team": "福岛联队",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "3",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "3",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3419132",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "05:00a",
+                    "MB_Team": "琉球",
+                    "TG_Team": "福岛联队",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "3",
+                    "TG_Inball": "0",
+                    "MB_Inball_HR": "3",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                },
+                {
+                    "MID": "3423066",
+                    "M_Date": "2018-10-13",
+                    "M_Time": "05:00a",
+                    "MB_Team": "琉球 -角球数",
+                    "TG_Team": "福岛联队 -角球数",
+                    "M_League": "日本J3联赛",
+                    "MB_Inball": "7",
+                    "TG_Inball": "4",
+                    "MB_Inball_HR": "6",
+                    "TG_Inball_HR": "0",
+                    "Open": "1"
+                }
+            ]
+        }
+    ]
+}

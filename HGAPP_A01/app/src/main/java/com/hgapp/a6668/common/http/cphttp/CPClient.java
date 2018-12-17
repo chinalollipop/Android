@@ -55,7 +55,7 @@ public class CPClient {
 
     public static void setClientDomain(String url){
         domainUrl = url;
-        GameLog.log("set CP domainUrl:"+domainUrl);
+        GameLog.log("设置 CP 的域名 domainUrl:"+domainUrl);
     }
 
     public static OkHttpClient getClient()

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/itemBalancePlatformName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="BBIN"
+        android:textColor="#606060"
+        android:layout_marginLeft="20dp"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        />
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/itemBalancePlatformIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="转入  "
+            android:textSize="15sp"
+            android:textColor="#6C29BD"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="/"
+            android:textColor="#6C29BD"
+            />
+        <TextView
+            android:id="@+id/itemBalancePlatformOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  转出"
+            android:textSize="15sp"
+            android:textColor="#6C29BD"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemBalancePlatformMoney"
+        android:layout_alignParentRight="true"
+        android:text="BBIN"
+        android:textSize="15sp"
+        android:textColor="#298FBD"
+        android:paddingRight="20dp"
+        android:layout_centerVertical="true"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#C8C7CC" />
+</RelativeLayout>

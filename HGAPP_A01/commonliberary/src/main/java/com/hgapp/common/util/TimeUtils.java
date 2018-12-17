@@ -1,9 +1,17 @@
 package com.hgapp.common.util;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.text.format.DateUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 
 /**
@@ -498,6 +506,24 @@ public class TimeUtils {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(time);
         return format.format(date);
+    }
+
+
+    /**
+     * 获得标准系统时间
+     * @return
+     */
+    public static String getDateAndTimeString() {
+        /*SimpleDateFormat dff = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dff.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+        String timeString = dff.format(new Date());
+*/
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+        String timeString = sdf.format(calendar.getTime());
+
+        return timeString;
     }
 
 
