@@ -170,7 +170,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
 */
              /*nameData = nameData.substring(0,nameData.length()-1);
             totalNums = cpBetParams.getTypeNumber();
-            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
             betOrderLM.setVisibility(View.VISIBLE);
             betOrderCp.setVisibility(View.GONE);
             betOrderCpBottom.setVisibility(View.GONE);
@@ -180,7 +180,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             betOrderLMMoney.setText("总金额："+totalMoney);*/
 
             totalNums = cpBetParams.getTypeNumber();
-            totalMoney = CalcHelper.multiply(betGold,ssDta+"")+"";
+            totalMoney = CalcHelper.multiplyString(betGold,ssDta+"")+"";
             betOrderLM.setVisibility(View.GONE);
             betOrderCp.setVisibility(View.VISIBLE);
             betOrderCpBottom.setVisibility(View.VISIBLE);
@@ -194,7 +194,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
 
         }else if("LM".equals(betType)||"HKLM".equals(betType)){
             totalNums = cpBetParams.getTypeNumber();
-            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
             betOrderLM.setVisibility(View.VISIBLE);
             betOrderCp.setVisibility(View.GONE);
             betOrderCpBottom.setVisibility(View.GONE);
@@ -210,7 +210,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             betOrderLMMoney.setText("总金额："+totalMoney);
         }else if("HKHX".equals(betType)){
             totalNums = cpBetParams.getTypeNumber();
-            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
             betOrderLM.setVisibility(View.VISIBLE);
             betOrderCp.setVisibility(View.GONE);
             betOrderCpBottom.setVisibility(View.GONE);
@@ -226,7 +226,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             betOrderLMMoney.setText("总金额："+totalMoney);
         }else if("HKZXBZ".equals(betType)){
             totalNums = cpBetParams.getTypeNumber();
-            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
             betOrderLM.setVisibility(View.VISIBLE);
             betOrderCp.setVisibility(View.GONE);
             betOrderCpBottom.setVisibility(View.GONE);
@@ -242,7 +242,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             betOrderLMMoney.setText("总金额："+totalMoney);
         }else{
             totalNums = betResult.size()+"";
-            totalMoney = CalcHelper.multiply(betGold,totalNums)+"";
+            totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
             betOrderLM.setVisibility(View.GONE);
             betOrderCp.setVisibility(View.VISIBLE);
             betOrderCpBottom.setVisibility(View.VISIBLE);

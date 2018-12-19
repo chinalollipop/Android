@@ -591,7 +591,7 @@ public class TimeHelper {
             e.printStackTrace();
         }*/
 
-        return Math.abs(aftertime);
+        return aftertime;
 
     }
 

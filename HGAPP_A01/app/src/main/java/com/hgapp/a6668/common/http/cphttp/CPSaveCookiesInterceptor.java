@@ -44,11 +44,7 @@ public class CPSaveCookiesInterceptor implements Interceptor {
                     }
                 }else{
                     GameLog.log("彩票的cookie===========================");
-                    String isLogin = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_COOKIE_AVIABLE);
-                    if("true".equals(isLogin)){
-                        GameLog.log("登录成功之后的 彩票的cookie===========================");
-                        ACache.get(HGApplication.instance().getApplicationContext()).put("Set-Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("cPsjsjsjj"));
-                    }
+                    ACache.get(HGApplication.instance().getApplicationContext()).put("Set-Cookie",ACache.get(HGApplication.instance().getApplicationContext()).getAsString("cPsjsjsjj"));
                 }
         }
 
