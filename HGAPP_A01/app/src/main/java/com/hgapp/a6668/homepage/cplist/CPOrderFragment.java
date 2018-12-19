@@ -8926,7 +8926,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 CPOrderContentListResult cpOrderContentListResult5 = new CPOrderContentListResult();
                 cpOrderContentListResult5.setOrderContentListName("第五球");
                 cpOrderContentListResult5.setShowNumber(2);
-                cpOrderContentListResult3.setShowType("QIU");
+                cpOrderContentListResult5.setShowType("QIU");
 
                 List<CPOrderContentResult> cpOrderContentResultList5 = new ArrayList<>();
 
@@ -13949,6 +13949,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
                 cpOrderContentListResult2.setShowNumber(3);
+                cpOrderContentListResult2.setShowType("QIU");
                 List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
                 cpOrderContentResult4.setOrderName("3");
@@ -14057,6 +14058,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
                 cpOrderContentListResult3.setShowNumber(2);
+                cpOrderContentListResult3.setShowType("QIU");
                 List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
                 cpOrderContentResult19.setOrderName("18");
@@ -28022,12 +28024,6 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     @Override
     public void postNextIssueResult(CPNextIssueResult cpNextIssueResult) {
-        isCloseLottery = false;
-        cpOrderGold.setClickable(true);
-        cpOrderGold.setFocusable(true);
-        cpOrderGold.setFocusableInTouchMode(true);
-        cpOrderGold.requestFocus();
-        cpOrderNoYet.setVisibility(View.GONE);
         if(0 == cpNextIssueResult.getIsopen()){
             cpOrderLastTime.setVisibility(View.INVISIBLE);
             isCloseLottery = true;
@@ -28051,6 +28047,14 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         sendEndTime = TimeHelper.timeToSecond(cpNextIssueResult.getEndtime(),systTime);
 //        sendEndTime = TimeHelper.timeToSecond("2018-11-28 11:28:00","2018-11-28 11:20:15");
         sendAuthTime = TimeHelper.timeToSecond(cpNextIssueResult.getLotteryTime(),systTime);
+        if(sendEndTime>0){
+            isCloseLottery = false;
+            cpOrderGold.setClickable(true);
+            cpOrderGold.setFocusable(true);
+            cpOrderGold.setFocusableInTouchMode(true);
+            cpOrderGold.requestFocus();
+            cpOrderNoYet.setVisibility(View.GONE);
+        }
 //        GameLog.log("getEndtime："+cpNextIssueResult.getEndtime()+" - systTime："+systTime+" 剩余时间："+sendEndTime+ " 转换成时间："+TimeHelper.getTimeString(sendEndTime));
 //        GameLog.log("getLotteryTime：【"+cpNextIssueResult.getLotteryTime()+"】 - systTime：【 "+systTime+" 】 剩余时间：【"+sendAuthTime+ "】 转换成时间：--> "+TimeHelper.getTimeString(sendAuthTime));
 //        GameLog.log("封盘时间："+sendEndTime+" 开奖时间："+sendAuthTime);
@@ -29609,6 +29613,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));
         StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
         hideNavigationBar();
         initTablayout();
@@ -29979,7 +29984,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 holder.setTextColorRes(R.id.itemOrderLeftListTV, R.color.title_text);
                 holder.setBackgroundRes(R.id.itemOrderLeftListTV,R.drawable.bg_cp_oder_left_checked);
             }else{
-                holder.setTextColorRes(R.id.itemOrderLeftListTV, R.color.n_edittext_hint);
+                holder.setTextColorRes(R.id.itemOrderLeftListTV, R.color.color_bg_dialog);
                 holder.setBackgroundRes(R.id.itemOrderLeftListTV,R.drawable.bg_cp_oder_left_normal);
             }
             holder.setText(R.id.itemOrderLeftListTV, data.getOrderAllName());
@@ -31695,7 +31700,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     //标记为红色
     private String onMarkRed(String sign){
-        return " <font color='#fdb22b'>" + sign+"</font>";
+        return " <font color='#FFD700'>" + sign+"</font>";
     }
 
     class CPOrederGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
@@ -31796,7 +31801,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     class onLotteryTimeThread implements Runnable {
         @Override
         public void run() {
-            if (sendAuthTime-- <= -5) {
+            if (sendAuthTime-- <= 0) {
                 sendAuthTime = 0;
                 if(null!=executorService){
                     executorService.shutdownNow();

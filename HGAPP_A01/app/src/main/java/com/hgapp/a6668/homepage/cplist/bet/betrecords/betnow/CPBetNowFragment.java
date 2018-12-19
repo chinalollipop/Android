@@ -2,6 +2,7 @@ package com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -183,12 +184,16 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
             }
             holder.setText(R.id.cpBetRecord2time, name);
             holder.setText(R.id.cpBetRecord2number, data.num);
+            if(Integer.parseInt(data.num)>0){
+                holder.setText(R.id.cpBetRecord2number, data.num);
+                TextView textView= holder.getView(R.id.cpBetRecord2number);
+                textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+            }
             holder.setText(R.id.cpBetRecord2money, data.moeny);
             holder.setOnClickListener(R.id.cpBetRecordLay, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(Integer.parseInt(data.num)>0){
-                        showMessage("可以点击的地方");
                         Intent intent  = new Intent(getContext(),CPBetListRecordsFragment.class);
                         intent.putExtra("gameForm","now");
                         intent.putExtra("gameTime",data.id);

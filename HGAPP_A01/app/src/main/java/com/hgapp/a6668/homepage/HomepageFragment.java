@@ -254,7 +254,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 userState = "2";
                 String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
                 String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
-                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)||CPClient.getRetrofit()==null){
+                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)||Check.isNull(CPClient.getRetrofit())){
                     presenter.postCP();
                     showMessage("正在加载中，请稍后再试!");
                 }else{

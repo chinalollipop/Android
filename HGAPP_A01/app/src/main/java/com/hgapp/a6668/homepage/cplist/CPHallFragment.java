@@ -205,7 +205,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             executorService.shutdown();
             executorService = null;
         }
-        executorService = Executors.newScheduledThreadPool(14);
+        executorService = Executors.newScheduledThreadPool(1);
         if(hallPageGameAdapter == null){
             hallPageGameAdapter = new HallPageGameAdapter(getContext(), R.layout.item_cp_hall, cpGameList);
         }
@@ -361,7 +361,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             executorService.shutdown();
             executorService = null;
         }
-        executorService = Executors.newScheduledThreadPool(14);
+        executorService = Executors.newScheduledThreadPool(1);
         /*cpGameList.clear();
         cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
         cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 0,2));

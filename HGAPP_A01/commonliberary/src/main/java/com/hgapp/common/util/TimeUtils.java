@@ -1,11 +1,5 @@
 package com.hgapp.common.util;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import android.text.format.DateUtils;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -526,7 +520,18 @@ public class TimeUtils {
         return timeString;
     }
 
+    //GMT8
+    private String TimeZone() {
+        String timezone;
 
+// 这里注释的是之前获取到的时区，但是不分夏令时和冬令时（格林威治时间划分的）
+// int _t = TimeZone.getDefault().getRawOffset() / (3600 * 1000);
+// 改为如下，获取系统的时间并且计算出时区就可以了
+        int _t = TimeZone.getDefault().getOffset(System.currentTimeMillis()) / (3600 * 1000);
+        timezone = String.valueOf(_t);
+        timezone = "GMT" + timezone;
+        return timezone;
+    }
 
 
     /**
