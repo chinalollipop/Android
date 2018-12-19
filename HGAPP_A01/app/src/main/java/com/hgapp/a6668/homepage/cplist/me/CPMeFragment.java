@@ -121,7 +121,7 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
         GregorianCalendar ca = new GregorianCalendar();
         int time =  ca.get(GregorianCalendar.AM_PM);
         GameLog.log("当前的时间是 "+(time==0?"上午":"下午"));
-        cpUserName.setText((time==0?"上午好！":"下午好！")+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_NAME));
+        cpUserName.setText((time==0?"上午好！":"下午好！")+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME));
         animation = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
         cpMeList.setLayoutManager(gridLayoutManager);

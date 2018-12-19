@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         if(Check.isEmpty(demainUrl)){
             demainUrl = "http://www.cfqp55.com/";
         }
+        demainUrl += "?code="+QPWEBApplication.instance().getCommentData();
         GameLog.log("域名地址是"+demainUrl);
         wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");

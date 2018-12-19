@@ -74,6 +74,7 @@ import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
 import com.huangzj.slidingmenu.SlidingMenu;
+import com.jaeger.library.StatusBarUtil;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -194,6 +195,8 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     private onLotteryTimeThread lotteryTimeThread = new onLotteryTimeThread();
     private ScheduledExecutorService executorEndService;
     private onWaitingEndThread onWaitingEndThread = new onWaitingEndThread();
+    private ScheduledExecutorService executor15Service;
+    private onWaiting15Thread onWaiting15Thread = new onWaiting15Thread();
     private long sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
     private long sendEndTime = HGConstant.ACTION_SEND_LEAGUE_TIME_T;
     private String agMoney, hgMoney;
@@ -28322,7 +28325,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 break;
         }
         presenter.postQuickBet(game_code,type,x_session_token);
-
+        onSend15Code();
     }
 
     private void onRefreashLMData(String dataName,String dataRate){
@@ -29606,6 +29609,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
         hideNavigationBar();
         initTablayout();
         initZTTablayout();
@@ -29782,6 +29786,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
         @Override
         protected void convert(ViewHolder holder, String data, final int position) {
+            if(Check.isEmpty(data)){
+                return;
+            }
             switch (data){
                 /*
                  *  香港六合彩波色
@@ -31749,6 +31756,29 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+
+
+        if(null!=executor15Service){
+            executor15Service.shutdownNow();
+            executor15Service.shutdown();
+            executor15Service = null;
+            GameLog.log("+++++++++++++++++++++++++++++++++++销毁15秒倒计时++++++++++++++");
+        }
+
+        if(null!=executorService){
+            executorService.shutdownNow();
+            executorService.shutdown();
+            executorService = null;
+            GameLog.log("+++++++++++++++++++++++++++++++++++销毁开奖时间的倒计时++++++++++++++");
+        }
+
+        if(null!=executorEndService){
+            executorEndService.shutdownNow();
+            executorEndService.shutdown();
+            executorEndService = null;
+            GameLog.log("+++++++++++++++++++++++++++++++++++销毁结束时间的倒计时++++++++++++++");
+        }
+
     }
 
 
@@ -31766,7 +31796,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     class onLotteryTimeThread implements Runnable {
         @Override
         public void run() {
-            if (sendAuthTime-- <= 0) {
+            if (sendAuthTime-- <= -5) {
                 sendAuthTime = 0;
                 if(null!=executorService){
                     executorService.shutdownNow();
@@ -31777,8 +31807,14 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     @Override
                     public void run() {
                         rightOpenLotteryTime.setText("开奖中");
-                        presenter.postNextIssue(game_code,x_session_token);
-                        presenter.postLastResult(game_code,x_session_token);
+
+                        if(game_code.equals("69")){
+                            presenter.postNextIssueHK(game_code,x_session_token);
+                            presenter.postLastResultHK(game_code,x_session_token);
+                        }else{
+                            presenter.postNextIssue(game_code,x_session_token);
+                            presenter.postLastResult(game_code,x_session_token);
+                        }
                         GameLog.log("开奖中  请求下一个盘口");
                         /*rightCloseLotteryTime.post(new Runnable() {
                             @Override
@@ -31797,7 +31833,11 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     @Override
                     public void run() {
                         if(rightOpenLotteryTime!=null){
-                            rightOpenLotteryTime.setText(TimeHelper.getTimeString(sendAuthTime));
+                            if(sendAuthTime <= 0){
+                                rightOpenLotteryTime.setText("开奖中");
+                            }else{
+                                rightOpenLotteryTime.setText(TimeHelper.getTimeString(sendAuthTime));
+                            }
                             //GameLog.log(getString(R.string.n_register_phone_waiting) + sendAuthTime + "s");
                         }
                     }
@@ -31844,9 +31884,41 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     }
 
 
+    class onWaiting15Thread implements Runnable {
+        @Override
+        public void run() {
+                rightCloseLotteryTime.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        GameLog.log("+++++++++++++++++++++++++++++++++++-----每15秒执行一次+++++++++++++++++++++++++++++++++++");
+                        if(game_code.equals("69")){
+                            //presenter.postNextIssueHK(game_code,x_session_token);
+                            presenter.postLastResultHK(game_code,x_session_token);
+                        }else{
+                            //presenter.postNextIssue(game_code,x_session_token);
+                            presenter.postLastResult(game_code,x_session_token);
+                        }
+                        //onRefreshRightCQ(type);
+                        presenter.postCPLeftInfo(game_code,x_session_token);
+                    }
+                });
+        }
+    }
+
     private void onSartTime(){
         onSendAuthCode();
         onSendEndCode();
+    }
+
+    private void onSend15Code(){
+        GameLog.log("+++++++++++++++++++++++++++++++++++-----15秒开始倒计时+++++++++++++++++++++++++++++++++++");
+        if(null!=executor15Service){
+            executor15Service.shutdownNow();
+            executor15Service.shutdown();
+            executor15Service = null;
+        }
+        executor15Service = Executors.newScheduledThreadPool(1);
+        executor15Service.scheduleAtFixedRate(onWaiting15Thread, 0, 15000, TimeUnit.MILLISECONDS);
     }
 
     //计数器，用于倒计时使用
@@ -32021,7 +32093,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                             cpBetParams.setType("HKSXL");
                             cpBetParams.setTypeCode(type);
                             cpBetParams.setRtype("");
-                            cpBetParams.setTypeNumber(""+xiazhuValue);
+                            cpBetParams.setTypeNumber(""+rX0);
                             cpBetParams.setTypeName("组合数");
                         }else if(type.equals("40")){
                             cpBetParams.setType("HKZXBZ");

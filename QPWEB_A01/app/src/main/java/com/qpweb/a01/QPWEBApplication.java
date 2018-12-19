@@ -1,17 +1,28 @@
 package com.qpweb.a01;
 
 import android.app.Application;
+import android.os.Build;
 import android.util.Log;
 
 
+import com.qpweb.a01.utils.Check;
+import com.qpweb.a01.utils.CommentUtils;
+import com.qpweb.a01.utils.FileIOUtils;
+import com.qpweb.a01.utils.FileUtils;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+import java.io.File;
+import java.util.Locale;
+
 public class QPWEBApplication extends Application {
+    private static QPWEBApplication qpwebApplication;
+    private String comment;
     @Override
     public void onCreate() {
         super.onCreate();
-
+        qpwebApplication = this;
+        initconfigCommentClient();
         OkHttpUtils.getInstance()
                 .init(this)
                 .debug(true, "okHttp")
@@ -35,4 +46,26 @@ public class QPWEBApplication extends Application {
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(),  cb);
     }
+
+    public void  initconfigCommentClient(){
+        String filePath = FileUtils.getFilePath(getApplicationContext(),"")+"/markets.txt";
+        //先读本地文件，没有的话，再读comments，然后在保存到本地
+        comment = FileIOUtils.readFile2String(filePath);
+        if(Check.isEmpty(comment)){
+            comment =  CommentUtils.readAPK(new File(getApplicationContext().getPackageCodePath()));
+            comment = "101010";
+            FileIOUtils.writeFileFromString(filePath,comment);
+        }/*else{
+            FileIOUtils.writeFileFromString(filePath,comment);
+        }*/
+    }
+
+    public static QPWEBApplication instance(){
+        return qpwebApplication;
+    }
+
+    public String getCommentData(){
+        return comment;
+    }
+
 }

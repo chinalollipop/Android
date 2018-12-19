@@ -21,6 +21,7 @@ import com.hgapp.common.util.ToastUtils;
 import com.huangzj.slidingmenu.SlidingMenu;
 import com.huangzj.slidingmenu.app.SlidingActivityBase;
 import com.huangzj.slidingmenu.app.SlidingActivityHelper;
+import com.jaeger.library.StatusBarUtil;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
@@ -68,6 +69,7 @@ public abstract class BaseActivity2 extends SupportActivity implements IMessageV
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         baseContext = this;
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
         hideNavigationBar();
         if(0!= setLayoutId())
         {

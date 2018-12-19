@@ -287,7 +287,10 @@
                 app:tabBackground="@drawable/tab_background"
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="scrollable" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/cp_hall_cline" />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cpOrderListRight"
                 android:layout_width="match_parent"

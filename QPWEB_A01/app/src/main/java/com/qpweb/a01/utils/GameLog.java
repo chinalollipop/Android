@@ -6,7 +6,7 @@ package com.qpweb.a01.utils;
  */
 
 public class GameLog {
-    public static boolean PRINT_LOG=false;
+    public static boolean PRINT_LOG=true;
     private GameLog(){}
 
     public static void log(String msg)

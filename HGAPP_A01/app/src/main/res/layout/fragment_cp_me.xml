@@ -32,6 +32,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:text="退出"
+            android:visibility="invisible"
             android:padding="10dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/title_text"

@@ -2,6 +2,7 @@ package com.hgapp.a6668.homepage.cplist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -47,6 +48,7 @@ import com.hgapp.a6668.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRe
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
 import com.hgapp.a6668.homepage.cplist.hall.CPHallListContract;
 import com.hgapp.a6668.homepage.cplist.lottery.CPLotteryListFragment;
+import com.hgapp.a6668.homepage.cplist.me.CPMeFragment;
 import com.hgapp.a6668.homepage.cplist.role.CPServiceActivity;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
@@ -118,7 +120,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 0,159));
         cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
         cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
-        cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,47));
+        cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,69));
         cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_js, 0,384));
     }
 
@@ -167,6 +169,8 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        cpHallUserName.setText(Html.fromHtml("<u>"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME)+"</u>"));
+        //cpHallUserName.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
         sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
         executorService2 = Executors.newScheduledThreadPool(1);
         executorService2.scheduleAtFixedRate(new Runnable() {
@@ -252,7 +256,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         hallPageGameAdapter.notifyDataSetChanged();*/
     }
 
-    @OnClick({R.id.cpHallBackHome, R.id.cpHallMenu})
+    @OnClick({R.id.cpHallBackHome, R.id.cpHallMenu,R.id.cpHallUserName})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cpHallBackHome:
@@ -261,6 +265,12 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             case R.id.cpHallMenu:
                 showPopMenuIn();
                 presenter.postCPLeftInfo("");
+                break;
+            case R.id.cpHallUserName:
+                Intent intent2  = new Intent(getContext(),CPMeFragment.class);
+                intent2.putExtra("gameId","51");
+                intent2.putExtra("gameName","北京赛车");
+                startActivity(intent2);
                 break;
         }
     }

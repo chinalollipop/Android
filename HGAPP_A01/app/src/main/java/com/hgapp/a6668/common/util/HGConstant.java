@@ -181,6 +181,8 @@ public abstract class HGConstant {
     public static final String  USER_CURRENT_POSITION  = "user_current_position";
 
 
+    //用户的登录状态  后的用户名称
+    public static final String USERNAME_LOGIN_USERNAME = "username_login_username";
     //用户的登录状态  后的金额
     public static final String USERNAME_LOGIN_MONEY = "username_login_money";
 

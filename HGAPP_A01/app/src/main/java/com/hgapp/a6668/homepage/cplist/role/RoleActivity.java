@@ -16,6 +16,7 @@ import com.hgapp.a6668.R;
 import com.hgapp.a6668.common.util.HGIWebSetting;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.jaeger.library.StatusBarUtil;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.ValueCallback;
@@ -99,6 +100,7 @@ public class RoleActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
         hideNavigationBar();
         ButterKnife.bind(this);
         setEvents(savedInstanceState);

@@ -53,7 +53,7 @@
     <color name="color_translucent">#e0000000</color>
     <!--登录页的字体颜色值-->
     <color name="login_tv">#146dcd</color>
-    <color name="cp_status_bar">#2d4cb6</color>
+    <color name="cp_status_bar">#2d4eb9</color>
     <!--pop-->
     <color name="pop_ll_hight">#31B4EF</color>
     <color name="pop_ll_normal">#F0F0F0</color>

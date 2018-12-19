@@ -644,12 +644,17 @@ public class TimeHelper {
         int min = ((int)second)%(3600*24)%3600/60;
         int sec = ((int)second)%(3600*24)%3600%60%60;
 
-
         StringBuffer sb = new StringBuffer();
-
+            if(days==1){
+                hours +=24;
+            }else if(days==2){
+                hours +=48;
+            }else  if(days==3){
+                hours +=72;
+            }
 //        sb.append(hours).append("时").append(min).append("分").append(sec).append("秒");
         //sb.append(hours>9?hours:"0"+hours).append(":").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
-        sb.append(hours>9?hours:hours>0?"0"+hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
+        sb.append(hours>9?hours+":":hours>0?"0"+hours+":":"").append(min>9?min:"0"+min).append(":").append(sec>9?sec:"0"+sec);//.append(" : ")
 		/*if (days > 0) {
 			sb.append(days).append("天");
 		}

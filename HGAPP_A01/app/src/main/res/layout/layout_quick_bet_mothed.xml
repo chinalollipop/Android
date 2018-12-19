@@ -37,6 +37,8 @@
                 android:layout_height="wrap_content"
                 android:text="快捷投注一"
                 android:checked="true"
+                android:paddingLeft="5dp"
+                android:button="@drawable/btn_check_style"
                 android:textColor="@color/cp_hall_tv"
                 android:textSize="18sp" />
 
@@ -45,7 +47,9 @@
                 android:id="@+id/quickBetMethod2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:button="@drawable/btn_check_style"
                 android:text="快捷投注二"
+                android:paddingLeft="5dp"
                 android:textColor="@color/cp_hall_tv"
                 android:textSize="18sp" />
         </RadioGroup>
