@@ -74,6 +74,7 @@ import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
 import com.huangzj.slidingmenu.SlidingMenu;
+import com.instacart.library.truetime.TrueTime;
 import com.jaeger.library.StatusBarUtil;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zhy.autolayout.utils.AutoUtils;
@@ -28043,7 +28044,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpOrderLastTime.setVisibility(View.VISIBLE);
         round =cpNextIssueResult.getIssue();
         cpOrderLotteryNextTime.setText(round+"期");
-        String systTime =TimeUtils.getDateAndTimeString();
+        String systTime2 =TimeUtils.getDateAndTimeString();
+        String systTime = TimeUtils.convertToDetailTime(TrueTime.now().getTime());
+        GameLog.log("系统时间是 "+systTime+" 手机2 "+systTime2);
         sendEndTime = TimeHelper.timeToSecond(cpNextIssueResult.getEndtime(),systTime);
 //        sendEndTime = TimeHelper.timeToSecond("2018-11-28 11:28:00","2018-11-28 11:20:15");
         sendAuthTime = TimeHelper.timeToSecond(cpNextIssueResult.getLotteryTime(),systTime);

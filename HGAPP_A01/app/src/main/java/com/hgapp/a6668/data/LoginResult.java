@@ -25,11 +25,19 @@ public class LoginResult {
     private String E_Mail;
     private String DOWNLOAD_APP_GIFT_GOLD;
     private String DOWNLOAD_APP_GIFT_DEPOSIT;
+    /**
+     * Money : 35308581
+     * DOWNLOAD_APP_GIFT_GOLD : 108
+     * DOWNLOAD_APP_GIFT_DEPOSIT : 1000
+     * membermessage : {"mem_message":"HG0086诚邀共享【12.30】元旦暖冬彩金 HG0086钜惠盛典海量彩金不断，详情登陆网站查看！APP用户请点击优惠活动进行查看！","mcou":1}
+     */
+
+    private MembermessageBean membermessage;
 
     public LoginResult() {
     }
 
-    public LoginResult(String userName, String agents, String loginTime, String birthday, String money, String phone, String test_flag, String oid, String alias, String userid) {
+    public LoginResult(String userName, String agents, String loginTime, String birthday, String money, String phone, String test_flag, String oid, String alias, String userid, String noteMessage) {
         UserName = userName;
         Agents = agents;
         LoginTime = loginTime;
@@ -40,7 +48,9 @@ public class LoginResult {
         Oid = oid;
         Alias = alias;
         this.userid = userid;
+        this.noteMessage = noteMessage;
     }
+
 
     /**
      * Oid : a5e5be5b58e516b03aacra9
@@ -49,8 +59,9 @@ public class LoginResult {
 
     private String Oid;
     private String userid;
+    private String noteMessage;
     private String Alias;
-    private String  BindCard_Flag;
+    private String BindCard_Flag;
 
     public String getUserName() {
         return UserName;
@@ -124,6 +135,14 @@ public class LoginResult {
         this.userid = userid;
     }
 
+    public String getNoteMessage() {
+        return noteMessage;
+    }
+
+    public void setNoteMessage(String noteMessage) {
+        this.noteMessage = noteMessage;
+    }
+
     public String getAlias() {
         return Alias;
     }
@@ -139,6 +158,7 @@ public class LoginResult {
     public void setBindCard_Flag(String BindCard_Flag) {
         this.BindCard_Flag = BindCard_Flag;
     }
+
 
     public String getBetMinMoney() {
         return BetMinMoney;
@@ -163,6 +183,7 @@ public class LoginResult {
     public void setE_Mail(String e_Mail) {
         E_Mail = e_Mail;
     }
+
     public String getDOWNLOAD_APP_GIFT_GOLD() {
         return DOWNLOAD_APP_GIFT_GOLD;
     }
@@ -199,5 +220,39 @@ public class LoginResult {
                 ", Alias='" + Alias + '\'' +
                 ", BindCard_Flag='" + BindCard_Flag + '\'' +
                 '}';
+    }
+
+    public MembermessageBean getMembermessage() {
+        return membermessage;
+    }
+
+    public void setMembermessage(MembermessageBean membermessage) {
+        this.membermessage = membermessage;
+    }
+
+    public static class MembermessageBean {
+        /**
+         * mem_message : HG0086诚邀共享【12.30】元旦暖冬彩金 HG0086钜惠盛典海量彩金不断，详情登陆网站查看！APP用户请点击优惠活动进行查看！
+         * mcou : 1
+         */
+
+        private String mem_message;
+        private int mcou;
+
+        public String getMem_message() {
+            return mem_message;
+        }
+
+        public void setMem_message(String mem_message) {
+            this.mem_message = mem_message;
+        }
+
+        public int getMcou() {
+            return mcou;
+        }
+
+        public void setMcou(int mcou) {
+            this.mcou = mcou;
+        }
     }
 }

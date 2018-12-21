@@ -22,6 +22,7 @@ import com.qpweb.a01.utils.FileIOUtils;
 import com.qpweb.a01.utils.FileUtils;
 import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.TBSWebSetting;
+import com.qpweb.a01.utils.ToastUtils;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;
@@ -61,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
         if(Check.isEmpty(demainUrl)){
             demainUrl = "http://www.cfqp55.com/";
         }
+        demainUrl = "http://hg06606.com/";//测试环境的地址
         demainUrl += "?code="+QPWEBApplication.instance().getCommentData();
+        ToastUtils.showLongToast("请求的地址是："+demainUrl);
         GameLog.log("域名地址是"+demainUrl);
         wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");

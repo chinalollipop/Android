@@ -26,9 +26,11 @@ import com.hgapp.common.util.FileUtils;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.Timber;
 import com.hgapp.common.util.Utils;
+import com.instacart.library.truetime.TrueTime;
 import com.lzy.okgo.OkGo;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
 import me.yokeyword.sample.App;
@@ -113,12 +115,16 @@ public class HGApplication extends MultiDexApplication {
             QbSdk.preInit(getApplicationContext());
         }*/
         //x5内核初始化接口
-        /*new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                QbSdk.initX5Environment(getApplicationContext(),  cb);
+                try {
+                    TrueTime.build().initialize();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }).start();*/
+        }).start();
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         /*QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 

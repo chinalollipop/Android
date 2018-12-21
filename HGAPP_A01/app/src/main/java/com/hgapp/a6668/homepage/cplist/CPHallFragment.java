@@ -53,6 +53,7 @@ import com.hgapp.a6668.homepage.cplist.role.CPServiceActivity;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.TimeUtils;
+import com.instacart.library.truetime.TrueTime;
 import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -414,7 +415,8 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.get(11).setIsopen(cpHallResult.getdata51().getIsopen());
         cpGameList.get(12).setIsopen(cpHallResult.getdata51().getIsopen());
         cpGameList.get(13).setIsopen(cpHallResult.getdata51().getIsopen());*/
-        String systTime =TimeUtils.getDateAndTimeString();
+        //String systTime =TimeUtils.getDateAndTimeString();
+        String systTime = TimeUtils.convertToDetailTime(TrueTime.now().getTime());
        if(Check.isNumericNull(cpHallResult.getdata51().getEndtime())){
            cpHallIcon0 = 0;
            scpHallIcon0 = 1;

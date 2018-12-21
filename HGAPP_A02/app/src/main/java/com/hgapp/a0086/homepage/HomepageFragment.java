@@ -38,6 +38,7 @@ import com.hgapp.a0086.data.QipaiResult;
 import com.hgapp.a0086.data.ValidResult;
 import com.hgapp.a0086.homepage.aglist.AGListFragment;
 import com.hgapp.a0086.homepage.aglist.playgame.XPlayGameActivity;
+import com.hgapp.a0086.homepage.events.EventShowDialog;
 import com.hgapp.a0086.homepage.events.EventsFragment;
 import com.hgapp.a0086.homepage.handicap.HandicapFragment;
 import com.hgapp.a0086.homepage.noticelist.NoticeListFragment;
@@ -102,7 +103,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String userMoney = "";
     private String userState = "9";
     private  String pro =  "";
-
     //private CheckUpgradeResult checkUpgradeResult;
     static {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty));
@@ -731,7 +731,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
-
+        EventShowDialog.newInstance(loginResult.getNoteMessage(),"").show(getFragmentManager());
         GameLog.log("首页获取的用户余额："+loginResult.getMoney());
         userName = loginResult.getUserName();
         pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents();
