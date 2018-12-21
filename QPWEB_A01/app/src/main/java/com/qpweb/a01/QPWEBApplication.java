@@ -53,11 +53,10 @@ public class QPWEBApplication extends Application {
         comment = FileIOUtils.readFile2String(filePath);
         if(Check.isEmpty(comment)){
             comment =  CommentUtils.readAPK(new File(getApplicationContext().getPackageCodePath()));
-            comment = "";
             FileIOUtils.writeFileFromString(filePath,comment);
-        }/*else{
+        }else{
             FileIOUtils.writeFileFromString(filePath,comment);
-        }*/
+        }
     }
 
     public static QPWEBApplication instance(){

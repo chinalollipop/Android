@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         }
         demainUrl = "http://hg06606.com/";//测试环境的地址
         demainUrl += "?code="+QPWEBApplication.instance().getCommentData();
-        ToastUtils.showLongToast("请求的地址是："+demainUrl);
+        //ToastUtils.showLongToast("请求的地址是："+demainUrl);
         GameLog.log("域名地址是"+demainUrl);
         wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");
