@@ -559,9 +559,9 @@ public class TimeHelper {
      * @param time
      * @return
      */
-    public static Long timeToSecond(String time,String dateStr){
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        long aftertime=0;
+    public static Long timeToSecond(String time, String dateStr) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long aftertime = 0;
         try {
             /*Object d1=sdf.parse(time).getTime();
             Date miDate = sdf.parse(dateStr);
@@ -573,7 +573,7 @@ public class TimeHelper {
             long t1 = miDate.getTime();
             long d1time = d1 / 1000;
             long t1time = t1 / 1000;
-        aftertime = d1time-t1time;
+            aftertime = d1time - t1time;
         } catch (ParseException e) {
             e.printStackTrace();
         }

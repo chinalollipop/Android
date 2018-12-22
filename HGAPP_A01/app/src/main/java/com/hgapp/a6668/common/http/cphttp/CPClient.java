@@ -68,7 +68,7 @@ public class CPClient {
                     .writeTimeout(30,TimeUnit.SECONDS)
                     //.addInterceptor(new AppInterceptor())
                     .addInterceptor(new CPReadCookiesInterceptor())
-                    .addInterceptor(new CPSaveCookiesInterceptor())
+//                    .addInterceptor(new CPSaveCookiesInterceptor())
                     .addInterceptor(new CPLoggerInterceptor())
                     .addInterceptor(new CPTokenInterceptor(clientConfig))
                     .build();

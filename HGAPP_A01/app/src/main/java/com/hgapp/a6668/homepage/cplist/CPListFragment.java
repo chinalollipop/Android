@@ -130,12 +130,22 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
         //StatusBarUtil.setColor(this, getResources().getColor(R.color.cp_status_bar));
 //            StatusBarUtil.setTranslucentForImageView(this,cpListTitle);
        // RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg01455.com/");
-        String isLoginAlread = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_COOKIE_AVIABLE);
+        /*String isLoginAlread = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_COOKIE_AVIABLE);
         if("false".equals(isLoginAlread)){//如果没有登录过 ，就需要登录
             presenter.postCPLogin(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM));
         }else{
-            presenter.postCPInit();
+        }*/
+        String[] cptoken = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_COOKIE).split("; ");
+        String token="";
+        for(int i=0;i<cptoken.length;++i){
+            if(cptoken[i].contains("token=")){
+                GameLog.log("包含token的地方是 "+cptoken[i]);
+                token = cptoken[i].replace("token=","");
+                ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_X_SESSION_TOKEN,token);
+                GameLog.log("彩票的token "+token);
+            }
         }
+        presenter.postCPNote(token);
         /*cpBottomBar.postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -60,7 +60,6 @@ public class CPListPresenter implements CPListContract.Presenter {
                     public void success(Object response) {
                         GameLog.log("联合登录的日志信息是 "+response);
                         ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
-                        postCPInit();
                     }
 
                     @Override
@@ -115,31 +114,7 @@ public class CPListPresenter implements CPListContract.Presenter {
     }
 
     @Override
-    public void postCPInit() {
-        String[] cptoken = ACache.get(HGApplication.instance().getApplicationContext()).getAsString("COOKIE_token").split("; ");
-        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_X_SESSION_TOKEN,cptoken[0].replace("token=",""));
-        GameLog.log("彩票的token "+cptoken[0].replace("token=",""));
-        subscriptionHelper.add(RxHelper.addSugar(api.postCPInit("gamessc/init",cptoken[0].replace("token=","")))
-                .subscribe(new ResponseSubscriber<CPInitResult>() {
-                    @Override
-                    public void success(CPInitResult response) {
-                        GameLog.log("联合登录的CPInitResult日志信息是 "+response.getToken());
-                        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_X_SESSION_TOKEN,response.getToken());
-                        postCPNote();
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if (null != view) {
-                            view.setError(0, 0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-    }
-
-    private void postCPNote() {
-        String token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
+    public void postCPNote(String token) {
         subscriptionHelper.add(RxHelper.addSugar(api.postCPNote("home/getnote?x-session-token=" + token))
                 .subscribe(new ResponseSubscriber<CPNoteResult>() {
                     @Override
@@ -155,5 +130,23 @@ public class CPListPresenter implements CPListContract.Presenter {
                         }
                     }
                 }));
+        /*subscriptionHelper.add(RxHelper.addSugar(api.postCPInit("gamessc/init",token))
+                .subscribe(new ResponseSubscriber<CPInitResult>() {
+                    @Override
+                    public void success(CPInitResult response) {
+                        GameLog.log("联合登录的CPInitResult日志信息是 "+response.getToken());
+                        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_X_SESSION_TOKEN,response.getToken());
+                        postCPNote();
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.setError(0, 0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));*/
     }
+
 }

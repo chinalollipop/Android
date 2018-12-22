@@ -17,7 +17,7 @@ public interface CPListContract {
     public interface Presenter extends IPresenter
     {
         public void postCPLogin(String path);
-        public void postCPInit();
+        public void postCPNote(String token);
     }
     public interface View extends IView<CPListContract.Presenter>,IMessageView,IProgressView
     {

@@ -109,13 +109,6 @@ public class CPHallListPresenter implements CPHallListContract.Presenter {
         GameLog.log("当前的时间戳 "+date.substring(0,10));
         String getUtl3 = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         GameLog.log("cp 的之前的token "+getUtl3);
-       /* try {
-            getUtl2 = URLDecoder.decode("gamessc/getAllNextIssue?_"+date+"&x-session-token="+getUtl3,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }*/
-        ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
-        ACache.get(HGApplication.instance().getApplicationContext()).put("KKKKK","true");
         //GameLog.log("========token "+getUtl2);
         subscriptionHelper.add(RxHelper.addSugar(api.get("gamessc/getAllNextIssue?_"+date+"&x-session-token="+getUtl3))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<CPHallResult>() {

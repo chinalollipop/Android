@@ -496,10 +496,11 @@ public class TimeUtils {
         Date date = new Date(time);
         return format.format(date);
     }
-    public static  String convertToDetailTime(long time) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date(time);
-        return format.format(date);
+    public static  String convertToDetailTime(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+        String timeString = sdf.format(date.getTime());
+        return timeString;
     }
 
 

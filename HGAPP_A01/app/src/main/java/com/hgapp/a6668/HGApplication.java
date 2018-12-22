@@ -119,7 +119,13 @@ public class HGApplication extends MultiDexApplication {
             @Override
             public void run() {
                 try {
-                    TrueTime.build().initialize();
+                    TrueTime.build()
+                            //.withSharedPreferences(SampleActivity.this)
+                            .withNtpHost("time.google.com")
+                            .withLoggingEnabled(false)
+                            .withSharedPreferencesCache(getApplicationContext())
+                            .withConnectionTimeout(3_1428)
+                            .initialize();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

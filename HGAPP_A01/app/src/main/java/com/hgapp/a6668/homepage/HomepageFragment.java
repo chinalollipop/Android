@@ -255,13 +255,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 userState = "2";
                 String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
                 String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
-                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)||Check.isNull(CPClient.getRetrofit())){
+                String cp_token = ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE);
+                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)||Check.isEmpty(cp_token)||Check.isNull(CPClient.getRetrofit())){
                     presenter.postCP();
                     showMessage("正在加载中，请稍后再试!");
                 }else{
-                    getActivity().startActivity(new Intent(getContext(),CPListFragment.class));
+                    this.startActivity(new Intent(getContext(),CPListFragment.class));
                 }
-                //ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"true");
 
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
                 /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
@@ -547,7 +547,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         HGApplication.instance().configCPClient();
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
-        //initWebView(cpResult.getUrlLogin());
+        initWebView(cpResult.getUrlLogin());
     }
 
     @Override
@@ -750,7 +750,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
-        EventShowDialog.newInstance(loginResult.getNoteMessage(),"").show(getFragmentManager());
+        if(!Check.isEmpty(loginResult.getNoteMessage())){
+            EventShowDialog.newInstance(loginResult.getNoteMessage(),"").show(getFragmentManager());
+        }
         GameLog.log("首页获取的用户余额："+loginResult.getMoney());
         userName = loginResult.getUserName();
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);
@@ -770,7 +772,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postQipai("","");
         presenter.postHGQipai("","");
         presenter.postVGQipai("","");
-        ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"false");
     }
 
     @Subscribe
@@ -790,7 +791,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         userState = "9";
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);
 		ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
-        ACache.get(getContext()).put(HGConstant.APP_CP_COOKIE_AVIABLE,"false");
     }
 
 }
