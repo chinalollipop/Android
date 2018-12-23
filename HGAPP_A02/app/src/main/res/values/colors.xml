@@ -14,7 +14,19 @@
     <color name="btn_text">#FFFFFF</color>
     <!--EditText默认颜色值-->
     <color name="n_edittext_hint">#9B9B9B</color>
-
+    <color name="cp_line">#f7f7f7</color>
+    <color name="cp_hall_line">#DCDCDC</color>
+    <color name="cp_hall_cline">#f2f2f2</color>
+    <color name="cp_hall_tv">#191919</color>
+    <color name="cp_order_bg">#4f7ecc</color>
+    <color name="cp_order_tv">#acc6d3</color>
+    <color name="cp_order_hk_nor">#F9F9F9</color>
+    <color name="cp_order_hk_click">#D6E5EF</color>
+    <color name="cp_order_tv_clicked">#93b1de</color>
+    <color name="cp_order_submit">#ff1010</color>
+    <color name="cp_order_reset">#181eaf</color>
+    <color name="cp_order_fast_submit">#0968c1</color>
+    <color name="cp_status_bar">#2d4eb9</color>
     <!--EditText文字颜色值-->
     <color name="n_edittext_stroke">#979797</color>
     <color name="n_edittext">#606060</color>

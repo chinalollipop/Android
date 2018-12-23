@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/n_edittext_hint" />
+    <LinearLayout
+        android:id="@+id/cpBetRecordLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/cpBetRecord2time"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="时间"
+            android:textColor="@color/cp_hall_tv"
+            />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/n_edittext_hint" />
+        <TextView
+            android:id="@+id/cpBetRecord2number"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="笔数"
+            android:textColor="@color/cp_hall_tv"
+            />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/n_edittext_hint" />
+        <TextView
+            android:id="@+id/cpBetRecord2money"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="投注额"
+            android:textColor="@color/cp_hall_tv"
+            />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/n_edittext_hint" />
+        <TextView
+            android:id="@+id/cpBetRecord2win"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="输赢"
+            android:textColor="@color/cp_hall_tv"
+            />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/tv_item_game_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/n_edittext_hint" />
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="@color/tab_unselect" />-->
+</com.zhy.autolayout.AutoLinearLayout>

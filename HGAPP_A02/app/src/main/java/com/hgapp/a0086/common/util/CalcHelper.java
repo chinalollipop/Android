@@ -43,6 +43,17 @@ public class CalcHelper {
     }
 
     /**
+     * 乘法
+     * @param a
+     * @param b
+     * @return
+     */
+
+    public static String multiplyString(String a, String b) {
+        return String.valueOf(calc(a, b, -1, TYPE_MULTIPLY, null)).replace(".0","");
+    }
+
+    /**
      * 除法
      * @param a
      * @param b

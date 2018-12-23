@@ -21,6 +21,7 @@ import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a0086.common.event.LogoutEvent;
 import com.hgapp.a0086.common.http.Client;
+import com.hgapp.a0086.common.http.cphttp.CPClient;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
@@ -38,6 +39,7 @@ import com.hgapp.a0086.data.QipaiResult;
 import com.hgapp.a0086.data.ValidResult;
 import com.hgapp.a0086.homepage.aglist.AGListFragment;
 import com.hgapp.a0086.homepage.aglist.playgame.XPlayGameActivity;
+import com.hgapp.a0086.homepage.cplist.CPListFragment;
 import com.hgapp.a0086.homepage.events.EventShowDialog;
 import com.hgapp.a0086.homepage.events.EventsFragment;
 import com.hgapp.a0086.homepage.handicap.HandicapFragment;
@@ -250,12 +252,23 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             case 2:
                 userState = "2";
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
-                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
                 if("1".equals(cp_url)){
                     presenter.postMaintain();
                 }else {
                     postCPGo();
+                }*/
+
+                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
+                String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
+                String cp_token = ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE);
+                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_url)||Check.isEmpty(cp_token)||Check.isNull(CPClient.getRetrofit())){
+                    presenter.postCP();
+                    showMessage("正在加载中，请稍后再试!");
+                }else{
+                    this.startActivity(new Intent(getContext(), CPListFragment.class));
                 }
+
                  break;
             case 3:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -526,6 +539,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postCPResult(CPResult cpResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
+        CPClient.setClientDomain(cpResult.getCpUrl());
+        HGApplication.instance().configCPClient();
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
         initWebView(cpResult.getUrlLogin());
@@ -734,6 +749,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         EventShowDialog.newInstance(loginResult.getNoteMessage(),"").show(getFragmentManager());
         GameLog.log("首页获取的用户余额："+loginResult.getMoney());
         userName = loginResult.getUserName();
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);
         pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents();
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro);
         if(!Check.isEmpty(loginResult.getMoney())){

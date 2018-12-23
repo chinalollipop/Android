@@ -9,7 +9,10 @@ import com.hgapp.a0086.data.QipaiResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Url;
 import rx.Observable;
 
 public interface IPersonApi {
@@ -50,8 +53,8 @@ public interface IPersonApi {
     public Observable<AppTextMessageResponseList<CPResult>> postCP(@Field("appRefer") String appRefer);
 
     //彩票联合推出
-    @POST("main/out/")
-    @FormUrlEncoded
-    public Observable<AppTextMessageResponse<Object>> postLogOutCP(@Field("appRefer") String appRefer);
+    @Headers({"Domain-Name: CpUrl"})
+    @GET()
+    public Observable<AppTextMessageResponse<Object>> getLogOutCP(@Url String path);
 
 }

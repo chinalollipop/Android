@@ -67,6 +67,16 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/app_name" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name="com.hgapp.a0086.common.service.ServiceOnlineActivity"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.bet.betrecords.CPBetRecordsFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.CPListFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.me.CPMeFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.CPHallFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.lottery.CPLotteryListFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.role.RoleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.role.CPServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hgapp.a0086.homepage.cplist.CPOrderFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <service android:name="com.hgapp.a0086.common.service.StartX5Service" />
         <service android:name="com.hgapp.a0086.upgrade.downunit.AppDownloadService" />
         <!--<receiver android:name=".common.broadcast.OpenBrodcast">

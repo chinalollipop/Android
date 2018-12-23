@@ -82,6 +82,48 @@ public class GameShipHelper {
         return result;
     }
 
+    public static String formatMoney2(String money)
+    {
+        try
+        {
+            if(null==money){
+                return "";
+            }
+            Double dMoney = Double.parseDouble(money);
+            money=String.format("%.2f",dMoney);
+        }
+        catch (NumberFormatException e)
+        {
+            Timber.e("无法将%s转换成Double",money);
+        }
+
+        StringBuilder builder=new StringBuilder(money);
+        money = builder.reverse().toString();
+        builder=new StringBuilder();
+        int length = money.length();
+        int start = money.indexOf(".");
+        if(-1 == start)
+        {
+            start = 0;
+        }
+        else
+        {
+            start++;
+            builder.append(money.substring(0,start));
+        }
+
+        /*int end = 0;
+        while((end = start + 3) < length )
+        {
+            builder.append(money.substring(start,end));
+            builder.append(",");
+            start = end;
+        }*/
+        builder.append(money.substring(start));
+        String result = builder.reverse().toString();
+        return result;
+    }
+
     public static String getIntegerString(String text)
     {
         String result = text;

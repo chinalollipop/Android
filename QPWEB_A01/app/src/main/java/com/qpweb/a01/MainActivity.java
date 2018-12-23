@@ -60,11 +60,14 @@ public class MainActivity extends AppCompatActivity {
         TBSWebSetting.init(wvPayGame);
         String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
         if(Check.isEmpty(demainUrl)){
-            demainUrl = "http://www.cfqp55.com/";
+            demainUrl = "http://www.cfqp88.com/";
         }
-        demainUrl = "http://hg06606.com/";//测试环境的地址
+        /*for(int ii=100001;ii<101001;++ii){
+            GameLog.log(""+ii);
+        }*/
+        //demainUrl = "http://hg06606.com/";//测试环境的地址
         demainUrl += "?code="+QPWEBApplication.instance().getCommentData();
-        //ToastUtils.showLongToast("请求的地址是："+demainUrl);
+        ToastUtils.showLongToast("请求的地址是："+demainUrl);
         GameLog.log("域名地址是"+demainUrl);
         wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");

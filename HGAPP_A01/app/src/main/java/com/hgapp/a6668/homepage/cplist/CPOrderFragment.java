@@ -28039,8 +28039,37 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderNoYet.setVisibility(View.VISIBLE);
             onResetData();
             EventBus.getDefault().post(new CloseLotteryEvent());
+            if(cpNextIssueResult.getLotteryTime().equals("0")&&cpNextIssueResult.getEndtime().equals("0")){
+                cpOrderNoYet.setText("未开盘");
+                GameLog.log("=============六合彩未开盘=================");
+            }
+            if(!game_code.equals("69")){
+                cpOrderLastTime.setVisibility(View.VISIBLE);
+                round = cpNextIssueResult.getIssue();
+                cpOrderLotteryNextTime.setText(round+"期");
+                String systTime2 = TimeUtils.getDateAndTimeString();
+                String systTime = cpNextIssueResult.getServerTime();//TimeUtils.convertToDetailTime(TrueTime.now());
+                sendEndTime = TimeHelper.timeToSecond(cpNextIssueResult.getEndtime(),systTime);
+                sendAuthTime = TimeHelper.timeToSecond(cpNextIssueResult.getLotteryTime(),systTime);
+                if(sendEndTime > 600){
+                    cpOrderNoYet.setText("未开盘");
+                    GameLog.log("=============彩票 未开盘=================");
+                    isCloseLottery = true;
+                }else{
+                    GameLog.log("=============彩票 已封盘=================");
+                    cpOrderNoYet.setText("已封盘");
+                    isCloseLottery = false;
+                    cpOrderGold.setClickable(true);
+                    cpOrderGold.setFocusable(true);
+                    cpOrderGold.setFocusableInTouchMode(true);
+                    cpOrderGold.requestFocus();
+                    cpOrderNoYet.setVisibility(View.GONE);
+                }
+                onSartTime();
+            }
             return;
         }
+        cpOrderNoYet.setText("已封盘");
         cpOrderLastTime.setVisibility(View.VISIBLE);
         round = cpNextIssueResult.getIssue();
         cpOrderLotteryNextTime.setText(round+"期");

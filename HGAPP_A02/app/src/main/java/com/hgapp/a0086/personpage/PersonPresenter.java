@@ -1,8 +1,11 @@
 package com.hgapp.a0086.personpage;
 
+import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.common.http.ResponseSubscriber;
+import com.hgapp.a0086.common.http.cphttp.CPClient;
 import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
 import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
+import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.util.RxHelper;
 import com.hgapp.a0086.common.util.SubscriptionHelper;
@@ -11,7 +14,10 @@ import com.hgapp.a0086.data.PersonBalanceResult;
 import com.hgapp.a0086.data.PersonInformResult;
 import com.hgapp.a0086.data.QipaiResult;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.Timber;
+
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 
 public class PersonPresenter implements PersonContract.Presenter {
 
@@ -181,16 +187,18 @@ public class PersonPresenter implements PersonContract.Presenter {
                     }
                 }));
 
-        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postLogOutCP(HGConstant.PRODUCT_PLATFORM))//loginGet() login(appRefer,username,pwd)
+        RetrofitUrlManager.getInstance().putDomain("CpUrl", CPClient.baseUrl());
+        String token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.getLogOutCP("login/out/?token="+token+"&x-session-token="+token))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
-
+                        GameLog.log("彩票退出日志 "+response);
                     }
 
                     @Override
                     public void fail(String msg) {
-
+                        GameLog.log("日志"+msg);
                     }
                 }));
 

@@ -49,6 +49,14 @@ public final class DeviceUtils {
         return false;
     }
 
+    public static String getUserAgent(){
+        //Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36"
+        //Mozilla/5.0 (Linux; Android aa9278246120628bSM-G9600samsungBuild/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Mozilla/5.0 (Linux; Android ").append(getDeviceVersion()).append("; ").append(getDeviceModel()).append(" Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36");
+        return stringBuilder.toString();
+    }
+
     /**
      * 获取设备系统版本号
      *

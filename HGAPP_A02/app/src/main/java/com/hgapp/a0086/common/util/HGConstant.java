@@ -7,6 +7,7 @@ package com.hgapp.a0086.common.util;
 public abstract class HGConstant {
     public static final String APP_CP_HEADER= "app_cp_header";
     public static final String APP_CP_COOKIE= "app_cp_cookie";
+    public static final String APP_CP_X_SESSION_TOKEN= "app_cp_x_session_token";
     public static final String APP_DEMAIN_URL= "app_demain_url";
     public static final String APP_DB_DIRNAME = "app_db_dirname";
     //防止重复点击按钮，避免冲突触发业务
@@ -134,6 +135,9 @@ public abstract class HGConstant {
     //首页notice
     public static final String USERNAME_HOME_NOTICE = "username_home_notice";
 
+    //CP首页notice
+    public static final String USERNAME_CP_HOME_NOTICE = "username_cp_home_notice";
+
     //用户当前的状态
     public static final String USERNAME_CURRENT_STATE = "username_current_state";
 
@@ -172,6 +176,8 @@ public abstract class HGConstant {
     public static final String  USER_CURRENT_POSITION  = "user_current_position";
 
 
+    //用户的登录状态  后的用户名称
+    public static final String USERNAME_LOGIN_USERNAME = "username_login_username";
     //用户的登录状态  后的金额
     public static final String USERNAME_LOGIN_MONEY = "username_login_money";
 
