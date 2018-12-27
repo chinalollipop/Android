@@ -23,7 +23,7 @@ public class CpBetNowPresenter implements CpBetNowContract.Presenter {
     @Override
     public void getCpBetRecords(String dataTime) {
         String x_session_token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
-        String requestUrl = "main/getNotcount?x-session-token="+x_session_token;
+        String requestUrl = "main/getNotcountAndroid?x-session-token="+x_session_token;
         subscriptionHelper.add(RxHelper.addSugar(api.getCpBetRecords(requestUrl))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<CPBetNowResult>() {
                     @Override

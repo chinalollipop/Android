@@ -32218,16 +32218,16 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 switch (v.getId()){
                     case R.id.popCPOrder2:
                     case R.id.popCPOrder7:
-                        Intent intent  = new Intent(getContext(),CPBetNowFragment.class);
-                        intent.putExtra("gameId","51");
-                        intent.putExtra("gameName","北京赛车");
-                        startActivity(intent);
-                        break;
-                    case R.id.popCPOrder1:
                         Intent intent1  = new Intent(getContext(),CPBetListRecordsFragment.class);
                         intent1.putExtra("gameForm","today");
                         intent1.putExtra("gameTime",DateHelper.getToday());
                         startActivity(intent1);
+                        break;
+                    case R.id.popCPOrder1:
+                        Intent intent  = new Intent(getContext(),CPBetNowFragment.class);
+                        intent.putExtra("gameId","51");
+                        intent.putExtra("gameName","北京赛车");
+                        startActivity(intent);
                         break;
                     case R.id.popCPOrder3:
                         Intent intent3  = new Intent(getContext(),CPBetRecordsFragment.class);
