@@ -6,42 +6,49 @@ import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.NetworkUtils;
 import com.qpweb.a01.utils.Timber;
 
-import org.reactivestreams.Subscriber;
 
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeoutException;
 
-import retrofit2.adapter.rxjava2.HttpException;
+import retrofit2.adapter.rxjava.HttpException;
+import rx.Subscriber;
 
 /**
  * Created by ak on 2017/7/29.
  * 统一管理网络异常、链接超时、服务器异常等等
  */
 
-public abstract class ResponseSubscriber<T> implements Subscriber<T> {
+public abstract class ResponseSubscriber<T> extends Subscriber<T> {
+    @Override
+    public void onCompleted() {
+        GameLog.log("onCompleted()");
+    }
+
     private Context mContext;
 
     public ResponseSubscriber(Context context) {
         this.mContext = context;
     }
 
-    public ResponseSubscriber(){}
+    public ResponseSubscriber() {
+    }
+
 
     @Override
     public void onError(Throwable e) {
-        Timber.e(e,"观察者观察到异常");
+        Timber.e(e, "观察者观察到异常");
         if (!NetworkUtils.isConnected()) {
             fail("请检查您的网络");
         }
 
-        GameLog.log("getMessage："+e.getMessage());
-        GameLog.log("异常信息："+e.toString());
+        GameLog.log("getMessage：" + e.getMessage());
+        GameLog.log("异常信息：" + e.toString());
 
         if (e instanceof HttpException) {
             int code = ((HttpException) e).code();
             String errorMsg = ((HttpException) e).message();
             GameLog.log(errorMsg);
-            if (code == 406 ) {//|| code == 404
+            if (code == 406) {//|| code == 404
                 /*Client.cancelAllRequest();
                 //intent.putExtra("msg", "登录信息已过期，请重新登录！");
                 IUserManager userManager = UserManagerFactory.get();
@@ -56,7 +63,7 @@ public abstract class ResponseSubscriber<T> implements Subscriber<T> {
         }
 
         //异常处理 连接超时
-        if (e instanceof SocketTimeoutException || e instanceof TimeoutException ) {//|| e instanceof Exception
+        if (e instanceof SocketTimeoutException || e instanceof TimeoutException) {//|| e instanceof Exception
             fail("服务器开小差了，请稍后再试");
         }
     }
@@ -66,6 +73,19 @@ public abstract class ResponseSubscriber<T> implements Subscriber<T> {
         success(t);
     }
 
+    @Override
+    public void onStart() {
+
+        GameLog.log("onStart()");
+        if (!NetworkUtils.isConnected()) {
+            if (!isUnsubscribed()) {
+                unsubscribe();
+            }
+            onCompleted();
+            fail("请检查您的网络");
+
+        }
+    }
 
     public abstract void success(T t);
 

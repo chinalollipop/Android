@@ -1,11 +1,7 @@
 package com.qpweb.a01.http;
 
 
-import android.os.Build;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-
-import com.google.gson.GsonBuilder;
 import com.qpweb.a01.http.util.LoggerInterceptor;
 import com.qpweb.a01.http.util.SaveCookiesInterceptor;
 import com.qpweb.a01.utils.GameLog;
@@ -18,7 +14,7 @@ import okhttp3.Cookie;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -48,7 +44,7 @@ public class Client {
      */
     public static String baseUrl()
     {
-        domainUrl = "http://m.hg01455.com/";// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
+        domainUrl = "http://hg06606.com/";// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
         return domainUrl;
     }
 
@@ -141,8 +137,8 @@ public class Client {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl())
                     .callFactory(proxyCallFactory)
-                    .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))//new GsonBuilder().setLenient().create()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())//new GsonBuilder().setLenient().create() // RxJava2与Gson混用
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())// RxJava2与Retrofit混用
                     .build();
         }
 

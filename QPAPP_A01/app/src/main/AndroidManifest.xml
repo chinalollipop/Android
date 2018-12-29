@@ -33,7 +33,7 @@
             android:value="1920" />
 
         <activity
-            android:name="com.qpweb.a01.LaunchActivity"
+            android:name=".ui.loginhome.LoginHomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Splash"
@@ -49,6 +49,13 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+       <!-- <activity
+            android:name="com.qpweb.a01.ui.login.home.HomeActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden|adjustResize" />-->
 
         <provider
             android:name="android.support.v4.content.FileProvider"

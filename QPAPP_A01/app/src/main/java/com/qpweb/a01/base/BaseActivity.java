@@ -17,12 +17,12 @@ import com.qpweb.a01.widget.GifView;
 import com.zhy.autolayout.utils.AutoUtils;
 
 
-import org.reactivestreams.Subscription;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import rx.Subscription;
 
 /**
  * Created by Daniel on 2018/12/29.

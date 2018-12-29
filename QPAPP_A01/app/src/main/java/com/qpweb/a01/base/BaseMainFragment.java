@@ -1,5 +1,17 @@
 package com.qpweb.a01.base;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.qpweb.a01.base.event.StartBrotherEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -34,4 +46,5 @@ public abstract class BaseMainFragment extends SupportFragment {
     {
         _mActivity.onBackPressed();
     }
+
 }

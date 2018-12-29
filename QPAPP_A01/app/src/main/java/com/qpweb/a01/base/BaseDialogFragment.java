@@ -44,7 +44,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements IMess
         {
             Timber.d("onCreateView " + this.getClass().getSimpleName());
         }
-        View v = inflater.inflate(getLayoutResId(), container, false);
+        View v = inflater.inflate(setLayoutId(), container, false);
         unbinder = ButterKnife.bind(this,v);
         AutoUtils.auto(v);
         return v;
@@ -73,7 +73,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements IMess
         {
             Timber.d("onViewCreated " + this.getClass().getSimpleName());
         }
-        initView(view,savedInstanceState);
+        setEvents(view,savedInstanceState);
         //初始化控制器
         if(null != presenters())
         {
@@ -168,6 +168,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements IMess
     {
         return null;
     }
-    protected abstract int getLayoutResId();
-    protected abstract void initView(View view,Bundle bundle);
+    protected abstract int setLayoutId();
+    protected abstract void setEvents(View view,Bundle bundle);
 }

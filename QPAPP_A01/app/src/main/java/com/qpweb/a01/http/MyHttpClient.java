@@ -1,6 +1,7 @@
 package com.qpweb.a01.http;
 
 import com.google.gson.Gson;
+import com.qpweb.a01.http.request.AppTextMessageResponse;
 import com.qpweb.a01.utils.GameLog;
 
 import java.util.concurrent.TimeUnit;

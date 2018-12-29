@@ -4,7 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-
+    <color name="white">#FFFFFF</color>
     <color name="color_bg_dialog">#e0000000</color>
     <color name="color_translucent">#e0000000</color>
+    <color name="register_left">#a23d12</color>
+    <!--Textview跑马灯的默认颜色值-->
+    <color name="textview_marque">#FFFFFF</color>
+    <color name="textview_marque_bg">#7b5d32</color>
 </resources>

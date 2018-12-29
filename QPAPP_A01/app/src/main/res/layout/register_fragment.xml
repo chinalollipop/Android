@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:background="@mipmap/bg_register_fragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="right"
+                        android:layout_marginLeft="30dp"
+                        android:text="推荐码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/registerReferralCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/register_edit"
+                        android:hint="选填"
+                        android:imeOptions="actionNext|flagNoFullscreen"
+                        android:maxLength="15"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:gravity="right"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="账号"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/registerAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/register_edit"
+                        android:hint="输入账号"
+                        android:imeOptions="flagNoExtractUi|flagNoFullscreen"
+                        android:maxLength="15"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:gravity="right"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="设置密码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/registerPwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/register_edit"
+                        android:hint="6-12个字母或数字"
+                        android:imeOptions="actionNext|flagNoFullscreen"
+                        android:maxLength="12"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:gravity="right"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="确认密码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/registerPwd2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/register_edit"
+                        android:hint="再次输入密码"
+                        android:imeOptions="actionNext|flagNoFullscreen"
+                        android:maxLength="12"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:text="验证码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/registerSecurityCode"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/register_edit"
+                        android:hint="输入验证码"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp" />
+
+                    <FrameLayout
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp">
+
+                        <com.tencent.smtt.sdk.WebView
+                            android:id="@+id/registerSecurityCodeRequest"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white" />
+
+                        <TextView
+                            android:id="@+id/registerCodeRequest"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/registerSubmit"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@mipmap/register_imv" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/registerClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@mipmap/register_close" />
+    </FrameLayout>
+
+</RelativeLayout>

@@ -4,6 +4,7 @@ import android.os.Build;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.flurry.android.FlurryAgent;
 import com.qpweb.a01.http.Client;
 import com.qpweb.a01.http.ClientConfig;
 import com.qpweb.a01.utils.AppUtil;
@@ -12,6 +13,8 @@ import com.qpweb.a01.utils.CommentUtils;
 import com.qpweb.a01.utils.DeviceUtils;
 import com.qpweb.a01.utils.FileIOUtils;
 import com.qpweb.a01.utils.FileUtils;
+import com.qpweb.a01.utils.GameLog;
+import com.qpweb.a01.utils.Timber;
 import com.qpweb.a01.utils.Utils;
 import com.tencent.smtt.sdk.QbSdk;
 
@@ -28,7 +31,11 @@ public class QPApplication extends MultiDexApplication {
         qpwebApplication = this;
         Utils.init(getApplicationContext());
         initconfigCommentClient();
-
+        initFlurry();
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+            GameLog.PRINT_LOG = true;
+        }
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
@@ -46,6 +53,22 @@ public class QPApplication extends MultiDexApplication {
         };
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(),  cb);
+    }
+
+
+    private void initFlurry(){
+        new FlurryAgent.Builder().
+                withLogEnabled(true).
+                withContinueSessionMillis(10).
+                withCaptureUncaughtExceptions(true).
+                build(this, "djkjdkjdjj");
+       /* String deviceId = DeviceUtils.getAndroidID();
+        if(Check.isEmpty(deviceId))
+        {
+            deviceId =Build.BRAND+Build.SERIAL+Build.DEVICE;
+        }
+        deviceId+="_"+DeviceUtils.getDeviceBrand()+"_"+DeviceUtils.getDeviceModel()+"_"+DeviceUtils.getDeviceVersion();
+        FlurryAgent.setUserId(deviceId);*/
     }
 
     public void  initconfigCommentClient(){

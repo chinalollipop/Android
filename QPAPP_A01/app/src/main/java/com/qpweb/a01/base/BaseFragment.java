@@ -85,7 +85,12 @@ public abstract class BaseFragment extends BaseMainFragment implements IMessageV
             View contentview = LayoutInflater.from(getContext()).inflate(setLayoutId(), null, false);
             contentLayout.addView(contentview);
 
-            AutoUtils.auto(view);
+            try {
+                AutoUtils.auto(view);
+            }catch (Exception e){
+
+            }
+            //AutoUtils.auto(view);
             unbinder = ButterKnife.bind(this, view);
             layoutLoading = view.findViewById(R.id.layout_loading);
             layoutLoading.setOnClickListener(null);
