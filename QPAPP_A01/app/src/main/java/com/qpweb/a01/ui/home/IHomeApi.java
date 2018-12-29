@@ -2,6 +2,7 @@ package com.qpweb.a01.ui.home;
 
 
 import com.qpweb.a01.data.BannerResult;
+import com.qpweb.a01.data.LogoutResult;
 import com.qpweb.a01.data.NoticeResult;
 import com.qpweb.a01.data.WinNewsResult;
 import com.qpweb.a01.http.request.AppTextMessageResponseList;
@@ -31,5 +32,11 @@ public interface IHomeApi {
     @POST("member/winningnews.php")
     @FormUrlEncoded
     public Observable<WinNewsResult> postWinNews(@Field("appRefer") String appRefer, @Field("_") String news);
+
+    //退出
+    @POST("api/logout.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<LogoutResult>> postLogout(@Field("appRefer") String appRefer);
+
 
 }

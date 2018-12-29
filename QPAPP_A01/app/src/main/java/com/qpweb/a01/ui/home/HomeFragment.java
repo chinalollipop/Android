@@ -15,10 +15,15 @@ import com.qpweb.a01.R;
 import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.base.event.StartBrotherEvent;
 import com.qpweb.a01.data.BannerResult;
+import com.qpweb.a01.data.LoginResult;
+import com.qpweb.a01.data.LogoutResult;
 import com.qpweb.a01.data.NoticeResult;
 import com.qpweb.a01.data.WinNewsResult;
+import com.qpweb.a01.ui.home.fastlogout.LogoutFragment;
 import com.qpweb.a01.ui.loginhome.LoginHomeFragment;
+import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.GameLog;
+import com.qpweb.a01.utils.ToastUtils;
 import com.qpweb.a01.widget.MarqueeTextView;
 import com.qpweb.a01.widget.RollPagerViewManager;
 
@@ -41,8 +46,10 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
 
     @BindView(R.id.homeAccountLogo)
     ImageView homeAccountLogo;
-    @BindView(R.id.homeLoginName)
-    TextView homeLoginName;
+    @BindView(R.id.homeAccountName)
+    TextView homeAccountName;
+    @BindView(R.id.homeUserMoney)
+    TextView homeUserMoney;
     @BindView(R.id.homeRefresh)
     ImageView homeRefresh;
     @BindView(R.id.homeMusic)
@@ -51,6 +58,16 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
     ImageView homeCheck;
     @BindView(R.id.homeRegent)
     ImageView homeRegent;
+
+    @BindView(R.id.homeKy)
+    ImageView homeKy;
+    @BindView(R.id.homeVg)
+    ImageView homeVg;
+    @BindView(R.id.homeBy)
+    ImageView homeBy;
+    @BindView(R.id.homeHg)
+    ImageView homeHg;
+
     @BindView(R.id.homePop)
     ImageView homePop;
     @BindView(R.id.homeRollpageView)
@@ -74,6 +91,11 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
     private ScheduledExecutorService executorService;
     List<String> stringList = new ArrayList<String>();
     HomeContract.Presenter presenter;
+
+    //通过用户名是否为空来判断是否登录成功
+    private String accountName ="";
+    LoginResult loginResult;
+
     public static HomeFragment newInstance() {
         HomeFragment homeFragment = new HomeFragment();
         Injections.inject(homeFragment, null);
@@ -113,11 +135,17 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
         start(event.targetFragment, event.launchmode);
     }
 
-    @OnClick({R.id.homeLoginName, R.id.homeRefresh, R.id.homeMusic, R.id.homeCheck, R.id.homeRegent, R.id.homePop, R.id.homeDeposit, R.id.homeUserCenter, R.id.homeActivity, R.id.homeService, R.id.homeShare})
+    @OnClick({R.id.homeAccountName, R.id.homeRefresh, R.id.homeMusic, R.id.homeCheck, R.id.homeRegent, R.id.homePop,
+            R.id.homeDeposit, R.id.homeUserCenter, R.id.homeActivity, R.id.homeService, R.id.homeShare,
+            R.id.homeHg,R.id.homeVg,R.id.homeKy,R.id.homeBy})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.homeLoginName:
-                EventBus.getDefault().post(new StartBrotherEvent(LoginHomeFragment.newInstance(), SupportFragment.SINGLETASK));
+            case R.id.homeAccountName:
+                if(Check.isEmpty(accountName)){
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginHomeFragment.newInstance(), SupportFragment.SINGLETASK));
+                }else{
+                    LogoutFragment.newInstance(loginResult).show(getFragmentManager());
+                }
                 break;
             case R.id.homeRefresh:
                 break;
@@ -138,6 +166,18 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
             case R.id.homeService:
                 break;
             case R.id.homeShare:
+                break;
+            case R.id.homeHg:
+                showMessage("去皇冠了");
+                break;
+            case R.id.homeVg:
+                showMessage("去VG棋牌");
+                break;
+            case R.id.homeKy:
+                showMessage("去开元棋牌了");
+                break;
+            case R.id.homeBy:
+                showMessage("去捕鱼了");
                 break;
         }
     }
@@ -180,8 +220,17 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
     }
 
     @Override
-    public void showMessage(String message) {
+    public void postLogoutResult(String logoutResult) {
+        showMessage(logoutResult);
+        accountName = "";
+        homeAccountLogo.setImageDrawable(getResources().getDrawable(R.mipmap.home_login_account));
+        homeAccountName.setText("请先登录");
+        homeUserMoney.setText("0");
+    }
 
+    @Override
+    public void showMessage(String message) {
+        ToastUtils.showLongToast(message);
     }
 
     @Override
@@ -202,5 +251,27 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
             executorService.shutdown();
             executorService = null;
         }
+        EventBus.getDefault().unregister(this);
     }
+
+    @Subscribe
+    public void onEventMain(LoginResult loginResult) {
+        GameLog.log("================首页获取到消息了================");
+        this.loginResult = loginResult;
+        accountName = loginResult.getUserName();
+        homeAccountLogo.setImageDrawable(getResources().getDrawable(R.mipmap.home_gold));
+        homeAccountName.setText(accountName);
+        homeUserMoney.setText(loginResult.getMoney());
+    }
+
+    @Subscribe
+    public void onEventMain(LogoutResult loginResult) {
+        GameLog.log("================用户退出了================");
+        accountName = "";
+        this.loginResult = null;
+        homeAccountLogo.setImageDrawable(getResources().getDrawable(R.mipmap.home_login_account));
+        homeAccountName.setText("请先登录");
+        homeUserMoney.setText("0");
+    }
+
 }

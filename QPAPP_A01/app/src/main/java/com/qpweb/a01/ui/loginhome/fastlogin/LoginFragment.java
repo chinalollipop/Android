@@ -14,7 +14,11 @@ import com.qpweb.a01.base.BaseDialogFragment;
 import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.data.LoginResult;
 import com.qpweb.a01.ui.loginhome.fastregister.RegisterContract;
+import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
+import com.qpweb.a01.utils.QPConstant;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +30,8 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
 
     @BindView(R.id.loginAccount)
     EditText loginAccount;
-    @BindView(R.id.registerPwd)
-    EditText registerPwd;
+    @BindView(R.id.loginPwd)
+    EditText loginPwd;
     @BindView(R.id.loginRemeberPwd)
     CheckBox loginRemeberPwd;
     @BindView(R.id.loginForgetPwd)
@@ -64,6 +68,17 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
 
     @Override
     public void setEvents(View view, @Nullable Bundle savedInstanceState) {
+        String userName = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_ACCOUNT);
+        String pwd = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_PWD);
+        if(!Check.isEmpty(userName)){
+            loginAccount.setText(userName);
+        }
+        if(!Check.isEmpty(pwd)){
+            loginRemeberPwd.setChecked(true);
+            loginPwd.setText(pwd);
+        }else{
+            loginRemeberPwd.setChecked(false);
+        }
     }
 
     @OnClick({R.id.loginRemeberPwd, R.id.loginForgetPwd, R.id.loginSubmit, R.id.loginClose})
@@ -75,7 +90,6 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
                 break;
             case R.id.loginSubmit:
                 onCheckAndSubmit();
-                hide();
                 break;
             case R.id.loginClose:
                 hide();
@@ -85,19 +99,25 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
 
     private void onCheckAndSubmit() {
         String loginAccounts = loginAccount.getText().toString().trim();
-        String registerPwds = registerPwd.getText().toString().trim();
+        String loginPwdPwds = loginPwd.getText().toString().trim();
         if(Check.isEmpty(loginAccounts)){
             showMessage("请输入合法的用户账号");
         }
-        if(Check.isEmpty(registerPwds)){
+        if(Check.isEmpty(loginPwdPwds)){
             showMessage("请输入密码");
         }
-        presenter.postLogin("",loginAccounts,registerPwds);
+        presenter.postLogin("",loginAccounts,loginPwdPwds);
     }
 
     @Override
     public void postLoginResult(LoginResult loginResult) {
+        String loginAccounts = loginAccount.getText().toString().trim();
+        String loginPwdPwds = loginPwd.getText().toString().trim();
+        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_ACCOUNT,loginAccounts);
+        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_PWD,loginPwdPwds);
         showMessage("登录成功！");
+        EventBus.getDefault().post(loginResult);
+        hide();
     }
 
     @Override

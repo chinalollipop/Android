@@ -2,6 +2,7 @@ package com.qpweb.a01.ui.home;
 
 import com.qpweb.a01.data.BannerResult;
 import com.qpweb.a01.data.LoginResult;
+import com.qpweb.a01.data.LogoutResult;
 import com.qpweb.a01.data.NoticeResult;
 import com.qpweb.a01.data.WinNewsResult;
 import com.qpweb.a01.http.ResponseSubscriber;
@@ -113,6 +114,33 @@ public class HomePresenter implements HomeContract.Presenter {
                         {
                             Timber.d("快速登陆失败:%s",response);
                             view.showMessage(response.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postLogout(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postLogout(QPConstant.PRODUCT_PLATFORM))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LogoutResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LogoutResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postLogoutResult(response.getDescribe() );
+                        }
+                        else
+                        {
+                            Timber.d("快速登陆失败:%s",response);
+                            view.showMessage(response.getDescribe());
                         }
                     }
 

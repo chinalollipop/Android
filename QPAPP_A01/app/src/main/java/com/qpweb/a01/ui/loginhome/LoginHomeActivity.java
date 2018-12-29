@@ -44,7 +44,7 @@ public class LoginHomeActivity extends SupportActivity {
                 finish();
             } else {
                 TOUCH_TIME = System.currentTimeMillis();
-                ToastUtils.showLongToast(getString(R.string.app_name));
+                ToastUtils.showLongToast(getString(R.string.n_exit_app));
             }
         }
     }

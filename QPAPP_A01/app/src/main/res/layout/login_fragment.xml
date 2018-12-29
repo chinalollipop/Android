@@ -39,11 +39,12 @@
 
                     <EditText
                         android:id="@+id/loginAccount"
+                        android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:background="@mipmap/register_edit"
+                        android:background="@drawable/bg_login_text"
                         android:hint="请输入账号"
                         android:imeOptions="flagNoExtractUi|flagNoFullscreen"
                         android:maxLength="15"
@@ -67,12 +68,14 @@
                         android:textSize="15sp" />
 
                     <EditText
-                        android:id="@+id/registerPwd"
+                        android:id="@+id/loginPwd"
+                        android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:background="@mipmap/register_edit"
+                        android:inputType="textPassword"
+                        android:background="@drawable/bg_login_text"
                         android:hint="请输入密码"
                         android:imeOptions="actionNext|flagNoFullscreen"
                         android:maxLength="12"

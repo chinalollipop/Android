@@ -5,6 +5,7 @@ import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.base.IView;
 import com.qpweb.a01.data.BannerResult;
 import com.qpweb.a01.data.LoginResult;
+import com.qpweb.a01.data.LogoutResult;
 import com.qpweb.a01.data.NoticeResult;
 import com.qpweb.a01.data.WinNewsResult;
 
@@ -19,6 +20,7 @@ public interface HomeContract {
         public void postBanner(String appRefer);
         public void postNotice(String appRefer,String type);
         public void postWinNews(String appRefer,String news);
+        public void postLogout(String appRefer);
     }
 
     public interface View extends IView<Presenter>, IMessageView {
@@ -26,5 +28,6 @@ public interface HomeContract {
         public void postBannerResult(BannerResult bannerResult);
         public void postNoticeResult(List<NoticeResult> noticeResult);
         public void postWinNewsResult(WinNewsResult winNewsResult);
+        public void postLogoutResult(String logoutResult);
     }
 }

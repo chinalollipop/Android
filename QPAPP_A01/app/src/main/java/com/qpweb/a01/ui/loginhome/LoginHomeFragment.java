@@ -11,8 +11,10 @@ import android.widget.ImageView;
 import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseFragment;
 import com.qpweb.a01.base.event.StartBrotherEvent;
+import com.qpweb.a01.data.LoginResult;
 import com.qpweb.a01.ui.loginhome.fastlogin.LoginFragment;
 import com.qpweb.a01.ui.loginhome.fastregister.RegisterFragment;
+import com.qpweb.a01.utils.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -44,9 +46,20 @@ public class LoginHomeFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
+        EventBus.getDefault().register(this);
     }
 
+    @Subscribe
+    public void onEventMain(LoginResult loginResult) {
+        GameLog.log("================注册页需要消失的================");
+        finish();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
 
     @OnClick({R.id.homeRegister, R.id.homeLogin, R.id.homeDemo})
     public void onViewClicked(View view) {
