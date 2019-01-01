@@ -114,6 +114,12 @@ public class RoleActivity extends Activity {
             }
         });*/
         HGIWebSetting.init(wvRoleXplay);
+        // 设置可以支持缩放
+        wvRoleXplay.getSettings().setSupportZoom(true);
+        // 设置出现缩放工具
+        wvRoleXplay.getSettings().setBuiltInZoomControls(true);
+        //扩大比例的缩放
+        wvRoleXplay.getSettings().setUseWideViewPort(true);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         webviewsetting(wvRoleXplay);
         String gameid = getIntent().getStringExtra("gameId");

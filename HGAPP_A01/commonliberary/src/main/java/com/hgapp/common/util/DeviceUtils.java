@@ -53,7 +53,7 @@ public final class DeviceUtils {
         //Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36"
         //Mozilla/5.0 (Linux; Android aa9278246120628bSM-G9600samsungBuild/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Mozilla/5.0 (Linux; Android ").append(getDeviceVersion()).append("; ").append(getDeviceModel()).append(" Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36");
+        stringBuilder.append("Mozilla/5.0 (Linux; Android ").append(getDeviceVersion()).append("; ").append(getDeviceModel()).append(" Build/").append(getDeviceBuild()).append(") AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36");
         return stringBuilder.toString();
     }
 
@@ -91,6 +91,11 @@ public final class DeviceUtils {
      */
     public static String getDeviceModel(){
         return Build.MODEL;
+    }
+
+
+    public static String getDeviceBuild(){
+        return Build.ID;
     }
 
     public static String getDeviceBrand(){

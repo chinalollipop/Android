@@ -122,7 +122,7 @@ public class OnlinePlayFragment extends HGBaseFragment {
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setAllowFileAccess(true);
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        //webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
             wvOnlinePlay.getSettings().setAllowUniversalAccessFromFileURLs(true);

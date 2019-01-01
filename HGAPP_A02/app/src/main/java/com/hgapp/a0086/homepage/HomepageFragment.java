@@ -746,7 +746,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
-        EventShowDialog.newInstance(loginResult.getNoteMessage(),"").show(getFragmentManager());
+        if(!Check.isEmpty(loginResult.getNoteMessage())) {
+            EventShowDialog.newInstance(loginResult.getNoteMessage(), "").show(getFragmentManager());
+        }
         GameLog.log("首页获取的用户余额："+loginResult.getMoney());
         userName = loginResult.getUserName();
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);

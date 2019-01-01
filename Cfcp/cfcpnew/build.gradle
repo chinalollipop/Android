@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.growingio.android'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.youjie.cfcpnew"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 410
+        versionName "4.1.0"
+        multiDexEnabled true
+        flavorDimensions "CHANNEL"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
+            // 还可以添加  'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.youjie.cfcpnew",
+                JPUSH_APPKEY : "17c0380f189f844cf2a9ea0b", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: name, //暂时填写默认值即可.
+        ]
+
+        resValue("string", "growingio_project_id", "a9ce8f93cf626989")
+        resValue("string", "growingio_url_scheme", "growing.4570d097e3de3e67")
+        resValue("string", "growingio_enable", project.gioenable)
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    productFlavors {
+        cf11 {
+            manifestPlaceholders = [
+                    JPUSH_CHANNEL: "cf11",
+            ]
+        }
+        cf22 {
+            manifestPlaceholders = [
+                    JPUSH_CHANNEL: "cf22",
+            ]
+        }
+        cf33 {
+            manifestPlaceholders = [
+                    JPUSH_CHANNEL: "cf33",
+            ]
+        }
+
+        cf55 {
+            manifestPlaceholders = [
+                    JPUSH_CHANNEL: "cf55",
+            ]
+        }
+        //测试渠道
+        cfTest {
+            manifestPlaceholders = [
+                    JPUSH_CHANNEL: "cfTest",
+            ]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.flavorName}.apk"
+        }
+    }
+
+    buildToolsVersion '28.0.3'
+}
+
+dependencies {
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.facebook.rebound:rebound:0.3.8'
+
+    //内存泄露
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
+    //webview加载
+    implementation 'com.just.agentweb:agentweb:4.0.2'
+    implementation 'com.just.agentweb:filechooser:4.0.2'
+    //网络请求
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    //图片加载
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    //极光推送
+    implementation 'cn.jiguang.sdk:jpush:3.1.6'
+    implementation 'cn.jiguang.sdk:jcore:1.2.5'
+    //极光统计
+    implementation 'cn.jiguang.sdk:janalytics:1.1.1'
+
+    implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0'
+    implementation 'com.allenliu.versionchecklib:library:2.0.8'
+    implementation 'com.github.ybq:Android-SpinKit:1.1.0'
+    implementation 'com.tencent.bugly:crashreport:2.6.6'
+
+    implementation 'com.growingio.android:vds-android-agent:2.4.1'
+
+    //RxBus
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
+}

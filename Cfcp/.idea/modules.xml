@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Cfcp.iml" filepath="$PROJECT_DIR$/Cfcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfcpnew/cfcpnew.iml" filepath="$PROJECT_DIR$/cfcpnew/cfcpnew.iml" />
+    </modules>
+  </component>
+</project>

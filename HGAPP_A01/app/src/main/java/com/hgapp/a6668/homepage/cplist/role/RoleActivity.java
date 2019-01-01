@@ -21,6 +21,7 @@ import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
@@ -114,6 +115,15 @@ public class RoleActivity extends Activity {
             }
         });*/
         HGIWebSetting.init(wvRoleXplay);
+        // 设置可以支持缩放
+        wvRoleXplay.getSettings().setSupportZoom(true);
+        // 设置出现缩放工具
+        wvRoleXplay.getSettings().setBuiltInZoomControls(true);
+        //扩大比例的缩放
+        wvRoleXplay.getSettings().setUseWideViewPort(true);
+        //自适应屏幕
+        //wvRoleXplay.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        //wvRoleXplay.getSettings().setLoadWithOverviewMode(true);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         webviewsetting(wvRoleXplay);
         String gameid = getIntent().getStringExtra("gameId");

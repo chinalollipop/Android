@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--解决应用启动黑屏-->
+    <style name="AppTheme_FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/splash_logo</item>
+        <item name="android:windowAnimationStyle">@style/FadeAnimaActivity</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="FadeAnimaActivity">
+        <item name="android:activityOpenEnterAnimation">@anim/alpha_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/alpha_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/alpha_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/alpha_out</item>
+    </style>
+
+    <style name="DialogStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AnimLeftRight">
+        <item name="android:windowEnterAnimation">@anim/from_left</item>
+        <item name="android:windowExitAnimation">@anim/to_right</item>
+    </style>
+</resources>

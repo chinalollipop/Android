@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">创富专业版</string>
+    <string name="tv_skip">跳过</string>
+    <string name="tv_error">出错啦! 点击图片刷新或者换个线路试试~</string>
+    <string name="forceUpdate">您必须更新当前APP才能继续使用相关功能</string>
+    <string name="exitTips">再按一次退出程序</string>
+    <string name="changeSparelineChart">获取聊天室备用线路</string>
+    <string name="changeSparelineOnline">获取在线投注备用线路</string>
+    <string name="changeMainline">切换至主线路</string>
+    <string name="cleanCache">清除缓存</string>
+    <string name="lineOne">线路一</string>
+    <string name="lineTwo">线路二</string>
+    <string name="back">返回</string>
+    <string name="refresh">刷新</string>
+    <string name="todo">TODO</string>
+    <string name="nonetworktips">无网络连接，请检查您的网络设置</string>
+    <string name="networktips">网络已连接</string>
+</resources>

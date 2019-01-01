@@ -217,7 +217,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             }
         });
         CPNoteResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_HOME_NOTICE), CPNoteResult.class);
-        if (!Check.isNull(noticeResult)) {
+        if (!Check.isNull(noticeResult)&&!Check.isNull(noticeResult.getData())) {
             List<String> stringList = new ArrayList<String>();
             int size = noticeResult.getData().size();
             for (int i = 0; i < size; ++i) {
