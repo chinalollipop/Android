@@ -44,6 +44,7 @@ import com.youjie.cfcpnew.model.UrlBean;
 import com.youjie.cfcpnew.receiver.NetBroadCastReceiver;
 import com.youjie.cfcpnew.rxbus.EventMsg;
 import com.youjie.cfcpnew.rxbus.RxBus;
+import com.youjie.cfcpnew.utils.ACache;
 import com.youjie.cfcpnew.utils.AppToast;
 import com.youjie.cfcpnew.utils.DensityUtil;
 import com.youjie.cfcpnew.utils.DeviceUtils;
@@ -210,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                 .requestVersion()
                 .setRequestMethod(HttpRequestMethod.POST)
                 .setRequestParams(httpParams)
-                .setRequestUrl(Constant.API_IP + BuildConfig.FLAVOR)
+                .setRequestUrl(ACache.get(getApplicationContext()).getAsString(Constant.APP_URL) + BuildConfig.FLAVOR)
                 .request(new RequestVersionListener() {
                     @Nullable
                     @Override

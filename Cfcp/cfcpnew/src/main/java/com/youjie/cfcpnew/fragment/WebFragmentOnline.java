@@ -1,28 +1,30 @@
 package com.youjie.cfcpnew.fragment;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
-import com.bumptech.glide.request.RequestOptions;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.just.agentweb.AgentWeb;
@@ -32,14 +34,15 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.youjie.cfcpnew.BuildConfig;
 import com.youjie.cfcpnew.R;
-import com.youjie.cfcpnew.activity.SplashActivity;
 import com.youjie.cfcpnew.http.Constant;
 import com.youjie.cfcpnew.model.SpareBean;
 import com.youjie.cfcpnew.model.UrlBean;
 import com.youjie.cfcpnew.rxbus.EventMsg;
 import com.youjie.cfcpnew.rxbus.RxBus;
+import com.youjie.cfcpnew.utils.ACache;
 import com.youjie.cfcpnew.utils.AlertDialog;
 import com.youjie.cfcpnew.utils.AppToast;
+import com.youjie.cfcpnew.utils.Downloader;
 import com.youjie.cfcpnew.utils.FloatBall;
 import com.youjie.cfcpnew.view.floatingball.FloatBallManager;
 import com.youjie.cfcpnew.view.floatingball.menu.MenuItem;
@@ -48,6 +51,8 @@ import com.youjie.cfcpnew.view.floatingball.utils.BackGroudSeletor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+
+import static com.lzy.okgo.utils.HttpUtils.runOnUiThread;
 
 /**
  * Created by Colin on 2017/12/18.
@@ -70,7 +75,7 @@ public class WebFragmentOnline extends Fragment {
     private WebView mWebView;
     private AlertDialog mDialog;
     private FloatBallManager mFloatballManagerOnline;
-
+    Downloader downloader;
     public static WebFragmentOnline newInstance(String webViewUrl) {
         WebFragmentOnline fragment = new WebFragmentOnline();
         Bundle args = new Bundle();
@@ -95,6 +100,7 @@ public class WebFragmentOnline extends Fragment {
                              Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment_web_view, container, false);
         ButterKnife.bind(this, mView);
+        downloader = new Downloader(getContext());
         initView();
         return mView;
     }
@@ -114,6 +120,30 @@ public class WebFragmentOnline extends Fragment {
 
         mWebView = mAgentWeb.getWebCreator().getWebView();
 
+        mWebView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(final String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //第一个方案：通过浏览器打开
+                       /* Uri uri = Uri.parse(url);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        getActivity().startActivity(intent);
+*/
+                        //第二个方案：内置下载和安装
+                        //使用前先判断是否有读取、写入内存卡权限
+                        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10);
+                        } else {
+                            downloader.downloadAPK(url,"temp.apk");//DownLoader 需要在oncreate 中初始化
+                        }
+                    }
+                });
+
+
+            }
+        });
         mWebView.setOnKeyListener((view, keyCode, keyEvent) -> {
             if (keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -164,7 +194,7 @@ public class WebFragmentOnline extends Fragment {
 
     private void getReloadURL() {
         AppToast.showShortText(mActivity, R.string.changeSparelineOnline);
-        OkGo.<String>post(Constant.API_IP + BuildConfig.FLAVOR)
+        OkGo.<String>post(ACache.get(getActivity()).getAsString(Constant.APP_URL) + BuildConfig.FLAVOR)
                 .tag(this)
                 .params(Constant.SPARE_LINE, Constant.SPARE_LINE)
                 .execute(new StringCallback() {
@@ -184,7 +214,7 @@ public class WebFragmentOnline extends Fragment {
             if (eventMsg != null) {
                 if (eventMsg.getMsg().equals("重连")) {
                     //请求onlineBetting在线投注线路
-                    OkGo.<String>post(Constant.API_IP + BuildConfig.FLAVOR)
+                    OkGo.<String>post(ACache.get(getActivity()).getAsString(Constant.APP_URL) + BuildConfig.FLAVOR)
                             .tag(this)
                             .execute(new StringCallback() {
                                 @Override

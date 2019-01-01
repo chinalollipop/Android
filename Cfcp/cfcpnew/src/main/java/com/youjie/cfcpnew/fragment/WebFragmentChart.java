@@ -37,6 +37,7 @@ import com.youjie.cfcpnew.model.SpareBean;
 import com.youjie.cfcpnew.model.UrlBean;
 import com.youjie.cfcpnew.rxbus.EventMsg;
 import com.youjie.cfcpnew.rxbus.RxBus;
+import com.youjie.cfcpnew.utils.ACache;
 import com.youjie.cfcpnew.utils.AlertDialog;
 import com.youjie.cfcpnew.utils.AppToast;
 import com.youjie.cfcpnew.utils.FloatBall;
@@ -165,7 +166,7 @@ public class WebFragmentChart extends Fragment {
 
     private void getReloadURL() {
         AppToast.showShortText(mActivity, R.string.changeSparelineChart);
-        OkGo.<String>post(Constant.API_IP + BuildConfig.FLAVOR)
+        OkGo.<String>post(ACache.get(getActivity()).getAsString(Constant.APP_URL) + BuildConfig.FLAVOR)
                 .tag(this)
                 .params(Constant.SPARE_LINE, Constant.SPARE_LINE)
                 .execute(new StringCallback() {
@@ -186,7 +187,7 @@ public class WebFragmentChart extends Fragment {
             if (eventMsg != null) {
                 if (eventMsg.getMsg().equals("重连")) {
                     //请求chartRoom在线投注线路
-                    OkGo.<String>post(Constant.API_IP + BuildConfig.FLAVOR)
+                    OkGo.<String>post(ACache.get(getActivity()).getAsString(Constant.APP_URL) + BuildConfig.FLAVOR)
                             .tag(this)
                             .execute(new StringCallback() {
                                 @Override

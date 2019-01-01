@@ -9,6 +9,8 @@ import com.lzy.okgo.OkGo;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.youjie.cfcpnew.utils.DeviceUtils;
+import com.youjie.cfcpnew.utils.GameLog;
+import com.youjie.cfcpnew.utils.Timber;
 
 import cn.jiguang.analytics.android.api.JAnalyticsInterface;
 
@@ -17,11 +19,18 @@ import cn.jiguang.analytics.android.api.JAnalyticsInterface;
  */
 public class YouJieApplication extends MultiDexApplication  {
 
+    private static YouJieApplication youJieApplication;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        youJieApplication = this;
         OkGo.getInstance().init(this);
         MultiDex.install(this);
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+            GameLog.PRINT_LOG = true;
+        }
         //极光统计
         JAnalyticsInterface.init(this);
         JAnalyticsInterface.setDebugMode(true);
@@ -43,4 +52,10 @@ public class YouJieApplication extends MultiDexApplication  {
                 .setChannel(BuildConfig.FLAVOR)
         );
     }
+
+    public static YouJieApplication instance()
+    {
+        return youJieApplication;
+    }
+
 }

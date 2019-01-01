@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path  path="" name="com.youjie.cfcpnew" />
+    <!--<cache-path  path="" name="com.hgapp.a01.fileprovider" />
+    &lt;!&ndash;这里的path AppUpdate 要与你设置的下载目录一致&ndash;&gt;
+    <external-path name="app-release" path="com.hgapp.a01.fileprovider" />-->
+</paths>

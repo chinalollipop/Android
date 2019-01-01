@@ -34,7 +34,7 @@ android {
     }
 
     productFlavors {
-        cf11 {
+        /*cf11 {
             manifestPlaceholders = [
                     JPUSH_CHANNEL: "cf11",
             ]
@@ -48,7 +48,7 @@ android {
             manifestPlaceholders = [
                     JPUSH_CHANNEL: "cf33",
             ]
-        }
+        }*/
 
         cf55 {
             manifestPlaceholders = [

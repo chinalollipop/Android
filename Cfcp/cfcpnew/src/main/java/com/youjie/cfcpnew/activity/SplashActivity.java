@@ -26,9 +26,15 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.youjie.cfcpnew.BuildConfig;
 import com.youjie.cfcpnew.R;
+import com.youjie.cfcpnew.YouJieApplication;
 import com.youjie.cfcpnew.http.Constant;
+import com.youjie.cfcpnew.model.DomainBean;
 import com.youjie.cfcpnew.model.UrlBean;
 import com.youjie.cfcpnew.receiver.NetBroadCastReceiver;
+import com.youjie.cfcpnew.utils.ACache;
+import com.youjie.cfcpnew.utils.GameLog;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,20 +59,85 @@ public class SplashActivity extends Activity {
     RelativeLayout rlAd;
     private String URL ;
     private CountDownTimer countDownTimer;
-
+    private boolean ifStop = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         JAnalyticsInterface.onPageStart(this, this.getClass().getCanonicalName());
-
-        new Handler().postDelayed(this::initView, 1500);//1.5秒后执行Runnable中的run方法
+        initDomainUrl();
+        //new Handler().postDelayed(this::initView, 1500);//1.5秒后执行Runnable中的run方法
     }
+
+
+    private void initDomainUrl(){
+
+        OkGo.<String>post("https://hg006668.firebaseapp.com/d/cfqp_init.txt")
+                .tag(this)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Response<String> response) {
+                        super.onError(response);
+                    }
+
+                    @SuppressLint("CheckResult")
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        if(response.isSuccessful()){
+                            onGetSuccessDomain(response.body());
+                        }
+                    }
+                });
+    }
+
+    private void onGetSuccessDomain(String responseText) {
+        try {
+            DomainBean domainUrl = new Gson().fromJson(responseText, DomainBean.class);
+            final List<DomainBean.ListBean> domains = domainUrl.getList();
+            for(int k=0;k<domains.size();++k){
+                if(ifStop){
+                    return ;
+                }
+                postDomain(domains.get(k).getUrl());
+            }
+        } catch (Exception e) {
+            GameLog.log("request url : " + e.toString());
+        }
+
+        }
+
+    private synchronized void postDomain(String url) {
+        GameLog.log("--------当前执行的url地址是-------- "+url);
+        OkGo.<String>post(url+"answer.php")
+                .tag(this)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Response<String> response) {
+                        super.onError(response);
+                    }
+
+                    @SuppressLint("CheckResult")
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        if(ifStop){
+                            return;
+                        }
+                        if(response.isSuccessful()){
+                            ifStop = true;
+                            GameLog.log("--------最终的url地址是-------- "+url);
+                            ACache.get(getApplicationContext()).put(Constant.APP_URL,url);
+                            //onGetSuccessDomain(response.body());
+                            initView();
+                        }
+                    }
+                });
+    }
+
 
     private void initView() {
         //请求chartRoom聊天室、onlineBetting在线投注、lotteryVideo开奖视频、lotteryHint长龙提醒线路
-        OkGo.<String>post(Constant.API_IP + BuildConfig.FLAVOR)
+        OkGo.<String>post(ACache.get(getApplicationContext()).getAsString(Constant.APP_URL) + BuildConfig.FLAVOR)
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override
