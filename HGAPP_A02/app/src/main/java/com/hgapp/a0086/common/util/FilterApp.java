@@ -94,7 +94,7 @@ public class FilterApp {
             PayListEntity.setPackageName(packageName);
             PayListEntity.setPayIcon(applicationInfo.loadIcon(pm));
             payLists.add(PayListEntity);*/
-            payLists.add(packageName);;''
+            payLists.add(packageName);
             GameLog.log("应用名：" + appName + " 包名：" + packageName);
             //System.out.println("应用名：" + appName + " 包名：" + packageName);
         }

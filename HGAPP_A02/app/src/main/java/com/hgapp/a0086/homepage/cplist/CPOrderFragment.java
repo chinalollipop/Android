@@ -15493,6 +15493,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
             cpOrderContentListResult2.setShowNumber(3);
+            cpOrderContentListResult2.setShowType("QIU");
             List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
             cpOrderContentResult4.setOrderName("3");
@@ -15601,6 +15602,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
             cpOrderContentListResult3.setShowNumber(2);
+            cpOrderContentListResult3.setShowType("QIU");
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
             cpOrderContentResult19.setOrderName("18");
@@ -17038,6 +17040,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
             cpOrderContentListResult2.setShowNumber(3);
+            cpOrderContentListResult2.setShowType("QIU");
             List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
             cpOrderContentResult4.setOrderName("3");
@@ -17146,6 +17149,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
             cpOrderContentListResult3.setShowNumber(2);
+            cpOrderContentListResult3.setShowType("QIU");
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
             cpOrderContentResult19.setOrderName("18");

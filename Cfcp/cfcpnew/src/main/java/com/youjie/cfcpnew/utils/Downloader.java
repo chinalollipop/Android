@@ -5,6 +5,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -17,6 +19,8 @@ import com.youjie.cfcpnew.BuildConfig;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Daniel on 2019/1/1.
@@ -113,7 +117,29 @@ public class Downloader {
         // 判断版本大于等于7.0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             // 清单文件中配置的authorities
-            data = FileProvider.getUriForFile(mContext, BuildConfig.APPLICATION_ID+".fileProvider", apkFile);
+            data = Uri.parse("file://" + apkFile);
+
+            // 获取PackageManager对象
+            /*PackageManager pm = mContext.getPackageManager();
+            // 查询已经安装的应用程序
+            List<ApplicationInfo> applicationInfos = pm
+                    .getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES);
+            // 排序
+            Collections.sort(applicationInfos,
+                    new ApplicationInfo.DisplayNameComparator(pm));
+
+            String packageName ="";
+            for (ApplicationInfo applicationInfo : applicationInfos) {
+                String appName = applicationInfo.loadLabel(pm).toString();// 应用名
+                GameLog.log("应用名：" + appName );
+                if("创富".equals(appName)){
+                    packageName = applicationInfo.packageName;// 包名
+                    GameLog.log("创富de packageName "+packageName);
+                }
+            }
+
+            data = FileProvider.getUriForFile(mContext, packageName + ".fileProvider", apkFile);
+            //data = FileProvider.getUriForFile(mContext, BuildConfig.APPLICATION_ID+".fileProvider", apkFile);
             // 给目标应用一个临时授权
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 
@@ -124,7 +150,7 @@ public class Downloader {
                     startInstallPermissionSettingActivity(mContext);
                     return;
                 }
-            }
+            }*/
 
         } else {
             data = Uri.fromFile(apkFile);
