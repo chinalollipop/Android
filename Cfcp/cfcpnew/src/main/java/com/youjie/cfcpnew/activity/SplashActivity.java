@@ -73,7 +73,7 @@ public class SplashActivity extends Activity {
 
     private void initDomainUrl(){
 
-        OkGo.<String>post("https://hg006668.firebaseapp.com/d/cfqp_init.txt")
+        OkGo.<String>post("http://cf678678.com/domain/")
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override
@@ -109,7 +109,7 @@ public class SplashActivity extends Activity {
 
     private synchronized void postDomain(String url) {
         GameLog.log("--------当前执行的url地址是-------- "+url);
-        OkGo.<String>post(url+"answer.php")
+        OkGo.<String>get(url+"answer.php")
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override

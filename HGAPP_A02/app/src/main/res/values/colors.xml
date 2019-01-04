@@ -34,7 +34,7 @@
     <color name="n_edittext_pwd">#868686</color>
     <color name="l_view_color">#D6D6D6</color>
     <color name="all_bg">#F9F9F9</color>
-    <color name="event_line">#30a6d9</color>
+    <color name="event_line">#ff0000</color>
     <color name="event_tv">#0d3954</color>
     <color name="event_red">#f55b1d</color>
     <!--Textview默认颜色值-->

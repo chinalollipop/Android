@@ -114,6 +114,7 @@ public class RoleActivity extends Activity {
             }
         });*/
         HGIWebSetting.init(wvRoleXplay);
+        wvRoleXplay.getSettings().setDefaultTextEncodingName("utf-8");
         // 设置可以支持缩放
         wvRoleXplay.getSettings().setSupportZoom(true);
         // 设置出现缩放工具
