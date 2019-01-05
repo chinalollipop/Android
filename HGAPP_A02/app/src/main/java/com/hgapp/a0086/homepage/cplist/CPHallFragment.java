@@ -505,6 +505,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult) {
         GameLog.log("postCPLeftInfoResult "+cpLeftInfoResult.toString());
         moneyStr = cpLeftInfoResult.getUnsettledMoney();
+        if(Check.isEmpty(moneyStr)){
+            moneyStr = "0.00";
+        }
         cpHallUserMoney.setText(GameShipHelper.formatMoney(cpLeftInfoResult.getMoney()));
         if(!Check.isNull(moneyText)) {
             moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));

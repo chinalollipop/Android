@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 .addItem(R.drawable.tab1_normal, "聊天室", Color.RED)
                 .addItem(R.drawable.tab2_normal, "在线投注", Color.RED)
                 .addItem(R.drawable.tab3_normal, "开奖视频", Color.RED)
-                .addItem(R.drawable.tab4_normal, "计划软件", Color.RED)
+                .addItem(R.drawable.tab4_normal, "精准计划", Color.RED)
                 .build();
     }
 
