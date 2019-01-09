@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#c42132</color>
+    <color name="colorPrimaryDark">#c42132</color>
+    <color name="colorAccent">#c42132</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="color_bg_dialog">#e0000000</color>
+    <color name="color_translucent">#e0000000</color>
+    <color name="color_game_title">#c42132</color>
+    <color name="bg_login_text">#da8059</color>
+    <color name="register_left">#a23d12</color>
+    <color name="bg_logout_text">#4f1b83</color>
+    <color name="bg_app">#fefefe</color>
+    <color name="lgout_text">#efda33</color>
+    <color name="text_main">#7a7a7a</color>
+    <!--Textview跑马灯的默认颜色值-->
+    <color name="textview_marque">#333333</color>
+    <color name="textview_marque_bg">#e9e7e7</color>
+</resources>

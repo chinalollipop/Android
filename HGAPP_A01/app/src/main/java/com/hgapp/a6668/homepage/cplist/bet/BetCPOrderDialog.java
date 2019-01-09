@@ -18,6 +18,7 @@ import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.CalcHelper;
 import com.hgapp.a6668.common.util.CombinationHelper;
 import com.hgapp.a6668.common.util.CombineUtils;
+import com.hgapp.a6668.common.util.DoubleClickHelper;
 import com.hgapp.a6668.data.CPBetResult;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderList;
 import com.hgapp.a6668.homepage.cplist.events.CPOrderSuccessEvent;
@@ -333,7 +334,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             case R.id.betOrderCpSubmit:
                 int size = betResult.size();
                 number="";
-
+                DoubleClickHelper.getNewInstance().disabledView(betOrderCpSubmit);
                 if("LM".equals(betType)){
                     for(int i=0;i<size;++i){
                         number += betResult.get(i).getGid()+",";
