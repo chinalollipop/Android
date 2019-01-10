@@ -37,7 +37,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="每分钟一期"
-                android:textColor="@color/text_main"
+                android:textColor="@color/text_main_down"
                 android:textSize="15sp" />
         </LinearLayout>
 

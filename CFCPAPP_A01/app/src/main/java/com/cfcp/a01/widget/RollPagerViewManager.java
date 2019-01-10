@@ -262,7 +262,7 @@ public class RollPagerViewManager {
             Picasso.get()
                     .load(activityList.get(position).getImg_path())
 //                    .placeholder(R.drawable.placeholder)
-                    .error(R.mipmap.login_bg)
+                    .error(R.mipmap.bg_login)
                     .fit()
                     .into(view);
             /*Picasso.with(context)

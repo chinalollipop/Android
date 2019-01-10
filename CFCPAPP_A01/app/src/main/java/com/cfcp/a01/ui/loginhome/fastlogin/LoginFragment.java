@@ -3,129 +3,65 @@ package com.cfcp.a01.ui.loginhome.fastlogin;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
-import com.cfcp.a01.base.BaseDialogFragment;
-import com.cfcp.a01.base.IPresenter;
+import com.cfcp.a01.base.BaseFragment;
+import com.cfcp.a01.base.event.StartBrotherEvent;
 import com.cfcp.a01.data.LoginResult;
-import com.cfcp.a01.utils.ACache;
-import com.cfcp.a01.utils.Check;
-import com.cfcp.a01.utils.QPConstant;
+import com.cfcp.a01.ui.loginhome.fastregister.RegisterFragment;
+import com.cfcp.a01.utils.GameLog;
+import com.cfcp.a01.widget.NTitleBar;
 
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.Arrays;
-import java.util.List;
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 
-public class LoginFragment extends BaseDialogFragment implements LoginContract.View{
+public class LoginFragment extends BaseFragment {
+    @BindView(R.id.loginBack)
+    NTitleBar loginBack;
 
-    @BindView(R.id.loginAccount)
-    EditText loginAccount;
-    @BindView(R.id.loginPwd)
-    EditText loginPwd;
-    @BindView(R.id.loginRemeberPwd)
-    CheckBox loginRemeberPwd;
-    @BindView(R.id.loginForgetPwd)
-    TextView loginForgetPwd;
-    @BindView(R.id.loginSubmit)
-    ImageView loginSubmit;
-    @BindView(R.id.loginClose)
-    ImageView loginClose;
-
-
-    LoginContract.Presenter presenter;
-
-    public static LoginFragment newInstance() {
-        Bundle bundle = new Bundle();
-        LoginFragment loginFragment = new LoginFragment();
-        loginFragment.setArguments(bundle);
-        Injections.inject(loginFragment, null);
-        return loginFragment;
+    public static LoginFragment newInstance(){
+        LoginFragment homeFragment = new LoginFragment();
+        return homeFragment;
     }
+
 
     @Override
     public int setLayoutId() {
-        return R.layout.login_fragment;
-    }
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
-
+        return R.layout.fragment_login_home;
     }
 
     @Override
-    public void setEvents(View view, @Nullable Bundle savedInstanceState) {
-        String userName = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_ACCOUNT);
-        String pwd = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_PWD);
-        if(!Check.isEmpty(userName)){
-            loginAccount.setText(userName);
-        }
-        if(!Check.isEmpty(pwd)){
-            loginRemeberPwd.setChecked(true);
-            loginPwd.setText(pwd);
-        }else{
-            loginRemeberPwd.setChecked(false);
-        }
+    public void setEvents(@Nullable Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
+        loginBack.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
-    @OnClick({R.id.loginRemeberPwd, R.id.loginForgetPwd, R.id.loginSubmit, R.id.loginClose})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.loginRemeberPwd:
-                break;
-            case R.id.loginForgetPwd:
-                break;
-            case R.id.loginSubmit:
-                onCheckAndSubmit();
-                break;
-            case R.id.loginClose:
-                hide();
-                break;
-        }
-    }
-
-    private void onCheckAndSubmit() {
-        String loginAccounts = loginAccount.getText().toString().trim();
-        String loginPwdPwds = loginPwd.getText().toString().trim();
-        if(Check.isEmpty(loginAccounts)){
-            showMessage("请输入合法的用户账号");
-        }
-        if(Check.isEmpty(loginPwdPwds)){
-            showMessage("请输入密码");
-        }
-        presenter.postLogin("",loginAccounts,loginPwdPwds);
+    @Subscribe
+    public void onEventMain(LoginResult loginResult) {
+        GameLog.log("================注册页需要消失的================");
+        finish();
     }
 
     @Override
-    public void postLoginResult(LoginResult loginResult) {
-        String loginAccounts = loginAccount.getText().toString().trim();
-        String loginPwdPwds = loginPwd.getText().toString().trim();
-        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_ACCOUNT,loginAccounts);
-        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_PWD,loginPwdPwds);
-        showMessage("登录成功！");
-        EventBus.getDefault().post(loginResult);
-        hide();
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
     }
 
-    @Override
-    public void setPresenter(LoginContract.Presenter presenter) {
-        this.presenter  = presenter;
+    @OnClick(R.id.loginGoRegister)
+    public void onClickView(View view){
+        EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
+
     }
 
-    @Override
-    protected List<IPresenter> presenters() {
-        return Arrays.asList((IPresenter) presenter);
-    }
+
 }

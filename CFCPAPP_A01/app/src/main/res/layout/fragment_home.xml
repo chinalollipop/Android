@@ -83,7 +83,9 @@
 
 
                 <LinearLayout
+                    android:layout_marginTop="3dp"
                     android:padding="5dp"
+                    android:background="@color/text_main_bg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -135,10 +137,11 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:background="@color/textview_marque_bg" />
+                    android:background="@color/text_main_line" />
 
                 <LinearLayout
                     android:layout_margin="5dp"
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -180,7 +183,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:background="@color/textview_marque_bg" />
+                    android:background="@color/text_main_line" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/homeRecView"

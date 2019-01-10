@@ -22,8 +22,7 @@ import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
 import com.cfcp.a01.data.WinNewsResult;
 import com.cfcp.a01.ui.home.enumeration.LotteryType;
-import com.cfcp.a01.ui.home.fastlogout.LogoutFragment;
-import com.cfcp.a01.ui.loginhome.LoginHomeFragment;
+import com.cfcp.a01.ui.loginhome.fastlogin.LoginFragment;
 import com.cfcp.a01.utils.Check;
 import com.cfcp.a01.utils.GameLog;
 import com.cfcp.a01.utils.NetworkUtils;
@@ -276,9 +275,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         switch (view.getId()) {
             case R.id.homeName:
                 if(Check.isEmpty(accountName)){
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginHomeFragment.newInstance(), SupportFragment.SINGLETASK));
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                 }else{
-                    LogoutFragment.newInstance(loginResult).show(getFragmentManager());
                 }
                 break;
             case R.id.homeDeposit:

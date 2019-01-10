@@ -84,7 +84,7 @@ public abstract class BaseFragment extends BaseMainFragment implements IMessageV
 
             FrameLayout contentLayout = (FrameLayout) view.findViewById(R.id.layout_content);
 
-            View contentview = LayoutInflater.from(getActivity()).inflate(layoutId, null, false);
+            View contentview = inflater.inflate(layoutId, null, false);
             contentLayout.addView(contentview);
             try {
 

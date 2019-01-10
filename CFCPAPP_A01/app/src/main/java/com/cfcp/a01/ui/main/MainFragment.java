@@ -14,13 +14,11 @@ import com.cfcp.a01.CFCPApplication;
 import com.cfcp.a01.R;
 import com.cfcp.a01.base.IPresenter;
 import com.cfcp.a01.base.event.StartBrotherEvent;
-import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.ui.home.HomeContract;
 import com.cfcp.a01.ui.home.HomeFragment;
-import com.cfcp.a01.ui.loginhome.LoginHomeFragment;
+import com.cfcp.a01.ui.loginhome.fastlogin.LoginFragment;
 import com.cfcp.a01.ui.lottery.LotteryResultFragment;
 import com.cfcp.a01.ui.me.MeFragment;
-import com.cfcp.a01.utils.GameLog;
 import com.cfcp.a01.widget.NoTouchViewPager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -91,8 +89,8 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
         }*/
 
         stringList.add(HomeFragment.newInstance());
-        stringList.add(LoginHomeFragment.newInstance());
-        stringList.add(LoginHomeFragment.newInstance());
+        stringList.add(LoginFragment.newInstance());
+        stringList.add(LoginFragment.newInstance());
         stringList.add(LotteryResultFragment.newInstance());
         stringList.add(MeFragment.newInstance());
 
