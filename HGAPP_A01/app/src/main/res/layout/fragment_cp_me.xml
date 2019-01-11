@@ -65,7 +65,7 @@
                     android:layout_gravity="center|left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="用户余额：98080RMB"
+                    android:text="用户余额：0RMB"
                     />
                 <ImageView
                     android:id="@+id/userMoneyRefresh"
