@@ -17,6 +17,7 @@ import com.cfcp.a01.base.BaseFragment;
 import com.cfcp.a01.common.adapters.AutoSizeRVAdapter;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
+import com.cfcp.a01.ui.main.MainEvent;
 import com.cfcp.a01.utils.GameLog;
 import com.cfcp.a01.utils.NetworkUtils;
 import com.cfcp.a01.widget.GridRvItemDecoration;
@@ -88,7 +89,7 @@ public class MeFragment extends BaseFragment {
         meCenterList.add(new MeIconEvent("密码设定","每分钟一期",R.mipmap.me_pwd_set,MemberType.ME_PWD_SET,11));
         meCenterList.add(new MeIconEvent("密码修改","每分钟一期",R.mipmap.me_pwd_change,MemberType.ME_PWD_CHANGE,12));
         meCenterList.add(new MeIconEvent("彩种信息","每分钟一期",R.mipmap.me_lottery_infor,MemberType.ME_LOTTERY_INFOR,13));
-        meCenterList.add(new MeIconEvent("彩种限额","每分钟一期",R.mipmap.me_lottery_infor,MemberType.ME_LOTTERY_INFOR,14));
+        meCenterList.add(new MeIconEvent("彩种限额","每分钟一期",R.mipmap.me_lottery_limit,MemberType.ME_LOTTERY_INFOR,14));
         meCenterList.add(new MeIconEvent("开奖结果","每分钟一期",R.mipmap.me_lottery_end,MemberType.ME_LOTTERY_END,15));
         meCenterList.add(new MeIconEvent("走势图","每分钟一期",R.mipmap.me_run_chart,MemberType.ME_RUN_CHART,16));
         meCenterList.add(new MeIconEvent("团队总览","每分钟一期",R.mipmap.me_team_overview,MemberType.ME_TEAM_OVERVIEW,17));
@@ -164,7 +165,7 @@ public class MeFragment extends BaseFragment {
 
                             break;
                         case ME_DISCOUNTS_ACTIVITY:
-
+                            EventBus.getDefault().post(new MainEvent(2));
                             break;
                         case ME_USE_INFOR:
 
