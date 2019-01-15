@@ -14,9 +14,12 @@ import com.cfcp.a01.CFCPApplication;
 import com.cfcp.a01.R;
 import com.cfcp.a01.base.IPresenter;
 import com.cfcp.a01.base.event.StartBrotherEvent;
+import com.cfcp.a01.ui.activity.ActivityFragment;
+import com.cfcp.a01.ui.chat.ChatFragment;
 import com.cfcp.a01.ui.home.HomeContract;
 import com.cfcp.a01.ui.home.HomeFragment;
 import com.cfcp.a01.ui.loginhome.fastlogin.LoginFragment;
+import com.cfcp.a01.ui.loginhome.fastregister.RegisterFragment;
 import com.cfcp.a01.ui.lottery.LotteryResultFragment;
 import com.cfcp.a01.ui.me.MeFragment;
 import com.cfcp.a01.widget.NoTouchViewPager;
@@ -88,9 +91,10 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
             mFragments[FIVE] = findChildFragment(LoginHomeFragment.class);
         }*/
 
+
         stringList.add(HomeFragment.newInstance());
-        stringList.add(LoginFragment.newInstance());
-        stringList.add(LoginFragment.newInstance());
+        stringList.add(ChatFragment.newInstance());
+        stringList.add(ActivityFragment.newInstance());
         stringList.add(LotteryResultFragment.newInstance());
         stringList.add(MeFragment.newInstance());
 

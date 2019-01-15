@@ -19,9 +19,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class LoginFragment extends BaseFragment {
+public class LoginFragment extends BaseFragment implements LoginContract.View{
     @BindView(R.id.loginBack)
     NTitleBar loginBack;
+    LoginContract.Presenter presenter;
 
     public static LoginFragment newInstance(){
         LoginFragment homeFragment = new LoginFragment();
@@ -36,7 +37,6 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        EventBus.getDefault().register(this);
         loginBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,14 +54,33 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        EventBus.getDefault().unregister(this);
     }
 
-    @OnClick(R.id.loginGoRegister)
+    @OnClick({R.id.loginGoRegister,R.id.loginGoSubmit})
     public void onClickView(View view){
-        EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
+        switch (view.getId()){
+            case R.id.loginGoRegister:
+                //处理用户登录接口的数据请求
+                //presenter.postLogin("","","");
+                EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
+                break;
+            case R.id.loginGoSubmit:
+                EventBus.getDefault().post(new LoginResult());
+                finish();
+                break;
+        }
+
 
     }
 
 
+    @Override
+    public void postLoginResult(LoginResult loginResult) {
+
+    }
+
+    @Override
+    public void setPresenter(LoginContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
 }

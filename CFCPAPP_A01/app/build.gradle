@@ -80,6 +80,8 @@ dependencies {
 
     implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
    /* configurations {
         all*.exclude group: 'com.google.code.gson'
     }*/

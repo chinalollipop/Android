@@ -145,6 +145,9 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                 GameLog.log("彩票的token "+token);
             }
         }
+        if(Check.isEmpty(token)){
+            showMessage("请重新登录！");
+        }
         presenter.postCPNote(token);
         /*cpBottomBar.postDelayed(new Runnable() {
             @Override

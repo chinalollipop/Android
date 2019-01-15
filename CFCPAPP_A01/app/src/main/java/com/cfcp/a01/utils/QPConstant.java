@@ -1,7 +1,7 @@
 package com.cfcp.a01.utils;
 
 /**
- * Created by Daniel on 2017/5/18.
+ * Created by Daniel on 2019/1/1.
  */
 
 public abstract class QPConstant {

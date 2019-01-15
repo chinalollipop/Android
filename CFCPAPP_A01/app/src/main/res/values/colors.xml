@@ -5,6 +5,24 @@
     <color name="colorAccent">#b2333a</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="text_black">#333333</color>
+    <color name="text_exlist">#eeeeee</color>
+    <color name="text_bet_issue">#e13f51</color>
+    <color name="text_bet_sure">#e58b30</color>
+    <color name="text_bet_model">#ababab</color>
+    <color name="text_bet_model_chan">#e33737</color>
+    <color name="text_bet_model_in">#454545</color>
+    <color name="text_bet_model_pro">#3e3e3e</color>
+    <color name="text_bet_model_next">#3b3a3a</color>
+    <color name="text_bet_submit">#e1222a</color>
+    <color name="text_bet_bottom">#010101</color>
+    <color name="text_bet_time_n">#3a3939</color>
+    <color name="text_bet_time">#c42133</color>
+    <color name="text_bet_clicked">#c52133</color>
+    <color name="text_bet_noraml">#c52133</color>
+    <color name="text_line">#c2bfbf</color>
+    <color name="text_line_other">#f0f1f2</color>
+    <color name="text_next">#888888</color>
     <color name="color_bg_dialog">#e0000000</color>
     <color name="color_translucent">#e0000000</color>
     <color name="color_game_title">#b2333a</color>
@@ -18,6 +36,13 @@
     <color name="text_main_bg">#f6f6f6</color>
     <color name="text_main">#484747</color>
     <color name="text_main_down">#717070</color>
+
+    <color name="gray_dft">#888888</color>
+    <color name="black_dft">#2b2b2b</color>
+
+    <color name="cp_order_hk_nor">#F9F9F9</color>
+    <color name="cp_order_hk_click">#D6E5EF</color>
+
     <!--Textview跑马灯的默认颜色值-->
     <color name="textview_marque">#333</color>
     <color name="textview_marque_bg">#e3e1e2</color>

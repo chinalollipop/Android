@@ -13,7 +13,7 @@ import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 
 /**
- * Created by ak on 2017/7/29.
+ * Created by Daniel on 2019/1/1.
  * 统一管理网络异常、链接超时、服务器异常等等
  */
 

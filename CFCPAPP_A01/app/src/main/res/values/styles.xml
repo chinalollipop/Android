@@ -11,6 +11,18 @@
         <!--<item name="android:windowFullscreen">true</item>-->
     </style>
 
+    <style name="margintran" >
+        <!-- 设置允许窗口半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 引用Android系统的动画半透明样式 -->
+        <!--<item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>-->
+        <!-- 设定窗口背景颜色 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 隐藏窗口标题栏 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设定文字前景色 -->
+        <!--<item name="android:colorForeground">#fff</item>-->
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

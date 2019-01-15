@@ -3,13 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:layout_gravity="center"
-    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/color_game_title">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="开奖结果"
-            />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/lotteryResultType"
+        android:layout_width="wrap_content"
+        android:drawablePadding="10dp"
+        android:layout_height="40dp"
+        android:drawableRight="@mipmap/bet_down_black"
+        android:textColor="@android:color/black"
+        android:gravity="center|left"
+        android:paddingLeft="20dp"
+        android:text="开奖结果" />
+    <android.support.design.widget.TabLayout
+        android:id="@+id/lotteryResultTab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#b7b6b1"
+        app:tabTextColor="#414242"
+        app:tabSelectedTextColor="#db1c36"
+        app:tabIndicatorColor="#db1c36"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="scrollable" />
+    <!--app:tabBackground="@drawable/tab_background"-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lotteryResultRView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

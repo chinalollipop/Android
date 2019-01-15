@@ -16,6 +16,7 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.base.BaseFragment;
 import com.cfcp.a01.common.adapters.AutoSizeRVAdapter;
 import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.utils.GameLog;
 import com.cfcp.a01.utils.NetworkUtils;
 import com.cfcp.a01.widget.GridRvItemDecoration;
@@ -31,7 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-
+//用户中心
 public class MeFragment extends BaseFragment {
 
 
@@ -216,12 +217,6 @@ public class MeFragment extends BaseFragment {
     }
 
 
-    @Subscribe
-    public void onEventMain(LoginResult loginResult) {
-        GameLog.log("================注册页需要消失的================");
-        finish();
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -250,4 +245,10 @@ public class MeFragment extends BaseFragment {
                 break;
         }
     }
+
+    @Subscribe
+    public void onEventMain(LogoutResult logoutResult) {
+        GameLog.log("================用户退出了================");
+    }
+
 }

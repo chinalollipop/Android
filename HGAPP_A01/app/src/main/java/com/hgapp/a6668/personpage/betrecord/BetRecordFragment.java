@@ -100,6 +100,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
     static {
         gtypeList.add("足球");
         gtypeList.add("篮球");
+        gtypeList.add("冠军");
 
         checkedList.add("全部");
         checkedList.add("未结注单");
@@ -204,8 +205,10 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 betRrcordGtype.setText(text);
                 if(text.equals("足球")){
                     gtype = "FT";
-                }else{
+                }else if(text.equals("篮球")){
                     gtype = "BK";
+                }else{
+                    gtype = "FS";
                 }
 
             }
