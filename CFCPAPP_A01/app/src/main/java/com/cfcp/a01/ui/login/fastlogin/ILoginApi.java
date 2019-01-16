@@ -1,4 +1,4 @@
-package com.cfcp.a01.ui.loginhome.fastlogin;
+package com.cfcp.a01.ui.login.fastlogin;
 
 
 import com.cfcp.a01.data.LoginResult;

@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.cfcp.a01.R;
 import com.cfcp.a01.http.DomainUrl;
 import com.cfcp.a01.http.MyHttpClient;
-import com.cfcp.a01.ui.loginhome.LoginHomeActivity;
+import com.cfcp.a01.ui.main.MainActivity;
 import com.cfcp.a01.utils.ACache;
 import com.cfcp.a01.utils.GameLog;
 import com.cfcp.a01.utils.NetworkUtils;
@@ -80,7 +80,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     private void enterMain(){
-        startActivity(new Intent(LaunchActivity.this, LoginHomeActivity.class));
+        startActivity(new Intent(LaunchActivity.this, MainActivity.class));
         finish();
     }
 

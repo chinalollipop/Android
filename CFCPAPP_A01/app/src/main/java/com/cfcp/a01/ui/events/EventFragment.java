@@ -1,27 +1,22 @@
-package com.cfcp.a01.ui.activity;
+package com.cfcp.a01.ui.events;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.cfcp.a01.R;
 import com.cfcp.a01.base.BaseFragment;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 //优惠活动
-public class ActivityFragment extends BaseFragment {
+public class EventFragment extends BaseFragment {
 
     @BindView(R.id.activityRView)
     RecyclerView activityRView;
 
-    public static ActivityFragment newInstance() {
-        ActivityFragment activityFragment = new ActivityFragment();
+    public static EventFragment newInstance() {
+        EventFragment activityFragment = new EventFragment();
 
         return activityFragment;
     }

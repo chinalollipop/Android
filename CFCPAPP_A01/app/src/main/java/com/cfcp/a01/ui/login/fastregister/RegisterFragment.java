@@ -1,4 +1,4 @@
-package com.cfcp.a01.ui.loginhome.fastregister;
+package com.cfcp.a01.ui.login.fastregister;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +14,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class RegisterFragment extends BaseFragment {
     @BindView(R.id.registerBack)

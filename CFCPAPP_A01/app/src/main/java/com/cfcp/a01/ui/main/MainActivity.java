@@ -1,4 +1,4 @@
-package com.cfcp.a01.ui.loginhome;
+package com.cfcp.a01.ui.main;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-public class LoginHomeActivity extends SupportActivity {
+public class MainActivity extends SupportActivity {
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
     private long TOUCH_TIME = 0;

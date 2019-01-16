@@ -1,4 +1,4 @@
-package com.cfcp.a01.ui.loginhome.fastlogin;
+package com.cfcp.a01.ui.login.fastlogin;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,7 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.base.BaseFragment;
 import com.cfcp.a01.base.event.StartBrotherEvent;
 import com.cfcp.a01.data.LoginResult;
-import com.cfcp.a01.ui.loginhome.fastregister.RegisterFragment;
+import com.cfcp.a01.ui.login.fastregister.RegisterFragment;
 import com.cfcp.a01.utils.GameLog;
 import com.cfcp.a01.widget.NTitleBar;
 

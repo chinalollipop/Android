@@ -6,9 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +22,7 @@ import com.cfcp.a01.data.NoticeResult;
 import com.cfcp.a01.data.WinNewsResult;
 import com.cfcp.a01.ui.bet.BetFragment;
 import com.cfcp.a01.ui.home.enumeration.LotteryType;
-import com.cfcp.a01.ui.loginhome.fastlogin.LoginFragment;
+import com.cfcp.a01.ui.login.fastlogin.LoginFragment;
 import com.cfcp.a01.ui.sidebar.SideBarFragment;
 import com.cfcp.a01.utils.Check;
 import com.cfcp.a01.utils.GameLog;
@@ -45,9 +43,7 @@ import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View {

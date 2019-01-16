@@ -1,4 +1,4 @@
-package com.cfcp.a01.ui.loginhome.fastregister;
+package com.cfcp.a01.ui.login.fastregister;
 
 import com.cfcp.a01.base.IMessageView;
 import com.cfcp.a01.base.IPresenter;

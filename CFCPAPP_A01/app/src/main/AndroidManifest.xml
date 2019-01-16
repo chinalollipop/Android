@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cfcp.a01.ui.loginhome.LoginHomeActivity"
+            android:name="com.cfcp.a01.ui.main.MainActivity"
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
