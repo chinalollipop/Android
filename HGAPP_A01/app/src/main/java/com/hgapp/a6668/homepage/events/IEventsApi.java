@@ -27,10 +27,16 @@ public interface IEventsApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<ValidResult>> postValidGift(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //新年红包
+    @POST("newyear_6668_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<LuckGiftResult>> postNewYearRed(@Field("appRefer") String appRefer, @Field("action") String action);
+
+
     //获取余额
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
 
 }

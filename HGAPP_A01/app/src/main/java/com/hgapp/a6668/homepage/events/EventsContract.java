@@ -16,6 +16,7 @@ public interface EventsContract {
         public void postDownAppGift(String appRefer);
         public void postLuckGift(String appRefer,String action);
         public void postValidGift(String appRefer,String action);
+        public void postNewYearRed(String appRefer,String action);
         public void postPersonBalance(String appRefer,String action);
     }
     public interface View extends IView<Presenter>,IMessageView,IProgressView

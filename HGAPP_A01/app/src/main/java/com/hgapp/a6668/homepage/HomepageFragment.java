@@ -354,7 +354,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 presenter.postNoticeList("");
                 break;
             case 13:
-                EventBus.getDefault().post(new StartBrotherEvent(NewEventsFragment.newInstance("",0), SupportFragment.SINGLETASK));
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(NewEventsFragment.newInstance(userMoney,0), SupportFragment.SINGLETASK));
                 break;
         }
     }

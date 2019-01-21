@@ -99,14 +99,39 @@ public class EventsPresenter implements EventsContract.Presenter {
     }
 
     @Override
+    public void postNewYearRed(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postNewYearRed(HGConstant.PRODUCT_PLATFORM,"receive_red_envelope"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LuckGiftResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LuckGiftResult> response) {
+                        //view.postDownAppGiftResult("38");
+                        if(response.isSuccess()){
+                            view.postLuckGiftResult(response.getData().get(0));
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postPersonBalance(String appRefer, String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalance(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<PersonBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PersonBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<PersonBalanceResult> response) {
+                    public void success(AppTextMessageResponseList<PersonBalanceResult> response) {
                         if(response.isSuccess())
                         {
-                            view.postPersonBalanceResult(response.getData());
+                            view.postPersonBalanceResult(response.getData().get(0));
                         }
                         else
                         {

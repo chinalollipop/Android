@@ -43,11 +43,17 @@ public class NewEventsFragment extends HGBaseFragment implements EventsContract.
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
+    @BindView(R.id.packets_layout)
+    RedPacketsLayout packets_layout;
+    @BindView(R.id.eventTitleUserMoney)
+    TextView eventTitleUserMoney;
     private String payId;
     private String getArgParam1;
     private int getArgParam2;
     private EventsContract.Presenter presenter;
     private View mRedPacketDialogView;
+    private RedPacketViewHolder mRedPacketViewHolder;
+    private RedCustomDialog mRedPacketDialog;
     private boolean isShow = false;
     public static NewEventsFragment newInstance( String getArgParam1, int getArgParam2) {
         NewEventsFragment fragment = new NewEventsFragment();
@@ -84,6 +90,53 @@ public class NewEventsFragment extends HGBaseFragment implements EventsContract.
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        eventTitleUserMoney.setText(getArgParam1);
+    }
+
+    public void showRedDialog(String data){
+        String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+        RedPacketEntity entity = new RedPacketEntity(alias, "http://xxx.xxx.com/20171205180511192.png", "恭喜发财，大吉大利");
+        showRedPacketDialog(entity,data);
+    }
+
+    public void showRedPacketDialog(RedPacketEntity entity, final String data) {
+        if (mRedPacketDialogView == null) {
+            mRedPacketDialogView = View.inflate(getContext(), R.layout.dialog_red_packet, null);
+            mRedPacketViewHolder = new RedPacketViewHolder(getContext(), mRedPacketDialogView);
+            mRedPacketDialog = new RedCustomDialog(getContext(), mRedPacketDialogView, R.style.red_custom_dialog);
+            mRedPacketDialog.setCancelable(false);
+        }
+        new Swing().start(mRedPacketDialogView);
+        mRedPacketViewHolder.setData(entity);
+        mRedPacketViewHolder.setOnRedPacketDialogClickListener(new OnRedPacketDialogClickListener() {
+            @Override
+            public void onCloseClick() {
+                new ZoomOutRightExit().start(mRedPacketDialogView);
+                mRedPacketDialogView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        /*if(isShow){
+                            showMessage("彩金将在24小时内自动派发到账!");
+                        }*/
+                        presenter.postPersonBalance("","");
+                        mRedPacketDialog.dismiss();
+                        new Swing().start(eventTitleUserMoney);
+                    }
+                },1000);
+            }
+
+            @Override
+            public void onOpenClick() {
+                //领取红包,调用接口
+                mRedPacketDialogView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRedPacketViewHolder.setData(data);
+                    }
+                },2000);
+            }
+        });
+        mRedPacketDialog.show();
     }
 
 
@@ -98,11 +151,14 @@ public class NewEventsFragment extends HGBaseFragment implements EventsContract.
     }
 
 
-    @OnClick({R.id.eventTitleBack})
+    @OnClick({R.id.eventTitleBack,R.id.nyearRed})
     public void onViewClicked(final View view) {
         switch (view.getId()) {
             case R.id.eventTitleBack:
                 finish();
+                break;
+            case R.id.nyearRed:
+                presenter.postNewYearRed("","");
                 break;
         }
     }
@@ -114,6 +170,27 @@ public class NewEventsFragment extends HGBaseFragment implements EventsContract.
 
     @Override
     public void postLuckGiftResult(final LuckGiftResult luckGiftResult) {
+        packets_layout.setVisibility(View.VISIBLE);
+        packets_layout.post(new Runnable() {
+            @Override
+            public void run() {
+                packets_layout.startRain();
+            }
+        });
+        packets_layout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showRedDialog(luckGiftResult.getData_gold()+"");
+            }
+        },2000);
+        packets_layout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                packets_layout.stopRain();
+                packets_layout.setVisibility(View.GONE);
+                GameLog.log("停止下雨了");
+            }
+        },2500);
     }
 
     @Override
@@ -122,6 +199,8 @@ public class NewEventsFragment extends HGBaseFragment implements EventsContract.
 
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
+        eventTitleUserMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_hg()));
+        EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(personBalance.getBalance_hg())));
     }
 
 }
