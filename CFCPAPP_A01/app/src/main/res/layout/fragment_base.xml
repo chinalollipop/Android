@@ -9,15 +9,15 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
-    <com.cfcp.a01.widget.LoadingViewGroup
+    <com.cfcp.a01.common.widget.LoadingViewGroup
         android:id="@+id/layout_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.cfcp.a01.widget.GifView
+        <com.cfcp.a01.common.widget.GifView
             android:id="@+id/iv_loading"
             android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.cfcp.a01.widget.LoadingViewGroup>
+    </com.cfcp.a01.common.widget.LoadingViewGroup>
 </FrameLayout>

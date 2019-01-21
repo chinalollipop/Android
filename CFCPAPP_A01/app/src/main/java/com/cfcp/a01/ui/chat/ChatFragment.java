@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.base.BaseFragment;
+import com.cfcp.a01.common.base.BaseFragment;
 
 //优惠活动
 public class ChatFragment extends BaseFragment {

@@ -47,7 +47,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="35dp"
             android:gravity="center"
-            android:text="1200000"
+            android:text="0.00"
             android:textColor="@color/title_text"
             android:textSize="15sp" />
 

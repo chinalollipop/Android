@@ -28,6 +28,7 @@ import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
 import com.hgapp.a6668.homepage.cplist.me.CPMeFragment;
 import com.hgapp.a6668.homepage.cplist.role.CPServiceActivity;
+import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -147,6 +148,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
         }
         if(Check.isEmpty(token)){
             showMessage("请重新登录！");
+            EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         }
         presenter.postCPNote(token);
         /*cpBottomBar.postDelayed(new Runnable() {

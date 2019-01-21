@@ -84,7 +84,7 @@
                         android:paddingRight="10dp"
                         android:src="@mipmap/marque" />
 
-                    <com.cfcp.a01.widget.MarqueeTextView
+                    <com.cfcp.a01.common.widget.MarqueeTextView
                         android:id="@+id/homeMarquee"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"

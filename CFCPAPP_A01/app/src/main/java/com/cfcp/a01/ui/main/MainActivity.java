@@ -1,12 +1,10 @@
 package com.cfcp.a01.ui.main;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.ui.main.MainFragment;
-import com.cfcp.a01.utils.ToastUtils;
+import com.cfcp.a01.common.utils.ToastUtils;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;

@@ -4,12 +4,12 @@ import com.cfcp.a01.data.BannerResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
 import com.cfcp.a01.data.WinNewsResult;
-import com.cfcp.a01.http.ResponseSubscriber;
-import com.cfcp.a01.http.RxHelper;
-import com.cfcp.a01.http.SubscriptionHelper;
-import com.cfcp.a01.http.request.AppTextMessageResponseList;
-import com.cfcp.a01.utils.QPConstant;
-import com.cfcp.a01.utils.Timber;
+import com.cfcp.a01.common.http.ResponseSubscriber;
+import com.cfcp.a01.common.http.RxHelper;
+import com.cfcp.a01.common.http.SubscriptionHelper;
+import com.cfcp.a01.common.http.request.AppTextMessageResponseList;
+import com.cfcp.a01.CFConstant;
+import com.cfcp.a01.common.utils.Timber;
 
 
 /**
@@ -46,7 +46,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void postBanner(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBanner(QPConstant.PRODUCT_PLATFORM))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanner(CFConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<BannerResult>() {
                     @Override
                     public void success(BannerResult response) {
@@ -73,7 +73,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void postNotice(String appRefer, String type) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postNotice(QPConstant.PRODUCT_PLATFORM,type))
+        subscriptionHelper.add(RxHelper.addSugar(api.postNotice(CFConstant.PRODUCT_PLATFORM,type))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<NoticeResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<NoticeResult> response) {
@@ -100,7 +100,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void postWinNews(String appRefer, String news) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postWinNews(QPConstant.PRODUCT_PLATFORM,news))
+        subscriptionHelper.add(RxHelper.addSugar(api.postWinNews(CFConstant.PRODUCT_PLATFORM,news))
                 .subscribe(new ResponseSubscriber<WinNewsResult>() {
                     @Override
                     public void success(WinNewsResult response) {
@@ -127,7 +127,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void postLogout(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postLogout(QPConstant.PRODUCT_PLATFORM))
+        subscriptionHelper.add(RxHelper.addSugar(api.postLogout(CFConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LogoutResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<LogoutResult> response) {

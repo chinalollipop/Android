@@ -10,17 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cfcp.a01.CFCPApplication;
+import com.cfcp.a01.CFApplication;
 import com.cfcp.a01.R;
-import com.cfcp.a01.base.IPresenter;
-import com.cfcp.a01.base.event.StartBrotherEvent;
-import com.cfcp.a01.ui.events.EventFragment;
+import com.cfcp.a01.common.base.IPresenter;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.ui.event.EventFragment;
 import com.cfcp.a01.ui.chat.ChatFragment;
 import com.cfcp.a01.ui.home.HomeContract;
 import com.cfcp.a01.ui.home.HomeFragment;
 import com.cfcp.a01.ui.lottery.LotteryResultFragment;
 import com.cfcp.a01.ui.me.MeFragment;
-import com.cfcp.a01.widget.NoTouchViewPager;
+import com.cfcp.a01.common.widget.NoTouchViewPager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -147,7 +147,7 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
      * 正常tab
      */
     private BaseTabItem newItem(int drawable, int checkedDrawable, String text){
-        SpecialTab mainTab = new SpecialTab(CFCPApplication.instance().getApplicationContext());
+        SpecialTab mainTab = new SpecialTab(CFApplication.instance().getApplicationContext());
         mainTab.initialize(drawable,checkedDrawable,text);
         mainTab.setTextDefaultColor(0x56000000);
         mainTab.setTextCheckedColor(0xFFFF0000);
@@ -158,7 +158,7 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
      * 圆形tab
      */
     private BaseTabItem newRoundItem(int drawable,int checkedDrawable,String text){
-        SpecialTabRound mainTab = new SpecialTabRound(CFCPApplication.instance().getApplicationContext());
+        SpecialTabRound mainTab = new SpecialTabRound(CFApplication.instance().getApplicationContext());
         mainTab.initialize(drawable,checkedDrawable,text);
         mainTab.setTextDefaultColor(0x56000000);
         mainTab.setTextCheckedColor(0xFFFF0000);

@@ -3,13 +3,13 @@ package com.cfcp.a01;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.cfcp.a01.http.Client;
+import com.cfcp.a01.common.http.Client;
 import com.cfcp.a01.ui.home.HomeContract;
 import com.cfcp.a01.ui.home.HomePresenter;
 import com.cfcp.a01.ui.home.IHomeApi;
-import com.cfcp.a01.ui.login.fastlogin.ILoginApi;
-import com.cfcp.a01.ui.login.fastlogin.LoginContract;
-import com.cfcp.a01.ui.login.fastlogin.LoginPresenter;
+import com.cfcp.a01.ui.home.login.fastlogin.ILoginApi;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginContract;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginPresenter;
 
 
 public class Injections {

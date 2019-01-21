@@ -10,34 +10,44 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_nyear_event"
-            android:orientation="vertical">
-        </LinearLayout>
-        <RelativeLayout
-            android:paddingLeft="16dp"
-            android:paddingTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/eventTitleBack"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="@string/n_titlebar_back"
-                android:drawablePadding="5dp"
-                android:textSize="16sp"
-                android:textColor="@color/title_text"
-                android:drawableLeft="@mipmap/back"
-                />
-        </RelativeLayout>
 
-    </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_nyear_event"
+                android:orientation="vertical"/>
+
+            <ImageView
+                android:background="@mipmap/nyear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="416dp"
+                android:text="领取" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/eventTitleBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:drawableLeft="@mipmap/back"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/n_titlebar_back"
+                    android:textColor="@color/title_text"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+        </FrameLayout>
     </ScrollView>
 </LinearLayout>

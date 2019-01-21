@@ -298,7 +298,7 @@
                         android:background="@mipmap/bet_minus"
                         />
 
-                    <com.cfcp.a01.widget.TouchProgressView
+                    <com.cfcp.a01.common.widget.TouchProgressView
                         android:id="@+id/betTouchPiew"
                         android:layout_width="80dp"
                         android:layout_height="20dp"

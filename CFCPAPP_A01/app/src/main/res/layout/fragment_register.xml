@@ -7,7 +7,7 @@
     android:background="@mipmap/bg_login"
     android:orientation="vertical"
     >
-    <com.cfcp.a01.widget.NTitleBar
+    <com.cfcp.a01.common.widget.NTitleBar
         android:id="@+id/registerBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
     android:background="@mipmap/bg_login"
     android:orientation="vertical"
     >
-    <com.cfcp.a01.widget.NTitleBar
+    <com.cfcp.a01.common.widget.NTitleBar
         android:id="@+id/loginBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/loginGoSubmit"
+            android:id="@+id/loginGoSubmitX"
             android:gravity="center"
             android:text="立即登录"
             android:textSize="18sp"

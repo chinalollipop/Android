@@ -6,21 +6,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.base.BaseFragment;
+import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.adapters.AutoSizeRVAdapter;
-import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.ui.main.MainEvent;
-import com.cfcp.a01.utils.GameLog;
-import com.cfcp.a01.utils.NetworkUtils;
-import com.cfcp.a01.widget.GridRvItemDecoration;
+import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.NetworkUtils;
+import com.cfcp.a01.common.widget.GridRvItemDecoration;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,9 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
+
 //用户中心
 public class MeFragment extends BaseFragment {
 

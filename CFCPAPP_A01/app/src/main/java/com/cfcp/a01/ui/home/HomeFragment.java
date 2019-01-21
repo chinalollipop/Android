@@ -11,26 +11,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.base.BaseFragment;
-import com.cfcp.a01.base.IPresenter;
-import com.cfcp.a01.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.base.BaseFragment;
+import com.cfcp.a01.common.base.IPresenter;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.adapters.AutoSizeRVAdapter;
 import com.cfcp.a01.data.BannerResult;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
 import com.cfcp.a01.data.WinNewsResult;
-import com.cfcp.a01.ui.bet.BetFragment;
+import com.cfcp.a01.ui.home.bet.BetFragment;
 import com.cfcp.a01.ui.home.enumeration.LotteryType;
-import com.cfcp.a01.ui.login.fastlogin.LoginFragment;
-import com.cfcp.a01.ui.sidebar.SideBarFragment;
-import com.cfcp.a01.utils.Check;
-import com.cfcp.a01.utils.GameLog;
-import com.cfcp.a01.utils.NetworkUtils;
-import com.cfcp.a01.utils.ToastUtils;
-import com.cfcp.a01.widget.GridRvItemDecoration;
-import com.cfcp.a01.widget.MarqueeTextView;
-import com.cfcp.a01.widget.RollPagerViewManager;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
+import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
+import com.cfcp.a01.common.utils.Check;
+import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.NetworkUtils;
+import com.cfcp.a01.common.utils.ToastUtils;
+import com.cfcp.a01.common.widget.GridRvItemDecoration;
+import com.cfcp.a01.common.widget.MarqueeTextView;
+import com.cfcp.a01.common.widget.RollPagerViewManager;
 import com.jude.rollviewpager.RollPagerView;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -246,7 +246,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
-        GameLog.log("================首页获取到消息了================");
+        GameLog.log("================首页获取到消息了================"+loginResult.getNickname());
         homeName.setVisibility(View.GONE);
         homeMenu.setVisibility(View.VISIBLE);
         /*this.loginResult = loginResult;

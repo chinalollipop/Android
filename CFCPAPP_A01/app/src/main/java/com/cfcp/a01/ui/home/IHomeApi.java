@@ -5,7 +5,7 @@ import com.cfcp.a01.data.BannerResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
 import com.cfcp.a01.data.WinNewsResult;
-import com.cfcp.a01.http.request.AppTextMessageResponseList;
+import com.cfcp.a01.common.http.request.AppTextMessageResponseList;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

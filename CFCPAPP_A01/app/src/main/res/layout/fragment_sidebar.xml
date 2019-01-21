@@ -114,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/text_exlist" />
-            <com.cfcp.a01.widget.NExpandableListView
+            <com.cfcp.a01.common.widget.NExpandableListView
                 android:id="@+id/sidebarRecyView"
                 android:childDivider="@color/white"
                 android:divider="@color/text_exlist"

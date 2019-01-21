@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.http.DomainUrl;
-import com.cfcp.a01.http.MyHttpClient;
+import com.cfcp.a01.common.http.DomainUrl;
+import com.cfcp.a01.common.http.MyHttpClient;
 import com.cfcp.a01.ui.main.MainActivity;
-import com.cfcp.a01.utils.ACache;
-import com.cfcp.a01.utils.GameLog;
-import com.cfcp.a01.utils.NetworkUtils;
-import com.cfcp.a01.utils.ToastUtils;
+import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.NetworkUtils;
+import com.cfcp.a01.common.utils.ToastUtils;
 import com.google.gson.Gson;
 
 import java.io.IOException;

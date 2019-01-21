@@ -56,8 +56,8 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.alibaba:fastjson:1.2.31'
 
-    implementation "com.jakewharton:butterknife:8.8.1"
-    annotationProcessor "com.jakewharton:butterknife-compiler:8.8.1"
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     /*
     implementation('com.squareup.retrofit2:retrofit:2.3.0')
             {
