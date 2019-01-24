@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.adapters.AutoSizeRVAdapter;
+import com.cfcp.a01.common.base.IPresenter;
+import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.ui.main.MainEvent;
 import com.cfcp.a01.common.utils.GameLog;
@@ -24,14 +27,14 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 //用户中心
-public class MeFragment extends BaseFragment {
-
+public class MeFragment extends BaseFragment implements MeContract.View{
 
     @BindView(R.id.meUser)
     TextView meUser;
@@ -47,7 +50,25 @@ public class MeFragment extends BaseFragment {
     LinearLayout meBottom;
     @BindView(R.id.meRecyView)
     RecyclerView meRecyView;
+    MeContract.Presenter presenter;
     private static List<MeIconEvent> meCenterList = new ArrayList<MeIconEvent>();
+
+    @Override
+    public void postLogoutResult(LogoutResult logoutResult) {
+        //退出登录的逻辑  发送消息
+        EventBus.getDefault().post(logoutResult);
+    }
+
+    @Override
+    public void setPresenter(MeContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    protected List<IPresenter> presenters() {
+        return Arrays.asList((IPresenter) presenter);
+    }
+
     public enum MemberType {
         ME_GAME_RECORDS,        //游戏记录
         ME_ZHUIHAO_RECORDS,     //追号查询
@@ -97,7 +118,7 @@ public class MeFragment extends BaseFragment {
 
     public static MeFragment newInstance() {
         MeFragment MeFragment = new MeFragment();
-
+        Injections.inject(MeFragment, null);
         return MeFragment;
     }
 
@@ -235,6 +256,7 @@ public class MeFragment extends BaseFragment {
             case R.id.meRegister:
                 break;
             case R.id.meLogout:
+                presenter.postLogout("");
                 break;
             case R.id.meDeposit:
                 break;

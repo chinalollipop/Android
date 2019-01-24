@@ -104,6 +104,9 @@ public abstract class CFConstant {
     //用户的登录账号
     public static final String USERNAME_LOGIN_ACCOUNT = "username_login_account";
 
+    //用户的登录token
+    public static final String USERNAME_LOGIN_TOKEN = "username_login_token";
+
 
     //用户的试玩账号
     public static final String USERNAME_LOGIN_DEMO = "username_login_demo";

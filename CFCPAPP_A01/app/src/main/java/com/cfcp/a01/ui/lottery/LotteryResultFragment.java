@@ -12,6 +12,11 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
+import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.ui.home.sidebar.LotteryResultEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +132,7 @@ public class LotteryResultFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-//        EventBus.getDefault().register(this);
+        //EventBus.getDefault().register(this);
         initZTTablayout();
     }
 
@@ -135,7 +140,7 @@ public class LotteryResultFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        EventBus.getDefault().unregister(this);
+        //EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -150,4 +155,5 @@ public class LotteryResultFragment extends BaseFragment {
         typeOptionsPicker.show();
 
     }
+
 }

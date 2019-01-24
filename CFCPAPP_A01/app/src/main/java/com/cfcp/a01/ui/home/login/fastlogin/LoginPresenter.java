@@ -58,11 +58,12 @@ public class LoginPresenter implements LoginContract.Presenter {
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {
-                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
+                       /* if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.postLoginResult(response.getData());
                         } else {
                             view.showMessage(response.getDescribe());
-                        }
+                        }*/
+                        view.postLoginResult(response.getData());
                     }
 
                     @Override

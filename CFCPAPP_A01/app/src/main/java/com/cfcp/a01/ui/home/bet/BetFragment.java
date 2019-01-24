@@ -11,11 +11,15 @@ import android.widget.TextView;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.ui.home.HomeIconEvent;
+import com.cfcp.a01.ui.home.sidebar.BackHomeEvent;
+import com.cfcp.a01.ui.home.sidebar.LotteryResultEvent;
 import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.TouchProgressView;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
@@ -110,6 +114,7 @@ public class BetFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         betTitleName.setText(mHomeIconEvent.getIconName());
         betTouchPiew.setLineHeight(5);
         betTouchPiew.setPointColor(R.color.text_bet_submit);
@@ -126,11 +131,28 @@ public class BetFragment extends BaseFragment {
     }
 
     @Subscribe
-    public void onEventMain(LoginResult loginResult) {
-        GameLog.log("================注册页需要消失的================");
+    public void onEventMain(LotteryResultEvent lotteryResultEvent) {
+        GameLog.log("======LotteryResultEvent==========投注页面需要消失的================");
         finish();
     }
 
+    @Subscribe
+    public void onEventMain(BackHomeEvent backHomeEvent) {
+        GameLog.log("=====BackHomeEvent===========投注页面需要消失的================");
+        finish();
+    }
+
+    @Subscribe
+    public void onEventMain(LogoutResult logoutResult) {
+        GameLog.log("================投注页面需要消失的================");
+        finish();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
 
     @OnClick({R.id.betTitleBack, R.id.betTitleLay, R.id.betTitleSet, R.id.betTitleMenu, R.id.betArea, R.id.betChat, R.id.betMethodNameLay, R.id.betModel, R.id.betTimes, R.id.betMinus, R.id.betPlus, R.id.betClear, R.id.betSubmit, R.id.betSure})
     public void onViewClicked(View view) {

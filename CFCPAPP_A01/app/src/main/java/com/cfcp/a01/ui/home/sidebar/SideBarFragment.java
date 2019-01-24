@@ -8,19 +8,27 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseDialogFragment;
+import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NExpandableListView;
+import com.cfcp.a01.data.LogoutResult;
+import com.cfcp.a01.ui.main.MainEvent;
+import com.cfcp.a01.ui.me.MeContract;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SideBarFragment extends BaseDialogFragment {
+public class SideBarFragment extends BaseDialogFragment implements MeContract.View{
     @BindView(R.id.sidebarFrame)
     FrameLayout sidebarFrame;
     @BindView(R.id.sidebarUser)
@@ -31,7 +39,7 @@ public class SideBarFragment extends BaseDialogFragment {
     LinearLayout sidebarWithDraw;
     @BindView(R.id.sidebarRecyView)
     NExpandableListView sidebarRecyView;
-
+    MeContract.Presenter presenter;
 
     // 数据源
     private String[] groups = {
@@ -59,9 +67,9 @@ public class SideBarFragment extends BaseDialogFragment {
     }
 
     public static SideBarFragment newInstance() {
-        SideBarFragment MeFragment = new SideBarFragment();
-
-        return MeFragment;
+        SideBarFragment sideBarFragment = new SideBarFragment();
+        Injections.inject(sideBarFragment, null);
+        return sideBarFragment;
     }
 
    /* @Nullable
@@ -91,12 +99,19 @@ public class SideBarFragment extends BaseDialogFragment {
                 switch (groupPosition){
                     case 5:
                         showMessage("开奖结果");
+                        //展示开奖结果 且 关闭投注界面
+                        EventBus.getDefault().post(new MainEvent(3));
+                        EventBus.getDefault().post(new LotteryResultEvent("LotteryResult"));
+                        hide();
                         break;
                     case 6:
                         showMessage("返回大厅");
+                        EventBus.getDefault().post(new BackHomeEvent("BackHome"));
+                        hide();
                         break;
                     case 7:
                         showMessage("退出登录");
+                        presenter.postLogout("");
                         break;
                 }
                 return false;
@@ -231,4 +246,22 @@ public class SideBarFragment extends BaseDialogFragment {
                 break;
         }
     }
+
+    @Override
+    public void postLogoutResult(LogoutResult logoutResult) {
+        //退出登录的逻辑  发送消息
+        EventBus.getDefault().post(logoutResult);
+        hide();
+    }
+
+    @Override
+    public void setPresenter(MeContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    protected List<IPresenter> presenters() {
+        return Arrays.asList((IPresenter) presenter);
+    }
+
 }

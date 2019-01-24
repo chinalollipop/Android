@@ -7,12 +7,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.http.util.Md5Utils;
+import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
@@ -49,9 +51,9 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     TextView loginGoDemo;
 
     public static LoginFragment newInstance() {
-        LoginFragment homeFragment = new LoginFragment();
-        Injections.inject(homeFragment, null);
-        return homeFragment;
+        LoginFragment loginFragment = new LoginFragment();
+        Injections.inject(loginFragment, null);
+        return loginFragment;
     }
 
     @Override
@@ -67,6 +69,17 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                 finish();
             }
         });
+        String userName = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT);
+        String pwd = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PWD);
+        if(!Check.isEmpty(userName)){
+            loginName.setText(userName);
+        }
+        if(!Check.isEmpty(pwd)){
+            loginRememberPwd.setChecked(true);
+            loginPwd.setText(pwd);
+        }else{
+            loginRememberPwd.setChecked(false);
+        }
     }
 
     @Subscribe
@@ -92,7 +105,16 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
 
     @Override
     public void postLoginResult(LoginResult loginResult) {
+        //保存用户登录成功之后的消息
+        if(loginRememberPwd.isChecked()){
+            ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PWD, loginPwd.getText().toString());
+        }else{
+            ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PWD, "");
+        }
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_ACCOUNT, loginResult.getUsername());
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, loginResult.getToken());
         EventBus.getDefault().post(loginResult);
+        finish();
     }
 
     @Override

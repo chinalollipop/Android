@@ -763,7 +763,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     to = "VG平台";
                     break;
             }
-            if(rowsBean.getNotes().equals("APP幸运红包活动")){
+            if(rowsBean.getNotes().equals("APP幸运红包活动")||rowsBean.getNotes().contains("新春红包活动")){
                 holder.setText(R.id.tvRecordName, "红包");
             }else{
                 if (rowsBean.getType().equals("S")) {
