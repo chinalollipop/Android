@@ -359,6 +359,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 EventBus.getDefault().post(new StartBrotherEvent(NewEventsFragment.newInstance(userMoney,0), SupportFragment.SINGLETASK));
                 break;
         }
