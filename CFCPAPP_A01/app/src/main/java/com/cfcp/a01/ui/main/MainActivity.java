@@ -3,12 +3,16 @@ package com.cfcp.a01.ui.main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.R;
+import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.ToastUtils;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
+
+import static com.cfcp.a01.common.utils.Utils.getContext;
 
 public class MainActivity extends SupportActivity {
     // 再点一次退出程序时间设置
@@ -22,9 +26,7 @@ public class MainActivity extends SupportActivity {
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance());
         }
-
     }
-
 
     @Override
     public void onDestroy() {
@@ -40,6 +42,7 @@ public class MainActivity extends SupportActivity {
             pop();
         }else{
             if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+                ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, "");
                 finish();
             } else {
                 TOUCH_TIME = System.currentTimeMillis();
@@ -50,7 +53,7 @@ public class MainActivity extends SupportActivity {
 
     @Override
     public FragmentAnimator onCreateFragmentAnimator() {
-        // 设置动画 主Ativity无动画效果 所有的动画在PNBaseFragment去设置总体动画，如果每个Fragment有特殊要求的动画，重载此方法即可。
+        // 设置动画 主Activity无动画效果 所有的动画在PNBaseFragment去设置总体动画，如果每个Fragment有特殊要求的动画，重载此方法即可。
         return new DefaultNoAnimator();
     }
 

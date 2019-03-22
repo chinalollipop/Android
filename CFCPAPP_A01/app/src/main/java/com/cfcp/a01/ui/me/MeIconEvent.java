@@ -4,8 +4,6 @@ package com.cfcp.a01.ui.me;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.cfcp.a01.ui.home.enumeration.LotteryType;
-
 public class MeIconEvent implements Parcelable {
     String iconName;
     String iconDescribe;

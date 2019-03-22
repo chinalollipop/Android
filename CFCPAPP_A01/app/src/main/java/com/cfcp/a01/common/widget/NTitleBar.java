@@ -83,9 +83,9 @@ public class NTitleBar extends RelativeLayout {
 
 
     private void setUpView(Context context){
-        tvBackText = (TextView)findViewById(R.id.iv_com_title_back);
-        tvTitle = (TextView)findViewById(R.id.tv_com_title_name);
-        tvMore = (TextView)findViewById(R.id.tv_com_title_more);
+        tvBackText = findViewById(R.id.iv_com_title_back);
+        tvTitle = findViewById(R.id.tv_com_title_name);
+        tvMore = findViewById(R.id.tv_com_title_more);
         tvTitle.setTextColor(textColor);
         tvMore.setTextColor(moreColor);
         //返回按钮是否显示

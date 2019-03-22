@@ -57,7 +57,7 @@
         <TextView
             android:id="@+id/tvDepositAliQCPayType"
             android:textColor="@color/textview_hight"
-            android:layout_width="90dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="存款人姓名"
             android:textSize="15sp" />
@@ -94,7 +94,7 @@
         android:layout_height="@dimen/h_edit_height">
 
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="汇款金额"
             android:textColor="@color/textview_hight"
@@ -129,7 +129,8 @@
         android:layout_height="@dimen/h_edit_height">
 
         <TextView
-            android:layout_width="90dp"
+            android:id="@+id/edDepositAliQCPayOrder"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="交易订单号"
             android:gravity="center|left"
@@ -163,7 +164,7 @@
         android:gravity="center|left">
 
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="汇款日期"

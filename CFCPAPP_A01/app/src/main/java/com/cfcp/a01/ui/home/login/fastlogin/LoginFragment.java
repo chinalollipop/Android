@@ -19,6 +19,7 @@ import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.ui.home.login.fastregister.RegisterFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -32,9 +33,10 @@ import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 
 public class LoginFragment extends BaseFragment implements LoginContract.View {
+    LoginContract.Presenter presenter;
+
     @BindView(R.id.loginBack)
     NTitleBar loginBack;
-    LoginContract.Presenter presenter;
     @BindView(R.id.loginName)
     EditText loginName;
     @BindView(R.id.loginPwd)
@@ -66,26 +68,21 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         loginBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EventBus.getDefault().post(new LogoutResult("您已登出!"));
                 finish();
             }
         });
         String userName = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT);
         String pwd = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PWD);
-        if(!Check.isEmpty(userName)){
+        if (!Check.isEmpty(userName)) {
             loginName.setText(userName);
         }
-        if(!Check.isEmpty(pwd)){
+        if (!Check.isEmpty(pwd)) {
             loginRememberPwd.setChecked(true);
             loginPwd.setText(pwd);
-        }else{
+        } else {
             loginRememberPwd.setChecked(false);
         }
-    }
-
-    @Subscribe
-    public void onEventMain(LoginResult loginResult) {
-        GameLog.log("================注册页需要消失的================");
-        finish();
     }
 
     private void onSubmit() {
@@ -98,21 +95,34 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         if (Check.isEmpty(uPwd)) {
             showMessage("请输入密码");
         }
-        uPwd = Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(uName+uPwd)));
+        uPwd = Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(uName + uPwd)));
         presenter.postLogin("", uName, uPwd);
         //
     }
 
     @Override
+    public boolean onBackPressedSupport() {
+        String token = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+        GameLog.log(" LoginFragment onBackPressedSupport   个人的token是 "+token );
+        if(Check.isEmpty(token)){
+            EventBus.getDefault().post(new LogoutResult("您已登出!"));
+        }
+        //finish();  如果打开会白板
+        return super.onBackPressedSupport();
+    }
+
+    @Override
     public void postLoginResult(LoginResult loginResult) {
         //保存用户登录成功之后的消息
-        if(loginRememberPwd.isChecked()){
+        if (loginRememberPwd.isChecked()) {
             ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PWD, loginPwd.getText().toString());
-        }else{
+        } else {
             ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PWD, "");
         }
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_ACCOUNT, loginResult.getUsername());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, loginResult.getToken());
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BALANCE,loginResult.getAbalance());
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT_ID,loginResult.getId()+"");
         EventBus.getDefault().post(loginResult);
         finish();
     }

@@ -2,16 +2,22 @@ package com.cfcp.a01.common.http;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.http.request.AppTextMessageRequest;
 import com.cfcp.a01.common.http.util.MacUtil;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.data.ReLoginResult;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 
+import me.yokeyword.fragmentation.SupportFragment;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -84,11 +90,11 @@ public class TokenInterceptor implements Interceptor {
                 }
                 //GameLog.log(resposeData);
                 /*try{
-                    RestartLoginResult restartLoginResult =  JSON.parseObject(resposeData, RestartLoginResult.class);
-                    if(restartLoginResult.getStatus().equals("401.1")){
-                        LoginFragment.newInstance().showMessage(restartLoginResult.getDescribe());
+                    ReLoginResult restartLoginResult =  JSON.parseObject(resposeData, ReLoginResult.class);
+                    if(restartLoginResult.getErrno()==3004){
+                        LoginFragment.newInstance().showMessage(restartLoginResult.getError());
                         //LoginFragment.newInstance().getPreFragment().popTo(LoginFragment.class,true);
-                        GameLog.log("返回的异常信息是："+restartLoginResult.getDescribe());
+                        GameLog.log("返回的异常信息是："+restartLoginResult.getError());
                         Client.cancelAllRequest();
                         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     }

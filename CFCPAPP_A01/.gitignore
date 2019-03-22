@@ -1,7 +1,10 @@
 .DS_Store
+.gradle
 /build
 /captures
 .externalNativeBuild
 /sign/
 /app/proguard-rules.pro
 !/app/proguard-rules.pro
+Cfcp.iml
+.idea/

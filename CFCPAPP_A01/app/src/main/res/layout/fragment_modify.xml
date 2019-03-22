@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.cfcp.a01.common.widget.NTitleBar
+        android:id="@+id/cardModifyBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="银行卡" />
+
+    <TextView
+        android:id="@+id/cardModifyAccount"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="卡号："
+        android:gravity="center|left"
+        />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="开户人姓名(请输入旧的银行卡开户人姓名)："
+        android:gravity="center|left"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/cardModifyUserName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入开户人姓名"
+            android:paddingLeft="20dp"
+            android:background="@drawable/bg_deposit_input"
+            />
+        <TextView
+            android:text="银行账号(请输入旧的银行卡卡号)："
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/cardModifyBankAccount"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入银行账号"
+            android:inputType="number"
+            android:maxLength="23"
+            android:paddingLeft="20dp"
+            android:background="@drawable/bg_deposit_input"
+            />
+
+        <TextView
+            android:text="资金密码(请输入您的资金密码)："
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/cardModifyFundPwd"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入资金密码"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:background="@drawable/bg_deposit_input"
+            />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:id="@+id/cardModifySubmit"
+                android:text="修 改"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_btn_yellow"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/cardModifyReset"
+                android:text="重 置"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_card_cancel"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

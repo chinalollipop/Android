@@ -1,10 +1,8 @@
 package com.cfcp.a01.common.http;
 
 
-
-
-import com.cfcp.a01.common.utils.NetworkUtils;
 import com.cfcp.a01.CFConstant;
+import com.cfcp.a01.common.utils.NetworkUtils;
 import com.cfcp.a01.common.utils.Timber;
 
 import java.util.concurrent.TimeUnit;

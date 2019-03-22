@@ -16,10 +16,16 @@ import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.Timber;
 import com.cfcp.a01.common.utils.Utils;
 import com.flurry.android.FlurryAgent;
+import com.kongzue.dialog.v2.DialogSettings;
 import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.File;
 import java.util.Locale;
+
+import me.jessyan.autosize.AutoSizeConfig;
+import me.jessyan.autosize.unit.Subunits;
+
+import static com.kongzue.dialog.v2.DialogSettings.THEME_LIGHT;
 
 public class CFApplication extends MultiDexApplication {
     private static CFApplication qpwebApplication;
@@ -29,6 +35,7 @@ public class CFApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         qpwebApplication = this;
+        AutoSizeConfig.getInstance().getUnitsManager().setSupportSubunits(Subunits.MM);
         Utils.init(getApplicationContext());
         initconfigCommentClient();
         initFlurry();
@@ -53,6 +60,9 @@ public class CFApplication extends MultiDexApplication {
         };
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(),  cb);
+        //设置dialog主题
+        DialogSettings.use_blur = true;//设置是否启用模糊
+        DialogSettings.tip_theme = THEME_LIGHT;
     }
 
 

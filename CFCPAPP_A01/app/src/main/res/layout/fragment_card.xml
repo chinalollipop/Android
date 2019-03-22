@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.cfcp.a01.common.widget.NTitleBar
+        android:id="@+id/cardBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="银行卡" />
+
+
+    <LinearLayout
+        android:background="#484747"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="用户名"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="开户行"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="状态"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="详情"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="操作"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cardRView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/cardAddBank"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_btn_black"
+        android:text="添加银行卡"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <TextView
+        android:id="@+id/cardAddAlready"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="#c80000"
+        android:text="一个游戏账户最多绑定 1 张银行卡， 您目前绑定了1张卡，还可以绑定0张。\n 银行卡信息锁定后，不能增加新卡绑定，已绑定的银行卡信息不能进行修改和删除。"
+        />
+</LinearLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:background="@mipmap/home_wfc" />
+        />
         <TextView
             android:id="@+id/itemMeIconName"
             android:layout_width="100dp"
@@ -30,6 +30,6 @@
             android:gravity="center"
             android:text="11选5三分彩"
             android:textColor="@color/text_main"
-            android:textSize="16sp" />
+            android:textSize="15sp" />
     </LinearLayout>
-</com.zhy.autolayout.AutoRelativeLayout>
+</RelativeLayout>

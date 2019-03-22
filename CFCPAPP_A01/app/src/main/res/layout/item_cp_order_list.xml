@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_item_game_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="AG真人"
+        android:gravity="center"
+        android:textColor="@color/register_left"
+        android:textSize="16sp" />
+    <TextView
+        android:background="#2f5a9e"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+</LinearLayout>

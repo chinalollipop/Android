@@ -1,8 +1,8 @@
 package com.cfcp.a01.ui.home.login.fastlogin;
 
 
-import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
+import com.cfcp.a01.data.LoginResult;
 
 import java.util.Map;
 
@@ -22,7 +22,7 @@ public interface ILoginApi {
     //会员登录
     @POST("service")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<LoginResult>> postLogin(
+    Observable<AppTextMessageResponse<LoginResult>> postLogin(
             @Field("appRefer") String appRefer,
             @Field("packet") String packet,
             @Field("action") String action,
@@ -33,8 +33,7 @@ public interface ILoginApi {
 
     //会员登录
     @GET("service")
-    public Observable<AppTextMessageResponse<LoginResult>> getLogin(
+    Observable<AppTextMessageResponse<LoginResult>> getLogin(
             @QueryMap Map<String, String> params
     );
-
 }

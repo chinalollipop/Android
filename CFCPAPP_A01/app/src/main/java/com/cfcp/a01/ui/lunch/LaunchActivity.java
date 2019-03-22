@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.common.http.DomainUrl;
+import com.cfcp.a01.data.DomainUrl;
 import com.cfcp.a01.common.http.MyHttpClient;
-import com.cfcp.a01.ui.main.MainActivity;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.NetworkUtils;
 import com.cfcp.a01.common.utils.ToastUtils;
+import com.cfcp.a01.ui.main.MainActivity;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -28,11 +28,12 @@ public class LaunchActivity extends AppCompatActivity {
     private boolean ifStop = false;
     MyHttpClient myHttpClient = new MyHttpClient();
     Button button;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
-        button = (Button)findViewById(R.id.retry);
+        button = findViewById(R.id.retry);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,8 +51,7 @@ public class LaunchActivity extends AppCompatActivity {
          * https://hg00086.firebaseapp.com/y/hg0086.ini     0086的域名地址
          * https://hg00086.firebaseapp.com/ym.conf
          */
-        if(!NetworkUtils.isConnected())
-        {
+        if (!NetworkUtils.isConnected()) {
             ToastUtils.showLongToast("无网络连接！");
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
@@ -65,33 +65,33 @@ public class LaunchActivity extends AppCompatActivity {
                         GameLog.log("====================1=======================");
                     }
                 });
-                String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
+                String demainUrl = ACache.get(getApplicationContext()).getAsString("app_demain_url");
                 enterMain();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                final String responseText =  response.body().string();
-                if(response.isSuccessful()){
+                final String responseText = response.body().string();
+                if (response.isSuccessful()) {
                     onGetSuccessDomain(responseText);
                 }
             }
         });
     }
 
-    private void enterMain(){
+    private void enterMain() {
         startActivity(new Intent(LaunchActivity.this, MainActivity.class));
         finish();
     }
 
-    private synchronized void postDomain(final String demain){
+    private synchronized void postDomain(final String demain) {
         button.post(new Runnable() {
             @Override
             public void run() {
-                GameLog.log("====================请求的域名是======================="+demain);
+                GameLog.log("====================请求的域名是=======================" + demain);
             }
         });
-        myHttpClient.executeGet(demain+"api/answer.php", new Callback() {//
+        myHttpClient.executeGet(demain + "api/answer.php", new Callback() {//
             @Override
             public void onFailure(Call call, final IOException e) {
                 GameLog.log("request url error: " + e.toString());
@@ -99,27 +99,27 @@ public class LaunchActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                final String responseText =  response.body().string();
-                if(ifStop){
+                final String responseText = response.body().string();
+                if (ifStop) {
                     button.post(new Runnable() {
                         @Override
                         public void run() {
-                            GameLog.log("停止请求："+demain);
+                            GameLog.log("停止请求：" + demain);
                         }
                     });
                     GameLog.log("====================2=======================");
                     return;
                 }
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     ifStop = true;
                     button.post(new Runnable() {
                         @Override
                         public void run() {
-                            GameLog.log("最终的域名是："+demain);
+                            GameLog.log("最终的域名是：" + demain);
                         }
                     });
 
-                    ACache.get(getApplicationContext()).put("app_demain_url",demain);
+                    ACache.get(getApplicationContext()).put("app_demain_url", demain);
                     enterMain();
                 }
             }
@@ -130,22 +130,22 @@ public class LaunchActivity extends AppCompatActivity {
         try {
             DomainUrl domainUrl = new Gson().fromJson(responseText, DomainUrl.class);
             final List<DomainUrl.ListBean> domains = domainUrl.getList();
-            for(int k=0;k<domains.size();++k){
-                if(ifStop){
-                    return ;
+            for (int k = 0; k < domains.size(); ++k) {
+                if (ifStop) {
+                    return;
                 }
                 postDomain(domains.get(k).getUrl());
             }
         } catch (Exception e) {
             GameLog.log("request url : " + e.toString());
         }
-        if(!ifStop){
+        if (!ifStop) {
             button.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if(!ifStop){
-                        String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
-                        if(ifStop){
+                    if (!ifStop) {
+                        String demainUrl = ACache.get(getApplicationContext()).getAsString("app_demain_url");
+                        if (ifStop) {
                             GameLog.log("====================3=======================");
                             return;
                         }
@@ -156,7 +156,7 @@ public class LaunchActivity extends AppCompatActivity {
                     }
 
                 }
-            },6000);
+            }, 6000);
         }
     }
 }

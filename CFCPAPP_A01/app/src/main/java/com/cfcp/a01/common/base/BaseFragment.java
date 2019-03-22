@@ -18,7 +18,6 @@ import com.cfcp.a01.common.utils.Timber;
 import com.cfcp.a01.common.utils.ToastUtils;
 import com.cfcp.a01.common.widget.GifView;
 import com.flurry.android.FlurryAgent;
-import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -82,21 +81,14 @@ public abstract class BaseFragment extends BaseMainFragment implements IMessageV
         if (0 != layoutId) {
             View view = inflater.inflate(R.layout.fragment_base, container, false);
 
-            FrameLayout contentLayout = (FrameLayout) view.findViewById(R.id.layout_content);
+            FrameLayout contentLayout = view.findViewById(R.id.layout_content);
 
             View contentview = inflater.inflate(layoutId, null, false);
             contentLayout.addView(contentview);
-            try {
-
-                AutoUtils.auto(view);
-            }catch (Exception e){
-
-            }
-            //AutoUtils.auto(view);
             unbinder = ButterKnife.bind(this, view);
             layoutLoading = view.findViewById(R.id.layout_loading);
             layoutLoading.setOnClickListener(null);
-            ivloading = (GifView) view.findViewById(R.id.iv_loading);
+            ivloading = view.findViewById(R.id.iv_loading);
             hideLoadingView();
             setEvents(savedInstanceState);
             return view;

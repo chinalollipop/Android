@@ -25,24 +25,24 @@ public class AppTextMessageResponseList<T> implements Serializable{
 	private long timestamp;
 
 
-	private String status;
-	private String describe;
+	private String errno;
+	private String error;
 
 	public AppTextMessageResponseList() {
 	}
 
 	public void setStatus(String status) {
-		this.status = status;
+		this.errno = status;
 	}
 
 	public String getStatus() {
-		return this.status;
+		return this.errno;
 	}
 	public String getiStatus()
 	{
 		try
 		{
-			return status;
+			return errno;
 		}
 		catch (NumberFormatException e)
 		{
@@ -51,10 +51,10 @@ public class AppTextMessageResponseList<T> implements Serializable{
 		return "400";
 	}
 	public String getDescribe() {
-		return describe;
+		return error;
 	}
 	public void setDescribe(String describe) {
-		this.describe = describe;
+		this.error = describe;
 	}
 
 	/**
@@ -116,10 +116,10 @@ public class AppTextMessageResponseList<T> implements Serializable{
 
 	public boolean isSuccess()
 	{
-		return "200".equals(getStatus());
+		return "0".equals(getStatus());
 	}
 	public void setSuccess()
 	{
-		setStatus("200");
+		setStatus("0");
 	}
 }

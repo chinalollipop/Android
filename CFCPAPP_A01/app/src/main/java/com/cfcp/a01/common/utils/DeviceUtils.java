@@ -274,7 +274,7 @@ public final class DeviceUtils {
             //列举
             Enumeration<NetworkInterface> en_netInterface = NetworkInterface.getNetworkInterfaces();
             while (en_netInterface.hasMoreElements()) {//是否还有元素
-                NetworkInterface ni = (NetworkInterface) en_netInterface.nextElement();//得到下一个元素
+                NetworkInterface ni = en_netInterface.nextElement();//得到下一个元素
                 Enumeration<InetAddress> en_ip = ni.getInetAddresses();//得到一个ip地址的列举
                 while (en_ip.hasMoreElements()) {
                     ip = en_ip.nextElement();

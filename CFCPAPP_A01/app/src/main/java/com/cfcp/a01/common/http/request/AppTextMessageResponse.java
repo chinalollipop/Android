@@ -115,7 +115,7 @@ public class AppTextMessageResponse<T> implements Serializable{
 
 	public boolean isSuccess()
 	{
-		return "200".equals(getErrno());
+		return "0".equals(getErrno());
 	}
 	public void setSuccess()
 	{

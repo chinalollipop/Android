@@ -36,9 +36,7 @@ public class AppUtil {
         List<ActivityManager.RunningTaskInfo> taskList = am.getRunningTasks(1);
         if (taskList != null && !taskList.isEmpty()) {
             ComponentName componentName = taskList.get(0).topActivity;
-            if (componentName != null && componentName.getPackageName().equals(context.getPackageName())) {
-                return true;
-            }
+            return componentName != null && componentName.getPackageName().equals(context.getPackageName());
         }
         return false;
     }

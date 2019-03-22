@@ -1,6 +1,8 @@
 package com.hgapp.a0086.launcher;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +50,25 @@ public class LauncherActivity extends AppCompatActivity{
             }
         });
         onGetAvailableDomain();
+        /*String isLogoChange = ACache.get(LauncherActivity.this).getAsString("change_logo");
+        GameLog.log("目前的状态是  " +isLogoChange);
+        if(Check.isEmpty(isLogoChange)){
+            changeLauncher( "com.hgapp.a0086.LauncherActivity1");
+        }else{
+            changeLauncher( "com.hgapp.a0086.launcher.LauncherActivity");
+        }*/
+
+    }
+
+    private void changeLauncher(String name) {
+        PackageManager pm = getPackageManager();
+        //隐藏之前显示的桌面组件
+        pm.setComponentEnabledSetting(getComponentName(),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+        //显示新的桌面组件
+        pm.setComponentEnabledSetting(new ComponentName(LauncherActivity.this, name),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        ACache.get(LauncherActivity.this).put("change_logo","1");
     }
 
     //获取可用域名
@@ -93,7 +114,7 @@ public class LauncherActivity extends AppCompatActivity{
 
     public void enterMain()
     {
-        startActivity(new Intent(LauncherActivity.this,MainActivity.class));
+        startActivity(new Intent(LauncherActivity.this, MainActivity.class));
         finish();
     }
 
@@ -114,7 +135,7 @@ public class LauncherActivity extends AppCompatActivity{
                 if(response.isSuccessful()){
                     ifStop = true;
                     GameLog.log("最终的域名是："+demain);
-                    ACache.get(getApplicationContext()).put(HGConstant.APP_DEMAIN_URL,demain);
+                    ACache.get(LauncherActivity.this).put(HGConstant.APP_DEMAIN_URL,demain);
                     Client.setClientDomain(demain);
                     enterMain();
                 }

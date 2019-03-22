@@ -8,10 +8,10 @@ import android.support.v4.app.Fragment;
  */
 
 public interface IUserAction {
-    public void onAppStart();
-    public void onAppStop();
-    public void onActivityStart(Activity activity);
-    public void onActivityStop(Activity activity);
-    public void onFragmentStart(Fragment fragment);
-    public void onFragmentStop(Fragment fragment);
+    void onAppStart();
+    void onAppStop();
+    void onActivityStart(Activity activity);
+    void onActivityStop(Activity activity);
+    void onFragmentStart(Fragment fragment);
+    void onFragmentStop(Fragment fragment);
 }

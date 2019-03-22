@@ -1,10 +1,14 @@
 package com.cfcp.a01.common.http;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.NetworkUtils;
 import com.cfcp.a01.common.utils.Timber;
+import com.cfcp.a01.data.LogoutResult;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeoutException;
@@ -46,15 +50,16 @@ public abstract class ResponseSubscriber<T> extends Subscriber<T> {
         if (e instanceof HttpException) {
             int code = ((HttpException) e).code();
             String errorMsg = ((HttpException) e).message();
-            GameLog.log(errorMsg);
+            GameLog.log(errorMsg + "colin");
             if (code == 406) {//|| code == 404
                 /*Client.cancelAllRequest();
                 //intent.putExtra("msg", "登录信息已过期，请重新登录！");
                 IUserManager userManager = UserManagerFactory.get();
                 userManager.logout();
                 EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("distanceLogin", ""), SINGLETASK));
-                EventBus.getDefault().post(new DistanceLoginEvent(406,"distanceLogin"));
+//
                 EventBus.getDefault().post(new LogoutEvent());*/
+                EventBus.getDefault().post(new LogoutResult("登录信息已过期，请重新登录！"));
             } else {
                 fail(errorMsg);
             }

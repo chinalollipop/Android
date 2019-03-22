@@ -3,7 +3,7 @@ package com.cfcp.a01.ui.me;
 import com.cfcp.a01.common.base.IMessageView;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.IView;
-import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.BalanceResult;
 import com.cfcp.a01.data.LogoutResult;
 
 /**
@@ -12,13 +12,15 @@ import com.cfcp.a01.data.LogoutResult;
 
 public interface MeContract {
 
-    public interface Presenter extends IPresenter {
+    interface Presenter extends IPresenter {
 
-        public void postLogout(String appRefer);
+        void postLogout(String appRefer);
+        void getBalance();
     }
 
-    public interface View extends IView<Presenter>, IMessageView {
+    interface View extends IView<Presenter>, IMessageView {
 
-        public void postLogoutResult(LogoutResult logoutResult);
+        void postLogoutResult(LogoutResult logoutResult);
+        void getBalanceResult(BalanceResult balanceResult);
     }
 }

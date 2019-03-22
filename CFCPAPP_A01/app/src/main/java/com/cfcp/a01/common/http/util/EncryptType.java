@@ -10,5 +10,5 @@ package com.cfcp.a01.common.http.util;
  */
 public enum EncryptType {
 
-	DES3,SHA1,RSA,MD5;
+	DES3,SHA1,RSA,MD5
 }

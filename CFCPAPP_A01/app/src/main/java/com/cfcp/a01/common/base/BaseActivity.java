@@ -14,7 +14,6 @@ import android.widget.FrameLayout;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.utils.ToastUtils;
 import com.cfcp.a01.common.widget.GifView;
-import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -65,14 +64,13 @@ public abstract class BaseActivity extends BaseMainActivity implements IMessageV
         {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_base,null,false);
 
-            FrameLayout contentLayout = (FrameLayout)view.findViewById(R.id.layout_content);
+            FrameLayout contentLayout = view.findViewById(R.id.layout_content);
             View contentview = LayoutInflater.from(getContext()).inflate(setLayoutId(),null,false);
             contentLayout.addView(contentview);
 
-            AutoUtils.auto(view);
             unbinder = ButterKnife.bind(this,view);
             layoutLoading = view.findViewById(R.id.layout_loading);
-            ivloading = (GifView)view.findViewById(R.id.iv_loading);
+            ivloading = view.findViewById(R.id.iv_loading);
             hideLoadingView();
             setEvents(savedInstanceState);
             setContentView(view);

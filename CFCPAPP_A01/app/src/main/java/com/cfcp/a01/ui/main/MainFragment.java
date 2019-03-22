@@ -1,5 +1,6 @@
 package com.cfcp.a01.ui.main;
 
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,16 +12,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cfcp.a01.CFApplication;
+import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
-import com.cfcp.a01.ui.event.EventFragment;
+import com.cfcp.a01.common.utils.Check;
+import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.PackageUtil;
+import com.cfcp.a01.common.utils.Utils;
+import com.cfcp.a01.common.widget.NoTouchViewPager;
+import com.cfcp.a01.data.CheckUpgradeResult;
 import com.cfcp.a01.ui.chat.ChatFragment;
+import com.cfcp.a01.ui.event.EventFragment;
 import com.cfcp.a01.ui.home.HomeContract;
 import com.cfcp.a01.ui.home.HomeFragment;
 import com.cfcp.a01.ui.lottery.LotteryResultFragment;
+import com.cfcp.a01.ui.main.upgrade.CheckUpdateContract;
+import com.cfcp.a01.ui.main.upgrade.UpgradeDialog;
 import com.cfcp.a01.ui.me.MeFragment;
-import com.cfcp.a01.common.widget.NoTouchViewPager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -36,7 +45,7 @@ import me.majiajie.pagerbottomtabstrip.PageNavigationView;
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class MainFragment extends SupportFragment {//implements HomeContract.View
+public class MainFragment extends SupportFragment implements CheckUpdateContract.View {//implements HomeContract.View
 
     @BindView(R.id.viewPager)
     NoTouchViewPager viewPager;
@@ -51,13 +60,13 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
 
     private SupportFragment[] mFragments = new SupportFragment[5];
 
-    List<SupportFragment> stringList = new ArrayList<SupportFragment>();
-    HomeContract.Presenter presenter;
+    //List<SupportFragment> stringList = new ArrayList<SupportFragment>();
+    CheckUpdateContract.Presenter presenter;
 
 
     public static MainFragment newInstance() {
         MainFragment homeFragment = new MainFragment();
-        //Injections.inject(homeFragment, null);
+        Injections.inject(homeFragment, null);
         return homeFragment;
     }
 
@@ -67,34 +76,33 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
 
-        /*if (savedInstanceState == null) {
-            mFragments[FIRST] = LoginHomeFragment.newInstance();
-            mFragments[SECOND] = LoginHomeFragment.newInstance();
-            mFragments[THIRD] = LoginHomeFragment.newInstance();
-            mFragments[FOURTH] = LoginHomeFragment.newInstance();
-            mFragments[FIVE] = LoginHomeFragment.newInstance();
-            *//*loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
+        if (savedInstanceState == null) {
+            mFragments[FIRST] = HomeFragment.newInstance();
+            mFragments[SECOND] = ChatFragment.newInstance();
+            mFragments[THIRD] = EventFragment.newInstance();
+            mFragments[FOURTH] = LotteryResultFragment.newInstance();
+            mFragments[FIVE] = MeFragment.newInstance();
+            /*loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
                     mFragments[FIRST],
                     mFragments[SECOND],
                     mFragments[THIRD],
-                    mFragments[FOURTH]);*//*
+                    mFragments[FOURTH]);*/
         } else {
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
 
             // 这里我们需要拿到mFragments的引用,也可以通过getChildFragmentManager.getFragments()自行进行判断查找(效率更高些),用下面的方法查找更方便些
-            mFragments[FIRST] = findChildFragment(MeFragment.class);
-            mFragments[SECOND] = findChildFragment(LoginHomeFragment.class);
-            mFragments[THIRD] = findChildFragment(LoginHomeFragment.class);
-            mFragments[FOURTH] = findChildFragment(LoginHomeFragment.class);
-            mFragments[FIVE] = findChildFragment(LoginHomeFragment.class);
-        }*/
+            mFragments[FIRST] = findChildFragment(HomeFragment.class);
+            mFragments[SECOND] = findChildFragment(ChatFragment.class);
+            mFragments[THIRD] = findChildFragment(EventFragment.class);
+            mFragments[FOURTH] = findChildFragment(LotteryResultFragment.class);
+            mFragments[FIVE] = findChildFragment(MeFragment.class);
+        }
 
-
-        stringList.add(HomeFragment.newInstance());
+        /*stringList.add(HomeFragment.newInstance());
         stringList.add(ChatFragment.newInstance());
         stringList.add(EventFragment.newInstance());
         stringList.add(LotteryResultFragment.newInstance());
-        stringList.add(MeFragment.newInstance());
+        stringList.add(MeFragment.newInstance());*/
 
         setEvents(savedInstanceState);
         return view;
@@ -103,7 +111,8 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
 
     private void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
-        presenters();
+        //presenters();
+        presenter.checkupdate();
 
         NavigationController navigationController = tab.custom()
                 .addItem(newItem(R.drawable.main_game,R.drawable.main_game_click,"游戏大厅"))
@@ -113,7 +122,7 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
                 .addItem(newItem(R.drawable.main_me,R.drawable.main_me_click,"用户中心"))
                 .build();
 
-        viewPager.setAdapter(new MyViewPagerAdapter(getActivity().getSupportFragmentManager(),stringList));
+        viewPager.setAdapter(new MyViewPagerAdapter(getActivity().getSupportFragmentManager(),mFragments));
         //自动适配ViewPager页面切换
         navigationController.setupWithViewPager(viewPager);
         /*presenter.postBanner("");
@@ -121,24 +130,49 @@ public class MainFragment extends SupportFragment {//implements HomeContract.Vie
         presenter.postWinNews("",System.currentTimeMillis()+"");*/
     }
 
+    @Override
+    public void wantShowMessage(CheckUpgradeResult checkUpgradeResult) {
 
-  class MyViewPagerAdapter extends FragmentPagerAdapter {
+        PackageInfo packageInfo = PackageUtil.getAppPackageInfo(Utils.getContext());
+        if(Check.isNull(packageInfo)){
+            GameLog.log("检查更新失败，获取不到app版本号");
+            throw new RuntimeException("检查更新失败，获取不到app版本号");
+        }
+        String localver = packageInfo.versionName;
+        GameLog.log("当前APP的版本号是："+localver);
+        if(!localver.equals(checkUpgradeResult.getVersion())){
+            //UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
+        }
+    }
 
-        private List<SupportFragment> mFragments;
+    @Override
+    public void showMessage(String message) {
+        showMessage(message);
+    }
 
-        public MyViewPagerAdapter(FragmentManager fm, List<SupportFragment> fragments) {
+    @Override
+    public void setPresenter(CheckUpdateContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+
+    class MyViewPagerAdapter extends FragmentPagerAdapter {
+
+        private SupportFragment[] mFragments;
+
+        public MyViewPagerAdapter(FragmentManager fm, SupportFragment[] fragments) {
             super(fm);
             this.mFragments = fragments;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return mFragments.get(position);
+            return mFragments[position];
         }
 
         @Override
         public int getCount() {
-            return mFragments.size();
+            return mFragments.length;
         }
     }
 

@@ -15,7 +15,7 @@ public class CPHallIcon {
 
     private int gameId;
     private String issue;
-    private String endtime;
+    private String endtime="";
     private String lotteryTime;
     private String serverTime;
     private int isopen =-1;

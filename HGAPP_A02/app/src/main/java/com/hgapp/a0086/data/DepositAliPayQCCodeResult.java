@@ -71,6 +71,7 @@ public class DepositAliPayQCCodeResult implements Parcelable {
         private String id;
         private String bank_user;
         private String photo_name;
+        private String notice;
 
         public String getId() {
             return id;
@@ -96,6 +97,14 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             this.photo_name = photo_name;
         }
 
+        public String getNotice() {
+            return notice;
+        }
+
+        public void setNotice(String notice) {
+            this.notice = notice;
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -106,6 +115,7 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             dest.writeString(this.id);
             dest.writeString(this.bank_user);
             dest.writeString(this.photo_name);
+            dest.writeString(this.notice);
         }
 
         public DataBean() {
@@ -115,6 +125,7 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             this.id = in.readString();
             this.bank_user = in.readString();
             this.photo_name = in.readString();
+            this.notice = in.readString();
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {

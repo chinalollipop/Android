@@ -468,7 +468,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             scpHallIcon9 = 0;
             cpHallIcon9 = TimeHelper.timeToSecond(cpHallResult.getdata159().getEndtime(),cpHallResult.getdata159().getServerTime());
         }
-        if(Check.isNumericNull(cpHallResult.getdata47().getEndtime())){
+        if(Check.isNull(cpHallResult.getdata47())||Check.isNumericNull(cpHallResult.getdata47().getEndtime())){
             cpHallIcon10 = 0;
             scpHallIcon10 = 1;
         }else {

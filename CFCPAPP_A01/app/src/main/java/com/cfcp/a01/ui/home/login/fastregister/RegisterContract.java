@@ -11,16 +11,14 @@ import com.cfcp.a01.data.LoginResult;
 
 public interface RegisterContract {
 
-    public interface Presenter extends IPresenter {
+    interface Presenter extends IPresenter {
 
 
-        public void postRegisterMember(String appRefer, String action, String reference, String username,
-                                       String password, String password2, String verifycode,
-                                       String code);
+        void postRegisterMember(String username, String password, String password2);
     }
 
-    public interface View extends IView<Presenter>, IMessageView {
+    interface View extends IView<Presenter>, IMessageView {
 
-        public void postRegisterMemberResult(LoginResult loginResult);
+        void postRegisterMemberResult(LoginResult loginResult);
     }
 }

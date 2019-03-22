@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.hgapp.a0086" //线上环境
-        versionName "3.3" //线上环境
+        versionName "3.7" //线上环境
 //        applicationId "com.shanghai556.meichel"//测试环境
 //        versionName "1.5" //测试环境环境
         minSdkVersion 19
@@ -64,7 +64,7 @@ repositories
         }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation project(':commonliberary')
     implementation project(path: ':slidingmenu')
@@ -72,18 +72,22 @@ dependencies {
     implementation(name: 'ultra-ptr-1.0.11', ext: 'aar')
     //compile(name: 'leakcanary-android-1.5.1', ext: 'aar')
     implementation(name: 'base-adapter-3.0.3', ext: 'aar')
-    implementation(name: 'network-library-release-0.2.1', ext: 'aar')//Android Network Tools
+    implementation(name: 'network-library-release-0.2.1', ext: 'aar')
+    //Android Network Tools
     // add library
     //compile 'org.greenrobot:greendao-generator-encryption:3.0.0beta3'
-    implementation 'com.zhy:base-rvadapter:3.0.3'//compile 'com.zhy:base-adapter:3.0.3'
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    //compile 'com.zhy:base-adapter:3.0.3'
     //implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'org.greenrobot:greendao-generator-encryption:2.2.0'
     implementation 'net.zetetic:android-database-sqlcipher:3.5.2'
     implementation 'com.jakewharton:butterknife:8.6.0'
     implementation 'com.jakewharton:butterknife-compiler:8.6.0'
     implementation 'com.alibaba:fastjson:1.2.31'
-    implementation 'com.github.promeg:tinypinyin:2.0.3'// TinyPinyin核心包，约80KB
-    implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'// 可选，适用于Android的中国地区词典
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+    // TinyPinyin核心包，约80KB
+    implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
+    // 可选，适用于Android的中国地区词典
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.flurry.android:analytics:11.3.0@aar'
     implementation 'com.contrarywind:Android-PickerView:4.1.6'
@@ -93,4 +97,6 @@ dependencies {
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
     //implementation 'org.greenrobot:greendao:3.2.2' // add library
+    implementation files('libs/jcore-android-1.2.7.jar')
+    implementation files('libs/jpush-android-3.2.0.jar')
 }

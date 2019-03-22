@@ -14,24 +14,19 @@ import rx.Subscription;
 public class SubscriptionHelper {
 
     private ArrayList<Subscription> subscriptions = new ArrayList<>();
-    public void add(Subscription subscription)
-    {
+
+    public void add(Subscription subscription) {
         subscriptions.add(subscription);
     }
 
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return subscriptions.isEmpty();
     }
 
-    public void unsubscribe()
-    {
-        if(!subscriptions.isEmpty())
-        {
-            for(Subscription subscription:subscriptions)
-            {
-                if(null != subscription  && !subscription.isUnsubscribed())
-                {
+    public void unsubscribe() {
+        if (!subscriptions.isEmpty()) {
+            for (Subscription subscription : subscriptions) {
+                if (null != subscription && !subscription.isUnsubscribed()) {
                     subscription.unsubscribe();
                 }
             }

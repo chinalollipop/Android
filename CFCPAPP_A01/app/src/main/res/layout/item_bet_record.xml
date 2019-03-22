@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/itemBetRecordName"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center|left"
+        android:text="2019-03-13"
+        android:textColor="#3b3b3b" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:id="@+id/itemBetRecordIssue"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordBought"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="游戏玩法"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordWay"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="开奖号码"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordWinNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="投注金额"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordAmount"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#c52133" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="25dp"
+            android:gravity="center"
+            android:text="状态"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="2019-03-13"
+            android:textColor="#c52133" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="中奖金额"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordPrize"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#599c22" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="25dp"
+            android:gravity="center"
+            android:text="状态"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="注单编号"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordSerialNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:text="投注内容"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemBetRecordBetNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="#e4e1e1" />
+
+</LinearLayout>

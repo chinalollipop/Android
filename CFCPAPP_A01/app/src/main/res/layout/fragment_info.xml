@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.cfcp.a01.common.widget.NTitleBar
+        android:id="@+id/infoBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="用户资料" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户昵称："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/infoNick"
+            android:text=""
+            android:textColor="#000"
+            android:layout_weight="1"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户名："
+            android:gravity="center|start"
+            android:textColor="#000"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/infoName"
+            android:text=""
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户手机："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/infoPhone"
+            android:text=""
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="真实姓名："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <EditText
+            android:id="@+id/infoAccount"
+            android:hint="请填写真实姓名"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:textSize="14sp"
+            android:background="@null"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/infoAccountText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/holo_red_light"
+        android:text="必须与提款的银行开户名相同,否则无法提款"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户邮箱："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/infoEmail"
+            android:text=""
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户QQ："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/infoQQ"
+            android:text=""
+            android:textColor="#000"
+            android:layout_weight="2"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/infoSubmit"
+        android:textColor="@color/white"
+        android:text="提 交"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_blue"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+</LinearLayout>

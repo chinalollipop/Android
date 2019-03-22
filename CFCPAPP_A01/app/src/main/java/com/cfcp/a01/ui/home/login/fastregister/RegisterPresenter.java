@@ -1,12 +1,15 @@
 package com.cfcp.a01.ui.home.login.fastregister;
 
-import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.common.http.ResponseSubscriber;
 import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
-import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.common.utils.Timber;
+import com.cfcp.a01.data.LoginResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -27,9 +30,16 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
 
     @Override
-    public void postRegisterMember(String appRefer, String action, String reference, String username, String password, String password2, String verifycode, String code) {
-        subscriptionHelper.add(RxHelper.addSugar(api.registerMember(CFConstant.PRODUCT_PLATFORM,action,reference,username,password,password2,
-                verifycode,code))//loginGet() login(appRefer,username,pwd) appRefer=13&type=FU&more=s
+    public void postRegisterMember(String username, String password, String password2) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "User");
+        params.put("action", "AuthRegister");
+        params.put("step", "2");
+        params.put("username", username);
+        params.put("password", password);
+        params.put("password_confirmation", password2);
+        subscriptionHelper.add(RxHelper.addSugar(api.registerMember(params))//loginGet() login(appRefer,username,pwd) appRefer=13&type=FU&more=s
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {

@@ -33,7 +33,8 @@ public class RequestBuilder {
         GameLog.log("请求的方式："+originalRequest.method());
         if(!"POST".equals(originalRequest.method()))
         {
-            Timber.e("请求必须是POST请求");
+            //Timber.e("请求必须是POST请求");
+            GameLog.log("请求方式是GET请求");
             //throw new IllegalArgumentException("请求方法必须是POST");
             return originalRequest.newBuilder().get().build();
         }

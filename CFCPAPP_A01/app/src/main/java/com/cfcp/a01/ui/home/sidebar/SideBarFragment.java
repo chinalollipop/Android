@@ -8,16 +8,36 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseDialogFragment;
 import com.cfcp.a01.common.base.IPresenter;
-import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.GameShipHelper;
 import com.cfcp.a01.common.widget.NExpandableListView;
+import com.cfcp.a01.data.BalanceResult;
+import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
+import com.cfcp.a01.ui.home.deposit.DepositFragment;
+import com.cfcp.a01.ui.home.withdraw.WithDrawFragment;
 import com.cfcp.a01.ui.main.MainEvent;
+import com.cfcp.a01.ui.me.CaiInfoFragment;
+import com.cfcp.a01.ui.me.EventListFragment;
 import com.cfcp.a01.ui.me.MeContract;
+import com.cfcp.a01.ui.me.bankcard.CardFragment;
+import com.cfcp.a01.ui.me.emailbox.EmailBoxFragment;
+import com.cfcp.a01.ui.me.info.InfoFragment;
+import com.cfcp.a01.ui.me.pwd.PwdFragment;
+import com.cfcp.a01.ui.me.record.BetFragment;
+import com.cfcp.a01.ui.me.record.overbet.TraceListFragment;
+import com.cfcp.a01.ui.me.register.RegisterMeFragment;
+import com.cfcp.a01.ui.me.report.PersonFragment;
+import com.cfcp.a01.ui.me.report.TeamFragment;
+import com.cfcp.a01.ui.me.report.myreport.MyReportFragment;
+import com.cfcp.a01.ui.me.userlist.UserListFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -27,6 +47,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 
 public class SideBarFragment extends BaseDialogFragment implements MeContract.View{
     @BindView(R.id.sidebarFrame)
@@ -89,8 +110,12 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
 
     @Override
     public void setEvents(View view,@Nullable Bundle savedInstanceState) {
+        setCancelable(true);
         EventBus.getDefault().register(this);
         //sidebarFrame.getBackground().setAlpha(200);
+        presenter.getBalance();
+        sidebarUser.setText(""+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT)+" 余额："+
+                GameShipHelper.formatMoney(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_BALANCE))+" 元");
         myExAdapter = new MyExpandableAdapter(getContext(), groups, children);
         sidebarRecyView.setAdapter(myExAdapter);
         sidebarRecyView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -98,19 +123,19 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 switch (groupPosition){
                     case 5:
-                        showMessage("开奖结果");
+                        //showMessage("开奖结果");
                         //展示开奖结果 且 关闭投注界面
                         EventBus.getDefault().post(new MainEvent(3));
                         EventBus.getDefault().post(new LotteryResultEvent("LotteryResult"));
                         hide();
                         break;
                     case 6:
-                        showMessage("返回大厅");
+                        //showMessage("返回大厅");
                         EventBus.getDefault().post(new BackHomeEvent("BackHome"));
                         hide();
                         break;
                     case 7:
-                        showMessage("退出登录");
+                        //showMessage("退出登录");
                         presenter.postLogout("");
                         break;
                 }
@@ -124,51 +149,75 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                     case 0:
                         switch (childPosition){
                             case 0:
-                                showMessage("游戏记录");
+                                hide();
+                                //showMessage("游戏记录");
+                                EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance("","")));
                                 break;
                             case 1:
-                                showMessage("追号记录");
+                                hide();
+                                //showMessage("追号记录");
+                                EventBus.getDefault().post(new StartBrotherEvent(TraceListFragment.newInstance("","")));
                                 break;
                         }
                         break;
                     case 1:
                         switch (childPosition){
                             case 0:
-                                showMessage("充值记录");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(MyReportFragment.newInstance("1","")));
+                                //showMessage("充值记录");
                                 break;
                             case 1:
-                                showMessage("个人报表");
+                                //showMessage("个人报表");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("","")));
                                 break;
                             case 2:
-                                showMessage("团队报表");
+                                //showMessage("团队报表");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","")));
                                 break;
                             case 3:
-                                showMessage("账变报表");
+                                hide();
+                                //showMessage("账变报表");
+                                EventBus.getDefault().post(new StartBrotherEvent(MyReportFragment.newInstance("0","")));
                                 break;
                             case 4:
-                                showMessage("优惠活动详情");
+                                //showMessage("优惠活动详情");
+                                hide();
+                                EventBus.getDefault().post(new MainEvent(2));
                                 break;
                         }
                         break;
                     case 2:
                         switch (childPosition){
                             case 0:
-                                showMessage("个人总览");
+                                //showMessage("个人总览");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(InfoFragment.newInstance("","")));
                                 break;
                             case 1:
-                                showMessage("修改密码");
+                                hide();
+                                //showMessage("修改密码");
+                                EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("2","")));
                                 break;
                             case 2:
-                                showMessage("密码设定");
+                                hide();
+                                //showMessage("密码设定");
+                                EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("1","")));
                                 break;
                             case 3:
-                                showMessage("银行卡管理");
+                                hide();
+                                //showMessage("银行卡管理");
+                                EventBus.getDefault().post(new StartBrotherEvent(CardFragment.newInstance("","")));
                                 break;
                             case 4:
                                 showMessage("资料修改");
                                 break;
                             case 5:
-                                showMessage("彩种信息");
+                                hide();
+                                //showMessage("彩种信息");
+                                EventBus.getDefault().post(new StartBrotherEvent(CaiInfoFragment.newInstance("2","")));
                                 break;
                             case 6:
                                 showMessage("彩种额度");
@@ -182,9 +231,12 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                                 break;
                             case 1:
                                 showMessage("用户列表");
+                                //EventBus.getDefault().post(new StartBrotherEvent(UserListFragment.newInstance("2","")));
                                 break;
                             case 2:
-                                showMessage("注册管理");
+                                //showMessage("注册管理");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(RegisterMeFragment.newInstance("",""), SupportFragment.SINGLETASK));
                                 break;
                             case 3:
                                 showMessage("推广注册");
@@ -194,10 +246,12 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                     case 4:
                         switch (childPosition){
                             case 0:
-                                showMessage("站内短信");
+                                //showMessage("站内短信");
+                                EventBus.getDefault().post(new StartBrotherEvent(EmailBoxFragment.newInstance("","")));
                                 break;
                             case 1:
-                                showMessage("网站公告");
+                                //showMessage("网站公告");
+                                EventBus.getDefault().post(new StartBrotherEvent(EventListFragment.newInstance("","")));
                                 break;
                         }
                         break;
@@ -241,8 +295,12 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
             case R.id.sidebarUser:
                 break;
             case R.id.sidebarDeposit:
+                hide();
+                EventBus.getDefault().post(new StartBrotherEvent(DepositFragment.newInstance(), SupportFragment.SINGLETASK));
                 break;
             case R.id.sidebarWithDraw:
+                hide();
+                EventBus.getDefault().post(new StartBrotherEvent(WithDrawFragment.newInstance("", ""), SupportFragment.SINGLETASK));
                 break;
         }
     }
@@ -250,8 +308,15 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
     @Override
     public void postLogoutResult(LogoutResult logoutResult) {
         //退出登录的逻辑  发送消息
-        EventBus.getDefault().post(logoutResult);
+        EventBus.getDefault().post(new LogoutResult("您已登出!"));
         hide();
+    }
+
+    @Override
+    public void getBalanceResult(BalanceResult balanceResult) {
+        sidebarUser.setText(""+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT)+" 余额："+
+                GameShipHelper.formatMoney(balanceResult.getAvailable())+" 元");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BALANCE,balanceResult.getAvailable());
     }
 
     @Override

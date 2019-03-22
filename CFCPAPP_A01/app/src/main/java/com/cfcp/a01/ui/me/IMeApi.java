@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.me;
 
 
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
+import com.cfcp.a01.data.BalanceResult;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
 
@@ -23,7 +24,7 @@ public interface IMeApi {
     //会员登录
     @POST("service")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<LoginResult>> postLogin(
+    Observable<AppTextMessageResponse<LoginResult>> postLogin(
             @Field("appRefer") String appRefer,
             @Field("packet") String packet,
             @Field("action") String action,
@@ -34,7 +35,13 @@ public interface IMeApi {
 
     //会员注销
     @GET("service")
-    public Observable<AppTextMessageResponse<LogoutResult>> getLogin(
+    Observable<AppTextMessageResponse<LogoutResult>> getLogout(
+            @QueryMap Map<String, String> params
+    );
+
+    //会员余额
+    @GET("service")
+    Observable<AppTextMessageResponse<BalanceResult>> getBalance(
             @QueryMap Map<String, String> params
     );
 

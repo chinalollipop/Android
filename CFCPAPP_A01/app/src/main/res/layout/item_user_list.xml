@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/itemUserListLay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/itemUserListUserName"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="2019-03-13"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemUserListUserType"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="玩家"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemUserListAvailable"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="金额"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemUserListPrize"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="1950"
+            android:textColor="#3b3b3b" />
+
+
+        <TextView
+            android:id="@+id/itemUserListProfit"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="启动"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemUserListDetail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/icon_ex__right"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:textColor="#3b3b3b" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e4e4e4" />
+
+    <LinearLayout
+        android:id="@+id/itemUserListDetailLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/itemUserListLowerDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/bg_deposit_input"
+                android:padding="8dp"
+                android:text="详情"
+                android:textColor="#c42133" />
+
+            <TextView
+                android:id="@+id/itemUserListTeamDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/bg_deposit_input"
+                android:padding="8dp"
+                android:text="团队总览"
+                android:textColor="#c42133" />
+
+            <TextView
+                android:id="@+id/itemUserListFanSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/bg_deposit_input"
+                android:padding="8dp"
+                android:text="返点设定"
+                android:textColor="#c42133" />
+
+            <TextView
+                android:id="@+id/itemUserListChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/bg_deposit_input"
+                android:padding="8dp"
+                android:text="账变记录"
+                android:textColor="#c42133" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e4e4e4" />
+    </LinearLayout>
+
+</LinearLayout>

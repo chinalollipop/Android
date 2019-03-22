@@ -1,6 +1,6 @@
 package com.cfcp.a01.common.http.util;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -43,11 +43,7 @@ public class Md5Utils {
 		if (k == null || k.length() == 0) {
 			throw new IllegalArgumentException("Key must not be blank");
 		}
-		try {
-			return k.getBytes("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
-		}
-	}
+        return k.getBytes(StandardCharsets.UTF_8);
+    }
 
 }

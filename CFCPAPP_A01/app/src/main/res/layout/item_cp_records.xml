@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/cpRecordsItemName"
+        android:background="@color/n_editText_hint"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="AG真人"
+        android:textColor="@color/cp_order_reset"
+        android:textSize="15sp" />
+    <View
+        android:id="@+id/tv_item_game_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/n_editText_hint" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cpRecordsItemRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <!--<View
+        android:id="@+id/tv_item_game_line"
+        android:layout_width="5px"
+        android:layout_height="match_parent"
+        android:background="@color/tab_unselect" />-->
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="@color/tab_unselect" />-->
+</LinearLayout>

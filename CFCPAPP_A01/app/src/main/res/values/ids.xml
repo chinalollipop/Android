@@ -5,4 +5,6 @@
     <item type="id" name="hierarchy" />
     <item type="id" name="isexpand" />
 
+    <item name="recycler_view_tag" type="id"/>
+
 </resources>

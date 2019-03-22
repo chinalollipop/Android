@@ -153,7 +153,7 @@ public class MarqueeTextView extends TextView {
         horizontalLoopSpeed = array.getInt(R.styleable.MarqueeTextView_horizontal_loop_speed, DEFAULT_HORIZONTAL_LOOP_SPEED);
         contentColor = array.getColor(R.styleable.MarqueeTextView_content_text_color, getResources().getColor(R.color.textview_marque));
         contentTextSize = (int) array.getDimension(R.styleable.MarqueeTextView_content_text_size, Sp2Px(getContext(), 15));
-        singleText = (String) array.getString(R.styleable.MarqueeTextView_content_single_text);
+        singleText = array.getString(R.styleable.MarqueeTextView_content_single_text);
 
 //        Logger.e("contentColor=" + contentColor);
 //        Logger.e("contentTextSize=" + contentTextSize);

@@ -20,8 +20,8 @@ public class UrlCenter {
 
     public interface OnCompleteListener
     {
-        public void onComplete(String url);
-        public void onError(String msg);
+        void onComplete(String url);
+        void onError(String msg);
     }
     private String pid;
     private OnCompleteListener listener;

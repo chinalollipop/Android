@@ -11,13 +11,13 @@ import com.cfcp.a01.data.LoginResult;
 
 public interface LoginContract {
 
-    public interface Presenter extends IPresenter {
+    interface Presenter extends IPresenter {
 
-        public void postLogin(String appRefer, String username, String password);
+        void postLogin(String appRefer, String username, String password);
     }
 
-    public interface View extends IView<Presenter>, IMessageView {
+    interface View extends IView<Presenter>, IMessageView {
 
-        public void postLoginResult(LoginResult loginResult);
+        void postLoginResult(LoginResult loginResult);
     }
 }

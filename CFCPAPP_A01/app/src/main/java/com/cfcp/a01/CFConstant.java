@@ -54,7 +54,7 @@ public abstract class CFConstant {
     public static final String PRODUCT_ID = "a6668";
 
     //产品的平台 android
-    public static final String PRODUCT_PLATFORM = "14";
+    public static final String PRODUCT_PLATFORM = "2";
 
     //默认传参H。 H 香港盘，M 马来盘，I 印尼盘，E 欧洲盘
     public static final String ODD_F_TYPE = "H";
@@ -108,6 +108,18 @@ public abstract class CFConstant {
     public static final String USERNAME_LOGIN_TOKEN = "username_login_token";
 
 
+    //用户的金额
+    public static final String USERNAME_LOGIN_BALANCE = "username_login_balance";
+
+
+    //用户的parent_id
+    public static final String USERNAME_LOGIN_PARENT_ID = "username_login_parent_id";
+
+
+    //用户的是否设置过资金密码
+    public static final String USERNAME_LOGIN_FUND_PWD = "username_login_fund_pwd";
+
+
     //用户的试玩账号
     public static final String USERNAME_LOGIN_DEMO = "username_login_demo";
 
@@ -124,7 +136,7 @@ public abstract class CFConstant {
     public static final String USERNAME_SERVICE_URL_WECHAT = "username_service_url_wechat";
 
     //用户的默认客服地址
-    public static final String USERNAME_SERVICE_DEFAULT_URL = "https://static.meiqia.com/dist/standalone.html?_=t&eid=61033";
+    public static final String USERNAME_SERVICE_DEFAULT_URL = "https://static.meiqia.com/dist/standalone.html?_=t&eid=83475";
 
     //用户的是否绑卡
     public static final String USERNAME_BIND_CARD = "username_bind_card";
@@ -141,6 +153,14 @@ public abstract class CFConstant {
     //首页notice
     public static final String USERNAME_HOME_NOTICE = "username_home_notice";
 
+    //首页信用盘所有游戏
+    public static final String USERNAME_HOME_XINYONG = "username_home_xinyong";
+
+    //首页官网所有游戏
+    public static final String USERNAME_HOME_GUANWANG = "username_home_guanwang";
+
+    //首页官网公告
+    public static final String USERNAME_HOME_EVENTLIST = "username_home_event_list";
 
 
     //CP首页notice
@@ -195,6 +215,18 @@ public abstract class CFConstant {
 
     //用户的登录状态  用户名
     public static final String USERNAME_LOGIN_NAME = "username_login_name";
+
+    //用户的登录状态  昵称
+    public static final String USERNAME_LOGIN_NICK = "username_login_nick";
+
+    //用户的登录状态  QQ
+    public static final String USERNAME_LOGIN_QQ = "username_login_qq";
+
+    //用户的登录状态  email
+    public static final String USERNAME_LOGIN_EMAIL = "username_login_email";
+
+    //用户的登录状态  手机
+    public static final String USERNAME_LOGIN_PHONE = "username_login_phone";
 
     //用户的初始化下注的选中状态
     public static final String USERNAME_AUTO_ADD = "username_auto_add";

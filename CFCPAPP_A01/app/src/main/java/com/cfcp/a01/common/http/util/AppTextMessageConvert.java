@@ -53,7 +53,7 @@ public class AppTextMessageConvert {
 
 		String plainText = Des3Util.decrypt(data, key);
 		if (plainText != null) {
-			return (T) JSON.parseObject(plainText, T);
+			return JSON.parseObject(plainText, T);
 		}
 		return null;
 	}

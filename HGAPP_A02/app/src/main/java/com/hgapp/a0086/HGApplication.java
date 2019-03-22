@@ -31,6 +31,7 @@ import com.lzy.okgo.OkGo;
 import java.io.File;
 import java.util.Locale;
 
+import cn.jpush.android.api.JPushInterface;
 import me.yokeyword.sample.App;
 
 public class HGApplication extends MultiDexApplication {
@@ -45,6 +46,7 @@ public class HGApplication extends MultiDexApplication {
         hgApplicationInstance = this;
         //LauncherApp.initSingleton(this);
         Utils.init(getApplicationContext());
+        initJPush();
         initX5();
         App.doOnCreate();
         initFlurry();
@@ -107,6 +109,12 @@ public class HGApplication extends MultiDexApplication {
         deviceId+="_"+DeviceUtils.getDeviceBrand()+"_"+DeviceUtils.getDeviceModel()+"_"+DeviceUtils.getDeviceVersion();
         FlurryAgent.setUserId(deviceId);*/
     }
+
+    private void initJPush(){
+        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);     		// 初始化 JPush
+    }
+
 
     private void initX5(){
         /*if(!QbSdk.isTbsCoreInited()){

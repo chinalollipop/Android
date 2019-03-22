@@ -14,7 +14,6 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.common.utils.InputMethodUtils;
 import com.cfcp.a01.common.utils.Timber;
 import com.cfcp.a01.common.utils.ToastUtils;
-import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -46,7 +45,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements IMess
         }
         View v = inflater.inflate(setLayoutId(), container, false);
         unbinder = ButterKnife.bind(this,v);
-        AutoUtils.auto(v);
         return v;
     }
 

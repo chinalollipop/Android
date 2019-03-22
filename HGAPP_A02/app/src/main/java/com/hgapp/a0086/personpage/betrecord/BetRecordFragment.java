@@ -239,9 +239,9 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 String text = cancelList.get(options1);
                 betRrcordCancel.setText(text);
                 if(text.equals("无效注单")){
-                    cancel = "N";
-                }else{
                     cancel = "Y";
+                }else{
+                    cancel = "N";
                 }
             }
         }).build();

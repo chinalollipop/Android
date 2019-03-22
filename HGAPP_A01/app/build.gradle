@@ -6,7 +6,7 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.hgapp.a6668" //线上环境
-        versionName "3.4" //线上环境
+        versionName "3.8" //线上环境
 //        applicationId "com.cndodricideh.daniel"//测试环境
 //        versionName "1.5" //测试环境环境
         minSdkVersion 19
@@ -36,6 +36,20 @@ android {
         }
     }
 
+    /*sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+        release.setRoot('build-types/release')
+    }*/
+
     dexOptions {
         javaMaxHeapSize "4g"
         preDexLibraries = false
@@ -59,6 +73,7 @@ android {
 
 repositories
         {
+            jcenter()
             maven {
                 url "https://jitpack.io"
             }

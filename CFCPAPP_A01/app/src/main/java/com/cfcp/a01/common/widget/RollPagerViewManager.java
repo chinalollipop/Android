@@ -1,6 +1,7 @@
 package com.cfcp.a01.common.widget;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.cfcp.a01.R;
-import com.cfcp.a01.data.BannerResult;
 import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.data.BannerResult;
 import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
 import com.jude.rollviewpager.hintview.IconHintView;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class RollPagerViewManager {
 
     public interface ImageGetter
     {
-        public Observable<String[]> getImages();
+        Observable<String[]> getImages();
     }
     //private String[] titileActivity = new String[]{"我是第1个","我是第2个","我是第3个","我是第4个","我是第5个"};
     private RollPagerView mLoopViewPager;
@@ -136,13 +137,13 @@ public class RollPagerViewManager {
         }*/
     }
 
-    public void testImagesNet(final TextView textView, final LinearLayout linearLayoutMainDots)
+    public void testImagesNet(Fragment fragment,final TextView textView, final LinearLayout linearLayoutMainDots)
     {
         //mLoopViewPager.setAdapter(new UrlImageLoopAdapter(mLoopViewPager));
         //addCenterDots(activityList.size(),0,linearLayoutMainDots);
-        mLoopViewPager.setAdapter(new UrlImageAdapter());
+        mLoopViewPager.setAdapter(new UrlImageAdapter(fragment));
         mLoopViewPager.setPlayDelay(5000);
-//        mLoopViewPager.setHintView(new IconHintView(context,R.drawable.point_focus, R.drawable.point_normal));
+        mLoopViewPager.setHintView(new IconHintView(context,R.drawable.point_focus, R.drawable.point_normal));
        // textView.setText(activityList.get(0).getTitle());
         mLoopViewPager.setOnPageChangeListener(new RollPagerView.PageChangeListener() {
             @Override
@@ -243,33 +244,29 @@ public class RollPagerViewManager {
 
 
     private class UrlImageAdapter extends StaticPagerAdapter {
+        Fragment fragment;
 
+        public UrlImageAdapter(Fragment fragment){
+            this.fragment = fragment;
+        }
         @Override
         public View getView(ViewGroup container, int position) {
-            GameLog.log("getView:"+activityList.get(position).getImg_path());
-//            ImageView view = new ImageView(container.getContext());
-            RoundCornerImageView view = new RoundCornerImageView(container.getContext());
+            GameLog.log("首页Banner的地址是 "+activityList.get(position).getPath());
+            LinearLayout linearLayout = new LinearLayout(container.getContext());
+            ImageView view = new ImageView(container.getContext());
+            //RoundCornerImageView view = new RoundCornerImageView(container.getContext());
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                    GameLog.log("onClick");
                 }
             });
-            view.onCornerAll(view);
+            //view.onCornerAll(view);
             view.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
-            Picasso.get()
-                    .load(activityList.get(position).getImg_path())
-//                    .placeholder(R.drawable.placeholder)
-                    .error(R.mipmap.bg_login)
-                    .fit()
-                    .into(view);
-            /*Picasso.with(context)
-                    .load(activityList.get(position).getImg_path())
-                    //.placeholder(R.drawable.loading)
-                    .into(view);*/
-            return view;
+            Glide.with(fragment).load(activityList.get(position).getPath()).into(view);
+            linearLayout.addView(view);
+            return linearLayout;
         }
 
         @Override

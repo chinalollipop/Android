@@ -6,7 +6,7 @@ import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
-import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.BalanceResult;
 import com.cfcp.a01.data.LogoutResult;
 
 import java.util.HashMap;
@@ -33,11 +33,11 @@ public class MePresenter implements MeContract.Presenter {
     @Override
     public void postLogout(String appRefer) {
         Map<String,String> params = new HashMap<>();
-        params.put("appRefer",CFConstant.PRODUCT_PLATFORM);
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","User");
         params.put("action","Logout");
         params.put("token",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
-        subscriptionHelper.add(RxHelper.addSugar(api.getLogin(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
+        subscriptionHelper.add(RxHelper.addSugar(api.getLogout(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LogoutResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LogoutResult> response) {
@@ -47,6 +47,33 @@ public class MePresenter implements MeContract.Presenter {
                             view.showMessage(response.getDescribe());
                         }
                         //view.postLogoutResult(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getBalance() {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","User");
+        params.put("action","GetUserBalance");
+        params.put("token",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getBalance(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<BalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<BalanceResult> response) {
+                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
+                            view.getBalanceResult(response.getData());
+                        } else {
+                            view.showMessage(response.getDescribe());
+                        }
                     }
 
                     @Override
@@ -68,8 +95,6 @@ public class MePresenter implements MeContract.Presenter {
     public void destroy() {
 
         subscriptionHelper.unsubscribe();
-        view = null;
-        api = null;
     }
 
 

@@ -78,9 +78,9 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
             convertView = View.inflate(mContext, R.layout.item_sidebar, null);
 
             gpViewHolder = new GpViewHolder();
-            gpViewHolder.titleIcon = (ImageView) convertView.findViewById(R.id.titleIcon);
-            gpViewHolder.img = (ImageView) convertView.findViewById(R.id.img);
-            gpViewHolder.title = (TextView) convertView
+            gpViewHolder.titleIcon = convertView.findViewById(R.id.titleIcon);
+            gpViewHolder.img = convertView.findViewById(R.id.img);
+            gpViewHolder.title = convertView
                     .findViewById(R.id.title);
             convertView.setTag(gpViewHolder);
         } else {
@@ -97,7 +97,7 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
         }else{
             gpViewHolder.img.setVisibility(View.VISIBLE);
         }
-        gpViewHolder.title.setText(groups[groupPosition].toString());
+        gpViewHolder.title.setText(groups[groupPosition]);
         return convertView;
     }
 
@@ -108,16 +108,16 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = View.inflate(mContext, R.layout.item_sidebar_child, null);
             gpViewHolder = new GpViewHolder();
-            gpViewHolder.img = (ImageView) convertView
+            gpViewHolder.img = convertView
                     .findViewById(R.id.child_img);
-            gpViewHolder.title = (TextView) convertView
+            gpViewHolder.title = convertView
                     .findViewById(R.id.child_title);
             convertView.setTag(gpViewHolder);
         } else {
             gpViewHolder = (GpViewHolder) convertView.getTag();
         }
         gpViewHolder.img.setImageResource(R.drawable.dot_sidebar);
-        gpViewHolder.title.setText(children[groupPosition][childPosition].toString());
+        gpViewHolder.title.setText(children[groupPosition][childPosition]);
         return convertView;
     }
 

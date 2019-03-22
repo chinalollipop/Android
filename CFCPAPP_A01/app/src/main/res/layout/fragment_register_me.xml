@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.cfcp.a01.common.widget.NTitleBar
+        android:id="@+id/registerMeBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="注册管理" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户类型："
+            android:textColor="#333"
+            android:gravity="center|start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/registerMeType"
+            android:text="代理"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:drawableEnd="@mipmap/icon_ex_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户昵称："
+            android:textColor="#333"
+            android:gravity="center|start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <EditText
+            android:id="@+id/registerMeNick"
+            android:hint="请输入昵称，2-16字符"
+            android:textColor="#000"
+            android:textSize="14sp"
+            android:background="@null"
+            android:layout_weight="1"
+            android:maxLength="16"
+            android:gravity="center|start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="登录账户："
+            android:gravity="center|start"
+            android:textColor="#333"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <EditText
+            android:id="@+id/registerMeAccount"
+            android:hint="由字母和数字组成6-16个字符"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="#000"
+            android:maxLength="16"
+            android:background="@null"
+            android:gravity="center|start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="登录密码："
+            android:textColor="#333"
+            android:gravity="center|start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <EditText
+            android:id="@+id/registerMePwd"
+            android:hint="密码由字母和数字组成6-16个字符"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:background="@null"
+            android:textSize="14sp"
+            android:inputType="textPassword"
+            android:gravity="center|start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="重复密码："
+            android:textColor="#333"
+            android:gravity="center|start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <EditText
+            android:id="@+id/registerMePwd2"
+            android:hint="再次输入密码"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@null"
+            android:textColor="#000"
+            android:inputType="textPassword"
+            android:gravity="center|start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <RelativeLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="出款通知："
+            android:textColor="#333"
+            android:gravity="center|start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <CheckBox
+            android:id="@+id/registerMeInfrom"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:button="@null"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/btn_check_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        android:layout_marginBottom="20dp"
+        />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/registerMeStyle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#e9e9e9"
+        app:tabIndicatorColor="#c42133"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="#c42133"
+        app:tabTextColor="#c42133" />
+
+    <LinearLayout
+        android:background="#484747"
+        android:layout_marginTop="10dp"
+        android:id="@+id/registerMeSetFundLay1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="当前奖金"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="返点率"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="剩余配额"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="操作"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/registerMeSetFundLay2"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="设置资金："
+            android:textColor="#333"
+            android:gravity="center|start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/registerMeSetFund"
+            android:text="选择其他奖金组"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:drawableEnd="@mipmap/icon_ex_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/registerMeSubmit"
+        android:textColor="@color/white"
+        android:text="生成账户"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:background="@drawable/bg_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+</LinearLayout>

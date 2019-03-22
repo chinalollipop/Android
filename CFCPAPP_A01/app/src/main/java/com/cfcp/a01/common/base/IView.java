@@ -7,5 +7,5 @@ package com.cfcp.a01.common.base;
 
 public interface IView<T> {
 
-    public void setPresenter(T presenter);
+    void setPresenter(T presenter);
 }

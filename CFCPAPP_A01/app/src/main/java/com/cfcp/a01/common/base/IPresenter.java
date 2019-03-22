@@ -7,6 +7,6 @@ package com.cfcp.a01.common.base;
 
 public interface IPresenter {
 
-    public void start();
-    public void destroy();
+    void start();
+    void destroy();
 }

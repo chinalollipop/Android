@@ -3,35 +3,38 @@ package com.cfcp.a01.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 public class LoginResult implements Parcelable {
 
 
     /**
-     * id : 33991
-     * is_agent : 0
+     * id : 5379
+     * is_agent : 1
      * username : lincoin01
-     * parent_id : 882
-     * forefather_ids : 1,882
-     * parent : admin8888
-     * forefathers : admin888,admin8888
-     * account_id : 32516
+     * parent_id : 5367
+     * forefather_ids : 5367
+     * parent : ceshi001
+     * forefathers : ceshi001
+     * account_id : 5367
      * prize_group : 1950
      * blocked : 0
      * portrait_code : 1
-     * name :
+     * name : 张三三
      * nickname : lincoin01
-     * email :
+     * email : null
      * mobile :
      * is_tester : 0
      * qq :
-     * skype :
-     * bet_coefficient :
-     * login_ip : 192.168.1.32
-     * signin_at : 2019-01-19 09:56:53
-     * register_at : 2019-01-13 18:46:11
+     * skype : null
+     * bet_coefficient : null
+     * login_ip : 119.92.13.181
+     * signin_at : 2019-02-23 13:00:42
+     * register_at : 2019-02-11 15:39:35
      * fund_password_exist : false
-     * abalance : 0.0000
-     * token : a420fab883bd62239138aa469bbfdd75760f02b1
+     * abalance : 1020.0000
+     * token : 1a043083621f0a59eaa3f0550234d7fa7f6a8014
+     * NoticeList : [{"id":112,"category_id":2,"title":"【升级通知】升级维护通知2019年01月10日03:00-08:00","summary":"","content":"","search_text":"彩易博\u200b升级维护","author_id":59,"author":"admin","auditor_id":59,"auditor":"admin","is_top":0,"status":1,"need_read_log":1,"read_count":888,"created_at":"2019-01-10 02:25:18","updated_at":"2019-01-10 02:25:18","sequence":0},{"id":99,"category_id":2,"title":"【重要通知】请认准 彩易博 官方平台","summary":"【重要通知】请认准 彩易博 官方平台","content":"","search_text":"","author_id":59,"author":"admin","auditor_id":68,"auditor":"paigu","is_top":1,"status":1,"need_read_log":1,"read_count":1,"created_at":"2018-06-28 21:27:40","updated_at":"2018-12-11 13:58:14","sequence":1}]
      */
 
     private int id;
@@ -59,6 +62,7 @@ public class LoginResult implements Parcelable {
     private boolean fund_password_exist;
     private String abalance;
     private String token;
+    private List<NoticeListBean> NoticeList;
 
     public int getId() {
         return id;
@@ -260,6 +264,263 @@ public class LoginResult implements Parcelable {
         this.token = token;
     }
 
+    public List<NoticeListBean> getNoticeList() {
+        return NoticeList;
+    }
+
+    public void setNoticeList(List<NoticeListBean> NoticeList) {
+        this.NoticeList = NoticeList;
+    }
+
+    public static class NoticeListBean implements Parcelable {
+        /**
+         * id : 112
+         * category_id : 2
+         * title : 【升级通知】升级维护通知2019年01月10日03:00-08:00
+         * summary :
+         * content :
+         * search_text : 彩易博​升级维护
+         * author_id : 59
+         * author : admin
+         * auditor_id : 59
+         * auditor : admin
+         * is_top : 0
+         * status : 1
+         * need_read_log : 1
+         * read_count : 888
+         * created_at : 2019-01-10 02:25:18
+         * updated_at : 2019-01-10 02:25:18
+         * sequence : 0
+         */
+        private int checked ;
+
+        private int id;
+        private int category_id;
+        private String title;
+        private String summary;
+        private String content;
+        private String search_text;
+        private int author_id;
+        private String author;
+        private int auditor_id;
+        private String auditor;
+        private int is_top;
+        private int status;
+        private int need_read_log;
+        private int read_count;
+        private String created_at;
+        private String updated_at;
+        private int sequence;
+
+
+        public int getChecked() {
+            return checked;
+        }
+
+        public void setChecked(int ischecked) {
+            this.checked = ischecked;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getCategory_id() {
+            return category_id;
+        }
+
+        public void setCategory_id(int category_id) {
+            this.category_id = category_id;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getSummary() {
+            return summary;
+        }
+
+        public void setSummary(String summary) {
+            this.summary = summary;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        public String getSearch_text() {
+            return search_text;
+        }
+
+        public void setSearch_text(String search_text) {
+            this.search_text = search_text;
+        }
+
+        public int getAuthor_id() {
+            return author_id;
+        }
+
+        public void setAuthor_id(int author_id) {
+            this.author_id = author_id;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public void setAuthor(String author) {
+            this.author = author;
+        }
+
+        public int getAuditor_id() {
+            return auditor_id;
+        }
+
+        public void setAuditor_id(int auditor_id) {
+            this.auditor_id = auditor_id;
+        }
+
+        public String getAuditor() {
+            return auditor;
+        }
+
+        public void setAuditor(String auditor) {
+            this.auditor = auditor;
+        }
+
+        public int getIs_top() {
+            return is_top;
+        }
+
+        public void setIs_top(int is_top) {
+            this.is_top = is_top;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public int getNeed_read_log() {
+            return need_read_log;
+        }
+
+        public void setNeed_read_log(int need_read_log) {
+            this.need_read_log = need_read_log;
+        }
+
+        public int getRead_count() {
+            return read_count;
+        }
+
+        public void setRead_count(int read_count) {
+            this.read_count = read_count;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
+
+        public String getUpdated_at() {
+            return updated_at;
+        }
+
+        public void setUpdated_at(String updated_at) {
+            this.updated_at = updated_at;
+        }
+
+        public int getSequence() {
+            return sequence;
+        }
+
+        public void setSequence(int sequence) {
+            this.sequence = sequence;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(this.checked);
+            dest.writeInt(this.id);
+            dest.writeInt(this.category_id);
+            dest.writeString(this.title);
+            dest.writeString(this.summary);
+            dest.writeString(this.content);
+            dest.writeString(this.search_text);
+            dest.writeInt(this.author_id);
+            dest.writeString(this.author);
+            dest.writeInt(this.auditor_id);
+            dest.writeString(this.auditor);
+            dest.writeInt(this.is_top);
+            dest.writeInt(this.status);
+            dest.writeInt(this.need_read_log);
+            dest.writeInt(this.read_count);
+            dest.writeString(this.created_at);
+            dest.writeString(this.updated_at);
+            dest.writeInt(this.sequence);
+        }
+
+        public NoticeListBean() {
+        }
+
+        protected NoticeListBean(Parcel in) {
+            this.checked = in.readInt();
+            this.id = in.readInt();
+            this.category_id = in.readInt();
+            this.title = in.readString();
+            this.summary = in.readString();
+            this.content = in.readString();
+            this.search_text = in.readString();
+            this.author_id = in.readInt();
+            this.author = in.readString();
+            this.auditor_id = in.readInt();
+            this.auditor = in.readString();
+            this.is_top = in.readInt();
+            this.status = in.readInt();
+            this.need_read_log = in.readInt();
+            this.read_count = in.readInt();
+            this.created_at = in.readString();
+            this.updated_at = in.readString();
+            this.sequence = in.readInt();
+        }
+
+        public static final Parcelable.Creator<NoticeListBean> CREATOR = new Parcelable.Creator<NoticeListBean>() {
+            @Override
+            public NoticeListBean createFromParcel(Parcel source) {
+                return new NoticeListBean(source);
+            }
+
+            @Override
+            public NoticeListBean[] newArray(int size) {
+                return new NoticeListBean[size];
+            }
+        };
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -292,6 +553,7 @@ public class LoginResult implements Parcelable {
         dest.writeByte(this.fund_password_exist ? (byte) 1 : (byte) 0);
         dest.writeString(this.abalance);
         dest.writeString(this.token);
+        dest.writeTypedList(this.NoticeList);
     }
 
     public LoginResult() {
@@ -323,6 +585,7 @@ public class LoginResult implements Parcelable {
         this.fund_password_exist = in.readByte() != 0;
         this.abalance = in.readString();
         this.token = in.readString();
+        this.NoticeList = in.createTypedArrayList(NoticeListBean.CREATOR);
     }
 
     public static final Parcelable.Creator<LoginResult> CREATOR = new Parcelable.Creator<LoginResult>() {

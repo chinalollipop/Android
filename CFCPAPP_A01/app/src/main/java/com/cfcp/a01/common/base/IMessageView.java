@@ -7,5 +7,5 @@ package com.cfcp.a01.common.base;
 
 public interface IMessageView {
 
-    public void showMessage(String message);
+    void showMessage(String message);
 }

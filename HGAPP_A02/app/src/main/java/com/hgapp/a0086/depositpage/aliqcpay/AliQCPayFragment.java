@@ -44,6 +44,8 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
     TextView tvDepositAliQCPayName;
     @BindView(R.id.etDepositAliQCPayMoney)
     EditText etDepositAliQCPayMoney;
+    @BindView(R.id.edDepositAliQCPayOrder)
+    TextView edDepositAliQCPayOrder;
     @BindView(R.id.edDepositAliQCPayOrderNumber)
     EditText edDepositAliQCPayOrderNumber;
     @BindView(R.id.tvDepositAliQCPayTime)
@@ -137,6 +139,10 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
                 .into(ivDepositAliQCPayImage);
         payId = dataBean.getData().get(0).getId();
         payBankUser = dataBean.getData().get(0).getBank_user();
+        if(!Check.isEmpty(dataBean.getData().get(0).getNotice())) {
+            edDepositAliQCPayOrder.setText(dataBean.getData().get(0).getNotice());
+            edDepositAliQCPayOrderNumber.setHint("请输入" + dataBean.getData().get(0).getNotice());
+        }
         tvDepositAliQCPayName.setText(dataBean.getData().get(0).getBank_user());
         tvDepositAliQCPayTime.setText(getTime(new Date()));
     }

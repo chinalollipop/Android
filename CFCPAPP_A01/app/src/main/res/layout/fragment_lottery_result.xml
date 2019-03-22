@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="@color/color_game_title">
 
         <TextView
@@ -21,33 +21,61 @@
             android:gravity="center"
             android:text="开奖结果"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
     <TextView
         android:id="@+id/lotteryResultType"
-        android:layout_width="wrap_content"
-        android:drawablePadding="10dp"
-        android:layout_height="40dp"
-        android:drawableRight="@mipmap/bet_down_black"
-        android:textColor="@android:color/black"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_margin="5dp"
+        android:paddingRight="5dp"
+        android:drawableRight="@mipmap/icon_ex_down"
+        android:background="@drawable/bg_deposit_input"
+        android:drawablePadding="5dp"
         android:gravity="center|left"
         android:paddingLeft="20dp"
-        android:text="开奖结果" />
+        android:text="重庆时时彩"
+        android:textColor="@android:color/black" />
+
     <android.support.design.widget.TabLayout
         android:id="@+id/lotteryResultTab"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#b7b6b1"
-        app:tabTextColor="#414242"
-        app:tabSelectedTextColor="#db1c36"
+        android:background="#ededed"
         app:tabIndicatorColor="#db1c36"
         app:tabIndicatorHeight="2dp"
-        app:tabMode="scrollable" />
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#db1c36"
+        app:tabTextColor="#414242" />
     <!--app:tabBackground="@drawable/tab_background"-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lotteryResultRView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+    <com.cfcp.a01.ui.lottery.trendview.LotteryTrendView
+        android:id="@+id/lotteryResultPK10TrendView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"/>
+    <com.cfcp.a01.ui.lottery.trendview.LotteryTrendView
+        android:id="@+id/lotteryResultCQTrendView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"/>
+    <com.cfcp.a01.ui.lottery.trendview.LotteryTrendView
+        android:id="@+id/lotteryResult11X5TrendView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"/>
+    <com.cfcp.a01.ui.lottery.trendview.LotteryTrendView
+        android:id="@+id/lotteryResultK3TrendView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"/>
 </LinearLayout>

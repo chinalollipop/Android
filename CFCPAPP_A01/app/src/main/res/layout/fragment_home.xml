@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_app">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:background="@color/color_game_title">
 
             <TextView
@@ -24,20 +23,20 @@
                 android:gravity="center"
                 android:text="创富彩票"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/homeName"
-                android:layout_width="48dp"
+                android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="3dp"
                 android:gravity="center"
-                android:text="登录"
+                android:text=""
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
             <ImageView
                 android:id="@+id/homeMenu"
                 android:visibility="gone"
@@ -66,12 +65,13 @@
                 <com.jude.rollviewpager.RollPagerView
                     android:id="@+id/homeRollpageView"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="153dp"
                     android:layout_gravity="center"
                     android:gravity="center" />
 
 
                 <LinearLayout
+                    android:id="@+id/homeNotice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -91,7 +91,10 @@
                         android:gravity="center|left"
                         />
                 </LinearLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_main_line" />
 
                 <LinearLayout
                     android:layout_marginTop="3dp"
@@ -130,7 +133,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="APP下载"
+                        android:text="额度转换"
                         android:textColor="@color/text_main" />
 
                     <TextView
@@ -149,51 +152,105 @@
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     android:background="@color/text_main_line" />
-
-                <LinearLayout
-                    android:layout_margin="5dp"
-                    android:background="@color/white"
+                <!--<android.support.design.widget.TabLayout
+                    android:id="@+id/homeLayout"
+                    app:tabIndicatorColor="@color/text_bet_submit"
+                    app:tabIndicatorHeight="4dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"/>-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="1dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@color/white">
 
-                    <TextView
+                    <LinearLayout
                         android:id="@+id/homeOfficial"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:drawableTop="@mipmap/home_gf"
                         android:gravity="center"
-                        android:text="官方玩法"
-                        android:textColor="@color/text_main" />
+                        android:orientation="vertical">
 
-                    <TextView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableLeft="@mipmap/home_gf"
+                                android:gravity="center"
+                                android:text="官方玩法"
+                                android:textColor="@color/text_main" />
+
+                        <View
+                            android:id="@+id/homeOfficialImg"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/home_method_line" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/homeCredit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:drawableTop="@mipmap/home_xy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="信用玩法"
-                        android:textColor="@color/text_main" />
+                        android:orientation="vertical">
 
-                    <TextView
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableLeft="@mipmap/home_xy"
+                                android:gravity="center"
+                                android:text="信用玩法"
+                                android:textColor="@color/text_main" />
+
+
+                        <View
+                            android:id="@+id/homeCreditImg"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/bg_app" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/homeQiPai"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:drawableTop="@mipmap/home_qp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="棋牌娱乐"
-                        android:textColor="@color/text_main" />
+                        android:orientation="vertical">
 
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableLeft="@mipmap/home_qp"
+                                android:gravity="center"
+                                android:text="真人/棋牌/捕鱼"
+                                android:textColor="@color/text_main" />
+
+
+                        <View
+                            android:id="@+id/homeQiPaiImg"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/bg_app" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="3dp"
+                    android:layout_height="1dp"
                     android:background="@color/text_main_line" />
 
                 <android.support.v7.widget.RecyclerView
