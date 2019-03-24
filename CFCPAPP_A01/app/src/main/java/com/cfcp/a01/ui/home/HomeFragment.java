@@ -1,6 +1,8 @@
 package com.cfcp.a01.ui.home;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -21,11 +23,13 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.http.Client;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.GameShipHelper;
 import com.cfcp.a01.common.utils.ToastUtils;
+import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.GridRvItemDecoration;
 import com.cfcp.a01.common.widget.MarqueeTextView;
 import com.cfcp.a01.common.widget.RollPagerViewManager;
@@ -38,6 +42,8 @@ import com.cfcp.a01.ui.home.bet.BetFragment;
 import com.cfcp.a01.ui.home.cplist.CPOrderFragment;
 import com.cfcp.a01.ui.home.deposit.DepositFragment;
 import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
+import com.cfcp.a01.ui.home.playgame.XPlayGameActivity;
+import com.cfcp.a01.ui.home.playgame.XPlayGameFragment;
 import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
 import com.cfcp.a01.ui.home.withdraw.WithDrawFragment;
 import com.cfcp.a01.ui.main.MainEvent;
@@ -45,6 +51,14 @@ import com.cfcp.a01.ui.me.bankcard.CardFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jude.rollviewpager.RollPagerView;
+import com.tencent.smtt.export.external.interfaces.JsPromptResult;
+import com.tencent.smtt.export.external.interfaces.JsResult;
+import com.tencent.smtt.sdk.CookieManager;
+import com.tencent.smtt.sdk.CookieSyncManager;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -57,6 +71,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
+import okhttp3.internal.Util;
+
+import static com.cfcp.a01.common.utils.Utils.getContext;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View {
 
@@ -437,8 +454,19 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
             intent.putExtra("gameId",lotteriesBean.getId()+"");
             intent.putExtra("gameName",lotteriesBean.getName());
             startActivity(intent);
-        }else{
+        }else if(postion==0){
             EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(lotteriesBean,(ArrayList)AvailableLottery), SupportFragment.SINGLETASK));
+        }else{
+            //presenter.getKaiYuanGame("");
+            String url =  Client.baseUrl()+"service?packet=ThirdGame&action=KaiyuanGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+//            initWebView(url);
+            /*EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(
+                    "开元棋牌",url,""), SupportFragment.SINGLETASK));*/
+            Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+            intent.putExtra("url",url);
+            intent.putExtra("gameCnName","开元棋牌");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
         }
     }
 
@@ -580,13 +608,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         }else{
             ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_FUND_PWD, "0");
         }
-        presenter.getJointLogin(loginResult.getUsername());
+        //presenter.getJointLogin(loginResult.getUsername());
 
         homeName.setVisibility(View.GONE);
         homeMenu.setVisibility(View.VISIBLE);
         /*this.loginResult = loginResult;
         accountName = loginResult.getUserName();
         homeName.setText(accountName);*/
+        //String url =  Client.baseUrl()+"service?packet=ThirdGame&action=KaiyuanGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+       // initWebView(url);
     }
 
     @Subscribe
@@ -600,7 +630,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         homeName.setVisibility(View.VISIBLE);
         homeMenu.setVisibility(View.GONE);
     }
-
 
     @OnClick({R.id.homeNotice,R.id.homeMenu, R.id.homeName, R.id.homeDeposit, R.id.homeDraw, R.id.homeDown, R.id.homeService, R.id.homeOfficial, R.id.homeCredit, R.id.homeQiPai})//
     public void onViewClicked(View view) {
@@ -622,6 +651,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 }
                 break;
             case R.id.homeDeposit:
+                if("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 //检查是否登录 如果未登录  请调整到登录页先登录
                 String token = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
                 if(Check.isEmpty(token)){
@@ -631,6 +664,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 }
                 break;
             case R.id.homeDraw:
+                if("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 //检查是否登录 如果未登录  请调整到登录页先登录
                 String token1 = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
                 if(Check.isEmpty(token1)){
@@ -684,13 +721,14 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 homeGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                     @Override
                     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                        showMessage(GameVideos.get(position).getName()+"敬请期待");
-                        //onHomeGameItemClick(GameVideos.get(position));
+                        if(position==0){
+                            onHomeGameItemClick(GameVideos.get(position));
+                        }else{
+                            showMessage(GameVideos.get(position).getName()+"敬请期待");
+                        }
                     }
                 });
                 homeRecView.setAdapter(homeGameAdapter);
-
-
                 break;
         }
     }

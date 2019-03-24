@@ -181,5 +181,33 @@ public class HomePresenter implements HomeContract.Presenter {
                     }
                 }));
     }
+
+    @Override
+    public void getKaiYuanGame(String username) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "ThirdGame");
+        params.put("action", "KaiyuanGame");
+        params.put("way", "index");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getAllGames(params))
+                .subscribe(new ResponseSubscriber<AllGamesResult>() {
+                    @Override
+                    public void success(AllGamesResult response) {
+                        if (response.getErrno() == 0) {
+                            view.getAllGamesResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 }
 

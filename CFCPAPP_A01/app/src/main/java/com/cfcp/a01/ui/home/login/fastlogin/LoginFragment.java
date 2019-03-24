@@ -124,7 +124,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BALANCE,loginResult.getAbalance());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT_ID,loginResult.getId()+"");
         EventBus.getDefault().post(loginResult);
-        finish();
+        popTo(LoginFragment.class,true);
     }
 
     @Override
@@ -152,6 +152,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                 EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
                 break;
             case R.id.loginGoDemo:
+                presenter.postDemo("","","");
                 break;
         }
     }
