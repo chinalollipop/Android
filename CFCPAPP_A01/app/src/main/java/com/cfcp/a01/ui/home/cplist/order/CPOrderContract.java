@@ -10,6 +10,7 @@ import com.cfcp.a01.data.CPJSFTResult;
 import com.cfcp.a01.data.CPJSK2Result;
 import com.cfcp.a01.data.CPJSKSResult;
 import com.cfcp.a01.data.CPJSSCResult;
+import com.cfcp.a01.data.CPKL8Result;
 import com.cfcp.a01.data.CPKLSFResult;
 import com.cfcp.a01.data.CPLastResult;
 import com.cfcp.a01.data.CPLeftInfoResult;
@@ -21,6 +22,7 @@ import com.cfcp.a01.data.CQ2FCResult;
 import com.cfcp.a01.data.CQ3FCResult;
 import com.cfcp.a01.data.CQ5FCResult;
 import com.cfcp.a01.data.CQSSCResult;
+import com.cfcp.a01.data.Cp11X5Result;
 import com.cfcp.a01.data.PCDDResult;
 
 public interface CPOrderContract {
@@ -42,6 +44,8 @@ public interface CPOrderContract {
         public void postRateInfoJsk32(String game_code, String type, String x_session_token);
         public void postRateInfoXync(String game_code, String type, String x_session_token);
         public void postRateInfoKlsf(String game_code, String type, String x_session_token);
+        public void postRateInfoKl8(String game_code, String type, String x_session_token);
+        public void postRateInfo11X5(String game_code, String type, String x_session_token);
         public void postRateInfoHK(String game_code, String type, String x_session_token);
         public void postRateInfoPCDD(String game_code, String x_session_token);
         /*public void postRateInfo6(String game_code,String type,String x_session_token);
@@ -71,6 +75,8 @@ public interface CPOrderContract {
         public void postRateInfoJsk32Result(CPJSK2Result cpjsk2Result);
         public void postRateInfoXyncResult(CPXYNCResult cpxyncResult);
         public void postRateInfoKlsfResult(CPKLSFResult cpklsfResult);
+        public void postRateInfoKl8Result(CPKL8Result cpkl8Result);
+        public void postRateInfo11X5Result(Cp11X5Result cpxyncResult);
         public void postRateInfoHKResult(CPHKResult cphkResult);
     }
 

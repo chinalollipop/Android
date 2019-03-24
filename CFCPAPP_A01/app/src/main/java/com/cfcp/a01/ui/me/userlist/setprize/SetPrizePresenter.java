@@ -8,6 +8,7 @@ import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LowerInfoDataResult;
+import com.cfcp.a01.data.LowerSetDataResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,14 +36,14 @@ public class SetPrizePresenter implements SetPrizeContract.Presenter {
     public void getLowerLevelReport(String user_id) {
         Map<String,String> params = new HashMap<>();
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
-        params.put("packet","User");
-        params.put("action","GetCurrentUserInfo");
+        params.put("packet","Game");
+        params.put("action","SetUserPrizeSet");
         params.put("user_id",user_id);
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getLowerLevelReport(params))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LowerInfoDataResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LowerSetDataResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<LowerInfoDataResult> response) {
+                    public void success(AppTextMessageResponse<LowerSetDataResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getLowerLevelReportResult(response.getData());
                         } else {
@@ -61,8 +62,19 @@ public class SetPrizePresenter implements SetPrizeContract.Presenter {
     }
 
     @Override
-    public void getRealName(String mobile,String name,String email,String qq) {
-        subscriptionHelper.add(RxHelper.addSugar(api.getRealName(CFConstant.PRODUCT_PLATFORM,"User","SetTrueName",name,ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN)))
+    public void getRealName(String user_id,String series_prize_group_json,String water,String qq) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Game");
+        params.put("series_id","1");
+        params.put("lottery_id","1");
+        params.put("action","SetUserPrizeSet");
+        params.put("user_id",user_id);
+        params.put("series_prize_group_json",series_prize_group_json);
+        params.put("agent_prize_set_quota","{}");
+        params.put("kickback",water);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getRealName(params))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {

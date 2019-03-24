@@ -9,6 +9,7 @@ import com.cfcp.a01.data.CPJSFTResult;
 import com.cfcp.a01.data.CPJSK2Result;
 import com.cfcp.a01.data.CPJSKSResult;
 import com.cfcp.a01.data.CPJSSCResult;
+import com.cfcp.a01.data.CPKL8Result;
 import com.cfcp.a01.data.CPKLSFResult;
 import com.cfcp.a01.data.CPLastResult;
 import com.cfcp.a01.data.CPLeftInfoResult;
@@ -20,6 +21,7 @@ import com.cfcp.a01.data.CQ2FCResult;
 import com.cfcp.a01.data.CQ3FCResult;
 import com.cfcp.a01.data.CQ5FCResult;
 import com.cfcp.a01.data.CQSSCResult;
+import com.cfcp.a01.data.Cp11X5Result;
 import com.cfcp.a01.data.PCDDResult;
 
 import java.util.Map;
@@ -101,10 +103,8 @@ public interface ICPOrderApi {
     @GET("service")
     Observable<AppTextMessageResponse<PCDDResult>> postRateInfoPCDD(@QueryMap Map<String, String> params);
 
-
-    @POST("gamessc/getrateinfo")
-    @FormUrlEncoded
-    Observable<CPJSKSResult> postRateInfoJsk3(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+    @GET("service")
+    Observable<AppTextMessageResponse<CPJSKSResult>> postRateInfoJsk3(@QueryMap Map<String, String> params);
 
     @POST("gamessc/getrateinfo")
     @FormUrlEncoded
@@ -115,6 +115,12 @@ public interface ICPOrderApi {
 
     @GET("service")
     Observable<AppTextMessageResponse<CPKLSFResult>> postRateInfoKlsf(@QueryMap Map<String, String> params);
+
+    @GET("service")
+    Observable<AppTextMessageResponse<CPKL8Result>> postRateInfoKl8(@QueryMap Map<String, String> params);
+
+    @GET("service")
+    Observable<AppTextMessageResponse<Cp11X5Result>> postRateInfo11X5(@QueryMap Map<String, String> params);
 
     @POST("gamexq/getrateinfo")
     @FormUrlEncoded

@@ -92,7 +92,6 @@ public class UserListFragment extends BaseFragment implements UserListContract.V
     public void setEvents(@Nullable Bundle savedInstanceState) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         userListRView.setLayoutManager(linearLayoutManager);
-        onRequsetData();
         userListRViewBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -199,6 +198,7 @@ public class UserListFragment extends BaseFragment implements UserListContract.V
     @Override
     public void onSupportVisible() {
         super.onSupportVisible();
+        onRequsetData();
     }
 
 }

@@ -15,6 +15,7 @@ import com.cfcp.a01.data.CPJSFTResult;
 import com.cfcp.a01.data.CPJSK2Result;
 import com.cfcp.a01.data.CPJSKSResult;
 import com.cfcp.a01.data.CPJSSCResult;
+import com.cfcp.a01.data.CPKL8Result;
 import com.cfcp.a01.data.CPKLSFResult;
 import com.cfcp.a01.data.CPLastResult;
 import com.cfcp.a01.data.CPLeftInfoResult;
@@ -26,6 +27,7 @@ import com.cfcp.a01.data.CQ2FCResult;
 import com.cfcp.a01.data.CQ3FCResult;
 import com.cfcp.a01.data.CQ5FCResult;
 import com.cfcp.a01.data.CQSSCResult;
+import com.cfcp.a01.data.Cp11X5Result;
 import com.cfcp.a01.data.PCDDResult;
 
 import java.util.HashMap;
@@ -348,11 +350,17 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
 
     @Override
     public void postRateInfoJsk3(String game_code, String type, String x_session_token) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoJsk3(game_code,type,x_session_token))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<CPJSKSResult>() {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Credit");
+        params.put("action","GameRate");
+        params.put("lottery_id",game_code);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoJsk3(params))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPJSKSResult>>() {
                     @Override
-                    public void success(CPJSKSResult response) {
-                        view.postRateInfoJsk3Result(response);
+                    public void success(AppTextMessageResponse<CPJSKSResult> response) {
+                        view.postRateInfoJsk3Result(response.getData());
                     }
 
                     @Override
@@ -432,6 +440,58 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
                         if(null != view)
                         {
                            
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postRateInfoKl8(String game_code, String type, String x_session_token) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Credit");
+        params.put("action","GameRate");
+        params.put("lottery_id",game_code);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoKl8(params))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPKL8Result>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<CPKL8Result> response) {
+                        view.postRateInfoKl8Result(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postRateInfo11X5(String game_code, String type, String x_session_token) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Credit");
+        params.put("action","GameRate");
+        params.put("lottery_id",game_code);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfo11X5(params))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<Cp11X5Result>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<Cp11X5Result> response) {
+                        view.postRateInfo11X5Result(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+
                             view.showMessage(msg);
                         }
                     }

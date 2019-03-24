@@ -159,7 +159,7 @@ public class HomePresenter implements HomeContract.Presenter {
         params.put("credit_token", Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(username)+"_ssc")));
         params.put("action", "CreditLogin");
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));*/
-        String getUrl = Client.baseUrl()+"service?action=CreditLogin&packet=Credit&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+        //String getUrl = Client.baseUrl()+"service?action=CreditLogin&packet=Credit&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
         //RetrofitUrlManager.getInstance().startAdvancedModel(getUrl);
 //        RetrofitUrlManager.getInstance().putDomain("CpUrl", getUrl);
         subscriptionHelper.add(RxHelper.addSugar(api.getJointLogin("CreditLogin","Credit",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN),username,Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(username)+"_ssc")),CFConstant.PRODUCT_PLATFORM))

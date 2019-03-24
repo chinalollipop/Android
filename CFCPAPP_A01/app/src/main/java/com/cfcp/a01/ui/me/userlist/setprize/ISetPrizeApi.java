@@ -4,6 +4,7 @@ package com.cfcp.a01.ui.me.userlist.setprize;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LowerInfoDataResult;
+import com.cfcp.a01.data.LowerSetDataResult;
 
 import java.util.Map;
 
@@ -21,19 +22,14 @@ import rx.Observable;
 public interface ISetPrizeApi {
 
     //存款方式提交 (encoded = true)
-    @POST("service")
-    @FormUrlEncoded
+    @GET("service")
     Observable<AppTextMessageResponse<LoginResult>> getRealName(
-            @Field("terminal_id") String terminal_id,
-            @Field("packet") String packet,
-            @Field("action") String action,
-            @Field("name") String name,
-            @Field("token") String token
+            @QueryMap Map<String, String> params
     );
 
     //下级个人信息
     @GET("service")
-    Observable<AppTextMessageResponse<LowerInfoDataResult>> getLowerLevelReport(
+    Observable<AppTextMessageResponse<LowerSetDataResult>> getLowerLevelReport(
             @QueryMap Map<String, String> params
     );
 
