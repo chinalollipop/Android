@@ -212,13 +212,18 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
     }
 
     @Override
-    public void postRateInfoJsft(String game_code, String type, String x_session_token) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoJsft(game_code,type,x_session_token))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<CPJSFTResult>() {
+    public void postRateInfoJsft(String lottery_id, String type, String x_session_token) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Credit");
+        params.put("action","GameRate");
+        params.put("lottery_id",lottery_id);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoJsft(params))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPJSFTResult>>() {
                     @Override
-                    public void success(CPJSFTResult response) {
-                        GameLog.log(""+response.toString());
-                        view.postRateInfoJsftResult(response);
+                    public void success(AppTextMessageResponse<CPJSFTResult> response) {
+                        view.postRateInfoJsftResult(response.getData());
                     }
 
                     @Override
@@ -500,11 +505,17 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
 
     @Override
     public void postRateInfoHK(String game_code, String type, String x_session_token) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoHK(game_code,type,x_session_token))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<CPHKResult>() {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Credit");
+        params.put("action","GameRate");
+        params.put("lottery_id",game_code);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.postRateInfoHK(params))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPHKResult>>() {
                     @Override
-                    public void success(CPHKResult response) {
-                        view.postRateInfoHKResult(response);
+                    public void success(AppTextMessageResponse<CPHKResult> response) {
+                        view.postRateInfoHKResult(response.getData());
                     }
 
                     @Override

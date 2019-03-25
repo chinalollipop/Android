@@ -67,10 +67,8 @@ public interface ICPOrderApi {
     @FormUrlEncoded
     Observable<CPJSSCResult> postRateInfoJssc(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
 
-    @POST("gamessc/getrateinfo")
-    @FormUrlEncoded
-    Observable<CPJSFTResult> postRateInfoJsft(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
-
+    @GET("service")
+    Observable<AppTextMessageResponse<CPJSFTResult>> postRateInfoJsft(@QueryMap Map<String, String> params);
 
     @GET("service")
     Observable<AppTextMessageResponse<CQSSCResult>> postRateInfo(@QueryMap Map<String, String> params);
@@ -122,8 +120,7 @@ public interface ICPOrderApi {
     @GET("service")
     Observable<AppTextMessageResponse<Cp11X5Result>> postRateInfo11X5(@QueryMap Map<String, String> params);
 
-    @POST("gamexq/getrateinfo")
-    @FormUrlEncoded
-    Observable<CPHKResult> postRateInfoHK(@Field("game_code") String game_code, @Field("type") String type, @Field("x-session-token") String x_session_token);
+    @GET("service")
+    Observable<AppTextMessageResponse<CPHKResult>> postRateInfoHK(@QueryMap Map<String, String> params);
 
 }

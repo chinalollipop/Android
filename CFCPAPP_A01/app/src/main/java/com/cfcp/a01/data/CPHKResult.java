@@ -5,19620 +5,8388 @@ import com.google.gson.annotations.SerializedName;
 public class CPHKResult {
 
     /**
-     * 1 : {"classid":"71","class1":"特码","class2":"特A","class3":"1","rate":"42","locked":"0"}
-     * 2 : {"classid":"71","class1":"特码","class2":"特A","class3":"2","rate":"42","locked":"0"}
-     * 3 : {"classid":"71","class1":"特码","class2":"特A","class3":"3","rate":"42","locked":"0"}
-     * 4 : {"classid":"71","class1":"特码","class2":"特A","class3":"4","rate":"42","locked":"0"}
-     * 5 : {"classid":"71","class1":"特码","class2":"特A","class3":"5","rate":"42","locked":"0"}
-     * 6 : {"classid":"71","class1":"特码","class2":"特A","class3":"6","rate":"42","locked":"0"}
-     * 7 : {"classid":"71","class1":"特码","class2":"特A","class3":"7","rate":"42","locked":"0"}
-     * 8 : {"classid":"71","class1":"特码","class2":"特A","class3":"8","rate":"42","locked":"0"}
-     * 9 : {"classid":"71","class1":"特码","class2":"特A","class3":"9","rate":"42","locked":"0"}
-     * 10 : {"classid":"71","class1":"特码","class2":"特A","class3":"10","rate":"42","locked":"0"}
-     * 11 : {"classid":"71","class1":"特码","class2":"特A","class3":"11","rate":"42","locked":"0"}
-     * 12 : {"classid":"71","class1":"特码","class2":"特A","class3":"12","rate":"42","locked":"0"}
-     * 13 : {"classid":"71","class1":"特码","class2":"特A","class3":"13","rate":"42","locked":"0"}
-     * 14 : {"classid":"71","class1":"特码","class2":"特A","class3":"14","rate":"42","locked":"0"}
-     * 15 : {"classid":"71","class1":"特码","class2":"特A","class3":"15","rate":"42","locked":"0"}
-     * 16 : {"classid":"71","class1":"特码","class2":"特A","class3":"16","rate":"42","locked":"0"}
-     * 17 : {"classid":"71","class1":"特码","class2":"特A","class3":"17","rate":"42","locked":"0"}
-     * 18 : {"classid":"71","class1":"特码","class2":"特A","class3":"18","rate":"42","locked":"0"}
-     * 19 : {"classid":"71","class1":"特码","class2":"特A","class3":"19","rate":"42","locked":"0"}
-     * 20 : {"classid":"71","class1":"特码","class2":"特A","class3":"20","rate":"42","locked":"0"}
-     * 21 : {"classid":"71","class1":"特码","class2":"特A","class3":"21","rate":"42","locked":"0"}
-     * 22 : {"classid":"71","class1":"特码","class2":"特A","class3":"22","rate":"42","locked":"0"}
-     * 23 : {"classid":"71","class1":"特码","class2":"特A","class3":"23","rate":"42","locked":"0"}
-     * 24 : {"classid":"71","class1":"特码","class2":"特A","class3":"24","rate":"42","locked":"0"}
-     * 25 : {"classid":"71","class1":"特码","class2":"特A","class3":"25","rate":"42","locked":"0"}
-     * 26 : {"classid":"71","class1":"特码","class2":"特A","class3":"26","rate":"42","locked":"0"}
-     * 27 : {"classid":"71","class1":"特码","class2":"特A","class3":"27","rate":"42","locked":"0"}
-     * 28 : {"classid":"71","class1":"特码","class2":"特A","class3":"28","rate":"42","locked":"0"}
-     * 29 : {"classid":"71","class1":"特码","class2":"特A","class3":"29","rate":"42","locked":"0"}
-     * 30 : {"classid":"71","class1":"特码","class2":"特A","class3":"30","rate":"42","locked":"0"}
-     * 31 : {"classid":"71","class1":"特码","class2":"特A","class3":"31","rate":"42","locked":"0"}
-     * 32 : {"classid":"71","class1":"特码","class2":"特A","class3":"32","rate":"42","locked":"0"}
-     * 33 : {"classid":"71","class1":"特码","class2":"特A","class3":"33","rate":"42","locked":"0"}
-     * 34 : {"classid":"71","class1":"特码","class2":"特A","class3":"34","rate":"42","locked":"0"}
-     * 35 : {"classid":"71","class1":"特码","class2":"特A","class3":"35","rate":"42","locked":"0"}
-     * 36 : {"classid":"71","class1":"特码","class2":"特A","class3":"36","rate":"42","locked":"0"}
-     * 37 : {"classid":"71","class1":"特码","class2":"特A","class3":"37","rate":"42","locked":"0"}
-     * 38 : {"classid":"71","class1":"特码","class2":"特A","class3":"38","rate":"42","locked":"0"}
-     * 39 : {"classid":"71","class1":"特码","class2":"特A","class3":"39","rate":"42","locked":"0"}
-     * 40 : {"classid":"71","class1":"特码","class2":"特A","class3":"40","rate":"42","locked":"0"}
-     * 41 : {"classid":"71","class1":"特码","class2":"特A","class3":"41","rate":"42","locked":"0"}
-     * 42 : {"classid":"71","class1":"特码","class2":"特A","class3":"42","rate":"42","locked":"0"}
-     * 43 : {"classid":"71","class1":"特码","class2":"特A","class3":"43","rate":"42","locked":"0"}
-     * 44 : {"classid":"71","class1":"特码","class2":"特A","class3":"44","rate":"42","locked":"0"}
-     * 45 : {"classid":"71","class1":"特码","class2":"特A","class3":"45","rate":"42","locked":"0"}
-     * 46 : {"classid":"71","class1":"特码","class2":"特A","class3":"46","rate":"42","locked":"0"}
-     * 47 : {"classid":"71","class1":"特码","class2":"特A","class3":"47","rate":"42","locked":"0"}
-     * 48 : {"classid":"71","class1":"特码","class2":"特A","class3":"48","rate":"42","locked":"0"}
-     * 49 : {"classid":"71","class1":"特码","class2":"特A","class3":"49","rate":"42","locked":"0"}
-     * 50 : {"classid":"73","class1":"特码","class2":"特A","class3":"单","rate":"1.965","locked":"0"}
-     * 51 : {"classid":"73","class1":"特码","class2":"特A","class3":"双","rate":"1.965","locked":"0"}
-     * 52 : {"classid":"74","class1":"特码","class2":"特A","class3":"大","rate":"1.965","locked":"0"}
-     * 53 : {"classid":"74","class1":"特码","class2":"特A","class3":"小","rate":"1.965","locked":"0"}
-     * 54 : {"classid":"75","class1":"特码","class2":"特A","class3":"合单","rate":"1.965","locked":"0"}
-     * 55 : {"classid":"75","class1":"特码","class2":"特A","class3":"合双","rate":"1.965","locked":"0"}
-     * 56 : {"classid":"81","class1":"特码","class2":"特A","class3":"红波","rate":"2.7","locked":"0"}
-     * 57 : {"classid":"81","class1":"特码","class2":"特A","class3":"绿波","rate":"2.9","locked":"0"}
-     * 58 : {"classid":"81","class1":"特码","class2":"特A","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 59 : {"classid":"72","class1":"特码","class2":"特B","class3":"1","rate":"48.5","locked":"0"}
-     * 60 : {"classid":"72","class1":"特码","class2":"特B","class3":"2","rate":"48.5","locked":"0"}
-     * 61 : {"classid":"72","class1":"特码","class2":"特B","class3":"3","rate":"48.5","locked":"0"}
-     * 62 : {"classid":"72","class1":"特码","class2":"特B","class3":"4","rate":"48.5","locked":"0"}
-     * 63 : {"classid":"72","class1":"特码","class2":"特B","class3":"5","rate":"48.5","locked":"0"}
-     * 64 : {"classid":"72","class1":"特码","class2":"特B","class3":"6","rate":"48.5","locked":"0"}
-     * 65 : {"classid":"72","class1":"特码","class2":"特B","class3":"7","rate":"48.5","locked":"0"}
-     * 66 : {"classid":"72","class1":"特码","class2":"特B","class3":"8","rate":"48.5","locked":"0"}
-     * 67 : {"classid":"72","class1":"特码","class2":"特B","class3":"9","rate":"48.5","locked":"0"}
-     * 68 : {"classid":"72","class1":"特码","class2":"特B","class3":"10","rate":"48.5","locked":"0"}
-     * 69 : {"classid":"72","class1":"特码","class2":"特B","class3":"11","rate":"48.5","locked":"0"}
-     * 70 : {"classid":"72","class1":"特码","class2":"特B","class3":"12","rate":"48.5","locked":"0"}
-     * 71 : {"classid":"72","class1":"特码","class2":"特B","class3":"13","rate":"48.5","locked":"0"}
-     * 72 : {"classid":"72","class1":"特码","class2":"特B","class3":"14","rate":"48.5","locked":"0"}
-     * 73 : {"classid":"72","class1":"特码","class2":"特B","class3":"15","rate":"48.5","locked":"0"}
-     * 74 : {"classid":"72","class1":"特码","class2":"特B","class3":"16","rate":"48.5","locked":"0"}
-     * 75 : {"classid":"72","class1":"特码","class2":"特B","class3":"17","rate":"48.5","locked":"0"}
-     * 76 : {"classid":"72","class1":"特码","class2":"特B","class3":"18","rate":"48.5","locked":"0"}
-     * 77 : {"classid":"72","class1":"特码","class2":"特B","class3":"19","rate":"48.5","locked":"0"}
-     * 78 : {"classid":"72","class1":"特码","class2":"特B","class3":"20","rate":"48.5","locked":"0"}
-     * 79 : {"classid":"72","class1":"特码","class2":"特B","class3":"21","rate":"48.5","locked":"0"}
-     * 80 : {"classid":"72","class1":"特码","class2":"特B","class3":"22","rate":"48.5","locked":"0"}
-     * 81 : {"classid":"72","class1":"特码","class2":"特B","class3":"23","rate":"48.5","locked":"0"}
-     * 82 : {"classid":"72","class1":"特码","class2":"特B","class3":"24","rate":"48.5","locked":"0"}
-     * 83 : {"classid":"72","class1":"特码","class2":"特B","class3":"25","rate":"48.5","locked":"0"}
-     * 84 : {"classid":"72","class1":"特码","class2":"特B","class3":"26","rate":"48.5","locked":"0"}
-     * 85 : {"classid":"72","class1":"特码","class2":"特B","class3":"27","rate":"48.5","locked":"0"}
-     * 86 : {"classid":"72","class1":"特码","class2":"特B","class3":"28","rate":"48.5","locked":"0"}
-     * 87 : {"classid":"72","class1":"特码","class2":"特B","class3":"29","rate":"48.5","locked":"0"}
-     * 88 : {"classid":"72","class1":"特码","class2":"特B","class3":"30","rate":"48.5","locked":"0"}
-     * 89 : {"classid":"72","class1":"特码","class2":"特B","class3":"31","rate":"48.5","locked":"0"}
-     * 90 : {"classid":"72","class1":"特码","class2":"特B","class3":"32","rate":"48.5","locked":"0"}
-     * 91 : {"classid":"72","class1":"特码","class2":"特B","class3":"33","rate":"48.5","locked":"0"}
-     * 92 : {"classid":"72","class1":"特码","class2":"特B","class3":"34","rate":"48.5","locked":"0"}
-     * 93 : {"classid":"72","class1":"特码","class2":"特B","class3":"35","rate":"48.5","locked":"0"}
-     * 94 : {"classid":"72","class1":"特码","class2":"特B","class3":"36","rate":"48.5","locked":"0"}
-     * 95 : {"classid":"72","class1":"特码","class2":"特B","class3":"37","rate":"48.5","locked":"0"}
-     * 96 : {"classid":"72","class1":"特码","class2":"特B","class3":"38","rate":"48.5","locked":"0"}
-     * 97 : {"classid":"72","class1":"特码","class2":"特B","class3":"39","rate":"48.5","locked":"0"}
-     * 98 : {"classid":"72","class1":"特码","class2":"特B","class3":"40","rate":"48.5","locked":"0"}
-     * 99 : {"classid":"72","class1":"特码","class2":"特B","class3":"41","rate":"48.5","locked":"0"}
-     * 100 : {"classid":"72","class1":"特码","class2":"特B","class3":"42","rate":"48.5","locked":"0"}
-     * 101 : {"classid":"72","class1":"特码","class2":"特B","class3":"43","rate":"48.5","locked":"0"}
-     * 102 : {"classid":"72","class1":"特码","class2":"特B","class3":"44","rate":"48.5","locked":"0"}
-     * 103 : {"classid":"72","class1":"特码","class2":"特B","class3":"45","rate":"48.5","locked":"0"}
-     * 104 : {"classid":"72","class1":"特码","class2":"特B","class3":"46","rate":"48.5","locked":"0"}
-     * 105 : {"classid":"72","class1":"特码","class2":"特B","class3":"47","rate":"48.5","locked":"0"}
-     * 106 : {"classid":"72","class1":"特码","class2":"特B","class3":"48","rate":"48.5","locked":"0"}
-     * 107 : {"classid":"72","class1":"特码","class2":"特B","class3":"49","rate":"48.5","locked":"0"}
-     * 108 : {"classid":"73","class1":"特码","class2":"特B","class3":"单","rate":"1.965","locked":"0"}
-     * 109 : {"classid":"73","class1":"特码","class2":"特B","class3":"双","rate":"1.965","locked":"0"}
-     * 110 : {"classid":"74","class1":"特码","class2":"特B","class3":"大","rate":"1.965","locked":"0"}
-     * 111 : {"classid":"74","class1":"特码","class2":"特B","class3":"小","rate":"1.965","locked":"0"}
-     * 112 : {"classid":"75","class1":"特码","class2":"特B","class3":"合单","rate":"1.965","locked":"0"}
-     * 113 : {"classid":"75","class1":"特码","class2":"特B","class3":"合双","rate":"1.965","locked":"0"}
-     * 114 : {"classid":"81","class1":"特码","class2":"特B","class3":"红波","rate":"2.7","locked":"0"}
-     * 115 : {"classid":"81","class1":"特码","class2":"特B","class3":"绿波","rate":"2.9","locked":"0"}
-     * 116 : {"classid":"81","class1":"特码","class2":"特B","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 748 : {"classid":"95","class1":"特码","class2":"特A","class3":"家禽","rate":"1.965","locked":"0"}
-     * 749 : {"classid":"95","class1":"特码","class2":"特A","class3":"野兽","rate":"1.965","locked":"0"}
-     * 750 : {"classid":"95","class1":"特码","class2":"特B","class3":"家禽","rate":"1.965","locked":"0"}
-     * 751 : {"classid":"95","class1":"特码","class2":"特B","class3":"野兽","rate":"1.965","locked":"0"}
-     * 795 : {"classid":"104","class1":"特码","class2":"特A","class3":"尾大","rate":"1.965","locked":"0"}
-     * 796 : {"classid":"104","class1":"特码","class2":"特A","class3":"尾小","rate":"1.965","locked":"0"}
-     * 797 : {"classid":"105","class1":"特码","class2":"特A","class3":"大单","rate":"3.75","locked":"0"}
-     * 798 : {"classid":"105","class1":"特码","class2":"特A","class3":"小单","rate":"3.75","locked":"0"}
-     * 799 : {"classid":"106","class1":"特码","class2":"特A","class3":"大双","rate":"3.75","locked":"0"}
-     * 800 : {"classid":"106","class1":"特码","class2":"特A","class3":"小双","rate":"3.75","locked":"0"}
-     * 801 : {"classid":"104","class1":"特码","class2":"特B","class3":"尾大","rate":"1.965","locked":"0"}
-     * 802 : {"classid":"104","class1":"特码","class2":"特B","class3":"尾小","rate":"1.965","locked":"0"}
-     * 803 : {"classid":"105","class1":"特码","class2":"特B","class3":"大单","rate":"3.75","locked":"0"}
-     * 804 : {"classid":"105","class1":"特码","class2":"特B","class3":"小单","rate":"3.75","locked":"0"}
-     * 805 : {"classid":"106","class1":"特码","class2":"特B","class3":"大双","rate":"3.75","locked":"0"}
-     * 806 : {"classid":"106","class1":"特码","class2":"特B","class3":"小双","rate":"3.75","locked":"0"}
+     * 708501 : 42.5
+     * 708502 : 42.5
+     * 708503 : 42.5
+     * 708504 : 42.5
+     * 708505 : 42.5
+     * 708506 : 42.5
+     * 708507 : 42.5
+     * 708508 : 42.5
+     * 708509 : 42.5
+     * 708510 : 42.5
+     * 708511 : 42.5
+     * 708512 : 42.5
+     * 708513 : 42.5
+     * 708514 : 42.5
+     * 708515 : 42.5
+     * 708516 : 42.5
+     * 708517 : 42.5
+     * 708518 : 42.5
+     * 708519 : 42.5
+     * 708520 : 42.5
+     * 708521 : 42.5
+     * 708522 : 42.5
+     * 708523 : 42.5
+     * 708524 : 42.5
+     * 708525 : 42.5
+     * 708526 : 42.5
+     * 708527 : 42.5
+     * 708528 : 42.5
+     * 708529 : 42.5
+     * 708530 : 42.5
+     * 708531 : 42.5
+     * 708532 : 42.5
+     * 708533 : 42.5
+     * 708534 : 42.5
+     * 708535 : 42.5
+     * 708536 : 42.5
+     * 708537 : 42.5
+     * 708538 : 42.5
+     * 708539 : 42.5
+     * 708540 : 42.5
+     * 708541 : 42.5
+     * 708542 : 42.5
+     * 708543 : 42.5
+     * 708544 : 42.5
+     * 708545 : 42.5
+     * 708546 : 42.5
+     * 708547 : 42.5
+     * 708548 : 42.5
+     * 708549 : 42.5
+     * 708550 : 48.5
+     * 708551 : 48.5
+     * 708552 : 48.5
+     * 708553 : 48.5
+     * 708554 : 48.5
+     * 708555 : 48.5
+     * 708556 : 48.5
+     * 708557 : 48.5
+     * 708558 : 48.5
+     * 708559 : 48.5
+     * 708560 : 48.5
+     * 708561 : 48.5
+     * 708562 : 48.5
+     * 708563 : 48.5
+     * 708564 : 48.5
+     * 708565 : 48.5
+     * 708566 : 48.5
+     * 708567 : 48.5
+     * 708568 : 48.5
+     * 708569 : 48.5
+     * 708570 : 48.5
+     * 708571 : 48.5
+     * 708572 : 48.5
+     * 708573 : 48.5
+     * 708574 : 48.5
+     * 708575 : 48.5
+     * 708576 : 48.5
+     * 708577 : 48.5
+     * 708578 : 48.5
+     * 708579 : 48.5
+     * 708580 : 48.5
+     * 708581 : 48.5
+     * 708582 : 48.5
+     * 708583 : 48.5
+     * 708584 : 48.5
+     * 708585 : 48.5
+     * 708586 : 48.5
+     * 708587 : 48.5
+     * 708588 : 48.5
+     * 708589 : 48.5
+     * 708590 : 48.5
+     * 708591 : 48.5
+     * 708592 : 48.5
+     * 708593 : 48.5
+     * 708594 : 48.5
+     * 708595 : 48.5
+     * 708596 : 48.5
+     * 708597 : 48.5
+     * 708598 : 48.5
+     * 708601 : 1.97
+     * 708602 : 1.97
+     * 708603 : 1.97
+     * 708604 : 1.97
+     * 708605 : 1.97
+     * 708606 : 1.97
+     * 708607 : 1.97
+     * 708608 : 1.97
+     * 708609 : 1.97
+     * 708610 : 1.97
+     * 708611 : 3.7
+     * 708612 : 3.7
+     * 708613 : 3.7
+     * 708614 : 3.7
+     * 708615 : 1.97
+     * 708616 : 1.97
+     * 708617 : 1.97
+     * 708618 : 1.97
+     * 708619 : 1.97
+     * 708620 : 1.97
+     * 708621 : 1.97
+     * 708622 : 1.97
+     * 708623 : 1.97
+     * 708624 : 1.97
+     * 708701 : 2.7
+     * 708702 : 2.9
+     * 708703 : 2.9
+     * 708704 : 5.4
+     * 708705 : 4.8
+     * 708706 : 6
+     * 708707 : 4.5
+     * 708708 : 5.4
+     * 708709 : 5.4
+     * 708710 : 4.8
+     * 708711 : 6
+     * 708712 : 5.4
+     * 708713 : 6
+     * 708714 : 4.8
+     * 708715 : 6
+     * 708716 : 13.5
+     * 708717 : 10.5
+     * 708718 : 8
+     * 708719 : 8
+     * 708720 : 8
+     * 708721 : 10.5
+     * 708722 : 13.5
+     * 708723 : 10.5
+     * 708724 : 10.5
+     * 708725 : 10.5
+     * 708726 : 10.5
+     * 708727 : 13.5
+     * 708801 : 11.5
+     * 708802 : 11.5
+     * 708803 : 11.5
+     * 708804 : 11.5
+     * 708805 : 11.5
+     * 708806 : 11.5
+     * 708807 : 11.5
+     * 708808 : 11.5
+     * 708809 : 11.5
+     * 708810 : 11.5
+     * 708811 : 9.5
+     * 708812 : 11.5
+     * 708902 : 5.6
+     * 708903 : 3.7
+     * 708904 : 2.8
+     * 708905 : 2.1
+     * 708906 : 1.97
+     * 708907 : 1.6
+     * 708908 : 1.4
+     * 708909 : 1.2
+     * 708910 : 1.12
+     * 708911 : 1.05
+     * 709001 : 5.1
+     * 709002 : 4.6
+     * 709003 : 4.6
+     * 709004 : 4.6
+     * 709005 : 4.6
+     * 709006 : 9.2
+     * 709007 : 9.2
+     * 709008 : 9.2
+     * 709009 : 9.2
+     * 709010 : 9.2
+     * 709011 : 9.2
+     * 709012 : 9.2
+     * 709013 : 9.2
+     * 709014 : 9.2
+     * 709015 : 11.5
+     * 709101 : 7.21
+     * 709102 : 7.21
+     * 709103 : 7.21
+     * 709104 : 7.21
+     * 709105 : 7.21
+     * 709106 : 7.21
+     * 709107 : 7.21
+     * 709108 : 7.21
+     * 709109 : 7.21
+     * 709110 : 7.21
+     * 709111 : 7.21
+     * 709112 : 7.21
+     * 709113 : 7.21
+     * 709114 : 7.21
+     * 709115 : 7.21
+     * 709116 : 7.21
+     * 709117 : 7.21
+     * 709118 : 7.21
+     * 709119 : 7.21
+     * 709120 : 7.21
+     * 709121 : 7.21
+     * 709122 : 7.21
+     * 709123 : 7.21
+     * 709124 : 7.21
+     * 709125 : 7.21
+     * 709126 : 7.21
+     * 709127 : 7.21
+     * 709128 : 7.21
+     * 709129 : 7.21
+     * 709130 : 7.21
+     * 709131 : 7.21
+     * 709132 : 7.21
+     * 709133 : 7.21
+     * 709134 : 7.21
+     * 709135 : 7.21
+     * 709136 : 7.21
+     * 709137 : 7.21
+     * 709138 : 7.21
+     * 709139 : 7.21
+     * 709140 : 7.21
+     * 709141 : 7.21
+     * 709142 : 7.21
+     * 709143 : 7.21
+     * 709144 : 7.21
+     * 709145 : 7.21
+     * 709146 : 7.21
+     * 709147 : 7.21
+     * 709148 : 7.21
+     * 709149 : 7.21
+     * 709301 : 4.78
+     * 709302 : 4.78
+     * 709303 : 4.78
+     * 709304 : 4.78
+     * 709305 : 5.2
+     * 709401 : 2.09
+     * 709402 : 2.09
+     * 709403 : 2.09
+     * 709404 : 2.09
+     * 709405 : 2.09
+     * 709406 : 2.09
+     * 709407 : 2.09
+     * 709408 : 2.09
+     * 709409 : 2.09
+     * 709410 : 2.09
+     * 709411 : 2.09
+     * 709412 : 1.8
+     * 709413 : 2.09
+     * 709414 : 1.8
+     * 709415 : 1.8
+     * 709416 : 1.8
+     * 709417 : 1.8
+     * 709418 : 1.8
+     * 709419 : 1.8
+     * 709420 : 1.8
+     * 709421 : 1.8
+     * 709422 : 1.8
+     * 709501 : 1.92
+     * 709502 : 1.92
+     * 709503 : 1.92
+     * 709504 : 1.92
+     * 709505 : 1.92
+     * 709506 : 1.92
+     * 709507 : 1.92
+     * 709508 : 1.92
+     * 709509 : 1.92
+     * 709510 : 1.92
+     * 709511 : 1.76
+     * 709512 : 1.92
+     * 709601 : 2.7
+     * 709602 : 2.9
+     * 709603 : 2.9
+     * 709604 : 23
+     * 709701 : 14
+     * 709702 : 14
+     * 709703 : 14
+     * 709704 : 3.06
+     * 709705 : 1.97
+     * 709706 : 5.3
+     * 709707 : 1.97
+     * 709708 : 1.97
+     * 709805 : 2.17
+     * 709806 : 2.63
+     * 709807 : 3.18
+     * 709808 : 3.72
+     * 709809 : 4.5
+     * 709810 : 5.58
+     * 709811 : 6.8
+     * 709812 : 8.5
+     * 709901 : 4.12
+     * 709902 : 4.12
+     * 709903 : 4.12
+     * 709904 : 4.12
+     * 709905 : 4.12
+     * 709906 : 4.12
+     * 709907 : 4.12
+     * 709908 : 4.12
+     * 709909 : 4.12
+     * 709910 : 4.12
+     * 709911 : 3.32
+     * 709912 : 4.12
+     * 709913 : 11.12
+     * 709914 : 11.12
+     * 709915 : 11.12
+     * 709916 : 11.12
+     * 709917 : 11.12
+     * 709918 : 11.12
+     * 709919 : 11.12
+     * 709920 : 11.12
+     * 709921 : 11.12
+     * 709922 : 11.12
+     * 709923 : 9.02
+     * 709924 : 11.12
+     * 709925 : 31.2
+     * 709926 : 31.2
+     * 709927 : 31.2
+     * 709928 : 31.2
+     * 709929 : 31.2
+     * 709930 : 31.2
+     * 709931 : 31.2
+     * 709932 : 31.2
+     * 709933 : 31.2
+     * 709934 : 31.2
+     * 709935 : 25.3
+     * 709936 : 31.2
+     * 709937 : 98
+     * 709938 : 98
+     * 709939 : 98
+     * 709940 : 98
+     * 709941 : 98
+     * 709942 : 98
+     * 709943 : 98
+     * 709944 : 98
+     * 709945 : 98
+     * 709946 : 98
+     * 709947 : 87
+     * 709948 : 98
+     * 709949 : 3.2
+     * 709950 : 3.18
+     * 709951 : 3.18
+     * 709952 : 3.18
+     * 709953 : 3.18
+     * 709954 : 3.18
+     * 709955 : 3.18
+     * 709956 : 3.18
+     * 709957 : 3.18
+     * 709958 : 3.18
+     * 709959 : 7.08
+     * 709960 : 7.08
+     * 709961 : 7.08
+     * 709962 : 7.08
+     * 709963 : 7.08
+     * 709964 : 7.08
+     * 709965 : 7.08
+     * 709966 : 7.08
+     * 709967 : 7.08
+     * 709968 : 7.08
+     * 709969 : 15.8
+     * 709970 : 15.8
+     * 709971 : 15.8
+     * 709972 : 15.8
+     * 709973 : 15.8
+     * 709974 : 15.8
+     * 709975 : 15.8
+     * 709976 : 15.8
+     * 709977 : 15.8
+     * 709978 : 15.8
+     * 709979 : 45
+     * 709980 : 40
+     * 709981 : 40
+     * 709982 : 40
+     * 709983 : 40
+     * 709984 : 40
+     * 709985 : 40
+     * 709986 : 40
+     * 709987 : 40
+     * 709988 : 40
+     * 7010001 : 20
+     * 7010002 : 100
+     * 7010003 : 670
+     * 7010004 : 60
+     * 7010005 : 25.5
+     * 7010006 : 50
+     * 7010007 : 150
+     * 7010008 : 950
+     * 7092001 : 42.25
+     * 7092002 : 42.25
+     * 7092003 : 42.25
+     * 7092004 : 42.25
+     * 7092005 : 42.25
+     * 7092006 : 42.25
+     * 7092007 : 42.25
+     * 7092008 : 42.25
+     * 7092009 : 42.25
+     * 7092010 : 42.25
+     * 7092011 : 42.25
+     * 7092012 : 42.25
+     * 7092013 : 42.25
+     * 7092014 : 42.25
+     * 7092015 : 42.25
+     * 7092016 : 42.25
+     * 7092017 : 42.25
+     * 7092018 : 42.25
+     * 7092019 : 42.25
+     * 7092020 : 42.25
+     * 7092021 : 42.25
+     * 7092022 : 42.25
+     * 7092023 : 42.25
+     * 7092024 : 42.25
+     * 7092025 : 42.25
+     * 7092026 : 42.25
+     * 7092027 : 42.25
+     * 7092028 : 42.25
+     * 7092029 : 42.25
+     * 7092030 : 42.25
+     * 7092031 : 42.25
+     * 7092032 : 42.25
+     * 7092033 : 42.25
+     * 7092034 : 42.25
+     * 7092035 : 42.25
+     * 7092036 : 42.25
+     * 7092037 : 42.25
+     * 7092038 : 42.25
+     * 7092039 : 42.25
+     * 7092040 : 42.25
+     * 7092041 : 42.25
+     * 7092042 : 42.25
+     * 7092043 : 42.25
+     * 7092044 : 42.25
+     * 7092045 : 42.25
+     * 7092046 : 42.25
+     * 7092047 : 42.25
+     * 7092048 : 42.25
+     * 7092049 : 42.25
+     * 7092050 : 1.97
+     * 7092051 : 1.97
+     * 7092052 : 1.97
+     * 7092053 : 1.97
+     * 7092054 : 1.97
+     * 7092055 : 1.97
+     * 7092056 : 1.97
+     * 7092057 : 1.97
+     * 7092058 : 2.7
+     * 7092059 : 2.9
+     * 7092060 : 2.9
+     * 7092061 : 1.97
+     * 7092062 : 1.97
+     * 7092063 : 42.25
+     * 7092064 : 42.25
+     * 7092065 : 42.25
+     * 7092066 : 42.25
+     * 7092067 : 42.25
+     * 7092068 : 42.25
+     * 7092069 : 42.25
+     * 7092070 : 42.25
+     * 7092071 : 42.25
+     * 7092072 : 42.25
+     * 7092073 : 42.25
+     * 7092074 : 42.25
+     * 7092075 : 42.25
+     * 7092076 : 42.25
+     * 7092077 : 42.25
+     * 7092078 : 42.25
+     * 7092079 : 42.25
+     * 7092080 : 42.25
+     * 7092081 : 42.25
+     * 7092082 : 42.25
+     * 7092083 : 42.25
+     * 7092084 : 42.25
+     * 7092085 : 42.25
+     * 7092086 : 42.25
+     * 7092087 : 42.25
+     * 7092088 : 42.25
+     * 7092089 : 42.25
+     * 7092090 : 42.25
+     * 7092091 : 42.25
+     * 7092092 : 42.25
+     * 7092093 : 42.25
+     * 7092094 : 42.25
+     * 7092095 : 42.25
+     * 7092096 : 42.25
+     * 7092097 : 42.25
+     * 7092098 : 42.25
+     * 7092099 : 42.25
+     * 7092100 : 42.25
+     * 7092101 : 42.25
+     * 7092102 : 42.25
+     * 7092103 : 42.25
+     * 7092104 : 42.25
+     * 7092105 : 42.25
+     * 7092106 : 42.25
+     * 7092107 : 42.25
+     * 7092108 : 42.25
+     * 7092109 : 42.25
+     * 7092110 : 42.25
+     * 7092111 : 42.25
+     * 7092112 : 1.97
+     * 7092113 : 1.97
+     * 7092114 : 1.97
+     * 7092115 : 1.97
+     * 7092116 : 1.97
+     * 7092117 : 1.97
+     * 7092118 : 1.97
+     * 7092119 : 1.97
+     * 7092120 : 2.7
+     * 7092121 : 2.9
+     * 7092122 : 2.9
+     * 7092123 : 1.97
+     * 7092124 : 1.97
+     * 7092125 : 42.25
+     * 7092126 : 42.25
+     * 7092127 : 42.25
+     * 7092128 : 42.25
+     * 7092129 : 42.25
+     * 7092130 : 42.25
+     * 7092131 : 42.25
+     * 7092132 : 42.25
+     * 7092133 : 42.25
+     * 7092134 : 42.25
+     * 7092135 : 42.25
+     * 7092136 : 42.25
+     * 7092137 : 42.25
+     * 7092138 : 42.25
+     * 7092139 : 42.25
+     * 7092140 : 42.25
+     * 7092141 : 42.25
+     * 7092142 : 42.25
+     * 7092143 : 42.25
+     * 7092144 : 42.25
+     * 7092145 : 42.25
+     * 7092146 : 42.25
+     * 7092147 : 42.25
+     * 7092148 : 42.25
+     * 7092149 : 42.25
+     * 7092150 : 42.25
+     * 7092151 : 42.25
+     * 7092152 : 42.25
+     * 7092153 : 42.25
+     * 7092154 : 42.25
+     * 7092155 : 42.25
+     * 7092156 : 42.25
+     * 7092157 : 42.25
+     * 7092158 : 42.25
+     * 7092159 : 42.25
+     * 7092160 : 42.25
+     * 7092161 : 42.25
+     * 7092162 : 42.25
+     * 7092163 : 42.25
+     * 7092164 : 42.25
+     * 7092165 : 42.25
+     * 7092166 : 42.25
+     * 7092167 : 42.25
+     * 7092168 : 42.25
+     * 7092169 : 42.25
+     * 7092170 : 42.25
+     * 7092171 : 42.25
+     * 7092172 : 42.25
+     * 7092173 : 42.25
+     * 7092174 : 1.97
+     * 7092175 : 1.97
+     * 7092176 : 1.97
+     * 7092177 : 1.97
+     * 7092178 : 1.97
+     * 7092179 : 1.97
+     * 7092180 : 1.97
+     * 7092181 : 1.97
+     * 7092182 : 2.7
+     * 7092183 : 2.9
+     * 7092184 : 2.9
+     * 7092185 : 1.97
+     * 7092186 : 1.97
+     * 7092187 : 42.25
+     * 7092188 : 42.25
+     * 7092189 : 42.25
+     * 7092190 : 42.25
+     * 7092191 : 42.25
+     * 7092192 : 42.25
+     * 7092193 : 42.25
+     * 7092194 : 42.25
+     * 7092195 : 42.25
+     * 7092196 : 42.25
+     * 7092197 : 42.25
+     * 7092198 : 42.25
+     * 7092199 : 42.25
+     * 7092200 : 42.25
+     * 7092201 : 42.25
+     * 7092202 : 42.25
+     * 7092203 : 42.25
+     * 7092204 : 42.25
+     * 7092205 : 42.25
+     * 7092206 : 42.25
+     * 7092207 : 42.25
+     * 7092208 : 42.25
+     * 7092209 : 42.25
+     * 7092210 : 42.25
+     * 7092211 : 42.25
+     * 7092212 : 42.25
+     * 7092213 : 42.25
+     * 7092214 : 42.25
+     * 7092215 : 42.25
+     * 7092216 : 42.25
+     * 7092217 : 42.25
+     * 7092218 : 42.25
+     * 7092219 : 42.25
+     * 7092220 : 42.25
+     * 7092221 : 42.25
+     * 7092222 : 42.25
+     * 7092223 : 42.25
+     * 7092224 : 42.25
+     * 7092225 : 42.25
+     * 7092226 : 42.25
+     * 7092227 : 42.25
+     * 7092228 : 42.25
+     * 7092229 : 42.25
+     * 7092230 : 42.25
+     * 7092231 : 42.25
+     * 7092232 : 42.25
+     * 7092233 : 42.25
+     * 7092234 : 42.25
+     * 7092235 : 42.25
+     * 7092236 : 1.97
+     * 7092237 : 1.97
+     * 7092238 : 1.97
+     * 7092239 : 1.97
+     * 7092240 : 1.97
+     * 7092241 : 1.97
+     * 7092242 : 1.97
+     * 7092243 : 1.97
+     * 7092244 : 2.7
+     * 7092245 : 2.9
+     * 7092246 : 2.9
+     * 7092247 : 1.97
+     * 7092248 : 1.97
+     * 7092249 : 42.25
+     * 7092250 : 42.25
+     * 7092251 : 42.25
+     * 7092252 : 42.25
+     * 7092253 : 42.25
+     * 7092254 : 42.25
+     * 7092255 : 42.25
+     * 7092256 : 42.25
+     * 7092257 : 42.25
+     * 7092258 : 42.25
+     * 7092259 : 42.25
+     * 7092260 : 42.25
+     * 7092261 : 42.25
+     * 7092262 : 42.25
+     * 7092263 : 42.25
+     * 7092264 : 42.25
+     * 7092265 : 42.25
+     * 7092266 : 42.25
+     * 7092267 : 42.25
+     * 7092268 : 42.25
+     * 7092269 : 42.25
+     * 7092270 : 42.25
+     * 7092271 : 42.25
+     * 7092272 : 42.25
+     * 7092273 : 42.25
+     * 7092274 : 42.25
+     * 7092275 : 42.25
+     * 7092276 : 42.25
+     * 7092277 : 42.25
+     * 7092278 : 42.25
+     * 7092279 : 42.25
+     * 7092280 : 42.25
+     * 7092281 : 42.25
+     * 7092282 : 42.25
+     * 7092283 : 42.25
+     * 7092284 : 42.25
+     * 7092285 : 42.25
+     * 7092286 : 42.25
+     * 7092287 : 42.25
+     * 7092288 : 42.25
+     * 7092289 : 42.25
+     * 7092290 : 42.25
+     * 7092291 : 42.25
+     * 7092292 : 42.25
+     * 7092293 : 42.25
+     * 7092294 : 42.25
+     * 7092295 : 42.25
+     * 7092296 : 42.25
+     * 7092297 : 42.25
+     * 7092298 : 1.97
+     * 7092299 : 1.97
+     * 7092300 : 1.97
+     * 7092301 : 1.97
+     * 7092302 : 1.97
+     * 7092303 : 1.97
+     * 7092304 : 1.97
+     * 7092305 : 1.97
+     * 7092306 : 2.7
+     * 7092307 : 2.9
+     * 7092308 : 2.9
+     * 7092309 : 1.97
+     * 7092310 : 1.97
+     * 7092311 : 42.25
+     * 7092312 : 42.25
+     * 7092313 : 42.25
+     * 7092314 : 42.25
+     * 7092315 : 42.25
+     * 7092316 : 42.25
+     * 7092317 : 42.25
+     * 7092318 : 42.25
+     * 7092319 : 42.25
+     * 7092320 : 42.25
+     * 7092321 : 42.25
+     * 7092322 : 42.25
+     * 7092323 : 42.25
+     * 7092324 : 42.25
+     * 7092325 : 42.25
+     * 7092326 : 42.25
+     * 7092327 : 42.25
+     * 7092328 : 42.25
+     * 7092329 : 42.25
+     * 7092330 : 42.25
+     * 7092331 : 42.25
+     * 7092332 : 42.25
+     * 7092333 : 42.25
+     * 7092334 : 42.25
+     * 7092335 : 42.25
+     * 7092336 : 42.25
+     * 7092337 : 42.25
+     * 7092338 : 42.25
+     * 7092339 : 42.25
+     * 7092340 : 42.25
+     * 7092341 : 42.25
+     * 7092342 : 42.25
+     * 7092343 : 42.25
+     * 7092344 : 42.25
+     * 7092345 : 42.25
+     * 7092346 : 42.25
+     * 7092347 : 42.25
+     * 7092348 : 42.25
+     * 7092349 : 42.25
+     * 7092350 : 42.25
+     * 7092351 : 42.25
+     * 7092352 : 42.25
+     * 7092353 : 42.25
+     * 7092354 : 42.25
+     * 7092355 : 42.25
+     * 7092356 : 42.25
+     * 7092357 : 42.25
+     * 7092358 : 42.25
+     * 7092359 : 42.25
+     * 7092360 : 1.97
+     * 7092361 : 1.97
+     * 7092362 : 1.97
+     * 7092363 : 1.97
+     * 7092364 : 1.97
+     * 7092365 : 1.97
+     * 7092366 : 1.97
+     * 7092367 : 1.97
+     * 7092368 : 2.7
+     * 7092369 : 2.9
+     * 7092370 : 2.9
+     * 7092371 : 1.97
+     * 7092372 : 1.97
      */
 
-    @SerializedName("1")
-    private data1Bean data1;
-    @SerializedName("2")
-    private data2Bean data2;
-    @SerializedName("3")
-    private data3Bean data3;
-    @SerializedName("4")
-    private data4Bean data4;
-    @SerializedName("5")
-    private data5Bean data5;
-    @SerializedName("6")
-    private data6Bean data6;
-    @SerializedName("7")
-    private data7Bean data7;
-    @SerializedName("8")
-    private data8Bean data8;
-    @SerializedName("9")
-    private data9Bean data9;
-    @SerializedName("10")
-    private data10Bean data10;
-    @SerializedName("11")
-    private data11Bean data11;
-    @SerializedName("12")
-    private data12Bean data12;
-    @SerializedName("13")
-    private data13Bean data13;
-    @SerializedName("14")
-    private data14Bean data14;
-    @SerializedName("15")
-    private data15Bean data15;
-    @SerializedName("16")
-    private data16Bean data16;
-    @SerializedName("17")
-    private data17Bean data17;
-    @SerializedName("18")
-    private data18Bean data18;
-    @SerializedName("19")
-    private data19Bean data19;
-    @SerializedName("20")
-    private data20Bean data20;
-    @SerializedName("21")
-    private data21Bean data21;
-    @SerializedName("22")
-    private data22Bean data22;
-    @SerializedName("23")
-    private data23Bean data23;
-    @SerializedName("24")
-    private data24Bean data24;
-    @SerializedName("25")
-    private data25Bean data25;
-    @SerializedName("26")
-    private data26Bean data26;
-    @SerializedName("27")
-    private data27Bean data27;
-    @SerializedName("28")
-    private data28Bean data28;
-    @SerializedName("29")
-    private data29Bean data29;
-    @SerializedName("30")
-    private data30Bean data30;
-    @SerializedName("31")
-    private data31Bean data31;
-    @SerializedName("32")
-    private data32Bean data32;
-    @SerializedName("33")
-    private data33Bean data33;
-    @SerializedName("34")
-    private data34Bean data34;
-    @SerializedName("35")
-    private data35Bean data35;
-    @SerializedName("36")
-    private data36Bean data36;
-    @SerializedName("37")
-    private data37Bean data37;
-    @SerializedName("38")
-    private data38Bean data38;
-    @SerializedName("39")
-    private data39Bean data39;
-    @SerializedName("40")
-    private data40Bean data40;
-    @SerializedName("41")
-    private data41Bean data41;
-    @SerializedName("42")
-    private data42Bean data42;
-    @SerializedName("43")
-    private data43Bean data43;
-    @SerializedName("44")
-    private data44Bean data44;
-    @SerializedName("45")
-    private data45Bean data45;
-    @SerializedName("46")
-    private data46Bean data46;
-    @SerializedName("47")
-    private data47Bean data47;
-    @SerializedName("48")
-    private data48Bean data48;
-    @SerializedName("49")
-    private data49Bean data49;
-    @SerializedName("50")
-    private data50Bean data50;
-    @SerializedName("51")
-    private data51Bean data51;
-    @SerializedName("52")
-    private data52Bean data52;
-    @SerializedName("53")
-    private data53Bean data53;
-    @SerializedName("54")
-    private data54Bean data54;
-    @SerializedName("55")
-    private data55Bean data55;
-    @SerializedName("56")
-    private data56Bean data56;
-    @SerializedName("57")
-    private data57Bean data57;
-    @SerializedName("58")
-    private data58Bean data58;
-    @SerializedName("59")
-    private data59Bean data59;
-    @SerializedName("60")
-    private data60Bean data60;
-    @SerializedName("61")
-    private data61Bean data61;
-    @SerializedName("62")
-    private data62Bean data62;
-    @SerializedName("63")
-    private data63Bean data63;
-    @SerializedName("64")
-    private data64Bean data64;
-    @SerializedName("65")
-    private data65Bean data65;
-    @SerializedName("66")
-    private data66Bean data66;
-    @SerializedName("67")
-    private data67Bean data67;
-    @SerializedName("68")
-    private data68Bean data68;
-    @SerializedName("69")
-    private data69Bean data69;
-    @SerializedName("70")
-    private data70Bean data70;
-    @SerializedName("71")
-    private data71Bean data71;
-    @SerializedName("72")
-    private data72Bean data72;
-    @SerializedName("73")
-    private data73Bean data73;
-    @SerializedName("74")
-    private data74Bean data74;
-    @SerializedName("75")
-    private data75Bean data75;
-    @SerializedName("76")
-    private data76Bean data76;
-    @SerializedName("77")
-    private data77Bean data77;
-    @SerializedName("78")
-    private data78Bean data78;
-    @SerializedName("79")
-    private data79Bean data79;
-    @SerializedName("80")
-    private data80Bean data80;
-    @SerializedName("81")
-    private data81Bean data81;
-    @SerializedName("82")
-    private data82Bean data82;
-    @SerializedName("83")
-    private data83Bean data83;
-    @SerializedName("84")
-    private data84Bean data84;
-    @SerializedName("85")
-    private data85Bean data85;
-    @SerializedName("86")
-    private data86Bean data86;
-    @SerializedName("87")
-    private data87Bean data87;
-    @SerializedName("88")
-    private data88Bean data88;
-    @SerializedName("89")
-    private data89Bean data89;
-    @SerializedName("90")
-    private data90Bean data90;
-    @SerializedName("91")
-    private data91Bean data91;
-    @SerializedName("92")
-    private data92Bean data92;
-    @SerializedName("93")
-    private data93Bean data93;
-    @SerializedName("94")
-    private data94Bean data94;
-    @SerializedName("95")
-    private data95Bean data95;
-    @SerializedName("96")
-    private data96Bean data96;
-    @SerializedName("97")
-    private data97Bean data97;
-    @SerializedName("98")
-    private data98Bean data98;
-    @SerializedName("99")
-    private data99Bean data99;
-    @SerializedName("100")
-    private data100Bean data100;
-    @SerializedName("101")
-    private data101Bean data101;
-    @SerializedName("102")
-    private data102Bean data102;
-    @SerializedName("103")
-    private data103Bean data103;
-    @SerializedName("104")
-    private data104Bean data104;
-    @SerializedName("105")
-    private data105Bean data105;
-    @SerializedName("106")
-    private data106Bean data106;
-    @SerializedName("107")
-    private data107Bean data107;
-    @SerializedName("108")
-    private data108Bean data108;
-    @SerializedName("109")
-    private data109Bean data109;
-    @SerializedName("110")
-    private data110Bean data110;
-    @SerializedName("111")
-    private data111Bean data111;
-    @SerializedName("112")
-    private data112Bean data112;
-    @SerializedName("113")
-    private data113Bean data113;
-    @SerializedName("114")
-    private data114Bean data114;
-    @SerializedName("115")
-    private data115Bean data115;
-    @SerializedName("116")
-    private data116Bean data116;
-    @SerializedName("748")
-    private data748Bean data748;
-    @SerializedName("749")
-    private data749Bean data749;
-    @SerializedName("750")
-    private data750Bean data750;
-    @SerializedName("751")
-    private data751Bean data751;
-    @SerializedName("795")
-    private data795Bean data795;
-    @SerializedName("796")
-    private data796Bean data796;
-    @SerializedName("797")
-    private data797Bean data797;
-    @SerializedName("798")
-    private data798Bean data798;
-    @SerializedName("799")
-    private data799Bean data799;
-    @SerializedName("800")
-    private data800Bean data800;
-    @SerializedName("801")
-    private data801Bean data801;
-    @SerializedName("802")
-    private data802Bean data802;
-    @SerializedName("803")
-    private data803Bean data803;
-    @SerializedName("804")
-    private data804Bean data804;
-    @SerializedName("805")
-    private data805Bean data805;
-    @SerializedName("806")
-    private data806Bean data806;
-    /**
-     * 465 : {"classid":"77","class1":"正码","class2":"正A","class3":"1","rate":"7.21","locked":"0"}
-     * 466 : {"classid":"77","class1":"正码","class2":"正A","class3":"2","rate":"7.21","locked":"0"}
-     * 467 : {"classid":"77","class1":"正码","class2":"正A","class3":"3","rate":"7.21","locked":"0"}
-     * 468 : {"classid":"77","class1":"正码","class2":"正A","class3":"4","rate":"7.21","locked":"0"}
-     * 469 : {"classid":"77","class1":"正码","class2":"正A","class3":"5","rate":"7.21","locked":"0"}
-     * 470 : {"classid":"77","class1":"正码","class2":"正A","class3":"6","rate":"7.21","locked":"0"}
-     * 471 : {"classid":"77","class1":"正码","class2":"正A","class3":"7","rate":"7.21","locked":"0"}
-     * 472 : {"classid":"77","class1":"正码","class2":"正A","class3":"8","rate":"7.21","locked":"0"}
-     * 473 : {"classid":"77","class1":"正码","class2":"正A","class3":"9","rate":"7.21","locked":"0"}
-     * 474 : {"classid":"77","class1":"正码","class2":"正A","class3":"10","rate":"7.21","locked":"0"}
-     * 475 : {"classid":"77","class1":"正码","class2":"正A","class3":"11","rate":"7.21","locked":"0"}
-     * 476 : {"classid":"77","class1":"正码","class2":"正A","class3":"12","rate":"7.21","locked":"0"}
-     * 477 : {"classid":"77","class1":"正码","class2":"正A","class3":"13","rate":"7.21","locked":"0"}
-     * 478 : {"classid":"77","class1":"正码","class2":"正A","class3":"14","rate":"7.21","locked":"0"}
-     * 479 : {"classid":"77","class1":"正码","class2":"正A","class3":"15","rate":"7.21","locked":"0"}
-     * 480 : {"classid":"77","class1":"正码","class2":"正A","class3":"16","rate":"7.21","locked":"0"}
-     * 481 : {"classid":"77","class1":"正码","class2":"正A","class3":"17","rate":"7.21","locked":"0"}
-     * 482 : {"classid":"77","class1":"正码","class2":"正A","class3":"18","rate":"7.21","locked":"0"}
-     * 483 : {"classid":"77","class1":"正码","class2":"正A","class3":"19","rate":"7.21","locked":"0"}
-     * 484 : {"classid":"77","class1":"正码","class2":"正A","class3":"20","rate":"7.21","locked":"0"}
-     * 485 : {"classid":"77","class1":"正码","class2":"正A","class3":"21","rate":"7.21","locked":"0"}
-     * 486 : {"classid":"77","class1":"正码","class2":"正A","class3":"22","rate":"7.21","locked":"0"}
-     * 487 : {"classid":"77","class1":"正码","class2":"正A","class3":"23","rate":"7.21","locked":"0"}
-     * 488 : {"classid":"77","class1":"正码","class2":"正A","class3":"24","rate":"7.21","locked":"0"}
-     * 489 : {"classid":"77","class1":"正码","class2":"正A","class3":"25","rate":"7.21","locked":"0"}
-     * 490 : {"classid":"77","class1":"正码","class2":"正A","class3":"26","rate":"7.21","locked":"0"}
-     * 491 : {"classid":"77","class1":"正码","class2":"正A","class3":"27","rate":"7.21","locked":"0"}
-     * 492 : {"classid":"77","class1":"正码","class2":"正A","class3":"28","rate":"7.21","locked":"0"}
-     * 493 : {"classid":"77","class1":"正码","class2":"正A","class3":"29","rate":"7.21","locked":"0"}
-     * 494 : {"classid":"77","class1":"正码","class2":"正A","class3":"30","rate":"7.21","locked":"0"}
-     * 495 : {"classid":"77","class1":"正码","class2":"正A","class3":"31","rate":"7.21","locked":"0"}
-     * 496 : {"classid":"77","class1":"正码","class2":"正A","class3":"32","rate":"7.21","locked":"0"}
-     * 497 : {"classid":"77","class1":"正码","class2":"正A","class3":"33","rate":"7.21","locked":"0"}
-     * 498 : {"classid":"77","class1":"正码","class2":"正A","class3":"34","rate":"7.21","locked":"0"}
-     * 499 : {"classid":"77","class1":"正码","class2":"正A","class3":"35","rate":"7.21","locked":"0"}
-     * 500 : {"classid":"77","class1":"正码","class2":"正A","class3":"36","rate":"7.21","locked":"0"}
-     * 501 : {"classid":"77","class1":"正码","class2":"正A","class3":"37","rate":"7.21","locked":"0"}
-     * 502 : {"classid":"77","class1":"正码","class2":"正A","class3":"38","rate":"7.21","locked":"0"}
-     * 503 : {"classid":"77","class1":"正码","class2":"正A","class3":"39","rate":"7.21","locked":"0"}
-     * 504 : {"classid":"77","class1":"正码","class2":"正A","class3":"40","rate":"7.21","locked":"0"}
-     * 505 : {"classid":"77","class1":"正码","class2":"正A","class3":"41","rate":"7.21","locked":"0"}
-     * 506 : {"classid":"77","class1":"正码","class2":"正A","class3":"42","rate":"7.21","locked":"0"}
-     * 507 : {"classid":"77","class1":"正码","class2":"正A","class3":"43","rate":"7.21","locked":"0"}
-     * 508 : {"classid":"77","class1":"正码","class2":"正A","class3":"44","rate":"7.21","locked":"0"}
-     * 509 : {"classid":"77","class1":"正码","class2":"正A","class3":"45","rate":"7.21","locked":"0"}
-     * 510 : {"classid":"77","class1":"正码","class2":"正A","class3":"46","rate":"7.21","locked":"0"}
-     * 511 : {"classid":"77","class1":"正码","class2":"正A","class3":"47","rate":"7.21","locked":"0"}
-     * 512 : {"classid":"77","class1":"正码","class2":"正A","class3":"48","rate":"7.21","locked":"0"}
-     * 513 : {"classid":"77","class1":"正码","class2":"正A","class3":"49","rate":"7.21","locked":"0"}
-     * 514 : {"classid":"79","class1":"正码","class2":"正A","class3":"总单","rate":"1.965","locked":"0"}
-     * 515 : {"classid":"79","class1":"正码","class2":"正A","class3":"总双","rate":"1.965","locked":"0"}
-     * 516 : {"classid":"80","class1":"正码","class2":"正A","class3":"总大","rate":"1.965","locked":"0"}
-     * 517 : {"classid":"80","class1":"正码","class2":"正A","class3":"总小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("465")
-    private data80Bean data465;
-    @SerializedName("466")
-    private data80Bean data466;
-    @SerializedName("467")
-    private data80Bean data467;
-    @SerializedName("468")
-    private data80Bean data468;
-    @SerializedName("469")
-    private data80Bean data469;
-    @SerializedName("470")
-    private data80Bean data470;
-    @SerializedName("471")
-    private data80Bean data471;
-    @SerializedName("472")
-    private data80Bean data472;
-    @SerializedName("473")
-    private data80Bean data473;
-    @SerializedName("474")
-    private data80Bean data474;
-    @SerializedName("475")
-    private data80Bean data475;
-    @SerializedName("476")
-    private data80Bean data476;
-    @SerializedName("477")
-    private data80Bean data477;
-    @SerializedName("478")
-    private data80Bean data478;
-    @SerializedName("479")
-    private data80Bean data479;
-    @SerializedName("480")
-    private data80Bean data480;
-    @SerializedName("481")
-    private data80Bean data481;
-    @SerializedName("482")
-    private data80Bean data482;
-    @SerializedName("483")
-    private data80Bean data483;
-    @SerializedName("484")
-    private data80Bean data484;
-    @SerializedName("485")
-    private data80Bean data485;
-    @SerializedName("486")
-    private data80Bean data486;
-    @SerializedName("487")
-    private data80Bean data487;
-    @SerializedName("488")
-    private data80Bean data488;
-    @SerializedName("489")
-    private data80Bean data489;
-    @SerializedName("490")
-    private data80Bean data490;
-    @SerializedName("491")
-    private data80Bean data491;
-    @SerializedName("492")
-    private data80Bean data492;
-    @SerializedName("493")
-    private data80Bean data493;
-    @SerializedName("494")
-    private data80Bean data494;
-    @SerializedName("495")
-    private data80Bean data495;
-    @SerializedName("496")
-    private data80Bean data496;
-    @SerializedName("497")
-    private data80Bean data497;
-    @SerializedName("498")
-    private data80Bean data498;
-    @SerializedName("499")
-    private data80Bean data499;
-    @SerializedName("500")
-    private data80Bean data500;
-    @SerializedName("501")
-    private data80Bean data501;
-    @SerializedName("502")
-    private data80Bean data502;
-    @SerializedName("503")
-    private data80Bean data503;
-    @SerializedName("504")
-    private data80Bean data504;
-    @SerializedName("505")
-    private data80Bean data505;
-    @SerializedName("506")
-    private data80Bean data506;
-    @SerializedName("507")
-    private data80Bean data507;
-    @SerializedName("508")
-    private data80Bean data508;
-    @SerializedName("509")
-    private data80Bean data509;
-    @SerializedName("510")
-    private data80Bean data510;
-    @SerializedName("511")
-    private data80Bean data511;
-    @SerializedName("512")
-    private data80Bean data512;
-    @SerializedName("513")
-    private data80Bean data513;
-    @SerializedName("514")
-    private data80Bean data514;
-    @SerializedName("515")
-    private data80Bean data515;
-    @SerializedName("516")
-    private data80Bean data516;
-    @SerializedName("517")
-    private data80Bean data517;
-    /**
-     * 518 : {"classid":"78","class1":"正码","class2":"正B","class3":"1","rate":"7.21","locked":"0"}
-     * 519 : {"classid":"78","class1":"正码","class2":"正B","class3":"2","rate":"7.21","locked":"0"}
-     * 520 : {"classid":"78","class1":"正码","class2":"正B","class3":"3","rate":"7.21","locked":"0"}
-     * 521 : {"classid":"78","class1":"正码","class2":"正B","class3":"4","rate":"7.21","locked":"0"}
-     * 522 : {"classid":"78","class1":"正码","class2":"正B","class3":"5","rate":"7.21","locked":"0"}
-     * 523 : {"classid":"78","class1":"正码","class2":"正B","class3":"6","rate":"7.21","locked":"0"}
-     * 524 : {"classid":"78","class1":"正码","class2":"正B","class3":"7","rate":"7.21","locked":"0"}
-     * 525 : {"classid":"78","class1":"正码","class2":"正B","class3":"8","rate":"7.21","locked":"0"}
-     * 526 : {"classid":"78","class1":"正码","class2":"正B","class3":"9","rate":"7.21","locked":"0"}
-     * 527 : {"classid":"78","class1":"正码","class2":"正B","class3":"10","rate":"7.21","locked":"0"}
-     * 528 : {"classid":"78","class1":"正码","class2":"正B","class3":"11","rate":"7.21","locked":"0"}
-     * 529 : {"classid":"78","class1":"正码","class2":"正B","class3":"12","rate":"7.21","locked":"0"}
-     * 530 : {"classid":"78","class1":"正码","class2":"正B","class3":"13","rate":"7.21","locked":"0"}
-     * 531 : {"classid":"78","class1":"正码","class2":"正B","class3":"14","rate":"7.21","locked":"0"}
-     * 532 : {"classid":"78","class1":"正码","class2":"正B","class3":"15","rate":"7.21","locked":"0"}
-     * 533 : {"classid":"78","class1":"正码","class2":"正B","class3":"16","rate":"7.21","locked":"0"}
-     * 534 : {"classid":"78","class1":"正码","class2":"正B","class3":"17","rate":"7.21","locked":"0"}
-     * 535 : {"classid":"78","class1":"正码","class2":"正B","class3":"18","rate":"7.21","locked":"0"}
-     * 536 : {"classid":"78","class1":"正码","class2":"正B","class3":"19","rate":"7.21","locked":"0"}
-     * 537 : {"classid":"78","class1":"正码","class2":"正B","class3":"20","rate":"7.21","locked":"0"}
-     * 538 : {"classid":"78","class1":"正码","class2":"正B","class3":"21","rate":"7.21","locked":"0"}
-     * 539 : {"classid":"78","class1":"正码","class2":"正B","class3":"22","rate":"7.21","locked":"0"}
-     * 540 : {"classid":"78","class1":"正码","class2":"正B","class3":"23","rate":"7.21","locked":"0"}
-     * 541 : {"classid":"78","class1":"正码","class2":"正B","class3":"24","rate":"7.21","locked":"0"}
-     * 542 : {"classid":"78","class1":"正码","class2":"正B","class3":"25","rate":"7.21","locked":"0"}
-     * 543 : {"classid":"78","class1":"正码","class2":"正B","class3":"26","rate":"7.21","locked":"0"}
-     * 544 : {"classid":"78","class1":"正码","class2":"正B","class3":"27","rate":"7.21","locked":"0"}
-     * 545 : {"classid":"78","class1":"正码","class2":"正B","class3":"28","rate":"7.21","locked":"0"}
-     * 546 : {"classid":"78","class1":"正码","class2":"正B","class3":"29","rate":"7.21","locked":"0"}
-     * 547 : {"classid":"78","class1":"正码","class2":"正B","class3":"30","rate":"7.21","locked":"0"}
-     * 548 : {"classid":"78","class1":"正码","class2":"正B","class3":"31","rate":"7.21","locked":"0"}
-     * 549 : {"classid":"78","class1":"正码","class2":"正B","class3":"32","rate":"7.21","locked":"0"}
-     * 550 : {"classid":"78","class1":"正码","class2":"正B","class3":"33","rate":"7.21","locked":"0"}
-     * 551 : {"classid":"78","class1":"正码","class2":"正B","class3":"34","rate":"7.21","locked":"0"}
-     * 552 : {"classid":"78","class1":"正码","class2":"正B","class3":"35","rate":"7.21","locked":"0"}
-     * 553 : {"classid":"78","class1":"正码","class2":"正B","class3":"36","rate":"7.21","locked":"0"}
-     * 554 : {"classid":"78","class1":"正码","class2":"正B","class3":"37","rate":"7.21","locked":"0"}
-     * 555 : {"classid":"78","class1":"正码","class2":"正B","class3":"38","rate":"7.21","locked":"0"}
-     * 556 : {"classid":"78","class1":"正码","class2":"正B","class3":"39","rate":"7.21","locked":"0"}
-     * 557 : {"classid":"78","class1":"正码","class2":"正B","class3":"40","rate":"7.21","locked":"0"}
-     * 558 : {"classid":"78","class1":"正码","class2":"正B","class3":"41","rate":"7.21","locked":"0"}
-     * 559 : {"classid":"78","class1":"正码","class2":"正B","class3":"42","rate":"7.21","locked":"0"}
-     * 560 : {"classid":"78","class1":"正码","class2":"正B","class3":"43","rate":"7.21","locked":"0"}
-     * 561 : {"classid":"78","class1":"正码","class2":"正B","class3":"44","rate":"7.21","locked":"0"}
-     * 562 : {"classid":"78","class1":"正码","class2":"正B","class3":"45","rate":"7.21","locked":"0"}
-     * 563 : {"classid":"78","class1":"正码","class2":"正B","class3":"46","rate":"7.21","locked":"0"}
-     * 564 : {"classid":"78","class1":"正码","class2":"正B","class3":"47","rate":"7.21","locked":"0"}
-     * 565 : {"classid":"78","class1":"正码","class2":"正B","class3":"48","rate":"7.21","locked":"0"}
-     * 566 : {"classid":"78","class1":"正码","class2":"正B","class3":"49","rate":"7.21","locked":"0"}
-     * 567 : {"classid":"79","class1":"正码","class2":"正B","class3":"总单","rate":"1.965","locked":"0"}
-     * 568 : {"classid":"79","class1":"正码","class2":"正B","class3":"总双","rate":"1.965","locked":"0"}
-     * 569 : {"classid":"80","class1":"正码","class2":"正B","class3":"总大","rate":"1.965","locked":"0"}
-     * 570 : {"classid":"80","class1":"正码","class2":"正B","class3":"总小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("518")
-    private data80Bean data518;
-    @SerializedName("519")
-    private data80Bean data519;
-    @SerializedName("520")
-    private data80Bean data520;
-    @SerializedName("521")
-    private data80Bean data521;
-    @SerializedName("522")
-    private data80Bean data522;
-    @SerializedName("523")
-    private data80Bean data523;
-    @SerializedName("524")
-    private data80Bean data524;
-    @SerializedName("525")
-    private data80Bean data525;
-    @SerializedName("526")
-    private data80Bean data526;
-    @SerializedName("527")
-    private data80Bean data527;
-    @SerializedName("528")
-    private data80Bean data528;
-    @SerializedName("529")
-    private data80Bean data529;
-    @SerializedName("530")
-    private data80Bean data530;
-    @SerializedName("531")
-    private data80Bean data531;
-    @SerializedName("532")
-    private data80Bean data532;
-    @SerializedName("533")
-    private data80Bean data533;
-    @SerializedName("534")
-    private data80Bean data534;
-    @SerializedName("535")
-    private data80Bean data535;
-    @SerializedName("536")
-    private data80Bean data536;
-    @SerializedName("537")
-    private data80Bean data537;
-    @SerializedName("538")
-    private data80Bean data538;
-    @SerializedName("539")
-    private data80Bean data539;
-    @SerializedName("540")
-    private data80Bean data540;
-    @SerializedName("541")
-    private data80Bean data541;
-    @SerializedName("542")
-    private data80Bean data542;
-    @SerializedName("543")
-    private data80Bean data543;
-    @SerializedName("544")
-    private data80Bean data544;
-    @SerializedName("545")
-    private data80Bean data545;
-    @SerializedName("546")
-    private data80Bean data546;
-    @SerializedName("547")
-    private data80Bean data547;
-    @SerializedName("548")
-    private data80Bean data548;
-    @SerializedName("549")
-    private data80Bean data549;
-    @SerializedName("550")
-    private data80Bean data550;
-    @SerializedName("551")
-    private data80Bean data551;
-    @SerializedName("552")
-    private data80Bean data552;
-    @SerializedName("553")
-    private data80Bean data553;
-    @SerializedName("554")
-    private data80Bean data554;
-    @SerializedName("555")
-    private data80Bean data555;
-    @SerializedName("556")
-    private data80Bean data556;
-    @SerializedName("557")
-    private data80Bean data557;
-    @SerializedName("558")
-    private data80Bean data558;
-    @SerializedName("559")
-    private data80Bean data559;
-    @SerializedName("560")
-    private data80Bean data560;
-    @SerializedName("561")
-    private data80Bean data561;
-    @SerializedName("562")
-    private data80Bean data562;
-    @SerializedName("563")
-    private data80Bean data563;
-    @SerializedName("564")
-    private data80Bean data564;
-    @SerializedName("565")
-    private data80Bean data565;
-    @SerializedName("566")
-    private data80Bean data566;
-    @SerializedName("567")
-    private data80Bean data567;
-    @SerializedName("568")
-    private data80Bean data568;
-    @SerializedName("569")
-    private data80Bean data569;
-    @SerializedName("570")
-    private data80Bean data570;
-    /**
-     * 571 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"大","rate":"1.965","locked":"0"}
-     * 572 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"小","rate":"1.965","locked":"0"}
-     * 573 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"单","rate":"1.965","locked":"0"}
-     * 574 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"双","rate":"1.965","locked":"0"}
-     * 575 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"红波","rate":"2.7","locked":"0"}
-     * 576 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"绿波","rate":"2.9","locked":"0"}
-     * 577 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 578 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"大","rate":"1.965","locked":"0"}
-     * 579 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"小","rate":"1.965","locked":"0"}
-     * 580 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"单","rate":"1.965","locked":"0"}
-     * 581 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"双","rate":"1.965","locked":"0"}
-     * 582 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"红波","rate":"2.7","locked":"0"}
-     * 583 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"绿波","rate":"2.9","locked":"0"}
-     * 584 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 585 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"大","rate":"1.965","locked":"0"}
-     * 586 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"小","rate":"1.965","locked":"0"}
-     * 587 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"单","rate":"1.965","locked":"0"}
-     * 588 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"双","rate":"1.965","locked":"0"}
-     * 589 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"红波","rate":"2.7","locked":"0"}
-     * 590 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"绿波","rate":"2.9","locked":"0"}
-     * 591 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 592 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"大","rate":"1.965","locked":"0"}
-     * 593 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"小","rate":"1.965","locked":"0"}
-     * 594 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"单","rate":"1.965","locked":"0"}
-     * 595 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"双","rate":"1.965","locked":"0"}
-     * 596 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"红波","rate":"2.7","locked":"0"}
-     * 597 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"绿波","rate":"2.9","locked":"0"}
-     * 598 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 599 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"大","rate":"1.965","locked":"0"}
-     * 600 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"小","rate":"1.965","locked":"0"}
-     * 601 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"单","rate":"1.965","locked":"0"}
-     * 602 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"双","rate":"1.965","locked":"0"}
-     * 603 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"红波","rate":"2.7","locked":"0"}
-     * 604 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"绿波","rate":"2.9","locked":"0"}
-     * 605 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 606 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"大","rate":"1.965","locked":"0"}
-     * 607 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"小","rate":"1.965","locked":"0"}
-     * 608 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"单","rate":"1.965","locked":"0"}
-     * 609 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"双","rate":"1.965","locked":"0"}
-     * 610 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"红波","rate":"2.7","locked":"0"}
-     * 611 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"绿波","rate":"2.9","locked":"0"}
-     * 612 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1047 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"合大","rate":"1.965","locked":"0"}
-     * 1048 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"合小","rate":"1.965","locked":"0"}
-     * 1049 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"合单","rate":"1.965","locked":"0"}
-     * 1050 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"合双","rate":"1.965","locked":"0"}
-     * 1051 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"尾大","rate":"1.965","locked":"0"}
-     * 1052 : {"classid":"118","class1":"正1-6","class2":"正码1","class3":"尾小","rate":"1.965","locked":"0"}
-     * 1053 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"合大","rate":"1.965","locked":"0"}
-     * 1054 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"合小","rate":"1.965","locked":"0"}
-     * 1055 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"合单","rate":"1.965","locked":"0"}
-     * 1056 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"合双","rate":"1.965","locked":"0"}
-     * 1057 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"尾大","rate":"1.965","locked":"0"}
-     * 1058 : {"classid":"118","class1":"正1-6","class2":"正码2","class3":"尾小","rate":"1.965","locked":"0"}
-     * 1059 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"合大","rate":"1.965","locked":"0"}
-     * 1060 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"合小","rate":"1.965","locked":"0"}
-     * 1061 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"合单","rate":"1.965","locked":"0"}
-     * 1062 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"合双","rate":"1.965","locked":"0"}
-     * 1063 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"尾大","rate":"1.965","locked":"0"}
-     * 1064 : {"classid":"118","class1":"正1-6","class2":"正码3","class3":"尾小","rate":"1.965","locked":"0"}
-     * 1065 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"合大","rate":"1.965","locked":"0"}
-     * 1066 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"合小","rate":"1.965","locked":"0"}
-     * 1067 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"合单","rate":"1.965","locked":"0"}
-     * 1068 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"合双","rate":"1.965","locked":"0"}
-     * 1069 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"尾大","rate":"1.965","locked":"0"}
-     * 1070 : {"classid":"118","class1":"正1-6","class2":"正码4","class3":"尾小","rate":"1.965","locked":"0"}
-     * 1071 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"合大","rate":"1.965","locked":"0"}
-     * 1072 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"合小","rate":"1.965","locked":"0"}
-     * 1073 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"合单","rate":"1.965","locked":"0"}
-     * 1074 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"合双","rate":"1.965","locked":"0"}
-     * 1075 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"尾大","rate":"1.965","locked":"0"}
-     * 1076 : {"classid":"118","class1":"正1-6","class2":"正码5","class3":"尾小","rate":"1.965","locked":"0"}
-     * 1077 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"合大","rate":"1.965","locked":"0"}
-     * 1078 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"合小","rate":"1.965","locked":"0"}
-     * 1079 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"合单","rate":"1.965","locked":"0"}
-     * 1080 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"合双","rate":"1.965","locked":"0"}
-     * 1081 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"尾大","rate":"1.965","locked":"0"}
-     * 1082 : {"classid":"118","class1":"正1-6","class2":"正码6","class3":"尾小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("571")
-    private data80Bean data571;
-    @SerializedName("572")
-    private data80Bean data572;
-    @SerializedName("573")
-    private data80Bean data573;
-    @SerializedName("574")
-    private data80Bean data574;
-    @SerializedName("575")
-    private data80Bean data575;
-    @SerializedName("576")
-    private data80Bean data576;
-    @SerializedName("577")
-    private data80Bean data577;
-    @SerializedName("578")
-    private data80Bean data578;
-    @SerializedName("579")
-    private data80Bean data579;
-    @SerializedName("580")
-    private data80Bean data580;
-    @SerializedName("581")
-    private data80Bean data581;
-    @SerializedName("582")
-    private data80Bean data582;
-    @SerializedName("583")
-    private data80Bean data583;
-    @SerializedName("584")
-    private data80Bean data584;
-    @SerializedName("585")
-    private data80Bean data585;
-    @SerializedName("586")
-    private data80Bean data586;
-    @SerializedName("587")
-    private data80Bean data587;
-    @SerializedName("588")
-    private data80Bean data588;
-    @SerializedName("589")
-    private data80Bean data589;
-    @SerializedName("590")
-    private data80Bean data590;
-    @SerializedName("591")
-    private data80Bean data591;
-    @SerializedName("592")
-    private data80Bean data592;
-    @SerializedName("593")
-    private data80Bean data593;
-    @SerializedName("594")
-    private data80Bean data594;
-    @SerializedName("595")
-    private data80Bean data595;
-    @SerializedName("596")
-    private data80Bean data596;
-    @SerializedName("597")
-    private data80Bean data597;
-    @SerializedName("598")
-    private data80Bean data598;
-    @SerializedName("599")
-    private data80Bean data599;
-    @SerializedName("600")
-    private data80Bean data600;
-    @SerializedName("601")
-    private data80Bean data601;
-    @SerializedName("602")
-    private data80Bean data602;
-    @SerializedName("603")
-    private data80Bean data603;
-    @SerializedName("604")
-    private data80Bean data604;
-    @SerializedName("605")
-    private data80Bean data605;
-    @SerializedName("606")
-    private data80Bean data606;
-    @SerializedName("607")
-    private data80Bean data607;
-    @SerializedName("608")
-    private data80Bean data608;
-    @SerializedName("609")
-    private data80Bean data609;
-    @SerializedName("610")
-    private data80Bean data610;
-    @SerializedName("611")
-    private data80Bean data611;
-    @SerializedName("612")
-    private data80Bean data612;
-    @SerializedName("1047")
-    private data80Bean data1047;
-    @SerializedName("1048")
-    private data80Bean data1048;
-    @SerializedName("1049")
-    private data80Bean data1049;
-    @SerializedName("1050")
-    private data80Bean data1050;
-    @SerializedName("1051")
-    private data80Bean data1051;
-    @SerializedName("1052")
-    private data80Bean data1052;
-    @SerializedName("1053")
-    private data80Bean data1053;
-    @SerializedName("1054")
-    private data80Bean data1054;
-    @SerializedName("1055")
-    private data80Bean data1055;
-    @SerializedName("1056")
-    private data80Bean data1056;
-    @SerializedName("1057")
-    private data80Bean data1057;
-    @SerializedName("1058")
-    private data80Bean data1058;
-    @SerializedName("1059")
-    private data80Bean data1059;
-    @SerializedName("1060")
-    private data80Bean data1060;
-    @SerializedName("1061")
-    private data80Bean data1061;
-    @SerializedName("1062")
-    private data80Bean data1062;
-    @SerializedName("1063")
-    private data80Bean data1063;
-    @SerializedName("1064")
-    private data80Bean data1064;
-    @SerializedName("1065")
-    private data80Bean data1065;
-    @SerializedName("1066")
-    private data80Bean data1066;
-    @SerializedName("1067")
-    private data80Bean data1067;
-    @SerializedName("1068")
-    private data80Bean data1068;
-    @SerializedName("1069")
-    private data80Bean data1069;
-    @SerializedName("1070")
-    private data80Bean data1070;
-    @SerializedName("1071")
-    private data80Bean data1071;
-    @SerializedName("1072")
-    private data80Bean data1072;
-    @SerializedName("1073")
-    private data80Bean data1073;
-    @SerializedName("1074")
-    private data80Bean data1074;
-    @SerializedName("1075")
-    private data80Bean data1075;
-    @SerializedName("1076")
-    private data80Bean data1076;
-    @SerializedName("1077")
-    private data80Bean data1077;
-    @SerializedName("1078")
-    private data80Bean data1078;
-    @SerializedName("1079")
-    private data80Bean data1079;
-    @SerializedName("1080")
-    private data80Bean data1080;
-    @SerializedName("1081")
-    private data80Bean data1081;
-    @SerializedName("1082")
-    private data80Bean data1082;
-    /**
-     * 620 : {"classid":"83","class1":"过关","class2":"正码1","class3":"单","rate":"1.965","locked":"0"}
-     * 621 : {"classid":"83","class1":"过关","class2":"正码1","class3":"双","rate":"1.965","locked":"0"}
-     * 622 : {"classid":"83","class1":"过关","class2":"正码1","class3":"大","rate":"1.965","locked":"0"}
-     * 623 : {"classid":"83","class1":"过关","class2":"正码1","class3":"小","rate":"1.965","locked":"0"}
-     * 624 : {"classid":"83","class1":"过关","class2":"正码1","class3":"红波","rate":"2.7","locked":"0"}
-     * 625 : {"classid":"83","class1":"过关","class2":"正码1","class3":"绿波","rate":"2.9","locked":"0"}
-     * 626 : {"classid":"83","class1":"过关","class2":"正码1","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 627 : {"classid":"83","class1":"过关","class2":"正码2","class3":"单","rate":"1.965","locked":"0"}
-     * 628 : {"classid":"83","class1":"过关","class2":"正码2","class3":"双","rate":"1.965","locked":"0"}
-     * 629 : {"classid":"83","class1":"过关","class2":"正码2","class3":"大","rate":"1.965","locked":"0"}
-     * 630 : {"classid":"83","class1":"过关","class2":"正码2","class3":"小","rate":"1.965","locked":"0"}
-     * 631 : {"classid":"83","class1":"过关","class2":"正码2","class3":"红波","rate":"2.7","locked":"0"}
-     * 632 : {"classid":"83","class1":"过关","class2":"正码2","class3":"绿波","rate":"2.9","locked":"0"}
-     * 633 : {"classid":"83","class1":"过关","class2":"正码2","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 634 : {"classid":"83","class1":"过关","class2":"正码3","class3":"单","rate":"1.965","locked":"0"}
-     * 635 : {"classid":"83","class1":"过关","class2":"正码3","class3":"双","rate":"1.965","locked":"0"}
-     * 636 : {"classid":"83","class1":"过关","class2":"正码3","class3":"大","rate":"1.965","locked":"0"}
-     * 637 : {"classid":"83","class1":"过关","class2":"正码3","class3":"小","rate":"1.965","locked":"0"}
-     * 638 : {"classid":"83","class1":"过关","class2":"正码3","class3":"红波","rate":"2.7","locked":"0"}
-     * 639 : {"classid":"83","class1":"过关","class2":"正码3","class3":"绿波","rate":"2.9","locked":"0"}
-     * 640 : {"classid":"83","class1":"过关","class2":"正码3","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 641 : {"classid":"83","class1":"过关","class2":"正码4","class3":"单","rate":"1.965","locked":"0"}
-     * 642 : {"classid":"83","class1":"过关","class2":"正码4","class3":"双","rate":"1.965","locked":"0"}
-     * 643 : {"classid":"83","class1":"过关","class2":"正码4","class3":"大","rate":"1.965","locked":"0"}
-     * 644 : {"classid":"83","class1":"过关","class2":"正码4","class3":"小","rate":"1.965","locked":"0"}
-     * 645 : {"classid":"83","class1":"过关","class2":"正码4","class3":"红波","rate":"2.7","locked":"0"}
-     * 646 : {"classid":"83","class1":"过关","class2":"正码4","class3":"绿波","rate":"2.9","locked":"0"}
-     * 647 : {"classid":"83","class1":"过关","class2":"正码4","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 648 : {"classid":"83","class1":"过关","class2":"正码5","class3":"单","rate":"1.965","locked":"0"}
-     * 649 : {"classid":"83","class1":"过关","class2":"正码5","class3":"双","rate":"1.965","locked":"0"}
-     * 650 : {"classid":"83","class1":"过关","class2":"正码5","class3":"大","rate":"1.965","locked":"0"}
-     * 651 : {"classid":"83","class1":"过关","class2":"正码5","class3":"小","rate":"1.965","locked":"0"}
-     * 652 : {"classid":"83","class1":"过关","class2":"正码5","class3":"红波","rate":"2.7","locked":"0"}
-     * 653 : {"classid":"83","class1":"过关","class2":"正码5","class3":"绿波","rate":"2.9","locked":"0"}
-     * 654 : {"classid":"83","class1":"过关","class2":"正码5","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 655 : {"classid":"83","class1":"过关","class2":"正码6","class3":"单","rate":"1.965","locked":"0"}
-     * 656 : {"classid":"83","class1":"过关","class2":"正码6","class3":"双","rate":"1.965","locked":"0"}
-     * 657 : {"classid":"83","class1":"过关","class2":"正码6","class3":"大","rate":"1.965","locked":"0"}
-     * 658 : {"classid":"83","class1":"过关","class2":"正码6","class3":"小","rate":"1.965","locked":"0"}
-     * 659 : {"classid":"83","class1":"过关","class2":"正码6","class3":"红波","rate":"2.7","locked":"0"}
-     * 660 : {"classid":"83","class1":"过关","class2":"正码6","class3":"绿波","rate":"2.9","locked":"0"}
-     * 661 : {"classid":"83","class1":"过关","class2":"正码6","class3":"蓝波","rate":"2.9","locked":"0"}
-     */
-
-    @SerializedName("620")
-    private data80Bean data620;
-    @SerializedName("621")
-    private data80Bean data621;
-    @SerializedName("622")
-    private data80Bean data622;
-    @SerializedName("623")
-    private data80Bean data623;
-    @SerializedName("624")
-    private data80Bean data624;
-    @SerializedName("625")
-    private data80Bean data625;
-    @SerializedName("626")
-    private data80Bean data626;
-    @SerializedName("627")
-    private data80Bean data627;
-    @SerializedName("628")
-    private data80Bean data628;
-    @SerializedName("629")
-    private data80Bean data629;
-    @SerializedName("630")
-    private data80Bean data630;
-    @SerializedName("631")
-    private data80Bean data631;
-    @SerializedName("632")
-    private data80Bean data632;
-    @SerializedName("633")
-    private data80Bean data633;
-    @SerializedName("634")
-    private data80Bean data634;
-    @SerializedName("635")
-    private data80Bean data635;
-    @SerializedName("636")
-    private data80Bean data636;
-    @SerializedName("637")
-    private data80Bean data637;
-    @SerializedName("638")
-    private data80Bean data638;
-    @SerializedName("639")
-    private data80Bean data639;
-    @SerializedName("640")
-    private data80Bean data640;
-    @SerializedName("641")
-    private data80Bean data641;
-    @SerializedName("642")
-    private data80Bean data642;
-    @SerializedName("643")
-    private data80Bean data643;
-    @SerializedName("644")
-    private data80Bean data644;
-    @SerializedName("645")
-    private data80Bean data645;
-    @SerializedName("646")
-    private data80Bean data646;
-    @SerializedName("647")
-    private data80Bean data647;
-    @SerializedName("648")
-    private data80Bean data648;
-    @SerializedName("649")
-    private data80Bean data649;
-    @SerializedName("650")
-    private data80Bean data650;
-    @SerializedName("651")
-    private data80Bean data651;
-    @SerializedName("652")
-    private data80Bean data652;
-    @SerializedName("653")
-    private data80Bean data653;
-    @SerializedName("654")
-    private data80Bean data654;
-    @SerializedName("655")
-    private data80Bean data655;
-    @SerializedName("656")
-    private data80Bean data656;
-    @SerializedName("657")
-    private data80Bean data657;
-    @SerializedName("658")
-    private data80Bean data658;
-    @SerializedName("659")
-    private data80Bean data659;
-    @SerializedName("660")
-    private data80Bean data660;
-    @SerializedName("661")
-    private data80Bean data661;
-    /**
-     * 662 : {"classid":"82","class1":"半波","class2":"半波","class3":"红单","rate":"5.7","locked":"0"}
-     * 663 : {"classid":"82","class1":"半波","class2":"半波","class3":"红双","rate":"5.1","locked":"0"}
-     * 664 : {"classid":"82","class1":"半波","class2":"半波","class3":"红大","rate":"6.5","locked":"0"}
-     * 665 : {"classid":"82","class1":"半波","class2":"半波","class3":"红小","rate":"4.55","locked":"0"}
-     * 666 : {"classid":"82","class1":"半波","class2":"半波","class3":"绿单","rate":"5.75","locked":"0"}
-     * 667 : {"classid":"82","class1":"半波","class2":"半波","class3":"绿双","rate":"6.55","locked":"0"}
-     * 668 : {"classid":"82","class1":"半波","class2":"半波","class3":"绿大","rate":"5.75","locked":"0"}
-     * 669 : {"classid":"82","class1":"半波","class2":"半波","class3":"绿小","rate":"6.55","locked":"0"}
-     * 670 : {"classid":"82","class1":"半波","class2":"半波","class3":"蓝单","rate":"5.75","locked":"0"}
-     * 671 : {"classid":"82","class1":"半波","class2":"半波","class3":"蓝双","rate":"5.75","locked":"0"}
-     * 672 : {"classid":"82","class1":"半波","class2":"半波","class3":"蓝大","rate":"5.1","locked":"0"}
-     * 673 : {"classid":"82","class1":"半波","class2":"半波","class3":"蓝小","rate":"6.55","locked":"0"}
-     * 718 : {"classid":"82","class1":"半波","class2":"半波","class3":"红合单","rate":"5.1","locked":"0"}
-     * 719 : {"classid":"82","class1":"半波","class2":"半波","class3":"红合双","rate":"5.7","locked":"0"}
-     * 720 : {"classid":"82","class1":"半波","class2":"半波","class3":"绿合单","rate":"6.5","locked":"0"}
-     * 721 : {"classid":"82","class1":"半波","class2":"半波","class3":"绿合双","rate":"5.7","locked":"0"}
-     * 722 : {"classid":"82","class1":"半波","class2":"半波","class3":"蓝合单","rate":"5.7","locked":"0"}
-     * 723 : {"classid":"82","class1":"半波","class2":"半波","class3":"蓝合双","rate":"5.7","locked":"0"}
-     */
-
-    @SerializedName("662")
-    private data80Bean data662;
-    @SerializedName("663")
-    private data80Bean data663;
-    @SerializedName("664")
-    private data80Bean data664;
-    @SerializedName("665")
-    private data80Bean data665;
-    @SerializedName("666")
-    private data80Bean data666;
-    @SerializedName("667")
-    private data80Bean data667;
-    @SerializedName("668")
-    private data80Bean data668;
-    @SerializedName("669")
-    private data80Bean data669;
-    @SerializedName("670")
-    private data80Bean data670;
-    @SerializedName("671")
-    private data80Bean data671;
-    @SerializedName("672")
-    private data80Bean data672;
-    @SerializedName("673")
-    private data80Bean data673;
-    @SerializedName("718")
-    private data80Bean data718;
-    @SerializedName("719")
-    private data80Bean data719;
-    @SerializedName("720")
-    private data80Bean data720;
-    @SerializedName("721")
-    private data80Bean data721;
-    @SerializedName("722")
-    private data80Bean data722;
-    @SerializedName("723")
-    private data80Bean data723;
-    /**
-     * 117 : {"classid":"76","class1":"正特","class2":"正1特","class3":"1","rate":"48.5","locked":"0"}
-     * 118 : {"classid":"76","class1":"正特","class2":"正1特","class3":"2","rate":"48.5","locked":"0"}
-     * 119 : {"classid":"76","class1":"正特","class2":"正1特","class3":"3","rate":"48.5","locked":"0"}
-     * 120 : {"classid":"76","class1":"正特","class2":"正1特","class3":"4","rate":"48.5","locked":"0"}
-     * 121 : {"classid":"76","class1":"正特","class2":"正1特","class3":"5","rate":"48.5","locked":"0"}
-     * 122 : {"classid":"76","class1":"正特","class2":"正1特","class3":"6","rate":"48.5","locked":"0"}
-     * 123 : {"classid":"76","class1":"正特","class2":"正1特","class3":"7","rate":"48.5","locked":"0"}
-     * 124 : {"classid":"76","class1":"正特","class2":"正1特","class3":"8","rate":"48.5","locked":"0"}
-     * 125 : {"classid":"76","class1":"正特","class2":"正1特","class3":"9","rate":"48.5","locked":"0"}
-     * 126 : {"classid":"76","class1":"正特","class2":"正1特","class3":"10","rate":"48.5","locked":"0"}
-     * 127 : {"classid":"76","class1":"正特","class2":"正1特","class3":"11","rate":"48.5","locked":"0"}
-     * 128 : {"classid":"76","class1":"正特","class2":"正1特","class3":"12","rate":"48.5","locked":"0"}
-     * 129 : {"classid":"76","class1":"正特","class2":"正1特","class3":"13","rate":"48.5","locked":"0"}
-     * 130 : {"classid":"76","class1":"正特","class2":"正1特","class3":"14","rate":"48.5","locked":"0"}
-     * 131 : {"classid":"76","class1":"正特","class2":"正1特","class3":"15","rate":"48.5","locked":"0"}
-     * 132 : {"classid":"76","class1":"正特","class2":"正1特","class3":"16","rate":"48.5","locked":"0"}
-     * 133 : {"classid":"76","class1":"正特","class2":"正1特","class3":"17","rate":"48.5","locked":"0"}
-     * 134 : {"classid":"76","class1":"正特","class2":"正1特","class3":"18","rate":"48.5","locked":"0"}
-     * 135 : {"classid":"76","class1":"正特","class2":"正1特","class3":"19","rate":"48.5","locked":"0"}
-     * 136 : {"classid":"76","class1":"正特","class2":"正1特","class3":"20","rate":"48.5","locked":"0"}
-     * 137 : {"classid":"76","class1":"正特","class2":"正1特","class3":"21","rate":"48.5","locked":"0"}
-     * 138 : {"classid":"76","class1":"正特","class2":"正1特","class3":"22","rate":"48.5","locked":"0"}
-     * 139 : {"classid":"76","class1":"正特","class2":"正1特","class3":"23","rate":"48.5","locked":"0"}
-     * 140 : {"classid":"76","class1":"正特","class2":"正1特","class3":"24","rate":"48.5","locked":"0"}
-     * 141 : {"classid":"76","class1":"正特","class2":"正1特","class3":"25","rate":"48.5","locked":"0"}
-     * 142 : {"classid":"76","class1":"正特","class2":"正1特","class3":"26","rate":"48.5","locked":"0"}
-     * 143 : {"classid":"76","class1":"正特","class2":"正1特","class3":"27","rate":"48.5","locked":"0"}
-     * 144 : {"classid":"76","class1":"正特","class2":"正1特","class3":"28","rate":"48.5","locked":"0"}
-     * 145 : {"classid":"76","class1":"正特","class2":"正1特","class3":"29","rate":"48.5","locked":"0"}
-     * 146 : {"classid":"76","class1":"正特","class2":"正1特","class3":"30","rate":"48.5","locked":"0"}
-     * 147 : {"classid":"76","class1":"正特","class2":"正1特","class3":"31","rate":"48.5","locked":"0"}
-     * 148 : {"classid":"76","class1":"正特","class2":"正1特","class3":"32","rate":"48.5","locked":"0"}
-     * 149 : {"classid":"76","class1":"正特","class2":"正1特","class3":"33","rate":"48.5","locked":"0"}
-     * 150 : {"classid":"76","class1":"正特","class2":"正1特","class3":"34","rate":"48.5","locked":"0"}
-     * 151 : {"classid":"76","class1":"正特","class2":"正1特","class3":"35","rate":"48.5","locked":"0"}
-     * 152 : {"classid":"76","class1":"正特","class2":"正1特","class3":"36","rate":"48.5","locked":"0"}
-     * 153 : {"classid":"76","class1":"正特","class2":"正1特","class3":"37","rate":"48.5","locked":"0"}
-     * 154 : {"classid":"76","class1":"正特","class2":"正1特","class3":"38","rate":"48.5","locked":"0"}
-     * 155 : {"classid":"76","class1":"正特","class2":"正1特","class3":"39","rate":"48.5","locked":"0"}
-     * 156 : {"classid":"76","class1":"正特","class2":"正1特","class3":"40","rate":"48.5","locked":"0"}
-     * 157 : {"classid":"76","class1":"正特","class2":"正1特","class3":"41","rate":"48.5","locked":"0"}
-     * 158 : {"classid":"76","class1":"正特","class2":"正1特","class3":"42","rate":"48.5","locked":"0"}
-     * 159 : {"classid":"76","class1":"正特","class2":"正1特","class3":"43","rate":"48.5","locked":"0"}
-     * 160 : {"classid":"76","class1":"正特","class2":"正1特","class3":"44","rate":"48.5","locked":"0"}
-     * 161 : {"classid":"76","class1":"正特","class2":"正1特","class3":"45","rate":"48.5","locked":"0"}
-     * 162 : {"classid":"76","class1":"正特","class2":"正1特","class3":"46","rate":"48.5","locked":"0"}
-     * 163 : {"classid":"76","class1":"正特","class2":"正1特","class3":"47","rate":"48.5","locked":"0"}
-     * 164 : {"classid":"76","class1":"正特","class2":"正1特","class3":"48","rate":"48.5","locked":"0"}
-     * 165 : {"classid":"76","class1":"正特","class2":"正1特","class3":"49","rate":"48.5","locked":"0"}
-     * 166 : {"classid":"73","class1":"正特","class2":"正1特","class3":"单","rate":"1.965","locked":"0"}
-     * 167 : {"classid":"73","class1":"正特","class2":"正1特","class3":"双","rate":"1.965","locked":"0"}
-     * 168 : {"classid":"74","class1":"正特","class2":"正1特","class3":"大","rate":"1.965","locked":"0"}
-     * 169 : {"classid":"74","class1":"正特","class2":"正1特","class3":"小","rate":"1.965","locked":"0"}
-     * 170 : {"classid":"75","class1":"正特","class2":"正1特","class3":"合单","rate":"1.965","locked":"0"}
-     * 171 : {"classid":"75","class1":"正特","class2":"正1特","class3":"合双","rate":"1.965","locked":"0"}
-     * 172 : {"classid":"81","class1":"正特","class2":"正1特","class3":"红波","rate":"2.7","locked":"0"}
-     * 173 : {"classid":"81","class1":"正特","class2":"正1特","class3":"绿波","rate":"2.9","locked":"0"}
-     * 174 : {"classid":"81","class1":"正特","class2":"正1特","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1034 : {"classid":"75","class1":"正特","class2":"正1特","class3":"合大","rate":"1.965","locked":"0"}
-     * 1035 : {"classid":"75","class1":"正特","class2":"正1特","class3":"合小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("117")
-    private data80Bean data117;
-    @SerializedName("118")
-    private data80Bean data118;
-    @SerializedName("119")
-    private data80Bean data119;
-    @SerializedName("120")
-    private data80Bean data120;
-    @SerializedName("121")
-    private data80Bean data121;
-    @SerializedName("122")
-    private data80Bean data122;
-    @SerializedName("123")
-    private data80Bean data123;
-    @SerializedName("124")
-    private data80Bean data124;
-    @SerializedName("125")
-    private data80Bean data125;
-    @SerializedName("126")
-    private data80Bean data126;
-    @SerializedName("127")
-    private data80Bean data127;
-    @SerializedName("128")
-    private data80Bean data128;
-    @SerializedName("129")
-    private data80Bean data129;
-    @SerializedName("130")
-    private data80Bean data130;
-    @SerializedName("131")
-    private data80Bean data131;
-    @SerializedName("132")
-    private data80Bean data132;
-    @SerializedName("133")
-    private data80Bean data133;
-    @SerializedName("134")
-    private data80Bean data134;
-    @SerializedName("135")
-    private data80Bean data135;
-    @SerializedName("136")
-    private data80Bean data136;
-    @SerializedName("137")
-    private data80Bean data137;
-    @SerializedName("138")
-    private data80Bean data138;
-    @SerializedName("139")
-    private data80Bean data139;
-    @SerializedName("140")
-    private data80Bean data140;
-    @SerializedName("141")
-    private data80Bean data141;
-    @SerializedName("142")
-    private data80Bean data142;
-    @SerializedName("143")
-    private data80Bean data143;
-    @SerializedName("144")
-    private data80Bean data144;
-    @SerializedName("145")
-    private data80Bean data145;
-    @SerializedName("146")
-    private data80Bean data146;
-    @SerializedName("147")
-    private data80Bean data147;
-    @SerializedName("148")
-    private data80Bean data148;
-    @SerializedName("149")
-    private data80Bean data149;
-    @SerializedName("150")
-    private data80Bean data150;
-    @SerializedName("151")
-    private data80Bean data151;
-    @SerializedName("152")
-    private data80Bean data152;
-    @SerializedName("153")
-    private data80Bean data153;
-    @SerializedName("154")
-    private data80Bean data154;
-    @SerializedName("155")
-    private data80Bean data155;
-    @SerializedName("156")
-    private data80Bean data156;
-    @SerializedName("157")
-    private data80Bean data157;
-    @SerializedName("158")
-    private data80Bean data158;
-    @SerializedName("159")
-    private data80Bean data159;
-    @SerializedName("160")
-    private data80Bean data160;
-    @SerializedName("161")
-    private data80Bean data161;
-    @SerializedName("162")
-    private data80Bean data162;
-    @SerializedName("163")
-    private data80Bean data163;
-    @SerializedName("164")
-    private data80Bean data164;
-    @SerializedName("165")
-    private data80Bean data165;
-    @SerializedName("166")
-    private data80Bean data166;
-    @SerializedName("167")
-    private data80Bean data167;
-    @SerializedName("168")
-    private data80Bean data168;
-    @SerializedName("169")
-    private data80Bean data169;
-    @SerializedName("170")
-    private data80Bean data170;
-    @SerializedName("171")
-    private data80Bean data171;
-    @SerializedName("172")
-    private data80Bean data172;
-    @SerializedName("173")
-    private data80Bean data173;
-    @SerializedName("174")
-    private data80Bean data174;
-    @SerializedName("1034")
-    private data80Bean data1034;
-    @SerializedName("1035")
-    private data80Bean data1035;
-    /**
-     * 175 : {"classid":"76","class1":"正特","class2":"正2特","class3":"1","rate":"48.5","locked":"0"}
-     * 176 : {"classid":"76","class1":"正特","class2":"正2特","class3":"2","rate":"48.5","locked":"0"}
-     * 177 : {"classid":"76","class1":"正特","class2":"正2特","class3":"3","rate":"48.5","locked":"0"}
-     * 178 : {"classid":"76","class1":"正特","class2":"正2特","class3":"4","rate":"48.5","locked":"0"}
-     * 179 : {"classid":"76","class1":"正特","class2":"正2特","class3":"5","rate":"48.5","locked":"0"}
-     * 180 : {"classid":"76","class1":"正特","class2":"正2特","class3":"6","rate":"48.5","locked":"0"}
-     * 181 : {"classid":"76","class1":"正特","class2":"正2特","class3":"7","rate":"48.5","locked":"0"}
-     * 182 : {"classid":"76","class1":"正特","class2":"正2特","class3":"8","rate":"48.5","locked":"0"}
-     * 183 : {"classid":"76","class1":"正特","class2":"正2特","class3":"9","rate":"48.5","locked":"0"}
-     * 184 : {"classid":"76","class1":"正特","class2":"正2特","class3":"10","rate":"48.5","locked":"0"}
-     * 185 : {"classid":"76","class1":"正特","class2":"正2特","class3":"11","rate":"48.5","locked":"0"}
-     * 186 : {"classid":"76","class1":"正特","class2":"正2特","class3":"12","rate":"48.5","locked":"0"}
-     * 187 : {"classid":"76","class1":"正特","class2":"正2特","class3":"13","rate":"48.5","locked":"0"}
-     * 188 : {"classid":"76","class1":"正特","class2":"正2特","class3":"14","rate":"48.5","locked":"0"}
-     * 189 : {"classid":"76","class1":"正特","class2":"正2特","class3":"15","rate":"48.5","locked":"0"}
-     * 190 : {"classid":"76","class1":"正特","class2":"正2特","class3":"16","rate":"48.5","locked":"0"}
-     * 191 : {"classid":"76","class1":"正特","class2":"正2特","class3":"17","rate":"48.5","locked":"0"}
-     * 192 : {"classid":"76","class1":"正特","class2":"正2特","class3":"18","rate":"48.5","locked":"0"}
-     * 193 : {"classid":"76","class1":"正特","class2":"正2特","class3":"19","rate":"48.5","locked":"0"}
-     * 194 : {"classid":"76","class1":"正特","class2":"正2特","class3":"20","rate":"48.5","locked":"0"}
-     * 195 : {"classid":"76","class1":"正特","class2":"正2特","class3":"21","rate":"48.5","locked":"0"}
-     * 196 : {"classid":"76","class1":"正特","class2":"正2特","class3":"22","rate":"48.5","locked":"0"}
-     * 197 : {"classid":"76","class1":"正特","class2":"正2特","class3":"23","rate":"48.5","locked":"0"}
-     * 198 : {"classid":"76","class1":"正特","class2":"正2特","class3":"24","rate":"48.5","locked":"0"}
-     * 199 : {"classid":"76","class1":"正特","class2":"正2特","class3":"25","rate":"48.5","locked":"0"}
-     * 200 : {"classid":"76","class1":"正特","class2":"正2特","class3":"26","rate":"48.5","locked":"0"}
-     * 201 : {"classid":"76","class1":"正特","class2":"正2特","class3":"27","rate":"48.5","locked":"0"}
-     * 202 : {"classid":"76","class1":"正特","class2":"正2特","class3":"28","rate":"48.5","locked":"0"}
-     * 203 : {"classid":"76","class1":"正特","class2":"正2特","class3":"29","rate":"48.5","locked":"0"}
-     * 204 : {"classid":"76","class1":"正特","class2":"正2特","class3":"30","rate":"48.5","locked":"0"}
-     * 205 : {"classid":"76","class1":"正特","class2":"正2特","class3":"31","rate":"48.5","locked":"0"}
-     * 206 : {"classid":"76","class1":"正特","class2":"正2特","class3":"32","rate":"48.5","locked":"0"}
-     * 207 : {"classid":"76","class1":"正特","class2":"正2特","class3":"33","rate":"48.5","locked":"0"}
-     * 208 : {"classid":"76","class1":"正特","class2":"正2特","class3":"34","rate":"48.5","locked":"0"}
-     * 209 : {"classid":"76","class1":"正特","class2":"正2特","class3":"35","rate":"48.5","locked":"0"}
-     * 210 : {"classid":"76","class1":"正特","class2":"正2特","class3":"36","rate":"48.5","locked":"0"}
-     * 211 : {"classid":"76","class1":"正特","class2":"正2特","class3":"37","rate":"48.5","locked":"0"}
-     * 212 : {"classid":"76","class1":"正特","class2":"正2特","class3":"38","rate":"48.5","locked":"0"}
-     * 213 : {"classid":"76","class1":"正特","class2":"正2特","class3":"39","rate":"48.5","locked":"0"}
-     * 214 : {"classid":"76","class1":"正特","class2":"正2特","class3":"40","rate":"48.5","locked":"0"}
-     * 215 : {"classid":"76","class1":"正特","class2":"正2特","class3":"41","rate":"48.5","locked":"0"}
-     * 216 : {"classid":"76","class1":"正特","class2":"正2特","class3":"42","rate":"48.5","locked":"0"}
-     * 217 : {"classid":"76","class1":"正特","class2":"正2特","class3":"43","rate":"48.5","locked":"0"}
-     * 218 : {"classid":"76","class1":"正特","class2":"正2特","class3":"44","rate":"48.5","locked":"0"}
-     * 219 : {"classid":"76","class1":"正特","class2":"正2特","class3":"45","rate":"48.5","locked":"0"}
-     * 220 : {"classid":"76","class1":"正特","class2":"正2特","class3":"46","rate":"48.5","locked":"0"}
-     * 221 : {"classid":"76","class1":"正特","class2":"正2特","class3":"47","rate":"48.5","locked":"0"}
-     * 222 : {"classid":"76","class1":"正特","class2":"正2特","class3":"48","rate":"48.5","locked":"0"}
-     * 223 : {"classid":"76","class1":"正特","class2":"正2特","class3":"49","rate":"48.5","locked":"0"}
-     * 224 : {"classid":"73","class1":"正特","class2":"正2特","class3":"单","rate":"1.965","locked":"0"}
-     * 225 : {"classid":"73","class1":"正特","class2":"正2特","class3":"双","rate":"1.965","locked":"0"}
-     * 226 : {"classid":"74","class1":"正特","class2":"正2特","class3":"大","rate":"1.965","locked":"0"}
-     * 227 : {"classid":"74","class1":"正特","class2":"正2特","class3":"小","rate":"1.965","locked":"0"}
-     * 228 : {"classid":"75","class1":"正特","class2":"正2特","class3":"合单","rate":"1.965","locked":"0"}
-     * 229 : {"classid":"75","class1":"正特","class2":"正2特","class3":"合双","rate":"1.965","locked":"0"}
-     * 230 : {"classid":"81","class1":"正特","class2":"正2特","class3":"红波","rate":"2.7","locked":"0"}
-     * 231 : {"classid":"81","class1":"正特","class2":"正2特","class3":"绿波","rate":"2.9","locked":"0"}
-     * 232 : {"classid":"81","class1":"正特","class2":"正2特","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1045 : {"classid":"75","class1":"正特","class2":"正2特","class3":"合大","rate":"1.965","locked":"0"}
-     * 1083 : {"classid":"75","class1":"正特","class2":"正2特","class3":"合小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("175")
-    private data80Bean data175;
-    @SerializedName("176")
-    private data80Bean data176;
-    @SerializedName("177")
-    private data80Bean data177;
-    @SerializedName("178")
-    private data80Bean data178;
-    @SerializedName("179")
-    private data80Bean data179;
-    @SerializedName("180")
-    private data80Bean data180;
-    @SerializedName("181")
-    private data80Bean data181;
-    @SerializedName("182")
-    private data80Bean data182;
-    @SerializedName("183")
-    private data80Bean data183;
-    @SerializedName("184")
-    private data80Bean data184;
-    @SerializedName("185")
-    private data80Bean data185;
-    @SerializedName("186")
-    private data80Bean data186;
-    @SerializedName("187")
-    private data80Bean data187;
-    @SerializedName("188")
-    private data80Bean data188;
-    @SerializedName("189")
-    private data80Bean data189;
-    @SerializedName("190")
-    private data80Bean data190;
-    @SerializedName("191")
-    private data80Bean data191;
-    @SerializedName("192")
-    private data80Bean data192;
-    @SerializedName("193")
-    private data80Bean data193;
-    @SerializedName("194")
-    private data80Bean data194;
-    @SerializedName("195")
-    private data80Bean data195;
-    @SerializedName("196")
-    private data80Bean data196;
-    @SerializedName("197")
-    private data80Bean data197;
-    @SerializedName("198")
-    private data80Bean data198;
-    @SerializedName("199")
-    private data80Bean data199;
-    @SerializedName("200")
-    private data80Bean data200;
-    @SerializedName("201")
-    private data80Bean data201;
-    @SerializedName("202")
-    private data80Bean data202;
-    @SerializedName("203")
-    private data80Bean data203;
-    @SerializedName("204")
-    private data80Bean data204;
-    @SerializedName("205")
-    private data80Bean data205;
-    @SerializedName("206")
-    private data80Bean data206;
-    @SerializedName("207")
-    private data80Bean data207;
-    @SerializedName("208")
-    private data80Bean data208;
-    @SerializedName("209")
-    private data80Bean data209;
-    @SerializedName("210")
-    private data80Bean data210;
-    @SerializedName("211")
-    private data80Bean data211;
-    @SerializedName("212")
-    private data80Bean data212;
-    @SerializedName("213")
-    private data80Bean data213;
-    @SerializedName("214")
-    private data80Bean data214;
-    @SerializedName("215")
-    private data80Bean data215;
-    @SerializedName("216")
-    private data80Bean data216;
-    @SerializedName("217")
-    private data80Bean data217;
-    @SerializedName("218")
-    private data80Bean data218;
-    @SerializedName("219")
-    private data80Bean data219;
-    @SerializedName("220")
-    private data80Bean data220;
-    @SerializedName("221")
-    private data80Bean data221;
-    @SerializedName("222")
-    private data80Bean data222;
-    @SerializedName("223")
-    private data80Bean data223;
-    @SerializedName("224")
-    private data80Bean data224;
-    @SerializedName("225")
-    private data80Bean data225;
-    @SerializedName("226")
-    private data80Bean data226;
-    @SerializedName("227")
-    private data80Bean data227;
-    @SerializedName("228")
-    private data80Bean data228;
-    @SerializedName("229")
-    private data80Bean data229;
-    @SerializedName("230")
-    private data80Bean data230;
-    @SerializedName("231")
-    private data80Bean data231;
-    @SerializedName("232")
-    private data80Bean data232;
-    @SerializedName("1045")
-    private data80Bean data1045;
-    @SerializedName("1083")
-    private data80Bean data1083;
-    /**
-     * 233 : {"classid":"76","class1":"正特","class2":"正3特","class3":"1","rate":"48.5","locked":"0"}
-     * 234 : {"classid":"76","class1":"正特","class2":"正3特","class3":"2","rate":"48.5","locked":"0"}
-     * 235 : {"classid":"76","class1":"正特","class2":"正3特","class3":"3","rate":"48.5","locked":"0"}
-     * 236 : {"classid":"76","class1":"正特","class2":"正3特","class3":"4","rate":"48.5","locked":"0"}
-     * 237 : {"classid":"76","class1":"正特","class2":"正3特","class3":"5","rate":"48.5","locked":"0"}
-     * 238 : {"classid":"76","class1":"正特","class2":"正3特","class3":"6","rate":"48.5","locked":"0"}
-     * 239 : {"classid":"76","class1":"正特","class2":"正3特","class3":"7","rate":"48.5","locked":"0"}
-     * 240 : {"classid":"76","class1":"正特","class2":"正3特","class3":"8","rate":"48.5","locked":"0"}
-     * 241 : {"classid":"76","class1":"正特","class2":"正3特","class3":"9","rate":"48.5","locked":"0"}
-     * 242 : {"classid":"76","class1":"正特","class2":"正3特","class3":"10","rate":"48.5","locked":"0"}
-     * 243 : {"classid":"76","class1":"正特","class2":"正3特","class3":"11","rate":"48.5","locked":"0"}
-     * 244 : {"classid":"76","class1":"正特","class2":"正3特","class3":"12","rate":"48.5","locked":"0"}
-     * 245 : {"classid":"76","class1":"正特","class2":"正3特","class3":"13","rate":"48.5","locked":"0"}
-     * 246 : {"classid":"76","class1":"正特","class2":"正3特","class3":"14","rate":"48.5","locked":"0"}
-     * 247 : {"classid":"76","class1":"正特","class2":"正3特","class3":"15","rate":"48.5","locked":"0"}
-     * 248 : {"classid":"76","class1":"正特","class2":"正3特","class3":"16","rate":"48.5","locked":"0"}
-     * 249 : {"classid":"76","class1":"正特","class2":"正3特","class3":"17","rate":"48.5","locked":"0"}
-     * 250 : {"classid":"76","class1":"正特","class2":"正3特","class3":"18","rate":"48.5","locked":"0"}
-     * 251 : {"classid":"76","class1":"正特","class2":"正3特","class3":"19","rate":"48.5","locked":"0"}
-     * 252 : {"classid":"76","class1":"正特","class2":"正3特","class3":"20","rate":"48.5","locked":"0"}
-     * 253 : {"classid":"76","class1":"正特","class2":"正3特","class3":"21","rate":"48.5","locked":"0"}
-     * 254 : {"classid":"76","class1":"正特","class2":"正3特","class3":"22","rate":"48.5","locked":"0"}
-     * 255 : {"classid":"76","class1":"正特","class2":"正3特","class3":"23","rate":"48.5","locked":"0"}
-     * 256 : {"classid":"76","class1":"正特","class2":"正3特","class3":"24","rate":"48.5","locked":"0"}
-     * 257 : {"classid":"76","class1":"正特","class2":"正3特","class3":"25","rate":"48.5","locked":"0"}
-     * 258 : {"classid":"76","class1":"正特","class2":"正3特","class3":"26","rate":"48.5","locked":"0"}
-     * 259 : {"classid":"76","class1":"正特","class2":"正3特","class3":"27","rate":"48.5","locked":"0"}
-     * 260 : {"classid":"76","class1":"正特","class2":"正3特","class3":"28","rate":"48.5","locked":"0"}
-     * 261 : {"classid":"76","class1":"正特","class2":"正3特","class3":"29","rate":"48.5","locked":"0"}
-     * 262 : {"classid":"76","class1":"正特","class2":"正3特","class3":"30","rate":"48.5","locked":"0"}
-     * 263 : {"classid":"76","class1":"正特","class2":"正3特","class3":"31","rate":"48.5","locked":"0"}
-     * 264 : {"classid":"76","class1":"正特","class2":"正3特","class3":"32","rate":"48.5","locked":"0"}
-     * 265 : {"classid":"76","class1":"正特","class2":"正3特","class3":"33","rate":"48.5","locked":"0"}
-     * 266 : {"classid":"76","class1":"正特","class2":"正3特","class3":"34","rate":"48.5","locked":"0"}
-     * 267 : {"classid":"76","class1":"正特","class2":"正3特","class3":"35","rate":"48.5","locked":"0"}
-     * 268 : {"classid":"76","class1":"正特","class2":"正3特","class3":"36","rate":"48.5","locked":"0"}
-     * 269 : {"classid":"76","class1":"正特","class2":"正3特","class3":"37","rate":"48.5","locked":"0"}
-     * 270 : {"classid":"76","class1":"正特","class2":"正3特","class3":"38","rate":"48.5","locked":"0"}
-     * 271 : {"classid":"76","class1":"正特","class2":"正3特","class3":"39","rate":"48.5","locked":"0"}
-     * 272 : {"classid":"76","class1":"正特","class2":"正3特","class3":"40","rate":"48.5","locked":"0"}
-     * 273 : {"classid":"76","class1":"正特","class2":"正3特","class3":"41","rate":"48.5","locked":"0"}
-     * 274 : {"classid":"76","class1":"正特","class2":"正3特","class3":"42","rate":"48.5","locked":"0"}
-     * 275 : {"classid":"76","class1":"正特","class2":"正3特","class3":"43","rate":"48.5","locked":"0"}
-     * 276 : {"classid":"76","class1":"正特","class2":"正3特","class3":"44","rate":"48.5","locked":"0"}
-     * 277 : {"classid":"76","class1":"正特","class2":"正3特","class3":"45","rate":"48.5","locked":"0"}
-     * 278 : {"classid":"76","class1":"正特","class2":"正3特","class3":"46","rate":"48.5","locked":"0"}
-     * 279 : {"classid":"76","class1":"正特","class2":"正3特","class3":"47","rate":"48.5","locked":"0"}
-     * 280 : {"classid":"76","class1":"正特","class2":"正3特","class3":"48","rate":"48.5","locked":"0"}
-     * 281 : {"classid":"76","class1":"正特","class2":"正3特","class3":"49","rate":"48.5","locked":"0"}
-     * 282 : {"classid":"73","class1":"正特","class2":"正3特","class3":"单","rate":"1.965","locked":"0"}
-     * 283 : {"classid":"73","class1":"正特","class2":"正3特","class3":"双","rate":"1.965","locked":"0"}
-     * 284 : {"classid":"74","class1":"正特","class2":"正3特","class3":"大","rate":"1.965","locked":"0"}
-     * 285 : {"classid":"74","class1":"正特","class2":"正3特","class3":"小","rate":"1.965","locked":"0"}
-     * 286 : {"classid":"75","class1":"正特","class2":"正3特","class3":"合单","rate":"1.965","locked":"0"}
-     * 287 : {"classid":"75","class1":"正特","class2":"正3特","class3":"合双","rate":"1.965","locked":"0"}
-     * 288 : {"classid":"81","class1":"正特","class2":"正3特","class3":"红波","rate":"2.7","locked":"0"}
-     * 289 : {"classid":"81","class1":"正特","class2":"正3特","class3":"绿波","rate":"2.9","locked":"0"}
-     * 290 : {"classid":"81","class1":"正特","class2":"正3特","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1044 : {"classid":"75","class1":"正特","class2":"正3特","class3":"合大","rate":"1.965","locked":"0"}
-     * 1084 : {"classid":"75","class1":"正特","class2":"正3特","class3":"合小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("233")
-    private data80Bean data233;
-    @SerializedName("234")
-    private data80Bean data234;
-    @SerializedName("235")
-    private data80Bean data235;
-    @SerializedName("236")
-    private data80Bean data236;
-    @SerializedName("237")
-    private data80Bean data237;
-    @SerializedName("238")
-    private data80Bean data238;
-    @SerializedName("239")
-    private data80Bean data239;
-    @SerializedName("240")
-    private data80Bean data240;
-    @SerializedName("241")
-    private data80Bean data241;
-    @SerializedName("242")
-    private data80Bean data242;
-    @SerializedName("243")
-    private data80Bean data243;
-    @SerializedName("244")
-    private data80Bean data244;
-    @SerializedName("245")
-    private data80Bean data245;
-    @SerializedName("246")
-    private data80Bean data246;
-    @SerializedName("247")
-    private data80Bean data247;
-    @SerializedName("248")
-    private data80Bean data248;
-    @SerializedName("249")
-    private data80Bean data249;
-    @SerializedName("250")
-    private data80Bean data250;
-    @SerializedName("251")
-    private data80Bean data251;
-    @SerializedName("252")
-    private data80Bean data252;
-    @SerializedName("253")
-    private data80Bean data253;
-    @SerializedName("254")
-    private data80Bean data254;
-    @SerializedName("255")
-    private data80Bean data255;
-    @SerializedName("256")
-    private data80Bean data256;
-    @SerializedName("257")
-    private data80Bean data257;
-    @SerializedName("258")
-    private data80Bean data258;
-    @SerializedName("259")
-    private data80Bean data259;
-    @SerializedName("260")
-    private data80Bean data260;
-    @SerializedName("261")
-    private data80Bean data261;
-    @SerializedName("262")
-    private data80Bean data262;
-    @SerializedName("263")
-    private data80Bean data263;
-    @SerializedName("264")
-    private data80Bean data264;
-    @SerializedName("265")
-    private data80Bean data265;
-    @SerializedName("266")
-    private data80Bean data266;
-    @SerializedName("267")
-    private data80Bean data267;
-    @SerializedName("268")
-    private data80Bean data268;
-    @SerializedName("269")
-    private data80Bean data269;
-    @SerializedName("270")
-    private data80Bean data270;
-    @SerializedName("271")
-    private data80Bean data271;
-    @SerializedName("272")
-    private data80Bean data272;
-    @SerializedName("273")
-    private data80Bean data273;
-    @SerializedName("274")
-    private data80Bean data274;
-    @SerializedName("275")
-    private data80Bean data275;
-    @SerializedName("276")
-    private data80Bean data276;
-    @SerializedName("277")
-    private data80Bean data277;
-    @SerializedName("278")
-    private data80Bean data278;
-    @SerializedName("279")
-    private data80Bean data279;
-    @SerializedName("280")
-    private data80Bean data280;
-    @SerializedName("281")
-    private data80Bean data281;
-    @SerializedName("282")
-    private data80Bean data282;
-    @SerializedName("283")
-    private data80Bean data283;
-    @SerializedName("284")
-    private data80Bean data284;
-    @SerializedName("285")
-    private data80Bean data285;
-    @SerializedName("286")
-    private data80Bean data286;
-    @SerializedName("287")
-    private data80Bean data287;
-    @SerializedName("288")
-    private data80Bean data288;
-    @SerializedName("289")
-    private data80Bean data289;
-    @SerializedName("290")
-    private data80Bean data290;
-    @SerializedName("1044")
-    private data80Bean data1044;
-    @SerializedName("1084")
-    private data80Bean data1084;
-    /**
-     * 291 : {"classid":"76","class1":"正特","class2":"正4特","class3":"1","rate":"48.5","locked":"0"}
-     * 292 : {"classid":"76","class1":"正特","class2":"正4特","class3":"2","rate":"48.5","locked":"0"}
-     * 293 : {"classid":"76","class1":"正特","class2":"正4特","class3":"3","rate":"48.5","locked":"0"}
-     * 294 : {"classid":"76","class1":"正特","class2":"正4特","class3":"4","rate":"48.5","locked":"0"}
-     * 295 : {"classid":"76","class1":"正特","class2":"正4特","class3":"5","rate":"48.5","locked":"0"}
-     * 296 : {"classid":"76","class1":"正特","class2":"正4特","class3":"6","rate":"48.5","locked":"0"}
-     * 297 : {"classid":"76","class1":"正特","class2":"正4特","class3":"7","rate":"48.5","locked":"0"}
-     * 298 : {"classid":"76","class1":"正特","class2":"正4特","class3":"8","rate":"48.5","locked":"0"}
-     * 299 : {"classid":"76","class1":"正特","class2":"正4特","class3":"9","rate":"48.5","locked":"0"}
-     * 300 : {"classid":"76","class1":"正特","class2":"正4特","class3":"10","rate":"48.5","locked":"0"}
-     * 301 : {"classid":"76","class1":"正特","class2":"正4特","class3":"11","rate":"48.5","locked":"0"}
-     * 302 : {"classid":"76","class1":"正特","class2":"正4特","class3":"12","rate":"48.5","locked":"0"}
-     * 303 : {"classid":"76","class1":"正特","class2":"正4特","class3":"13","rate":"48.5","locked":"0"}
-     * 304 : {"classid":"76","class1":"正特","class2":"正4特","class3":"14","rate":"48.5","locked":"0"}
-     * 305 : {"classid":"76","class1":"正特","class2":"正4特","class3":"15","rate":"48.5","locked":"0"}
-     * 306 : {"classid":"76","class1":"正特","class2":"正4特","class3":"16","rate":"48.5","locked":"0"}
-     * 307 : {"classid":"76","class1":"正特","class2":"正4特","class3":"17","rate":"48.5","locked":"0"}
-     * 308 : {"classid":"76","class1":"正特","class2":"正4特","class3":"18","rate":"48.5","locked":"0"}
-     * 309 : {"classid":"76","class1":"正特","class2":"正4特","class3":"19","rate":"48.5","locked":"0"}
-     * 310 : {"classid":"76","class1":"正特","class2":"正4特","class3":"20","rate":"48.5","locked":"0"}
-     * 311 : {"classid":"76","class1":"正特","class2":"正4特","class3":"21","rate":"48.5","locked":"0"}
-     * 312 : {"classid":"76","class1":"正特","class2":"正4特","class3":"22","rate":"48.5","locked":"0"}
-     * 313 : {"classid":"76","class1":"正特","class2":"正4特","class3":"23","rate":"48.5","locked":"0"}
-     * 314 : {"classid":"76","class1":"正特","class2":"正4特","class3":"24","rate":"48.5","locked":"0"}
-     * 315 : {"classid":"76","class1":"正特","class2":"正4特","class3":"25","rate":"48.5","locked":"0"}
-     * 316 : {"classid":"76","class1":"正特","class2":"正4特","class3":"26","rate":"48.5","locked":"0"}
-     * 317 : {"classid":"76","class1":"正特","class2":"正4特","class3":"27","rate":"48.5","locked":"0"}
-     * 318 : {"classid":"76","class1":"正特","class2":"正4特","class3":"28","rate":"48.5","locked":"0"}
-     * 319 : {"classid":"76","class1":"正特","class2":"正4特","class3":"29","rate":"48.5","locked":"0"}
-     * 320 : {"classid":"76","class1":"正特","class2":"正4特","class3":"30","rate":"48.5","locked":"0"}
-     * 321 : {"classid":"76","class1":"正特","class2":"正4特","class3":"31","rate":"48.5","locked":"0"}
-     * 322 : {"classid":"76","class1":"正特","class2":"正4特","class3":"32","rate":"48.5","locked":"0"}
-     * 323 : {"classid":"76","class1":"正特","class2":"正4特","class3":"33","rate":"48.5","locked":"0"}
-     * 324 : {"classid":"76","class1":"正特","class2":"正4特","class3":"34","rate":"48.5","locked":"0"}
-     * 325 : {"classid":"76","class1":"正特","class2":"正4特","class3":"35","rate":"48.5","locked":"0"}
-     * 326 : {"classid":"76","class1":"正特","class2":"正4特","class3":"36","rate":"48.5","locked":"0"}
-     * 327 : {"classid":"76","class1":"正特","class2":"正4特","class3":"37","rate":"48.5","locked":"0"}
-     * 328 : {"classid":"76","class1":"正特","class2":"正4特","class3":"38","rate":"48.5","locked":"0"}
-     * 329 : {"classid":"76","class1":"正特","class2":"正4特","class3":"39","rate":"48.5","locked":"0"}
-     * 330 : {"classid":"76","class1":"正特","class2":"正4特","class3":"40","rate":"48.5","locked":"0"}
-     * 331 : {"classid":"76","class1":"正特","class2":"正4特","class3":"41","rate":"48.5","locked":"0"}
-     * 332 : {"classid":"76","class1":"正特","class2":"正4特","class3":"42","rate":"48.5","locked":"0"}
-     * 333 : {"classid":"76","class1":"正特","class2":"正4特","class3":"43","rate":"48.5","locked":"0"}
-     * 334 : {"classid":"76","class1":"正特","class2":"正4特","class3":"44","rate":"48.5","locked":"0"}
-     * 335 : {"classid":"76","class1":"正特","class2":"正4特","class3":"45","rate":"48.5","locked":"0"}
-     * 336 : {"classid":"76","class1":"正特","class2":"正4特","class3":"46","rate":"48.5","locked":"0"}
-     * 337 : {"classid":"76","class1":"正特","class2":"正4特","class3":"47","rate":"48.5","locked":"0"}
-     * 338 : {"classid":"76","class1":"正特","class2":"正4特","class3":"48","rate":"48.5","locked":"0"}
-     * 339 : {"classid":"76","class1":"正特","class2":"正4特","class3":"49","rate":"48.5","locked":"0"}
-     * 340 : {"classid":"73","class1":"正特","class2":"正4特","class3":"单","rate":"1.965","locked":"0"}
-     * 341 : {"classid":"73","class1":"正特","class2":"正4特","class3":"双","rate":"1.965","locked":"0"}
-     * 342 : {"classid":"74","class1":"正特","class2":"正4特","class3":"大","rate":"1.965","locked":"0"}
-     * 343 : {"classid":"74","class1":"正特","class2":"正4特","class3":"小","rate":"1.965","locked":"0"}
-     * 344 : {"classid":"75","class1":"正特","class2":"正4特","class3":"合单","rate":"1.965","locked":"0"}
-     * 345 : {"classid":"75","class1":"正特","class2":"正4特","class3":"合双","rate":"1.965","locked":"0"}
-     * 346 : {"classid":"81","class1":"正特","class2":"正4特","class3":"红波","rate":"2.7","locked":"0"}
-     * 347 : {"classid":"81","class1":"正特","class2":"正4特","class3":"绿波","rate":"2.9","locked":"0"}
-     * 348 : {"classid":"81","class1":"正特","class2":"正4特","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1043 : {"classid":"75","class1":"正特","class2":"正4特","class3":"合大","rate":"1.965","locked":"0"}
-     * 1085 : {"classid":"75","class1":"正特","class2":"正4特","class3":"合小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("291")
-    private data80Bean data291;
-    @SerializedName("292")
-    private data80Bean data292;
-    @SerializedName("293")
-    private data80Bean data293;
-    @SerializedName("294")
-    private data80Bean data294;
-    @SerializedName("295")
-    private data80Bean data295;
-    @SerializedName("296")
-    private data80Bean data296;
-    @SerializedName("297")
-    private data80Bean data297;
-    @SerializedName("298")
-    private data80Bean data298;
-    @SerializedName("299")
-    private data80Bean data299;
-    @SerializedName("300")
-    private data80Bean data300;
-    @SerializedName("301")
-    private data80Bean data301;
-    @SerializedName("302")
-    private data80Bean data302;
-    @SerializedName("303")
-    private data80Bean data303;
-    @SerializedName("304")
-    private data80Bean data304;
-    @SerializedName("305")
-    private data80Bean data305;
-    @SerializedName("306")
-    private data80Bean data306;
-    @SerializedName("307")
-    private data80Bean data307;
-    @SerializedName("308")
-    private data80Bean data308;
-    @SerializedName("309")
-    private data80Bean data309;
-    @SerializedName("310")
-    private data80Bean data310;
-    @SerializedName("311")
-    private data80Bean data311;
-    @SerializedName("312")
-    private data80Bean data312;
-    @SerializedName("313")
-    private data80Bean data313;
-    @SerializedName("314")
-    private data80Bean data314;
-    @SerializedName("315")
-    private data80Bean data315;
-    @SerializedName("316")
-    private data80Bean data316;
-    @SerializedName("317")
-    private data80Bean data317;
-    @SerializedName("318")
-    private data80Bean data318;
-    @SerializedName("319")
-    private data80Bean data319;
-    @SerializedName("320")
-    private data80Bean data320;
-    @SerializedName("321")
-    private data80Bean data321;
-    @SerializedName("322")
-    private data80Bean data322;
-    @SerializedName("323")
-    private data80Bean data323;
-    @SerializedName("324")
-    private data80Bean data324;
-    @SerializedName("325")
-    private data80Bean data325;
-    @SerializedName("326")
-    private data80Bean data326;
-    @SerializedName("327")
-    private data80Bean data327;
-    @SerializedName("328")
-    private data80Bean data328;
-    @SerializedName("329")
-    private data80Bean data329;
-    @SerializedName("330")
-    private data80Bean data330;
-    @SerializedName("331")
-    private data80Bean data331;
-    @SerializedName("332")
-    private data80Bean data332;
-    @SerializedName("333")
-    private data80Bean data333;
-    @SerializedName("334")
-    private data80Bean data334;
-    @SerializedName("335")
-    private data80Bean data335;
-    @SerializedName("336")
-    private data80Bean data336;
-    @SerializedName("337")
-    private data80Bean data337;
-    @SerializedName("338")
-    private data80Bean data338;
-    @SerializedName("339")
-    private data80Bean data339;
-    @SerializedName("340")
-    private data80Bean data340;
-    @SerializedName("341")
-    private data80Bean data341;
-    @SerializedName("342")
-    private data80Bean data342;
-    @SerializedName("343")
-    private data80Bean data343;
-    @SerializedName("344")
-    private data80Bean data344;
-    @SerializedName("345")
-    private data80Bean data345;
-    @SerializedName("346")
-    private data80Bean data346;
-    @SerializedName("347")
-    private data80Bean data347;
-    @SerializedName("348")
-    private data80Bean data348;
-    @SerializedName("1043")
-    private data80Bean data1043;
-    @SerializedName("1085")
-    private data80Bean data1085;
-    /**
-     * 349 : {"classid":"76","class1":"正特","class2":"正5特","class3":"1","rate":"48.5","locked":"0"}
-     * 350 : {"classid":"76","class1":"正特","class2":"正5特","class3":"2","rate":"48.5","locked":"0"}
-     * 351 : {"classid":"76","class1":"正特","class2":"正5特","class3":"3","rate":"48.5","locked":"0"}
-     * 352 : {"classid":"76","class1":"正特","class2":"正5特","class3":"4","rate":"48.5","locked":"0"}
-     * 353 : {"classid":"76","class1":"正特","class2":"正5特","class3":"5","rate":"48.5","locked":"0"}
-     * 354 : {"classid":"76","class1":"正特","class2":"正5特","class3":"6","rate":"48.5","locked":"0"}
-     * 355 : {"classid":"76","class1":"正特","class2":"正5特","class3":"7","rate":"48.5","locked":"0"}
-     * 356 : {"classid":"76","class1":"正特","class2":"正5特","class3":"8","rate":"48.5","locked":"0"}
-     * 357 : {"classid":"76","class1":"正特","class2":"正5特","class3":"9","rate":"48.5","locked":"0"}
-     * 358 : {"classid":"76","class1":"正特","class2":"正5特","class3":"10","rate":"48.5","locked":"0"}
-     * 359 : {"classid":"76","class1":"正特","class2":"正5特","class3":"11","rate":"48.5","locked":"0"}
-     * 360 : {"classid":"76","class1":"正特","class2":"正5特","class3":"12","rate":"48.5","locked":"0"}
-     * 361 : {"classid":"76","class1":"正特","class2":"正5特","class3":"13","rate":"48.5","locked":"0"}
-     * 362 : {"classid":"76","class1":"正特","class2":"正5特","class3":"14","rate":"48.5","locked":"0"}
-     * 363 : {"classid":"76","class1":"正特","class2":"正5特","class3":"15","rate":"48.5","locked":"0"}
-     * 364 : {"classid":"76","class1":"正特","class2":"正5特","class3":"16","rate":"48.5","locked":"0"}
-     * 365 : {"classid":"76","class1":"正特","class2":"正5特","class3":"17","rate":"48.5","locked":"0"}
-     * 366 : {"classid":"76","class1":"正特","class2":"正5特","class3":"18","rate":"48.5","locked":"0"}
-     * 367 : {"classid":"76","class1":"正特","class2":"正5特","class3":"19","rate":"48.5","locked":"0"}
-     * 368 : {"classid":"76","class1":"正特","class2":"正5特","class3":"20","rate":"48.5","locked":"0"}
-     * 369 : {"classid":"76","class1":"正特","class2":"正5特","class3":"21","rate":"48.5","locked":"0"}
-     * 370 : {"classid":"76","class1":"正特","class2":"正5特","class3":"22","rate":"48.5","locked":"0"}
-     * 371 : {"classid":"76","class1":"正特","class2":"正5特","class3":"23","rate":"48.5","locked":"0"}
-     * 372 : {"classid":"76","class1":"正特","class2":"正5特","class3":"24","rate":"48.5","locked":"0"}
-     * 373 : {"classid":"76","class1":"正特","class2":"正5特","class3":"25","rate":"48.5","locked":"0"}
-     * 374 : {"classid":"76","class1":"正特","class2":"正5特","class3":"26","rate":"48.5","locked":"0"}
-     * 375 : {"classid":"76","class1":"正特","class2":"正5特","class3":"27","rate":"48.5","locked":"0"}
-     * 376 : {"classid":"76","class1":"正特","class2":"正5特","class3":"28","rate":"48.5","locked":"0"}
-     * 377 : {"classid":"76","class1":"正特","class2":"正5特","class3":"29","rate":"48.5","locked":"0"}
-     * 378 : {"classid":"76","class1":"正特","class2":"正5特","class3":"30","rate":"48.5","locked":"0"}
-     * 379 : {"classid":"76","class1":"正特","class2":"正5特","class3":"31","rate":"48.5","locked":"0"}
-     * 380 : {"classid":"76","class1":"正特","class2":"正5特","class3":"32","rate":"48.5","locked":"0"}
-     * 381 : {"classid":"76","class1":"正特","class2":"正5特","class3":"33","rate":"48.5","locked":"0"}
-     * 382 : {"classid":"76","class1":"正特","class2":"正5特","class3":"34","rate":"48.5","locked":"0"}
-     * 383 : {"classid":"76","class1":"正特","class2":"正5特","class3":"35","rate":"48.5","locked":"0"}
-     * 384 : {"classid":"76","class1":"正特","class2":"正5特","class3":"36","rate":"48.5","locked":"0"}
-     * 385 : {"classid":"76","class1":"正特","class2":"正5特","class3":"37","rate":"48.5","locked":"0"}
-     * 386 : {"classid":"76","class1":"正特","class2":"正5特","class3":"38","rate":"48.5","locked":"0"}
-     * 387 : {"classid":"76","class1":"正特","class2":"正5特","class3":"39","rate":"48.5","locked":"0"}
-     * 388 : {"classid":"76","class1":"正特","class2":"正5特","class3":"40","rate":"48.5","locked":"0"}
-     * 389 : {"classid":"76","class1":"正特","class2":"正5特","class3":"41","rate":"48.5","locked":"0"}
-     * 390 : {"classid":"76","class1":"正特","class2":"正5特","class3":"42","rate":"48.5","locked":"0"}
-     * 391 : {"classid":"76","class1":"正特","class2":"正5特","class3":"43","rate":"48.5","locked":"0"}
-     * 392 : {"classid":"76","class1":"正特","class2":"正5特","class3":"44","rate":"48.5","locked":"0"}
-     * 393 : {"classid":"76","class1":"正特","class2":"正5特","class3":"45","rate":"48.5","locked":"0"}
-     * 394 : {"classid":"76","class1":"正特","class2":"正5特","class3":"46","rate":"48.5","locked":"0"}
-     * 395 : {"classid":"76","class1":"正特","class2":"正5特","class3":"47","rate":"48.5","locked":"0"}
-     * 396 : {"classid":"76","class1":"正特","class2":"正5特","class3":"48","rate":"48.5","locked":"0"}
-     * 397 : {"classid":"76","class1":"正特","class2":"正5特","class3":"49","rate":"48.5","locked":"0"}
-     * 398 : {"classid":"73","class1":"正特","class2":"正5特","class3":"单","rate":"1.965","locked":"0"}
-     * 399 : {"classid":"73","class1":"正特","class2":"正5特","class3":"双","rate":"1.965","locked":"0"}
-     * 400 : {"classid":"74","class1":"正特","class2":"正5特","class3":"大","rate":"1.965","locked":"0"}
-     * 401 : {"classid":"74","class1":"正特","class2":"正5特","class3":"小","rate":"1.965","locked":"0"}
-     * 402 : {"classid":"75","class1":"正特","class2":"正5特","class3":"合单","rate":"1.965","locked":"0"}
-     * 403 : {"classid":"75","class1":"正特","class2":"正5特","class3":"合双","rate":"1.965","locked":"0"}
-     * 404 : {"classid":"81","class1":"正特","class2":"正5特","class3":"红波","rate":"2.7","locked":"0"}
-     * 405 : {"classid":"81","class1":"正特","class2":"正5特","class3":"绿波","rate":"2.9","locked":"0"}
-     * 406 : {"classid":"81","class1":"正特","class2":"正5特","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1042 : {"classid":"75","class1":"正特","class2":"正5特","class3":"合大","rate":"1.965","locked":"0"}
-     * 1086 : {"classid":"75","class1":"正特","class2":"正5特","class3":"合小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("349")
-    private data80Bean data349;
-    @SerializedName("350")
-    private data80Bean data350;
-    @SerializedName("351")
-    private data80Bean data351;
-    @SerializedName("352")
-    private data80Bean data352;
-    @SerializedName("353")
-    private data80Bean data353;
-    @SerializedName("354")
-    private data80Bean data354;
-    @SerializedName("355")
-    private data80Bean data355;
-    @SerializedName("356")
-    private data80Bean data356;
-    @SerializedName("357")
-    private data80Bean data357;
-    @SerializedName("358")
-    private data80Bean data358;
-    @SerializedName("359")
-    private data80Bean data359;
-    @SerializedName("360")
-    private data80Bean data360;
-    @SerializedName("361")
-    private data80Bean data361;
-    @SerializedName("362")
-    private data80Bean data362;
-    @SerializedName("363")
-    private data80Bean data363;
-    @SerializedName("364")
-    private data80Bean data364;
-    @SerializedName("365")
-    private data80Bean data365;
-    @SerializedName("366")
-    private data80Bean data366;
-    @SerializedName("367")
-    private data80Bean data367;
-    @SerializedName("368")
-    private data80Bean data368;
-    @SerializedName("369")
-    private data80Bean data369;
-    @SerializedName("370")
-    private data80Bean data370;
-    @SerializedName("371")
-    private data80Bean data371;
-    @SerializedName("372")
-    private data80Bean data372;
-    @SerializedName("373")
-    private data80Bean data373;
-    @SerializedName("374")
-    private data80Bean data374;
-    @SerializedName("375")
-    private data80Bean data375;
-    @SerializedName("376")
-    private data80Bean data376;
-    @SerializedName("377")
-    private data80Bean data377;
-    @SerializedName("378")
-    private data80Bean data378;
-    @SerializedName("379")
-    private data80Bean data379;
-    @SerializedName("380")
-    private data80Bean data380;
-    @SerializedName("381")
-    private data80Bean data381;
-    @SerializedName("382")
-    private data80Bean data382;
-    @SerializedName("383")
-    private data80Bean data383;
-    @SerializedName("384")
-    private data80Bean data384;
-    @SerializedName("385")
-    private data80Bean data385;
-    @SerializedName("386")
-    private data80Bean data386;
-    @SerializedName("387")
-    private data80Bean data387;
-    @SerializedName("388")
-    private data80Bean data388;
-    @SerializedName("389")
-    private data80Bean data389;
-    @SerializedName("390")
-    private data80Bean data390;
-    @SerializedName("391")
-    private data80Bean data391;
-    @SerializedName("392")
-    private data80Bean data392;
-    @SerializedName("393")
-    private data80Bean data393;
-    @SerializedName("394")
-    private data80Bean data394;
-    @SerializedName("395")
-    private data80Bean data395;
-    @SerializedName("396")
-    private data80Bean data396;
-    @SerializedName("397")
-    private data80Bean data397;
-    @SerializedName("398")
-    private data80Bean data398;
-    @SerializedName("399")
-    private data80Bean data399;
-    @SerializedName("400")
-    private data80Bean data400;
-    @SerializedName("401")
-    private data80Bean data401;
-    @SerializedName("402")
-    private data80Bean data402;
-    @SerializedName("403")
-    private data80Bean data403;
-    @SerializedName("404")
-    private data80Bean data404;
-    @SerializedName("405")
-    private data80Bean data405;
-    @SerializedName("406")
-    private data80Bean data406;
-    @SerializedName("1042")
-    private data80Bean data1042;
-    @SerializedName("1086")
-    private data80Bean data1086;
-    /**
-     * 407 : {"classid":"76","class1":"正特","class2":"正6特","class3":"1","rate":"48.5","locked":"0"}
-     * 408 : {"classid":"76","class1":"正特","class2":"正6特","class3":"2","rate":"48.5","locked":"0"}
-     * 409 : {"classid":"76","class1":"正特","class2":"正6特","class3":"3","rate":"48.5","locked":"0"}
-     * 410 : {"classid":"76","class1":"正特","class2":"正6特","class3":"4","rate":"48.5","locked":"0"}
-     * 411 : {"classid":"76","class1":"正特","class2":"正6特","class3":"5","rate":"48.5","locked":"0"}
-     * 412 : {"classid":"76","class1":"正特","class2":"正6特","class3":"6","rate":"48.5","locked":"0"}
-     * 413 : {"classid":"76","class1":"正特","class2":"正6特","class3":"7","rate":"48.5","locked":"0"}
-     * 414 : {"classid":"76","class1":"正特","class2":"正6特","class3":"8","rate":"48.5","locked":"0"}
-     * 415 : {"classid":"76","class1":"正特","class2":"正6特","class3":"9","rate":"48.5","locked":"0"}
-     * 416 : {"classid":"76","class1":"正特","class2":"正6特","class3":"10","rate":"48.5","locked":"0"}
-     * 417 : {"classid":"76","class1":"正特","class2":"正6特","class3":"11","rate":"48.5","locked":"0"}
-     * 418 : {"classid":"76","class1":"正特","class2":"正6特","class3":"12","rate":"48.5","locked":"0"}
-     * 419 : {"classid":"76","class1":"正特","class2":"正6特","class3":"13","rate":"48.5","locked":"0"}
-     * 420 : {"classid":"76","class1":"正特","class2":"正6特","class3":"14","rate":"48.5","locked":"0"}
-     * 421 : {"classid":"76","class1":"正特","class2":"正6特","class3":"15","rate":"48.5","locked":"0"}
-     * 422 : {"classid":"76","class1":"正特","class2":"正6特","class3":"16","rate":"48.5","locked":"0"}
-     * 423 : {"classid":"76","class1":"正特","class2":"正6特","class3":"17","rate":"48.5","locked":"0"}
-     * 424 : {"classid":"76","class1":"正特","class2":"正6特","class3":"18","rate":"48.5","locked":"0"}
-     * 425 : {"classid":"76","class1":"正特","class2":"正6特","class3":"19","rate":"48.5","locked":"0"}
-     * 426 : {"classid":"76","class1":"正特","class2":"正6特","class3":"20","rate":"48.5","locked":"0"}
-     * 427 : {"classid":"76","class1":"正特","class2":"正6特","class3":"21","rate":"48.5","locked":"0"}
-     * 428 : {"classid":"76","class1":"正特","class2":"正6特","class3":"22","rate":"48.5","locked":"0"}
-     * 429 : {"classid":"76","class1":"正特","class2":"正6特","class3":"23","rate":"48.5","locked":"0"}
-     * 430 : {"classid":"76","class1":"正特","class2":"正6特","class3":"24","rate":"48.5","locked":"0"}
-     * 431 : {"classid":"76","class1":"正特","class2":"正6特","class3":"25","rate":"48.5","locked":"0"}
-     * 432 : {"classid":"76","class1":"正特","class2":"正6特","class3":"26","rate":"48.5","locked":"0"}
-     * 433 : {"classid":"76","class1":"正特","class2":"正6特","class3":"27","rate":"48.5","locked":"0"}
-     * 434 : {"classid":"76","class1":"正特","class2":"正6特","class3":"28","rate":"48.5","locked":"0"}
-     * 435 : {"classid":"76","class1":"正特","class2":"正6特","class3":"29","rate":"48.5","locked":"0"}
-     * 436 : {"classid":"76","class1":"正特","class2":"正6特","class3":"30","rate":"48.5","locked":"0"}
-     * 437 : {"classid":"76","class1":"正特","class2":"正6特","class3":"31","rate":"48.5","locked":"0"}
-     * 438 : {"classid":"76","class1":"正特","class2":"正6特","class3":"32","rate":"48.5","locked":"0"}
-     * 439 : {"classid":"76","class1":"正特","class2":"正6特","class3":"33","rate":"48.5","locked":"0"}
-     * 440 : {"classid":"76","class1":"正特","class2":"正6特","class3":"34","rate":"48.5","locked":"0"}
-     * 441 : {"classid":"76","class1":"正特","class2":"正6特","class3":"35","rate":"48.5","locked":"0"}
-     * 442 : {"classid":"76","class1":"正特","class2":"正6特","class3":"36","rate":"48.5","locked":"0"}
-     * 443 : {"classid":"76","class1":"正特","class2":"正6特","class3":"37","rate":"48.5","locked":"0"}
-     * 444 : {"classid":"76","class1":"正特","class2":"正6特","class3":"38","rate":"48.5","locked":"0"}
-     * 445 : {"classid":"76","class1":"正特","class2":"正6特","class3":"39","rate":"48.5","locked":"0"}
-     * 446 : {"classid":"76","class1":"正特","class2":"正6特","class3":"40","rate":"48.5","locked":"0"}
-     * 447 : {"classid":"76","class1":"正特","class2":"正6特","class3":"41","rate":"48.5","locked":"0"}
-     * 448 : {"classid":"76","class1":"正特","class2":"正6特","class3":"42","rate":"48.5","locked":"0"}
-     * 449 : {"classid":"76","class1":"正特","class2":"正6特","class3":"43","rate":"48.5","locked":"0"}
-     * 450 : {"classid":"76","class1":"正特","class2":"正6特","class3":"44","rate":"48.5","locked":"0"}
-     * 451 : {"classid":"76","class1":"正特","class2":"正6特","class3":"45","rate":"48.5","locked":"0"}
-     * 452 : {"classid":"76","class1":"正特","class2":"正6特","class3":"46","rate":"48.5","locked":"0"}
-     * 453 : {"classid":"76","class1":"正特","class2":"正6特","class3":"47","rate":"48.5","locked":"0"}
-     * 454 : {"classid":"76","class1":"正特","class2":"正6特","class3":"48","rate":"48.5","locked":"0"}
-     * 455 : {"classid":"76","class1":"正特","class2":"正6特","class3":"49","rate":"48.5","locked":"0"}
-     * 456 : {"classid":"73","class1":"正特","class2":"正6特","class3":"单","rate":"1.965","locked":"0"}
-     * 457 : {"classid":"73","class1":"正特","class2":"正6特","class3":"双","rate":"1.965","locked":"0"}
-     * 458 : {"classid":"74","class1":"正特","class2":"正6特","class3":"大","rate":"1.965","locked":"0"}
-     * 459 : {"classid":"74","class1":"正特","class2":"正6特","class3":"小","rate":"1.965","locked":"0"}
-     * 460 : {"classid":"75","class1":"正特","class2":"正6特","class3":"合单","rate":"1.965","locked":"0"}
-     * 461 : {"classid":"75","class1":"正特","class2":"正6特","class3":"合双","rate":"1.965","locked":"0"}
-     * 462 : {"classid":"81","class1":"正特","class2":"正6特","class3":"红波","rate":"2.7","locked":"0"}
-     * 463 : {"classid":"81","class1":"正特","class2":"正6特","class3":"绿波","rate":"2.9","locked":"0"}
-     * 464 : {"classid":"81","class1":"正特","class2":"正6特","class3":"蓝波","rate":"2.9","locked":"0"}
-     * 1041 : {"classid":"75","class1":"正特","class2":"正6特","class3":"合大","rate":"1.965","locked":"0"}
-     * 1087 : {"classid":"75","class1":"正特","class2":"正6特","class3":"合小","rate":"1.965","locked":"0"}
-     */
-
-    @SerializedName("407")
-    private data80Bean data407;
-    @SerializedName("408")
-    private data80Bean data408;
-    @SerializedName("409")
-    private data80Bean data409;
-    @SerializedName("410")
-    private data80Bean data410;
-    @SerializedName("411")
-    private data80Bean data411;
-    @SerializedName("412")
-    private data80Bean data412;
-    @SerializedName("413")
-    private data80Bean data413;
-    @SerializedName("414")
-    private data80Bean data414;
-    @SerializedName("415")
-    private data80Bean data415;
-    @SerializedName("416")
-    private data80Bean data416;
-    @SerializedName("417")
-    private data80Bean data417;
-    @SerializedName("418")
-    private data80Bean data418;
-    @SerializedName("419")
-    private data80Bean data419;
-    @SerializedName("420")
-    private data80Bean data420;
-    @SerializedName("421")
-    private data80Bean data421;
-    @SerializedName("422")
-    private data80Bean data422;
-    @SerializedName("423")
-    private data80Bean data423;
-    @SerializedName("424")
-    private data80Bean data424;
-    @SerializedName("425")
-    private data80Bean data425;
-    @SerializedName("426")
-    private data80Bean data426;
-    @SerializedName("427")
-    private data80Bean data427;
-    @SerializedName("428")
-    private data80Bean data428;
-    @SerializedName("429")
-    private data80Bean data429;
-    @SerializedName("430")
-    private data80Bean data430;
-    @SerializedName("431")
-    private data80Bean data431;
-    @SerializedName("432")
-    private data80Bean data432;
-    @SerializedName("433")
-    private data80Bean data433;
-    @SerializedName("434")
-    private data80Bean data434;
-    @SerializedName("435")
-    private data80Bean data435;
-    @SerializedName("436")
-    private data80Bean data436;
-    @SerializedName("437")
-    private data80Bean data437;
-    @SerializedName("438")
-    private data80Bean data438;
-    @SerializedName("439")
-    private data80Bean data439;
-    @SerializedName("440")
-    private data80Bean data440;
-    @SerializedName("441")
-    private data80Bean data441;
-    @SerializedName("442")
-    private data80Bean data442;
-    @SerializedName("443")
-    private data80Bean data443;
-    @SerializedName("444")
-    private data80Bean data444;
-    @SerializedName("445")
-    private data80Bean data445;
-    @SerializedName("446")
-    private data80Bean data446;
-    @SerializedName("447")
-    private data80Bean data447;
-    @SerializedName("448")
-    private data80Bean data448;
-    @SerializedName("449")
-    private data80Bean data449;
-    @SerializedName("450")
-    private data80Bean data450;
-    @SerializedName("451")
-    private data80Bean data451;
-    @SerializedName("452")
-    private data80Bean data452;
-    @SerializedName("453")
-    private data80Bean data453;
-    @SerializedName("454")
-    private data80Bean data454;
-    @SerializedName("455")
-    private data80Bean data455;
-    @SerializedName("456")
-    private data80Bean data456;
-    @SerializedName("457")
-    private data80Bean data457;
-    @SerializedName("458")
-    private data80Bean data458;
-    @SerializedName("459")
-    private data80Bean data459;
-    @SerializedName("460")
-    private data80Bean data460;
-    @SerializedName("461")
-    private data80Bean data461;
-    @SerializedName("462")
-    private data80Bean data462;
-    @SerializedName("463")
-    private data80Bean data463;
-    @SerializedName("464")
-    private data80Bean data464;
-    @SerializedName("1041")
-    private data80Bean data1041;
-    @SerializedName("1087")
-    private data80Bean data1087;
-    /**
-     * 613 : {"classid":"84","class1":"连码","class2":"二全中","class3":"二全中","rate":"60","locked":"0"}
-     * 614 : {"classid":"87","class1":"连码","class2":"二中特","class3":"中特","rate":"25","locked":"0"}
-     * 615 : {"classid":"87","class1":"连码","class2":"二中特","class3":"中二","rate":"50","locked":"0"}
-     * 616 : {"classid":"88","class1":"连码","class2":"特串","class3":"特串","rate":"150","locked":"0"}
-     * 617 : {"classid":"85","class1":"连码","class2":"三全中","class3":"三全中","rate":"670","locked":"0"}
-     * 618 : {"classid":"86","class1":"连码","class2":"三中二","class3":"中二","rate":"20","locked":"0"}
-     * 619 : {"classid":"86","class1":"连码","class2":"三中二","class3":"中三","rate":"110","locked":"0"}
-     * 808 : {"classid":"116","class1":"连码","class2":"四中一","class3":"四中一","rate":"1.96","locked":"0"}
-     */
-
-    @SerializedName("613")
-    private data80Bean data613;
-    @SerializedName("614")
-    private data80Bean data614;
-    @SerializedName("615")
-    private data80Bean data615;
-    @SerializedName("616")
-    private data80Bean data616;
-    @SerializedName("617")
-    private data80Bean data617;
-    @SerializedName("618")
-    private data80Bean data618;
-    @SerializedName("619")
-    private data80Bean data619;
-    @SerializedName("808")
-    private data80Bean data808;
-    /**
-     * 700 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"牛","rate":"2.09","locked":"0"}
-     * 701 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"兔","rate":"2.09","locked":"0"}
-     * 702 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"蛇","rate":"2.09","locked":"0"}
-     * 703 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"羊","rate":"2.09","locked":"0"}
-     * 704 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"鸡","rate":"2.09","locked":"0"}
-     * 705 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"猪","rate":"2.09","locked":"0"}
-     * 706 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"虎","rate":"2.09","locked":"0"}
-     * 707 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"龙","rate":"2.09","locked":"0"}
-     * 708 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"马","rate":"2.09","locked":"0"}
-     * 709 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"猴","rate":"2.09","locked":"0"}
-     * 710 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"狗","rate":"1.78","locked":"0"}
-     * 711 : {"classid":"93","class1":"生肖","class2":"一肖","class3":"鼠","rate":"2.09","locked":"0"}
-     * 769 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"0","rate":"2.09","locked":"0"}
-     * 770 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"1","rate":"1.8","locked":"0"}
-     * 771 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"2","rate":"1.8","locked":"0"}
-     * 772 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"3","rate":"1.8","locked":"0"}
-     * 773 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"4","rate":"1.8","locked":"0"}
-     * 774 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"5","rate":"1.8","locked":"0"}
-     * 775 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"6","rate":"1.8","locked":"0"}
-     * 776 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"7","rate":"1.8","locked":"0"}
-     * 777 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"8","rate":"1.8","locked":"0"}
-     * 778 : {"classid":"101","class1":"正特尾数","class2":"正特尾数","class3":"9","rate":"1.8","locked":"0"}
-     */
-
-    @SerializedName("700")
-    private data80Bean data700;
-    @SerializedName("701")
-    private data80Bean data701;
-    @SerializedName("702")
-    private data80Bean data702;
-    @SerializedName("703")
-    private data80Bean data703;
-    @SerializedName("704")
-    private data80Bean data704;
-    @SerializedName("705")
-    private data80Bean data705;
-    @SerializedName("706")
-    private data80Bean data706;
-    @SerializedName("707")
-    private data80Bean data707;
-    @SerializedName("708")
-    private data80Bean data708;
-    @SerializedName("709")
-    private data80Bean data709;
-    @SerializedName("710")
-    private data80Bean data710;
-    @SerializedName("711")
-    private data80Bean data711;
-    @SerializedName("769")
-    private data80Bean data769;
-    @SerializedName("770")
-    private data80Bean data770;
-    @SerializedName("771")
-    private data80Bean data771;
-    @SerializedName("772")
-    private data80Bean data772;
-    @SerializedName("773")
-    private data80Bean data773;
-    @SerializedName("774")
-    private data80Bean data774;
-    @SerializedName("775")
-    private data80Bean data775;
-    @SerializedName("776")
-    private data80Bean data776;
-    @SerializedName("777")
-    private data80Bean data777;
-    @SerializedName("778")
-    private data80Bean data778;
-    /**
-     * 674 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"牛","rate":"11.5","locked":"0"}
-     * 675 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"兔","rate":"11.5","locked":"0"}
-     * 676 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"蛇","rate":"11.5","locked":"0"}
-     * 677 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"羊","rate":"11.5","locked":"0"}
-     * 678 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"鸡","rate":"11.5","locked":"0"}
-     * 679 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"猪","rate":"11.5","locked":"0"}
-     * 680 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"虎","rate":"11.5","locked":"0"}
-     * 681 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"龙","rate":"11.5","locked":"0"}
-     * 682 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"马","rate":"11.5","locked":"0"}
-     * 683 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"猴","rate":"11.5","locked":"0"}
-     * 684 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"狗","rate":"9.2","locked":"0"}
-     * 685 : {"classid":"89","class1":"生肖","class2":"特肖","class3":"鼠","rate":"11.5","locked":"0"}
-     */
-
-    @SerializedName("674")
-    private data80Bean data674;
-    @SerializedName("675")
-    private data80Bean data675;
-    @SerializedName("676")
-    private data80Bean data676;
-    @SerializedName("677")
-    private data80Bean data677;
-    @SerializedName("678")
-    private data80Bean data678;
-    @SerializedName("679")
-    private data80Bean data679;
-    @SerializedName("680")
-    private data80Bean data680;
-    @SerializedName("681")
-    private data80Bean data681;
-    @SerializedName("682")
-    private data80Bean data682;
-    @SerializedName("683")
-    private data80Bean data683;
-    @SerializedName("684")
-    private data80Bean data684;
-    @SerializedName("685")
-    private data80Bean data685;
-    /**
-     * 901 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"牛","rate":"5.82","locked":"0"}
-     * 902 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"兔","rate":"5.82","locked":"0"}
-     * 903 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"蛇","rate":"5.82","locked":"0"}
-     * 904 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"羊","rate":"5.82","locked":"0"}
-     * 905 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"鸡","rate":"5.82","locked":"0"}
-     * 906 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"猪","rate":"5.82","locked":"0"}
-     * 907 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"虎","rate":"5.82","locked":"0"}
-     * 908 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"龙","rate":"5.82","locked":"0"}
-     * 909 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"马","rate":"5.82","locked":"0"}
-     * 910 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"猴","rate":"5.82","locked":"0"}
-     * 911 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"狗","rate":"5.82","locked":"0"}
-     * 912 : {"classid":"97","class1":"生肖","class2":"二肖","class3":"鼠","rate":"5.82","locked":"0"}
-     */
-
-    @SerializedName("901")
-    private data80Bean data901;
-    @SerializedName("902")
-    private data80Bean data902;
-    @SerializedName("903")
-    private data80Bean data903;
-    @SerializedName("904")
-    private data80Bean data904;
-    @SerializedName("905")
-    private data80Bean data905;
-    @SerializedName("906")
-    private data80Bean data906;
-    @SerializedName("907")
-    private data80Bean data907;
-    @SerializedName("908")
-    private data80Bean data908;
-    @SerializedName("909")
-    private data80Bean data909;
-    @SerializedName("910")
-    private data80Bean data910;
-    @SerializedName("911")
-    private data80Bean data911;
-    @SerializedName("912")
-    private data80Bean data912;
-    /**
-     * 1401 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"牛","rate":"4.5","locked":"0"}
-     * 1402 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"兔","rate":"4.5","locked":"0"}
-     * 1403 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"蛇","rate":"4.5","locked":"0"}
-     * 1404 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"羊","rate":"4.5","locked":"0"}
-     * 1405 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"鸡","rate":"4.5","locked":"0"}
-     * 1406 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"猪","rate":"4.5","locked":"0"}
-     * 1407 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"虎","rate":"4.5","locked":"0"}
-     * 1408 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"龙","rate":"4.5","locked":"0"}
-     * 1409 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"马","rate":"4.5","locked":"0"}
-     * 1410 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"猴","rate":"4.5","locked":"0"}
-     * 1411 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"狗","rate":"4","locked":"0"}
-     * 1412 : {"classid":"119","class1":"生肖连","class2":"二肖连中","class3":"鼠","rate":"4.5","locked":"0"}
-     */
-
-    @SerializedName("1401")
-    private data80Bean data1401;
-    @SerializedName("1402")
-    private data80Bean data1402;
-    @SerializedName("1403")
-    private data80Bean data1403;
-    @SerializedName("1404")
-    private data80Bean data1404;
-    @SerializedName("1405")
-    private data80Bean data1405;
-    @SerializedName("1406")
-    private data80Bean data1406;
-    @SerializedName("1407")
-    private data80Bean data1407;
-    @SerializedName("1408")
-    private data80Bean data1408;
-    @SerializedName("1409")
-    private data80Bean data1409;
-    @SerializedName("1410")
-    private data80Bean data1410;
-    @SerializedName("1411")
-    private data80Bean data1411;
-    @SerializedName("1412")
-    private data80Bean data1412;
-    /**
-     * 1413 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"牛","rate":"12","locked":"0"}
-     * 1414 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"兔","rate":"12","locked":"0"}
-     * 1415 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"蛇","rate":"12","locked":"0"}
-     * 1416 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"羊","rate":"12","locked":"0"}
-     * 1417 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"鸡","rate":"12","locked":"0"}
-     * 1418 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"猪","rate":"12","locked":"0"}
-     * 1419 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"虎","rate":"12","locked":"0"}
-     * 1420 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"龙","rate":"12","locked":"0"}
-     * 1421 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"马","rate":"12","locked":"0"}
-     * 1422 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"猴","rate":"12","locked":"0"}
-     * 1423 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"狗","rate":"9.5","locked":"0"}
-     * 1424 : {"classid":"120","class1":"生肖连","class2":"三肖连中","class3":"鼠","rate":"12","locked":"0"}
-     */
-
-    @SerializedName("1413")
-    private data80Bean data1413;
-    @SerializedName("1414")
-    private data80Bean data1414;
-    @SerializedName("1415")
-    private data80Bean data1415;
-    @SerializedName("1416")
-    private data80Bean data1416;
-    @SerializedName("1417")
-    private data80Bean data1417;
-    @SerializedName("1418")
-    private data80Bean data1418;
-    @SerializedName("1419")
-    private data80Bean data1419;
-    @SerializedName("1420")
-    private data80Bean data1420;
-    @SerializedName("1421")
-    private data80Bean data1421;
-    @SerializedName("1422")
-    private data80Bean data1422;
-    @SerializedName("1423")
-    private data80Bean data1423;
-    @SerializedName("1424")
-    private data80Bean data1424;
-    /**
-     * 1425 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"牛","rate":"35","locked":"0"}
-     * 1426 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"兔","rate":"35","locked":"0"}
-     * 1427 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"蛇","rate":"35","locked":"0"}
-     * 1428 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"羊","rate":"35","locked":"0"}
-     * 1429 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"鸡","rate":"35","locked":"0"}
-     * 1430 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"猪","rate":"35","locked":"0"}
-     * 1431 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"虎","rate":"35","locked":"0"}
-     * 1432 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"龙","rate":"35","locked":"0"}
-     * 1433 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"马","rate":"35","locked":"0"}
-     * 1434 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"猴","rate":"35","locked":"0"}
-     * 1435 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"狗","rate":"28","locked":"0"}
-     * 1436 : {"classid":"121","class1":"生肖连","class2":"四肖连中","class3":"鼠","rate":"35","locked":"0"}
-     */
-
-    @SerializedName("1425")
-    private data80Bean data1425;
-    @SerializedName("1426")
-    private data80Bean data1426;
-    @SerializedName("1427")
-    private data80Bean data1427;
-    @SerializedName("1428")
-    private data80Bean data1428;
-    @SerializedName("1429")
-    private data80Bean data1429;
-    @SerializedName("1430")
-    private data80Bean data1430;
-    @SerializedName("1431")
-    private data80Bean data1431;
-    @SerializedName("1432")
-    private data80Bean data1432;
-    @SerializedName("1433")
-    private data80Bean data1433;
-    @SerializedName("1434")
-    private data80Bean data1434;
-    @SerializedName("1435")
-    private data80Bean data1435;
-    @SerializedName("1436")
-    private data80Bean data1436;
-
-    /**
-     * 1473 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"牛","rate":"85","locked":"0"}
-     * 1474 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"兔","rate":"85","locked":"0"}
-     * 1475 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"蛇","rate":"85","locked":"0"}
-     * 1476 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"羊","rate":"85","locked":"0"}
-     * 1477 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"鸡","rate":"85","locked":"0"}
-     * 1478 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"猪","rate":"85","locked":"0"}
-     * 1479 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"虎","rate":"85","locked":"0"}
-     * 1480 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"龙","rate":"85","locked":"0"}
-     * 1481 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"马","rate":"85","locked":"0"}
-     * 1482 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"猴","rate":"85","locked":"0"}
-     * 1483 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"狗","rate":"75","locked":"0"}
-     * 1484 : {"classid":"122","class1":"生肖连","class2":"五肖连中","class3":"鼠","rate":"85","locked":"0"}
-     */
-
-    @SerializedName("1473")
-    private data80Bean data1473;
-    @SerializedName("1474")
-    private data80Bean data1474;
-    @SerializedName("1475")
-    private data80Bean data1475;
-    @SerializedName("1476")
-    private data80Bean data1476;
-    @SerializedName("1477")
-    private data80Bean data1477;
-    @SerializedName("1478")
-    private data80Bean data1478;
-    @SerializedName("1479")
-    private data80Bean data1479;
-    @SerializedName("1480")
-    private data80Bean data1480;
-    @SerializedName("1481")
-    private data80Bean data1481;
-    @SerializedName("1482")
-    private data80Bean data1482;
-    @SerializedName("1483")
-    private data80Bean data1483;
-    @SerializedName("1484")
-    private data80Bean data1484;
-    /**
-     * 1437 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"牛","rate":"3.5","locked":"0"}
-     * 1438 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"兔","rate":"3.5","locked":"0"}
-     * 1439 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"蛇","rate":"3.5","locked":"0"}
-     * 1440 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"羊","rate":"3.5","locked":"0"}
-     * 1441 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"鸡","rate":"3.5","locked":"0"}
-     * 1442 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"猪","rate":"3.5","locked":"0"}
-     * 1443 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"虎","rate":"3.5","locked":"0"}
-     * 1444 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"龙","rate":"3.5","locked":"0"}
-     * 1445 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"马","rate":"3.5","locked":"0"}
-     * 1446 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"猴","rate":"3.5","locked":"0"}
-     * 1447 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"狗","rate":"3.5","locked":"0"}
-     * 1448 : {"classid":"123","class1":"生肖连","class2":"二肖连不中","class3":"鼠","rate":"3.5","locked":"0"}
-     */
-
-    @SerializedName("1437")
-    private data80Bean data1437;
-    @SerializedName("1438")
-    private data80Bean data1438;
-    @SerializedName("1439")
-    private data80Bean data1439;
-    @SerializedName("1440")
-    private data80Bean data1440;
-    @SerializedName("1441")
-    private data80Bean data1441;
-    @SerializedName("1442")
-    private data80Bean data1442;
-    @SerializedName("1443")
-    private data80Bean data1443;
-    @SerializedName("1444")
-    private data80Bean data1444;
-    @SerializedName("1445")
-    private data80Bean data1445;
-    @SerializedName("1446")
-    private data80Bean data1446;
-    @SerializedName("1447")
-    private data80Bean data1447;
-    @SerializedName("1448")
-    private data80Bean data1448;
-    /**
-     * 1449 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"牛","rate":"8","locked":"0"}
-     * 1450 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"兔","rate":"8","locked":"0"}
-     * 1451 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"蛇","rate":"8","locked":"0"}
-     * 1452 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"羊","rate":"8","locked":"0"}
-     * 1453 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"鸡","rate":"8","locked":"0"}
-     * 1454 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"猪","rate":"8","locked":"0"}
-     * 1455 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"虎","rate":"8","locked":"0"}
-     * 1456 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"龙","rate":"8","locked":"0"}
-     * 1457 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"马","rate":"8","locked":"0"}
-     * 1458 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"猴","rate":"8","locked":"0"}
-     * 1459 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"狗","rate":"8","locked":"0"}
-     * 1460 : {"classid":"124","class1":"生肖连","class2":"三肖连不中","class3":"鼠","rate":"8","locked":"0"}
-     */
-
-    @SerializedName("1449")
-    private data80Bean data1449;
-    @SerializedName("1450")
-    private data80Bean data1450;
-    @SerializedName("1451")
-    private data80Bean data1451;
-    @SerializedName("1452")
-    private data80Bean data1452;
-    @SerializedName("1453")
-    private data80Bean data1453;
-    @SerializedName("1454")
-    private data80Bean data1454;
-    @SerializedName("1455")
-    private data80Bean data1455;
-    @SerializedName("1456")
-    private data80Bean data1456;
-    @SerializedName("1457")
-    private data80Bean data1457;
-    @SerializedName("1458")
-    private data80Bean data1458;
-    @SerializedName("1459")
-    private data80Bean data1459;
-    @SerializedName("1460")
-    private data80Bean data1460;
-    /**
-     * 1461 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"牛","rate":"20","locked":"0"}
-     * 1462 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"兔","rate":"20","locked":"0"}
-     * 1463 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"蛇","rate":"20","locked":"0"}
-     * 1464 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"羊","rate":"20","locked":"0"}
-     * 1465 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"鸡","rate":"20","locked":"0"}
-     * 1466 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"猪","rate":"20","locked":"0"}
-     * 1467 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"虎","rate":"20","locked":"0"}
-     * 1468 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"龙","rate":"20","locked":"0"}
-     * 1469 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"马","rate":"20","locked":"0"}
-     * 1470 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"猴","rate":"20","locked":"0"}
-     * 1471 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"狗","rate":"20","locked":"0"}
-     * 1472 : {"classid":"125","class1":"生肖连","class2":"四肖连不中","class3":"鼠","rate":"20","locked":"0"}
-     */
-
-    @SerializedName("1461")
-    private data80Bean data1461;
-    @SerializedName("1462")
-    private data80Bean data1462;
-    @SerializedName("1463")
-    private data80Bean data1463;
-    @SerializedName("1464")
-    private data80Bean data1464;
-    @SerializedName("1465")
-    private data80Bean data1465;
-    @SerializedName("1466")
-    private data80Bean data1466;
-    @SerializedName("1467")
-    private data80Bean data1467;
-    @SerializedName("1468")
-    private data80Bean data1468;
-    @SerializedName("1469")
-    private data80Bean data1469;
-    @SerializedName("1470")
-    private data80Bean data1470;
-    @SerializedName("1471")
-    private data80Bean data1471;
-    @SerializedName("1472")
-    private data80Bean data1472;
-    /**
-     * 1301 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"1","rate":"3.4","locked":"0"}
-     * 1302 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"2","rate":"3.4","locked":"0"}
-     * 1303 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"3","rate":"3.4","locked":"0"}
-     * 1304 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"4","rate":"3.4","locked":"0"}
-     * 1305 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"5","rate":"3.4","locked":"0"}
-     * 1306 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"6","rate":"3.4","locked":"0"}
-     * 1307 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"7","rate":"3.4","locked":"0"}
-     * 1308 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"8","rate":"3.4","locked":"0"}
-     * 1309 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"9","rate":"3.4","locked":"0"}
-     * 1310 : {"classid":"127","class1":"尾数连","class2":"二尾连中","class3":"0","rate":"3.4","locked":"0"}
-     */
-
-    @SerializedName("1301")
-    private data80Bean data1301;
-    @SerializedName("1302")
-    private data80Bean data1302;
-    @SerializedName("1303")
-    private data80Bean data1303;
-    @SerializedName("1304")
-    private data80Bean data1304;
-    @SerializedName("1305")
-    private data80Bean data1305;
-    @SerializedName("1306")
-    private data80Bean data1306;
-    @SerializedName("1307")
-    private data80Bean data1307;
-    @SerializedName("1308")
-    private data80Bean data1308;
-    @SerializedName("1309")
-    private data80Bean data1309;
-    @SerializedName("1310")
-    private data80Bean data1310;
-    /**
-     * 1311 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"1","rate":"7.2","locked":"0"}
-     * 1312 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"2","rate":"7.2","locked":"0"}
-     * 1313 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"3","rate":"7.2","locked":"0"}
-     * 1314 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"4","rate":"7.2","locked":"0"}
-     * 1315 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"5","rate":"7.2","locked":"0"}
-     * 1316 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"6","rate":"7.2","locked":"0"}
-     * 1317 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"7","rate":"7.2","locked":"0"}
-     * 1318 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"8","rate":"7.2","locked":"0"}
-     * 1319 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"9","rate":"7.2","locked":"0"}
-     * 1320 : {"classid":"128","class1":"尾数连","class2":"三尾连中","class3":"0","rate":"7.2","locked":"0"}
-     */
-
-    @SerializedName("1311")
-    private data80Bean data1311;
-    @SerializedName("1312")
-    private data80Bean data1312;
-    @SerializedName("1313")
-    private data80Bean data1313;
-    @SerializedName("1314")
-    private data80Bean data1314;
-    @SerializedName("1315")
-    private data80Bean data1315;
-    @SerializedName("1316")
-    private data80Bean data1316;
-    @SerializedName("1317")
-    private data80Bean data1317;
-    @SerializedName("1318")
-    private data80Bean data1318;
-    @SerializedName("1319")
-    private data80Bean data1319;
-    @SerializedName("1320")
-    private data80Bean data1320;
-    /**
-     * 1321 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"1","rate":"17","locked":"0"}
-     * 1322 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"2","rate":"17","locked":"0"}
-     * 1323 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"3","rate":"17","locked":"0"}
-     * 1324 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"4","rate":"17","locked":"0"}
-     * 1325 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"5","rate":"17","locked":"0"}
-     * 1326 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"6","rate":"17","locked":"0"}
-     * 1327 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"7","rate":"17","locked":"0"}
-     * 1328 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"8","rate":"17","locked":"0"}
-     * 1329 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"9","rate":"17","locked":"0"}
-     * 1330 : {"classid":"129","class1":"尾数连","class2":"四尾连中","class3":"0","rate":"17","locked":"0"}
-     */
-
-    @SerializedName("1321")
-    private data80Bean data1321;
-    @SerializedName("1322")
-    private data80Bean data1322;
-    @SerializedName("1323")
-    private data80Bean data1323;
-    @SerializedName("1324")
-    private data80Bean data1324;
-    @SerializedName("1325")
-    private data80Bean data1325;
-    @SerializedName("1326")
-    private data80Bean data1326;
-    @SerializedName("1327")
-    private data80Bean data1327;
-    @SerializedName("1328")
-    private data80Bean data1328;
-    @SerializedName("1329")
-    private data80Bean data1329;
-    @SerializedName("1330")
-    private data80Bean data1330;
-    /**
-     * 1331 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"1","rate":"5.1","locked":"0"}
-     * 1332 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"2","rate":"5.1","locked":"0"}
-     * 1333 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"3","rate":"5.1","locked":"0"}
-     * 1334 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"4","rate":"5.1","locked":"0"}
-     * 1335 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"5","rate":"5.1","locked":"0"}
-     * 1336 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"6","rate":"5.1","locked":"0"}
-     * 1337 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"7","rate":"5.1","locked":"0"}
-     * 1338 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"8","rate":"5.1","locked":"0"}
-     * 1339 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"9","rate":"5.1","locked":"0"}
-     * 1340 : {"classid":"130","class1":"尾数连","class2":"二尾连不中","class3":"0","rate":"4","locked":"0"}
-     */
-
-    @SerializedName("1331")
-    private data80Bean data1331;
-    @SerializedName("1332")
-    private data80Bean data1332;
-    @SerializedName("1333")
-    private data80Bean data1333;
-    @SerializedName("1334")
-    private data80Bean data1334;
-    @SerializedName("1335")
-    private data80Bean data1335;
-    @SerializedName("1336")
-    private data80Bean data1336;
-    @SerializedName("1337")
-    private data80Bean data1337;
-    @SerializedName("1338")
-    private data80Bean data1338;
-    @SerializedName("1339")
-    private data80Bean data1339;
-    @SerializedName("1340")
-    private data80Bean data1340;
-    /**
-     * 1341 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"1","rate":"15","locked":"0"}
-     * 1342 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"2","rate":"15","locked":"0"}
-     * 1343 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"3","rate":"15","locked":"0"}
-     * 1344 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"4","rate":"15","locked":"0"}
-     * 1345 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"5","rate":"15","locked":"0"}
-     * 1346 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"6","rate":"15","locked":"0"}
-     * 1347 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"7","rate":"15","locked":"0"}
-     * 1348 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"8","rate":"15","locked":"0"}
-     * 1349 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"9","rate":"15","locked":"0"}
-     * 1350 : {"classid":"131","class1":"尾数连","class2":"三尾连不中","class3":"0","rate":"12","locked":"0"}
-     */
-
-    @SerializedName("1341")
-    private data80Bean data1341;
-    @SerializedName("1342")
-    private data80Bean data1342;
-    @SerializedName("1343")
-    private data80Bean data1343;
-    @SerializedName("1344")
-    private data80Bean data1344;
-    @SerializedName("1345")
-    private data80Bean data1345;
-    @SerializedName("1346")
-    private data80Bean data1346;
-    @SerializedName("1347")
-    private data80Bean data1347;
-    @SerializedName("1348")
-    private data80Bean data1348;
-    @SerializedName("1349")
-    private data80Bean data1349;
-    @SerializedName("1350")
-    private data80Bean data1350;
-    /**
-     * 1351 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"1","rate":"51","locked":"0"}
-     * 1352 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"2","rate":"51","locked":"0"}
-     * 1353 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"3","rate":"51","locked":"0"}
-     * 1354 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"4","rate":"51","locked":"0"}
-     * 1355 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"5","rate":"51","locked":"0"}
-     * 1356 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"6","rate":"51","locked":"0"}
-     * 1357 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"7","rate":"51","locked":"0"}
-     * 1358 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"8","rate":"51","locked":"0"}
-     * 1359 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"9","rate":"51","locked":"0"}
-     * 1360 : {"classid":"132","class1":"尾数连","class2":"四尾连不中","class3":"0","rate":"41","locked":"0"}
-     */
-
-    @SerializedName("1351")
-    private data80Bean data1351;
-    @SerializedName("1352")
-    private data80Bean data1352;
-    @SerializedName("1353")
-    private data80Bean data1353;
-    @SerializedName("1354")
-    private data80Bean data1354;
-    @SerializedName("1355")
-    private data80Bean data1355;
-    @SerializedName("1356")
-    private data80Bean data1356;
-    @SerializedName("1357")
-    private data80Bean data1357;
-    @SerializedName("1358")
-    private data80Bean data1358;
-    @SerializedName("1359")
-    private data80Bean data1359;
-    @SerializedName("1360")
-    private data80Bean data1360;
-    /**
-     * 1101 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"1","rate":"2.18","locked":"0"}
-     * 1102 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"2","rate":"2.18","locked":"0"}
-     * 1103 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"3","rate":"2.18","locked":"0"}
-     * 1104 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"4","rate":"2.18","locked":"0"}
-     * 1105 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"5","rate":"2.18","locked":"0"}
-     * 1106 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"6","rate":"2.18","locked":"0"}
-     * 1107 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"7","rate":"2.18","locked":"0"}
-     * 1108 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"8","rate":"2.18","locked":"0"}
-     * 1109 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"9","rate":"2.18","locked":"0"}
-     * 1110 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"10","rate":"2.18","locked":"0"}
-     * 1111 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"11","rate":"2.18","locked":"0"}
-     * 1112 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"12","rate":"2.18","locked":"0"}
-     * 1113 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"13","rate":"2.18","locked":"0"}
-     * 1114 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"14","rate":"2.18","locked":"0"}
-     * 1115 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"15","rate":"2.18","locked":"0"}
-     * 1116 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"16","rate":"2.18","locked":"0"}
-     * 1117 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"17","rate":"2.18","locked":"0"}
-     * 1118 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"18","rate":"2.18","locked":"0"}
-     * 1119 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"19","rate":"2.18","locked":"0"}
-     * 1120 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"20","rate":"2.18","locked":"0"}
-     * 1121 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"21","rate":"2.18","locked":"0"}
-     * 1122 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"22","rate":"2.18","locked":"0"}
-     * 1123 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"23","rate":"2.18","locked":"0"}
-     * 1124 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"24","rate":"2.18","locked":"0"}
-     * 1125 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"25","rate":"2.18","locked":"0"}
-     * 1126 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"26","rate":"2.18","locked":"0"}
-     * 1127 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"27","rate":"2.18","locked":"0"}
-     * 1128 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"28","rate":"2.18","locked":"0"}
-     * 1129 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"29","rate":"2.18","locked":"0"}
-     * 1130 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"30","rate":"2.18","locked":"0"}
-     * 1131 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"31","rate":"2.18","locked":"0"}
-     * 1132 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"32","rate":"2.18","locked":"0"}
-     * 1133 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"33","rate":"2.18","locked":"0"}
-     * 1134 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"34","rate":"2.18","locked":"0"}
-     * 1135 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"35","rate":"2.18","locked":"0"}
-     * 1136 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"36","rate":"2.18","locked":"0"}
-     * 1137 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"37","rate":"2.18","locked":"0"}
-     * 1138 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"38","rate":"2.18","locked":"0"}
-     * 1139 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"39","rate":"2.18","locked":"0"}
-     * 1140 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"40","rate":"2.18","locked":"0"}
-     * 1141 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"41","rate":"2.18","locked":"0"}
-     * 1142 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"42","rate":"2.18","locked":"0"}
-     * 1143 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"43","rate":"2.18","locked":"0"}
-     * 1144 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"44","rate":"2.18","locked":"0"}
-     * 1145 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"45","rate":"2.18","locked":"0"}
-     * 1146 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"46","rate":"2.18","locked":"0"}
-     * 1147 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"47","rate":"2.18","locked":"0"}
-     * 1148 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"48","rate":"2.18","locked":"0"}
-     * 1149 : {"classid":"108","class1":"全不中","class2":"五不中","class3":"49","rate":"2.18","locked":"0"}
-     */
-
-    @SerializedName("1101")
-    private data80Bean data1101;
-    @SerializedName("1102")
-    private data80Bean data1102;
-    @SerializedName("1103")
-    private data80Bean data1103;
-    @SerializedName("1104")
-    private data80Bean data1104;
-    @SerializedName("1105")
-    private data80Bean data1105;
-    @SerializedName("1106")
-    private data80Bean data1106;
-    @SerializedName("1107")
-    private data80Bean data1107;
-    @SerializedName("1108")
-    private data80Bean data1108;
-    @SerializedName("1109")
-    private data80Bean data1109;
-    @SerializedName("1110")
-    private data80Bean data1110;
-    @SerializedName("1111")
-    private data80Bean data1111;
-    @SerializedName("1112")
-    private data80Bean data1112;
-    @SerializedName("1113")
-    private data80Bean data1113;
-    @SerializedName("1114")
-    private data80Bean data1114;
-    @SerializedName("1115")
-    private data80Bean data1115;
-    @SerializedName("1116")
-    private data80Bean data1116;
-    @SerializedName("1117")
-    private data80Bean data1117;
-    @SerializedName("1118")
-    private data80Bean data1118;
-    @SerializedName("1119")
-    private data80Bean data1119;
-    @SerializedName("1120")
-    private data80Bean data1120;
-    @SerializedName("1121")
-    private data80Bean data1121;
-    @SerializedName("1122")
-    private data80Bean data1122;
-    @SerializedName("1123")
-    private data80Bean data1123;
-    @SerializedName("1124")
-    private data80Bean data1124;
-    @SerializedName("1125")
-    private data80Bean data1125;
-    @SerializedName("1126")
-    private data80Bean data1126;
-    @SerializedName("1127")
-    private data80Bean data1127;
-    @SerializedName("1128")
-    private data80Bean data1128;
-    @SerializedName("1129")
-    private data80Bean data1129;
-    @SerializedName("1130")
-    private data80Bean data1130;
-    @SerializedName("1131")
-    private data80Bean data1131;
-    @SerializedName("1132")
-    private data80Bean data1132;
-    @SerializedName("1133")
-    private data80Bean data1133;
-    @SerializedName("1134")
-    private data80Bean data1134;
-    @SerializedName("1135")
-    private data80Bean data1135;
-    @SerializedName("1136")
-    private data80Bean data1136;
-    @SerializedName("1137")
-    private data80Bean data1137;
-    @SerializedName("1138")
-    private data80Bean data1138;
-    @SerializedName("1139")
-    private data80Bean data1139;
-    @SerializedName("1140")
-    private data80Bean data1140;
-    @SerializedName("1141")
-    private data80Bean data1141;
-    @SerializedName("1142")
-    private data80Bean data1142;
-    @SerializedName("1143")
-    private data80Bean data1143;
-    @SerializedName("1144")
-    private data80Bean data1144;
-    @SerializedName("1145")
-    private data80Bean data1145;
-    @SerializedName("1146")
-    private data80Bean data1146;
-    @SerializedName("1147")
-    private data80Bean data1147;
-    @SerializedName("1148")
-    private data80Bean data1148;
-    @SerializedName("1149")
-    private data80Bean data1149;
-
-
-    public data1Bean getdata1() {
-        return data1;
-    }
-
-    public void setdata1(data1Bean data1) {
-        this.data1 = data1;
-    }
-
-    public data2Bean getdata2() {
-        return data2;
-    }
-
-    public void setdata2(data2Bean data2) {
-        this.data2 = data2;
-    }
-
-    public data3Bean getdata3() {
-        return data3;
-    }
-
-    public void setdata3(data3Bean data3) {
-        this.data3 = data3;
-    }
-
-    public data4Bean getdata4() {
-        return data4;
-    }
-
-    public void setdata4(data4Bean data4) {
-        this.data4 = data4;
-    }
-
-    public data5Bean getdata5() {
-        return data5;
-    }
-
-    public void setdata5(data5Bean data5) {
-        this.data5 = data5;
-    }
-
-    public data6Bean getdata6() {
-        return data6;
-    }
-
-    public void setdata6(data6Bean data6) {
-        this.data6 = data6;
-    }
-
-    public data7Bean getdata7() {
-        return data7;
-    }
-
-    public void setdata7(data7Bean data7) {
-        this.data7 = data7;
-    }
-
-    public data8Bean getdata8() {
-        return data8;
-    }
-
-    public void setdata8(data8Bean data8) {
-        this.data8 = data8;
-    }
-
-    public data9Bean getdata9() {
-        return data9;
-    }
-
-    public void setdata9(data9Bean data9) {
-        this.data9 = data9;
-    }
-
-    public data10Bean getdata10() {
-        return data10;
-    }
-
-    public void setdata10(data10Bean data10) {
-        this.data10 = data10;
-    }
-
-    public data11Bean getdata11() {
-        return data11;
-    }
-
-    public void setdata11(data11Bean data11) {
-        this.data11 = data11;
-    }
-
-    public data12Bean getdata12() {
-        return data12;
-    }
-
-    public void setdata12(data12Bean data12) {
-        this.data12 = data12;
-    }
-
-    public data13Bean getdata13() {
-        return data13;
-    }
-
-    public void setdata13(data13Bean data13) {
-        this.data13 = data13;
-    }
-
-    public data14Bean getdata14() {
-        return data14;
-    }
-
-    public void setdata14(data14Bean data14) {
-        this.data14 = data14;
-    }
-
-    public data15Bean getdata15() {
-        return data15;
-    }
-
-    public void setdata15(data15Bean data15) {
-        this.data15 = data15;
-    }
-
-    public data16Bean getdata16() {
-        return data16;
-    }
-
-    public void setdata16(data16Bean data16) {
-        this.data16 = data16;
-    }
-
-    public data17Bean getdata17() {
-        return data17;
-    }
-
-    public void setdata17(data17Bean data17) {
-        this.data17 = data17;
-    }
-
-    public data18Bean getdata18() {
-        return data18;
-    }
-
-    public void setdata18(data18Bean data18) {
-        this.data18 = data18;
-    }
-
-    public data19Bean getdata19() {
-        return data19;
-    }
-
-    public void setdata19(data19Bean data19) {
-        this.data19 = data19;
-    }
-
-    public data20Bean getdata20() {
-        return data20;
-    }
-
-    public void setdata20(data20Bean data20) {
-        this.data20 = data20;
-    }
-
-    public data21Bean getdata21() {
-        return data21;
-    }
-
-    public void setdata21(data21Bean data21) {
-        this.data21 = data21;
-    }
-
-    public data22Bean getdata22() {
-        return data22;
-    }
-
-    public void setdata22(data22Bean data22) {
-        this.data22 = data22;
-    }
-
-    public data23Bean getdata23() {
-        return data23;
-    }
-
-    public void setdata23(data23Bean data23) {
-        this.data23 = data23;
-    }
-
-    public data24Bean getdata24() {
-        return data24;
-    }
-
-    public void setdata24(data24Bean data24) {
-        this.data24 = data24;
-    }
-
-    public data25Bean getdata25() {
-        return data25;
-    }
-
-    public void setdata25(data25Bean data25) {
-        this.data25 = data25;
-    }
-
-    public data26Bean getdata26() {
-        return data26;
-    }
-
-    public void setdata26(data26Bean data26) {
-        this.data26 = data26;
-    }
-
-    public data27Bean getdata27() {
-        return data27;
-    }
-
-    public void setdata27(data27Bean data27) {
-        this.data27 = data27;
-    }
-
-    public data28Bean getdata28() {
-        return data28;
-    }
-
-    public void setdata28(data28Bean data28) {
-        this.data28 = data28;
-    }
-
-    public data29Bean getdata29() {
-        return data29;
-    }
-
-    public void setdata29(data29Bean data29) {
-        this.data29 = data29;
-    }
-
-    public data30Bean getdata30() {
-        return data30;
-    }
-
-    public void setdata30(data30Bean data30) {
-        this.data30 = data30;
-    }
-
-    public data31Bean getdata31() {
-        return data31;
-    }
-
-    public void setdata31(data31Bean data31) {
-        this.data31 = data31;
-    }
-
-    public data32Bean getdata32() {
-        return data32;
-    }
-
-    public void setdata32(data32Bean data32) {
-        this.data32 = data32;
-    }
-
-    public data33Bean getdata33() {
-        return data33;
-    }
-
-    public void setdata33(data33Bean data33) {
-        this.data33 = data33;
-    }
-
-    public data34Bean getdata34() {
-        return data34;
-    }
-
-    public void setdata34(data34Bean data34) {
-        this.data34 = data34;
-    }
-
-    public data35Bean getdata35() {
-        return data35;
-    }
-
-    public void setdata35(data35Bean data35) {
-        this.data35 = data35;
-    }
-
-    public data36Bean getdata36() {
-        return data36;
-    }
-
-    public void setdata36(data36Bean data36) {
-        this.data36 = data36;
-    }
-
-    public data37Bean getdata37() {
-        return data37;
-    }
-
-    public void setdata37(data37Bean data37) {
-        this.data37 = data37;
-    }
-
-    public data38Bean getdata38() {
-        return data38;
-    }
-
-    public void setdata38(data38Bean data38) {
-        this.data38 = data38;
-    }
-
-    public data39Bean getdata39() {
-        return data39;
-    }
-
-    public void setdata39(data39Bean data39) {
-        this.data39 = data39;
-    }
-
-    public data40Bean getdata40() {
-        return data40;
-    }
-
-    public void setdata40(data40Bean data40) {
-        this.data40 = data40;
-    }
-
-    public data41Bean getdata41() {
-        return data41;
-    }
-
-    public void setdata41(data41Bean data41) {
-        this.data41 = data41;
-    }
-
-    public data42Bean getdata42() {
-        return data42;
-    }
-
-    public void setdata42(data42Bean data42) {
-        this.data42 = data42;
-    }
-
-    public data43Bean getdata43() {
-        return data43;
-    }
-
-    public void setdata43(data43Bean data43) {
-        this.data43 = data43;
-    }
-
-    public data44Bean getdata44() {
-        return data44;
-    }
-
-    public void setdata44(data44Bean data44) {
-        this.data44 = data44;
-    }
-
-    public data45Bean getdata45() {
-        return data45;
-    }
-
-    public void setdata45(data45Bean data45) {
-        this.data45 = data45;
-    }
-
-    public data46Bean getdata46() {
-        return data46;
-    }
-
-    public void setdata46(data46Bean data46) {
-        this.data46 = data46;
-    }
-
-    public data47Bean getdata47() {
-        return data47;
-    }
-
-    public void setdata47(data47Bean data47) {
-        this.data47 = data47;
-    }
-
-    public data48Bean getdata48() {
-        return data48;
-    }
-
-    public void setdata48(data48Bean data48) {
-        this.data48 = data48;
-    }
-
-    public data49Bean getdata49() {
-        return data49;
-    }
-
-    public void setdata49(data49Bean data49) {
-        this.data49 = data49;
-    }
-
-    public data50Bean getdata50() {
-        return data50;
-    }
-
-    public void setdata50(data50Bean data50) {
-        this.data50 = data50;
-    }
-
-    public data51Bean getdata51() {
-        return data51;
-    }
-
-    public void setdata51(data51Bean data51) {
-        this.data51 = data51;
-    }
-
-    public data52Bean getdata52() {
-        return data52;
-    }
-
-    public void setdata52(data52Bean data52) {
-        this.data52 = data52;
-    }
-
-    public data53Bean getdata53() {
-        return data53;
-    }
-
-    public void setdata53(data53Bean data53) {
-        this.data53 = data53;
-    }
-
-    public data54Bean getdata54() {
-        return data54;
-    }
-
-    public void setdata54(data54Bean data54) {
-        this.data54 = data54;
-    }
-
-    public data55Bean getdata55() {
-        return data55;
-    }
-
-    public void setdata55(data55Bean data55) {
-        this.data55 = data55;
-    }
-
-    public data56Bean getdata56() {
-        return data56;
-    }
-
-    public void setdata56(data56Bean data56) {
-        this.data56 = data56;
-    }
-
-    public data57Bean getdata57() {
-        return data57;
-    }
-
-    public void setdata57(data57Bean data57) {
-        this.data57 = data57;
-    }
-
-    public data58Bean getdata58() {
-        return data58;
-    }
-
-    public void setdata58(data58Bean data58) {
-        this.data58 = data58;
-    }
-
-    public data59Bean getdata59() {
-        return data59;
-    }
-
-    public void setdata59(data59Bean data59) {
-        this.data59 = data59;
-    }
-
-    public data60Bean getdata60() {
-        return data60;
-    }
-
-    public void setdata60(data60Bean data60) {
-        this.data60 = data60;
-    }
-
-    public data61Bean getdata61() {
-        return data61;
-    }
-
-    public void setdata61(data61Bean data61) {
-        this.data61 = data61;
-    }
-
-    public data62Bean getdata62() {
-        return data62;
-    }
-
-    public void setdata62(data62Bean data62) {
-        this.data62 = data62;
-    }
-
-    public data63Bean getdata63() {
-        return data63;
-    }
-
-    public void setdata63(data63Bean data63) {
-        this.data63 = data63;
-    }
-
-    public data64Bean getdata64() {
-        return data64;
-    }
-
-    public void setdata64(data64Bean data64) {
-        this.data64 = data64;
-    }
-
-    public data65Bean getdata65() {
-        return data65;
-    }
-
-    public void setdata65(data65Bean data65) {
-        this.data65 = data65;
-    }
-
-    public data66Bean getdata66() {
-        return data66;
-    }
-
-    public void setdata66(data66Bean data66) {
-        this.data66 = data66;
-    }
-
-    public data67Bean getdata67() {
-        return data67;
-    }
-
-    public void setdata67(data67Bean data67) {
-        this.data67 = data67;
-    }
-
-    public data68Bean getdata68() {
-        return data68;
-    }
-
-    public void setdata68(data68Bean data68) {
-        this.data68 = data68;
-    }
-
-    public data69Bean getdata69() {
-        return data69;
-    }
-
-    public void setdata69(data69Bean data69) {
-        this.data69 = data69;
-    }
-
-    public data70Bean getdata70() {
-        return data70;
-    }
-
-    public void setdata70(data70Bean data70) {
-        this.data70 = data70;
-    }
-
-    public data71Bean getdata71() {
-        return data71;
-    }
-
-    public void setdata71(data71Bean data71) {
-        this.data71 = data71;
-    }
-
-    public data72Bean getdata72() {
-        return data72;
-    }
-
-    public void setdata72(data72Bean data72) {
-        this.data72 = data72;
-    }
-
-    public data73Bean getdata73() {
-        return data73;
-    }
-
-    public void setdata73(data73Bean data73) {
-        this.data73 = data73;
-    }
-
-    public data74Bean getdata74() {
-        return data74;
-    }
-
-    public void setdata74(data74Bean data74) {
-        this.data74 = data74;
-    }
-
-    public data75Bean getdata75() {
-        return data75;
-    }
-
-    public void setdata75(data75Bean data75) {
-        this.data75 = data75;
-    }
-
-    public data76Bean getdata76() {
-        return data76;
-    }
-
-    public void setdata76(data76Bean data76) {
-        this.data76 = data76;
-    }
-
-    public data77Bean getdata77() {
-        return data77;
-    }
-
-    public void setdata77(data77Bean data77) {
-        this.data77 = data77;
-    }
-
-    public data78Bean getdata78() {
-        return data78;
-    }
-
-    public void setdata78(data78Bean data78) {
-        this.data78 = data78;
-    }
-
-    public data79Bean getdata79() {
-        return data79;
-    }
-
-    public void setdata79(data79Bean data79) {
-        this.data79 = data79;
-    }
-
-    public data80Bean getdata80() {
-        return data80;
-    }
-
-    public void setdata80(data80Bean data80) {
-        this.data80 = data80;
-    }
-
-    public data81Bean getdata81() {
-        return data81;
-    }
-
-    public void setdata81(data81Bean data81) {
-        this.data81 = data81;
-    }
-
-    public data82Bean getdata82() {
-        return data82;
-    }
-
-    public void setdata82(data82Bean data82) {
-        this.data82 = data82;
-    }
-
-    public data83Bean getdata83() {
-        return data83;
-    }
-
-    public void setdata83(data83Bean data83) {
-        this.data83 = data83;
-    }
-
-    public data84Bean getdata84() {
-        return data84;
-    }
-
-    public void setdata84(data84Bean data84) {
-        this.data84 = data84;
-    }
-
-    public data85Bean getdata85() {
-        return data85;
-    }
-
-    public void setdata85(data85Bean data85) {
-        this.data85 = data85;
-    }
-
-    public data86Bean getdata86() {
-        return data86;
-    }
-
-    public void setdata86(data86Bean data86) {
-        this.data86 = data86;
-    }
-
-    public data87Bean getdata87() {
-        return data87;
-    }
-
-    public void setdata87(data87Bean data87) {
-        this.data87 = data87;
-    }
-
-    public data88Bean getdata88() {
-        return data88;
-    }
-
-    public void setdata88(data88Bean data88) {
-        this.data88 = data88;
-    }
-
-    public data89Bean getdata89() {
-        return data89;
-    }
-
-    public void setdata89(data89Bean data89) {
-        this.data89 = data89;
-    }
-
-    public data90Bean getdata90() {
-        return data90;
-    }
-
-    public void setdata90(data90Bean data90) {
-        this.data90 = data90;
-    }
-
-    public data91Bean getdata91() {
-        return data91;
-    }
-
-    public void setdata91(data91Bean data91) {
-        this.data91 = data91;
-    }
-
-    public data92Bean getdata92() {
-        return data92;
-    }
-
-    public void setdata92(data92Bean data92) {
-        this.data92 = data92;
-    }
-
-    public data93Bean getdata93() {
-        return data93;
-    }
-
-    public void setdata93(data93Bean data93) {
-        this.data93 = data93;
-    }
-
-    public data94Bean getdata94() {
-        return data94;
-    }
-
-    public void setdata94(data94Bean data94) {
-        this.data94 = data94;
-    }
-
-    public data95Bean getdata95() {
-        return data95;
-    }
-
-    public void setdata95(data95Bean data95) {
-        this.data95 = data95;
-    }
-
-    public data96Bean getdata96() {
-        return data96;
-    }
-
-    public void setdata96(data96Bean data96) {
-        this.data96 = data96;
-    }
-
-    public data97Bean getdata97() {
-        return data97;
-    }
-
-    public void setdata97(data97Bean data97) {
-        this.data97 = data97;
-    }
-
-    public data98Bean getdata98() {
-        return data98;
-    }
-
-    public void setdata98(data98Bean data98) {
-        this.data98 = data98;
-    }
-
-    public data99Bean getdata99() {
-        return data99;
-    }
-
-    public void setdata99(data99Bean data99) {
-        this.data99 = data99;
-    }
-
-    public data100Bean getdata100() {
-        return data100;
-    }
-
-    public void setdata100(data100Bean data100) {
-        this.data100 = data100;
-    }
-
-    public data101Bean getdata101() {
-        return data101;
-    }
-
-    public void setdata101(data101Bean data101) {
-        this.data101 = data101;
-    }
-
-    public data102Bean getdata102() {
-        return data102;
-    }
-
-    public void setdata102(data102Bean data102) {
-        this.data102 = data102;
-    }
-
-    public data103Bean getdata103() {
-        return data103;
-    }
-
-    public void setdata103(data103Bean data103) {
-        this.data103 = data103;
-    }
-
-    public data104Bean getdata104() {
-        return data104;
-    }
-
-    public void setdata104(data104Bean data104) {
-        this.data104 = data104;
-    }
-
-    public data105Bean getdata105() {
-        return data105;
-    }
-
-    public void setdata105(data105Bean data105) {
-        this.data105 = data105;
-    }
-
-    public data106Bean getdata106() {
-        return data106;
-    }
-
-    public void setdata106(data106Bean data106) {
-        this.data106 = data106;
-    }
-
-    public data107Bean getdata107() {
-        return data107;
-    }
-
-    public void setdata107(data107Bean data107) {
-        this.data107 = data107;
-    }
-
-    public data108Bean getdata108() {
-        return data108;
-    }
-
-    public void setdata108(data108Bean data108) {
-        this.data108 = data108;
-    }
-
-    public data109Bean getdata109() {
-        return data109;
-    }
-
-    public void setdata109(data109Bean data109) {
-        this.data109 = data109;
-    }
-
-    public data110Bean getdata110() {
-        return data110;
-    }
-
-    public void setdata110(data110Bean data110) {
-        this.data110 = data110;
-    }
-
-    public data111Bean getdata111() {
-        return data111;
-    }
-
-    public void setdata111(data111Bean data111) {
-        this.data111 = data111;
-    }
-
-    public data112Bean getdata112() {
-        return data112;
-    }
-
-    public void setdata112(data112Bean data112) {
-        this.data112 = data112;
-    }
-
-    public data113Bean getdata113() {
-        return data113;
-    }
-
-    public void setdata113(data113Bean data113) {
-        this.data113 = data113;
-    }
-
-    public data114Bean getdata114() {
-        return data114;
-    }
-
-    public void setdata114(data114Bean data114) {
-        this.data114 = data114;
-    }
-
-    public data115Bean getdata115() {
-        return data115;
-    }
-
-    public void setdata115(data115Bean data115) {
-        this.data115 = data115;
-    }
-
-    public data116Bean getdata116() {
-        return data116;
-    }
-
-    public void setdata116(data116Bean data116) {
-        this.data116 = data116;
-    }
-
-    public data748Bean getdata748() {
-        return data748;
-    }
-
-    public void setdata748(data748Bean data748) {
-        this.data748 = data748;
-    }
-
-    public data749Bean getdata749() {
-        return data749;
-    }
-
-    public void setdata749(data749Bean data749) {
-        this.data749 = data749;
-    }
-
-    public data750Bean getdata750() {
-        return data750;
-    }
-
-    public void setdata750(data750Bean data750) {
-        this.data750 = data750;
-    }
-
-    public data751Bean getdata751() {
-        return data751;
-    }
-
-    public void setdata751(data751Bean data751) {
-        this.data751 = data751;
-    }
-
-    public data795Bean getdata795() {
-        return data795;
-    }
-
-    public void setdata795(data795Bean data795) {
-        this.data795 = data795;
-    }
-
-    public data796Bean getdata796() {
-        return data796;
-    }
-
-    public void setdata796(data796Bean data796) {
-        this.data796 = data796;
-    }
-
-    public data797Bean getdata797() {
-        return data797;
-    }
-
-    public void setdata797(data797Bean data797) {
-        this.data797 = data797;
-    }
-
-    public data798Bean getdata798() {
-        return data798;
-    }
-
-    public void setdata798(data798Bean data798) {
-        this.data798 = data798;
-    }
-
-    public data799Bean getdata799() {
-        return data799;
-    }
-
-    public void setdata799(data799Bean data799) {
-        this.data799 = data799;
-    }
-
-    public data800Bean getdata800() {
-        return data800;
-    }
-
-    public void setdata800(data800Bean data800) {
-        this.data800 = data800;
-    }
-
-    public data801Bean getdata801() {
-        return data801;
-    }
-
-    public void setdata801(data801Bean data801) {
-        this.data801 = data801;
-    }
-
-    public data802Bean getdata802() {
-        return data802;
-    }
-
-    public void setdata802(data802Bean data802) {
-        this.data802 = data802;
-    }
-
-    public data803Bean getdata803() {
-        return data803;
-    }
-
-    public void setdata803(data803Bean data803) {
-        this.data803 = data803;
-    }
-
-    public data804Bean getdata804() {
-        return data804;
-    }
-
-    public void setdata804(data804Bean data804) {
-        this.data804 = data804;
-    }
-
-    public data805Bean getdata805() {
-        return data805;
-    }
-
-    public void setdata805(data805Bean data805) {
-        this.data805 = data805;
-    }
-
-    public data806Bean getdata806() {
-        return data806;
-    }
-
-    public void setdata806(data806Bean data806) {
-        this.data806 = data806;
-    }
-
-    public data80Bean getdata465() {
-        return data465;
-    }
-
-    public void setdata465(data80Bean data465) {
-        this.data465 = data465;
-    }
-
-    public data80Bean getdata466() {
-        return data466;
-    }
-
-    public void setdata466(data80Bean data466) {
-        this.data466 = data466;
-    }
-
-    public data80Bean getdata467() {
-        return data467;
-    }
-
-    public void setdata467(data80Bean data467) {
-        this.data467 = data467;
-    }
-
-    public data80Bean getdata468() {
-        return data468;
-    }
-
-    public void setdata468(data80Bean data468) {
-        this.data468 = data468;
-    }
-
-    public data80Bean getdata469() {
-        return data469;
-    }
-
-    public void setdata469(data80Bean data469) {
-        this.data469 = data469;
-    }
-
-    public data80Bean getdata470() {
-        return data470;
-    }
-
-    public void setdata470(data80Bean data470) {
-        this.data470 = data470;
-    }
-
-    public data80Bean getdata471() {
-        return data471;
-    }
-
-    public void setdata471(data80Bean data471) {
-        this.data471 = data471;
-    }
-
-    public data80Bean getdata472() {
-        return data472;
-    }
-
-    public void setdata472(data80Bean data472) {
-        this.data472 = data472;
-    }
-
-    public data80Bean getdata473() {
-        return data473;
-    }
-
-    public void setdata473(data80Bean data473) {
-        this.data473 = data473;
-    }
-
-    public data80Bean getdata474() {
-        return data474;
-    }
-
-    public void setdata474(data80Bean data474) {
-        this.data474 = data474;
-    }
-
-    public data80Bean getdata475() {
-        return data475;
-    }
-
-    public void setdata475(data80Bean data475) {
-        this.data475 = data475;
-    }
-
-    public data80Bean getdata476() {
-        return data476;
-    }
-
-    public void setdata476(data80Bean data476) {
-        this.data476 = data476;
-    }
-
-    public data80Bean getdata477() {
-        return data477;
-    }
-
-    public void setdata477(data80Bean data477) {
-        this.data477 = data477;
-    }
-
-    public data80Bean getdata478() {
-        return data478;
-    }
-
-    public void setdata478(data80Bean data478) {
-        this.data478 = data478;
-    }
-
-    public data80Bean getdata479() {
-        return data479;
-    }
-
-    public void setdata479(data80Bean data479) {
-        this.data479 = data479;
-    }
-
-    public data80Bean getdata480() {
-        return data480;
-    }
-
-    public void setdata480(data80Bean data480) {
-        this.data480 = data480;
-    }
-
-    public data80Bean getdata481() {
-        return data481;
-    }
-
-    public void setdata481(data80Bean data481) {
-        this.data481 = data481;
-    }
-
-    public data80Bean getdata482() {
-        return data482;
-    }
-
-    public void setdata482(data80Bean data482) {
-        this.data482 = data482;
-    }
-
-    public data80Bean getdata483() {
-        return data483;
-    }
-
-    public void setdata483(data80Bean data483) {
-        this.data483 = data483;
-    }
-
-    public data80Bean getdata484() {
-        return data484;
-    }
-
-    public void setdata484(data80Bean data484) {
-        this.data484 = data484;
-    }
-
-    public data80Bean getdata485() {
-        return data485;
-    }
-
-    public void setdata485(data80Bean data485) {
-        this.data485 = data485;
-    }
-
-    public data80Bean getdata486() {
-        return data486;
-    }
-
-    public void setdata486(data80Bean data486) {
-        this.data486 = data486;
-    }
-
-    public data80Bean getdata487() {
-        return data487;
-    }
-
-    public void setdata487(data80Bean data487) {
-        this.data487 = data487;
-    }
-
-    public data80Bean getdata488() {
-        return data488;
-    }
-
-    public void setdata488(data80Bean data488) {
-        this.data488 = data488;
-    }
-
-    public data80Bean getdata489() {
-        return data489;
-    }
-
-    public void setdata489(data80Bean data489) {
-        this.data489 = data489;
-    }
-
-    public data80Bean getdata490() {
-        return data490;
-    }
-
-    public void setdata490(data80Bean data490) {
-        this.data490 = data490;
-    }
-
-    public data80Bean getdata491() {
-        return data491;
-    }
-
-    public void setdata491(data80Bean data491) {
-        this.data491 = data491;
-    }
-
-    public data80Bean getdata492() {
-        return data492;
-    }
-
-    public void setdata492(data80Bean data492) {
-        this.data492 = data492;
-    }
-
-    public data80Bean getdata493() {
-        return data493;
-    }
-
-    public void setdata493(data80Bean data493) {
-        this.data493 = data493;
-    }
-
-    public data80Bean getdata494() {
-        return data494;
-    }
-
-    public void setdata494(data80Bean data494) {
-        this.data494 = data494;
-    }
-
-    public data80Bean getdata495() {
-        return data495;
-    }
-
-    public void setdata495(data80Bean data495) {
-        this.data495 = data495;
-    }
-
-    public data80Bean getdata496() {
-        return data496;
-    }
-
-    public void setdata496(data80Bean data496) {
-        this.data496 = data496;
-    }
-
-    public data80Bean getdata497() {
-        return data497;
-    }
-
-    public void setdata497(data80Bean data497) {
-        this.data497 = data497;
-    }
-
-    public data80Bean getdata498() {
-        return data498;
-    }
-
-    public void setdata498(data80Bean data498) {
-        this.data498 = data498;
-    }
-
-    public data80Bean getdata499() {
-        return data499;
-    }
-
-    public void setdata499(data80Bean data499) {
-        this.data499 = data499;
-    }
-
-    public data80Bean getdata500() {
-        return data500;
-    }
-
-    public void setdata500(data80Bean data500) {
-        this.data500 = data500;
-    }
-
-    public data80Bean getdata501() {
-        return data501;
-    }
-
-    public void setdata501(data80Bean data501) {
-        this.data501 = data501;
-    }
-
-    public data80Bean getdata502() {
-        return data502;
-    }
-
-    public void setdata502(data80Bean data502) {
-        this.data502 = data502;
-    }
-
-    public data80Bean getdata503() {
-        return data503;
-    }
-
-    public void setdata503(data80Bean data503) {
-        this.data503 = data503;
-    }
-
-    public data80Bean getdata504() {
-        return data504;
-    }
-
-    public void setdata504(data80Bean data504) {
-        this.data504 = data504;
-    }
-
-    public data80Bean getdata505() {
-        return data505;
-    }
-
-    public void setdata505(data80Bean data505) {
-        this.data505 = data505;
-    }
-
-    public data80Bean getdata506() {
-        return data506;
-    }
-
-    public void setdata506(data80Bean data506) {
-        this.data506 = data506;
-    }
-
-    public data80Bean getdata507() {
-        return data507;
-    }
-
-    public void setdata507(data80Bean data507) {
-        this.data507 = data507;
-    }
-
-    public data80Bean getdata508() {
-        return data508;
-    }
-
-    public void setdata508(data80Bean data508) {
-        this.data508 = data508;
-    }
-
-    public data80Bean getdata509() {
-        return data509;
-    }
-
-    public void setdata509(data80Bean data509) {
-        this.data509 = data509;
-    }
-
-    public data80Bean getdata510() {
-        return data510;
-    }
-
-    public void setdata510(data80Bean data510) {
-        this.data510 = data510;
-    }
-
-    public data80Bean getdata511() {
-        return data511;
-    }
-
-    public void setdata511(data80Bean data511) {
-        this.data511 = data511;
-    }
-
-    public data80Bean getdata512() {
-        return data512;
-    }
-
-    public void setdata512(data80Bean data512) {
-        this.data512 = data512;
-    }
-
-    public data80Bean getdata513() {
-        return data513;
-    }
-
-    public void setdata513(data80Bean data513) {
-        this.data513 = data513;
-    }
-
-    public data80Bean getdata514() {
-        return data514;
-    }
-
-    public void setdata514(data80Bean data514) {
-        this.data514 = data514;
-    }
-
-    public data80Bean getdata515() {
-        return data515;
-    }
-
-    public void setdata515(data80Bean data515) {
-        this.data515 = data515;
-    }
-
-    public data80Bean getdata516() {
-        return data516;
-    }
-
-    public void setdata516(data80Bean data516) {
-        this.data516 = data516;
-    }
-
-    public data80Bean getdata517() {
-        return data517;
-    }
-
-    public void setdata517(data80Bean data517) {
-        this.data517 = data517;
-    }
-
-    public data80Bean getdata518() {
-        return data518;
-    }
-
-    public void setdata518(data80Bean data518) {
-        this.data518 = data518;
-    }
-
-    public data80Bean getdata519() {
-        return data519;
-    }
-
-    public void setdata519(data80Bean data519) {
-        this.data519 = data519;
-    }
-
-    public data80Bean getdata520() {
-        return data520;
-    }
-
-    public void setdata520(data80Bean data520) {
-        this.data520 = data520;
-    }
-
-    public data80Bean getdata521() {
-        return data521;
-    }
-
-    public void setdata521(data80Bean data521) {
-        this.data521 = data521;
-    }
-
-    public data80Bean getdata522() {
-        return data522;
-    }
-
-    public void setdata522(data80Bean data522) {
-        this.data522 = data522;
-    }
-
-    public data80Bean getdata523() {
-        return data523;
-    }
-
-    public void setdata523(data80Bean data523) {
-        this.data523 = data523;
-    }
-
-    public data80Bean getdata524() {
-        return data524;
-    }
-
-    public void setdata524(data80Bean data524) {
-        this.data524 = data524;
-    }
-
-    public data80Bean getdata525() {
-        return data525;
-    }
-
-    public void setdata525(data80Bean data525) {
-        this.data525 = data525;
-    }
-
-    public data80Bean getdata526() {
-        return data526;
-    }
-
-    public void setdata526(data80Bean data526) {
-        this.data526 = data526;
-    }
-
-    public data80Bean getdata527() {
-        return data527;
-    }
-
-    public void setdata527(data80Bean data527) {
-        this.data527 = data527;
-    }
-
-    public data80Bean getdata528() {
-        return data528;
-    }
-
-    public void setdata528(data80Bean data528) {
-        this.data528 = data528;
-    }
-
-    public data80Bean getdata529() {
-        return data529;
-    }
-
-    public void setdata529(data80Bean data529) {
-        this.data529 = data529;
-    }
-
-    public data80Bean getdata530() {
-        return data530;
-    }
-
-    public void setdata530(data80Bean data530) {
-        this.data530 = data530;
-    }
-
-    public data80Bean getdata531() {
-        return data531;
-    }
-
-    public void setdata531(data80Bean data531) {
-        this.data531 = data531;
-    }
-
-    public data80Bean getdata532() {
-        return data532;
-    }
-
-    public void setdata532(data80Bean data532) {
-        this.data532 = data532;
-    }
-
-    public data80Bean getdata533() {
-        return data533;
-    }
-
-    public void setdata533(data80Bean data533) {
-        this.data533 = data533;
-    }
-
-    public data80Bean getdata534() {
-        return data534;
-    }
-
-    public void setdata534(data80Bean data534) {
-        this.data534 = data534;
-    }
-
-    public data80Bean getdata535() {
-        return data535;
-    }
-
-    public void setdata535(data80Bean data535) {
-        this.data535 = data535;
-    }
-
-    public data80Bean getdata536() {
-        return data536;
-    }
-
-    public void setdata536(data80Bean data536) {
-        this.data536 = data536;
-    }
-
-    public data80Bean getdata537() {
-        return data537;
-    }
-
-    public void setdata537(data80Bean data537) {
-        this.data537 = data537;
-    }
-
-    public data80Bean getdata538() {
-        return data538;
-    }
-
-    public void setdata538(data80Bean data538) {
-        this.data538 = data538;
-    }
-
-    public data80Bean getdata539() {
-        return data539;
-    }
-
-    public void setdata539(data80Bean data539) {
-        this.data539 = data539;
-    }
-
-    public data80Bean getdata540() {
-        return data540;
-    }
-
-    public void setdata540(data80Bean data540) {
-        this.data540 = data540;
-    }
-
-    public data80Bean getdata541() {
-        return data541;
-    }
-
-    public void setdata541(data80Bean data541) {
-        this.data541 = data541;
-    }
-
-    public data80Bean getdata542() {
-        return data542;
-    }
-
-    public void setdata542(data80Bean data542) {
-        this.data542 = data542;
-    }
-
-    public data80Bean getdata543() {
-        return data543;
-    }
-
-    public void setdata543(data80Bean data543) {
-        this.data543 = data543;
-    }
-
-    public data80Bean getdata544() {
-        return data544;
-    }
-
-    public void setdata544(data80Bean data544) {
-        this.data544 = data544;
-    }
-
-    public data80Bean getdata545() {
-        return data545;
-    }
-
-    public void setdata545(data80Bean data545) {
-        this.data545 = data545;
-    }
-
-    public data80Bean getdata546() {
-        return data546;
-    }
-
-    public void setdata546(data80Bean data546) {
-        this.data546 = data546;
-    }
-
-    public data80Bean getdata547() {
-        return data547;
-    }
-
-    public void setdata547(data80Bean data547) {
-        this.data547 = data547;
-    }
-
-    public data80Bean getdata548() {
-        return data548;
-    }
-
-    public void setdata548(data80Bean data548) {
-        this.data548 = data548;
-    }
-
-    public data80Bean getdata549() {
-        return data549;
-    }
-
-    public void setdata549(data80Bean data549) {
-        this.data549 = data549;
-    }
-
-    public data80Bean getdata550() {
-        return data550;
-    }
-
-    public void setdata550(data80Bean data550) {
-        this.data550 = data550;
-    }
-
-    public data80Bean getdata551() {
-        return data551;
-    }
-
-    public void setdata551(data80Bean data551) {
-        this.data551 = data551;
-    }
-
-    public data80Bean getdata552() {
-        return data552;
-    }
-
-    public void setdata552(data80Bean data552) {
-        this.data552 = data552;
-    }
-
-    public data80Bean getdata553() {
-        return data553;
-    }
-
-    public void setdata553(data80Bean data553) {
-        this.data553 = data553;
-    }
-
-    public data80Bean getdata554() {
-        return data554;
-    }
-
-    public void setdata554(data80Bean data554) {
-        this.data554 = data554;
-    }
-
-    public data80Bean getdata555() {
-        return data555;
-    }
-
-    public void setdata555(data80Bean data555) {
-        this.data555 = data555;
-    }
-
-    public data80Bean getdata556() {
-        return data556;
-    }
-
-    public void setdata556(data80Bean data556) {
-        this.data556 = data556;
-    }
-
-    public data80Bean getdata557() {
-        return data557;
-    }
-
-    public void setdata557(data80Bean data557) {
-        this.data557 = data557;
-    }
-
-    public data80Bean getdata558() {
-        return data558;
-    }
-
-    public void setdata558(data80Bean data558) {
-        this.data558 = data558;
-    }
-
-    public data80Bean getdata559() {
-        return data559;
-    }
-
-    public void setdata559(data80Bean data559) {
-        this.data559 = data559;
-    }
-
-    public data80Bean getdata560() {
-        return data560;
-    }
-
-    public void setdata560(data80Bean data560) {
-        this.data560 = data560;
-    }
-
-    public data80Bean getdata561() {
-        return data561;
-    }
-
-    public void setdata561(data80Bean data561) {
-        this.data561 = data561;
-    }
-
-    public data80Bean getdata562() {
-        return data562;
-    }
-
-    public void setdata562(data80Bean data562) {
-        this.data562 = data562;
-    }
-
-    public data80Bean getdata563() {
-        return data563;
-    }
-
-    public void setdata563(data80Bean data563) {
-        this.data563 = data563;
-    }
-
-    public data80Bean getdata564() {
-        return data564;
-    }
-
-    public void setdata564(data80Bean data564) {
-        this.data564 = data564;
-    }
-
-    public data80Bean getdata565() {
-        return data565;
-    }
-
-    public void setdata565(data80Bean data565) {
-        this.data565 = data565;
-    }
-
-    public data80Bean getdata566() {
-        return data566;
-    }
-
-    public void setdata566(data80Bean data566) {
-        this.data566 = data566;
-    }
-
-    public data80Bean getdata567() {
-        return data567;
-    }
-
-    public void setdata567(data80Bean data567) {
-        this.data567 = data567;
-    }
-
-    public data80Bean getdata568() {
-        return data568;
-    }
-
-    public void setdata568(data80Bean data568) {
-        this.data568 = data568;
-    }
-
-    public data80Bean getdata569() {
-        return data569;
-    }
-
-    public void setdata569(data80Bean data569) {
-        this.data569 = data569;
-    }
-
-    public data80Bean getdata570() {
-        return data570;
-    }
-
-    public void setdata570(data80Bean data570) {
-        this.data570 = data570;
-    }
-
-    public data80Bean getdata571() {
-        return data571;
-    }
-
-    public void setdata571(data80Bean data571) {
-        this.data571 = data571;
-    }
-
-    public data80Bean getdata572() {
-        return data572;
-    }
-
-    public void setdata572(data80Bean data572) {
-        this.data572 = data572;
-    }
-
-    public data80Bean getdata573() {
-        return data573;
-    }
-
-    public void setdata573(data80Bean data573) {
-        this.data573 = data573;
-    }
-
-    public data80Bean getdata574() {
-        return data574;
-    }
-
-    public void setdata574(data80Bean data574) {
-        this.data574 = data574;
-    }
-
-    public data80Bean getdata575() {
-        return data575;
-    }
-
-    public void setdata575(data80Bean data575) {
-        this.data575 = data575;
-    }
-
-    public data80Bean getdata576() {
-        return data576;
-    }
-
-    public void setdata576(data80Bean data576) {
-        this.data576 = data576;
-    }
-
-    public data80Bean getdata577() {
-        return data577;
-    }
-
-    public void setdata577(data80Bean data577) {
-        this.data577 = data577;
-    }
-
-    public data80Bean getdata578() {
-        return data578;
-    }
-
-    public void setdata578(data80Bean data578) {
-        this.data578 = data578;
-    }
-
-    public data80Bean getdata579() {
-        return data579;
-    }
-
-    public void setdata579(data80Bean data579) {
-        this.data579 = data579;
-    }
-
-    public data80Bean getdata580() {
-        return data580;
-    }
-
-    public void setdata580(data80Bean data580) {
-        this.data580 = data580;
-    }
-
-    public data80Bean getdata581() {
-        return data581;
-    }
-
-    public void setdata581(data80Bean data581) {
-        this.data581 = data581;
-    }
-
-    public data80Bean getdata582() {
-        return data582;
-    }
-
-    public void setdata582(data80Bean data582) {
-        this.data582 = data582;
-    }
-
-    public data80Bean getdata583() {
-        return data583;
-    }
-
-    public void setdata583(data80Bean data583) {
-        this.data583 = data583;
-    }
-
-    public data80Bean getdata584() {
-        return data584;
-    }
-
-    public void setdata584(data80Bean data584) {
-        this.data584 = data584;
-    }
-
-    public data80Bean getdata585() {
-        return data585;
-    }
-
-    public void setdata585(data80Bean data585) {
-        this.data585 = data585;
-    }
-
-    public data80Bean getdata586() {
-        return data586;
-    }
-
-    public void setdata586(data80Bean data586) {
-        this.data586 = data586;
-    }
-
-    public data80Bean getdata587() {
-        return data587;
-    }
-
-    public void setdata587(data80Bean data587) {
-        this.data587 = data587;
-    }
-
-    public data80Bean getdata588() {
-        return data588;
-    }
-
-    public void setdata588(data80Bean data588) {
-        this.data588 = data588;
-    }
-
-    public data80Bean getdata589() {
-        return data589;
-    }
-
-    public void setdata589(data80Bean data589) {
-        this.data589 = data589;
-    }
-
-    public data80Bean getdata590() {
-        return data590;
-    }
-
-    public void setdata590(data80Bean data590) {
-        this.data590 = data590;
-    }
-
-    public data80Bean getdata591() {
-        return data591;
-    }
-
-    public void setdata591(data80Bean data591) {
-        this.data591 = data591;
-    }
-
-    public data80Bean getdata592() {
-        return data592;
-    }
-
-    public void setdata592(data80Bean data592) {
-        this.data592 = data592;
-    }
-
-    public data80Bean getdata593() {
-        return data593;
-    }
-
-    public void setdata593(data80Bean data593) {
-        this.data593 = data593;
-    }
-
-    public data80Bean getdata594() {
-        return data594;
-    }
-
-    public void setdata594(data80Bean data594) {
-        this.data594 = data594;
-    }
-
-    public data80Bean getdata595() {
-        return data595;
-    }
-
-    public void setdata595(data80Bean data595) {
-        this.data595 = data595;
-    }
-
-    public data80Bean getdata596() {
-        return data596;
-    }
-
-    public void setdata596(data80Bean data596) {
-        this.data596 = data596;
-    }
-
-    public data80Bean getdata597() {
-        return data597;
-    }
-
-    public void setdata597(data80Bean data597) {
-        this.data597 = data597;
-    }
-
-    public data80Bean getdata598() {
-        return data598;
-    }
-
-    public void setdata598(data80Bean data598) {
-        this.data598 = data598;
-    }
-
-    public data80Bean getdata599() {
-        return data599;
-    }
-
-    public void setdata599(data80Bean data599) {
-        this.data599 = data599;
-    }
-
-    public data80Bean getdata600() {
-        return data600;
-    }
-
-    public void setdata600(data80Bean data600) {
-        this.data600 = data600;
-    }
-
-    public data80Bean getdata601() {
-        return data601;
-    }
-
-    public void setdata601(data80Bean data601) {
-        this.data601 = data601;
-    }
-
-    public data80Bean getdata602() {
-        return data602;
-    }
-
-    public void setdata602(data80Bean data602) {
-        this.data602 = data602;
-    }
-
-    public data80Bean getdata603() {
-        return data603;
-    }
-
-    public void setdata603(data80Bean data603) {
-        this.data603 = data603;
-    }
-
-    public data80Bean getdata604() {
-        return data604;
-    }
-
-    public void setdata604(data80Bean data604) {
-        this.data604 = data604;
-    }
-
-    public data80Bean getdata605() {
-        return data605;
-    }
-
-    public void setdata605(data80Bean data605) {
-        this.data605 = data605;
-    }
-
-    public data80Bean getdata606() {
-        return data606;
-    }
-
-    public void setdata606(data80Bean data606) {
-        this.data606 = data606;
-    }
-
-    public data80Bean getdata607() {
-        return data607;
-    }
-
-    public void setdata607(data80Bean data607) {
-        this.data607 = data607;
-    }
-
-    public data80Bean getdata608() {
-        return data608;
-    }
-
-    public void setdata608(data80Bean data608) {
-        this.data608 = data608;
-    }
-
-    public data80Bean getdata609() {
-        return data609;
-    }
-
-    public void setdata609(data80Bean data609) {
-        this.data609 = data609;
-    }
-
-    public data80Bean getdata610() {
-        return data610;
-    }
-
-    public void setdata610(data80Bean data610) {
-        this.data610 = data610;
-    }
-
-    public data80Bean getdata611() {
-        return data611;
-    }
-
-    public void setdata611(data80Bean data611) {
-        this.data611 = data611;
-    }
-
-    public data80Bean getdata612() {
-        return data612;
-    }
-
-    public void setdata612(data80Bean data612) {
-        this.data612 = data612;
-    }
-
-    public data80Bean getdata1047() {
-        return data1047;
-    }
-
-    public void setdata1047(data80Bean data1047) {
-        this.data1047 = data1047;
-    }
-
-    public data80Bean getdata1048() {
-        return data1048;
-    }
-
-    public void setdata1048(data80Bean data1048) {
-        this.data1048 = data1048;
-    }
-
-    public data80Bean getdata1049() {
-        return data1049;
-    }
-
-    public void setdata1049(data80Bean data1049) {
-        this.data1049 = data1049;
-    }
-
-    public data80Bean getdata1050() {
-        return data1050;
-    }
-
-    public void setdata1050(data80Bean data1050) {
-        this.data1050 = data1050;
-    }
-
-    public data80Bean getdata1051() {
-        return data1051;
-    }
-
-    public void setdata1051(data80Bean data1051) {
-        this.data1051 = data1051;
-    }
-
-    public data80Bean getdata1052() {
-        return data1052;
-    }
-
-    public void setdata1052(data80Bean data1052) {
-        this.data1052 = data1052;
-    }
-
-    public data80Bean getdata1053() {
-        return data1053;
-    }
-
-    public void setdata1053(data80Bean data1053) {
-        this.data1053 = data1053;
-    }
-
-    public data80Bean getdata1054() {
-        return data1054;
-    }
-
-    public void setdata1054(data80Bean data1054) {
-        this.data1054 = data1054;
-    }
-
-    public data80Bean getdata1055() {
-        return data1055;
-    }
-
-    public void setdata1055(data80Bean data1055) {
-        this.data1055 = data1055;
-    }
-
-    public data80Bean getdata1056() {
-        return data1056;
-    }
-
-    public void setdata1056(data80Bean data1056) {
-        this.data1056 = data1056;
-    }
-
-    public data80Bean getdata1057() {
-        return data1057;
-    }
-
-    public void setdata1057(data80Bean data1057) {
-        this.data1057 = data1057;
-    }
-
-    public data80Bean getdata1058() {
-        return data1058;
-    }
-
-    public void setdata1058(data80Bean data1058) {
-        this.data1058 = data1058;
-    }
-
-    public data80Bean getdata1059() {
-        return data1059;
-    }
-
-    public void setdata1059(data80Bean data1059) {
-        this.data1059 = data1059;
-    }
-
-    public data80Bean getdata1060() {
-        return data1060;
-    }
-
-    public void setdata1060(data80Bean data1060) {
-        this.data1060 = data1060;
-    }
-
-    public data80Bean getdata1061() {
-        return data1061;
-    }
-
-    public void setdata1061(data80Bean data1061) {
-        this.data1061 = data1061;
-    }
-
-    public data80Bean getdata1062() {
-        return data1062;
-    }
-
-    public void setdata1062(data80Bean data1062) {
-        this.data1062 = data1062;
-    }
-
-    public data80Bean getdata1063() {
-        return data1063;
-    }
-
-    public void setdata1063(data80Bean data1063) {
-        this.data1063 = data1063;
-    }
-
-    public data80Bean getdata1064() {
-        return data1064;
-    }
-
-    public void setdata1064(data80Bean data1064) {
-        this.data1064 = data1064;
-    }
-
-    public data80Bean getdata1065() {
-        return data1065;
-    }
-
-    public void setdata1065(data80Bean data1065) {
-        this.data1065 = data1065;
-    }
-
-    public data80Bean getdata1066() {
-        return data1066;
-    }
-
-    public void setdata1066(data80Bean data1066) {
-        this.data1066 = data1066;
-    }
-
-    public data80Bean getdata1067() {
-        return data1067;
-    }
-
-    public void setdata1067(data80Bean data1067) {
-        this.data1067 = data1067;
-    }
-
-    public data80Bean getdata1068() {
-        return data1068;
-    }
-
-    public void setdata1068(data80Bean data1068) {
-        this.data1068 = data1068;
-    }
-
-    public data80Bean getdata1069() {
-        return data1069;
-    }
-
-    public void setdata1069(data80Bean data1069) {
-        this.data1069 = data1069;
-    }
-
-    public data80Bean getdata1070() {
-        return data1070;
-    }
-
-    public void setdata1070(data80Bean data1070) {
-        this.data1070 = data1070;
-    }
-
-    public data80Bean getdata1071() {
-        return data1071;
-    }
-
-    public void setdata1071(data80Bean data1071) {
-        this.data1071 = data1071;
-    }
-
-    public data80Bean getdata1072() {
-        return data1072;
-    }
-
-    public void setdata1072(data80Bean data1072) {
-        this.data1072 = data1072;
-    }
-
-    public data80Bean getdata1073() {
-        return data1073;
-    }
-
-    public void setdata1073(data80Bean data1073) {
-        this.data1073 = data1073;
-    }
-
-    public data80Bean getdata1074() {
-        return data1074;
-    }
-
-    public void setdata1074(data80Bean data1074) {
-        this.data1074 = data1074;
-    }
-
-    public data80Bean getdata1075() {
-        return data1075;
-    }
-
-    public void setdata1075(data80Bean data1075) {
-        this.data1075 = data1075;
-    }
-
-    public data80Bean getdata1076() {
-        return data1076;
-    }
-
-    public void setdata1076(data80Bean data1076) {
-        this.data1076 = data1076;
-    }
-
-    public data80Bean getdata1077() {
-        return data1077;
-    }
-
-    public void setdata1077(data80Bean data1077) {
-        this.data1077 = data1077;
-    }
-
-    public data80Bean getdata1078() {
-        return data1078;
-    }
-
-    public void setdata1078(data80Bean data1078) {
-        this.data1078 = data1078;
-    }
-
-    public data80Bean getdata1079() {
-        return data1079;
-    }
-
-    public void setdata1079(data80Bean data1079) {
-        this.data1079 = data1079;
-    }
-
-    public data80Bean getdata1080() {
-        return data1080;
-    }
-
-    public void setdata1080(data80Bean data1080) {
-        this.data1080 = data1080;
-    }
-
-    public data80Bean getdata1081() {
-        return data1081;
-    }
-
-    public void setdata1081(data80Bean data1081) {
-        this.data1081 = data1081;
-    }
-
-    public data80Bean getdata1082() {
-        return data1082;
-    }
-
-    public void setdata1082(data80Bean data1082) {
-        this.data1082 = data1082;
-    }
-
-    public data80Bean getdata620() {
-        return data620;
-    }
-
-    public void setdata620(data80Bean data620) {
-        this.data620 = data620;
-    }
-
-    public data80Bean getdata621() {
-        return data621;
-    }
-
-    public void setdata621(data80Bean data621) {
-        this.data621 = data621;
-    }
-
-    public data80Bean getdata622() {
-        return data622;
-    }
-
-    public void setdata622(data80Bean data622) {
-        this.data622 = data622;
-    }
-
-    public data80Bean getdata623() {
-        return data623;
-    }
-
-    public void setdata623(data80Bean data623) {
-        this.data623 = data623;
-    }
-
-    public data80Bean getdata624() {
-        return data624;
-    }
-
-    public void setdata624(data80Bean data624) {
-        this.data624 = data624;
-    }
-
-    public data80Bean getdata625() {
-        return data625;
-    }
-
-    public void setdata625(data80Bean data625) {
-        this.data625 = data625;
-    }
-
-    public data80Bean getdata626() {
-        return data626;
-    }
-
-    public void setdata626(data80Bean data626) {
-        this.data626 = data626;
-    }
+    @SerializedName("708501")
+    private String data708501;
+    @SerializedName("708502")
+    private String data708502;
+    @SerializedName("708503")
+    private String data708503;
+    @SerializedName("708504")
+    private String data708504;
+    @SerializedName("708505")
+    private String data708505;
+    @SerializedName("708506")
+    private String data708506;
+    @SerializedName("708507")
+    private String data708507;
+    @SerializedName("708508")
+    private String data708508;
+    @SerializedName("708509")
+    private String data708509;
+    @SerializedName("708510")
+    private String data708510;
+    @SerializedName("708511")
+    private String data708511;
+    @SerializedName("708512")
+    private String data708512;
+    @SerializedName("708513")
+    private String data708513;
+    @SerializedName("708514")
+    private String data708514;
+    @SerializedName("708515")
+    private String data708515;
+    @SerializedName("708516")
+    private String data708516;
+    @SerializedName("708517")
+    private String data708517;
+    @SerializedName("708518")
+    private String data708518;
+    @SerializedName("708519")
+    private String data708519;
+    @SerializedName("708520")
+    private String data708520;
+    @SerializedName("708521")
+    private String data708521;
+    @SerializedName("708522")
+    private String data708522;
+    @SerializedName("708523")
+    private String data708523;
+    @SerializedName("708524")
+    private String data708524;
+    @SerializedName("708525")
+    private String data708525;
+    @SerializedName("708526")
+    private String data708526;
+    @SerializedName("708527")
+    private String data708527;
+    @SerializedName("708528")
+    private String data708528;
+    @SerializedName("708529")
+    private String data708529;
+    @SerializedName("708530")
+    private String data708530;
+    @SerializedName("708531")
+    private String data708531;
+    @SerializedName("708532")
+    private String data708532;
+    @SerializedName("708533")
+    private String data708533;
+    @SerializedName("708534")
+    private String data708534;
+    @SerializedName("708535")
+    private String data708535;
+    @SerializedName("708536")
+    private String data708536;
+    @SerializedName("708537")
+    private String data708537;
+    @SerializedName("708538")
+    private String data708538;
+    @SerializedName("708539")
+    private String data708539;
+    @SerializedName("708540")
+    private String data708540;
+    @SerializedName("708541")
+    private String data708541;
+    @SerializedName("708542")
+    private String data708542;
+    @SerializedName("708543")
+    private String data708543;
+    @SerializedName("708544")
+    private String data708544;
+    @SerializedName("708545")
+    private String data708545;
+    @SerializedName("708546")
+    private String data708546;
+    @SerializedName("708547")
+    private String data708547;
+    @SerializedName("708548")
+    private String data708548;
+    @SerializedName("708549")
+    private String data708549;
+    @SerializedName("708550")
+    private String data708550;
+    @SerializedName("708551")
+    private String data708551;
+    @SerializedName("708552")
+    private String data708552;
+    @SerializedName("708553")
+    private String data708553;
+    @SerializedName("708554")
+    private String data708554;
+    @SerializedName("708555")
+    private String data708555;
+    @SerializedName("708556")
+    private String data708556;
+    @SerializedName("708557")
+    private String data708557;
+    @SerializedName("708558")
+    private String data708558;
+    @SerializedName("708559")
+    private String data708559;
+    @SerializedName("708560")
+    private String data708560;
+    @SerializedName("708561")
+    private String data708561;
+    @SerializedName("708562")
+    private String data708562;
+    @SerializedName("708563")
+    private String data708563;
+    @SerializedName("708564")
+    private String data708564;
+    @SerializedName("708565")
+    private String data708565;
+    @SerializedName("708566")
+    private String data708566;
+    @SerializedName("708567")
+    private String data708567;
+    @SerializedName("708568")
+    private String data708568;
+    @SerializedName("708569")
+    private String data708569;
+    @SerializedName("708570")
+    private String data708570;
+    @SerializedName("708571")
+    private String data708571;
+    @SerializedName("708572")
+    private String data708572;
+    @SerializedName("708573")
+    private String data708573;
+    @SerializedName("708574")
+    private String data708574;
+    @SerializedName("708575")
+    private String data708575;
+    @SerializedName("708576")
+    private String data708576;
+    @SerializedName("708577")
+    private String data708577;
+    @SerializedName("708578")
+    private String data708578;
+    @SerializedName("708579")
+    private String data708579;
+    @SerializedName("708580")
+    private String data708580;
+    @SerializedName("708581")
+    private String data708581;
+    @SerializedName("708582")
+    private String data708582;
+    @SerializedName("708583")
+    private String data708583;
+    @SerializedName("708584")
+    private String data708584;
+    @SerializedName("708585")
+    private String data708585;
+    @SerializedName("708586")
+    private String data708586;
+    @SerializedName("708587")
+    private String data708587;
+    @SerializedName("708588")
+    private String data708588;
+    @SerializedName("708589")
+    private String data708589;
+    @SerializedName("708590")
+    private String data708590;
+    @SerializedName("708591")
+    private String data708591;
+    @SerializedName("708592")
+    private String data708592;
+    @SerializedName("708593")
+    private String data708593;
+    @SerializedName("708594")
+    private String data708594;
+    @SerializedName("708595")
+    private String data708595;
+    @SerializedName("708596")
+    private String data708596;
+    @SerializedName("708597")
+    private String data708597;
+    @SerializedName("708598")
+    private String data708598;
+    @SerializedName("708601")
+    private String data708601;
+    @SerializedName("708602")
+    private String data708602;
+    @SerializedName("708603")
+    private String data708603;
+    @SerializedName("708604")
+    private String data708604;
+    @SerializedName("708605")
+    private String data708605;
+    @SerializedName("708606")
+    private String data708606;
+    @SerializedName("708607")
+    private String data708607;
+    @SerializedName("708608")
+    private String data708608;
+    @SerializedName("708609")
+    private String data708609;
+    @SerializedName("708610")
+    private String data708610;
+    @SerializedName("708611")
+    private String data708611;
+    @SerializedName("708612")
+    private String data708612;
+    @SerializedName("708613")
+    private String data708613;
+    @SerializedName("708614")
+    private String data708614;
+    @SerializedName("708615")
+    private String data708615;
+    @SerializedName("708616")
+    private String data708616;
+    @SerializedName("708617")
+    private String data708617;
+    @SerializedName("708618")
+    private String data708618;
+    @SerializedName("708619")
+    private String data708619;
+    @SerializedName("708620")
+    private String data708620;
+    @SerializedName("708621")
+    private String data708621;
+    @SerializedName("708622")
+    private String data708622;
+    @SerializedName("708623")
+    private String data708623;
+    @SerializedName("708624")
+    private String data708624;
+    @SerializedName("708701")
+    private String data708701;
+    @SerializedName("708702")
+    private String data708702;
+    @SerializedName("708703")
+    private String data708703;
+    @SerializedName("708704")
+    private String data708704;
+    @SerializedName("708705")
+    private String data708705;
+    @SerializedName("708706")
+    private String data708706;
+    @SerializedName("708707")
+    private String data708707;
+    @SerializedName("708708")
+    private String data708708;
+    @SerializedName("708709")
+    private String data708709;
+    @SerializedName("708710")
+    private String data708710;
+    @SerializedName("708711")
+    private String data708711;
+    @SerializedName("708712")
+    private String data708712;
+    @SerializedName("708713")
+    private String data708713;
+    @SerializedName("708714")
+    private String data708714;
+    @SerializedName("708715")
+    private String data708715;
+    @SerializedName("708716")
+    private String data708716;
+    @SerializedName("708717")
+    private String data708717;
+    @SerializedName("708718")
+    private String data708718;
+    @SerializedName("708719")
+    private String data708719;
+    @SerializedName("708720")
+    private String data708720;
+    @SerializedName("708721")
+    private String data708721;
+    @SerializedName("708722")
+    private String data708722;
+    @SerializedName("708723")
+    private String data708723;
+    @SerializedName("708724")
+    private String data708724;
+    @SerializedName("708725")
+    private String data708725;
+    @SerializedName("708726")
+    private String data708726;
+    @SerializedName("708727")
+    private String data708727;
+    @SerializedName("708801")
+    private String data708801;
+    @SerializedName("708802")
+    private String data708802;
+    @SerializedName("708803")
+    private String data708803;
+    @SerializedName("708804")
+    private String data708804;
+    @SerializedName("708805")
+    private String data708805;
+    @SerializedName("708806")
+    private String data708806;
+    @SerializedName("708807")
+    private String data708807;
+    @SerializedName("708808")
+    private String data708808;
+    @SerializedName("708809")
+    private String data708809;
+    @SerializedName("708810")
+    private String data708810;
+    @SerializedName("708811")
+    private String data708811;
+    @SerializedName("708812")
+    private String data708812;
+    @SerializedName("708902")
+    private String data708902;
+    @SerializedName("708903")
+    private String data708903;
+    @SerializedName("708904")
+    private String data708904;
+    @SerializedName("708905")
+    private String data708905;
+    @SerializedName("708906")
+    private String data708906;
+    @SerializedName("708907")
+    private String data708907;
+    @SerializedName("708908")
+    private String data708908;
+    @SerializedName("708909")
+    private String data708909;
+    @SerializedName("708910")
+    private String data708910;
+    @SerializedName("708911")
+    private String data708911;
+    @SerializedName("709001")
+    private String data709001;
+    @SerializedName("709002")
+    private String data709002;
+    @SerializedName("709003")
+    private String data709003;
+    @SerializedName("709004")
+    private String data709004;
+    @SerializedName("709005")
+    private String data709005;
+    @SerializedName("709006")
+    private String data709006;
+    @SerializedName("709007")
+    private String data709007;
+    @SerializedName("709008")
+    private String data709008;
+    @SerializedName("709009")
+    private String data709009;
+    @SerializedName("709010")
+    private String data709010;
+    @SerializedName("709011")
+    private String data709011;
+    @SerializedName("709012")
+    private String data709012;
+    @SerializedName("709013")
+    private String data709013;
+    @SerializedName("709014")
+    private String data709014;
+    @SerializedName("709015")
+    private String data709015;
+    @SerializedName("709101")
+    private String data709101;
+    @SerializedName("709102")
+    private String data709102;
+    @SerializedName("709103")
+    private String data709103;
+    @SerializedName("709104")
+    private String data709104;
+    @SerializedName("709105")
+    private String data709105;
+    @SerializedName("709106")
+    private String data709106;
+    @SerializedName("709107")
+    private String data709107;
+    @SerializedName("709108")
+    private String data709108;
+    @SerializedName("709109")
+    private String data709109;
+    @SerializedName("709110")
+    private String data709110;
+    @SerializedName("709111")
+    private String data709111;
+    @SerializedName("709112")
+    private String data709112;
+    @SerializedName("709113")
+    private String data709113;
+    @SerializedName("709114")
+    private String data709114;
+    @SerializedName("709115")
+    private String data709115;
+    @SerializedName("709116")
+    private String data709116;
+    @SerializedName("709117")
+    private String data709117;
+    @SerializedName("709118")
+    private String data709118;
+    @SerializedName("709119")
+    private String data709119;
+    @SerializedName("709120")
+    private String data709120;
+    @SerializedName("709121")
+    private String data709121;
+    @SerializedName("709122")
+    private String data709122;
+    @SerializedName("709123")
+    private String data709123;
+    @SerializedName("709124")
+    private String data709124;
+    @SerializedName("709125")
+    private String data709125;
+    @SerializedName("709126")
+    private String data709126;
+    @SerializedName("709127")
+    private String data709127;
+    @SerializedName("709128")
+    private String data709128;
+    @SerializedName("709129")
+    private String data709129;
+    @SerializedName("709130")
+    private String data709130;
+    @SerializedName("709131")
+    private String data709131;
+    @SerializedName("709132")
+    private String data709132;
+    @SerializedName("709133")
+    private String data709133;
+    @SerializedName("709134")
+    private String data709134;
+    @SerializedName("709135")
+    private String data709135;
+    @SerializedName("709136")
+    private String data709136;
+    @SerializedName("709137")
+    private String data709137;
+    @SerializedName("709138")
+    private String data709138;
+    @SerializedName("709139")
+    private String data709139;
+    @SerializedName("709140")
+    private String data709140;
+    @SerializedName("709141")
+    private String data709141;
+    @SerializedName("709142")
+    private String data709142;
+    @SerializedName("709143")
+    private String data709143;
+    @SerializedName("709144")
+    private String data709144;
+    @SerializedName("709145")
+    private String data709145;
+    @SerializedName("709146")
+    private String data709146;
+    @SerializedName("709147")
+    private String data709147;
+    @SerializedName("709148")
+    private String data709148;
+    @SerializedName("709149")
+    private String data709149;
+    @SerializedName("709301")
+    private String data709301;
+    @SerializedName("709302")
+    private String data709302;
+    @SerializedName("709303")
+    private String data709303;
+    @SerializedName("709304")
+    private String data709304;
+    @SerializedName("709305")
+    private String data709305;
+    @SerializedName("709401")
+    private String data709401;
+    @SerializedName("709402")
+    private String data709402;
+    @SerializedName("709403")
+    private String data709403;
+    @SerializedName("709404")
+    private String data709404;
+    @SerializedName("709405")
+    private String data709405;
+    @SerializedName("709406")
+    private String data709406;
+    @SerializedName("709407")
+    private String data709407;
+    @SerializedName("709408")
+    private String data709408;
+    @SerializedName("709409")
+    private String data709409;
+    @SerializedName("709410")
+    private String data709410;
+    @SerializedName("709411")
+    private String data709411;
+    @SerializedName("709412")
+    private String data709412;
+    @SerializedName("709413")
+    private String data709413;
+    @SerializedName("709414")
+    private String data709414;
+    @SerializedName("709415")
+    private String data709415;
+    @SerializedName("709416")
+    private String data709416;
+    @SerializedName("709417")
+    private String data709417;
+    @SerializedName("709418")
+    private String data709418;
+    @SerializedName("709419")
+    private String data709419;
+    @SerializedName("709420")
+    private String data709420;
+    @SerializedName("709421")
+    private String data709421;
+    @SerializedName("709422")
+    private String data709422;
+    @SerializedName("709501")
+    private String data709501;
+    @SerializedName("709502")
+    private String data709502;
+    @SerializedName("709503")
+    private String data709503;
+    @SerializedName("709504")
+    private String data709504;
+    @SerializedName("709505")
+    private String data709505;
+    @SerializedName("709506")
+    private String data709506;
+    @SerializedName("709507")
+    private String data709507;
+    @SerializedName("709508")
+    private String data709508;
+    @SerializedName("709509")
+    private String data709509;
+    @SerializedName("709510")
+    private String data709510;
+    @SerializedName("709511")
+    private String data709511;
+    @SerializedName("709512")
+    private String data709512;
+    @SerializedName("709601")
+    private String data709601;
+    @SerializedName("709602")
+    private String data709602;
+    @SerializedName("709603")
+    private String data709603;
+    @SerializedName("709604")
+    private String data709604;
+    @SerializedName("709701")
+    private String data709701;
+    @SerializedName("709702")
+    private String data709702;
+    @SerializedName("709703")
+    private String data709703;
+    @SerializedName("709704")
+    private String data709704;
+    @SerializedName("709705")
+    private String data709705;
+    @SerializedName("709706")
+    private String data709706;
+    @SerializedName("709707")
+    private String data709707;
+    @SerializedName("709708")
+    private String data709708;
+    @SerializedName("709805")
+    private String data709805;
+    @SerializedName("709806")
+    private String data709806;
+    @SerializedName("709807")
+    private String data709807;
+    @SerializedName("709808")
+    private String data709808;
+    @SerializedName("709809")
+    private String data709809;
+    @SerializedName("709810")
+    private String data709810;
+    @SerializedName("709811")
+    private String data709811;
+    @SerializedName("709812")
+    private String data709812;
+    @SerializedName("709901")
+    private String data709901;
+    @SerializedName("709902")
+    private String data709902;
+    @SerializedName("709903")
+    private String data709903;
+    @SerializedName("709904")
+    private String data709904;
+    @SerializedName("709905")
+    private String data709905;
+    @SerializedName("709906")
+    private String data709906;
+    @SerializedName("709907")
+    private String data709907;
+    @SerializedName("709908")
+    private String data709908;
+    @SerializedName("709909")
+    private String data709909;
+    @SerializedName("709910")
+    private String data709910;
+    @SerializedName("709911")
+    private String data709911;
+    @SerializedName("709912")
+    private String data709912;
+    @SerializedName("709913")
+    private String data709913;
+    @SerializedName("709914")
+    private String data709914;
+    @SerializedName("709915")
+    private String data709915;
+    @SerializedName("709916")
+    private String data709916;
+    @SerializedName("709917")
+    private String data709917;
+    @SerializedName("709918")
+    private String data709918;
+    @SerializedName("709919")
+    private String data709919;
+    @SerializedName("709920")
+    private String data709920;
+    @SerializedName("709921")
+    private String data709921;
+    @SerializedName("709922")
+    private String data709922;
+    @SerializedName("709923")
+    private String data709923;
+    @SerializedName("709924")
+    private String data709924;
+    @SerializedName("709925")
+    private String data709925;
+    @SerializedName("709926")
+    private String data709926;
+    @SerializedName("709927")
+    private String data709927;
+    @SerializedName("709928")
+    private String data709928;
+    @SerializedName("709929")
+    private String data709929;
+    @SerializedName("709930")
+    private String data709930;
+    @SerializedName("709931")
+    private String data709931;
+    @SerializedName("709932")
+    private String data709932;
+    @SerializedName("709933")
+    private String data709933;
+    @SerializedName("709934")
+    private String data709934;
+    @SerializedName("709935")
+    private String data709935;
+    @SerializedName("709936")
+    private String data709936;
+    @SerializedName("709937")
+    private String data709937;
+    @SerializedName("709938")
+    private String data709938;
+    @SerializedName("709939")
+    private String data709939;
+    @SerializedName("709940")
+    private String data709940;
+    @SerializedName("709941")
+    private String data709941;
+    @SerializedName("709942")
+    private String data709942;
+    @SerializedName("709943")
+    private String data709943;
+    @SerializedName("709944")
+    private String data709944;
+    @SerializedName("709945")
+    private String data709945;
+    @SerializedName("709946")
+    private String data709946;
+    @SerializedName("709947")
+    private String data709947;
+    @SerializedName("709948")
+    private String data709948;
+    @SerializedName("709949")
+    private String data709949;
+    @SerializedName("709950")
+    private String data709950;
+    @SerializedName("709951")
+    private String data709951;
+    @SerializedName("709952")
+    private String data709952;
+    @SerializedName("709953")
+    private String data709953;
+    @SerializedName("709954")
+    private String data709954;
+    @SerializedName("709955")
+    private String data709955;
+    @SerializedName("709956")
+    private String data709956;
+    @SerializedName("709957")
+    private String data709957;
+    @SerializedName("709958")
+    private String data709958;
+    @SerializedName("709959")
+    private String data709959;
+    @SerializedName("709960")
+    private String data709960;
+    @SerializedName("709961")
+    private String data709961;
+    @SerializedName("709962")
+    private String data709962;
+    @SerializedName("709963")
+    private String data709963;
+    @SerializedName("709964")
+    private String data709964;
+    @SerializedName("709965")
+    private String data709965;
+    @SerializedName("709966")
+    private String data709966;
+    @SerializedName("709967")
+    private String data709967;
+    @SerializedName("709968")
+    private String data709968;
+    @SerializedName("709969")
+    private String data709969;
+    @SerializedName("709970")
+    private String data709970;
+    @SerializedName("709971")
+    private String data709971;
+    @SerializedName("709972")
+    private String data709972;
+    @SerializedName("709973")
+    private String data709973;
+    @SerializedName("709974")
+    private String data709974;
+    @SerializedName("709975")
+    private String data709975;
+    @SerializedName("709976")
+    private String data709976;
+    @SerializedName("709977")
+    private String data709977;
+    @SerializedName("709978")
+    private String data709978;
+    @SerializedName("709979")
+    private String data709979;
+    @SerializedName("709980")
+    private String data709980;
+    @SerializedName("709981")
+    private String data709981;
+    @SerializedName("709982")
+    private String data709982;
+    @SerializedName("709983")
+    private String data709983;
+    @SerializedName("709984")
+    private String data709984;
+    @SerializedName("709985")
+    private String data709985;
+    @SerializedName("709986")
+    private String data709986;
+    @SerializedName("709987")
+    private String data709987;
+    @SerializedName("709988")
+    private String data709988;
+    @SerializedName("7010001")
+    private String data7010001;
+    @SerializedName("7010002")
+    private String data7010002;
+    @SerializedName("7010003")
+    private String data7010003;
+    @SerializedName("7010004")
+    private String data7010004;
+    @SerializedName("7010005")
+    private String data7010005;
+    @SerializedName("7010006")
+    private String data7010006;
+    @SerializedName("7010007")
+    private String data7010007;
+    @SerializedName("7010008")
+    private String data7010008;
+    @SerializedName("7092001")
+    private String data7092001;
+    @SerializedName("7092002")
+    private String data7092002;
+    @SerializedName("7092003")
+    private String data7092003;
+    @SerializedName("7092004")
+    private String data7092004;
+    @SerializedName("7092005")
+    private String data7092005;
+    @SerializedName("7092006")
+    private String data7092006;
+    @SerializedName("7092007")
+    private String data7092007;
+    @SerializedName("7092008")
+    private String data7092008;
+    @SerializedName("7092009")
+    private String data7092009;
+    @SerializedName("7092010")
+    private String data7092010;
+    @SerializedName("7092011")
+    private String data7092011;
+    @SerializedName("7092012")
+    private String data7092012;
+    @SerializedName("7092013")
+    private String data7092013;
+    @SerializedName("7092014")
+    private String data7092014;
+    @SerializedName("7092015")
+    private String data7092015;
+    @SerializedName("7092016")
+    private String data7092016;
+    @SerializedName("7092017")
+    private String data7092017;
+    @SerializedName("7092018")
+    private String data7092018;
+    @SerializedName("7092019")
+    private String data7092019;
+    @SerializedName("7092020")
+    private String data7092020;
+    @SerializedName("7092021")
+    private String data7092021;
+    @SerializedName("7092022")
+    private String data7092022;
+    @SerializedName("7092023")
+    private String data7092023;
+    @SerializedName("7092024")
+    private String data7092024;
+    @SerializedName("7092025")
+    private String data7092025;
+    @SerializedName("7092026")
+    private String data7092026;
+    @SerializedName("7092027")
+    private String data7092027;
+    @SerializedName("7092028")
+    private String data7092028;
+    @SerializedName("7092029")
+    private String data7092029;
+    @SerializedName("7092030")
+    private String data7092030;
+    @SerializedName("7092031")
+    private String data7092031;
+    @SerializedName("7092032")
+    private String data7092032;
+    @SerializedName("7092033")
+    private String data7092033;
+    @SerializedName("7092034")
+    private String data7092034;
+    @SerializedName("7092035")
+    private String data7092035;
+    @SerializedName("7092036")
+    private String data7092036;
+    @SerializedName("7092037")
+    private String data7092037;
+    @SerializedName("7092038")
+    private String data7092038;
+    @SerializedName("7092039")
+    private String data7092039;
+    @SerializedName("7092040")
+    private String data7092040;
+    @SerializedName("7092041")
+    private String data7092041;
+    @SerializedName("7092042")
+    private String data7092042;
+    @SerializedName("7092043")
+    private String data7092043;
+    @SerializedName("7092044")
+    private String data7092044;
+    @SerializedName("7092045")
+    private String data7092045;
+    @SerializedName("7092046")
+    private String data7092046;
+    @SerializedName("7092047")
+    private String data7092047;
+    @SerializedName("7092048")
+    private String data7092048;
+    @SerializedName("7092049")
+    private String data7092049;
+    @SerializedName("7092050")
+    private String data7092050;
+    @SerializedName("7092051")
+    private String data7092051;
+    @SerializedName("7092052")
+    private String data7092052;
+    @SerializedName("7092053")
+    private String data7092053;
+    @SerializedName("7092054")
+    private String data7092054;
+    @SerializedName("7092055")
+    private String data7092055;
+    @SerializedName("7092056")
+    private String data7092056;
+    @SerializedName("7092057")
+    private String data7092057;
+    @SerializedName("7092058")
+    private String data7092058;
+    @SerializedName("7092059")
+    private String data7092059;
+    @SerializedName("7092060")
+    private String data7092060;
+    @SerializedName("7092061")
+    private String data7092061;
+    @SerializedName("7092062")
+    private String data7092062;
+    @SerializedName("7092063")
+    private String data7092063;
+    @SerializedName("7092064")
+    private String data7092064;
+    @SerializedName("7092065")
+    private String data7092065;
+    @SerializedName("7092066")
+    private String data7092066;
+    @SerializedName("7092067")
+    private String data7092067;
+    @SerializedName("7092068")
+    private String data7092068;
+    @SerializedName("7092069")
+    private String data7092069;
+    @SerializedName("7092070")
+    private String data7092070;
+    @SerializedName("7092071")
+    private String data7092071;
+    @SerializedName("7092072")
+    private String data7092072;
+    @SerializedName("7092073")
+    private String data7092073;
+    @SerializedName("7092074")
+    private String data7092074;
+    @SerializedName("7092075")
+    private String data7092075;
+    @SerializedName("7092076")
+    private String data7092076;
+    @SerializedName("7092077")
+    private String data7092077;
+    @SerializedName("7092078")
+    private String data7092078;
+    @SerializedName("7092079")
+    private String data7092079;
+    @SerializedName("7092080")
+    private String data7092080;
+    @SerializedName("7092081")
+    private String data7092081;
+    @SerializedName("7092082")
+    private String data7092082;
+    @SerializedName("7092083")
+    private String data7092083;
+    @SerializedName("7092084")
+    private String data7092084;
+    @SerializedName("7092085")
+    private String data7092085;
+    @SerializedName("7092086")
+    private String data7092086;
+    @SerializedName("7092087")
+    private String data7092087;
+    @SerializedName("7092088")
+    private String data7092088;
+    @SerializedName("7092089")
+    private String data7092089;
+    @SerializedName("7092090")
+    private String data7092090;
+    @SerializedName("7092091")
+    private String data7092091;
+    @SerializedName("7092092")
+    private String data7092092;
+    @SerializedName("7092093")
+    private String data7092093;
+    @SerializedName("7092094")
+    private String data7092094;
+    @SerializedName("7092095")
+    private String data7092095;
+    @SerializedName("7092096")
+    private String data7092096;
+    @SerializedName("7092097")
+    private String data7092097;
+    @SerializedName("7092098")
+    private String data7092098;
+    @SerializedName("7092099")
+    private String data7092099;
+    @SerializedName("7092100")
+    private String data7092100;
+    @SerializedName("7092101")
+    private String data7092101;
+    @SerializedName("7092102")
+    private String data7092102;
+    @SerializedName("7092103")
+    private String data7092103;
+    @SerializedName("7092104")
+    private String data7092104;
+    @SerializedName("7092105")
+    private String data7092105;
+    @SerializedName("7092106")
+    private String data7092106;
+    @SerializedName("7092107")
+    private String data7092107;
+    @SerializedName("7092108")
+    private String data7092108;
+    @SerializedName("7092109")
+    private String data7092109;
+    @SerializedName("7092110")
+    private String data7092110;
+    @SerializedName("7092111")
+    private String data7092111;
+    @SerializedName("7092112")
+    private String data7092112;
+    @SerializedName("7092113")
+    private String data7092113;
+    @SerializedName("7092114")
+    private String data7092114;
+    @SerializedName("7092115")
+    private String data7092115;
+    @SerializedName("7092116")
+    private String data7092116;
+    @SerializedName("7092117")
+    private String data7092117;
+    @SerializedName("7092118")
+    private String data7092118;
+    @SerializedName("7092119")
+    private String data7092119;
+    @SerializedName("7092120")
+    private String data7092120;
+    @SerializedName("7092121")
+    private String data7092121;
+    @SerializedName("7092122")
+    private String data7092122;
+    @SerializedName("7092123")
+    private String data7092123;
+    @SerializedName("7092124")
+    private String data7092124;
+    @SerializedName("7092125")
+    private String data7092125;
+    @SerializedName("7092126")
+    private String data7092126;
+    @SerializedName("7092127")
+    private String data7092127;
+    @SerializedName("7092128")
+    private String data7092128;
+    @SerializedName("7092129")
+    private String data7092129;
+    @SerializedName("7092130")
+    private String data7092130;
+    @SerializedName("7092131")
+    private String data7092131;
+    @SerializedName("7092132")
+    private String data7092132;
+    @SerializedName("7092133")
+    private String data7092133;
+    @SerializedName("7092134")
+    private String data7092134;
+    @SerializedName("7092135")
+    private String data7092135;
+    @SerializedName("7092136")
+    private String data7092136;
+    @SerializedName("7092137")
+    private String data7092137;
+    @SerializedName("7092138")
+    private String data7092138;
+    @SerializedName("7092139")
+    private String data7092139;
+    @SerializedName("7092140")
+    private String data7092140;
+    @SerializedName("7092141")
+    private String data7092141;
+    @SerializedName("7092142")
+    private String data7092142;
+    @SerializedName("7092143")
+    private String data7092143;
+    @SerializedName("7092144")
+    private String data7092144;
+    @SerializedName("7092145")
+    private String data7092145;
+    @SerializedName("7092146")
+    private String data7092146;
+    @SerializedName("7092147")
+    private String data7092147;
+    @SerializedName("7092148")
+    private String data7092148;
+    @SerializedName("7092149")
+    private String data7092149;
+    @SerializedName("7092150")
+    private String data7092150;
+    @SerializedName("7092151")
+    private String data7092151;
+    @SerializedName("7092152")
+    private String data7092152;
+    @SerializedName("7092153")
+    private String data7092153;
+    @SerializedName("7092154")
+    private String data7092154;
+    @SerializedName("7092155")
+    private String data7092155;
+    @SerializedName("7092156")
+    private String data7092156;
+    @SerializedName("7092157")
+    private String data7092157;
+    @SerializedName("7092158")
+    private String data7092158;
+    @SerializedName("7092159")
+    private String data7092159;
+    @SerializedName("7092160")
+    private String data7092160;
+    @SerializedName("7092161")
+    private String data7092161;
+    @SerializedName("7092162")
+    private String data7092162;
+    @SerializedName("7092163")
+    private String data7092163;
+    @SerializedName("7092164")
+    private String data7092164;
+    @SerializedName("7092165")
+    private String data7092165;
+    @SerializedName("7092166")
+    private String data7092166;
+    @SerializedName("7092167")
+    private String data7092167;
+    @SerializedName("7092168")
+    private String data7092168;
+    @SerializedName("7092169")
+    private String data7092169;
+    @SerializedName("7092170")
+    private String data7092170;
+    @SerializedName("7092171")
+    private String data7092171;
+    @SerializedName("7092172")
+    private String data7092172;
+    @SerializedName("7092173")
+    private String data7092173;
+    @SerializedName("7092174")
+    private String data7092174;
+    @SerializedName("7092175")
+    private String data7092175;
+    @SerializedName("7092176")
+    private String data7092176;
+    @SerializedName("7092177")
+    private String data7092177;
+    @SerializedName("7092178")
+    private String data7092178;
+    @SerializedName("7092179")
+    private String data7092179;
+    @SerializedName("7092180")
+    private String data7092180;
+    @SerializedName("7092181")
+    private String data7092181;
+    @SerializedName("7092182")
+    private String data7092182;
+    @SerializedName("7092183")
+    private String data7092183;
+    @SerializedName("7092184")
+    private String data7092184;
+    @SerializedName("7092185")
+    private String data7092185;
+    @SerializedName("7092186")
+    private String data7092186;
+    @SerializedName("7092187")
+    private String data7092187;
+    @SerializedName("7092188")
+    private String data7092188;
+    @SerializedName("7092189")
+    private String data7092189;
+    @SerializedName("7092190")
+    private String data7092190;
+    @SerializedName("7092191")
+    private String data7092191;
+    @SerializedName("7092192")
+    private String data7092192;
+    @SerializedName("7092193")
+    private String data7092193;
+    @SerializedName("7092194")
+    private String data7092194;
+    @SerializedName("7092195")
+    private String data7092195;
+    @SerializedName("7092196")
+    private String data7092196;
+    @SerializedName("7092197")
+    private String data7092197;
+    @SerializedName("7092198")
+    private String data7092198;
+    @SerializedName("7092199")
+    private String data7092199;
+    @SerializedName("7092200")
+    private String data7092200;
+    @SerializedName("7092201")
+    private String data7092201;
+    @SerializedName("7092202")
+    private String data7092202;
+    @SerializedName("7092203")
+    private String data7092203;
+    @SerializedName("7092204")
+    private String data7092204;
+    @SerializedName("7092205")
+    private String data7092205;
+    @SerializedName("7092206")
+    private String data7092206;
+    @SerializedName("7092207")
+    private String data7092207;
+    @SerializedName("7092208")
+    private String data7092208;
+    @SerializedName("7092209")
+    private String data7092209;
+    @SerializedName("7092210")
+    private String data7092210;
+    @SerializedName("7092211")
+    private String data7092211;
+    @SerializedName("7092212")
+    private String data7092212;
+    @SerializedName("7092213")
+    private String data7092213;
+    @SerializedName("7092214")
+    private String data7092214;
+    @SerializedName("7092215")
+    private String data7092215;
+    @SerializedName("7092216")
+    private String data7092216;
+    @SerializedName("7092217")
+    private String data7092217;
+    @SerializedName("7092218")
+    private String data7092218;
+    @SerializedName("7092219")
+    private String data7092219;
+    @SerializedName("7092220")
+    private String data7092220;
+    @SerializedName("7092221")
+    private String data7092221;
+    @SerializedName("7092222")
+    private String data7092222;
+    @SerializedName("7092223")
+    private String data7092223;
+    @SerializedName("7092224")
+    private String data7092224;
+    @SerializedName("7092225")
+    private String data7092225;
+    @SerializedName("7092226")
+    private String data7092226;
+    @SerializedName("7092227")
+    private String data7092227;
+    @SerializedName("7092228")
+    private String data7092228;
+    @SerializedName("7092229")
+    private String data7092229;
+    @SerializedName("7092230")
+    private String data7092230;
+    @SerializedName("7092231")
+    private String data7092231;
+    @SerializedName("7092232")
+    private String data7092232;
+    @SerializedName("7092233")
+    private String data7092233;
+    @SerializedName("7092234")
+    private String data7092234;
+    @SerializedName("7092235")
+    private String data7092235;
+    @SerializedName("7092236")
+    private String data7092236;
+    @SerializedName("7092237")
+    private String data7092237;
+    @SerializedName("7092238")
+    private String data7092238;
+    @SerializedName("7092239")
+    private String data7092239;
+    @SerializedName("7092240")
+    private String data7092240;
+    @SerializedName("7092241")
+    private String data7092241;
+    @SerializedName("7092242")
+    private String data7092242;
+    @SerializedName("7092243")
+    private String data7092243;
+    @SerializedName("7092244")
+    private String data7092244;
+    @SerializedName("7092245")
+    private String data7092245;
+    @SerializedName("7092246")
+    private String data7092246;
+    @SerializedName("7092247")
+    private String data7092247;
+    @SerializedName("7092248")
+    private String data7092248;
+    @SerializedName("7092249")
+    private String data7092249;
+    @SerializedName("7092250")
+    private String data7092250;
+    @SerializedName("7092251")
+    private String data7092251;
+    @SerializedName("7092252")
+    private String data7092252;
+    @SerializedName("7092253")
+    private String data7092253;
+    @SerializedName("7092254")
+    private String data7092254;
+    @SerializedName("7092255")
+    private String data7092255;
+    @SerializedName("7092256")
+    private String data7092256;
+    @SerializedName("7092257")
+    private String data7092257;
+    @SerializedName("7092258")
+    private String data7092258;
+    @SerializedName("7092259")
+    private String data7092259;
+    @SerializedName("7092260")
+    private String data7092260;
+    @SerializedName("7092261")
+    private String data7092261;
+    @SerializedName("7092262")
+    private String data7092262;
+    @SerializedName("7092263")
+    private String data7092263;
+    @SerializedName("7092264")
+    private String data7092264;
+    @SerializedName("7092265")
+    private String data7092265;
+    @SerializedName("7092266")
+    private String data7092266;
+    @SerializedName("7092267")
+    private String data7092267;
+    @SerializedName("7092268")
+    private String data7092268;
+    @SerializedName("7092269")
+    private String data7092269;
+    @SerializedName("7092270")
+    private String data7092270;
+    @SerializedName("7092271")
+    private String data7092271;
+    @SerializedName("7092272")
+    private String data7092272;
+    @SerializedName("7092273")
+    private String data7092273;
+    @SerializedName("7092274")
+    private String data7092274;
+    @SerializedName("7092275")
+    private String data7092275;
+    @SerializedName("7092276")
+    private String data7092276;
+    @SerializedName("7092277")
+    private String data7092277;
+    @SerializedName("7092278")
+    private String data7092278;
+    @SerializedName("7092279")
+    private String data7092279;
+    @SerializedName("7092280")
+    private String data7092280;
+    @SerializedName("7092281")
+    private String data7092281;
+    @SerializedName("7092282")
+    private String data7092282;
+    @SerializedName("7092283")
+    private String data7092283;
+    @SerializedName("7092284")
+    private String data7092284;
+    @SerializedName("7092285")
+    private String data7092285;
+    @SerializedName("7092286")
+    private String data7092286;
+    @SerializedName("7092287")
+    private String data7092287;
+    @SerializedName("7092288")
+    private String data7092288;
+    @SerializedName("7092289")
+    private String data7092289;
+    @SerializedName("7092290")
+    private String data7092290;
+    @SerializedName("7092291")
+    private String data7092291;
+    @SerializedName("7092292")
+    private String data7092292;
+    @SerializedName("7092293")
+    private String data7092293;
+    @SerializedName("7092294")
+    private String data7092294;
+    @SerializedName("7092295")
+    private String data7092295;
+    @SerializedName("7092296")
+    private String data7092296;
+    @SerializedName("7092297")
+    private String data7092297;
+    @SerializedName("7092298")
+    private String data7092298;
+    @SerializedName("7092299")
+    private String data7092299;
+    @SerializedName("7092300")
+    private String data7092300;
+    @SerializedName("7092301")
+    private String data7092301;
+    @SerializedName("7092302")
+    private String data7092302;
+    @SerializedName("7092303")
+    private String data7092303;
+    @SerializedName("7092304")
+    private String data7092304;
+    @SerializedName("7092305")
+    private String data7092305;
+    @SerializedName("7092306")
+    private String data7092306;
+    @SerializedName("7092307")
+    private String data7092307;
+    @SerializedName("7092308")
+    private String data7092308;
+    @SerializedName("7092309")
+    private String data7092309;
+    @SerializedName("7092310")
+    private String data7092310;
+    @SerializedName("7092311")
+    private String data7092311;
+    @SerializedName("7092312")
+    private String data7092312;
+    @SerializedName("7092313")
+    private String data7092313;
+    @SerializedName("7092314")
+    private String data7092314;
+    @SerializedName("7092315")
+    private String data7092315;
+    @SerializedName("7092316")
+    private String data7092316;
+    @SerializedName("7092317")
+    private String data7092317;
+    @SerializedName("7092318")
+    private String data7092318;
+    @SerializedName("7092319")
+    private String data7092319;
+    @SerializedName("7092320")
+    private String data7092320;
+    @SerializedName("7092321")
+    private String data7092321;
+    @SerializedName("7092322")
+    private String data7092322;
+    @SerializedName("7092323")
+    private String data7092323;
+    @SerializedName("7092324")
+    private String data7092324;
+    @SerializedName("7092325")
+    private String data7092325;
+    @SerializedName("7092326")
+    private String data7092326;
+    @SerializedName("7092327")
+    private String data7092327;
+    @SerializedName("7092328")
+    private String data7092328;
+    @SerializedName("7092329")
+    private String data7092329;
+    @SerializedName("7092330")
+    private String data7092330;
+    @SerializedName("7092331")
+    private String data7092331;
+    @SerializedName("7092332")
+    private String data7092332;
+    @SerializedName("7092333")
+    private String data7092333;
+    @SerializedName("7092334")
+    private String data7092334;
+    @SerializedName("7092335")
+    private String data7092335;
+    @SerializedName("7092336")
+    private String data7092336;
+    @SerializedName("7092337")
+    private String data7092337;
+    @SerializedName("7092338")
+    private String data7092338;
+    @SerializedName("7092339")
+    private String data7092339;
+    @SerializedName("7092340")
+    private String data7092340;
+    @SerializedName("7092341")
+    private String data7092341;
+    @SerializedName("7092342")
+    private String data7092342;
+    @SerializedName("7092343")
+    private String data7092343;
+    @SerializedName("7092344")
+    private String data7092344;
+    @SerializedName("7092345")
+    private String data7092345;
+    @SerializedName("7092346")
+    private String data7092346;
+    @SerializedName("7092347")
+    private String data7092347;
+    @SerializedName("7092348")
+    private String data7092348;
+    @SerializedName("7092349")
+    private String data7092349;
+    @SerializedName("7092350")
+    private String data7092350;
+    @SerializedName("7092351")
+    private String data7092351;
+    @SerializedName("7092352")
+    private String data7092352;
+    @SerializedName("7092353")
+    private String data7092353;
+    @SerializedName("7092354")
+    private String data7092354;
+    @SerializedName("7092355")
+    private String data7092355;
+    @SerializedName("7092356")
+    private String data7092356;
+    @SerializedName("7092357")
+    private String data7092357;
+    @SerializedName("7092358")
+    private String data7092358;
+    @SerializedName("7092359")
+    private String data7092359;
+    @SerializedName("7092360")
+    private String data7092360;
+    @SerializedName("7092361")
+    private String data7092361;
+    @SerializedName("7092362")
+    private String data7092362;
+    @SerializedName("7092363")
+    private String data7092363;
+    @SerializedName("7092364")
+    private String data7092364;
+    @SerializedName("7092365")
+    private String data7092365;
+    @SerializedName("7092366")
+    private String data7092366;
+    @SerializedName("7092367")
+    private String data7092367;
+    @SerializedName("7092368")
+    private String data7092368;
+    @SerializedName("7092369")
+    private String data7092369;
+    @SerializedName("7092370")
+    private String data7092370;
+    @SerializedName("7092371")
+    private String data7092371;
+    @SerializedName("7092372")
+    private String data7092372;
+
+    public String getdata708501() {
+        return data708501;
+    }
+
+    public void setdata708501(String data708501) {
+        this.data708501 = data708501;
+    }
+
+    public String getdata708502() {
+        return data708502;
+    }
+
+    public void setdata708502(String data708502) {
+        this.data708502 = data708502;
+    }
+
+    public String getdata708503() {
+        return data708503;
+    }
+
+    public void setdata708503(String data708503) {
+        this.data708503 = data708503;
+    }
+
+    public String getdata708504() {
+        return data708504;
+    }
+
+    public void setdata708504(String data708504) {
+        this.data708504 = data708504;
+    }
+
+    public String getdata708505() {
+        return data708505;
+    }
+
+    public void setdata708505(String data708505) {
+        this.data708505 = data708505;
+    }
+
+    public String getdata708506() {
+        return data708506;
+    }
+
+    public void setdata708506(String data708506) {
+        this.data708506 = data708506;
+    }
+
+    public String getdata708507() {
+        return data708507;
+    }
+
+    public void setdata708507(String data708507) {
+        this.data708507 = data708507;
+    }
+
+    public String getdata708508() {
+        return data708508;
+    }
+
+    public void setdata708508(String data708508) {
+        this.data708508 = data708508;
+    }
+
+    public String getdata708509() {
+        return data708509;
+    }
+
+    public void setdata708509(String data708509) {
+        this.data708509 = data708509;
+    }
+
+    public String getdata708510() {
+        return data708510;
+    }
+
+    public void setdata708510(String data708510) {
+        this.data708510 = data708510;
+    }
+
+    public String getdata708511() {
+        return data708511;
+    }
+
+    public void setdata708511(String data708511) {
+        this.data708511 = data708511;
+    }
+
+    public String getdata708512() {
+        return data708512;
+    }
+
+    public void setdata708512(String data708512) {
+        this.data708512 = data708512;
+    }
+
+    public String getdata708513() {
+        return data708513;
+    }
+
+    public void setdata708513(String data708513) {
+        this.data708513 = data708513;
+    }
+
+    public String getdata708514() {
+        return data708514;
+    }
+
+    public void setdata708514(String data708514) {
+        this.data708514 = data708514;
+    }
+
+    public String getdata708515() {
+        return data708515;
+    }
+
+    public void setdata708515(String data708515) {
+        this.data708515 = data708515;
+    }
+
+    public String getdata708516() {
+        return data708516;
+    }
+
+    public void setdata708516(String data708516) {
+        this.data708516 = data708516;
+    }
+
+    public String getdata708517() {
+        return data708517;
+    }
+
+    public void setdata708517(String data708517) {
+        this.data708517 = data708517;
+    }
+
+    public String getdata708518() {
+        return data708518;
+    }
+
+    public void setdata708518(String data708518) {
+        this.data708518 = data708518;
+    }
+
+    public String getdata708519() {
+        return data708519;
+    }
+
+    public void setdata708519(String data708519) {
+        this.data708519 = data708519;
+    }
+
+    public String getdata708520() {
+        return data708520;
+    }
+
+    public void setdata708520(String data708520) {
+        this.data708520 = data708520;
+    }
+
+    public String getdata708521() {
+        return data708521;
+    }
+
+    public void setdata708521(String data708521) {
+        this.data708521 = data708521;
+    }
+
+    public String getdata708522() {
+        return data708522;
+    }
+
+    public void setdata708522(String data708522) {
+        this.data708522 = data708522;
+    }
+
+    public String getdata708523() {
+        return data708523;
+    }
+
+    public void setdata708523(String data708523) {
+        this.data708523 = data708523;
+    }
+
+    public String getdata708524() {
+        return data708524;
+    }
+
+    public void setdata708524(String data708524) {
+        this.data708524 = data708524;
+    }
+
+    public String getdata708525() {
+        return data708525;
+    }
+
+    public void setdata708525(String data708525) {
+        this.data708525 = data708525;
+    }
+
+    public String getdata708526() {
+        return data708526;
+    }
+
+    public void setdata708526(String data708526) {
+        this.data708526 = data708526;
+    }
+
+    public String getdata708527() {
+        return data708527;
+    }
+
+    public void setdata708527(String data708527) {
+        this.data708527 = data708527;
+    }
+
+    public String getdata708528() {
+        return data708528;
+    }
+
+    public void setdata708528(String data708528) {
+        this.data708528 = data708528;
+    }
+
+    public String getdata708529() {
+        return data708529;
+    }
+
+    public void setdata708529(String data708529) {
+        this.data708529 = data708529;
+    }
+
+    public String getdata708530() {
+        return data708530;
+    }
+
+    public void setdata708530(String data708530) {
+        this.data708530 = data708530;
+    }
+
+    public String getdata708531() {
+        return data708531;
+    }
+
+    public void setdata708531(String data708531) {
+        this.data708531 = data708531;
+    }
+
+    public String getdata708532() {
+        return data708532;
+    }
+
+    public void setdata708532(String data708532) {
+        this.data708532 = data708532;
+    }
+
+    public String getdata708533() {
+        return data708533;
+    }
+
+    public void setdata708533(String data708533) {
+        this.data708533 = data708533;
+    }
+
+    public String getdata708534() {
+        return data708534;
+    }
+
+    public void setdata708534(String data708534) {
+        this.data708534 = data708534;
+    }
+
+    public String getdata708535() {
+        return data708535;
+    }
+
+    public void setdata708535(String data708535) {
+        this.data708535 = data708535;
+    }
+
+    public String getdata708536() {
+        return data708536;
+    }
+
+    public void setdata708536(String data708536) {
+        this.data708536 = data708536;
+    }
+
+    public String getdata708537() {
+        return data708537;
+    }
+
+    public void setdata708537(String data708537) {
+        this.data708537 = data708537;
+    }
+
+    public String getdata708538() {
+        return data708538;
+    }
+
+    public void setdata708538(String data708538) {
+        this.data708538 = data708538;
+    }
+
+    public String getdata708539() {
+        return data708539;
+    }
+
+    public void setdata708539(String data708539) {
+        this.data708539 = data708539;
+    }
+
+    public String getdata708540() {
+        return data708540;
+    }
+
+    public void setdata708540(String data708540) {
+        this.data708540 = data708540;
+    }
+
+    public String getdata708541() {
+        return data708541;
+    }
+
+    public void setdata708541(String data708541) {
+        this.data708541 = data708541;
+    }
+
+    public String getdata708542() {
+        return data708542;
+    }
+
+    public void setdata708542(String data708542) {
+        this.data708542 = data708542;
+    }
+
+    public String getdata708543() {
+        return data708543;
+    }
+
+    public void setdata708543(String data708543) {
+        this.data708543 = data708543;
+    }
+
+    public String getdata708544() {
+        return data708544;
+    }
+
+    public void setdata708544(String data708544) {
+        this.data708544 = data708544;
+    }
+
+    public String getdata708545() {
+        return data708545;
+    }
+
+    public void setdata708545(String data708545) {
+        this.data708545 = data708545;
+    }
+
+    public String getdata708546() {
+        return data708546;
+    }
+
+    public void setdata708546(String data708546) {
+        this.data708546 = data708546;
+    }
+
+    public String getdata708547() {
+        return data708547;
+    }
+
+    public void setdata708547(String data708547) {
+        this.data708547 = data708547;
+    }
+
+    public String getdata708548() {
+        return data708548;
+    }
+
+    public void setdata708548(String data708548) {
+        this.data708548 = data708548;
+    }
+
+    public String getdata708549() {
+        return data708549;
+    }
+
+    public void setdata708549(String data708549) {
+        this.data708549 = data708549;
+    }
+
+    public String getdata708550() {
+        return data708550;
+    }
+
+    public void setdata708550(String data708550) {
+        this.data708550 = data708550;
+    }
+
+    public String getdata708551() {
+        return data708551;
+    }
+
+    public void setdata708551(String data708551) {
+        this.data708551 = data708551;
+    }
+
+    public String getdata708552() {
+        return data708552;
+    }
+
+    public void setdata708552(String data708552) {
+        this.data708552 = data708552;
+    }
+
+    public String getdata708553() {
+        return data708553;
+    }
+
+    public void setdata708553(String data708553) {
+        this.data708553 = data708553;
+    }
+
+    public String getdata708554() {
+        return data708554;
+    }
+
+    public void setdata708554(String data708554) {
+        this.data708554 = data708554;
+    }
+
+    public String getdata708555() {
+        return data708555;
+    }
+
+    public void setdata708555(String data708555) {
+        this.data708555 = data708555;
+    }
+
+    public String getdata708556() {
+        return data708556;
+    }
+
+    public void setdata708556(String data708556) {
+        this.data708556 = data708556;
+    }
+
+    public String getdata708557() {
+        return data708557;
+    }
+
+    public void setdata708557(String data708557) {
+        this.data708557 = data708557;
+    }
+
+    public String getdata708558() {
+        return data708558;
+    }
+
+    public void setdata708558(String data708558) {
+        this.data708558 = data708558;
+    }
+
+    public String getdata708559() {
+        return data708559;
+    }
+
+    public void setdata708559(String data708559) {
+        this.data708559 = data708559;
+    }
+
+    public String getdata708560() {
+        return data708560;
+    }
+
+    public void setdata708560(String data708560) {
+        this.data708560 = data708560;
+    }
+
+    public String getdata708561() {
+        return data708561;
+    }
+
+    public void setdata708561(String data708561) {
+        this.data708561 = data708561;
+    }
+
+    public String getdata708562() {
+        return data708562;
+    }
+
+    public void setdata708562(String data708562) {
+        this.data708562 = data708562;
+    }
+
+    public String getdata708563() {
+        return data708563;
+    }
+
+    public void setdata708563(String data708563) {
+        this.data708563 = data708563;
+    }
+
+    public String getdata708564() {
+        return data708564;
+    }
+
+    public void setdata708564(String data708564) {
+        this.data708564 = data708564;
+    }
+
+    public String getdata708565() {
+        return data708565;
+    }
+
+    public void setdata708565(String data708565) {
+        this.data708565 = data708565;
+    }
+
+    public String getdata708566() {
+        return data708566;
+    }
+
+    public void setdata708566(String data708566) {
+        this.data708566 = data708566;
+    }
+
+    public String getdata708567() {
+        return data708567;
+    }
+
+    public void setdata708567(String data708567) {
+        this.data708567 = data708567;
+    }
+
+    public String getdata708568() {
+        return data708568;
+    }
+
+    public void setdata708568(String data708568) {
+        this.data708568 = data708568;
+    }
+
+    public String getdata708569() {
+        return data708569;
+    }
+
+    public void setdata708569(String data708569) {
+        this.data708569 = data708569;
+    }
+
+    public String getdata708570() {
+        return data708570;
+    }
+
+    public void setdata708570(String data708570) {
+        this.data708570 = data708570;
+    }
+
+    public String getdata708571() {
+        return data708571;
+    }
+
+    public void setdata708571(String data708571) {
+        this.data708571 = data708571;
+    }
+
+    public String getdata708572() {
+        return data708572;
+    }
+
+    public void setdata708572(String data708572) {
+        this.data708572 = data708572;
+    }
+
+    public String getdata708573() {
+        return data708573;
+    }
+
+    public void setdata708573(String data708573) {
+        this.data708573 = data708573;
+    }
+
+    public String getdata708574() {
+        return data708574;
+    }
+
+    public void setdata708574(String data708574) {
+        this.data708574 = data708574;
+    }
+
+    public String getdata708575() {
+        return data708575;
+    }
+
+    public void setdata708575(String data708575) {
+        this.data708575 = data708575;
+    }
+
+    public String getdata708576() {
+        return data708576;
+    }
+
+    public void setdata708576(String data708576) {
+        this.data708576 = data708576;
+    }
+
+    public String getdata708577() {
+        return data708577;
+    }
+
+    public void setdata708577(String data708577) {
+        this.data708577 = data708577;
+    }
+
+    public String getdata708578() {
+        return data708578;
+    }
+
+    public void setdata708578(String data708578) {
+        this.data708578 = data708578;
+    }
+
+    public String getdata708579() {
+        return data708579;
+    }
+
+    public void setdata708579(String data708579) {
+        this.data708579 = data708579;
+    }
+
+    public String getdata708580() {
+        return data708580;
+    }
+
+    public void setdata708580(String data708580) {
+        this.data708580 = data708580;
+    }
+
+    public String getdata708581() {
+        return data708581;
+    }
+
+    public void setdata708581(String data708581) {
+        this.data708581 = data708581;
+    }
+
+    public String getdata708582() {
+        return data708582;
+    }
+
+    public void setdata708582(String data708582) {
+        this.data708582 = data708582;
+    }
+
+    public String getdata708583() {
+        return data708583;
+    }
+
+    public void setdata708583(String data708583) {
+        this.data708583 = data708583;
+    }
+
+    public String getdata708584() {
+        return data708584;
+    }
+
+    public void setdata708584(String data708584) {
+        this.data708584 = data708584;
+    }
+
+    public String getdata708585() {
+        return data708585;
+    }
+
+    public void setdata708585(String data708585) {
+        this.data708585 = data708585;
+    }
+
+    public String getdata708586() {
+        return data708586;
+    }
+
+    public void setdata708586(String data708586) {
+        this.data708586 = data708586;
+    }
+
+    public String getdata708587() {
+        return data708587;
+    }
+
+    public void setdata708587(String data708587) {
+        this.data708587 = data708587;
+    }
+
+    public String getdata708588() {
+        return data708588;
+    }
+
+    public void setdata708588(String data708588) {
+        this.data708588 = data708588;
+    }
+
+    public String getdata708589() {
+        return data708589;
+    }
+
+    public void setdata708589(String data708589) {
+        this.data708589 = data708589;
+    }
+
+    public String getdata708590() {
+        return data708590;
+    }
+
+    public void setdata708590(String data708590) {
+        this.data708590 = data708590;
+    }
+
+    public String getdata708591() {
+        return data708591;
+    }
+
+    public void setdata708591(String data708591) {
+        this.data708591 = data708591;
+    }
+
+    public String getdata708592() {
+        return data708592;
+    }
+
+    public void setdata708592(String data708592) {
+        this.data708592 = data708592;
+    }
+
+    public String getdata708593() {
+        return data708593;
+    }
+
+    public void setdata708593(String data708593) {
+        this.data708593 = data708593;
+    }
+
+    public String getdata708594() {
+        return data708594;
+    }
+
+    public void setdata708594(String data708594) {
+        this.data708594 = data708594;
+    }
+
+    public String getdata708595() {
+        return data708595;
+    }
+
+    public void setdata708595(String data708595) {
+        this.data708595 = data708595;
+    }
+
+    public String getdata708596() {
+        return data708596;
+    }
+
+    public void setdata708596(String data708596) {
+        this.data708596 = data708596;
+    }
+
+    public String getdata708597() {
+        return data708597;
+    }
+
+    public void setdata708597(String data708597) {
+        this.data708597 = data708597;
+    }
+
+    public String getdata708598() {
+        return data708598;
+    }
+
+    public void setdata708598(String data708598) {
+        this.data708598 = data708598;
+    }
+
+    public String getdata708601() {
+        return data708601;
+    }
+
+    public void setdata708601(String data708601) {
+        this.data708601 = data708601;
+    }
+
+    public String getdata708602() {
+        return data708602;
+    }
+
+    public void setdata708602(String data708602) {
+        this.data708602 = data708602;
+    }
+
+    public String getdata708603() {
+        return data708603;
+    }
+
+    public void setdata708603(String data708603) {
+        this.data708603 = data708603;
+    }
+
+    public String getdata708604() {
+        return data708604;
+    }
+
+    public void setdata708604(String data708604) {
+        this.data708604 = data708604;
+    }
+
+    public String getdata708605() {
+        return data708605;
+    }
+
+    public void setdata708605(String data708605) {
+        this.data708605 = data708605;
+    }
+
+    public String getdata708606() {
+        return data708606;
+    }
+
+    public void setdata708606(String data708606) {
+        this.data708606 = data708606;
+    }
+
+    public String getdata708607() {
+        return data708607;
+    }
+
+    public void setdata708607(String data708607) {
+        this.data708607 = data708607;
+    }
+
+    public String getdata708608() {
+        return data708608;
+    }
+
+    public void setdata708608(String data708608) {
+        this.data708608 = data708608;
+    }
+
+    public String getdata708609() {
+        return data708609;
+    }
+
+    public void setdata708609(String data708609) {
+        this.data708609 = data708609;
+    }
+
+    public String getdata708610() {
+        return data708610;
+    }
+
+    public void setdata708610(String data708610) {
+        this.data708610 = data708610;
+    }
+
+    public String getdata708611() {
+        return data708611;
+    }
+
+    public void setdata708611(String data708611) {
+        this.data708611 = data708611;
+    }
+
+    public String getdata708612() {
+        return data708612;
+    }
+
+    public void setdata708612(String data708612) {
+        this.data708612 = data708612;
+    }
+
+    public String getdata708613() {
+        return data708613;
+    }
+
+    public void setdata708613(String data708613) {
+        this.data708613 = data708613;
+    }
+
+    public String getdata708614() {
+        return data708614;
+    }
+
+    public void setdata708614(String data708614) {
+        this.data708614 = data708614;
+    }
+
+    public String getdata708615() {
+        return data708615;
+    }
+
+    public void setdata708615(String data708615) {
+        this.data708615 = data708615;
+    }
+
+    public String getdata708616() {
+        return data708616;
+    }
+
+    public void setdata708616(String data708616) {
+        this.data708616 = data708616;
+    }
+
+    public String getdata708617() {
+        return data708617;
+    }
+
+    public void setdata708617(String data708617) {
+        this.data708617 = data708617;
+    }
+
+    public String getdata708618() {
+        return data708618;
+    }
+
+    public void setdata708618(String data708618) {
+        this.data708618 = data708618;
+    }
+
+    public String getdata708619() {
+        return data708619;
+    }
+
+    public void setdata708619(String data708619) {
+        this.data708619 = data708619;
+    }
+
+    public String getdata708620() {
+        return data708620;
+    }
+
+    public void setdata708620(String data708620) {
+        this.data708620 = data708620;
+    }
+
+    public String getdata708621() {
+        return data708621;
+    }
+
+    public void setdata708621(String data708621) {
+        this.data708621 = data708621;
+    }
+
+    public String getdata708622() {
+        return data708622;
+    }
+
+    public void setdata708622(String data708622) {
+        this.data708622 = data708622;
+    }
+
+    public String getdata708623() {
+        return data708623;
+    }
+
+    public void setdata708623(String data708623) {
+        this.data708623 = data708623;
+    }
+
+    public String getdata708624() {
+        return data708624;
+    }
+
+    public void setdata708624(String data708624) {
+        this.data708624 = data708624;
+    }
+
+    public String getdata708701() {
+        return data708701;
+    }
+
+    public void setdata708701(String data708701) {
+        this.data708701 = data708701;
+    }
+
+    public String getdata708702() {
+        return data708702;
+    }
+
+    public void setdata708702(String data708702) {
+        this.data708702 = data708702;
+    }
+
+    public String getdata708703() {
+        return data708703;
+    }
+
+    public void setdata708703(String data708703) {
+        this.data708703 = data708703;
+    }
+
+    public String getdata708704() {
+        return data708704;
+    }
+
+    public void setdata708704(String data708704) {
+        this.data708704 = data708704;
+    }
+
+    public String getdata708705() {
+        return data708705;
+    }
+
+    public void setdata708705(String data708705) {
+        this.data708705 = data708705;
+    }
+
+    public String getdata708706() {
+        return data708706;
+    }
+
+    public void setdata708706(String data708706) {
+        this.data708706 = data708706;
+    }
+
+    public String getdata708707() {
+        return data708707;
+    }
+
+    public void setdata708707(String data708707) {
+        this.data708707 = data708707;
+    }
+
+    public String getdata708708() {
+        return data708708;
+    }
+
+    public void setdata708708(String data708708) {
+        this.data708708 = data708708;
+    }
+
+    public String getdata708709() {
+        return data708709;
+    }
+
+    public void setdata708709(String data708709) {
+        this.data708709 = data708709;
+    }
+
+    public String getdata708710() {
+        return data708710;
+    }
+
+    public void setdata708710(String data708710) {
+        this.data708710 = data708710;
+    }
+
+    public String getdata708711() {
+        return data708711;
+    }
+
+    public void setdata708711(String data708711) {
+        this.data708711 = data708711;
+    }
+
+    public String getdata708712() {
+        return data708712;
+    }
+
+    public void setdata708712(String data708712) {
+        this.data708712 = data708712;
+    }
+
+    public String getdata708713() {
+        return data708713;
+    }
+
+    public void setdata708713(String data708713) {
+        this.data708713 = data708713;
+    }
+
+    public String getdata708714() {
+        return data708714;
+    }
+
+    public void setdata708714(String data708714) {
+        this.data708714 = data708714;
+    }
+
+    public String getdata708715() {
+        return data708715;
+    }
+
+    public void setdata708715(String data708715) {
+        this.data708715 = data708715;
+    }
+
+    public String getdata708716() {
+        return data708716;
+    }
+
+    public void setdata708716(String data708716) {
+        this.data708716 = data708716;
+    }
+
+    public String getdata708717() {
+        return data708717;
+    }
+
+    public void setdata708717(String data708717) {
+        this.data708717 = data708717;
+    }
+
+    public String getdata708718() {
+        return data708718;
+    }
+
+    public void setdata708718(String data708718) {
+        this.data708718 = data708718;
+    }
+
+    public String getdata708719() {
+        return data708719;
+    }
+
+    public void setdata708719(String data708719) {
+        this.data708719 = data708719;
+    }
+
+    public String getdata708720() {
+        return data708720;
+    }
+
+    public void setdata708720(String data708720) {
+        this.data708720 = data708720;
+    }
+
+    public String getdata708721() {
+        return data708721;
+    }
+
+    public void setdata708721(String data708721) {
+        this.data708721 = data708721;
+    }
+
+    public String getdata708722() {
+        return data708722;
+    }
+
+    public void setdata708722(String data708722) {
+        this.data708722 = data708722;
+    }
+
+    public String getdata708723() {
+        return data708723;
+    }
+
+    public void setdata708723(String data708723) {
+        this.data708723 = data708723;
+    }
+
+    public String getdata708724() {
+        return data708724;
+    }
+
+    public void setdata708724(String data708724) {
+        this.data708724 = data708724;
+    }
+
+    public String getdata708725() {
+        return data708725;
+    }
+
+    public void setdata708725(String data708725) {
+        this.data708725 = data708725;
+    }
+
+    public String getdata708726() {
+        return data708726;
+    }
+
+    public void setdata708726(String data708726) {
+        this.data708726 = data708726;
+    }
+
+    public String getdata708727() {
+        return data708727;
+    }
+
+    public void setdata708727(String data708727) {
+        this.data708727 = data708727;
+    }
+
+    public String getdata708801() {
+        return data708801;
+    }
+
+    public void setdata708801(String data708801) {
+        this.data708801 = data708801;
+    }
+
+    public String getdata708802() {
+        return data708802;
+    }
+
+    public void setdata708802(String data708802) {
+        this.data708802 = data708802;
+    }
+
+    public String getdata708803() {
+        return data708803;
+    }
+
+    public void setdata708803(String data708803) {
+        this.data708803 = data708803;
+    }
+
+    public String getdata708804() {
+        return data708804;
+    }
+
+    public void setdata708804(String data708804) {
+        this.data708804 = data708804;
+    }
+
+    public String getdata708805() {
+        return data708805;
+    }
+
+    public void setdata708805(String data708805) {
+        this.data708805 = data708805;
+    }
+
+    public String getdata708806() {
+        return data708806;
+    }
+
+    public void setdata708806(String data708806) {
+        this.data708806 = data708806;
+    }
+
+    public String getdata708807() {
+        return data708807;
+    }
+
+    public void setdata708807(String data708807) {
+        this.data708807 = data708807;
+    }
+
+    public String getdata708808() {
+        return data708808;
+    }
+
+    public void setdata708808(String data708808) {
+        this.data708808 = data708808;
+    }
+
+    public String getdata708809() {
+        return data708809;
+    }
+
+    public void setdata708809(String data708809) {
+        this.data708809 = data708809;
+    }
+
+    public String getdata708810() {
+        return data708810;
+    }
+
+    public void setdata708810(String data708810) {
+        this.data708810 = data708810;
+    }
+
+    public String getdata708811() {
+        return data708811;
+    }
+
+    public void setdata708811(String data708811) {
+        this.data708811 = data708811;
+    }
+
+    public String getdata708812() {
+        return data708812;
+    }
+
+    public void setdata708812(String data708812) {
+        this.data708812 = data708812;
+    }
+
+    public String getdata708902() {
+        return data708902;
+    }
+
+    public void setdata708902(String data708902) {
+        this.data708902 = data708902;
+    }
+
+    public String getdata708903() {
+        return data708903;
+    }
+
+    public void setdata708903(String data708903) {
+        this.data708903 = data708903;
+    }
+
+    public String getdata708904() {
+        return data708904;
+    }
+
+    public void setdata708904(String data708904) {
+        this.data708904 = data708904;
+    }
+
+    public String getdata708905() {
+        return data708905;
+    }
+
+    public void setdata708905(String data708905) {
+        this.data708905 = data708905;
+    }
+
+    public String getdata708906() {
+        return data708906;
+    }
 
-    public data80Bean getdata627() {
-        return data627;
+    public void setdata708906(String data708906) {
+        this.data708906 = data708906;
     }
 
-    public void setdata627(data80Bean data627) {
-        this.data627 = data627;
+    public String getdata708907() {
+        return data708907;
     }
 
-    public data80Bean getdata628() {
-        return data628;
+    public void setdata708907(String data708907) {
+        this.data708907 = data708907;
     }
 
-    public void setdata628(data80Bean data628) {
-        this.data628 = data628;
+    public String getdata708908() {
+        return data708908;
     }
 
-    public data80Bean getdata629() {
-        return data629;
+    public void setdata708908(String data708908) {
+        this.data708908 = data708908;
     }
 
-    public void setdata629(data80Bean data629) {
-        this.data629 = data629;
+    public String getdata708909() {
+        return data708909;
     }
 
-    public data80Bean getdata630() {
-        return data630;
+    public void setdata708909(String data708909) {
+        this.data708909 = data708909;
     }
 
-    public void setdata630(data80Bean data630) {
-        this.data630 = data630;
+    public String getdata708910() {
+        return data708910;
     }
 
-    public data80Bean getdata631() {
-        return data631;
+    public void setdata708910(String data708910) {
+        this.data708910 = data708910;
     }
 
-    public void setdata631(data80Bean data631) {
-        this.data631 = data631;
+    public String getdata708911() {
+        return data708911;
     }
 
-    public data80Bean getdata632() {
-        return data632;
+    public void setdata708911(String data708911) {
+        this.data708911 = data708911;
     }
 
-    public void setdata632(data80Bean data632) {
-        this.data632 = data632;
+    public String getdata709001() {
+        return data709001;
     }
 
-    public data80Bean getdata633() {
-        return data633;
+    public void setdata709001(String data709001) {
+        this.data709001 = data709001;
     }
 
-    public void setdata633(data80Bean data633) {
-        this.data633 = data633;
+    public String getdata709002() {
+        return data709002;
     }
 
-    public data80Bean getdata634() {
-        return data634;
+    public void setdata709002(String data709002) {
+        this.data709002 = data709002;
     }
 
-    public void setdata634(data80Bean data634) {
-        this.data634 = data634;
+    public String getdata709003() {
+        return data709003;
     }
 
-    public data80Bean getdata635() {
-        return data635;
+    public void setdata709003(String data709003) {
+        this.data709003 = data709003;
     }
 
-    public void setdata635(data80Bean data635) {
-        this.data635 = data635;
+    public String getdata709004() {
+        return data709004;
     }
 
-    public data80Bean getdata636() {
-        return data636;
+    public void setdata709004(String data709004) {
+        this.data709004 = data709004;
     }
 
-    public void setdata636(data80Bean data636) {
-        this.data636 = data636;
+    public String getdata709005() {
+        return data709005;
     }
 
-    public data80Bean getdata637() {
-        return data637;
+    public void setdata709005(String data709005) {
+        this.data709005 = data709005;
     }
 
-    public void setdata637(data80Bean data637) {
-        this.data637 = data637;
+    public String getdata709006() {
+        return data709006;
     }
 
-    public data80Bean getdata638() {
-        return data638;
+    public void setdata709006(String data709006) {
+        this.data709006 = data709006;
     }
 
-    public void setdata638(data80Bean data638) {
-        this.data638 = data638;
+    public String getdata709007() {
+        return data709007;
     }
 
-    public data80Bean getdata639() {
-        return data639;
+    public void setdata709007(String data709007) {
+        this.data709007 = data709007;
     }
 
-    public void setdata639(data80Bean data639) {
-        this.data639 = data639;
+    public String getdata709008() {
+        return data709008;
     }
 
-    public data80Bean getdata640() {
-        return data640;
+    public void setdata709008(String data709008) {
+        this.data709008 = data709008;
     }
 
-    public void setdata640(data80Bean data640) {
-        this.data640 = data640;
+    public String getdata709009() {
+        return data709009;
     }
 
-    public data80Bean getdata641() {
-        return data641;
+    public void setdata709009(String data709009) {
+        this.data709009 = data709009;
     }
 
-    public void setdata641(data80Bean data641) {
-        this.data641 = data641;
+    public String getdata709010() {
+        return data709010;
     }
 
-    public data80Bean getdata642() {
-        return data642;
+    public void setdata709010(String data709010) {
+        this.data709010 = data709010;
     }
 
-    public void setdata642(data80Bean data642) {
-        this.data642 = data642;
+    public String getdata709011() {
+        return data709011;
     }
 
-    public data80Bean getdata643() {
-        return data643;
+    public void setdata709011(String data709011) {
+        this.data709011 = data709011;
     }
 
-    public void setdata643(data80Bean data643) {
-        this.data643 = data643;
+    public String getdata709012() {
+        return data709012;
     }
 
-    public data80Bean getdata644() {
-        return data644;
+    public void setdata709012(String data709012) {
+        this.data709012 = data709012;
     }
 
-    public void setdata644(data80Bean data644) {
-        this.data644 = data644;
+    public String getdata709013() {
+        return data709013;
     }
 
-    public data80Bean getdata645() {
-        return data645;
+    public void setdata709013(String data709013) {
+        this.data709013 = data709013;
     }
 
-    public void setdata645(data80Bean data645) {
-        this.data645 = data645;
+    public String getdata709014() {
+        return data709014;
     }
 
-    public data80Bean getdata646() {
-        return data646;
+    public void setdata709014(String data709014) {
+        this.data709014 = data709014;
     }
 
-    public void setdata646(data80Bean data646) {
-        this.data646 = data646;
+    public String getdata709015() {
+        return data709015;
     }
 
-    public data80Bean getdata647() {
-        return data647;
+    public void setdata709015(String data709015) {
+        this.data709015 = data709015;
     }
 
-    public void setdata647(data80Bean data647) {
-        this.data647 = data647;
+    public String getdata709101() {
+        return data709101;
     }
 
-    public data80Bean getdata648() {
-        return data648;
+    public void setdata709101(String data709101) {
+        this.data709101 = data709101;
     }
 
-    public void setdata648(data80Bean data648) {
-        this.data648 = data648;
+    public String getdata709102() {
+        return data709102;
     }
 
-    public data80Bean getdata649() {
-        return data649;
+    public void setdata709102(String data709102) {
+        this.data709102 = data709102;
     }
 
-    public void setdata649(data80Bean data649) {
-        this.data649 = data649;
+    public String getdata709103() {
+        return data709103;
     }
 
-    public data80Bean getdata650() {
-        return data650;
+    public void setdata709103(String data709103) {
+        this.data709103 = data709103;
     }
 
-    public void setdata650(data80Bean data650) {
-        this.data650 = data650;
+    public String getdata709104() {
+        return data709104;
     }
 
-    public data80Bean getdata651() {
-        return data651;
+    public void setdata709104(String data709104) {
+        this.data709104 = data709104;
     }
 
-    public void setdata651(data80Bean data651) {
-        this.data651 = data651;
+    public String getdata709105() {
+        return data709105;
     }
 
-    public data80Bean getdata652() {
-        return data652;
+    public void setdata709105(String data709105) {
+        this.data709105 = data709105;
     }
 
-    public void setdata652(data80Bean data652) {
-        this.data652 = data652;
+    public String getdata709106() {
+        return data709106;
     }
 
-    public data80Bean getdata653() {
-        return data653;
+    public void setdata709106(String data709106) {
+        this.data709106 = data709106;
     }
 
-    public void setdata653(data80Bean data653) {
-        this.data653 = data653;
+    public String getdata709107() {
+        return data709107;
     }
 
-    public data80Bean getdata654() {
-        return data654;
+    public void setdata709107(String data709107) {
+        this.data709107 = data709107;
     }
 
-    public void setdata654(data80Bean data654) {
-        this.data654 = data654;
+    public String getdata709108() {
+        return data709108;
     }
 
-    public data80Bean getdata655() {
-        return data655;
+    public void setdata709108(String data709108) {
+        this.data709108 = data709108;
     }
 
-    public void setdata655(data80Bean data655) {
-        this.data655 = data655;
+    public String getdata709109() {
+        return data709109;
     }
 
-    public data80Bean getdata656() {
-        return data656;
+    public void setdata709109(String data709109) {
+        this.data709109 = data709109;
     }
 
-    public void setdata656(data80Bean data656) {
-        this.data656 = data656;
+    public String getdata709110() {
+        return data709110;
     }
 
-    public data80Bean getdata657() {
-        return data657;
+    public void setdata709110(String data709110) {
+        this.data709110 = data709110;
     }
 
-    public void setdata657(data80Bean data657) {
-        this.data657 = data657;
+    public String getdata709111() {
+        return data709111;
     }
 
-    public data80Bean getdata658() {
-        return data658;
+    public void setdata709111(String data709111) {
+        this.data709111 = data709111;
     }
 
-    public void setdata658(data80Bean data658) {
-        this.data658 = data658;
+    public String getdata709112() {
+        return data709112;
     }
 
-    public data80Bean getdata659() {
-        return data659;
+    public void setdata709112(String data709112) {
+        this.data709112 = data709112;
     }
 
-    public void setdata659(data80Bean data659) {
-        this.data659 = data659;
+    public String getdata709113() {
+        return data709113;
     }
 
-    public data80Bean getdata660() {
-        return data660;
+    public void setdata709113(String data709113) {
+        this.data709113 = data709113;
     }
 
-    public void setdata660(data80Bean data660) {
-        this.data660 = data660;
+    public String getdata709114() {
+        return data709114;
     }
 
-    public data80Bean getdata661() {
-        return data661;
+    public void setdata709114(String data709114) {
+        this.data709114 = data709114;
     }
 
-    public void setdata661(data80Bean data661) {
-        this.data661 = data661;
+    public String getdata709115() {
+        return data709115;
     }
 
-    public data80Bean getdata662() {
-        return data662;
+    public void setdata709115(String data709115) {
+        this.data709115 = data709115;
     }
 
-    public void setdata662(data80Bean data662) {
-        this.data662 = data662;
+    public String getdata709116() {
+        return data709116;
     }
 
-    public data80Bean getdata663() {
-        return data663;
+    public void setdata709116(String data709116) {
+        this.data709116 = data709116;
     }
 
-    public void setdata663(data80Bean data663) {
-        this.data663 = data663;
+    public String getdata709117() {
+        return data709117;
     }
 
-    public data80Bean getdata664() {
-        return data664;
+    public void setdata709117(String data709117) {
+        this.data709117 = data709117;
     }
 
-    public void setdata664(data80Bean data664) {
-        this.data664 = data664;
+    public String getdata709118() {
+        return data709118;
     }
 
-    public data80Bean getdata665() {
-        return data665;
+    public void setdata709118(String data709118) {
+        this.data709118 = data709118;
     }
 
-    public void setdata665(data80Bean data665) {
-        this.data665 = data665;
+    public String getdata709119() {
+        return data709119;
     }
 
-    public data80Bean getdata666() {
-        return data666;
+    public void setdata709119(String data709119) {
+        this.data709119 = data709119;
     }
 
-    public void setdata666(data80Bean data666) {
-        this.data666 = data666;
+    public String getdata709120() {
+        return data709120;
     }
 
-    public data80Bean getdata667() {
-        return data667;
+    public void setdata709120(String data709120) {
+        this.data709120 = data709120;
     }
 
-    public void setdata667(data80Bean data667) {
-        this.data667 = data667;
+    public String getdata709121() {
+        return data709121;
     }
 
-    public data80Bean getdata668() {
-        return data668;
+    public void setdata709121(String data709121) {
+        this.data709121 = data709121;
     }
 
-    public void setdata668(data80Bean data668) {
-        this.data668 = data668;
+    public String getdata709122() {
+        return data709122;
     }
 
-    public data80Bean getdata669() {
-        return data669;
+    public void setdata709122(String data709122) {
+        this.data709122 = data709122;
     }
 
-    public void setdata669(data80Bean data669) {
-        this.data669 = data669;
+    public String getdata709123() {
+        return data709123;
     }
 
-    public data80Bean getdata670() {
-        return data670;
+    public void setdata709123(String data709123) {
+        this.data709123 = data709123;
     }
 
-    public void setdata670(data80Bean data670) {
-        this.data670 = data670;
+    public String getdata709124() {
+        return data709124;
     }
 
-    public data80Bean getdata671() {
-        return data671;
+    public void setdata709124(String data709124) {
+        this.data709124 = data709124;
     }
 
-    public void setdata671(data80Bean data671) {
-        this.data671 = data671;
+    public String getdata709125() {
+        return data709125;
     }
 
-    public data80Bean getdata672() {
-        return data672;
+    public void setdata709125(String data709125) {
+        this.data709125 = data709125;
     }
 
-    public void setdata672(data80Bean data672) {
-        this.data672 = data672;
+    public String getdata709126() {
+        return data709126;
     }
 
-    public data80Bean getdata673() {
-        return data673;
+    public void setdata709126(String data709126) {
+        this.data709126 = data709126;
     }
 
-    public void setdata673(data80Bean data673) {
-        this.data673 = data673;
+    public String getdata709127() {
+        return data709127;
     }
 
-    public data80Bean getdata718() {
-        return data718;
+    public void setdata709127(String data709127) {
+        this.data709127 = data709127;
     }
 
-    public void setdata718(data80Bean data718) {
-        this.data718 = data718;
+    public String getdata709128() {
+        return data709128;
     }
 
-    public data80Bean getdata719() {
-        return data719;
+    public void setdata709128(String data709128) {
+        this.data709128 = data709128;
     }
 
-    public void setdata719(data80Bean data719) {
-        this.data719 = data719;
+    public String getdata709129() {
+        return data709129;
     }
 
-    public data80Bean getdata720() {
-        return data720;
+    public void setdata709129(String data709129) {
+        this.data709129 = data709129;
     }
 
-    public void setdata720(data80Bean data720) {
-        this.data720 = data720;
+    public String getdata709130() {
+        return data709130;
     }
 
-    public data80Bean getdata721() {
-        return data721;
+    public void setdata709130(String data709130) {
+        this.data709130 = data709130;
     }
 
-    public void setdata721(data80Bean data721) {
-        this.data721 = data721;
+    public String getdata709131() {
+        return data709131;
     }
 
-    public data80Bean getdata722() {
-        return data722;
+    public void setdata709131(String data709131) {
+        this.data709131 = data709131;
     }
 
-    public void setdata722(data80Bean data722) {
-        this.data722 = data722;
+    public String getdata709132() {
+        return data709132;
     }
 
-    public data80Bean getdata723() {
-        return data723;
+    public void setdata709132(String data709132) {
+        this.data709132 = data709132;
     }
 
-    public void setdata723(data80Bean data723) {
-        this.data723 = data723;
+    public String getdata709133() {
+        return data709133;
     }
 
-    public data80Bean getdata117() {
-        return data117;
+    public void setdata709133(String data709133) {
+        this.data709133 = data709133;
     }
 
-    public void setdata117(data80Bean data117) {
-        this.data117 = data117;
+    public String getdata709134() {
+        return data709134;
     }
 
-    public data80Bean getdata118() {
-        return data118;
+    public void setdata709134(String data709134) {
+        this.data709134 = data709134;
     }
 
-    public void setdata118(data80Bean data118) {
-        this.data118 = data118;
+    public String getdata709135() {
+        return data709135;
     }
 
-    public data80Bean getdata119() {
-        return data119;
+    public void setdata709135(String data709135) {
+        this.data709135 = data709135;
     }
 
-    public void setdata119(data80Bean data119) {
-        this.data119 = data119;
+    public String getdata709136() {
+        return data709136;
     }
 
-    public data80Bean getdata120() {
-        return data120;
+    public void setdata709136(String data709136) {
+        this.data709136 = data709136;
     }
 
-    public void setdata120(data80Bean data120) {
-        this.data120 = data120;
+    public String getdata709137() {
+        return data709137;
     }
 
-    public data80Bean getdata121() {
-        return data121;
+    public void setdata709137(String data709137) {
+        this.data709137 = data709137;
     }
 
-    public void setdata121(data80Bean data121) {
-        this.data121 = data121;
+    public String getdata709138() {
+        return data709138;
     }
 
-    public data80Bean getdata122() {
-        return data122;
+    public void setdata709138(String data709138) {
+        this.data709138 = data709138;
     }
 
-    public void setdata122(data80Bean data122) {
-        this.data122 = data122;
+    public String getdata709139() {
+        return data709139;
     }
 
-    public data80Bean getdata123() {
-        return data123;
+    public void setdata709139(String data709139) {
+        this.data709139 = data709139;
     }
 
-    public void setdata123(data80Bean data123) {
-        this.data123 = data123;
+    public String getdata709140() {
+        return data709140;
     }
 
-    public data80Bean getdata124() {
-        return data124;
+    public void setdata709140(String data709140) {
+        this.data709140 = data709140;
     }
 
-    public void setdata124(data80Bean data124) {
-        this.data124 = data124;
+    public String getdata709141() {
+        return data709141;
     }
 
-    public data80Bean getdata125() {
-        return data125;
+    public void setdata709141(String data709141) {
+        this.data709141 = data709141;
     }
 
-    public void setdata125(data80Bean data125) {
-        this.data125 = data125;
+    public String getdata709142() {
+        return data709142;
     }
 
-    public data80Bean getdata126() {
-        return data126;
+    public void setdata709142(String data709142) {
+        this.data709142 = data709142;
     }
 
-    public void setdata126(data80Bean data126) {
-        this.data126 = data126;
+    public String getdata709143() {
+        return data709143;
     }
 
-    public data80Bean getdata127() {
-        return data127;
+    public void setdata709143(String data709143) {
+        this.data709143 = data709143;
     }
 
-    public void setdata127(data80Bean data127) {
-        this.data127 = data127;
+    public String getdata709144() {
+        return data709144;
     }
 
-    public data80Bean getdata128() {
-        return data128;
+    public void setdata709144(String data709144) {
+        this.data709144 = data709144;
     }
 
-    public void setdata128(data80Bean data128) {
-        this.data128 = data128;
+    public String getdata709145() {
+        return data709145;
     }
 
-    public data80Bean getdata129() {
-        return data129;
+    public void setdata709145(String data709145) {
+        this.data709145 = data709145;
     }
 
-    public void setdata129(data80Bean data129) {
-        this.data129 = data129;
+    public String getdata709146() {
+        return data709146;
     }
 
-    public data80Bean getdata130() {
-        return data130;
+    public void setdata709146(String data709146) {
+        this.data709146 = data709146;
     }
 
-    public void setdata130(data80Bean data130) {
-        this.data130 = data130;
+    public String getdata709147() {
+        return data709147;
     }
 
-    public data80Bean getdata131() {
-        return data131;
+    public void setdata709147(String data709147) {
+        this.data709147 = data709147;
     }
 
-    public void setdata131(data80Bean data131) {
-        this.data131 = data131;
+    public String getdata709148() {
+        return data709148;
     }
 
-    public data80Bean getdata132() {
-        return data132;
+    public void setdata709148(String data709148) {
+        this.data709148 = data709148;
     }
 
-    public void setdata132(data80Bean data132) {
-        this.data132 = data132;
+    public String getdata709149() {
+        return data709149;
     }
 
-    public data80Bean getdata133() {
-        return data133;
+    public void setdata709149(String data709149) {
+        this.data709149 = data709149;
     }
 
-    public void setdata133(data80Bean data133) {
-        this.data133 = data133;
+    public String getdata709301() {
+        return data709301;
     }
 
-    public data80Bean getdata134() {
-        return data134;
+    public void setdata709301(String data709301) {
+        this.data709301 = data709301;
     }
 
-    public void setdata134(data80Bean data134) {
-        this.data134 = data134;
+    public String getdata709302() {
+        return data709302;
     }
 
-    public data80Bean getdata135() {
-        return data135;
+    public void setdata709302(String data709302) {
+        this.data709302 = data709302;
     }
 
-    public void setdata135(data80Bean data135) {
-        this.data135 = data135;
+    public String getdata709303() {
+        return data709303;
     }
 
-    public data80Bean getdata136() {
-        return data136;
+    public void setdata709303(String data709303) {
+        this.data709303 = data709303;
     }
 
-    public void setdata136(data80Bean data136) {
-        this.data136 = data136;
+    public String getdata709304() {
+        return data709304;
     }
 
-    public data80Bean getdata137() {
-        return data137;
+    public void setdata709304(String data709304) {
+        this.data709304 = data709304;
     }
 
-    public void setdata137(data80Bean data137) {
-        this.data137 = data137;
+    public String getdata709305() {
+        return data709305;
     }
 
-    public data80Bean getdata138() {
-        return data138;
+    public void setdata709305(String data709305) {
+        this.data709305 = data709305;
     }
 
-    public void setdata138(data80Bean data138) {
-        this.data138 = data138;
+    public String getdata709401() {
+        return data709401;
     }
 
-    public data80Bean getdata139() {
-        return data139;
+    public void setdata709401(String data709401) {
+        this.data709401 = data709401;
     }
 
-    public void setdata139(data80Bean data139) {
-        this.data139 = data139;
+    public String getdata709402() {
+        return data709402;
     }
 
-    public data80Bean getdata140() {
-        return data140;
+    public void setdata709402(String data709402) {
+        this.data709402 = data709402;
     }
 
-    public void setdata140(data80Bean data140) {
-        this.data140 = data140;
+    public String getdata709403() {
+        return data709403;
     }
 
-    public data80Bean getdata141() {
-        return data141;
+    public void setdata709403(String data709403) {
+        this.data709403 = data709403;
     }
 
-    public void setdata141(data80Bean data141) {
-        this.data141 = data141;
+    public String getdata709404() {
+        return data709404;
     }
 
-    public data80Bean getdata142() {
-        return data142;
+    public void setdata709404(String data709404) {
+        this.data709404 = data709404;
     }
 
-    public void setdata142(data80Bean data142) {
-        this.data142 = data142;
+    public String getdata709405() {
+        return data709405;
     }
 
-    public data80Bean getdata143() {
-        return data143;
+    public void setdata709405(String data709405) {
+        this.data709405 = data709405;
     }
 
-    public void setdata143(data80Bean data143) {
-        this.data143 = data143;
+    public String getdata709406() {
+        return data709406;
     }
 
-    public data80Bean getdata144() {
-        return data144;
+    public void setdata709406(String data709406) {
+        this.data709406 = data709406;
     }
 
-    public void setdata144(data80Bean data144) {
-        this.data144 = data144;
+    public String getdata709407() {
+        return data709407;
     }
 
-    public data80Bean getdata145() {
-        return data145;
+    public void setdata709407(String data709407) {
+        this.data709407 = data709407;
     }
 
-    public void setdata145(data80Bean data145) {
-        this.data145 = data145;
+    public String getdata709408() {
+        return data709408;
     }
 
-    public data80Bean getdata146() {
-        return data146;
+    public void setdata709408(String data709408) {
+        this.data709408 = data709408;
     }
 
-    public void setdata146(data80Bean data146) {
-        this.data146 = data146;
+    public String getdata709409() {
+        return data709409;
     }
 
-    public data80Bean getdata147() {
-        return data147;
+    public void setdata709409(String data709409) {
+        this.data709409 = data709409;
     }
 
-    public void setdata147(data80Bean data147) {
-        this.data147 = data147;
+    public String getdata709410() {
+        return data709410;
     }
 
-    public data80Bean getdata148() {
-        return data148;
+    public void setdata709410(String data709410) {
+        this.data709410 = data709410;
     }
 
-    public void setdata148(data80Bean data148) {
-        this.data148 = data148;
+    public String getdata709411() {
+        return data709411;
     }
 
-    public data80Bean getdata149() {
-        return data149;
+    public void setdata709411(String data709411) {
+        this.data709411 = data709411;
     }
 
-    public void setdata149(data80Bean data149) {
-        this.data149 = data149;
+    public String getdata709412() {
+        return data709412;
     }
 
-    public data80Bean getdata150() {
-        return data150;
+    public void setdata709412(String data709412) {
+        this.data709412 = data709412;
     }
 
-    public void setdata150(data80Bean data150) {
-        this.data150 = data150;
+    public String getdata709413() {
+        return data709413;
     }
 
-    public data80Bean getdata151() {
-        return data151;
+    public void setdata709413(String data709413) {
+        this.data709413 = data709413;
     }
 
-    public void setdata151(data80Bean data151) {
-        this.data151 = data151;
+    public String getdata709414() {
+        return data709414;
     }
 
-    public data80Bean getdata152() {
-        return data152;
+    public void setdata709414(String data709414) {
+        this.data709414 = data709414;
     }
 
-    public void setdata152(data80Bean data152) {
-        this.data152 = data152;
+    public String getdata709415() {
+        return data709415;
     }
 
-    public data80Bean getdata153() {
-        return data153;
+    public void setdata709415(String data709415) {
+        this.data709415 = data709415;
     }
 
-    public void setdata153(data80Bean data153) {
-        this.data153 = data153;
+    public String getdata709416() {
+        return data709416;
     }
 
-    public data80Bean getdata154() {
-        return data154;
+    public void setdata709416(String data709416) {
+        this.data709416 = data709416;
     }
 
-    public void setdata154(data80Bean data154) {
-        this.data154 = data154;
+    public String getdata709417() {
+        return data709417;
     }
 
-    public data80Bean getdata155() {
-        return data155;
+    public void setdata709417(String data709417) {
+        this.data709417 = data709417;
     }
 
-    public void setdata155(data80Bean data155) {
-        this.data155 = data155;
+    public String getdata709418() {
+        return data709418;
     }
 
-    public data80Bean getdata156() {
-        return data156;
+    public void setdata709418(String data709418) {
+        this.data709418 = data709418;
     }
 
-    public void setdata156(data80Bean data156) {
-        this.data156 = data156;
+    public String getdata709419() {
+        return data709419;
     }
 
-    public data80Bean getdata157() {
-        return data157;
+    public void setdata709419(String data709419) {
+        this.data709419 = data709419;
     }
 
-    public void setdata157(data80Bean data157) {
-        this.data157 = data157;
+    public String getdata709420() {
+        return data709420;
     }
 
-    public data80Bean getdata158() {
-        return data158;
+    public void setdata709420(String data709420) {
+        this.data709420 = data709420;
     }
 
-    public void setdata158(data80Bean data158) {
-        this.data158 = data158;
+    public String getdata709421() {
+        return data709421;
     }
 
-    public data80Bean getdata159() {
-        return data159;
+    public void setdata709421(String data709421) {
+        this.data709421 = data709421;
     }
 
-    public void setdata159(data80Bean data159) {
-        this.data159 = data159;
+    public String getdata709422() {
+        return data709422;
     }
 
-    public data80Bean getdata160() {
-        return data160;
+    public void setdata709422(String data709422) {
+        this.data709422 = data709422;
     }
 
-    public void setdata160(data80Bean data160) {
-        this.data160 = data160;
+    public String getdata709501() {
+        return data709501;
     }
 
-    public data80Bean getdata161() {
-        return data161;
+    public void setdata709501(String data709501) {
+        this.data709501 = data709501;
     }
 
-    public void setdata161(data80Bean data161) {
-        this.data161 = data161;
+    public String getdata709502() {
+        return data709502;
     }
 
-    public data80Bean getdata162() {
-        return data162;
+    public void setdata709502(String data709502) {
+        this.data709502 = data709502;
     }
 
-    public void setdata162(data80Bean data162) {
-        this.data162 = data162;
+    public String getdata709503() {
+        return data709503;
     }
 
-    public data80Bean getdata163() {
-        return data163;
+    public void setdata709503(String data709503) {
+        this.data709503 = data709503;
     }
 
-    public void setdata163(data80Bean data163) {
-        this.data163 = data163;
+    public String getdata709504() {
+        return data709504;
     }
 
-    public data80Bean getdata164() {
-        return data164;
+    public void setdata709504(String data709504) {
+        this.data709504 = data709504;
     }
 
-    public void setdata164(data80Bean data164) {
-        this.data164 = data164;
+    public String getdata709505() {
+        return data709505;
     }
 
-    public data80Bean getdata165() {
-        return data165;
+    public void setdata709505(String data709505) {
+        this.data709505 = data709505;
     }
 
-    public void setdata165(data80Bean data165) {
-        this.data165 = data165;
+    public String getdata709506() {
+        return data709506;
     }
 
-    public data80Bean getdata166() {
-        return data166;
+    public void setdata709506(String data709506) {
+        this.data709506 = data709506;
     }
 
-    public void setdata166(data80Bean data166) {
-        this.data166 = data166;
+    public String getdata709507() {
+        return data709507;
     }
 
-    public data80Bean getdata167() {
-        return data167;
+    public void setdata709507(String data709507) {
+        this.data709507 = data709507;
     }
 
-    public void setdata167(data80Bean data167) {
-        this.data167 = data167;
+    public String getdata709508() {
+        return data709508;
     }
 
-    public data80Bean getdata168() {
-        return data168;
+    public void setdata709508(String data709508) {
+        this.data709508 = data709508;
     }
 
-    public void setdata168(data80Bean data168) {
-        this.data168 = data168;
+    public String getdata709509() {
+        return data709509;
     }
 
-    public data80Bean getdata169() {
-        return data169;
+    public void setdata709509(String data709509) {
+        this.data709509 = data709509;
     }
 
-    public void setdata169(data80Bean data169) {
-        this.data169 = data169;
+    public String getdata709510() {
+        return data709510;
     }
 
-    public data80Bean getdata170() {
-        return data170;
+    public void setdata709510(String data709510) {
+        this.data709510 = data709510;
     }
 
-    public void setdata170(data80Bean data170) {
-        this.data170 = data170;
+    public String getdata709511() {
+        return data709511;
     }
 
-    public data80Bean getdata171() {
-        return data171;
+    public void setdata709511(String data709511) {
+        this.data709511 = data709511;
     }
 
-    public void setdata171(data80Bean data171) {
-        this.data171 = data171;
+    public String getdata709512() {
+        return data709512;
     }
 
-    public data80Bean getdata172() {
-        return data172;
+    public void setdata709512(String data709512) {
+        this.data709512 = data709512;
     }
 
-    public void setdata172(data80Bean data172) {
-        this.data172 = data172;
+    public String getdata709601() {
+        return data709601;
     }
 
-    public data80Bean getdata173() {
-        return data173;
+    public void setdata709601(String data709601) {
+        this.data709601 = data709601;
     }
 
-    public void setdata173(data80Bean data173) {
-        this.data173 = data173;
+    public String getdata709602() {
+        return data709602;
     }
 
-    public data80Bean getdata174() {
-        return data174;
+    public void setdata709602(String data709602) {
+        this.data709602 = data709602;
     }
 
-    public void setdata174(data80Bean data174) {
-        this.data174 = data174;
+    public String getdata709603() {
+        return data709603;
     }
 
-    public data80Bean getdata1034() {
-        return data1034;
+    public void setdata709603(String data709603) {
+        this.data709603 = data709603;
     }
 
-    public void setdata1034(data80Bean data1034) {
-        this.data1034 = data1034;
+    public String getdata709604() {
+        return data709604;
     }
 
-    public data80Bean getdata1035() {
-        return data1035;
+    public void setdata709604(String data709604) {
+        this.data709604 = data709604;
     }
 
-    public void setdata1035(data80Bean data1035) {
-        this.data1035 = data1035;
+    public String getdata709701() {
+        return data709701;
     }
 
-    public data80Bean getdata175() {
-        return data175;
+    public void setdata709701(String data709701) {
+        this.data709701 = data709701;
     }
 
-    public void setdata175(data80Bean data175) {
-        this.data175 = data175;
+    public String getdata709702() {
+        return data709702;
     }
 
-    public data80Bean getdata176() {
-        return data176;
+    public void setdata709702(String data709702) {
+        this.data709702 = data709702;
     }
 
-    public void setdata176(data80Bean data176) {
-        this.data176 = data176;
+    public String getdata709703() {
+        return data709703;
     }
 
-    public data80Bean getdata177() {
-        return data177;
+    public void setdata709703(String data709703) {
+        this.data709703 = data709703;
     }
 
-    public void setdata177(data80Bean data177) {
-        this.data177 = data177;
+    public String getdata709704() {
+        return data709704;
     }
 
-    public data80Bean getdata178() {
-        return data178;
+    public void setdata709704(String data709704) {
+        this.data709704 = data709704;
     }
 
-    public void setdata178(data80Bean data178) {
-        this.data178 = data178;
+    public String getdata709705() {
+        return data709705;
     }
 
-    public data80Bean getdata179() {
-        return data179;
+    public void setdata709705(String data709705) {
+        this.data709705 = data709705;
     }
 
-    public void setdata179(data80Bean data179) {
-        this.data179 = data179;
+    public String getdata709706() {
+        return data709706;
     }
 
-    public data80Bean getdata180() {
-        return data180;
+    public void setdata709706(String data709706) {
+        this.data709706 = data709706;
     }
 
-    public void setdata180(data80Bean data180) {
-        this.data180 = data180;
+    public String getdata709707() {
+        return data709707;
     }
 
-    public data80Bean getdata181() {
-        return data181;
+    public void setdata709707(String data709707) {
+        this.data709707 = data709707;
     }
 
-    public void setdata181(data80Bean data181) {
-        this.data181 = data181;
+    public String getdata709708() {
+        return data709708;
     }
 
-    public data80Bean getdata182() {
-        return data182;
+    public void setdata709708(String data709708) {
+        this.data709708 = data709708;
     }
 
-    public void setdata182(data80Bean data182) {
-        this.data182 = data182;
+    public String getdata709805() {
+        return data709805;
     }
 
-    public data80Bean getdata183() {
-        return data183;
+    public void setdata709805(String data709805) {
+        this.data709805 = data709805;
     }
 
-    public void setdata183(data80Bean data183) {
-        this.data183 = data183;
+    public String getdata709806() {
+        return data709806;
     }
 
-    public data80Bean getdata184() {
-        return data184;
+    public void setdata709806(String data709806) {
+        this.data709806 = data709806;
     }
 
-    public void setdata184(data80Bean data184) {
-        this.data184 = data184;
+    public String getdata709807() {
+        return data709807;
     }
 
-    public data80Bean getdata185() {
-        return data185;
+    public void setdata709807(String data709807) {
+        this.data709807 = data709807;
     }
 
-    public void setdata185(data80Bean data185) {
-        this.data185 = data185;
+    public String getdata709808() {
+        return data709808;
     }
 
-    public data80Bean getdata186() {
-        return data186;
+    public void setdata709808(String data709808) {
+        this.data709808 = data709808;
     }
 
-    public void setdata186(data80Bean data186) {
-        this.data186 = data186;
+    public String getdata709809() {
+        return data709809;
     }
 
-    public data80Bean getdata187() {
-        return data187;
+    public void setdata709809(String data709809) {
+        this.data709809 = data709809;
     }
 
-    public void setdata187(data80Bean data187) {
-        this.data187 = data187;
+    public String getdata709810() {
+        return data709810;
     }
 
-    public data80Bean getdata188() {
-        return data188;
+    public void setdata709810(String data709810) {
+        this.data709810 = data709810;
     }
 
-    public void setdata188(data80Bean data188) {
-        this.data188 = data188;
+    public String getdata709811() {
+        return data709811;
     }
 
-    public data80Bean getdata189() {
-        return data189;
+    public void setdata709811(String data709811) {
+        this.data709811 = data709811;
     }
 
-    public void setdata189(data80Bean data189) {
-        this.data189 = data189;
+    public String getdata709812() {
+        return data709812;
     }
 
-    public data80Bean getdata190() {
-        return data190;
+    public void setdata709812(String data709812) {
+        this.data709812 = data709812;
     }
 
-    public void setdata190(data80Bean data190) {
-        this.data190 = data190;
+    public String getdata709901() {
+        return data709901;
     }
 
-    public data80Bean getdata191() {
-        return data191;
+    public void setdata709901(String data709901) {
+        this.data709901 = data709901;
     }
 
-    public void setdata191(data80Bean data191) {
-        this.data191 = data191;
+    public String getdata709902() {
+        return data709902;
     }
 
-    public data80Bean getdata192() {
-        return data192;
+    public void setdata709902(String data709902) {
+        this.data709902 = data709902;
     }
 
-    public void setdata192(data80Bean data192) {
-        this.data192 = data192;
+    public String getdata709903() {
+        return data709903;
     }
 
-    public data80Bean getdata193() {
-        return data193;
+    public void setdata709903(String data709903) {
+        this.data709903 = data709903;
     }
 
-    public void setdata193(data80Bean data193) {
-        this.data193 = data193;
+    public String getdata709904() {
+        return data709904;
     }
 
-    public data80Bean getdata194() {
-        return data194;
+    public void setdata709904(String data709904) {
+        this.data709904 = data709904;
     }
 
-    public void setdata194(data80Bean data194) {
-        this.data194 = data194;
+    public String getdata709905() {
+        return data709905;
     }
 
-    public data80Bean getdata195() {
-        return data195;
+    public void setdata709905(String data709905) {
+        this.data709905 = data709905;
     }
 
-    public void setdata195(data80Bean data195) {
-        this.data195 = data195;
+    public String getdata709906() {
+        return data709906;
     }
 
-    public data80Bean getdata196() {
-        return data196;
+    public void setdata709906(String data709906) {
+        this.data709906 = data709906;
     }
 
-    public void setdata196(data80Bean data196) {
-        this.data196 = data196;
+    public String getdata709907() {
+        return data709907;
     }
 
-    public data80Bean getdata197() {
-        return data197;
+    public void setdata709907(String data709907) {
+        this.data709907 = data709907;
     }
 
-    public void setdata197(data80Bean data197) {
-        this.data197 = data197;
+    public String getdata709908() {
+        return data709908;
     }
 
-    public data80Bean getdata198() {
-        return data198;
+    public void setdata709908(String data709908) {
+        this.data709908 = data709908;
     }
 
-    public void setdata198(data80Bean data198) {
-        this.data198 = data198;
+    public String getdata709909() {
+        return data709909;
     }
 
-    public data80Bean getdata199() {
-        return data199;
+    public void setdata709909(String data709909) {
+        this.data709909 = data709909;
     }
 
-    public void setdata199(data80Bean data199) {
-        this.data199 = data199;
+    public String getdata709910() {
+        return data709910;
     }
 
-    public data80Bean getdata200() {
-        return data200;
+    public void setdata709910(String data709910) {
+        this.data709910 = data709910;
     }
 
-    public void setdata200(data80Bean data200) {
-        this.data200 = data200;
+    public String getdata709911() {
+        return data709911;
     }
 
-    public data80Bean getdata201() {
-        return data201;
+    public void setdata709911(String data709911) {
+        this.data709911 = data709911;
     }
 
-    public void setdata201(data80Bean data201) {
-        this.data201 = data201;
+    public String getdata709912() {
+        return data709912;
     }
 
-    public data80Bean getdata202() {
-        return data202;
+    public void setdata709912(String data709912) {
+        this.data709912 = data709912;
     }
 
-    public void setdata202(data80Bean data202) {
-        this.data202 = data202;
+    public String getdata709913() {
+        return data709913;
     }
 
-    public data80Bean getdata203() {
-        return data203;
+    public void setdata709913(String data709913) {
+        this.data709913 = data709913;
     }
 
-    public void setdata203(data80Bean data203) {
-        this.data203 = data203;
+    public String getdata709914() {
+        return data709914;
     }
 
-    public data80Bean getdata204() {
-        return data204;
+    public void setdata709914(String data709914) {
+        this.data709914 = data709914;
     }
 
-    public void setdata204(data80Bean data204) {
-        this.data204 = data204;
+    public String getdata709915() {
+        return data709915;
     }
 
-    public data80Bean getdata205() {
-        return data205;
+    public void setdata709915(String data709915) {
+        this.data709915 = data709915;
     }
 
-    public void setdata205(data80Bean data205) {
-        this.data205 = data205;
+    public String getdata709916() {
+        return data709916;
     }
 
-    public data80Bean getdata206() {
-        return data206;
+    public void setdata709916(String data709916) {
+        this.data709916 = data709916;
     }
 
-    public void setdata206(data80Bean data206) {
-        this.data206 = data206;
+    public String getdata709917() {
+        return data709917;
     }
 
-    public data80Bean getdata207() {
-        return data207;
+    public void setdata709917(String data709917) {
+        this.data709917 = data709917;
     }
 
-    public void setdata207(data80Bean data207) {
-        this.data207 = data207;
+    public String getdata709918() {
+        return data709918;
     }
 
-    public data80Bean getdata208() {
-        return data208;
+    public void setdata709918(String data709918) {
+        this.data709918 = data709918;
     }
 
-    public void setdata208(data80Bean data208) {
-        this.data208 = data208;
+    public String getdata709919() {
+        return data709919;
     }
 
-    public data80Bean getdata209() {
-        return data209;
+    public void setdata709919(String data709919) {
+        this.data709919 = data709919;
     }
 
-    public void setdata209(data80Bean data209) {
-        this.data209 = data209;
+    public String getdata709920() {
+        return data709920;
     }
 
-    public data80Bean getdata210() {
-        return data210;
+    public void setdata709920(String data709920) {
+        this.data709920 = data709920;
     }
 
-    public void setdata210(data80Bean data210) {
-        this.data210 = data210;
+    public String getdata709921() {
+        return data709921;
     }
 
-    public data80Bean getdata211() {
-        return data211;
+    public void setdata709921(String data709921) {
+        this.data709921 = data709921;
     }
 
-    public void setdata211(data80Bean data211) {
-        this.data211 = data211;
+    public String getdata709922() {
+        return data709922;
     }
 
-    public data80Bean getdata212() {
-        return data212;
+    public void setdata709922(String data709922) {
+        this.data709922 = data709922;
     }
 
-    public void setdata212(data80Bean data212) {
-        this.data212 = data212;
+    public String getdata709923() {
+        return data709923;
     }
 
-    public data80Bean getdata213() {
-        return data213;
+    public void setdata709923(String data709923) {
+        this.data709923 = data709923;
     }
 
-    public void setdata213(data80Bean data213) {
-        this.data213 = data213;
+    public String getdata709924() {
+        return data709924;
     }
 
-    public data80Bean getdata214() {
-        return data214;
+    public void setdata709924(String data709924) {
+        this.data709924 = data709924;
     }
 
-    public void setdata214(data80Bean data214) {
-        this.data214 = data214;
+    public String getdata709925() {
+        return data709925;
     }
 
-    public data80Bean getdata215() {
-        return data215;
+    public void setdata709925(String data709925) {
+        this.data709925 = data709925;
     }
 
-    public void setdata215(data80Bean data215) {
-        this.data215 = data215;
+    public String getdata709926() {
+        return data709926;
     }
 
-    public data80Bean getdata216() {
-        return data216;
+    public void setdata709926(String data709926) {
+        this.data709926 = data709926;
     }
 
-    public void setdata216(data80Bean data216) {
-        this.data216 = data216;
+    public String getdata709927() {
+        return data709927;
     }
 
-    public data80Bean getdata217() {
-        return data217;
+    public void setdata709927(String data709927) {
+        this.data709927 = data709927;
     }
 
-    public void setdata217(data80Bean data217) {
-        this.data217 = data217;
+    public String getdata709928() {
+        return data709928;
     }
 
-    public data80Bean getdata218() {
-        return data218;
+    public void setdata709928(String data709928) {
+        this.data709928 = data709928;
     }
 
-    public void setdata218(data80Bean data218) {
-        this.data218 = data218;
+    public String getdata709929() {
+        return data709929;
     }
 
-    public data80Bean getdata219() {
-        return data219;
+    public void setdata709929(String data709929) {
+        this.data709929 = data709929;
     }
 
-    public void setdata219(data80Bean data219) {
-        this.data219 = data219;
+    public String getdata709930() {
+        return data709930;
     }
 
-    public data80Bean getdata220() {
-        return data220;
+    public void setdata709930(String data709930) {
+        this.data709930 = data709930;
     }
 
-    public void setdata220(data80Bean data220) {
-        this.data220 = data220;
+    public String getdata709931() {
+        return data709931;
     }
 
-    public data80Bean getdata221() {
-        return data221;
+    public void setdata709931(String data709931) {
+        this.data709931 = data709931;
     }
 
-    public void setdata221(data80Bean data221) {
-        this.data221 = data221;
+    public String getdata709932() {
+        return data709932;
     }
 
-    public data80Bean getdata222() {
-        return data222;
+    public void setdata709932(String data709932) {
+        this.data709932 = data709932;
     }
 
-    public void setdata222(data80Bean data222) {
-        this.data222 = data222;
+    public String getdata709933() {
+        return data709933;
     }
 
-    public data80Bean getdata223() {
-        return data223;
+    public void setdata709933(String data709933) {
+        this.data709933 = data709933;
     }
 
-    public void setdata223(data80Bean data223) {
-        this.data223 = data223;
+    public String getdata709934() {
+        return data709934;
     }
 
-    public data80Bean getdata224() {
-        return data224;
+    public void setdata709934(String data709934) {
+        this.data709934 = data709934;
     }
 
-    public void setdata224(data80Bean data224) {
-        this.data224 = data224;
+    public String getdata709935() {
+        return data709935;
     }
 
-    public data80Bean getdata225() {
-        return data225;
+    public void setdata709935(String data709935) {
+        this.data709935 = data709935;
     }
 
-    public void setdata225(data80Bean data225) {
-        this.data225 = data225;
+    public String getdata709936() {
+        return data709936;
     }
 
-    public data80Bean getdata226() {
-        return data226;
+    public void setdata709936(String data709936) {
+        this.data709936 = data709936;
     }
 
-    public void setdata226(data80Bean data226) {
-        this.data226 = data226;
+    public String getdata709937() {
+        return data709937;
     }
 
-    public data80Bean getdata227() {
-        return data227;
+    public void setdata709937(String data709937) {
+        this.data709937 = data709937;
     }
 
-    public void setdata227(data80Bean data227) {
-        this.data227 = data227;
+    public String getdata709938() {
+        return data709938;
     }
 
-    public data80Bean getdata228() {
-        return data228;
+    public void setdata709938(String data709938) {
+        this.data709938 = data709938;
     }
 
-    public void setdata228(data80Bean data228) {
-        this.data228 = data228;
+    public String getdata709939() {
+        return data709939;
     }
 
-    public data80Bean getdata229() {
-        return data229;
+    public void setdata709939(String data709939) {
+        this.data709939 = data709939;
     }
 
-    public void setdata229(data80Bean data229) {
-        this.data229 = data229;
+    public String getdata709940() {
+        return data709940;
     }
 
-    public data80Bean getdata230() {
-        return data230;
+    public void setdata709940(String data709940) {
+        this.data709940 = data709940;
     }
 
-    public void setdata230(data80Bean data230) {
-        this.data230 = data230;
+    public String getdata709941() {
+        return data709941;
     }
 
-    public data80Bean getdata231() {
-        return data231;
+    public void setdata709941(String data709941) {
+        this.data709941 = data709941;
     }
 
-    public void setdata231(data80Bean data231) {
-        this.data231 = data231;
+    public String getdata709942() {
+        return data709942;
     }
 
-    public data80Bean getdata232() {
-        return data232;
+    public void setdata709942(String data709942) {
+        this.data709942 = data709942;
     }
 
-    public void setdata232(data80Bean data232) {
-        this.data232 = data232;
+    public String getdata709943() {
+        return data709943;
     }
 
-    public data80Bean getdata1045() {
-        return data1045;
+    public void setdata709943(String data709943) {
+        this.data709943 = data709943;
     }
 
-    public void setdata1045(data80Bean data1045) {
-        this.data1045 = data1045;
+    public String getdata709944() {
+        return data709944;
     }
 
-    public data80Bean getdata1083() {
-        return data1083;
+    public void setdata709944(String data709944) {
+        this.data709944 = data709944;
     }
 
-    public void setdata1083(data80Bean data1083) {
-        this.data1083 = data1083;
+    public String getdata709945() {
+        return data709945;
     }
 
-    public data80Bean getdata233() {
-        return data233;
+    public void setdata709945(String data709945) {
+        this.data709945 = data709945;
     }
 
-    public void setdata233(data80Bean data233) {
-        this.data233 = data233;
+    public String getdata709946() {
+        return data709946;
     }
 
-    public data80Bean getdata234() {
-        return data234;
+    public void setdata709946(String data709946) {
+        this.data709946 = data709946;
     }
 
-    public void setdata234(data80Bean data234) {
-        this.data234 = data234;
+    public String getdata709947() {
+        return data709947;
     }
 
-    public data80Bean getdata235() {
-        return data235;
+    public void setdata709947(String data709947) {
+        this.data709947 = data709947;
     }
 
-    public void setdata235(data80Bean data235) {
-        this.data235 = data235;
+    public String getdata709948() {
+        return data709948;
     }
 
-    public data80Bean getdata236() {
-        return data236;
+    public void setdata709948(String data709948) {
+        this.data709948 = data709948;
     }
 
-    public void setdata236(data80Bean data236) {
-        this.data236 = data236;
+    public String getdata709949() {
+        return data709949;
     }
 
-    public data80Bean getdata237() {
-        return data237;
+    public void setdata709949(String data709949) {
+        this.data709949 = data709949;
     }
 
-    public void setdata237(data80Bean data237) {
-        this.data237 = data237;
+    public String getdata709950() {
+        return data709950;
     }
 
-    public data80Bean getdata238() {
-        return data238;
+    public void setdata709950(String data709950) {
+        this.data709950 = data709950;
     }
 
-    public void setdata238(data80Bean data238) {
-        this.data238 = data238;
+    public String getdata709951() {
+        return data709951;
     }
 
-    public data80Bean getdata239() {
-        return data239;
+    public void setdata709951(String data709951) {
+        this.data709951 = data709951;
     }
 
-    public void setdata239(data80Bean data239) {
-        this.data239 = data239;
+    public String getdata709952() {
+        return data709952;
     }
 
-    public data80Bean getdata240() {
-        return data240;
+    public void setdata709952(String data709952) {
+        this.data709952 = data709952;
     }
 
-    public void setdata240(data80Bean data240) {
-        this.data240 = data240;
+    public String getdata709953() {
+        return data709953;
     }
 
-    public data80Bean getdata241() {
-        return data241;
+    public void setdata709953(String data709953) {
+        this.data709953 = data709953;
     }
 
-    public void setdata241(data80Bean data241) {
-        this.data241 = data241;
+    public String getdata709954() {
+        return data709954;
     }
 
-    public data80Bean getdata242() {
-        return data242;
+    public void setdata709954(String data709954) {
+        this.data709954 = data709954;
     }
 
-    public void setdata242(data80Bean data242) {
-        this.data242 = data242;
+    public String getdata709955() {
+        return data709955;
     }
 
-    public data80Bean getdata243() {
-        return data243;
+    public void setdata709955(String data709955) {
+        this.data709955 = data709955;
     }
 
-    public void setdata243(data80Bean data243) {
-        this.data243 = data243;
+    public String getdata709956() {
+        return data709956;
     }
 
-    public data80Bean getdata244() {
-        return data244;
+    public void setdata709956(String data709956) {
+        this.data709956 = data709956;
     }
 
-    public void setdata244(data80Bean data244) {
-        this.data244 = data244;
+    public String getdata709957() {
+        return data709957;
     }
 
-    public data80Bean getdata245() {
-        return data245;
+    public void setdata709957(String data709957) {
+        this.data709957 = data709957;
     }
 
-    public void setdata245(data80Bean data245) {
-        this.data245 = data245;
+    public String getdata709958() {
+        return data709958;
     }
 
-    public data80Bean getdata246() {
-        return data246;
+    public void setdata709958(String data709958) {
+        this.data709958 = data709958;
     }
 
-    public void setdata246(data80Bean data246) {
-        this.data246 = data246;
+    public String getdata709959() {
+        return data709959;
     }
 
-    public data80Bean getdata247() {
-        return data247;
+    public void setdata709959(String data709959) {
+        this.data709959 = data709959;
     }
 
-    public void setdata247(data80Bean data247) {
-        this.data247 = data247;
+    public String getdata709960() {
+        return data709960;
     }
 
-    public data80Bean getdata248() {
-        return data248;
+    public void setdata709960(String data709960) {
+        this.data709960 = data709960;
     }
 
-    public void setdata248(data80Bean data248) {
-        this.data248 = data248;
+    public String getdata709961() {
+        return data709961;
     }
 
-    public data80Bean getdata249() {
-        return data249;
+    public void setdata709961(String data709961) {
+        this.data709961 = data709961;
     }
 
-    public void setdata249(data80Bean data249) {
-        this.data249 = data249;
+    public String getdata709962() {
+        return data709962;
     }
 
-    public data80Bean getdata250() {
-        return data250;
+    public void setdata709962(String data709962) {
+        this.data709962 = data709962;
     }
 
-    public void setdata250(data80Bean data250) {
-        this.data250 = data250;
+    public String getdata709963() {
+        return data709963;
     }
 
-    public data80Bean getdata251() {
-        return data251;
+    public void setdata709963(String data709963) {
+        this.data709963 = data709963;
     }
 
-    public void setdata251(data80Bean data251) {
-        this.data251 = data251;
+    public String getdata709964() {
+        return data709964;
     }
 
-    public data80Bean getdata252() {
-        return data252;
+    public void setdata709964(String data709964) {
+        this.data709964 = data709964;
     }
 
-    public void setdata252(data80Bean data252) {
-        this.data252 = data252;
+    public String getdata709965() {
+        return data709965;
     }
 
-    public data80Bean getdata253() {
-        return data253;
+    public void setdata709965(String data709965) {
+        this.data709965 = data709965;
     }
 
-    public void setdata253(data80Bean data253) {
-        this.data253 = data253;
+    public String getdata709966() {
+        return data709966;
     }
 
-    public data80Bean getdata254() {
-        return data254;
+    public void setdata709966(String data709966) {
+        this.data709966 = data709966;
     }
 
-    public void setdata254(data80Bean data254) {
-        this.data254 = data254;
+    public String getdata709967() {
+        return data709967;
     }
 
-    public data80Bean getdata255() {
-        return data255;
+    public void setdata709967(String data709967) {
+        this.data709967 = data709967;
     }
 
-    public void setdata255(data80Bean data255) {
-        this.data255 = data255;
+    public String getdata709968() {
+        return data709968;
     }
 
-    public data80Bean getdata256() {
-        return data256;
+    public void setdata709968(String data709968) {
+        this.data709968 = data709968;
     }
 
-    public void setdata256(data80Bean data256) {
-        this.data256 = data256;
+    public String getdata709969() {
+        return data709969;
     }
 
-    public data80Bean getdata257() {
-        return data257;
+    public void setdata709969(String data709969) {
+        this.data709969 = data709969;
     }
 
-    public void setdata257(data80Bean data257) {
-        this.data257 = data257;
+    public String getdata709970() {
+        return data709970;
     }
 
-    public data80Bean getdata258() {
-        return data258;
+    public void setdata709970(String data709970) {
+        this.data709970 = data709970;
     }
 
-    public void setdata258(data80Bean data258) {
-        this.data258 = data258;
+    public String getdata709971() {
+        return data709971;
     }
 
-    public data80Bean getdata259() {
-        return data259;
+    public void setdata709971(String data709971) {
+        this.data709971 = data709971;
     }
 
-    public void setdata259(data80Bean data259) {
-        this.data259 = data259;
+    public String getdata709972() {
+        return data709972;
     }
 
-    public data80Bean getdata260() {
-        return data260;
+    public void setdata709972(String data709972) {
+        this.data709972 = data709972;
     }
 
-    public void setdata260(data80Bean data260) {
-        this.data260 = data260;
+    public String getdata709973() {
+        return data709973;
     }
 
-    public data80Bean getdata261() {
-        return data261;
+    public void setdata709973(String data709973) {
+        this.data709973 = data709973;
     }
 
-    public void setdata261(data80Bean data261) {
-        this.data261 = data261;
+    public String getdata709974() {
+        return data709974;
     }
 
-    public data80Bean getdata262() {
-        return data262;
+    public void setdata709974(String data709974) {
+        this.data709974 = data709974;
     }
 
-    public void setdata262(data80Bean data262) {
-        this.data262 = data262;
+    public String getdata709975() {
+        return data709975;
     }
 
-    public data80Bean getdata263() {
-        return data263;
+    public void setdata709975(String data709975) {
+        this.data709975 = data709975;
     }
 
-    public void setdata263(data80Bean data263) {
-        this.data263 = data263;
+    public String getdata709976() {
+        return data709976;
     }
 
-    public data80Bean getdata264() {
-        return data264;
+    public void setdata709976(String data709976) {
+        this.data709976 = data709976;
     }
 
-    public void setdata264(data80Bean data264) {
-        this.data264 = data264;
+    public String getdata709977() {
+        return data709977;
     }
 
-    public data80Bean getdata265() {
-        return data265;
+    public void setdata709977(String data709977) {
+        this.data709977 = data709977;
     }
 
-    public void setdata265(data80Bean data265) {
-        this.data265 = data265;
+    public String getdata709978() {
+        return data709978;
     }
 
-    public data80Bean getdata266() {
-        return data266;
+    public void setdata709978(String data709978) {
+        this.data709978 = data709978;
     }
 
-    public void setdata266(data80Bean data266) {
-        this.data266 = data266;
+    public String getdata709979() {
+        return data709979;
     }
 
-    public data80Bean getdata267() {
-        return data267;
+    public void setdata709979(String data709979) {
+        this.data709979 = data709979;
     }
 
-    public void setdata267(data80Bean data267) {
-        this.data267 = data267;
+    public String getdata709980() {
+        return data709980;
     }
 
-    public data80Bean getdata268() {
-        return data268;
+    public void setdata709980(String data709980) {
+        this.data709980 = data709980;
     }
 
-    public void setdata268(data80Bean data268) {
-        this.data268 = data268;
+    public String getdata709981() {
+        return data709981;
     }
 
-    public data80Bean getdata269() {
-        return data269;
+    public void setdata709981(String data709981) {
+        this.data709981 = data709981;
     }
 
-    public void setdata269(data80Bean data269) {
-        this.data269 = data269;
+    public String getdata709982() {
+        return data709982;
     }
 
-    public data80Bean getdata270() {
-        return data270;
+    public void setdata709982(String data709982) {
+        this.data709982 = data709982;
     }
 
-    public void setdata270(data80Bean data270) {
-        this.data270 = data270;
+    public String getdata709983() {
+        return data709983;
     }
 
-    public data80Bean getdata271() {
-        return data271;
+    public void setdata709983(String data709983) {
+        this.data709983 = data709983;
     }
 
-    public void setdata271(data80Bean data271) {
-        this.data271 = data271;
+    public String getdata709984() {
+        return data709984;
     }
 
-    public data80Bean getdata272() {
-        return data272;
+    public void setdata709984(String data709984) {
+        this.data709984 = data709984;
     }
 
-    public void setdata272(data80Bean data272) {
-        this.data272 = data272;
+    public String getdata709985() {
+        return data709985;
     }
 
-    public data80Bean getdata273() {
-        return data273;
+    public void setdata709985(String data709985) {
+        this.data709985 = data709985;
     }
 
-    public void setdata273(data80Bean data273) {
-        this.data273 = data273;
+    public String getdata709986() {
+        return data709986;
     }
 
-    public data80Bean getdata274() {
-        return data274;
+    public void setdata709986(String data709986) {
+        this.data709986 = data709986;
     }
 
-    public void setdata274(data80Bean data274) {
-        this.data274 = data274;
+    public String getdata709987() {
+        return data709987;
     }
 
-    public data80Bean getdata275() {
-        return data275;
+    public void setdata709987(String data709987) {
+        this.data709987 = data709987;
     }
 
-    public void setdata275(data80Bean data275) {
-        this.data275 = data275;
+    public String getdata709988() {
+        return data709988;
     }
 
-    public data80Bean getdata276() {
-        return data276;
+    public void setdata709988(String data709988) {
+        this.data709988 = data709988;
     }
 
-    public void setdata276(data80Bean data276) {
-        this.data276 = data276;
+    public String getdata7010001() {
+        return data7010001;
     }
 
-    public data80Bean getdata277() {
-        return data277;
+    public void setdata7010001(String data7010001) {
+        this.data7010001 = data7010001;
     }
 
-    public void setdata277(data80Bean data277) {
-        this.data277 = data277;
+    public String getdata7010002() {
+        return data7010002;
     }
 
-    public data80Bean getdata278() {
-        return data278;
+    public void setdata7010002(String data7010002) {
+        this.data7010002 = data7010002;
     }
 
-    public void setdata278(data80Bean data278) {
-        this.data278 = data278;
+    public String getdata7010003() {
+        return data7010003;
     }
 
-    public data80Bean getdata279() {
-        return data279;
+    public void setdata7010003(String data7010003) {
+        this.data7010003 = data7010003;
     }
 
-    public void setdata279(data80Bean data279) {
-        this.data279 = data279;
+    public String getdata7010004() {
+        return data7010004;
     }
 
-    public data80Bean getdata280() {
-        return data280;
+    public void setdata7010004(String data7010004) {
+        this.data7010004 = data7010004;
     }
 
-    public void setdata280(data80Bean data280) {
-        this.data280 = data280;
+    public String getdata7010005() {
+        return data7010005;
     }
 
-    public data80Bean getdata281() {
-        return data281;
+    public void setdata7010005(String data7010005) {
+        this.data7010005 = data7010005;
     }
 
-    public void setdata281(data80Bean data281) {
-        this.data281 = data281;
+    public String getdata7010006() {
+        return data7010006;
     }
 
-    public data80Bean getdata282() {
-        return data282;
+    public void setdata7010006(String data7010006) {
+        this.data7010006 = data7010006;
     }
 
-    public void setdata282(data80Bean data282) {
-        this.data282 = data282;
+    public String getdata7010007() {
+        return data7010007;
     }
 
-    public data80Bean getdata283() {
-        return data283;
+    public void setdata7010007(String data7010007) {
+        this.data7010007 = data7010007;
     }
 
-    public void setdata283(data80Bean data283) {
-        this.data283 = data283;
+    public String getdata7010008() {
+        return data7010008;
     }
 
-    public data80Bean getdata284() {
-        return data284;
+    public void setdata7010008(String data7010008) {
+        this.data7010008 = data7010008;
     }
 
-    public void setdata284(data80Bean data284) {
-        this.data284 = data284;
+    public String getdata7092001() {
+        return data7092001;
     }
 
-    public data80Bean getdata285() {
-        return data285;
+    public void setdata7092001(String data7092001) {
+        this.data7092001 = data7092001;
     }
 
-    public void setdata285(data80Bean data285) {
-        this.data285 = data285;
+    public String getdata7092002() {
+        return data7092002;
     }
 
-    public data80Bean getdata286() {
-        return data286;
+    public void setdata7092002(String data7092002) {
+        this.data7092002 = data7092002;
     }
 
-    public void setdata286(data80Bean data286) {
-        this.data286 = data286;
+    public String getdata7092003() {
+        return data7092003;
     }
 
-    public data80Bean getdata287() {
-        return data287;
+    public void setdata7092003(String data7092003) {
+        this.data7092003 = data7092003;
     }
 
-    public void setdata287(data80Bean data287) {
-        this.data287 = data287;
+    public String getdata7092004() {
+        return data7092004;
     }
 
-    public data80Bean getdata288() {
-        return data288;
+    public void setdata7092004(String data7092004) {
+        this.data7092004 = data7092004;
     }
 
-    public void setdata288(data80Bean data288) {
-        this.data288 = data288;
+    public String getdata7092005() {
+        return data7092005;
     }
 
-    public data80Bean getdata289() {
-        return data289;
+    public void setdata7092005(String data7092005) {
+        this.data7092005 = data7092005;
     }
 
-    public void setdata289(data80Bean data289) {
-        this.data289 = data289;
+    public String getdata7092006() {
+        return data7092006;
     }
 
-    public data80Bean getdata290() {
-        return data290;
+    public void setdata7092006(String data7092006) {
+        this.data7092006 = data7092006;
     }
 
-    public void setdata290(data80Bean data290) {
-        this.data290 = data290;
+    public String getdata7092007() {
+        return data7092007;
     }
 
-    public data80Bean getdata1044() {
-        return data1044;
+    public void setdata7092007(String data7092007) {
+        this.data7092007 = data7092007;
     }
 
-    public void setdata1044(data80Bean data1044) {
-        this.data1044 = data1044;
+    public String getdata7092008() {
+        return data7092008;
     }
 
-    public data80Bean getdata1084() {
-        return data1084;
+    public void setdata7092008(String data7092008) {
+        this.data7092008 = data7092008;
     }
 
-    public void setdata1084(data80Bean data1084) {
-        this.data1084 = data1084;
+    public String getdata7092009() {
+        return data7092009;
     }
 
-    public data80Bean getdata291() {
-        return data291;
+    public void setdata7092009(String data7092009) {
+        this.data7092009 = data7092009;
     }
 
-    public void setdata291(data80Bean data291) {
-        this.data291 = data291;
+    public String getdata7092010() {
+        return data7092010;
     }
 
-    public data80Bean getdata292() {
-        return data292;
+    public void setdata7092010(String data7092010) {
+        this.data7092010 = data7092010;
     }
 
-    public void setdata292(data80Bean data292) {
-        this.data292 = data292;
+    public String getdata7092011() {
+        return data7092011;
     }
 
-    public data80Bean getdata293() {
-        return data293;
+    public void setdata7092011(String data7092011) {
+        this.data7092011 = data7092011;
     }
 
-    public void setdata293(data80Bean data293) {
-        this.data293 = data293;
+    public String getdata7092012() {
+        return data7092012;
     }
 
-    public data80Bean getdata294() {
-        return data294;
+    public void setdata7092012(String data7092012) {
+        this.data7092012 = data7092012;
     }
 
-    public void setdata294(data80Bean data294) {
-        this.data294 = data294;
+    public String getdata7092013() {
+        return data7092013;
     }
 
-    public data80Bean getdata295() {
-        return data295;
+    public void setdata7092013(String data7092013) {
+        this.data7092013 = data7092013;
     }
 
-    public void setdata295(data80Bean data295) {
-        this.data295 = data295;
+    public String getdata7092014() {
+        return data7092014;
     }
 
-    public data80Bean getdata296() {
-        return data296;
+    public void setdata7092014(String data7092014) {
+        this.data7092014 = data7092014;
     }
 
-    public void setdata296(data80Bean data296) {
-        this.data296 = data296;
+    public String getdata7092015() {
+        return data7092015;
     }
 
-    public data80Bean getdata297() {
-        return data297;
+    public void setdata7092015(String data7092015) {
+        this.data7092015 = data7092015;
     }
 
-    public void setdata297(data80Bean data297) {
-        this.data297 = data297;
+    public String getdata7092016() {
+        return data7092016;
     }
 
-    public data80Bean getdata298() {
-        return data298;
+    public void setdata7092016(String data7092016) {
+        this.data7092016 = data7092016;
     }
 
-    public void setdata298(data80Bean data298) {
-        this.data298 = data298;
+    public String getdata7092017() {
+        return data7092017;
     }
 
-    public data80Bean getdata299() {
-        return data299;
+    public void setdata7092017(String data7092017) {
+        this.data7092017 = data7092017;
     }
 
-    public void setdata299(data80Bean data299) {
-        this.data299 = data299;
+    public String getdata7092018() {
+        return data7092018;
     }
 
-    public data80Bean getdata300() {
-        return data300;
+    public void setdata7092018(String data7092018) {
+        this.data7092018 = data7092018;
     }
 
-    public void setdata300(data80Bean data300) {
-        this.data300 = data300;
+    public String getdata7092019() {
+        return data7092019;
     }
 
-    public data80Bean getdata301() {
-        return data301;
+    public void setdata7092019(String data7092019) {
+        this.data7092019 = data7092019;
     }
 
-    public void setdata301(data80Bean data301) {
-        this.data301 = data301;
+    public String getdata7092020() {
+        return data7092020;
     }
 
-    public data80Bean getdata302() {
-        return data302;
+    public void setdata7092020(String data7092020) {
+        this.data7092020 = data7092020;
     }
 
-    public void setdata302(data80Bean data302) {
-        this.data302 = data302;
+    public String getdata7092021() {
+        return data7092021;
     }
 
-    public data80Bean getdata303() {
-        return data303;
+    public void setdata7092021(String data7092021) {
+        this.data7092021 = data7092021;
     }
 
-    public void setdata303(data80Bean data303) {
-        this.data303 = data303;
+    public String getdata7092022() {
+        return data7092022;
     }
 
-    public data80Bean getdata304() {
-        return data304;
+    public void setdata7092022(String data7092022) {
+        this.data7092022 = data7092022;
     }
 
-    public void setdata304(data80Bean data304) {
-        this.data304 = data304;
+    public String getdata7092023() {
+        return data7092023;
     }
 
-    public data80Bean getdata305() {
-        return data305;
+    public void setdata7092023(String data7092023) {
+        this.data7092023 = data7092023;
     }
 
-    public void setdata305(data80Bean data305) {
-        this.data305 = data305;
+    public String getdata7092024() {
+        return data7092024;
     }
 
-    public data80Bean getdata306() {
-        return data306;
+    public void setdata7092024(String data7092024) {
+        this.data7092024 = data7092024;
     }
 
-    public void setdata306(data80Bean data306) {
-        this.data306 = data306;
+    public String getdata7092025() {
+        return data7092025;
     }
 
-    public data80Bean getdata307() {
-        return data307;
+    public void setdata7092025(String data7092025) {
+        this.data7092025 = data7092025;
     }
 
-    public void setdata307(data80Bean data307) {
-        this.data307 = data307;
+    public String getdata7092026() {
+        return data7092026;
     }
 
-    public data80Bean getdata308() {
-        return data308;
+    public void setdata7092026(String data7092026) {
+        this.data7092026 = data7092026;
     }
 
-    public void setdata308(data80Bean data308) {
-        this.data308 = data308;
+    public String getdata7092027() {
+        return data7092027;
     }
 
-    public data80Bean getdata309() {
-        return data309;
+    public void setdata7092027(String data7092027) {
+        this.data7092027 = data7092027;
     }
 
-    public void setdata309(data80Bean data309) {
-        this.data309 = data309;
+    public String getdata7092028() {
+        return data7092028;
     }
 
-    public data80Bean getdata310() {
-        return data310;
+    public void setdata7092028(String data7092028) {
+        this.data7092028 = data7092028;
     }
 
-    public void setdata310(data80Bean data310) {
-        this.data310 = data310;
+    public String getdata7092029() {
+        return data7092029;
     }
 
-    public data80Bean getdata311() {
-        return data311;
+    public void setdata7092029(String data7092029) {
+        this.data7092029 = data7092029;
     }
 
-    public void setdata311(data80Bean data311) {
-        this.data311 = data311;
+    public String getdata7092030() {
+        return data7092030;
     }
 
-    public data80Bean getdata312() {
-        return data312;
+    public void setdata7092030(String data7092030) {
+        this.data7092030 = data7092030;
     }
 
-    public void setdata312(data80Bean data312) {
-        this.data312 = data312;
+    public String getdata7092031() {
+        return data7092031;
     }
 
-    public data80Bean getdata313() {
-        return data313;
+    public void setdata7092031(String data7092031) {
+        this.data7092031 = data7092031;
     }
 
-    public void setdata313(data80Bean data313) {
-        this.data313 = data313;
+    public String getdata7092032() {
+        return data7092032;
     }
 
-    public data80Bean getdata314() {
-        return data314;
+    public void setdata7092032(String data7092032) {
+        this.data7092032 = data7092032;
     }
 
-    public void setdata314(data80Bean data314) {
-        this.data314 = data314;
+    public String getdata7092033() {
+        return data7092033;
     }
 
-    public data80Bean getdata315() {
-        return data315;
+    public void setdata7092033(String data7092033) {
+        this.data7092033 = data7092033;
     }
 
-    public void setdata315(data80Bean data315) {
-        this.data315 = data315;
+    public String getdata7092034() {
+        return data7092034;
     }
 
-    public data80Bean getdata316() {
-        return data316;
+    public void setdata7092034(String data7092034) {
+        this.data7092034 = data7092034;
     }
 
-    public void setdata316(data80Bean data316) {
-        this.data316 = data316;
+    public String getdata7092035() {
+        return data7092035;
     }
 
-    public data80Bean getdata317() {
-        return data317;
+    public void setdata7092035(String data7092035) {
+        this.data7092035 = data7092035;
     }
 
-    public void setdata317(data80Bean data317) {
-        this.data317 = data317;
+    public String getdata7092036() {
+        return data7092036;
     }
 
-    public data80Bean getdata318() {
-        return data318;
+    public void setdata7092036(String data7092036) {
+        this.data7092036 = data7092036;
     }
 
-    public void setdata318(data80Bean data318) {
-        this.data318 = data318;
+    public String getdata7092037() {
+        return data7092037;
     }
 
-    public data80Bean getdata319() {
-        return data319;
+    public void setdata7092037(String data7092037) {
+        this.data7092037 = data7092037;
     }
 
-    public void setdata319(data80Bean data319) {
-        this.data319 = data319;
+    public String getdata7092038() {
+        return data7092038;
     }
 
-    public data80Bean getdata320() {
-        return data320;
+    public void setdata7092038(String data7092038) {
+        this.data7092038 = data7092038;
     }
 
-    public void setdata320(data80Bean data320) {
-        this.data320 = data320;
+    public String getdata7092039() {
+        return data7092039;
     }
 
-    public data80Bean getdata321() {
-        return data321;
+    public void setdata7092039(String data7092039) {
+        this.data7092039 = data7092039;
     }
 
-    public void setdata321(data80Bean data321) {
-        this.data321 = data321;
+    public String getdata7092040() {
+        return data7092040;
     }
 
-    public data80Bean getdata322() {
-        return data322;
+    public void setdata7092040(String data7092040) {
+        this.data7092040 = data7092040;
     }
 
-    public void setdata322(data80Bean data322) {
-        this.data322 = data322;
+    public String getdata7092041() {
+        return data7092041;
     }
 
-    public data80Bean getdata323() {
-        return data323;
+    public void setdata7092041(String data7092041) {
+        this.data7092041 = data7092041;
     }
 
-    public void setdata323(data80Bean data323) {
-        this.data323 = data323;
+    public String getdata7092042() {
+        return data7092042;
     }
 
-    public data80Bean getdata324() {
-        return data324;
+    public void setdata7092042(String data7092042) {
+        this.data7092042 = data7092042;
     }
 
-    public void setdata324(data80Bean data324) {
-        this.data324 = data324;
+    public String getdata7092043() {
+        return data7092043;
     }
 
-    public data80Bean getdata325() {
-        return data325;
+    public void setdata7092043(String data7092043) {
+        this.data7092043 = data7092043;
     }
 
-    public void setdata325(data80Bean data325) {
-        this.data325 = data325;
+    public String getdata7092044() {
+        return data7092044;
     }
 
-    public data80Bean getdata326() {
-        return data326;
+    public void setdata7092044(String data7092044) {
+        this.data7092044 = data7092044;
     }
 
-    public void setdata326(data80Bean data326) {
-        this.data326 = data326;
+    public String getdata7092045() {
+        return data7092045;
     }
 
-    public data80Bean getdata327() {
-        return data327;
+    public void setdata7092045(String data7092045) {
+        this.data7092045 = data7092045;
     }
 
-    public void setdata327(data80Bean data327) {
-        this.data327 = data327;
+    public String getdata7092046() {
+        return data7092046;
     }
 
-    public data80Bean getdata328() {
-        return data328;
+    public void setdata7092046(String data7092046) {
+        this.data7092046 = data7092046;
     }
 
-    public void setdata328(data80Bean data328) {
-        this.data328 = data328;
+    public String getdata7092047() {
+        return data7092047;
     }
 
-    public data80Bean getdata329() {
-        return data329;
+    public void setdata7092047(String data7092047) {
+        this.data7092047 = data7092047;
     }
 
-    public void setdata329(data80Bean data329) {
-        this.data329 = data329;
+    public String getdata7092048() {
+        return data7092048;
     }
 
-    public data80Bean getdata330() {
-        return data330;
+    public void setdata7092048(String data7092048) {
+        this.data7092048 = data7092048;
     }
 
-    public void setdata330(data80Bean data330) {
-        this.data330 = data330;
+    public String getdata7092049() {
+        return data7092049;
     }
 
-    public data80Bean getdata331() {
-        return data331;
+    public void setdata7092049(String data7092049) {
+        this.data7092049 = data7092049;
     }
 
-    public void setdata331(data80Bean data331) {
-        this.data331 = data331;
+    public String getdata7092050() {
+        return data7092050;
     }
 
-    public data80Bean getdata332() {
-        return data332;
+    public void setdata7092050(String data7092050) {
+        this.data7092050 = data7092050;
     }
 
-    public void setdata332(data80Bean data332) {
-        this.data332 = data332;
+    public String getdata7092051() {
+        return data7092051;
     }
 
-    public data80Bean getdata333() {
-        return data333;
+    public void setdata7092051(String data7092051) {
+        this.data7092051 = data7092051;
     }
 
-    public void setdata333(data80Bean data333) {
-        this.data333 = data333;
+    public String getdata7092052() {
+        return data7092052;
     }
 
-    public data80Bean getdata334() {
-        return data334;
+    public void setdata7092052(String data7092052) {
+        this.data7092052 = data7092052;
     }
 
-    public void setdata334(data80Bean data334) {
-        this.data334 = data334;
+    public String getdata7092053() {
+        return data7092053;
     }
 
-    public data80Bean getdata335() {
-        return data335;
+    public void setdata7092053(String data7092053) {
+        this.data7092053 = data7092053;
     }
 
-    public void setdata335(data80Bean data335) {
-        this.data335 = data335;
+    public String getdata7092054() {
+        return data7092054;
     }
 
-    public data80Bean getdata336() {
-        return data336;
+    public void setdata7092054(String data7092054) {
+        this.data7092054 = data7092054;
     }
 
-    public void setdata336(data80Bean data336) {
-        this.data336 = data336;
+    public String getdata7092055() {
+        return data7092055;
     }
 
-    public data80Bean getdata337() {
-        return data337;
+    public void setdata7092055(String data7092055) {
+        this.data7092055 = data7092055;
     }
 
-    public void setdata337(data80Bean data337) {
-        this.data337 = data337;
+    public String getdata7092056() {
+        return data7092056;
     }
 
-    public data80Bean getdata338() {
-        return data338;
+    public void setdata7092056(String data7092056) {
+        this.data7092056 = data7092056;
     }
 
-    public void setdata338(data80Bean data338) {
-        this.data338 = data338;
+    public String getdata7092057() {
+        return data7092057;
     }
 
-    public data80Bean getdata339() {
-        return data339;
+    public void setdata7092057(String data7092057) {
+        this.data7092057 = data7092057;
     }
 
-    public void setdata339(data80Bean data339) {
-        this.data339 = data339;
+    public String getdata7092058() {
+        return data7092058;
     }
 
-    public data80Bean getdata340() {
-        return data340;
+    public void setdata7092058(String data7092058) {
+        this.data7092058 = data7092058;
     }
 
-    public void setdata340(data80Bean data340) {
-        this.data340 = data340;
+    public String getdata7092059() {
+        return data7092059;
     }
 
-    public data80Bean getdata341() {
-        return data341;
+    public void setdata7092059(String data7092059) {
+        this.data7092059 = data7092059;
     }
 
-    public void setdata341(data80Bean data341) {
-        this.data341 = data341;
+    public String getdata7092060() {
+        return data7092060;
     }
 
-    public data80Bean getdata342() {
-        return data342;
+    public void setdata7092060(String data7092060) {
+        this.data7092060 = data7092060;
     }
 
-    public void setdata342(data80Bean data342) {
-        this.data342 = data342;
+    public String getdata7092061() {
+        return data7092061;
     }
 
-    public data80Bean getdata343() {
-        return data343;
+    public void setdata7092061(String data7092061) {
+        this.data7092061 = data7092061;
     }
 
-    public void setdata343(data80Bean data343) {
-        this.data343 = data343;
+    public String getdata7092062() {
+        return data7092062;
     }
 
-    public data80Bean getdata344() {
-        return data344;
+    public void setdata7092062(String data7092062) {
+        this.data7092062 = data7092062;
     }
 
-    public void setdata344(data80Bean data344) {
-        this.data344 = data344;
+    public String getdata7092063() {
+        return data7092063;
     }
 
-    public data80Bean getdata345() {
-        return data345;
+    public void setdata7092063(String data7092063) {
+        this.data7092063 = data7092063;
     }
 
-    public void setdata345(data80Bean data345) {
-        this.data345 = data345;
+    public String getdata7092064() {
+        return data7092064;
     }
 
-    public data80Bean getdata346() {
-        return data346;
+    public void setdata7092064(String data7092064) {
+        this.data7092064 = data7092064;
     }
 
-    public void setdata346(data80Bean data346) {
-        this.data346 = data346;
+    public String getdata7092065() {
+        return data7092065;
     }
 
-    public data80Bean getdata347() {
-        return data347;
+    public void setdata7092065(String data7092065) {
+        this.data7092065 = data7092065;
     }
 
-    public void setdata347(data80Bean data347) {
-        this.data347 = data347;
+    public String getdata7092066() {
+        return data7092066;
     }
 
-    public data80Bean getdata348() {
-        return data348;
+    public void setdata7092066(String data7092066) {
+        this.data7092066 = data7092066;
     }
 
-    public void setdata348(data80Bean data348) {
-        this.data348 = data348;
+    public String getdata7092067() {
+        return data7092067;
     }
 
-    public data80Bean getdata1043() {
-        return data1043;
+    public void setdata7092067(String data7092067) {
+        this.data7092067 = data7092067;
     }
 
-    public void setdata1043(data80Bean data1043) {
-        this.data1043 = data1043;
+    public String getdata7092068() {
+        return data7092068;
     }
 
-    public data80Bean getdata1085() {
-        return data1085;
+    public void setdata7092068(String data7092068) {
+        this.data7092068 = data7092068;
     }
 
-    public void setdata1085(data80Bean data1085) {
-        this.data1085 = data1085;
+    public String getdata7092069() {
+        return data7092069;
     }
 
-    public data80Bean getdata349() {
-        return data349;
+    public void setdata7092069(String data7092069) {
+        this.data7092069 = data7092069;
     }
 
-    public void setdata349(data80Bean data349) {
-        this.data349 = data349;
+    public String getdata7092070() {
+        return data7092070;
     }
 
-    public data80Bean getdata350() {
-        return data350;
+    public void setdata7092070(String data7092070) {
+        this.data7092070 = data7092070;
     }
 
-    public void setdata350(data80Bean data350) {
-        this.data350 = data350;
+    public String getdata7092071() {
+        return data7092071;
     }
 
-    public data80Bean getdata351() {
-        return data351;
+    public void setdata7092071(String data7092071) {
+        this.data7092071 = data7092071;
     }
 
-    public void setdata351(data80Bean data351) {
-        this.data351 = data351;
+    public String getdata7092072() {
+        return data7092072;
     }
 
-    public data80Bean getdata352() {
-        return data352;
+    public void setdata7092072(String data7092072) {
+        this.data7092072 = data7092072;
     }
 
-    public void setdata352(data80Bean data352) {
-        this.data352 = data352;
+    public String getdata7092073() {
+        return data7092073;
     }
 
-    public data80Bean getdata353() {
-        return data353;
+    public void setdata7092073(String data7092073) {
+        this.data7092073 = data7092073;
     }
 
-    public void setdata353(data80Bean data353) {
-        this.data353 = data353;
+    public String getdata7092074() {
+        return data7092074;
     }
 
-    public data80Bean getdata354() {
-        return data354;
+    public void setdata7092074(String data7092074) {
+        this.data7092074 = data7092074;
     }
 
-    public void setdata354(data80Bean data354) {
-        this.data354 = data354;
+    public String getdata7092075() {
+        return data7092075;
     }
 
-    public data80Bean getdata355() {
-        return data355;
+    public void setdata7092075(String data7092075) {
+        this.data7092075 = data7092075;
     }
 
-    public void setdata355(data80Bean data355) {
-        this.data355 = data355;
+    public String getdata7092076() {
+        return data7092076;
     }
 
-    public data80Bean getdata356() {
-        return data356;
+    public void setdata7092076(String data7092076) {
+        this.data7092076 = data7092076;
     }
 
-    public void setdata356(data80Bean data356) {
-        this.data356 = data356;
+    public String getdata7092077() {
+        return data7092077;
     }
 
-    public data80Bean getdata357() {
-        return data357;
+    public void setdata7092077(String data7092077) {
+        this.data7092077 = data7092077;
     }
 
-    public void setdata357(data80Bean data357) {
-        this.data357 = data357;
+    public String getdata7092078() {
+        return data7092078;
     }
 
-    public data80Bean getdata358() {
-        return data358;
+    public void setdata7092078(String data7092078) {
+        this.data7092078 = data7092078;
     }
 
-    public void setdata358(data80Bean data358) {
-        this.data358 = data358;
+    public String getdata7092079() {
+        return data7092079;
     }
 
-    public data80Bean getdata359() {
-        return data359;
+    public void setdata7092079(String data7092079) {
+        this.data7092079 = data7092079;
     }
 
-    public void setdata359(data80Bean data359) {
-        this.data359 = data359;
+    public String getdata7092080() {
+        return data7092080;
     }
 
-    public data80Bean getdata360() {
-        return data360;
+    public void setdata7092080(String data7092080) {
+        this.data7092080 = data7092080;
     }
 
-    public void setdata360(data80Bean data360) {
-        this.data360 = data360;
+    public String getdata7092081() {
+        return data7092081;
     }
 
-    public data80Bean getdata361() {
-        return data361;
+    public void setdata7092081(String data7092081) {
+        this.data7092081 = data7092081;
     }
 
-    public void setdata361(data80Bean data361) {
-        this.data361 = data361;
+    public String getdata7092082() {
+        return data7092082;
     }
 
-    public data80Bean getdata362() {
-        return data362;
+    public void setdata7092082(String data7092082) {
+        this.data7092082 = data7092082;
     }
 
-    public void setdata362(data80Bean data362) {
-        this.data362 = data362;
+    public String getdata7092083() {
+        return data7092083;
     }
 
-    public data80Bean getdata363() {
-        return data363;
+    public void setdata7092083(String data7092083) {
+        this.data7092083 = data7092083;
     }
 
-    public void setdata363(data80Bean data363) {
-        this.data363 = data363;
+    public String getdata7092084() {
+        return data7092084;
     }
 
-    public data80Bean getdata364() {
-        return data364;
+    public void setdata7092084(String data7092084) {
+        this.data7092084 = data7092084;
     }
 
-    public void setdata364(data80Bean data364) {
-        this.data364 = data364;
+    public String getdata7092085() {
+        return data7092085;
     }
 
-    public data80Bean getdata365() {
-        return data365;
+    public void setdata7092085(String data7092085) {
+        this.data7092085 = data7092085;
     }
 
-    public void setdata365(data80Bean data365) {
-        this.data365 = data365;
+    public String getdata7092086() {
+        return data7092086;
     }
 
-    public data80Bean getdata366() {
-        return data366;
+    public void setdata7092086(String data7092086) {
+        this.data7092086 = data7092086;
     }
 
-    public void setdata366(data80Bean data366) {
-        this.data366 = data366;
+    public String getdata7092087() {
+        return data7092087;
     }
 
-    public data80Bean getdata367() {
-        return data367;
+    public void setdata7092087(String data7092087) {
+        this.data7092087 = data7092087;
     }
 
-    public void setdata367(data80Bean data367) {
-        this.data367 = data367;
+    public String getdata7092088() {
+        return data7092088;
     }
 
-    public data80Bean getdata368() {
-        return data368;
+    public void setdata7092088(String data7092088) {
+        this.data7092088 = data7092088;
     }
 
-    public void setdata368(data80Bean data368) {
-        this.data368 = data368;
+    public String getdata7092089() {
+        return data7092089;
     }
 
-    public data80Bean getdata369() {
-        return data369;
+    public void setdata7092089(String data7092089) {
+        this.data7092089 = data7092089;
     }
 
-    public void setdata369(data80Bean data369) {
-        this.data369 = data369;
+    public String getdata7092090() {
+        return data7092090;
     }
 
-    public data80Bean getdata370() {
-        return data370;
+    public void setdata7092090(String data7092090) {
+        this.data7092090 = data7092090;
     }
 
-    public void setdata370(data80Bean data370) {
-        this.data370 = data370;
+    public String getdata7092091() {
+        return data7092091;
     }
 
-    public data80Bean getdata371() {
-        return data371;
+    public void setdata7092091(String data7092091) {
+        this.data7092091 = data7092091;
     }
 
-    public void setdata371(data80Bean data371) {
-        this.data371 = data371;
+    public String getdata7092092() {
+        return data7092092;
     }
 
-    public data80Bean getdata372() {
-        return data372;
+    public void setdata7092092(String data7092092) {
+        this.data7092092 = data7092092;
     }
 
-    public void setdata372(data80Bean data372) {
-        this.data372 = data372;
+    public String getdata7092093() {
+        return data7092093;
     }
 
-    public data80Bean getdata373() {
-        return data373;
+    public void setdata7092093(String data7092093) {
+        this.data7092093 = data7092093;
     }
 
-    public void setdata373(data80Bean data373) {
-        this.data373 = data373;
+    public String getdata7092094() {
+        return data7092094;
     }
 
-    public data80Bean getdata374() {
-        return data374;
+    public void setdata7092094(String data7092094) {
+        this.data7092094 = data7092094;
     }
 
-    public void setdata374(data80Bean data374) {
-        this.data374 = data374;
+    public String getdata7092095() {
+        return data7092095;
     }
 
-    public data80Bean getdata375() {
-        return data375;
+    public void setdata7092095(String data7092095) {
+        this.data7092095 = data7092095;
     }
 
-    public void setdata375(data80Bean data375) {
-        this.data375 = data375;
+    public String getdata7092096() {
+        return data7092096;
     }
 
-    public data80Bean getdata376() {
-        return data376;
+    public void setdata7092096(String data7092096) {
+        this.data7092096 = data7092096;
     }
 
-    public void setdata376(data80Bean data376) {
-        this.data376 = data376;
+    public String getdata7092097() {
+        return data7092097;
     }
 
-    public data80Bean getdata377() {
-        return data377;
+    public void setdata7092097(String data7092097) {
+        this.data7092097 = data7092097;
     }
 
-    public void setdata377(data80Bean data377) {
-        this.data377 = data377;
+    public String getdata7092098() {
+        return data7092098;
     }
 
-    public data80Bean getdata378() {
-        return data378;
+    public void setdata7092098(String data7092098) {
+        this.data7092098 = data7092098;
     }
 
-    public void setdata378(data80Bean data378) {
-        this.data378 = data378;
+    public String getdata7092099() {
+        return data7092099;
     }
 
-    public data80Bean getdata379() {
-        return data379;
+    public void setdata7092099(String data7092099) {
+        this.data7092099 = data7092099;
     }
 
-    public void setdata379(data80Bean data379) {
-        this.data379 = data379;
+    public String getdata7092100() {
+        return data7092100;
     }
 
-    public data80Bean getdata380() {
-        return data380;
+    public void setdata7092100(String data7092100) {
+        this.data7092100 = data7092100;
     }
 
-    public void setdata380(data80Bean data380) {
-        this.data380 = data380;
+    public String getdata7092101() {
+        return data7092101;
     }
 
-    public data80Bean getdata381() {
-        return data381;
+    public void setdata7092101(String data7092101) {
+        this.data7092101 = data7092101;
     }
 
-    public void setdata381(data80Bean data381) {
-        this.data381 = data381;
+    public String getdata7092102() {
+        return data7092102;
     }
 
-    public data80Bean getdata382() {
-        return data382;
+    public void setdata7092102(String data7092102) {
+        this.data7092102 = data7092102;
     }
 
-    public void setdata382(data80Bean data382) {
-        this.data382 = data382;
+    public String getdata7092103() {
+        return data7092103;
     }
 
-    public data80Bean getdata383() {
-        return data383;
+    public void setdata7092103(String data7092103) {
+        this.data7092103 = data7092103;
     }
 
-    public void setdata383(data80Bean data383) {
-        this.data383 = data383;
+    public String getdata7092104() {
+        return data7092104;
     }
 
-    public data80Bean getdata384() {
-        return data384;
+    public void setdata7092104(String data7092104) {
+        this.data7092104 = data7092104;
     }
 
-    public void setdata384(data80Bean data384) {
-        this.data384 = data384;
+    public String getdata7092105() {
+        return data7092105;
     }
 
-    public data80Bean getdata385() {
-        return data385;
+    public void setdata7092105(String data7092105) {
+        this.data7092105 = data7092105;
     }
 
-    public void setdata385(data80Bean data385) {
-        this.data385 = data385;
+    public String getdata7092106() {
+        return data7092106;
     }
 
-    public data80Bean getdata386() {
-        return data386;
+    public void setdata7092106(String data7092106) {
+        this.data7092106 = data7092106;
     }
 
-    public void setdata386(data80Bean data386) {
-        this.data386 = data386;
+    public String getdata7092107() {
+        return data7092107;
     }
 
-    public data80Bean getdata387() {
-        return data387;
+    public void setdata7092107(String data7092107) {
+        this.data7092107 = data7092107;
     }
 
-    public void setdata387(data80Bean data387) {
-        this.data387 = data387;
+    public String getdata7092108() {
+        return data7092108;
     }
 
-    public data80Bean getdata388() {
-        return data388;
+    public void setdata7092108(String data7092108) {
+        this.data7092108 = data7092108;
     }
 
-    public void setdata388(data80Bean data388) {
-        this.data388 = data388;
+    public String getdata7092109() {
+        return data7092109;
     }
 
-    public data80Bean getdata389() {
-        return data389;
+    public void setdata7092109(String data7092109) {
+        this.data7092109 = data7092109;
     }
 
-    public void setdata389(data80Bean data389) {
-        this.data389 = data389;
+    public String getdata7092110() {
+        return data7092110;
     }
 
-    public data80Bean getdata390() {
-        return data390;
+    public void setdata7092110(String data7092110) {
+        this.data7092110 = data7092110;
     }
 
-    public void setdata390(data80Bean data390) {
-        this.data390 = data390;
+    public String getdata7092111() {
+        return data7092111;
     }
 
-    public data80Bean getdata391() {
-        return data391;
+    public void setdata7092111(String data7092111) {
+        this.data7092111 = data7092111;
     }
 
-    public void setdata391(data80Bean data391) {
-        this.data391 = data391;
+    public String getdata7092112() {
+        return data7092112;
     }
 
-    public data80Bean getdata392() {
-        return data392;
+    public void setdata7092112(String data7092112) {
+        this.data7092112 = data7092112;
     }
 
-    public void setdata392(data80Bean data392) {
-        this.data392 = data392;
+    public String getdata7092113() {
+        return data7092113;
     }
 
-    public data80Bean getdata393() {
-        return data393;
+    public void setdata7092113(String data7092113) {
+        this.data7092113 = data7092113;
     }
 
-    public void setdata393(data80Bean data393) {
-        this.data393 = data393;
+    public String getdata7092114() {
+        return data7092114;
     }
 
-    public data80Bean getdata394() {
-        return data394;
+    public void setdata7092114(String data7092114) {
+        this.data7092114 = data7092114;
     }
 
-    public void setdata394(data80Bean data394) {
-        this.data394 = data394;
+    public String getdata7092115() {
+        return data7092115;
     }
 
-    public data80Bean getdata395() {
-        return data395;
+    public void setdata7092115(String data7092115) {
+        this.data7092115 = data7092115;
     }
 
-    public void setdata395(data80Bean data395) {
-        this.data395 = data395;
+    public String getdata7092116() {
+        return data7092116;
     }
 
-    public data80Bean getdata396() {
-        return data396;
+    public void setdata7092116(String data7092116) {
+        this.data7092116 = data7092116;
     }
 
-    public void setdata396(data80Bean data396) {
-        this.data396 = data396;
+    public String getdata7092117() {
+        return data7092117;
     }
 
-    public data80Bean getdata397() {
-        return data397;
+    public void setdata7092117(String data7092117) {
+        this.data7092117 = data7092117;
     }
 
-    public void setdata397(data80Bean data397) {
-        this.data397 = data397;
+    public String getdata7092118() {
+        return data7092118;
     }
 
-    public data80Bean getdata398() {
-        return data398;
+    public void setdata7092118(String data7092118) {
+        this.data7092118 = data7092118;
     }
 
-    public void setdata398(data80Bean data398) {
-        this.data398 = data398;
+    public String getdata7092119() {
+        return data7092119;
     }
 
-    public data80Bean getdata399() {
-        return data399;
+    public void setdata7092119(String data7092119) {
+        this.data7092119 = data7092119;
     }
 
-    public void setdata399(data80Bean data399) {
-        this.data399 = data399;
+    public String getdata7092120() {
+        return data7092120;
     }
 
-    public data80Bean getdata400() {
-        return data400;
+    public void setdata7092120(String data7092120) {
+        this.data7092120 = data7092120;
     }
 
-    public void setdata400(data80Bean data400) {
-        this.data400 = data400;
+    public String getdata7092121() {
+        return data7092121;
     }
 
-    public data80Bean getdata401() {
-        return data401;
+    public void setdata7092121(String data7092121) {
+        this.data7092121 = data7092121;
     }
 
-    public void setdata401(data80Bean data401) {
-        this.data401 = data401;
+    public String getdata7092122() {
+        return data7092122;
     }
 
-    public data80Bean getdata402() {
-        return data402;
+    public void setdata7092122(String data7092122) {
+        this.data7092122 = data7092122;
     }
 
-    public void setdata402(data80Bean data402) {
-        this.data402 = data402;
+    public String getdata7092123() {
+        return data7092123;
     }
 
-    public data80Bean getdata403() {
-        return data403;
+    public void setdata7092123(String data7092123) {
+        this.data7092123 = data7092123;
     }
 
-    public void setdata403(data80Bean data403) {
-        this.data403 = data403;
+    public String getdata7092124() {
+        return data7092124;
     }
 
-    public data80Bean getdata404() {
-        return data404;
+    public void setdata7092124(String data7092124) {
+        this.data7092124 = data7092124;
     }
 
-    public void setdata404(data80Bean data404) {
-        this.data404 = data404;
+    public String getdata7092125() {
+        return data7092125;
     }
 
-    public data80Bean getdata405() {
-        return data405;
+    public void setdata7092125(String data7092125) {
+        this.data7092125 = data7092125;
     }
 
-    public void setdata405(data80Bean data405) {
-        this.data405 = data405;
+    public String getdata7092126() {
+        return data7092126;
     }
 
-    public data80Bean getdata406() {
-        return data406;
+    public void setdata7092126(String data7092126) {
+        this.data7092126 = data7092126;
     }
 
-    public void setdata406(data80Bean data406) {
-        this.data406 = data406;
+    public String getdata7092127() {
+        return data7092127;
     }
 
-    public data80Bean getdata1042() {
-        return data1042;
+    public void setdata7092127(String data7092127) {
+        this.data7092127 = data7092127;
     }
 
-    public void setdata1042(data80Bean data1042) {
-        this.data1042 = data1042;
+    public String getdata7092128() {
+        return data7092128;
     }
 
-    public data80Bean getdata1086() {
-        return data1086;
+    public void setdata7092128(String data7092128) {
+        this.data7092128 = data7092128;
     }
 
-    public void setdata1086(data80Bean data1086) {
-        this.data1086 = data1086;
+    public String getdata7092129() {
+        return data7092129;
     }
 
-    public data80Bean getdata407() {
-        return data407;
+    public void setdata7092129(String data7092129) {
+        this.data7092129 = data7092129;
     }
 
-    public void setdata407(data80Bean data407) {
-        this.data407 = data407;
+    public String getdata7092130() {
+        return data7092130;
     }
 
-    public data80Bean getdata408() {
-        return data408;
+    public void setdata7092130(String data7092130) {
+        this.data7092130 = data7092130;
     }
 
-    public void setdata408(data80Bean data408) {
-        this.data408 = data408;
+    public String getdata7092131() {
+        return data7092131;
     }
 
-    public data80Bean getdata409() {
-        return data409;
+    public void setdata7092131(String data7092131) {
+        this.data7092131 = data7092131;
     }
 
-    public void setdata409(data80Bean data409) {
-        this.data409 = data409;
+    public String getdata7092132() {
+        return data7092132;
     }
 
-    public data80Bean getdata410() {
-        return data410;
+    public void setdata7092132(String data7092132) {
+        this.data7092132 = data7092132;
     }
 
-    public void setdata410(data80Bean data410) {
-        this.data410 = data410;
+    public String getdata7092133() {
+        return data7092133;
     }
 
-    public data80Bean getdata411() {
-        return data411;
+    public void setdata7092133(String data7092133) {
+        this.data7092133 = data7092133;
     }
 
-    public void setdata411(data80Bean data411) {
-        this.data411 = data411;
+    public String getdata7092134() {
+        return data7092134;
     }
 
-    public data80Bean getdata412() {
-        return data412;
+    public void setdata7092134(String data7092134) {
+        this.data7092134 = data7092134;
     }
 
-    public void setdata412(data80Bean data412) {
-        this.data412 = data412;
+    public String getdata7092135() {
+        return data7092135;
     }
 
-    public data80Bean getdata413() {
-        return data413;
+    public void setdata7092135(String data7092135) {
+        this.data7092135 = data7092135;
     }
 
-    public void setdata413(data80Bean data413) {
-        this.data413 = data413;
+    public String getdata7092136() {
+        return data7092136;
     }
 
-    public data80Bean getdata414() {
-        return data414;
+    public void setdata7092136(String data7092136) {
+        this.data7092136 = data7092136;
     }
 
-    public void setdata414(data80Bean data414) {
-        this.data414 = data414;
+    public String getdata7092137() {
+        return data7092137;
     }
 
-    public data80Bean getdata415() {
-        return data415;
+    public void setdata7092137(String data7092137) {
+        this.data7092137 = data7092137;
     }
 
-    public void setdata415(data80Bean data415) {
-        this.data415 = data415;
+    public String getdata7092138() {
+        return data7092138;
     }
 
-    public data80Bean getdata416() {
-        return data416;
+    public void setdata7092138(String data7092138) {
+        this.data7092138 = data7092138;
     }
 
-    public void setdata416(data80Bean data416) {
-        this.data416 = data416;
+    public String getdata7092139() {
+        return data7092139;
     }
 
-    public data80Bean getdata417() {
-        return data417;
+    public void setdata7092139(String data7092139) {
+        this.data7092139 = data7092139;
     }
 
-    public void setdata417(data80Bean data417) {
-        this.data417 = data417;
+    public String getdata7092140() {
+        return data7092140;
     }
 
-    public data80Bean getdata418() {
-        return data418;
+    public void setdata7092140(String data7092140) {
+        this.data7092140 = data7092140;
     }
 
-    public void setdata418(data80Bean data418) {
-        this.data418 = data418;
+    public String getdata7092141() {
+        return data7092141;
     }
 
-    public data80Bean getdata419() {
-        return data419;
+    public void setdata7092141(String data7092141) {
+        this.data7092141 = data7092141;
     }
 
-    public void setdata419(data80Bean data419) {
-        this.data419 = data419;
+    public String getdata7092142() {
+        return data7092142;
     }
 
-    public data80Bean getdata420() {
-        return data420;
+    public void setdata7092142(String data7092142) {
+        this.data7092142 = data7092142;
     }
 
-    public void setdata420(data80Bean data420) {
-        this.data420 = data420;
+    public String getdata7092143() {
+        return data7092143;
     }
 
-    public data80Bean getdata421() {
-        return data421;
+    public void setdata7092143(String data7092143) {
+        this.data7092143 = data7092143;
     }
 
-    public void setdata421(data80Bean data421) {
-        this.data421 = data421;
+    public String getdata7092144() {
+        return data7092144;
     }
 
-    public data80Bean getdata422() {
-        return data422;
+    public void setdata7092144(String data7092144) {
+        this.data7092144 = data7092144;
     }
 
-    public void setdata422(data80Bean data422) {
-        this.data422 = data422;
+    public String getdata7092145() {
+        return data7092145;
     }
 
-    public data80Bean getdata423() {
-        return data423;
+    public void setdata7092145(String data7092145) {
+        this.data7092145 = data7092145;
     }
 
-    public void setdata423(data80Bean data423) {
-        this.data423 = data423;
+    public String getdata7092146() {
+        return data7092146;
     }
 
-    public data80Bean getdata424() {
-        return data424;
+    public void setdata7092146(String data7092146) {
+        this.data7092146 = data7092146;
     }
 
-    public void setdata424(data80Bean data424) {
-        this.data424 = data424;
+    public String getdata7092147() {
+        return data7092147;
     }
 
-    public data80Bean getdata425() {
-        return data425;
+    public void setdata7092147(String data7092147) {
+        this.data7092147 = data7092147;
     }
 
-    public void setdata425(data80Bean data425) {
-        this.data425 = data425;
+    public String getdata7092148() {
+        return data7092148;
     }
 
-    public data80Bean getdata426() {
-        return data426;
+    public void setdata7092148(String data7092148) {
+        this.data7092148 = data7092148;
     }
 
-    public void setdata426(data80Bean data426) {
-        this.data426 = data426;
+    public String getdata7092149() {
+        return data7092149;
     }
 
-    public data80Bean getdata427() {
-        return data427;
+    public void setdata7092149(String data7092149) {
+        this.data7092149 = data7092149;
     }
 
-    public void setdata427(data80Bean data427) {
-        this.data427 = data427;
+    public String getdata7092150() {
+        return data7092150;
     }
 
-    public data80Bean getdata428() {
-        return data428;
+    public void setdata7092150(String data7092150) {
+        this.data7092150 = data7092150;
     }
 
-    public void setdata428(data80Bean data428) {
-        this.data428 = data428;
+    public String getdata7092151() {
+        return data7092151;
     }
 
-    public data80Bean getdata429() {
-        return data429;
+    public void setdata7092151(String data7092151) {
+        this.data7092151 = data7092151;
     }
 
-    public void setdata429(data80Bean data429) {
-        this.data429 = data429;
+    public String getdata7092152() {
+        return data7092152;
     }
 
-    public data80Bean getdata430() {
-        return data430;
+    public void setdata7092152(String data7092152) {
+        this.data7092152 = data7092152;
     }
 
-    public void setdata430(data80Bean data430) {
-        this.data430 = data430;
+    public String getdata7092153() {
+        return data7092153;
     }
 
-    public data80Bean getdata431() {
-        return data431;
+    public void setdata7092153(String data7092153) {
+        this.data7092153 = data7092153;
     }
 
-    public void setdata431(data80Bean data431) {
-        this.data431 = data431;
+    public String getdata7092154() {
+        return data7092154;
     }
 
-    public data80Bean getdata432() {
-        return data432;
+    public void setdata7092154(String data7092154) {
+        this.data7092154 = data7092154;
     }
 
-    public void setdata432(data80Bean data432) {
-        this.data432 = data432;
+    public String getdata7092155() {
+        return data7092155;
     }
 
-    public data80Bean getdata433() {
-        return data433;
+    public void setdata7092155(String data7092155) {
+        this.data7092155 = data7092155;
     }
 
-    public void setdata433(data80Bean data433) {
-        this.data433 = data433;
+    public String getdata7092156() {
+        return data7092156;
     }
 
-    public data80Bean getdata434() {
-        return data434;
+    public void setdata7092156(String data7092156) {
+        this.data7092156 = data7092156;
     }
 
-    public void setdata434(data80Bean data434) {
-        this.data434 = data434;
+    public String getdata7092157() {
+        return data7092157;
     }
 
-    public data80Bean getdata435() {
-        return data435;
+    public void setdata7092157(String data7092157) {
+        this.data7092157 = data7092157;
     }
 
-    public void setdata435(data80Bean data435) {
-        this.data435 = data435;
+    public String getdata7092158() {
+        return data7092158;
     }
 
-    public data80Bean getdata436() {
-        return data436;
+    public void setdata7092158(String data7092158) {
+        this.data7092158 = data7092158;
     }
 
-    public void setdata436(data80Bean data436) {
-        this.data436 = data436;
+    public String getdata7092159() {
+        return data7092159;
     }
 
-    public data80Bean getdata437() {
-        return data437;
+    public void setdata7092159(String data7092159) {
+        this.data7092159 = data7092159;
     }
 
-    public void setdata437(data80Bean data437) {
-        this.data437 = data437;
+    public String getdata7092160() {
+        return data7092160;
     }
 
-    public data80Bean getdata438() {
-        return data438;
+    public void setdata7092160(String data7092160) {
+        this.data7092160 = data7092160;
     }
 
-    public void setdata438(data80Bean data438) {
-        this.data438 = data438;
+    public String getdata7092161() {
+        return data7092161;
     }
 
-    public data80Bean getdata439() {
-        return data439;
+    public void setdata7092161(String data7092161) {
+        this.data7092161 = data7092161;
     }
 
-    public void setdata439(data80Bean data439) {
-        this.data439 = data439;
+    public String getdata7092162() {
+        return data7092162;
     }
 
-    public data80Bean getdata440() {
-        return data440;
+    public void setdata7092162(String data7092162) {
+        this.data7092162 = data7092162;
     }
 
-    public void setdata440(data80Bean data440) {
-        this.data440 = data440;
+    public String getdata7092163() {
+        return data7092163;
     }
 
-    public data80Bean getdata441() {
-        return data441;
+    public void setdata7092163(String data7092163) {
+        this.data7092163 = data7092163;
     }
 
-    public void setdata441(data80Bean data441) {
-        this.data441 = data441;
+    public String getdata7092164() {
+        return data7092164;
     }
 
-    public data80Bean getdata442() {
-        return data442;
+    public void setdata7092164(String data7092164) {
+        this.data7092164 = data7092164;
     }
 
-    public void setdata442(data80Bean data442) {
-        this.data442 = data442;
+    public String getdata7092165() {
+        return data7092165;
     }
 
-    public data80Bean getdata443() {
-        return data443;
+    public void setdata7092165(String data7092165) {
+        this.data7092165 = data7092165;
     }
 
-    public void setdata443(data80Bean data443) {
-        this.data443 = data443;
+    public String getdata7092166() {
+        return data7092166;
     }
 
-    public data80Bean getdata444() {
-        return data444;
+    public void setdata7092166(String data7092166) {
+        this.data7092166 = data7092166;
     }
 
-    public void setdata444(data80Bean data444) {
-        this.data444 = data444;
+    public String getdata7092167() {
+        return data7092167;
     }
 
-    public data80Bean getdata445() {
-        return data445;
+    public void setdata7092167(String data7092167) {
+        this.data7092167 = data7092167;
     }
 
-    public void setdata445(data80Bean data445) {
-        this.data445 = data445;
+    public String getdata7092168() {
+        return data7092168;
     }
 
-    public data80Bean getdata446() {
-        return data446;
+    public void setdata7092168(String data7092168) {
+        this.data7092168 = data7092168;
     }
 
-    public void setdata446(data80Bean data446) {
-        this.data446 = data446;
+    public String getdata7092169() {
+        return data7092169;
     }
 
-    public data80Bean getdata447() {
-        return data447;
+    public void setdata7092169(String data7092169) {
+        this.data7092169 = data7092169;
     }
 
-    public void setdata447(data80Bean data447) {
-        this.data447 = data447;
+    public String getdata7092170() {
+        return data7092170;
     }
 
-    public data80Bean getdata448() {
-        return data448;
+    public void setdata7092170(String data7092170) {
+        this.data7092170 = data7092170;
     }
 
-    public void setdata448(data80Bean data448) {
-        this.data448 = data448;
+    public String getdata7092171() {
+        return data7092171;
     }
 
-    public data80Bean getdata449() {
-        return data449;
+    public void setdata7092171(String data7092171) {
+        this.data7092171 = data7092171;
     }
 
-    public void setdata449(data80Bean data449) {
-        this.data449 = data449;
+    public String getdata7092172() {
+        return data7092172;
     }
 
-    public data80Bean getdata450() {
-        return data450;
+    public void setdata7092172(String data7092172) {
+        this.data7092172 = data7092172;
     }
 
-    public void setdata450(data80Bean data450) {
-        this.data450 = data450;
+    public String getdata7092173() {
+        return data7092173;
     }
 
-    public data80Bean getdata451() {
-        return data451;
+    public void setdata7092173(String data7092173) {
+        this.data7092173 = data7092173;
     }
 
-    public void setdata451(data80Bean data451) {
-        this.data451 = data451;
+    public String getdata7092174() {
+        return data7092174;
     }
 
-    public data80Bean getdata452() {
-        return data452;
+    public void setdata7092174(String data7092174) {
+        this.data7092174 = data7092174;
     }
 
-    public void setdata452(data80Bean data452) {
-        this.data452 = data452;
+    public String getdata7092175() {
+        return data7092175;
     }
 
-    public data80Bean getdata453() {
-        return data453;
+    public void setdata7092175(String data7092175) {
+        this.data7092175 = data7092175;
     }
 
-    public void setdata453(data80Bean data453) {
-        this.data453 = data453;
+    public String getdata7092176() {
+        return data7092176;
     }
 
-    public data80Bean getdata454() {
-        return data454;
+    public void setdata7092176(String data7092176) {
+        this.data7092176 = data7092176;
     }
 
-    public void setdata454(data80Bean data454) {
-        this.data454 = data454;
+    public String getdata7092177() {
+        return data7092177;
     }
 
-    public data80Bean getdata455() {
-        return data455;
+    public void setdata7092177(String data7092177) {
+        this.data7092177 = data7092177;
     }
 
-    public void setdata455(data80Bean data455) {
-        this.data455 = data455;
+    public String getdata7092178() {
+        return data7092178;
     }
 
-    public data80Bean getdata456() {
-        return data456;
+    public void setdata7092178(String data7092178) {
+        this.data7092178 = data7092178;
     }
 
-    public void setdata456(data80Bean data456) {
-        this.data456 = data456;
+    public String getdata7092179() {
+        return data7092179;
     }
 
-    public data80Bean getdata457() {
-        return data457;
+    public void setdata7092179(String data7092179) {
+        this.data7092179 = data7092179;
     }
 
-    public void setdata457(data80Bean data457) {
-        this.data457 = data457;
+    public String getdata7092180() {
+        return data7092180;
     }
 
-    public data80Bean getdata458() {
-        return data458;
+    public void setdata7092180(String data7092180) {
+        this.data7092180 = data7092180;
     }
 
-    public void setdata458(data80Bean data458) {
-        this.data458 = data458;
+    public String getdata7092181() {
+        return data7092181;
     }
 
-    public data80Bean getdata459() {
-        return data459;
+    public void setdata7092181(String data7092181) {
+        this.data7092181 = data7092181;
     }
 
-    public void setdata459(data80Bean data459) {
-        this.data459 = data459;
+    public String getdata7092182() {
+        return data7092182;
     }
 
-    public data80Bean getdata460() {
-        return data460;
+    public void setdata7092182(String data7092182) {
+        this.data7092182 = data7092182;
     }
 
-    public void setdata460(data80Bean data460) {
-        this.data460 = data460;
+    public String getdata7092183() {
+        return data7092183;
     }
 
-    public data80Bean getdata461() {
-        return data461;
+    public void setdata7092183(String data7092183) {
+        this.data7092183 = data7092183;
     }
 
-    public void setdata461(data80Bean data461) {
-        this.data461 = data461;
+    public String getdata7092184() {
+        return data7092184;
     }
 
-    public data80Bean getdata462() {
-        return data462;
+    public void setdata7092184(String data7092184) {
+        this.data7092184 = data7092184;
     }
 
-    public void setdata462(data80Bean data462) {
-        this.data462 = data462;
+    public String getdata7092185() {
+        return data7092185;
     }
 
-    public data80Bean getdata463() {
-        return data463;
+    public void setdata7092185(String data7092185) {
+        this.data7092185 = data7092185;
     }
 
-    public void setdata463(data80Bean data463) {
-        this.data463 = data463;
+    public String getdata7092186() {
+        return data7092186;
     }
 
-    public data80Bean getdata464() {
-        return data464;
+    public void setdata7092186(String data7092186) {
+        this.data7092186 = data7092186;
     }
 
-    public void setdata464(data80Bean data464) {
-        this.data464 = data464;
+    public String getdata7092187() {
+        return data7092187;
     }
 
-    public data80Bean getdata1041() {
-        return data1041;
+    public void setdata7092187(String data7092187) {
+        this.data7092187 = data7092187;
     }
 
-    public void setdata1041(data80Bean data1041) {
-        this.data1041 = data1041;
+    public String getdata7092188() {
+        return data7092188;
     }
 
-    public data80Bean getdata1087() {
-        return data1087;
+    public void setdata7092188(String data7092188) {
+        this.data7092188 = data7092188;
     }
 
-    public void setdata1087(data80Bean data1087) {
-        this.data1087 = data1087;
+    public String getdata7092189() {
+        return data7092189;
     }
 
-    public data80Bean getdata613() {
-        return data613;
+    public void setdata7092189(String data7092189) {
+        this.data7092189 = data7092189;
     }
 
-    public void setdata613(data80Bean data613) {
-        this.data613 = data613;
+    public String getdata7092190() {
+        return data7092190;
     }
 
-    public data80Bean getdata614() {
-        return data614;
+    public void setdata7092190(String data7092190) {
+        this.data7092190 = data7092190;
     }
 
-    public void setdata614(data80Bean data614) {
-        this.data614 = data614;
+    public String getdata7092191() {
+        return data7092191;
     }
 
-    public data80Bean getdata615() {
-        return data615;
+    public void setdata7092191(String data7092191) {
+        this.data7092191 = data7092191;
     }
 
-    public void setdata615(data80Bean data615) {
-        this.data615 = data615;
+    public String getdata7092192() {
+        return data7092192;
     }
 
-    public data80Bean getdata616() {
-        return data616;
+    public void setdata7092192(String data7092192) {
+        this.data7092192 = data7092192;
     }
 
-    public void setdata616(data80Bean data616) {
-        this.data616 = data616;
+    public String getdata7092193() {
+        return data7092193;
     }
 
-    public data80Bean getdata617() {
-        return data617;
+    public void setdata7092193(String data7092193) {
+        this.data7092193 = data7092193;
     }
 
-    public void setdata617(data80Bean data617) {
-        this.data617 = data617;
+    public String getdata7092194() {
+        return data7092194;
     }
 
-    public data80Bean getdata618() {
-        return data618;
+    public void setdata7092194(String data7092194) {
+        this.data7092194 = data7092194;
     }
 
-    public void setdata618(data80Bean data618) {
-        this.data618 = data618;
+    public String getdata7092195() {
+        return data7092195;
     }
 
-    public data80Bean getdata619() {
-        return data619;
+    public void setdata7092195(String data7092195) {
+        this.data7092195 = data7092195;
     }
 
-    public void setdata619(data80Bean data619) {
-        this.data619 = data619;
+    public String getdata7092196() {
+        return data7092196;
     }
 
-    public data80Bean getdata808() {
-        return data808;
+    public void setdata7092196(String data7092196) {
+        this.data7092196 = data7092196;
     }
 
-    public void setdata808(data80Bean data808) {
-        this.data808 = data808;
+    public String getdata7092197() {
+        return data7092197;
     }
 
-    public data80Bean getdata700() {
-        return data700;
+    public void setdata7092197(String data7092197) {
+        this.data7092197 = data7092197;
     }
 
-    public void setdata700(data80Bean data700) {
-        this.data700 = data700;
+    public String getdata7092198() {
+        return data7092198;
     }
 
-    public data80Bean getdata701() {
-        return data701;
+    public void setdata7092198(String data7092198) {
+        this.data7092198 = data7092198;
     }
 
-    public void setdata701(data80Bean data701) {
-        this.data701 = data701;
+    public String getdata7092199() {
+        return data7092199;
     }
 
-    public data80Bean getdata702() {
-        return data702;
+    public void setdata7092199(String data7092199) {
+        this.data7092199 = data7092199;
     }
 
-    public void setdata702(data80Bean data702) {
-        this.data702 = data702;
+    public String getdata7092200() {
+        return data7092200;
     }
 
-    public data80Bean getdata703() {
-        return data703;
+    public void setdata7092200(String data7092200) {
+        this.data7092200 = data7092200;
     }
 
-    public void setdata703(data80Bean data703) {
-        this.data703 = data703;
+    public String getdata7092201() {
+        return data7092201;
     }
 
-    public data80Bean getdata704() {
-        return data704;
+    public void setdata7092201(String data7092201) {
+        this.data7092201 = data7092201;
     }
 
-    public void setdata704(data80Bean data704) {
-        this.data704 = data704;
+    public String getdata7092202() {
+        return data7092202;
     }
 
-    public data80Bean getdata705() {
-        return data705;
+    public void setdata7092202(String data7092202) {
+        this.data7092202 = data7092202;
     }
 
-    public void setdata705(data80Bean data705) {
-        this.data705 = data705;
+    public String getdata7092203() {
+        return data7092203;
     }
 
-    public data80Bean getdata706() {
-        return data706;
+    public void setdata7092203(String data7092203) {
+        this.data7092203 = data7092203;
     }
 
-    public void setdata706(data80Bean data706) {
-        this.data706 = data706;
+    public String getdata7092204() {
+        return data7092204;
     }
 
-    public data80Bean getdata707() {
-        return data707;
+    public void setdata7092204(String data7092204) {
+        this.data7092204 = data7092204;
     }
 
-    public void setdata707(data80Bean data707) {
-        this.data707 = data707;
+    public String getdata7092205() {
+        return data7092205;
     }
 
-    public data80Bean getdata708() {
-        return data708;
+    public void setdata7092205(String data7092205) {
+        this.data7092205 = data7092205;
     }
 
-    public void setdata708(data80Bean data708) {
-        this.data708 = data708;
+    public String getdata7092206() {
+        return data7092206;
     }
 
-    public data80Bean getdata709() {
-        return data709;
+    public void setdata7092206(String data7092206) {
+        this.data7092206 = data7092206;
     }
 
-    public void setdata709(data80Bean data709) {
-        this.data709 = data709;
+    public String getdata7092207() {
+        return data7092207;
     }
 
-    public data80Bean getdata710() {
-        return data710;
+    public void setdata7092207(String data7092207) {
+        this.data7092207 = data7092207;
     }
 
-    public void setdata710(data80Bean data710) {
-        this.data710 = data710;
+    public String getdata7092208() {
+        return data7092208;
     }
 
-    public data80Bean getdata711() {
-        return data711;
+    public void setdata7092208(String data7092208) {
+        this.data7092208 = data7092208;
     }
 
-    public void setdata711(data80Bean data711) {
-        this.data711 = data711;
+    public String getdata7092209() {
+        return data7092209;
     }
 
-    public data80Bean getdata769() {
-        return data769;
+    public void setdata7092209(String data7092209) {
+        this.data7092209 = data7092209;
     }
 
-    public void setdata769(data80Bean data769) {
-        this.data769 = data769;
+    public String getdata7092210() {
+        return data7092210;
     }
 
-    public data80Bean getdata770() {
-        return data770;
+    public void setdata7092210(String data7092210) {
+        this.data7092210 = data7092210;
     }
 
-    public void setdata770(data80Bean data770) {
-        this.data770 = data770;
+    public String getdata7092211() {
+        return data7092211;
     }
 
-    public data80Bean getdata771() {
-        return data771;
+    public void setdata7092211(String data7092211) {
+        this.data7092211 = data7092211;
     }
 
-    public void setdata771(data80Bean data771) {
-        this.data771 = data771;
+    public String getdata7092212() {
+        return data7092212;
     }
 
-    public data80Bean getdata772() {
-        return data772;
+    public void setdata7092212(String data7092212) {
+        this.data7092212 = data7092212;
     }
 
-    public void setdata772(data80Bean data772) {
-        this.data772 = data772;
+    public String getdata7092213() {
+        return data7092213;
     }
 
-    public data80Bean getdata773() {
-        return data773;
+    public void setdata7092213(String data7092213) {
+        this.data7092213 = data7092213;
     }
 
-    public void setdata773(data80Bean data773) {
-        this.data773 = data773;
+    public String getdata7092214() {
+        return data7092214;
     }
 
-    public data80Bean getdata774() {
-        return data774;
+    public void setdata7092214(String data7092214) {
+        this.data7092214 = data7092214;
     }
 
-    public void setdata774(data80Bean data774) {
-        this.data774 = data774;
+    public String getdata7092215() {
+        return data7092215;
     }
 
-    public data80Bean getdata775() {
-        return data775;
+    public void setdata7092215(String data7092215) {
+        this.data7092215 = data7092215;
     }
 
-    public void setdata775(data80Bean data775) {
-        this.data775 = data775;
+    public String getdata7092216() {
+        return data7092216;
     }
 
-    public data80Bean getdata776() {
-        return data776;
+    public void setdata7092216(String data7092216) {
+        this.data7092216 = data7092216;
     }
 
-    public void setdata776(data80Bean data776) {
-        this.data776 = data776;
+    public String getdata7092217() {
+        return data7092217;
     }
 
-    public data80Bean getdata777() {
-        return data777;
+    public void setdata7092217(String data7092217) {
+        this.data7092217 = data7092217;
     }
 
-    public void setdata777(data80Bean data777) {
-        this.data777 = data777;
+    public String getdata7092218() {
+        return data7092218;
     }
 
-    public data80Bean getdata778() {
-        return data778;
+    public void setdata7092218(String data7092218) {
+        this.data7092218 = data7092218;
     }
 
-    public void setdata778(data80Bean data778) {
-        this.data778 = data778;
+    public String getdata7092219() {
+        return data7092219;
     }
 
-    public data80Bean getdata674() {
-        return data674;
+    public void setdata7092219(String data7092219) {
+        this.data7092219 = data7092219;
     }
 
-    public void setdata674(data80Bean data674) {
-        this.data674 = data674;
+    public String getdata7092220() {
+        return data7092220;
     }
 
-    public data80Bean getdata675() {
-        return data675;
+    public void setdata7092220(String data7092220) {
+        this.data7092220 = data7092220;
     }
 
-    public void setdata675(data80Bean data675) {
-        this.data675 = data675;
+    public String getdata7092221() {
+        return data7092221;
     }
 
-    public data80Bean getdata676() {
-        return data676;
+    public void setdata7092221(String data7092221) {
+        this.data7092221 = data7092221;
     }
 
-    public void setdata676(data80Bean data676) {
-        this.data676 = data676;
+    public String getdata7092222() {
+        return data7092222;
     }
 
-    public data80Bean getdata677() {
-        return data677;
+    public void setdata7092222(String data7092222) {
+        this.data7092222 = data7092222;
     }
 
-    public void setdata677(data80Bean data677) {
-        this.data677 = data677;
+    public String getdata7092223() {
+        return data7092223;
     }
 
-    public data80Bean getdata678() {
-        return data678;
+    public void setdata7092223(String data7092223) {
+        this.data7092223 = data7092223;
     }
 
-    public void setdata678(data80Bean data678) {
-        this.data678 = data678;
+    public String getdata7092224() {
+        return data7092224;
     }
 
-    public data80Bean getdata679() {
-        return data679;
+    public void setdata7092224(String data7092224) {
+        this.data7092224 = data7092224;
     }
 
-    public void setdata679(data80Bean data679) {
-        this.data679 = data679;
+    public String getdata7092225() {
+        return data7092225;
     }
 
-    public data80Bean getdata680() {
-        return data680;
+    public void setdata7092225(String data7092225) {
+        this.data7092225 = data7092225;
     }
 
-    public void setdata680(data80Bean data680) {
-        this.data680 = data680;
+    public String getdata7092226() {
+        return data7092226;
     }
 
-    public data80Bean getdata681() {
-        return data681;
+    public void setdata7092226(String data7092226) {
+        this.data7092226 = data7092226;
     }
 
-    public void setdata681(data80Bean data681) {
-        this.data681 = data681;
+    public String getdata7092227() {
+        return data7092227;
     }
 
-    public data80Bean getdata682() {
-        return data682;
+    public void setdata7092227(String data7092227) {
+        this.data7092227 = data7092227;
     }
 
-    public void setdata682(data80Bean data682) {
-        this.data682 = data682;
+    public String getdata7092228() {
+        return data7092228;
     }
 
-    public data80Bean getdata683() {
-        return data683;
+    public void setdata7092228(String data7092228) {
+        this.data7092228 = data7092228;
     }
 
-    public void setdata683(data80Bean data683) {
-        this.data683 = data683;
+    public String getdata7092229() {
+        return data7092229;
     }
 
-    public data80Bean getdata684() {
-        return data684;
+    public void setdata7092229(String data7092229) {
+        this.data7092229 = data7092229;
     }
 
-    public void setdata684(data80Bean data684) {
-        this.data684 = data684;
+    public String getdata7092230() {
+        return data7092230;
     }
 
-    public data80Bean getdata685() {
-        return data685;
+    public void setdata7092230(String data7092230) {
+        this.data7092230 = data7092230;
     }
 
-    public void setdata685(data80Bean data685) {
-        this.data685 = data685;
+    public String getdata7092231() {
+        return data7092231;
     }
 
-    public data80Bean getdata901() {
-        return data901;
+    public void setdata7092231(String data7092231) {
+        this.data7092231 = data7092231;
     }
 
-    public void setdata901(data80Bean data901) {
-        this.data901 = data901;
+    public String getdata7092232() {
+        return data7092232;
     }
 
-    public data80Bean getdata902() {
-        return data902;
+    public void setdata7092232(String data7092232) {
+        this.data7092232 = data7092232;
     }
 
-    public void setdata902(data80Bean data902) {
-        this.data902 = data902;
+    public String getdata7092233() {
+        return data7092233;
     }
 
-    public data80Bean getdata903() {
-        return data903;
+    public void setdata7092233(String data7092233) {
+        this.data7092233 = data7092233;
     }
 
-    public void setdata903(data80Bean data903) {
-        this.data903 = data903;
+    public String getdata7092234() {
+        return data7092234;
     }
 
-    public data80Bean getdata904() {
-        return data904;
+    public void setdata7092234(String data7092234) {
+        this.data7092234 = data7092234;
     }
 
-    public void setdata904(data80Bean data904) {
-        this.data904 = data904;
+    public String getdata7092235() {
+        return data7092235;
     }
 
-    public data80Bean getdata905() {
-        return data905;
+    public void setdata7092235(String data7092235) {
+        this.data7092235 = data7092235;
     }
 
-    public void setdata905(data80Bean data905) {
-        this.data905 = data905;
+    public String getdata7092236() {
+        return data7092236;
     }
 
-    public data80Bean getdata906() {
-        return data906;
+    public void setdata7092236(String data7092236) {
+        this.data7092236 = data7092236;
     }
 
-    public void setdata906(data80Bean data906) {
-        this.data906 = data906;
+    public String getdata7092237() {
+        return data7092237;
     }
 
-    public data80Bean getdata907() {
-        return data907;
+    public void setdata7092237(String data7092237) {
+        this.data7092237 = data7092237;
     }
 
-    public void setdata907(data80Bean data907) {
-        this.data907 = data907;
+    public String getdata7092238() {
+        return data7092238;
     }
 
-    public data80Bean getdata908() {
-        return data908;
+    public void setdata7092238(String data7092238) {
+        this.data7092238 = data7092238;
     }
 
-    public void setdata908(data80Bean data908) {
-        this.data908 = data908;
+    public String getdata7092239() {
+        return data7092239;
     }
 
-    public data80Bean getdata909() {
-        return data909;
+    public void setdata7092239(String data7092239) {
+        this.data7092239 = data7092239;
     }
 
-    public void setdata909(data80Bean data909) {
-        this.data909 = data909;
+    public String getdata7092240() {
+        return data7092240;
     }
 
-    public data80Bean getdata910() {
-        return data910;
+    public void setdata7092240(String data7092240) {
+        this.data7092240 = data7092240;
     }
 
-    public void setdata910(data80Bean data910) {
-        this.data910 = data910;
+    public String getdata7092241() {
+        return data7092241;
     }
 
-    public data80Bean getdata911() {
-        return data911;
+    public void setdata7092241(String data7092241) {
+        this.data7092241 = data7092241;
     }
 
-    public void setdata911(data80Bean data911) {
-        this.data911 = data911;
+    public String getdata7092242() {
+        return data7092242;
     }
 
-    public data80Bean getdata912() {
-        return data912;
+    public void setdata7092242(String data7092242) {
+        this.data7092242 = data7092242;
     }
 
-    public void setdata912(data80Bean data912) {
-        this.data912 = data912;
+    public String getdata7092243() {
+        return data7092243;
     }
 
-    public data80Bean getdata1401() {
-        return data1401;
+    public void setdata7092243(String data7092243) {
+        this.data7092243 = data7092243;
     }
 
-    public void setdata1401(data80Bean data1401) {
-        this.data1401 = data1401;
+    public String getdata7092244() {
+        return data7092244;
     }
 
-    public data80Bean getdata1402() {
-        return data1402;
+    public void setdata7092244(String data7092244) {
+        this.data7092244 = data7092244;
     }
 
-    public void setdata1402(data80Bean data1402) {
-        this.data1402 = data1402;
+    public String getdata7092245() {
+        return data7092245;
     }
 
-    public data80Bean getdata1403() {
-        return data1403;
+    public void setdata7092245(String data7092245) {
+        this.data7092245 = data7092245;
     }
 
-    public void setdata1403(data80Bean data1403) {
-        this.data1403 = data1403;
+    public String getdata7092246() {
+        return data7092246;
     }
 
-    public data80Bean getdata1404() {
-        return data1404;
+    public void setdata7092246(String data7092246) {
+        this.data7092246 = data7092246;
     }
 
-    public void setdata1404(data80Bean data1404) {
-        this.data1404 = data1404;
+    public String getdata7092247() {
+        return data7092247;
     }
 
-    public data80Bean getdata1405() {
-        return data1405;
+    public void setdata7092247(String data7092247) {
+        this.data7092247 = data7092247;
     }
 
-    public void setdata1405(data80Bean data1405) {
-        this.data1405 = data1405;
+    public String getdata7092248() {
+        return data7092248;
     }
 
-    public data80Bean getdata1406() {
-        return data1406;
+    public void setdata7092248(String data7092248) {
+        this.data7092248 = data7092248;
     }
 
-    public void setdata1406(data80Bean data1406) {
-        this.data1406 = data1406;
+    public String getdata7092249() {
+        return data7092249;
     }
 
-    public data80Bean getdata1407() {
-        return data1407;
+    public void setdata7092249(String data7092249) {
+        this.data7092249 = data7092249;
     }
 
-    public void setdata1407(data80Bean data1407) {
-        this.data1407 = data1407;
+    public String getdata7092250() {
+        return data7092250;
     }
 
-    public data80Bean getdata1408() {
-        return data1408;
+    public void setdata7092250(String data7092250) {
+        this.data7092250 = data7092250;
     }
 
-    public void setdata1408(data80Bean data1408) {
-        this.data1408 = data1408;
+    public String getdata7092251() {
+        return data7092251;
     }
 
-    public data80Bean getdata1409() {
-        return data1409;
+    public void setdata7092251(String data7092251) {
+        this.data7092251 = data7092251;
     }
 
-    public void setdata1409(data80Bean data1409) {
-        this.data1409 = data1409;
+    public String getdata7092252() {
+        return data7092252;
     }
 
-    public data80Bean getdata1410() {
-        return data1410;
+    public void setdata7092252(String data7092252) {
+        this.data7092252 = data7092252;
     }
 
-    public void setdata1410(data80Bean data1410) {
-        this.data1410 = data1410;
+    public String getdata7092253() {
+        return data7092253;
     }
 
-    public data80Bean getdata1411() {
-        return data1411;
+    public void setdata7092253(String data7092253) {
+        this.data7092253 = data7092253;
     }
 
-    public void setdata1411(data80Bean data1411) {
-        this.data1411 = data1411;
+    public String getdata7092254() {
+        return data7092254;
     }
 
-    public data80Bean getdata1412() {
-        return data1412;
+    public void setdata7092254(String data7092254) {
+        this.data7092254 = data7092254;
     }
 
-    public void setdata1412(data80Bean data1412) {
-        this.data1412 = data1412;
+    public String getdata7092255() {
+        return data7092255;
     }
 
-    public data80Bean getdata1413() {
-        return data1413;
+    public void setdata7092255(String data7092255) {
+        this.data7092255 = data7092255;
     }
 
-    public void setdata1413(data80Bean data1413) {
-        this.data1413 = data1413;
+    public String getdata7092256() {
+        return data7092256;
     }
 
-    public data80Bean getdata1414() {
-        return data1414;
+    public void setdata7092256(String data7092256) {
+        this.data7092256 = data7092256;
     }
 
-    public void setdata1414(data80Bean data1414) {
-        this.data1414 = data1414;
+    public String getdata7092257() {
+        return data7092257;
     }
 
-    public data80Bean getdata1415() {
-        return data1415;
+    public void setdata7092257(String data7092257) {
+        this.data7092257 = data7092257;
     }
 
-    public void setdata1415(data80Bean data1415) {
-        this.data1415 = data1415;
+    public String getdata7092258() {
+        return data7092258;
     }
 
-    public data80Bean getdata1416() {
-        return data1416;
+    public void setdata7092258(String data7092258) {
+        this.data7092258 = data7092258;
     }
 
-    public void setdata1416(data80Bean data1416) {
-        this.data1416 = data1416;
+    public String getdata7092259() {
+        return data7092259;
     }
 
-    public data80Bean getdata1417() {
-        return data1417;
+    public void setdata7092259(String data7092259) {
+        this.data7092259 = data7092259;
     }
 
-    public void setdata1417(data80Bean data1417) {
-        this.data1417 = data1417;
+    public String getdata7092260() {
+        return data7092260;
     }
 
-    public data80Bean getdata1418() {
-        return data1418;
+    public void setdata7092260(String data7092260) {
+        this.data7092260 = data7092260;
     }
 
-    public void setdata1418(data80Bean data1418) {
-        this.data1418 = data1418;
+    public String getdata7092261() {
+        return data7092261;
     }
 
-    public data80Bean getdata1419() {
-        return data1419;
+    public void setdata7092261(String data7092261) {
+        this.data7092261 = data7092261;
     }
 
-    public void setdata1419(data80Bean data1419) {
-        this.data1419 = data1419;
+    public String getdata7092262() {
+        return data7092262;
     }
 
-    public data80Bean getdata1420() {
-        return data1420;
+    public void setdata7092262(String data7092262) {
+        this.data7092262 = data7092262;
     }
 
-    public void setdata1420(data80Bean data1420) {
-        this.data1420 = data1420;
+    public String getdata7092263() {
+        return data7092263;
     }
 
-    public data80Bean getdata1421() {
-        return data1421;
+    public void setdata7092263(String data7092263) {
+        this.data7092263 = data7092263;
     }
 
-    public void setdata1421(data80Bean data1421) {
-        this.data1421 = data1421;
+    public String getdata7092264() {
+        return data7092264;
     }
 
-    public data80Bean getdata1422() {
-        return data1422;
+    public void setdata7092264(String data7092264) {
+        this.data7092264 = data7092264;
     }
 
-    public void setdata1422(data80Bean data1422) {
-        this.data1422 = data1422;
+    public String getdata7092265() {
+        return data7092265;
     }
 
-    public data80Bean getdata1423() {
-        return data1423;
+    public void setdata7092265(String data7092265) {
+        this.data7092265 = data7092265;
     }
 
-    public void setdata1423(data80Bean data1423) {
-        this.data1423 = data1423;
+    public String getdata7092266() {
+        return data7092266;
     }
 
-    public data80Bean getdata1424() {
-        return data1424;
+    public void setdata7092266(String data7092266) {
+        this.data7092266 = data7092266;
     }
 
-    public void setdata1424(data80Bean data1424) {
-        this.data1424 = data1424;
+    public String getdata7092267() {
+        return data7092267;
     }
 
-    public data80Bean getdata1425() {
-        return data1425;
+    public void setdata7092267(String data7092267) {
+        this.data7092267 = data7092267;
     }
 
-    public void setdata1425(data80Bean data1425) {
-        this.data1425 = data1425;
+    public String getdata7092268() {
+        return data7092268;
     }
 
-    public data80Bean getdata1426() {
-        return data1426;
+    public void setdata7092268(String data7092268) {
+        this.data7092268 = data7092268;
     }
 
-    public void setdata1426(data80Bean data1426) {
-        this.data1426 = data1426;
+    public String getdata7092269() {
+        return data7092269;
     }
 
-    public data80Bean getdata1427() {
-        return data1427;
+    public void setdata7092269(String data7092269) {
+        this.data7092269 = data7092269;
     }
 
-    public void setdata1427(data80Bean data1427) {
-        this.data1427 = data1427;
+    public String getdata7092270() {
+        return data7092270;
     }
 
-    public data80Bean getdata1428() {
-        return data1428;
+    public void setdata7092270(String data7092270) {
+        this.data7092270 = data7092270;
     }
 
-    public void setdata1428(data80Bean data1428) {
-        this.data1428 = data1428;
+    public String getdata7092271() {
+        return data7092271;
     }
 
-    public data80Bean getdata1429() {
-        return data1429;
+    public void setdata7092271(String data7092271) {
+        this.data7092271 = data7092271;
     }
 
-    public void setdata1429(data80Bean data1429) {
-        this.data1429 = data1429;
+    public String getdata7092272() {
+        return data7092272;
     }
 
-    public data80Bean getdata1430() {
-        return data1430;
+    public void setdata7092272(String data7092272) {
+        this.data7092272 = data7092272;
     }
 
-    public void setdata1430(data80Bean data1430) {
-        this.data1430 = data1430;
+    public String getdata7092273() {
+        return data7092273;
     }
 
-    public data80Bean getdata1431() {
-        return data1431;
+    public void setdata7092273(String data7092273) {
+        this.data7092273 = data7092273;
     }
 
-    public void setdata1431(data80Bean data1431) {
-        this.data1431 = data1431;
+    public String getdata7092274() {
+        return data7092274;
     }
 
-    public data80Bean getdata1432() {
-        return data1432;
+    public void setdata7092274(String data7092274) {
+        this.data7092274 = data7092274;
     }
 
-    public void setdata1432(data80Bean data1432) {
-        this.data1432 = data1432;
+    public String getdata7092275() {
+        return data7092275;
     }
 
-    public data80Bean getdata1433() {
-        return data1433;
+    public void setdata7092275(String data7092275) {
+        this.data7092275 = data7092275;
     }
 
-    public void setdata1433(data80Bean data1433) {
-        this.data1433 = data1433;
+    public String getdata7092276() {
+        return data7092276;
     }
 
-    public data80Bean getdata1434() {
-        return data1434;
+    public void setdata7092276(String data7092276) {
+        this.data7092276 = data7092276;
     }
 
-    public void setdata1434(data80Bean data1434) {
-        this.data1434 = data1434;
+    public String getdata7092277() {
+        return data7092277;
     }
 
-    public data80Bean getdata1435() {
-        return data1435;
+    public void setdata7092277(String data7092277) {
+        this.data7092277 = data7092277;
     }
 
-    public void setdata1435(data80Bean data1435) {
-        this.data1435 = data1435;
+    public String getdata7092278() {
+        return data7092278;
     }
 
-    public data80Bean getdata1436() {
-        return data1436;
+    public void setdata7092278(String data7092278) {
+        this.data7092278 = data7092278;
     }
 
-    public void setdata1436(data80Bean data1436) {
-        this.data1436 = data1436;
+    public String getdata7092279() {
+        return data7092279;
     }
 
-    public data80Bean getdata1473() {
-        return data1473;
+    public void setdata7092279(String data7092279) {
+        this.data7092279 = data7092279;
     }
 
-    public void setdata1473(data80Bean data1473) {
-        this.data1473 = data1473;
+    public String getdata7092280() {
+        return data7092280;
     }
 
-    public data80Bean getdata1474() {
-        return data1474;
+    public void setdata7092280(String data7092280) {
+        this.data7092280 = data7092280;
     }
 
-    public void setdata1474(data80Bean data1474) {
-        this.data1474 = data1474;
+    public String getdata7092281() {
+        return data7092281;
     }
 
-    public data80Bean getdata1475() {
-        return data1475;
+    public void setdata7092281(String data7092281) {
+        this.data7092281 = data7092281;
     }
 
-    public void setdata1475(data80Bean data1475) {
-        this.data1475 = data1475;
+    public String getdata7092282() {
+        return data7092282;
     }
 
-    public data80Bean getdata1476() {
-        return data1476;
+    public void setdata7092282(String data7092282) {
+        this.data7092282 = data7092282;
     }
 
-    public void setdata1476(data80Bean data1476) {
-        this.data1476 = data1476;
+    public String getdata7092283() {
+        return data7092283;
     }
 
-    public data80Bean getdata1477() {
-        return data1477;
+    public void setdata7092283(String data7092283) {
+        this.data7092283 = data7092283;
     }
 
-    public void setdata1477(data80Bean data1477) {
-        this.data1477 = data1477;
+    public String getdata7092284() {
+        return data7092284;
     }
 
-    public data80Bean getdata1478() {
-        return data1478;
+    public void setdata7092284(String data7092284) {
+        this.data7092284 = data7092284;
     }
 
-    public void setdata1478(data80Bean data1478) {
-        this.data1478 = data1478;
+    public String getdata7092285() {
+        return data7092285;
     }
 
-    public data80Bean getdata1479() {
-        return data1479;
+    public void setdata7092285(String data7092285) {
+        this.data7092285 = data7092285;
     }
 
-    public void setdata1479(data80Bean data1479) {
-        this.data1479 = data1479;
+    public String getdata7092286() {
+        return data7092286;
     }
 
-    public data80Bean getdata1480() {
-        return data1480;
+    public void setdata7092286(String data7092286) {
+        this.data7092286 = data7092286;
     }
 
-    public void setdata1480(data80Bean data1480) {
-        this.data1480 = data1480;
+    public String getdata7092287() {
+        return data7092287;
     }
 
-    public data80Bean getdata1481() {
-        return data1481;
+    public void setdata7092287(String data7092287) {
+        this.data7092287 = data7092287;
     }
 
-    public void setdata1481(data80Bean data1481) {
-        this.data1481 = data1481;
+    public String getdata7092288() {
+        return data7092288;
     }
 
-    public data80Bean getdata1482() {
-        return data1482;
+    public void setdata7092288(String data7092288) {
+        this.data7092288 = data7092288;
     }
 
-    public void setdata1482(data80Bean data1482) {
-        this.data1482 = data1482;
+    public String getdata7092289() {
+        return data7092289;
     }
 
-    public data80Bean getdata1483() {
-        return data1483;
+    public void setdata7092289(String data7092289) {
+        this.data7092289 = data7092289;
     }
 
-    public void setdata1483(data80Bean data1483) {
-        this.data1483 = data1483;
+    public String getdata7092290() {
+        return data7092290;
     }
 
-    public data80Bean getdata1484() {
-        return data1484;
+    public void setdata7092290(String data7092290) {
+        this.data7092290 = data7092290;
     }
 
-    public void setdata1484(data80Bean data1484) {
-        this.data1484 = data1484;
+    public String getdata7092291() {
+        return data7092291;
     }
 
-    public data80Bean getdata1437() {
-        return data1437;
+    public void setdata7092291(String data7092291) {
+        this.data7092291 = data7092291;
     }
 
-    public void setdata1437(data80Bean data1437) {
-        this.data1437 = data1437;
+    public String getdata7092292() {
+        return data7092292;
     }
 
-    public data80Bean getdata1438() {
-        return data1438;
+    public void setdata7092292(String data7092292) {
+        this.data7092292 = data7092292;
     }
 
-    public void setdata1438(data80Bean data1438) {
-        this.data1438 = data1438;
+    public String getdata7092293() {
+        return data7092293;
     }
 
-    public data80Bean getdata1439() {
-        return data1439;
+    public void setdata7092293(String data7092293) {
+        this.data7092293 = data7092293;
     }
 
-    public void setdata1439(data80Bean data1439) {
-        this.data1439 = data1439;
+    public String getdata7092294() {
+        return data7092294;
     }
 
-    public data80Bean getdata1440() {
-        return data1440;
+    public void setdata7092294(String data7092294) {
+        this.data7092294 = data7092294;
     }
 
-    public void setdata1440(data80Bean data1440) {
-        this.data1440 = data1440;
+    public String getdata7092295() {
+        return data7092295;
     }
 
-    public data80Bean getdata1441() {
-        return data1441;
+    public void setdata7092295(String data7092295) {
+        this.data7092295 = data7092295;
     }
 
-    public void setdata1441(data80Bean data1441) {
-        this.data1441 = data1441;
+    public String getdata7092296() {
+        return data7092296;
     }
 
-    public data80Bean getdata1442() {
-        return data1442;
+    public void setdata7092296(String data7092296) {
+        this.data7092296 = data7092296;
     }
 
-    public void setdata1442(data80Bean data1442) {
-        this.data1442 = data1442;
+    public String getdata7092297() {
+        return data7092297;
     }
 
-    public data80Bean getdata1443() {
-        return data1443;
+    public void setdata7092297(String data7092297) {
+        this.data7092297 = data7092297;
     }
 
-    public void setdata1443(data80Bean data1443) {
-        this.data1443 = data1443;
+    public String getdata7092298() {
+        return data7092298;
     }
 
-    public data80Bean getdata1444() {
-        return data1444;
+    public void setdata7092298(String data7092298) {
+        this.data7092298 = data7092298;
     }
 
-    public void setdata1444(data80Bean data1444) {
-        this.data1444 = data1444;
+    public String getdata7092299() {
+        return data7092299;
     }
 
-    public data80Bean getdata1445() {
-        return data1445;
+    public void setdata7092299(String data7092299) {
+        this.data7092299 = data7092299;
     }
 
-    public void setdata1445(data80Bean data1445) {
-        this.data1445 = data1445;
+    public String getdata7092300() {
+        return data7092300;
     }
 
-    public data80Bean getdata1446() {
-        return data1446;
+    public void setdata7092300(String data7092300) {
+        this.data7092300 = data7092300;
     }
 
-    public void setdata1446(data80Bean data1446) {
-        this.data1446 = data1446;
+    public String getdata7092301() {
+        return data7092301;
     }
 
-    public data80Bean getdata1447() {
-        return data1447;
+    public void setdata7092301(String data7092301) {
+        this.data7092301 = data7092301;
     }
 
-    public void setdata1447(data80Bean data1447) {
-        this.data1447 = data1447;
+    public String getdata7092302() {
+        return data7092302;
     }
 
-    public data80Bean getdata1448() {
-        return data1448;
+    public void setdata7092302(String data7092302) {
+        this.data7092302 = data7092302;
     }
 
-    public void setdata1448(data80Bean data1448) {
-        this.data1448 = data1448;
+    public String getdata7092303() {
+        return data7092303;
     }
 
-    public data80Bean getdata1449() {
-        return data1449;
+    public void setdata7092303(String data7092303) {
+        this.data7092303 = data7092303;
     }
 
-    public void setdata1449(data80Bean data1449) {
-        this.data1449 = data1449;
+    public String getdata7092304() {
+        return data7092304;
     }
 
-    public data80Bean getdata1450() {
-        return data1450;
+    public void setdata7092304(String data7092304) {
+        this.data7092304 = data7092304;
     }
 
-    public void setdata1450(data80Bean data1450) {
-        this.data1450 = data1450;
+    public String getdata7092305() {
+        return data7092305;
     }
 
-    public data80Bean getdata1451() {
-        return data1451;
+    public void setdata7092305(String data7092305) {
+        this.data7092305 = data7092305;
     }
 
-    public void setdata1451(data80Bean data1451) {
-        this.data1451 = data1451;
+    public String getdata7092306() {
+        return data7092306;
     }
 
-    public data80Bean getdata1452() {
-        return data1452;
+    public void setdata7092306(String data7092306) {
+        this.data7092306 = data7092306;
     }
 
-    public void setdata1452(data80Bean data1452) {
-        this.data1452 = data1452;
+    public String getdata7092307() {
+        return data7092307;
     }
 
-    public data80Bean getdata1453() {
-        return data1453;
+    public void setdata7092307(String data7092307) {
+        this.data7092307 = data7092307;
     }
 
-    public void setdata1453(data80Bean data1453) {
-        this.data1453 = data1453;
+    public String getdata7092308() {
+        return data7092308;
     }
 
-    public data80Bean getdata1454() {
-        return data1454;
+    public void setdata7092308(String data7092308) {
+        this.data7092308 = data7092308;
     }
 
-    public void setdata1454(data80Bean data1454) {
-        this.data1454 = data1454;
+    public String getdata7092309() {
+        return data7092309;
     }
 
-    public data80Bean getdata1455() {
-        return data1455;
+    public void setdata7092309(String data7092309) {
+        this.data7092309 = data7092309;
     }
 
-    public void setdata1455(data80Bean data1455) {
-        this.data1455 = data1455;
+    public String getdata7092310() {
+        return data7092310;
     }
 
-    public data80Bean getdata1456() {
-        return data1456;
+    public void setdata7092310(String data7092310) {
+        this.data7092310 = data7092310;
     }
 
-    public void setdata1456(data80Bean data1456) {
-        this.data1456 = data1456;
+    public String getdata7092311() {
+        return data7092311;
     }
 
-    public data80Bean getdata1457() {
-        return data1457;
+    public void setdata7092311(String data7092311) {
+        this.data7092311 = data7092311;
     }
 
-    public void setdata1457(data80Bean data1457) {
-        this.data1457 = data1457;
+    public String getdata7092312() {
+        return data7092312;
     }
 
-    public data80Bean getdata1458() {
-        return data1458;
+    public void setdata7092312(String data7092312) {
+        this.data7092312 = data7092312;
     }
 
-    public void setdata1458(data80Bean data1458) {
-        this.data1458 = data1458;
+    public String getdata7092313() {
+        return data7092313;
     }
 
-    public data80Bean getdata1459() {
-        return data1459;
+    public void setdata7092313(String data7092313) {
+        this.data7092313 = data7092313;
     }
 
-    public void setdata1459(data80Bean data1459) {
-        this.data1459 = data1459;
+    public String getdata7092314() {
+        return data7092314;
     }
 
-    public data80Bean getdata1460() {
-        return data1460;
+    public void setdata7092314(String data7092314) {
+        this.data7092314 = data7092314;
     }
 
-    public void setdata1460(data80Bean data1460) {
-        this.data1460 = data1460;
+    public String getdata7092315() {
+        return data7092315;
     }
 
-    public data80Bean getdata1461() {
-        return data1461;
+    public void setdata7092315(String data7092315) {
+        this.data7092315 = data7092315;
     }
 
-    public void setdata1461(data80Bean data1461) {
-        this.data1461 = data1461;
+    public String getdata7092316() {
+        return data7092316;
     }
 
-    public data80Bean getdata1462() {
-        return data1462;
+    public void setdata7092316(String data7092316) {
+        this.data7092316 = data7092316;
     }
 
-    public void setdata1462(data80Bean data1462) {
-        this.data1462 = data1462;
+    public String getdata7092317() {
+        return data7092317;
     }
 
-    public data80Bean getdata1463() {
-        return data1463;
+    public void setdata7092317(String data7092317) {
+        this.data7092317 = data7092317;
     }
 
-    public void setdata1463(data80Bean data1463) {
-        this.data1463 = data1463;
+    public String getdata7092318() {
+        return data7092318;
     }
 
-    public data80Bean getdata1464() {
-        return data1464;
+    public void setdata7092318(String data7092318) {
+        this.data7092318 = data7092318;
     }
 
-    public void setdata1464(data80Bean data1464) {
-        this.data1464 = data1464;
+    public String getdata7092319() {
+        return data7092319;
     }
 
-    public data80Bean getdata1465() {
-        return data1465;
+    public void setdata7092319(String data7092319) {
+        this.data7092319 = data7092319;
     }
 
-    public void setdata1465(data80Bean data1465) {
-        this.data1465 = data1465;
+    public String getdata7092320() {
+        return data7092320;
     }
 
-    public data80Bean getdata1466() {
-        return data1466;
+    public void setdata7092320(String data7092320) {
+        this.data7092320 = data7092320;
     }
 
-    public void setdata1466(data80Bean data1466) {
-        this.data1466 = data1466;
+    public String getdata7092321() {
+        return data7092321;
     }
 
-    public data80Bean getdata1467() {
-        return data1467;
+    public void setdata7092321(String data7092321) {
+        this.data7092321 = data7092321;
     }
 
-    public void setdata1467(data80Bean data1467) {
-        this.data1467 = data1467;
+    public String getdata7092322() {
+        return data7092322;
     }
 
-    public data80Bean getdata1468() {
-        return data1468;
+    public void setdata7092322(String data7092322) {
+        this.data7092322 = data7092322;
     }
 
-    public void setdata1468(data80Bean data1468) {
-        this.data1468 = data1468;
+    public String getdata7092323() {
+        return data7092323;
     }
 
-    public data80Bean getdata1469() {
-        return data1469;
+    public void setdata7092323(String data7092323) {
+        this.data7092323 = data7092323;
     }
 
-    public void setdata1469(data80Bean data1469) {
-        this.data1469 = data1469;
+    public String getdata7092324() {
+        return data7092324;
     }
 
-    public data80Bean getdata1470() {
-        return data1470;
+    public void setdata7092324(String data7092324) {
+        this.data7092324 = data7092324;
     }
 
-    public void setdata1470(data80Bean data1470) {
-        this.data1470 = data1470;
+    public String getdata7092325() {
+        return data7092325;
     }
 
-    public data80Bean getdata1471() {
-        return data1471;
+    public void setdata7092325(String data7092325) {
+        this.data7092325 = data7092325;
     }
 
-    public void setdata1471(data80Bean data1471) {
-        this.data1471 = data1471;
+    public String getdata7092326() {
+        return data7092326;
     }
 
-    public data80Bean getdata1472() {
-        return data1472;
+    public void setdata7092326(String data7092326) {
+        this.data7092326 = data7092326;
     }
 
-    public void setdata1472(data80Bean data1472) {
-        this.data1472 = data1472;
+    public String getdata7092327() {
+        return data7092327;
     }
 
-    public data80Bean getdata1301() {
-        return data1301;
+    public void setdata7092327(String data7092327) {
+        this.data7092327 = data7092327;
     }
 
-    public void setdata1301(data80Bean data1301) {
-        this.data1301 = data1301;
+    public String getdata7092328() {
+        return data7092328;
     }
 
-    public data80Bean getdata1302() {
-        return data1302;
+    public void setdata7092328(String data7092328) {
+        this.data7092328 = data7092328;
     }
 
-    public void setdata1302(data80Bean data1302) {
-        this.data1302 = data1302;
+    public String getdata7092329() {
+        return data7092329;
     }
 
-    public data80Bean getdata1303() {
-        return data1303;
+    public void setdata7092329(String data7092329) {
+        this.data7092329 = data7092329;
     }
 
-    public void setdata1303(data80Bean data1303) {
-        this.data1303 = data1303;
+    public String getdata7092330() {
+        return data7092330;
     }
 
-    public data80Bean getdata1304() {
-        return data1304;
+    public void setdata7092330(String data7092330) {
+        this.data7092330 = data7092330;
     }
 
-    public void setdata1304(data80Bean data1304) {
-        this.data1304 = data1304;
+    public String getdata7092331() {
+        return data7092331;
     }
 
-    public data80Bean getdata1305() {
-        return data1305;
+    public void setdata7092331(String data7092331) {
+        this.data7092331 = data7092331;
     }
 
-    public void setdata1305(data80Bean data1305) {
-        this.data1305 = data1305;
+    public String getdata7092332() {
+        return data7092332;
     }
 
-    public data80Bean getdata1306() {
-        return data1306;
+    public void setdata7092332(String data7092332) {
+        this.data7092332 = data7092332;
     }
 
-    public void setdata1306(data80Bean data1306) {
-        this.data1306 = data1306;
+    public String getdata7092333() {
+        return data7092333;
     }
 
-    public data80Bean getdata1307() {
-        return data1307;
+    public void setdata7092333(String data7092333) {
+        this.data7092333 = data7092333;
     }
 
-    public void setdata1307(data80Bean data1307) {
-        this.data1307 = data1307;
+    public String getdata7092334() {
+        return data7092334;
     }
 
-    public data80Bean getdata1308() {
-        return data1308;
+    public void setdata7092334(String data7092334) {
+        this.data7092334 = data7092334;
     }
 
-    public void setdata1308(data80Bean data1308) {
-        this.data1308 = data1308;
+    public String getdata7092335() {
+        return data7092335;
     }
 
-    public data80Bean getdata1309() {
-        return data1309;
+    public void setdata7092335(String data7092335) {
+        this.data7092335 = data7092335;
     }
 
-    public void setdata1309(data80Bean data1309) {
-        this.data1309 = data1309;
+    public String getdata7092336() {
+        return data7092336;
     }
 
-    public data80Bean getdata1310() {
-        return data1310;
+    public void setdata7092336(String data7092336) {
+        this.data7092336 = data7092336;
     }
 
-    public void setdata1310(data80Bean data1310) {
-        this.data1310 = data1310;
+    public String getdata7092337() {
+        return data7092337;
     }
 
-    public data80Bean getdata1311() {
-        return data1311;
+    public void setdata7092337(String data7092337) {
+        this.data7092337 = data7092337;
     }
 
-    public void setdata1311(data80Bean data1311) {
-        this.data1311 = data1311;
+    public String getdata7092338() {
+        return data7092338;
     }
 
-    public data80Bean getdata1312() {
-        return data1312;
+    public void setdata7092338(String data7092338) {
+        this.data7092338 = data7092338;
     }
 
-    public void setdata1312(data80Bean data1312) {
-        this.data1312 = data1312;
+    public String getdata7092339() {
+        return data7092339;
     }
 
-    public data80Bean getdata1313() {
-        return data1313;
+    public void setdata7092339(String data7092339) {
+        this.data7092339 = data7092339;
     }
 
-    public void setdata1313(data80Bean data1313) {
-        this.data1313 = data1313;
+    public String getdata7092340() {
+        return data7092340;
     }
 
-    public data80Bean getdata1314() {
-        return data1314;
+    public void setdata7092340(String data7092340) {
+        this.data7092340 = data7092340;
     }
 
-    public void setdata1314(data80Bean data1314) {
-        this.data1314 = data1314;
+    public String getdata7092341() {
+        return data7092341;
     }
 
-    public data80Bean getdata1315() {
-        return data1315;
+    public void setdata7092341(String data7092341) {
+        this.data7092341 = data7092341;
     }
 
-    public void setdata1315(data80Bean data1315) {
-        this.data1315 = data1315;
+    public String getdata7092342() {
+        return data7092342;
     }
 
-    public data80Bean getdata1316() {
-        return data1316;
+    public void setdata7092342(String data7092342) {
+        this.data7092342 = data7092342;
     }
 
-    public void setdata1316(data80Bean data1316) {
-        this.data1316 = data1316;
+    public String getdata7092343() {
+        return data7092343;
     }
 
-    public data80Bean getdata1317() {
-        return data1317;
+    public void setdata7092343(String data7092343) {
+        this.data7092343 = data7092343;
     }
 
-    public void setdata1317(data80Bean data1317) {
-        this.data1317 = data1317;
+    public String getdata7092344() {
+        return data7092344;
     }
 
-    public data80Bean getdata1318() {
-        return data1318;
+    public void setdata7092344(String data7092344) {
+        this.data7092344 = data7092344;
     }
 
-    public void setdata1318(data80Bean data1318) {
-        this.data1318 = data1318;
+    public String getdata7092345() {
+        return data7092345;
     }
 
-    public data80Bean getdata1319() {
-        return data1319;
+    public void setdata7092345(String data7092345) {
+        this.data7092345 = data7092345;
     }
 
-    public void setdata1319(data80Bean data1319) {
-        this.data1319 = data1319;
+    public String getdata7092346() {
+        return data7092346;
     }
 
-    public data80Bean getdata1320() {
-        return data1320;
+    public void setdata7092346(String data7092346) {
+        this.data7092346 = data7092346;
     }
 
-    public void setdata1320(data80Bean data1320) {
-        this.data1320 = data1320;
+    public String getdata7092347() {
+        return data7092347;
     }
 
-    public data80Bean getdata1321() {
-        return data1321;
+    public void setdata7092347(String data7092347) {
+        this.data7092347 = data7092347;
     }
 
-    public void setdata1321(data80Bean data1321) {
-        this.data1321 = data1321;
+    public String getdata7092348() {
+        return data7092348;
     }
 
-    public data80Bean getdata1322() {
-        return data1322;
+    public void setdata7092348(String data7092348) {
+        this.data7092348 = data7092348;
     }
 
-    public void setdata1322(data80Bean data1322) {
-        this.data1322 = data1322;
+    public String getdata7092349() {
+        return data7092349;
     }
 
-    public data80Bean getdata1323() {
-        return data1323;
+    public void setdata7092349(String data7092349) {
+        this.data7092349 = data7092349;
     }
 
-    public void setdata1323(data80Bean data1323) {
-        this.data1323 = data1323;
+    public String getdata7092350() {
+        return data7092350;
     }
 
-    public data80Bean getdata1324() {
-        return data1324;
+    public void setdata7092350(String data7092350) {
+        this.data7092350 = data7092350;
     }
 
-    public void setdata1324(data80Bean data1324) {
-        this.data1324 = data1324;
+    public String getdata7092351() {
+        return data7092351;
     }
 
-    public data80Bean getdata1325() {
-        return data1325;
+    public void setdata7092351(String data7092351) {
+        this.data7092351 = data7092351;
     }
 
-    public void setdata1325(data80Bean data1325) {
-        this.data1325 = data1325;
+    public String getdata7092352() {
+        return data7092352;
     }
 
-    public data80Bean getdata1326() {
-        return data1326;
+    public void setdata7092352(String data7092352) {
+        this.data7092352 = data7092352;
     }
 
-    public void setdata1326(data80Bean data1326) {
-        this.data1326 = data1326;
+    public String getdata7092353() {
+        return data7092353;
     }
 
-    public data80Bean getdata1327() {
-        return data1327;
+    public void setdata7092353(String data7092353) {
+        this.data7092353 = data7092353;
     }
 
-    public void setdata1327(data80Bean data1327) {
-        this.data1327 = data1327;
+    public String getdata7092354() {
+        return data7092354;
     }
 
-    public data80Bean getdata1328() {
-        return data1328;
+    public void setdata7092354(String data7092354) {
+        this.data7092354 = data7092354;
     }
 
-    public void setdata1328(data80Bean data1328) {
-        this.data1328 = data1328;
+    public String getdata7092355() {
+        return data7092355;
     }
 
-    public data80Bean getdata1329() {
-        return data1329;
+    public void setdata7092355(String data7092355) {
+        this.data7092355 = data7092355;
     }
 
-    public void setdata1329(data80Bean data1329) {
-        this.data1329 = data1329;
+    public String getdata7092356() {
+        return data7092356;
     }
 
-    public data80Bean getdata1330() {
-        return data1330;
+    public void setdata7092356(String data7092356) {
+        this.data7092356 = data7092356;
     }
 
-    public void setdata1330(data80Bean data1330) {
-        this.data1330 = data1330;
+    public String getdata7092357() {
+        return data7092357;
     }
 
-    public data80Bean getdata1331() {
-        return data1331;
+    public void setdata7092357(String data7092357) {
+        this.data7092357 = data7092357;
     }
 
-    public void setdata1331(data80Bean data1331) {
-        this.data1331 = data1331;
+    public String getdata7092358() {
+        return data7092358;
     }
 
-    public data80Bean getdata1332() {
-        return data1332;
+    public void setdata7092358(String data7092358) {
+        this.data7092358 = data7092358;
     }
 
-    public void setdata1332(data80Bean data1332) {
-        this.data1332 = data1332;
+    public String getdata7092359() {
+        return data7092359;
     }
 
-    public data80Bean getdata1333() {
-        return data1333;
+    public void setdata7092359(String data7092359) {
+        this.data7092359 = data7092359;
     }
 
-    public void setdata1333(data80Bean data1333) {
-        this.data1333 = data1333;
+    public String getdata7092360() {
+        return data7092360;
     }
 
-    public data80Bean getdata1334() {
-        return data1334;
+    public void setdata7092360(String data7092360) {
+        this.data7092360 = data7092360;
     }
 
-    public void setdata1334(data80Bean data1334) {
-        this.data1334 = data1334;
+    public String getdata7092361() {
+        return data7092361;
     }
 
-    public data80Bean getdata1335() {
-        return data1335;
+    public void setdata7092361(String data7092361) {
+        this.data7092361 = data7092361;
     }
 
-    public void setdata1335(data80Bean data1335) {
-        this.data1335 = data1335;
+    public String getdata7092362() {
+        return data7092362;
     }
 
-    public data80Bean getdata1336() {
-        return data1336;
+    public void setdata7092362(String data7092362) {
+        this.data7092362 = data7092362;
     }
 
-    public void setdata1336(data80Bean data1336) {
-        this.data1336 = data1336;
+    public String getdata7092363() {
+        return data7092363;
     }
 
-    public data80Bean getdata1337() {
-        return data1337;
+    public void setdata7092363(String data7092363) {
+        this.data7092363 = data7092363;
     }
 
-    public void setdata1337(data80Bean data1337) {
-        this.data1337 = data1337;
+    public String getdata7092364() {
+        return data7092364;
     }
 
-    public data80Bean getdata1338() {
-        return data1338;
+    public void setdata7092364(String data7092364) {
+        this.data7092364 = data7092364;
     }
 
-    public void setdata1338(data80Bean data1338) {
-        this.data1338 = data1338;
+    public String getdata7092365() {
+        return data7092365;
     }
 
-    public data80Bean getdata1339() {
-        return data1339;
+    public void setdata7092365(String data7092365) {
+        this.data7092365 = data7092365;
     }
 
-    public void setdata1339(data80Bean data1339) {
-        this.data1339 = data1339;
+    public String getdata7092366() {
+        return data7092366;
     }
 
-    public data80Bean getdata1340() {
-        return data1340;
+    public void setdata7092366(String data7092366) {
+        this.data7092366 = data7092366;
     }
 
-    public void setdata1340(data80Bean data1340) {
-        this.data1340 = data1340;
+    public String getdata7092367() {
+        return data7092367;
     }
 
-    public data80Bean getdata1341() {
-        return data1341;
+    public void setdata7092367(String data7092367) {
+        this.data7092367 = data7092367;
     }
 
-    public void setdata1341(data80Bean data1341) {
-        this.data1341 = data1341;
+    public String getdata7092368() {
+        return data7092368;
     }
 
-    public data80Bean getdata1342() {
-        return data1342;
+    public void setdata7092368(String data7092368) {
+        this.data7092368 = data7092368;
     }
 
-    public void setdata1342(data80Bean data1342) {
-        this.data1342 = data1342;
+    public String getdata7092369() {
+        return data7092369;
     }
 
-    public data80Bean getdata1343() {
-        return data1343;
+    public void setdata7092369(String data7092369) {
+        this.data7092369 = data7092369;
     }
 
-    public void setdata1343(data80Bean data1343) {
-        this.data1343 = data1343;
+    public String getdata7092370() {
+        return data7092370;
     }
 
-    public data80Bean getdata1344() {
-        return data1344;
+    public void setdata7092370(String data7092370) {
+        this.data7092370 = data7092370;
     }
 
-    public void setdata1344(data80Bean data1344) {
-        this.data1344 = data1344;
+    public String getdata7092371() {
+        return data7092371;
     }
 
-    public data80Bean getdata1345() {
-        return data1345;
+    public void setdata7092371(String data7092371) {
+        this.data7092371 = data7092371;
     }
 
-    public void setdata1345(data80Bean data1345) {
-        this.data1345 = data1345;
+    public String getdata7092372() {
+        return data7092372;
     }
 
-    public data80Bean getdata1346() {
-        return data1346;
-    }
-
-    public void setdata1346(data80Bean data1346) {
-        this.data1346 = data1346;
-    }
-
-    public data80Bean getdata1347() {
-        return data1347;
-    }
-
-    public void setdata1347(data80Bean data1347) {
-        this.data1347 = data1347;
-    }
-
-    public data80Bean getdata1348() {
-        return data1348;
-    }
-
-    public void setdata1348(data80Bean data1348) {
-        this.data1348 = data1348;
-    }
-
-    public data80Bean getdata1349() {
-        return data1349;
-    }
-
-    public void setdata1349(data80Bean data1349) {
-        this.data1349 = data1349;
-    }
-
-    public data80Bean getdata1350() {
-        return data1350;
-    }
-
-    public void setdata1350(data80Bean data1350) {
-        this.data1350 = data1350;
-    }
-
-    public data80Bean getdata1351() {
-        return data1351;
-    }
-
-    public void setdata1351(data80Bean data1351) {
-        this.data1351 = data1351;
-    }
-
-    public data80Bean getdata1352() {
-        return data1352;
-    }
-
-    public void setdata1352(data80Bean data1352) {
-        this.data1352 = data1352;
-    }
-
-    public data80Bean getdata1353() {
-        return data1353;
-    }
-
-    public void setdata1353(data80Bean data1353) {
-        this.data1353 = data1353;
-    }
-
-    public data80Bean getdata1354() {
-        return data1354;
-    }
-
-    public void setdata1354(data80Bean data1354) {
-        this.data1354 = data1354;
-    }
-
-    public data80Bean getdata1355() {
-        return data1355;
-    }
-
-    public void setdata1355(data80Bean data1355) {
-        this.data1355 = data1355;
-    }
-
-    public data80Bean getdata1356() {
-        return data1356;
-    }
-
-    public void setdata1356(data80Bean data1356) {
-        this.data1356 = data1356;
-    }
-
-    public data80Bean getdata1357() {
-        return data1357;
-    }
-
-    public void setdata1357(data80Bean data1357) {
-        this.data1357 = data1357;
-    }
-
-    public data80Bean getdata1358() {
-        return data1358;
-    }
-
-    public void setdata1358(data80Bean data1358) {
-        this.data1358 = data1358;
-    }
-
-    public data80Bean getdata1359() {
-        return data1359;
-    }
-
-    public void setdata1359(data80Bean data1359) {
-        this.data1359 = data1359;
-    }
-
-    public data80Bean getdata1360() {
-        return data1360;
-    }
-
-    public void setdata1360(data80Bean data1360) {
-        this.data1360 = data1360;
-    }
-
-    public data80Bean getdata1101() {
-        return data1101;
-    }
-
-    public void setdata1101(data80Bean data1101) {
-        this.data1101 = data1101;
-    }
-
-    public data80Bean getdata1102() {
-        return data1102;
-    }
-
-    public void setdata1102(data80Bean data1102) {
-        this.data1102 = data1102;
-    }
-
-    public data80Bean getdata1103() {
-        return data1103;
-    }
-
-    public void setdata1103(data80Bean data1103) {
-        this.data1103 = data1103;
-    }
-
-    public data80Bean getdata1104() {
-        return data1104;
-    }
-
-    public void setdata1104(data80Bean data1104) {
-        this.data1104 = data1104;
-    }
-
-    public data80Bean getdata1105() {
-        return data1105;
-    }
-
-    public void setdata1105(data80Bean data1105) {
-        this.data1105 = data1105;
-    }
-
-    public data80Bean getdata1106() {
-        return data1106;
-    }
-
-    public void setdata1106(data80Bean data1106) {
-        this.data1106 = data1106;
-    }
-
-    public data80Bean getdata1107() {
-        return data1107;
-    }
-
-    public void setdata1107(data80Bean data1107) {
-        this.data1107 = data1107;
-    }
-
-    public data80Bean getdata1108() {
-        return data1108;
-    }
-
-    public void setdata1108(data80Bean data1108) {
-        this.data1108 = data1108;
-    }
-
-    public data80Bean getdata1109() {
-        return data1109;
-    }
-
-    public void setdata1109(data80Bean data1109) {
-        this.data1109 = data1109;
-    }
-
-    public data80Bean getdata1110() {
-        return data1110;
-    }
-
-    public void setdata1110(data80Bean data1110) {
-        this.data1110 = data1110;
-    }
-
-    public data80Bean getdata1111() {
-        return data1111;
-    }
-
-    public void setdata1111(data80Bean data1111) {
-        this.data1111 = data1111;
-    }
-
-    public data80Bean getdata1112() {
-        return data1112;
-    }
-
-    public void setdata1112(data80Bean data1112) {
-        this.data1112 = data1112;
-    }
-
-    public data80Bean getdata1113() {
-        return data1113;
-    }
-
-    public void setdata1113(data80Bean data1113) {
-        this.data1113 = data1113;
-    }
-
-    public data80Bean getdata1114() {
-        return data1114;
-    }
-
-    public void setdata1114(data80Bean data1114) {
-        this.data1114 = data1114;
-    }
-
-    public data80Bean getdata1115() {
-        return data1115;
-    }
-
-    public void setdata1115(data80Bean data1115) {
-        this.data1115 = data1115;
-    }
-
-    public data80Bean getdata1116() {
-        return data1116;
-    }
-
-    public void setdata1116(data80Bean data1116) {
-        this.data1116 = data1116;
-    }
-
-    public data80Bean getdata1117() {
-        return data1117;
-    }
-
-    public void setdata1117(data80Bean data1117) {
-        this.data1117 = data1117;
-    }
-
-    public data80Bean getdata1118() {
-        return data1118;
-    }
-
-    public void setdata1118(data80Bean data1118) {
-        this.data1118 = data1118;
-    }
-
-    public data80Bean getdata1119() {
-        return data1119;
-    }
-
-    public void setdata1119(data80Bean data1119) {
-        this.data1119 = data1119;
-    }
-
-    public data80Bean getdata1120() {
-        return data1120;
-    }
-
-    public void setdata1120(data80Bean data1120) {
-        this.data1120 = data1120;
-    }
-
-    public data80Bean getdata1121() {
-        return data1121;
-    }
-
-    public void setdata1121(data80Bean data1121) {
-        this.data1121 = data1121;
-    }
-
-    public data80Bean getdata1122() {
-        return data1122;
-    }
-
-    public void setdata1122(data80Bean data1122) {
-        this.data1122 = data1122;
-    }
-
-    public data80Bean getdata1123() {
-        return data1123;
-    }
-
-    public void setdata1123(data80Bean data1123) {
-        this.data1123 = data1123;
-    }
-
-    public data80Bean getdata1124() {
-        return data1124;
-    }
-
-    public void setdata1124(data80Bean data1124) {
-        this.data1124 = data1124;
-    }
-
-    public data80Bean getdata1125() {
-        return data1125;
-    }
-
-    public void setdata1125(data80Bean data1125) {
-        this.data1125 = data1125;
-    }
-
-    public data80Bean getdata1126() {
-        return data1126;
-    }
-
-    public void setdata1126(data80Bean data1126) {
-        this.data1126 = data1126;
-    }
-
-    public data80Bean getdata1127() {
-        return data1127;
-    }
-
-    public void setdata1127(data80Bean data1127) {
-        this.data1127 = data1127;
-    }
-
-    public data80Bean getdata1128() {
-        return data1128;
-    }
-
-    public void setdata1128(data80Bean data1128) {
-        this.data1128 = data1128;
-    }
-
-    public data80Bean getdata1129() {
-        return data1129;
-    }
-
-    public void setdata1129(data80Bean data1129) {
-        this.data1129 = data1129;
-    }
-
-    public data80Bean getdata1130() {
-        return data1130;
-    }
-
-    public void setdata1130(data80Bean data1130) {
-        this.data1130 = data1130;
-    }
-
-    public data80Bean getdata1131() {
-        return data1131;
-    }
-
-    public void setdata1131(data80Bean data1131) {
-        this.data1131 = data1131;
-    }
-
-    public data80Bean getdata1132() {
-        return data1132;
-    }
-
-    public void setdata1132(data80Bean data1132) {
-        this.data1132 = data1132;
-    }
-
-    public data80Bean getdata1133() {
-        return data1133;
-    }
-
-    public void setdata1133(data80Bean data1133) {
-        this.data1133 = data1133;
-    }
-
-    public data80Bean getdata1134() {
-        return data1134;
-    }
-
-    public void setdata1134(data80Bean data1134) {
-        this.data1134 = data1134;
-    }
-
-    public data80Bean getdata1135() {
-        return data1135;
-    }
-
-    public void setdata1135(data80Bean data1135) {
-        this.data1135 = data1135;
-    }
-
-    public data80Bean getdata1136() {
-        return data1136;
-    }
-
-    public void setdata1136(data80Bean data1136) {
-        this.data1136 = data1136;
-    }
-
-    public data80Bean getdata1137() {
-        return data1137;
-    }
-
-    public void setdata1137(data80Bean data1137) {
-        this.data1137 = data1137;
-    }
-
-    public data80Bean getdata1138() {
-        return data1138;
-    }
-
-    public void setdata1138(data80Bean data1138) {
-        this.data1138 = data1138;
-    }
-
-    public data80Bean getdata1139() {
-        return data1139;
-    }
-
-    public void setdata1139(data80Bean data1139) {
-        this.data1139 = data1139;
-    }
-
-    public data80Bean getdata1140() {
-        return data1140;
-    }
-
-    public void setdata1140(data80Bean data1140) {
-        this.data1140 = data1140;
-    }
-
-    public data80Bean getdata1141() {
-        return data1141;
-    }
-
-    public void setdata1141(data80Bean data1141) {
-        this.data1141 = data1141;
-    }
-
-    public data80Bean getdata1142() {
-        return data1142;
-    }
-
-    public void setdata1142(data80Bean data1142) {
-        this.data1142 = data1142;
-    }
-
-    public data80Bean getdata1143() {
-        return data1143;
-    }
-
-    public void setdata1143(data80Bean data1143) {
-        this.data1143 = data1143;
-    }
-
-    public data80Bean getdata1144() {
-        return data1144;
-    }
-
-    public void setdata1144(data80Bean data1144) {
-        this.data1144 = data1144;
-    }
-
-    public data80Bean getdata1145() {
-        return data1145;
-    }
-
-    public void setdata1145(data80Bean data1145) {
-        this.data1145 = data1145;
-    }
-
-    public data80Bean getdata1146() {
-        return data1146;
-    }
-
-    public void setdata1146(data80Bean data1146) {
-        this.data1146 = data1146;
-    }
-
-    public data80Bean getdata1147() {
-        return data1147;
-    }
-
-    public void setdata1147(data80Bean data1147) {
-        this.data1147 = data1147;
-    }
-
-    public data80Bean getdata1148() {
-        return data1148;
-    }
-
-    public void setdata1148(data80Bean data1148) {
-        this.data1148 = data1148;
-    }
-
-    public data80Bean getdata1149() {
-        return data1149;
-    }
-
-    public void setdata1149(data80Bean data1149) {
-        this.data1149 = data1149;
-    }
-
-    public static class data1Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 1
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data2Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 2
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data3Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 3
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data4Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 4
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data5Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 5
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data6Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 6
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data7Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 7
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data8Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 8
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data9Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 9
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data10Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 10
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data11Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 11
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data12Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 12
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data13Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 13
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data14Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 14
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data15Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 15
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data16Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 16
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data17Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 17
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data18Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 18
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data19Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 19
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data20Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 20
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data21Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 21
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data22Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 22
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data23Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 23
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data24Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 24
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data25Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 25
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data26Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 26
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data27Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 27
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data28Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 28
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data29Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 29
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data30Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 30
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data31Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 31
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data32Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 32
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data33Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 33
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data34Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 34
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data35Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 35
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data36Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 36
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data37Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 37
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data38Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 38
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data39Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 39
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data40Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 40
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data41Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 41
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data42Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 42
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data43Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 43
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data44Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 44
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data45Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 45
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data46Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 46
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data47Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 47
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data48Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 48
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data49Bean {
-        /**
-         * classid : 71
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 49
-         * rate : 42
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data50Bean {
-        /**
-         * classid : 73
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 单
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data51Bean {
-        /**
-         * classid : 73
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 双
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data52Bean {
-        /**
-         * classid : 74
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 大
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data53Bean {
-        /**
-         * classid : 74
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 小
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data54Bean {
-        /**
-         * classid : 75
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 合单
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data55Bean {
-        /**
-         * classid : 75
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 合双
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data56Bean {
-        /**
-         * classid : 81
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 红波
-         * rate : 2.7
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data57Bean {
-        /**
-         * classid : 81
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 绿波
-         * rate : 2.9
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data58Bean {
-        /**
-         * classid : 81
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 蓝波
-         * rate : 2.9
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data59Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 1
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data60Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 2
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data61Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 3
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data62Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 4
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data63Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 5
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data64Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 6
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data65Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 7
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data66Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 8
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data67Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 9
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data68Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 10
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data69Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 11
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data70Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 12
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data71Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 13
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data72Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 14
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data73Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 15
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data74Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 16
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data75Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 17
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data76Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 18
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data77Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 19
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data78Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 20
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data79Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 21
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data80Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 22
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data81Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 23
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data82Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 24
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data83Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 25
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data84Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 26
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data85Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 27
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data86Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 28
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data87Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 29
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data88Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 30
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data89Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 31
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data90Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 32
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data91Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 33
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data92Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 34
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data93Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 35
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data94Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 36
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data95Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 37
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data96Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 38
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data97Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 39
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data98Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 40
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data99Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 41
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data100Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 42
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data101Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 43
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data102Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 44
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data103Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 45
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data104Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 46
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data105Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 47
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data106Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 48
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data107Bean {
-        /**
-         * classid : 72
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 49
-         * rate : 48.5
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data108Bean {
-        /**
-         * classid : 73
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 单
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data109Bean {
-        /**
-         * classid : 73
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 双
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data110Bean {
-        /**
-         * classid : 74
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 大
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data111Bean {
-        /**
-         * classid : 74
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 小
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data112Bean {
-        /**
-         * classid : 75
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 合单
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data113Bean {
-        /**
-         * classid : 75
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 合双
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data114Bean {
-        /**
-         * classid : 81
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 红波
-         * rate : 2.7
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data115Bean {
-        /**
-         * classid : 81
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 绿波
-         * rate : 2.9
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data116Bean {
-        /**
-         * classid : 81
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 蓝波
-         * rate : 2.9
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data748Bean {
-        /**
-         * classid : 95
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 家禽
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data749Bean {
-        /**
-         * classid : 95
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 野兽
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data750Bean {
-        /**
-         * classid : 95
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 家禽
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data751Bean {
-        /**
-         * classid : 95
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 野兽
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data795Bean {
-        /**
-         * classid : 104
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 尾大
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data796Bean {
-        /**
-         * classid : 104
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 尾小
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data797Bean {
-        /**
-         * classid : 105
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 大单
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data798Bean {
-        /**
-         * classid : 105
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 小单
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data799Bean {
-        /**
-         * classid : 106
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 大双
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data800Bean {
-        /**
-         * classid : 106
-         * class1 : 特码
-         * class2 : 特A
-         * class3 : 小双
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data801Bean {
-        /**
-         * classid : 104
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 尾大
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data802Bean {
-        /**
-         * classid : 104
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 尾小
-         * rate : 1.965
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data803Bean {
-        /**
-         * classid : 105
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 大单
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data804Bean {
-        /**
-         * classid : 105
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 小单
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data805Bean {
-        /**
-         * classid : 106
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 大双
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-    }
-
-    public static class data806Bean {
-        /**
-         * classid : 106
-         * class1 : 特码
-         * class2 : 特B
-         * class3 : 小双
-         * rate : 3.75
-         * locked : 0
-         */
-
-        private String classid;
-        private String class1;
-        private String class2;
-        private String class3;
-        private String rate;
-        private String locked;
-
-        public String getClassid() {
-            return classid;
-        }
-
-        public void setClassid(String classid) {
-            this.classid = classid;
-        }
-
-        public String getClass1() {
-            return class1;
-        }
-
-        public void setClass1(String class1) {
-            this.class1 = class1;
-        }
-
-        public String getClass2() {
-            return class2;
-        }
-
-        public void setClass2(String class2) {
-            this.class2 = class2;
-        }
-
-        public String getClass3() {
-            return class3;
-        }
-
-        public void setClass3(String class3) {
-            this.class3 = class3;
-        }
-
-        public String getRate() {
-            return rate;
-        }
-
-        public void setRate(String rate) {
-            this.rate = rate;
-        }
-
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
+    public void setdata7092372(String data7092372) {
+        this.data7092372 = data7092372;
     }
 }

@@ -89,8 +89,6 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
         }
     }
 
-
-
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         eventListBack.setBackListener(new View.OnClickListener() {
@@ -102,9 +100,9 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
         mCoolIndicator.setMax(100);
         CPIWebSetting.init(wvServiceOnlineContent);
         webviewsetting(wvServiceOnlineContent);
-        String webUrl = Client.baseUrl().replace("api.","")+ "prize-sets/game-prize-set?tip=mobile";
+        String webUrl = Client.baseUrl().replace("api.","")+ "prize-sets/game-prize-set?tip=app";
         if (Check.isEmpty(webUrl)) {
-            webUrl = "http://dh5588.com/prize-sets/game-prize-set?tip=mobile";
+            webUrl = "http://dh5588.com/prize-sets/game-prize-set?tip=app";
         }
         GameLog.log("加载了彩种信息地址是 "+webUrl);
         //wvServiceOnlineContent.clearCache(true);
