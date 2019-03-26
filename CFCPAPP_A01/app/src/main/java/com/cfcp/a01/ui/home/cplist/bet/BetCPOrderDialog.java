@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.CPInjections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseDialogFragment;
@@ -69,7 +71,7 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
     String userMoney;
     private String betGold="",betType;
 
-    String game_code,  round, totalNums,totalMoney,number,typeCode,rtype, x_session_token;
+    String fTime, game_code,  round, totalNums,totalMoney,number,typeCode,rtype, x_session_token;
     CpBetApiContract.Presenter presenter;
 
     public static BetCPOrderDialog newInstance(ArrayList<CPOrderList> cpOrderListArrayList, String gold, String game_code, String round, String x_session_token) {
@@ -108,6 +110,7 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
         betType = cpBetParams.getType();
         game_code = cpBetParams.getGame_code();
         round =  cpBetParams.getRound();
+        fTime = cpBetParams.getfTime();
         x_session_token =  cpBetParams.getX_session_token();
         typeCode = cpBetParams.getTypeCode();
         rtype = cpBetParams.getRtype();
@@ -262,7 +265,7 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
 
     @Override
     public void postCpBetResult(CPBetResult betResult) {
-        showMessage(betResult.getMsg());
+        showMessage("投注成功！");
         EventBus.getDefault().post(new CPOrderSuccessEvent());
         hide();
     }
@@ -298,33 +301,80 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
             case R.id.betOrderCpSubmit:
                 int size = betResult.size();
                 number="";
+                ArrayList<BetParam.BetdataBean.BetBeanBean> beanArrayList = new ArrayList<>();
+                BetParam.BetdataBean betParam = new BetParam.BetdataBean();
+                betParam.setBetSrc(CFConstant.PRODUCT_PLATFORM);
+                betParam.setFtime(fTime);
+                betParam.setGameId(game_code);
+                betParam.setTotalMoney(totalMoney);
+                betParam.setTotalNums(totalNums);
+                betParam.setTurnNum(round);
                 DoubleClickHelper.getNewInstance().disabledView(betOrderCpSubmit);
                 if("LM".equals(betType)){
                     for(int i=0;i<size;++i){
                         number += betResult.get(i).getGid()+",";
                     }
                     number = number.substring(0,number.length()-1);
-                    presenter.postCpBetsLM(game_code,  round, totalNums,totalMoney,number,betGold,typeCode, x_session_token);
+                    BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
+                    betBeanBean.setMoney(betGold);
+                    betBeanBean.setOdds(rtype);
+                    betBeanBean.setPlayId(typeCode);
+                    betBeanBean.setRebate("0");
+                    betBeanBean.setBetInfo(number);
+                    beanArrayList.add(betBeanBean);
+                    betParam.setBetBean(beanArrayList);
+                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",null, JSON.toJSONString(betParam));
                 }else if("HKLM".equals(betType)||"HKHX".equals(betType)||"HKZXBZ".equals(betType)||"HKGG".equals(betType)||"HKSXL".equals(betType)){
                     for(int i=0;i<size;++i){
                         number += betResult.get(i).getGid()+",";
                     }
                     number = number.substring(0,number.length()-1);
-                    presenter.postCpBetsHK(game_code,  round, totalNums,totalMoney,number,betGold,typeCode,rtype, x_session_token);
+                    BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
+                    betBeanBean.setMoney(betGold);
+                    betBeanBean.setOdds(rtype);
+                    betBeanBean.setPlayId(typeCode);
+                    betBeanBean.setRebate("0");
+                    betBeanBean.setBetInfo(number);
+                    beanArrayList.add(betBeanBean);
+                    betParam.setBetBean(beanArrayList);
+                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",null, JSON.toJSONString(betParam));
+                    //presenter.postCpBetsHK(game_code,  round, totalNums,totalMoney,number,betGold,typeCode,rtype, x_session_token);
                 }else if("HK".equals(betType)){
                     Map data = new HashMap<>();
                     for(int i=0;i<size;++i){
+                        BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
+                        betBeanBean.setMoney(betGold);
+                        betBeanBean.setOdds(betResult.get(i).getRate());
+                        betBeanBean.setPlayId(betResult.get(i).getGid());
+                        betBeanBean.setRebate("0");
+                        betBeanBean.setBetInfo("");
+                        beanArrayList.add(betBeanBean);
                         //number += "betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]: "+betGold+"\n";
                         data.put("betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]",betGold);
                     }
-                    presenter.postCpBetsHKMap(game_code,  round, totalNums,totalMoney,"",data, x_session_token);
+                    betParam.setBetBean(beanArrayList);
+                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",data, JSON.toJSONString(betParam));
+                    //presenter.postCpBetsHKMap(game_code,  round, totalNums,totalMoney,"",data, x_session_token);
                 }else{
                     Map data = new HashMap<>();
+
                     for(int i=0;i<size;++i){
                         //number += "betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]: "+betGold+"\n";
-                        data.put("betBean["+betResult.get(i).getPosition()+"][ip_"+betResult.get(i).getGid()+"]",betGold);
+                        BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
+                        betBeanBean.setMoney(betGold);
+                        betBeanBean.setOdds(betResult.get(i).getRate());
+                        betBeanBean.setPlayId(betResult.get(i).getGid());
+                        betBeanBean.setRebate("0");
+                        betBeanBean.setBetInfo("");
+                        beanArrayList.add(betBeanBean);
+                        data.put("betBean["+i+"][playId]",betResult.get(i).getGid());
+                        data.put("betBean["+i+"][odds]",betResult.get(i).getRate());
+                        data.put("betBean["+i+"][rebate]","0");
+                        data.put("betBean["+i+"][money]",betGold);
                     }
-                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",data, x_session_token);
+
+                    betParam.setBetBean(beanArrayList);
+                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",data, JSON.toJSONString(betParam));
                 }
                 break;
         }

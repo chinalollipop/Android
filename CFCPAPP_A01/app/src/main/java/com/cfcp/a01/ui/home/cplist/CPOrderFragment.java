@@ -125,6 +125,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     TextView cpOrderTeMaA;
     @BindView(R.id.cpOrderTeMaB)
     TextView cpOrderTeMaB;
+    @BindView(R.id.cpOrder11X5Tab)
+    TabLayout cpOrder11X5Tab;
     @BindView(R.id.cpOrderZTTab)
     TabLayout cpOrderZTTab;
     @BindView(R.id.cpOrderLMTab)
@@ -173,7 +175,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     private int postionAll;
     private int rX0 = 0,rX1 = 0;
     private int xiazhuValue = 0;
-    private String rX2,rX22,rX3,rX4,rX5,rX6,rX7,rX8,rX222,rX333,typeCode;
+    private String rX2,rX22,rX3,rX4,rX5,rX6,rX7,rX8,rX222,rX333,typeCode,odds;
     private CPOrederListRightGameAdapter cpOrederListRightGameAdapter;
     private CPOreder2ListRightGameAdapter cpOreder2ListRightGameAdapter;
     private CPOrederContentGameAdapter cpOrederContentGameAdapter;
@@ -214,10 +216,10 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
      *
      */
     private String  lottery_id = "";
-    private String round = "";
+    private String round = "",fTime="";
     private String  type = "0";
     private int index =0;
-    private String hkLM1,hkLM2,hkLM3,hkLM4,hkLM5,hkLM6;
+    private String hkLM1="670",hkLM2,hkLM3,hkLM4,hkLM5,hkLM6;
     private CustomPopWindow mCustomPopWindowIn,mCustomPopWindowtitle;
     TextView moneyText,todaywinText;
     String moneyStr="0.00",todaywinStr="0.00";
@@ -21003,40 +21005,40 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
             cpOrderContentResult2112.setOrderName("鼠");
             cpOrderContentResult2112.setFullName("特肖");
-            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata708802());
-            cpOrderContentResult2112.setOrderId("708802");
+            cpOrderContentResult2112.setOrderState(cpbjscResult.getdata708801());
+            cpOrderContentResult2112.setOrderId("708801");
             cpOrderContentResult2112.setOrderSX("12,24,36,48");
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
             cpOrderContentResult2101.setOrderName("牛");
             cpOrderContentResult2101.setFullName("特肖");
-            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata708803());
-            cpOrderContentResult2101.setOrderId("708803");
+            cpOrderContentResult2101.setOrderState(cpbjscResult.getdata708802());
+            cpOrderContentResult2101.setOrderId("708802");
             cpOrderContentResult2101.setOrderSX("11,23,35,47");
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
             cpOrderContentResult2102.setOrderName("虎");
             cpOrderContentResult2102.setFullName("特肖");
-            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata708804());
-            cpOrderContentResult2102.setOrderId("708804");
+            cpOrderContentResult2102.setOrderState(cpbjscResult.getdata708803());
+            cpOrderContentResult2102.setOrderId("708803");
             cpOrderContentResult2102.setOrderSX("10,22,34,46");
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
             cpOrderContentResult2103.setOrderName("兔");
             cpOrderContentResult2103.setFullName("特肖");
-            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata708805());
-            cpOrderContentResult2103.setOrderId("708805");
+            cpOrderContentResult2103.setOrderState(cpbjscResult.getdata708804());
+            cpOrderContentResult2103.setOrderId("708804");
             cpOrderContentResult2103.setOrderSX("9,21,33,45");
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
             cpOrderContentResult2104.setOrderName("龙");
             cpOrderContentResult2104.setFullName("特肖");
-            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata709405());
-            cpOrderContentResult2104.setOrderId("709405");
+            cpOrderContentResult2104.setOrderState(cpbjscResult.getdata708805());
+            cpOrderContentResult2104.setOrderId("708805");
             cpOrderContentResult2104.setOrderSX("8,20,32,44");
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
@@ -24567,7 +24569,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
 
     @Override
     public void postNextIssueResult(CPNextIssueResult cpNextIssueResult) {
-        if(cpNextIssueResult.isPreIsOpen()){
+        if(!cpNextIssueResult.isPreIsOpen()){
             cpOrderLastTime.setVisibility(View.INVISIBLE);
             isCloseLottery = true;
             if(null!=executorEndService){
@@ -24585,9 +24587,11 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 cpOrderNoYet.setText("未开盘");
                 GameLog.log("=============六合彩未开盘=================");
             }
-            if(!lottery_id.equals("69")){
+            fTime = ""+TimeHelper.StringToDate(cpNextIssueResult.getEndtime())/1000;
+            if(!lottery_id.equals("70")||!lottery_id.equals("71")){
                 cpOrderLastTime.setVisibility(View.VISIBLE);
                 round = cpNextIssueResult.getIssue();
+
                 cpOrderLotteryNextTime.setText(round+"期");
                 String systTime2 = TimeUtils.getDateAndTimeString();
                 String systTime = cpNextIssueResult.getServerTime();//TimeUtils.convertToDetailTime(TrueTime.now());
@@ -24614,6 +24618,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         cpOrderNoYet.setText("已封盘");
         cpOrderLastTime.setVisibility(View.VISIBLE);
         round = cpNextIssueResult.getIssue();
+        fTime = ""+TimeHelper.StringToDate(cpNextIssueResult.getEndtime())/1000;
         cpOrderLotteryNextTime.setText(round+"期");
         String systTime2 = TimeUtils.getDateAndTimeString();
         String systTime = cpNextIssueResult.getServerTime();//TimeUtils.convertToDetailTime(TrueTime.now());
@@ -24707,7 +24712,14 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         if(index==6){
             cpOrderRXRadio.setText("赔率:"+rX2);
             typeCode = "213601";
-            cpOrderTab.getTabAt(0).select();
+            rX0 = 2;
+            onResetData();
+            cpOrder11X5Tab.getTabAt(0).select();
+        }else{
+            if(rX0!=0){
+                onResetData();
+                rX0 = 0;
+            }
         }
         onResponseCQResult();
     }
@@ -25027,6 +25039,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         presenter.postCPLeftInfo("1",x_session_token);
         cpOrderLayout.setVisibility(View.GONE);
         cpOrderTeMaLay.setVisibility(View.GONE);
+        cpOrder11X5Tab.setVisibility(View.GONE);
         cpOrderZTTab.setVisibility(View.GONE);
         cpOrderLMTab.setVisibility(View.GONE);
         cpOrderSXLTab.setVisibility(View.GONE);
@@ -25992,33 +26005,45 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 switch (tab.getPosition()){
                     case 0:
                         rX0 = 3;
+                        rX1 = 10;
                         onRefreashLMData("三全中",hkLM1);
                         typeCode ="7010003";
+                        odds = hkLM1;
                         break;
                     case 1:
                         rX0 = 3;
+                        rX1 = 7;
                         onRefreashLMDataUp("三中二",hkLM2);
                         typeCode ="7010001";
+                        odds = hkLM2;
                         break;
                     case 2:
                         rX0 = 2;
+                        rX1 = 7;
                         onRefreashLMData("二全中",hkLM3);
                         typeCode ="7010004";
+                        odds = hkLM3;
                         break;
                     case 3:
                         rX0 = 2;
+                        rX1 = 7;
                         onRefreashLMDataUp("二中特",hkLM4);
                         typeCode ="7010005";
+                        odds = hkLM4;
                         break;
                     case 4:
                         rX0 = 2;
+                        rX1 = 7;
                         onRefreashLMData("特串",hkLM5);
                         typeCode ="7010007";
+                        odds = hkLM5;
                         break;
                     case 5:
                         rX0 = 4;
+                        rX1 = 4;
                         onRefreashLMData("四全中",hkLM6);
                         typeCode ="7010008";
+                        odds = hkLM6;
                         break;
                 }
                 //presenter.postQuickBet(lottery_id,type,x_session_token);
@@ -26100,27 +26125,50 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 switch (tab.getPosition()){
                     case 0:
                         rX0 = 2;
-                        typeCode = "617301";
+                        if(lottery_id.equals("61")){
+                            typeCode = "617301";
+                        }else{
+                            typeCode = "608401";
+                        }
                         cpOrderRXRadio.setText("赔率:"+rX2);
                         break;
                     case 1:
                         rX0 = 2;
-                        typeCode = "617302";
+                        if(lottery_id.equals("61")){
+                            typeCode = "617302";
+                        }else{
+                            typeCode = "608402";
+                        }
+
                         cpOrderRXRadio.setText("赔率:"+rX22);
                         break;
                     case 2:
                         rX0 = 3;
-                        typeCode = "617303";
+                        if(lottery_id.equals("61")){
+                            typeCode = "617303";
+                        }else{
+                            typeCode = "608403";
+                        }
+
                         cpOrderRXRadio.setText("赔率:"+rX3);
                         break;
                     case 3:
                         rX0 = 4;
-                        typeCode = "617305";
+                        if(lottery_id.equals("61")){
+                            typeCode = "617305";
+                        }else{
+                            typeCode = "608405";
+                        }
+
                         cpOrderRXRadio.setText("赔率:"+rX4);
                         break;
                     case 4:
                         rX0 = 5;
-                        typeCode = "617306";
+                        if(lottery_id.equals("61")){
+                            typeCode = "617306";
+                        }else{
+                            typeCode = "608406";
+                        }
                         cpOrderRXRadio.setText("赔率:"+rX5);
                         break;
                 }
@@ -26144,16 +26192,16 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         cpOrderRXRadio.setVisibility(View.VISIBLE);
         cpOrderRXLine.setVisibility(View.VISIBLE);*/
         cpOrderRXRadio.setText("赔率:"+rX2);
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("二中二"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("三中三"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("四中四"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("五中五"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("六中五"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("七中五"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("八中五"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("前二组选"));
-        cpOrderTab.addTab(cpOrderTab.newTab().setText("前三组选"));
-        cpOrderTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("二中二"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("三中三"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("四中四"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("五中五"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("六中五"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("七中五"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("八中五"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("前二组选"));
+        cpOrder11X5Tab.addTab(cpOrder11X5Tab.newTab().setText("前三组选"));
+        cpOrder11X5Tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 onResetData();
@@ -26164,32 +26212,32 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                         cpOrderRXRadio.setText("赔率:"+rX2);
                         break;
                     case 1:
-                        rX0 = 2;
+                        rX0 = 3;
                         typeCode = "213602";
                         cpOrderRXRadio.setText("赔率:"+rX3);
                         break;
                     case 2:
-                        rX0 = 3;
+                        rX0 = 4;
                         typeCode = "213603";
                         cpOrderRXRadio.setText("赔率:"+rX4);
                         break;
                     case 3:
-                        rX0 = 4;
+                        rX0 = 5;
                         typeCode = "213604";
                         cpOrderRXRadio.setText("赔率:"+rX5);
                         break;
                     case 4:
-                        rX0 = 5;
+                        rX0 = 6;
                         typeCode = "213605";
                         cpOrderRXRadio.setText("赔率:"+rX6);
                         break;
                     case 5:
-                        rX0 = 6;
+                        rX0 = 7;
                         typeCode = "213606";
                         cpOrderRXRadio.setText("赔率:"+rX7);
                         break;
                     case 6:
-                        rX0 = 7;
+                        rX0 = 8;
                         typeCode = "213607";
                         cpOrderRXRadio.setText("赔率:"+rX8);
                         break;
@@ -27039,6 +27087,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 cpOrderWSLTab.setVisibility(View.GONE);
                 /*rX0 = 0;
                 rX1 = 0;*/
+                onResetData();
+                rX0 = 0;
+                rX1 = 0;
                 if(index==0){
                     cpOrderTeMaA.setText("特码B");
                     cpOrderTeMaB.setText("特码A");
@@ -27064,6 +27115,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                             rX1 = 6;
                             rX0 = 3;
                             typeCode = "7010003";
+                            odds = hkLM1;
                             cpOrderLMTab.getTabAt(0).select();
                         }
                     }else if(index==11){
@@ -27089,7 +27141,15 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 break;
         }
 
-        if(index==12){
+
+        if(index==9){
+            if(lottery_id.equals("60")||lottery_id.equals("61")){
+                rX0 = 2;
+                onResetData();
+                cpOrderLayout.setVisibility(View.VISIBLE);
+                cpOrderTab.setVisibility(View.VISIBLE);
+            }
+        }else if(index==12){
             rX0 = 0;
             rX1 = 9;
             onResetData();
@@ -27103,16 +27163,22 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     onResetData();
                 }
             }
-            if(lottery_id.equals("70")||lottery_id.equals("72")){
-                onResetData();
-                rX0 = 0;
-                rX1 = 0;
-            }
+
+            /*if(lottery_id.equals("21")){
+                if (rX0 == 2 || rX0 == 3 || rX0 == 4 || rX0 == 5|| rX0 == 6|| rX0 == 7|| rX0 == 8) {
+                    rX0 = 0;
+                    onResetData();
+                }
+            }*/
 
             /*cpOrderTab.setVisibility(View.GONE);
             cpOrderRXRadio.setVisibility(View.GONE);
             cpOrderRXLine.setVisibility(View.GONE);*/
-            if(index == 16){
+            if(lottery_id.equals("21")&&index == 6){
+                cpOrderTab.setVisibility(View.GONE);
+                cpOrder11X5Tab.setVisibility(View.VISIBLE);
+                cpOrderLayout.setVisibility(View.VISIBLE);
+            }else if(index == 16){
                 cpOrderLayout.setVisibility(View.VISIBLE);
                 cpOrderTab.setVisibility(View.GONE);
                 cpOrderRXRadio.setText("自选不中");
@@ -27332,64 +27398,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             }
         }
 
-        private void onAllGG2DataChange(String  dataC,String  dataB,String name,CPOrderContentResult data){
-            if(!CPBetManager.getSingleton().inContain(dataC)){
-                if(!CPBetManager.getSingleton().inContain(dataB)){
-                    GameLog.log("是否包含这个数字-------- 12_624不包含");
-                    onSetOtherChange(dataB);
-                    CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
-                    if(!data.isChecked()){
-                        data.setChecked(true);
-                    }else{
-                        data.setChecked(false);
-                    }
-                    notifyDataSetChanged();
-                }else{
-                    GameLog.log("是否包含这个数字--------12_624 包含");
-                    CPBetManager.getSingleton().onRemoveItem(dataC);
-                    CPBetManager.getSingleton().onRemoveItem(dataB);
-                    CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
-                    onSetOtherChange(dataC);
-                    onSetOtherChange(dataB);
-                }
-            }else{
-                GameLog.log("是否包含这个数字--------12_624 包含");
-                CPBetManager.getSingleton().onRemoveItem(dataC);
-                CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
-                onSetOtherChange(dataC);
-            }
-            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
-        }
 
-        private void onAllGGDataChange(String  dataC,String name,CPOrderContentResult data){
-            if(!CPBetManager.getSingleton().inContain(dataC)){
-                GameLog.log("是否包含这个数字-------- 12_621不包含");
-                onSetOtherChange(dataC);
-                CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
-                if(!data.isChecked()){
-                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
-                    data.setChecked(true);
-                }else{
-                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(false);
-                    data.setChecked(false);
-                }
-                notifyDataSetChanged();
-            }else{
-                GameLog.log("是否包含这个数字--------12_621 包含");
-                CPBetManager.getSingleton().onRemoveItem(dataC);
-                CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
-                                /*if(!data.isChecked()){
-                                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
-                                    data.setChecked(true);
-                                }else{
-                                    //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(false);
-                                    data.setChecked(false);
-                                }
-                                notifyDataSetChanged();*/
-                onSetOtherChange(dataC);
-            }
-            cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(CPBetManager.getSingleton().onListSize()+"")+"注"));
-        }
 
         private void onSetOtherChange(String dataChange){
             int size2 = cpOrderContentListResults.size();
@@ -27787,7 +27796,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
 
             if(data.isChecked()){
                 if(data.getIsQuick().equals("1")){
-                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
+                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"龙":data.getOrderName().equals("虎")?"虎":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"龙":data.getOrderName().equals("虎")?"虎":data.getOrderName());
                     if("_".equals(name.substring(name.length() -1, name.length()))){
                         name = name.substring(0, name.length() -1);
                     }
@@ -27815,27 +27824,73 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                         onResetData();
                         return;
                     }
-                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
+                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"龙":data.getOrderName().equals("虎")?"虎":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"龙":data.getOrderName().equals("虎")?"虎":data.getOrderName());
                     if("_".equals(name.substring(name.length() -1, name.length()))){
                         name = name.substring(0, name.length() -1);
                     }
-                    if(lottery_id.equals("69")){
+                    if(lottery_id.equals("70") || lottery_id.equals("72")){
                         if("17".equals(type)||"40".equals(type)||"5".equals(type)||"6".equals(type)||"7".equals(type)||"8".equals(type)||"9".equals(type)||"10".equals(type)||"11".equals(type)){
                             name = data.getOrderName();
                         }else{
                             name = data.getFullName()+" - "+data.getOrderName();
                         }
                     }
-                    if(lottery_id.equals("3")||lottery_id.equals("47")){
-                        if(rX0 == 2|| rX0 == 3){
+                    if(lottery_id.equals("21")){
+                        if(rX0 == 2){
+                            if("213608".equals(typeCode)){
+                                if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                    int size = CPBetManager.getSingleton().onListSize();
+                                    if(size>=5){
+                                        showMessage("不允许超过5个选项");
+                                        return;
+                                    }
+                                }
+                            }else{
+                                if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                    int size = CPBetManager.getSingleton().onListSize();
+                                    if(size>=2){
+                                        showMessage("不允许超过2个选项");
+                                        return;
+                                    }
+                                }
+                            }
+
+                        }else if(rX0 == 3){
+                            if("213609".equals(typeCode)){
+                                if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                    int size = CPBetManager.getSingleton().onListSize();
+                                    if(size>=5){
+                                        showMessage("不允许超过5个选项");
+                                        return;
+                                    }
+                                }
+                            }else{
+                                if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                    int size = CPBetManager.getSingleton().onListSize();
+                                    if(size>=3){
+                                        showMessage("不允许超过3个选项");
+                                        return;
+                                    }
+                                }
+                            }
+
+                        }else if(rX0 == 4){
                             if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
                                 int size = CPBetManager.getSingleton().onListSize();
-                                if(size>=8){
-                                    showMessage("不允许超过8个选项");
+                                if(size>=4){
+                                    showMessage("不允许超过4个选项");
                                     return;
                                 }
                             }
-                        }else if(rX0 == 4|| rX0 == 5){
+                        }else if(rX0 == 5){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=5){
+                                    showMessage("不允许超过5个选项");
+                                    return;
+                                }
+                            }
+                        }else if(rX0 == 6){
                             if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
                                 int size = CPBetManager.getSingleton().onListSize();
                                 if(size>=6){
@@ -27843,21 +27898,64 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                     return;
                                 }
                             }
-                        }
-                    }else if(lottery_id.equals("69")){
-                        if(rX1 == 6){
+                        }else if(rX0 == 7){
                             if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
                                 int size = CPBetManager.getSingleton().onListSize();
-                                if(size>=10){
-                                    showMessage("不允许超过10个选项");
+                                if(size>=7){
+                                    showMessage("不允许超过7个选项");
                                     return;
                                 }
                             }
-                        }else if(rX1 == 7){
+                        }else if(rX0 == 8){
                             if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
                                 int size = CPBetManager.getSingleton().onListSize();
                                 if(size>=8){
                                     showMessage("不允许超过8个选项");
+                                    return;
+                                }
+                            }
+                        }
+                    }else if(lottery_id.equals("60")||lottery_id.equals("61")){
+                        if(rX0 == 2|| rX0 == 3){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=7){
+                                    showMessage("不允许超过7个选项");
+                                    return;
+                                }
+                            }
+                        }else if(rX0 == 4|| rX0 == 5){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=5){
+                                    showMessage("不允许超过5个选项");
+                                    return;
+                                }
+                            }
+                        }
+                    }else if(lottery_id.equals("70")||lottery_id.equals("72")){
+                        if(type.equals("20")){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=11){
+                                    showMessage("不允许超过11个选项");
+                                    return;
+                                }
+                            }
+                        }
+                        if(rX1 == 7){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=7){
+                                    showMessage("不允许超过7个选项");
+                                    return;
+                                }
+                            }
+                        }else if(rX1 == 10){
+                            if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
+                                int size = CPBetManager.getSingleton().onListSize();
+                                if(size>=10){
+                                    showMessage("不允许超过10个选项");
                                     return;
                                 }
                             }
@@ -27869,149 +27967,17 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                     return;
                                 }
                             }
-                        }else if(rX1 == 9){
+                        }else if(rX1 == 4){
                             if(!CPBetManager.getSingleton().inContain(type+"_"+data.getOrderId())){
                                 int size = CPBetManager.getSingleton().onListSize();
-                                if(size>=6){
-                                    showMessage("不允许超过6个选项");
+                                if(size>=4){
+                                    showMessage("不允许超过4个选项");
                                     return;
                                 }
                             }
                         }
                     }
 
-                    if(lottery_id.equals("69")&&"12".equals(type)){
-                        String iid = type+"_"+data.getOrderId();
-                        switch (iid){
-                            case "12_620":
-                                onAllGGDataChange("12_621",name,data);
-                                break;
-                            case "12_621":
-                                onAllGGDataChange("12_620",name,data);
-                                break;
-                            case "12_622":
-                                onAllGGDataChange("12_623",name,data);
-                                break;
-                            case "12_623":
-                                onAllGGDataChange("12_622",name,data);
-                                break;
-                            case "12_627":
-                                onAllGGDataChange("12_628",name,data);
-                                break;
-                            case "12_628":
-                                onAllGGDataChange("12_627",name,data);
-                                break;
-                            case "12_629":
-                                onAllGGDataChange("12_630",name,data);
-                                break;
-                            case "12_630":
-                                onAllGGDataChange("12_629",name,data);
-                                break;
-                            case "12_634":
-                                onAllGGDataChange("12_635",name,data);
-                                break;
-                            case "12_635":
-                                onAllGGDataChange("12_634",name,data);
-                                break;
-                            case "12_636":
-                                onAllGGDataChange("12_637",name,data);
-                                break;
-                            case "12_637":
-                                onAllGGDataChange("12_636",name,data);
-                                break;
-                            case "12_641":
-                                onAllGGDataChange("12_642",name,data);
-                                break;
-                            case "12_642":
-                                onAllGGDataChange("12_641",name,data);
-                                break;
-                            case "12_643":
-                                onAllGGDataChange("12_644",name,data);
-                                break;
-                            case "12_644":
-                                onAllGGDataChange("12_643",name,data);
-                                break;
-                            case "12_648":
-                                onAllGGDataChange("12_649",name,data);
-                                break;
-                            case "12_649":
-                                onAllGGDataChange("12_648",name,data);
-                                break;
-                            case "12_650":
-                                onAllGGDataChange("12_651",name,data);
-                                break;
-                            case "12_651":
-                                onAllGGDataChange("12_650",name,data);
-                                break;
-                            case "12_655":
-                                onAllGGDataChange("12_656",name,data);
-                                break;
-                            case "12_656":
-                                onAllGGDataChange("12_655",name,data);
-                                break;
-                            case "12_657":
-                                onAllGGDataChange("12_658",name,data);
-                                break;
-                            case "12_658":
-                                onAllGGDataChange("12_657",name,data);
-                                break;
-                            case "12_624":
-                                onAllGG2DataChange("12_625","12_626",name,data);
-                                break;
-                            case "12_625":
-                                onAllGG2DataChange("12_624","12_626",name,data);
-                                break;
-                            case "12_626":
-                                onAllGG2DataChange("12_624","12_625",name,data);
-                                break;
-                            case "12_631":
-                                onAllGG2DataChange("12_632","12_633",name,data);
-                                break;
-                            case "12_632":
-                                onAllGG2DataChange("12_631","12_633",name,data);
-                                break;
-                            case "12_633":
-                                onAllGG2DataChange("12_631","12_632",name,data);
-                                break;
-                            case "12_638":
-                                onAllGG2DataChange("12_639","12_640",name,data);
-                                break;
-                            case "12_639":
-                                onAllGG2DataChange("12_638","12_640",name,data);
-                                break;
-                            case "12_640":
-                                onAllGG2DataChange("12_638","12_639",name,data);
-                                break;
-                            case "12_645":
-                                onAllGG2DataChange("12_646","12_647",name,data);
-                                break;
-                            case "12_646":
-                                onAllGG2DataChange("12_645","12_647",name,data);
-                                break;
-                            case "12_647":
-                                onAllGG2DataChange("12_645","12_646",name,data);
-                                break;
-                            case "12_652":
-                                onAllGG2DataChange("12_653","12_654",name,data);
-                                break;
-                            case "12_653":
-                                onAllGG2DataChange("12_652","12_654",name,data);
-                                break;
-                            case "12_654":
-                                onAllGG2DataChange("12_652","12_653",name,data);
-                                break;
-                            case "12_659":
-                                onAllGG2DataChange("12_660","12_661",name,data);
-                                break;
-                            case "12_660":
-                                onAllGG2DataChange("12_659","12_661",name,data);
-                                break;
-                            case "12_661":
-                                onAllGG2DataChange("12_659","12_660",name,data);
-                                break;
-                        }
-                        return;
-                    }
                     CPBetManager.getSingleton().onAddData(type+"",data.getOrderId(),name,data.getOrderState(),type+"_"+data.getOrderId());
                     if(!data.isChecked()){
                         //allResultList.get(postionAll).getData().get(postions).getData().get(position).setChecked(true);
@@ -28023,7 +27989,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                         data.setIsQuick("0");
                     }
                     notifyDataSetChanged();
-                    if(rX0 == 2 || rX0 == 3|| rX0 == 4||rX0 == 5){
+                    if(rX0 == 2 || rX0 == 3|| rX0 == 4||rX0 == 5||rX0 == 6||rX0 == 7||rX0 == 8){
                         if(!renXuan2()){
                             return;
                         }
@@ -28044,11 +28010,31 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 case 5:
-                                    cpOrderRXRadio.setText("赔率：2.2");
+                                    cpOrderRXRadio.setText("赔率：2.1");
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 case 6:
-                                    cpOrderRXRadio.setText("赔率：1.96");
+                                    cpOrderRXRadio.setText("赔率：1.97");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 7:
+                                    cpOrderRXRadio.setText("赔率：1.6");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 8:
+                                    cpOrderRXRadio.setText("赔率：1.4");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 9:
+                                    cpOrderRXRadio.setText("赔率：1.2");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 10:
+                                    cpOrderRXRadio.setText("赔率：1.12");
+                                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
+                                    break;
+                                case 11:
+                                    cpOrderRXRadio.setText("赔率：1.05");
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 default:
@@ -28768,33 +28754,40 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     cpBetParams.setGold(gold);
                     cpBetParams.setGame_code(lottery_id);
                     cpBetParams.setRound(round);
+                    cpBetParams.setfTime(fTime);
                     cpBetParams.setX_session_token(x_session_token);
-                    if((lottery_id.equals("3")&&type.equals("10")||((lottery_id.equals("47")&&type.equals("10"))))){
+                    if((lottery_id.equals("60")&&type.equals("10")||((lottery_id.equals("61")&&type.equals("10"))))){
                         cpBetParams.setType("LM");
                         cpBetParams.setTypeCode(typeCode);
+                        cpBetParams.setRtype(cpOrderRXRadio.getText().toString().replace("赔率:",""));
                         cpBetParams.setTypeNumber(""+xiazhuValue);
                         switch (typeCode){
                             case "617301":
+                            case "608401":
                                 cpBetParams.setTypeName("任选二");
                                 break;
                             case "617302":
+                            case "608402":
                                 cpBetParams.setTypeName("任选二组");
                                 break;
                             case "617303":
+                            case "608403":
                                 cpBetParams.setTypeName("任选三");
                                 break;
                             case "617305":
+                            case "608405":
                                 cpBetParams.setTypeName("任选四");
                                 break;
                             case "617306":
+                            case "608406":
                                 cpBetParams.setTypeName("任选五");
                                 break;
                         }
                     }else if(lottery_id.equals("70")||lottery_id.equals("72")){
                         if(type.equals("13")){
                             cpBetParams.setType("HKLM");
-                            cpBetParams.setTypeCode(type);
-                            cpBetParams.setRtype(typeCode);
+                            cpBetParams.setTypeCode(typeCode);
+                            cpBetParams.setRtype(odds);
                             cpBetParams.setTypeNumber(""+xiazhuValue);
                             switch (typeCode){
                                 case "7010003":
@@ -28834,10 +28827,10 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                             cpBetParams.setRtype("");
                             cpBetParams.setTypeNumber("1");
                             cpBetParams.setTypeName("自选不中");
-                        }else if(type.equals("12")){
+                        }/*else if(type.equals("12")){//色波
                             cpBetParams.setType("HKGG");
                             cpBetParams.setTypeCode(type);
-                        }else {
+                        }*/else {
                             cpBetParams.setType("HK");
                         }
 
@@ -29270,6 +29263,30 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 if(initSize>=5){
                     xiazhuValue = initSize*(initSize - 1)*(initSize - 2)*(initSize - 3)*(initSize - 4)/120;
                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(xiazhuValue+"")+"注"));
+                    return true;
+                }else{
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));
+                }
+                break;
+            case 6:
+                if(initSize>=6){
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(1+"")+"注"));
+                    return true;
+                }else{
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));
+                }
+                break;
+            case 7:
+                if(initSize>=7){
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(1+"")+"注"));
+                    return true;
+                }else{
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));
+                }
+                break;
+            case 8:
+                if(initSize>=8){
+                    cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(1+"")+"注"));
                     return true;
                 }else{
                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed(0+"")+"注"));

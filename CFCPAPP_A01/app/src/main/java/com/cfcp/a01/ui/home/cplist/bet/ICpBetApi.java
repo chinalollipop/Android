@@ -1,5 +1,6 @@
 package com.cfcp.a01.ui.home.cplist.bet;
 
+import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.data.CPBetResult;
 
 import java.util.Map;
@@ -15,19 +16,19 @@ public interface ICpBetApi {
 
     /**
      *
-     * @param game_code             当前的彩种id
-     * @param round                 当前期号
-     * @param totalNums             注数
+     * @param gameId             当前的彩种id
+     * @param turnNum                 当前期号
+     * @param totalNum             注数
      * @param totalMoney            金额
      * @param number
      * @param fields                betBean[0][ip_3217]: 1  betBean[0][ip_3218]: 1  betBean[0][ip_3219]: 1
-     * @param x_session_token       token
+     * @param token       token
      * @return
      */
-    @POST("bill/bet")
+    @POST("service")
     @FormUrlEncoded
-    public Observable<CPBetResult> postCpBets(@Field("game_code") String game_code, @Field("round") String round, @Field("totalNums") String totalNums,
-                                              @Field("totalMoney") String totalMoney, @Field("number") String number, @FieldMap Map<String, String> fields, @Field("x-session-token") String x_session_token);
+    public Observable<AppTextMessageResponse<CPBetResult>> postCpBets(@Field("action") String action, @Field("packet") String packet,
+                                                                      @Field("betdata") String betdata, @Field("token") String token);
 
 
     /**

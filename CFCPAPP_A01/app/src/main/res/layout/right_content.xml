@@ -219,6 +219,15 @@
                     app:tabBackground="@drawable/tab_background"
                     app:tabIndicatorHeight="0dp"
                     app:tabMode="scrollable" />
+                <!--11X5连码-->
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/cpOrder11X5Tab"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:tabBackground="@drawable/tab_background"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMode="scrollable" />
 
                 <TextView
                     android:id="@+id/cpOrderRXRadio"
@@ -262,6 +271,7 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+
 
             <!--正特码-->
             <android.support.design.widget.TabLayout

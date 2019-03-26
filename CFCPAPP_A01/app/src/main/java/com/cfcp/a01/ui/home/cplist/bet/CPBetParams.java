@@ -13,6 +13,7 @@ public class CPBetParams implements Parcelable {
     private String gold;
     private String game_code;
     private String round;
+    private String fTime;
     private String x_session_token;
 
     public String getType() {
@@ -79,6 +80,14 @@ public class CPBetParams implements Parcelable {
         this.round = round;
     }
 
+    public String getfTime() {
+        return fTime;
+    }
+
+    public void setfTime(String fTime) {
+        this.fTime = fTime;
+    }
+
     public String getX_session_token() {
         return x_session_token;
     }
@@ -102,6 +111,7 @@ public class CPBetParams implements Parcelable {
         dest.writeString(this.gold);
         dest.writeString(this.game_code);
         dest.writeString(this.round);
+        dest.writeString(this.fTime);
         dest.writeString(this.x_session_token);
     }
 
@@ -117,6 +127,7 @@ public class CPBetParams implements Parcelable {
         this.gold = in.readString();
         this.game_code = in.readString();
         this.round = in.readString();
+        this.fTime = in.readString();
         this.x_session_token = in.readString();
     }
 

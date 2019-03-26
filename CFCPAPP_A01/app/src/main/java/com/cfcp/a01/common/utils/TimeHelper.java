@@ -609,7 +609,7 @@ public class TimeHelper {
         return Long.parseLong(st.format(time.getTime()));
     }
 
-    private static long StringToDate(String s){
+    public static long StringToDate(String s){
         long time=0;
         SimpleDateFormat sd=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {

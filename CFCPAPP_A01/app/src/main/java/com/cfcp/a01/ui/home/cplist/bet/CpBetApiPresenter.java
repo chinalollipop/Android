@@ -1,12 +1,18 @@
 package com.cfcp.a01.ui.home.cplist.bet;
 
 
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.common.http.ResponseSubscriber;
 import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
+import com.cfcp.a01.common.http.request.AppTextMessageResponse;
+import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.data.CPBetResult;
 
 import java.util.Map;
+
+import static com.cfcp.a01.common.utils.Utils.getContext;
 
 
 public class CpBetApiPresenter implements CpBetApiContract.Presenter {
@@ -23,14 +29,15 @@ public class CpBetApiPresenter implements CpBetApiContract.Presenter {
 
     @Override
     public void postCpBets(String game_code, String round, String totalNums, String totalMoney, String number, Map<String, String> fields, String x_session_token) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postCpBets(game_code,round,totalNums,totalMoney,number,fields,x_session_token))
-                .subscribe(new ResponseSubscriber<CPBetResult>() {
+        GameLog.log("投注的信息是 "+x_session_token);
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBets("CreditBet","Credit",x_session_token, ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN)))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPBetResult>>() {
                     @Override
-                    public void success(CPBetResult response) {
-                        if(response.getCode().equals("200")){
-                            view.postCpBetResult(response);
+                    public void success(AppTextMessageResponse<CPBetResult> response) {
+                        if(response.isSuccess()){
+                            view.postCpBetResult(response.getData());
                         }else{
-                            view.showMessage(response.getMsg());
+                            view.showMessage(response.getErrno());
                         }
                     }
 
