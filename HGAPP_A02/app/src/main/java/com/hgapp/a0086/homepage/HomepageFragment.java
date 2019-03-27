@@ -114,6 +114,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai,3));
         homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
+        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
@@ -122,8 +123,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 //        homeGameList.add(new HomePageIcon("扑鱼王二代",R.mipmap.home_fish));
 //        homeGameList.add(new HomePageIcon("甜心扑克王",R.mipmap.home_honey));
 //        homeGameList.add(new HomePageIcon("新春红包",R.mipmap.home_nyear,13));
-        homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent,7));
         homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red,8));
+        homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent,7));
         homeGameList.add(new HomePageIcon("优惠活动",R.mipmap.home_pro,9));
         homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact,10));
         homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new,11));
@@ -361,7 +362,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 presenter.postNoticeList("");
                 break;
             case 13:
-                if(Check.isEmpty(userName)){
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "7";
+                String ly_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LY_MAINTAIN);
+                if("1".equals(ly_url)){
+                    presenter.postMaintain();
+                }else {
+                    postLYQiPaiGo();
+                }
+                break;
+                /*if(Check.isEmpty(userName)){
                     //start(LoginFragment.newInstance());
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
@@ -371,7 +384,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 EventBus.getDefault().post(new StartBrotherEvent(NewEventsFragment.newInstance(userMoney,0), SupportFragment.SINGLETASK));
-                break;
+                break;*/
         }
     }
 
@@ -557,6 +570,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postLYQipaiResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_LY_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============LY棋牌的地址=============");
+    }
+
+    @Override
     public void postCPResult(CPResult cpResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
         CPClient.setClientDomain(cpResult.getCpUrl());
@@ -635,6 +654,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     GameLog.log("vg "+maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_VG_MAINTAIN,maintainResult1.getState());
                     break;
+                case "lyqp":
+                    if(userState.equals("7")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("ly "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_LY_MAINTAIN,maintainResult1.getState());
+                    break;
             }
         }
     }
@@ -696,6 +722,23 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
             intent.putExtra("gameCnName","VG棋牌");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+
+    }
+
+    private void postLYQiPaiGo(){
+        String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LY_QIPAI_URL);
+        if(Check.isEmpty(qipai_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postLYQipai("","");
+        }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
+            showMessage("正在加载中，请稍后再试!");
+        }*/else {
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",qipai_url);
+            intent.putExtra("gameCnName","乐游棋牌");
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -788,6 +831,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postQipai("","");
         presenter.postHGQipai("","");
         presenter.postVGQipai("","");
+        presenter.postLYQipai("","");
     }
 
     @Subscribe

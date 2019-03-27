@@ -29,6 +29,7 @@ public interface HomePageContract {
         public void postQipai(String appRefer,String action);
         public void postHGQipai(String appRefer,String action);
         public void postVGQipai(String appRefer,String action);
+        public void postLYQipai(String appRefer,String action);
         public void postCP();
         public void postValidGift(String appRefer,String action);
         public void postValidGift2(String appRefer,String action);
@@ -45,6 +46,7 @@ public interface HomePageContract {
         public void postQipaiResult(QipaiResult qipaiResult);
         public void postHGQipaiResult(QipaiResult qipaiResult);
         public void postVGQipaiResult(QipaiResult qipaiResult);
+        public void postLYQipaiResult(QipaiResult qipaiResult);
         public void postCPResult(CPResult cpResult);
         public void postValidGiftResult(ValidResult validResult);
         public void postValidGift2Result(ValidResult validResult);

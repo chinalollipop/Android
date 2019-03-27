@@ -24,7 +24,8 @@ public class CPNextIssueResult {
     private String preIssue;
     private String preLotteryTime;
     private String preNum;
-    private boolean preIsOpen;
+    private String preIsOpen;
+    private String isOpen;
     private String serverTime;
     private int gameId;
 
@@ -84,12 +85,20 @@ public class CPNextIssueResult {
         this.preNum = preNum;
     }
 
-    public boolean isPreIsOpen() {
+    public String isPreIsOpen() {
         return preIsOpen;
     }
 
-    public void setPreIsOpen(boolean preIsOpen) {
+    public void setPreIsOpen(String preIsOpen) {
         this.preIsOpen = preIsOpen;
+    }
+
+    public String getIsOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(String isOpen) {
+        this.isOpen = isOpen;
     }
 
     public String getServerTime() {

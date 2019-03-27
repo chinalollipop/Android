@@ -14,8 +14,8 @@
         android:gravity="center"
         android:textColor="@color/register_left"
         android:textSize="16sp" />
-    <TextView
+    <!--<TextView
         android:background="#2f5a9e"
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="1dp" />-->
 </LinearLayout>

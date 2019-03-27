@@ -16,6 +16,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/base/BaseActivity2.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/PNThreadFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/CombinationHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/CombinationHelperGid.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/DoubleClickHelper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/TimeUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/widget/CustomPopWindow.java" afterDir="false" />
@@ -52,8 +53,10 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderContentListResult.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderContentResult.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPTitleDialog.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/HomePageIcon.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/ICPListApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/RoleActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetParam.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CPBetParams.java" afterDir="false" />
@@ -115,7 +118,9 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cp_circle.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cp_circle_checked.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cp_circle_normal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_role.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_bet_order_cp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_title_cp.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cp_bet_list_records.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cp_bet_now.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cp_bet_records.xml" afterDir="false" />
@@ -269,55 +274,55 @@
     <session id="-2001075008">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
+          <entry key="project.closed" value="38" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="10" />
           <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.4" value="7" />
           <entry key="project.open.time.5" value="10" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="41" />
+          <entry key="project.opened" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="22" />
+          <entry key="class" value="23" />
           <entry key="gradle" value="18" />
-          <entry key="java" value="1229" />
+          <entry key="java" value="1264" />
           <entry key="jpg" value="1" />
           <entry key="png" value="9" />
           <entry key="pro" value="1" />
-          <entry key="xml" value="476" />
+          <entry key="xml" value="486" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="22" />
+          <entry key="CLASS" value="23" />
           <entry key="Groovy" value="18" />
           <entry key="Image" value="10" />
-          <entry key="JAVA" value="1229" />
+          <entry key="JAVA" value="1264" />
           <entry key="ProGuard File" value="1" />
-          <entry key="XML" value="476" />
+          <entry key="XML" value="486" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="195" />
           <entry key="gradle" value="3" />
-          <entry key="java" value="30890" />
-          <entry key="xml" value="8290" />
+          <entry key="java" value="31308" />
+          <entry key="xml" value="8365" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="30890" />
+          <entry key="JAVA" value="31308" />
           <entry key="PLAIN_TEXT" value="195" />
-          <entry key="XML" value="8290" />
+          <entry key="XML" value="8365" />
         </counts>
       </usages-collector>
     </session>
@@ -330,40 +335,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="27944" column="25" lean-forward="true" selection-start-line="27944" selection-start-column="25" selection-end-line="27944" selection-end-column="25" />
+            <state relative-caret-position="179">
+              <caret line="28957" column="9" lean-forward="true" selection-start-line="28957" selection-start-column="9" selection-end-line="28957" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#928474#928500#0" expanded="true" />
-                <element signature="e#1597598#1609773#0" expanded="true" />
-                <element signature="e#1609008#1609322#0" expanded="true" />
-                <element signature="e#1609321#1609322#0" expanded="true" />
-                <element signature="e#1609383#1609697#0" expanded="true" />
-                <element signature="e#1609696#1609697#0" expanded="true" />
-                <element signature="e#1609772#1609773#0" expanded="true" />
-                <element signature="e#1632390#1632391#0" expanded="true" />
-                <element signature="e#1632455#1632456#0" expanded="true" />
-                <element signature="e#1633176#1633177#0" expanded="true" />
-                <element signature="e#1633218#1633219#0" expanded="true" />
+                <element signature="e#1633422#1633423#0" expanded="true" />
+                <element signature="e#1633468#1633469#0" expanded="true" />
+                <element signature="e#1653927#1654233#0" expanded="true" />
+                <element signature="e#1654232#1654233#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/me/pwd/PwdFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="157" column="9" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/order/CPOrderContract.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="53" column="33" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="33" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pop_cp_title.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -371,103 +361,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="196" column="23" selection-start-line="196" selection-start-column="23" selection-end-line="196" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetParam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-              <folding>
-                <element signature="e#370#371#0" expanded="true" />
-                <element signature="e#400#401#0" expanded="true" />
-                <element signature="e#451#452#0" expanded="true" />
-                <element signature="e#489#490#0" expanded="true" />
-                <element signature="e#1056#1057#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-                <element signature="e#1159#1160#0" expanded="true" />
-                <element signature="e#1203#1204#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-                <element signature="e#1329#1330#0" expanded="true" />
-                <element signature="e#1375#1376#0" expanded="true" />
-                <element signature="e#1415#1416#0" expanded="true" />
-                <element signature="e#1455#1456#0" expanded="true" />
-                <element signature="e#1509#1510#0" expanded="true" />
-                <element signature="e#1559#1560#0" expanded="true" />
-                <element signature="e#1600#1601#0" expanded="true" />
-                <element signature="e#1641#1642#0" expanded="true" />
-                <element signature="e#1697#1698#0" expanded="true" />
-                <element signature="e#1749#1750#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
-                <element signature="e#1823#1824#0" expanded="true" />
-                <element signature="e#1871#1872#0" expanded="true" />
-                <element signature="e#1915#1916#0" expanded="true" />
-                <element signature="e#1951#1952#0" expanded="true" />
-                <element signature="e#1987#1988#0" expanded="true" />
-                <element signature="e#2033#2034#0" expanded="true" />
-                <element signature="e#2075#2076#0" expanded="true" />
-                <element signature="e#2124#2125#0" expanded="true" />
-                <element signature="e#2162#2163#0" expanded="true" />
-                <element signature="e#2223#2224#0" expanded="true" />
-                <element signature="e#2269#2270#0" expanded="true" />
-                <element signature="e#2696#2697#0" expanded="true" />
-                <element signature="e#2741#2742#0" expanded="true" />
-                <element signature="e#2793#2794#0" expanded="true" />
-                <element signature="e#2845#2846#0" expanded="true" />
-                <element signature="e#2884#2885#0" expanded="true" />
-                <element signature="e#2927#2928#0" expanded="true" />
-                <element signature="e#2975#2976#0" expanded="true" />
-                <element signature="e#3023#3024#0" expanded="true" />
-                <element signature="e#3064#3065#0" expanded="true" />
-                <element signature="e#3109#3110#0" expanded="true" />
-                <element signature="e#3098#3099#0" expanded="true" />
-                <element signature="e#3150#3151#0" expanded="true" />
-                <element signature="e#3190#3191#0" expanded="true" />
-                <element signature="e#3234#3235#0" expanded="true" />
-                <element signature="e#3284#3285#0" expanded="true" />
-                <element signature="e#3334#3335#0" expanded="true" />
-                <element signature="e#3376#3377#0" expanded="true" />
-                <element signature="e#3422#3423#0" expanded="true" />
-                <element signature="e#3476#3477#0" expanded="true" />
-                <element signature="e#3530#3531#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CPBetParams.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="38" column="24" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="24" />
-              <folding>
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-                <element signature="e#805#806#0" expanded="true" />
-                <element signature="e#839#840#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-                <element signature="e#905#906#0" expanded="true" />
-                <element signature="e#1551#1552#0" expanded="true" />
-                <element signature="e#1585#1586#0" expanded="true" />
-                <element signature="e#1643#1644#0" expanded="true" />
-                <element signature="e#1671#1672#0" expanded="true" />
-                <element signature="e#1713#1714#0" expanded="true" />
-                <element signature="e#1747#1748#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CpBetApiContract.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="347">
+              <caret line="382" column="22" lean-forward="true" selection-start-line="382" selection-start-column="22" selection-end-line="382" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -475,17 +370,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CpBetApiPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/ICpBetApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+            <state relative-caret-position="404">
+              <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -501,40 +387,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cpBetParams</find>
-      <find>postInfo</find>
-      <find>postNextIssue</find>
-      <find>cpOrderSubmit</find>
-      <find>广东快乐</find>
-      <find>608401</find>
-      <find>617306</find>
-      <find>int</find>
+      <find>709805</find>
+      <find>肖连中</find>
+      <find>HKZXBZ</find>
+      <find>type.equals(&quot;20&quot;)</find>
       <find>rX0</find>
-      <find>617301</find>
-      <find>二中二</find>
-      <find>213609</find>
-      <find>213601</find>
-      <find>postRateInfo11X5</find>
-      <find>cpOrder11X5Tab</find>
-      <find>onChangeData</find>
-      <find>cpOrderTab</find>
-      <find>lotteryResultTab</find>
-      <find>pwdTab</find>
-      <find>getTabAt</find>
-      <find>rX1</find>
-      <find>postCpBetResult</find>
-      <find>7010003</find>
+      <find>initSXLTablayout()</find>
       <find>postRateInfoHK</find>
-      <find>&quot;13&quot;.equals(type</find>
-      <find>lottery_id.equals(&quot;70&quot;)</find>
-      <find>hkLM1</find>
-      <find>index==6</find>
-      <find>submit</find>
-      <find>合肖</find>
+      <find>连肖</find>
+      <find>二连肖</find>
+      <find>cpOrderWSLTab</find>
+      <find>index==13</find>
+      <find>k == 13</find>
+      <find>HKSXL</find>
+      <find>preIsOpen</find>
+      <find>三全中</find>
+      <find>7010003</find>
+      <find>加载</find>
+      <find>WaitDialog.show</find>
+      <find>WaitDialog.s</find>
+      <find>加载中</find>
+      <find>popCPOrder1</find>
+      <find>contentView</find>
+      <find>cpOrderShow</find>
+      <find>CPTitleGameAdapter</find>
+      <find>BetCPOrderDialog</find>
+      <find>XinYongLotteries</find>
+      <find>getErrno</find>
+      <find>show(</find>
+      <find>getDescribe</find>
+      <find>postCpBetsHK</find>
     </findStrings>
     <replaceStrings>
-      <replace>itemTraceDetailtype</replace>
-      <replace>withdrawSubmit</replace>
       <replace>#e4e1e1</replace>
       <replace>myReport</replace>
       <replace>itemUserList</replace>
@@ -563,6 +447,8 @@
       <replace>总肖</replace>
       <replace>String</replace>
       <replace>五连尾</replace>
+      <replace>连肖</replace>
+      <replace>getDescribe</replace>
     </replaceStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -577,15 +463,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_hk.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_cp_oder_title.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_left_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_content1.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_content22.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_content23.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_content3.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPBJSCResult.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CQSSCResult.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/PCDDResult.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPXYNCResult.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPKLSFResult.java" />
@@ -613,7 +490,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/playgame/PTIWebSetting.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/playgame/XPlayGameFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/playgame/XPlayGameActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/HomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPJSFTResult.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/order/ICPOrderApi.java" />
@@ -621,13 +497,23 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPHKResult.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/me/CaiInfoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/right_content.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetParam.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/ICpBetApi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CpBetApiPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/TimeHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CPBetParams.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPNextIssueResult.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/CombinationHelperGid.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetParam.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/pop_cp_order.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_role.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/RoleActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPTitleDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_title_cp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/pop_cp_title.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CpBetApiPresenter.java" />
       </list>
     </option>
   </component>
@@ -650,7 +536,6 @@
       <foldersAlwaysOnTop value="false" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -666,58 +551,13 @@
             <path>
               <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="cfcp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="cfcp" type="462c0819:PsiDirectoryNode" />
-              <item name="a01" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="cfcp" type="462c0819:PsiDirectoryNode" />
-              <item name="a01" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="cfcp" type="462c0819:PsiDirectoryNode" />
-              <item name="a01" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="me" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="cfcp" type="462c0819:PsiDirectoryNode" />
-              <item name="a01" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="me" type="462c0819:PsiDirectoryNode" />
-              <item name="pwd" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="CFCPAPP_A01" type="1abcf292:AndroidViewProjectNode" />
@@ -728,6 +568,7 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -739,7 +580,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="D:/Program Files/Android/AppData/AndroidSdk" />
-    <property name="device.picker.selection" value="4754445334573398" />
+    <property name="device.picker.selection" value="AAEI8PNB4PLRYSRS" />
     <property name="last_opened_file_path" value="D:/AppMobile/Android/HGWEB_A01/sign/hg_web_a01_sign.jks" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -751,11 +592,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cfcp.a01.ui.home.cplist" />
+      <recent name="com.cfcp.a01.common.utils" />
       <recent name="com.cfcp.a01.ui.home.playgame" />
       <recent name="com.cfcp.a01.common.http" />
       <recent name="com.cfcp.a01.data" />
-      <recent name="com.cfcp.a01.common.utils" />
-      <recent name="com.cfcp.a01.common.widget" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\CFCPAPP_A01\app\src\main\res\layout" />
@@ -878,8 +719,8 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50141805" side_tool="true" weight="0.43493152" />
       <window_info anchor="bottom" id="Build" order="6" sideWeight="0.49858198" weight="0.39269406" />
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32990867" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4997164" weight="0.39954337" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="9" sideWeight="0.49858198" visible="true" weight="0.08219178" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4997164" weight="0.293379" />
+      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49858198" weight="0.760274" />
       <window_info anchor="right" id="Assistant" order="0" weight="0.3295519" />
       <window_info anchor="right" x="0" y="0" width="411" height="896" id="Documentation" order="1" side_tool="true" weight="0.3295519" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -907,8 +748,8 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50141805" side_tool="true" weight="0.43493152" />
       <window_info anchor="bottom" id="Build" order="6" sideWeight="0.49858198" weight="0.39269406" />
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32990867" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4997164" visible="true" weight="0.39954337" />
-      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49858198" weight="0.1803653" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4997164" weight="0.293379" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="9" sideWeight="0.49858198" visible="true" weight="0.369863" />
       <window_info anchor="right" id="Assistant" order="0" weight="0.3295519" />
       <window_info anchor="right" x="0" y="0" width="411" height="896" id="Documentation" order="1" side_tool="true" weight="0.3295519" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -1252,13 +1093,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>27008</line>
+          <line>27011</line>
           <properties />
           <option name="timeStamp" value="279" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>27070</line>
+          <line>27073</line>
           <properties />
           <option name="timeStamp" value="282" />
         </line-breakpoint>
@@ -1288,7 +1129,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
-          <line>376</line>
+          <line>401</line>
           <properties />
           <option name="timeStamp" value="297" />
         </line-breakpoint>
@@ -1300,13 +1141,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
-          <line>360</line>
+          <line>385</line>
           <properties />
           <option name="timeStamp" value="299" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
-          <line>302</line>
+          <line>316</line>
           <properties />
           <option name="timeStamp" value="301" />
         </line-breakpoint>
@@ -1318,69 +1159,69 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
-          <line>267</line>
+          <line>280</line>
           <properties />
           <option name="timeStamp" value="303" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>28759</line>
-          <properties />
-          <option name="timeStamp" value="306" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>28751</line>
-          <properties />
-          <option name="timeStamp" value="307" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
-          <line>325</line>
+          <line>339</line>
           <properties />
           <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>26207</line>
+          <line>26210</line>
           <properties />
           <option name="timeStamp" value="315" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>26124</line>
+          <line>26127</line>
           <properties />
           <option name="timeStamp" value="316" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>24711</line>
+          <line>24714</line>
           <properties />
           <option name="timeStamp" value="317" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>27144</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
+          <line>150</line>
           <properties />
-          <option name="timeStamp" value="318" />
+          <option name="timeStamp" value="325" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>27111</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
+          <line>130</line>
           <properties />
-          <option name="timeStamp" value="319" />
+          <option name="timeStamp" value="327" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>24728</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
+          <line>156</line>
           <properties />
-          <option name="timeStamp" value="320" />
+          <option name="timeStamp" value="330" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java</url>
-          <line>27935</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
+          <line>142</line>
           <properties />
-          <option name="timeStamp" value="321" />
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="334" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java</url>
+          <line>155</line>
+          <properties />
+          <option name="timeStamp" value="335" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/deposit/DepositFragment.java</url>
@@ -1400,148 +1241,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/me/register/RegisterMeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="179" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/me/register/RegisterMePresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPKLSFResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPJSKSResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/Cp11X5Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPKL8Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/login/fastlogin/LoginContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/login/fastlogin/LoginPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/LoginResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_cp_order.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/HomeContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderContentListResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding>
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/widget/NTitleBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/PNThreadFactory.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6913">
-          <caret line="223" column="50" selection-start-line="223" selection-start-column="41" selection-end-line="223" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/CFConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/util/SaveCookiesInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/ReadCookiesInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/login/fastregister/RegisterFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/login/fastlogin/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pay_x5_game.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1610,16 +1309,202 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14911">
           <caret line="514" column="80" selection-start-line="514" selection-start-column="80" selection-end-line="514" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/order/ICPOrderApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2759">
+          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1488">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_content2.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPBetResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/IHomeApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="43" column="15" lean-forward="true" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/HomePresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="187" column="61" selection-start-line="187" selection-start-column="34" selection-end-line="187" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/TimeHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="611" column="24" selection-start-line="611" selection-start-column="24" selection-end-line="611" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/lottery/LotteryResultFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="1556" column="32" selection-start-line="1556" selection-start-column="16" selection-end-line="1556" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/me/pwd/PwdFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3844">
+          <caret line="157" column="9" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CPBetParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1713#1714#0" expanded="true" />
+            <element signature="e#1747#1748#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/ICpBetApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPNextIssueResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="95" column="27" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="27" />
+          <folding>
+            <element signature="e#1787#1788#0" expanded="true" />
+            <element signature="e#1819#1820#0" expanded="true" />
+            <element signature="e#1969#1970#0" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+            <element signature="e#2042#2043#0" expanded="true" />
+            <element signature="e#2078#2079#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/order/CPOrderContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="79" column="47" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/events/CPOrderList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/CombinationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding>
+            <element signature="e#1901#1902#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/CombinationHelperGid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3627">
+          <caret line="119" column="40" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
+          <folding>
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#1159#1160#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1415#1416#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#1600#1601#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+            <element signature="e#1697#1698#0" expanded="true" />
+            <element signature="e#1749#1750#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
+            <element signature="e#1871#1872#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1951#1952#0" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+            <element signature="e#2075#2076#0" expanded="true" />
+            <element signature="e#2124#2125#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="e#2741#2742#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#2969#2970#0" expanded="true" />
+            <element signature="e#3023#3024#0" expanded="true" />
+            <element signature="e#3077#3078#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
+            <element signature="e#2927#2928#0" expanded="true" />
+            <element signature="e#2975#2976#0" expanded="true" />
+            <element signature="e#3023#3024#0" expanded="true" />
+            <element signature="e#3064#3065#0" expanded="true" />
+            <element signature="e#3109#3110#0" expanded="true" />
+            <element signature="e#3161#3162#0" expanded="true" />
+            <element signature="e#3213#3214#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPHKResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87172">
-          <caret line="3328" column="18" selection-start-line="3328" selection-start-column="18" selection-end-line="3328" selection-end-column="18" />
+        <state relative-caret-position="378">
+          <caret line="5369" column="24" selection-start-line="5369" selection-start-column="24" selection-end-line="5369" selection-end-column="24" />
           <folding>
             <element signature="e#63931#63932#0" expanded="true" />
             <element signature="e#63964#63965#0" expanded="true" />
@@ -4673,244 +4558,207 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/order/ICPOrderApi.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kongzue.dialog/dialog/2.4.8.1/f83f289b8a25b79ab0b1ae3c1fd422f2a74192ab/dialog-2.4.8.1-sources.jar!/com/kongzue/dialog/v2/WaitDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2759">
-          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+        <state relative-caret-position="-174">
+          <caret line="243" column="5" lean-forward="true" selection-start-line="243" selection-start-column="5" selection-end-line="243" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/bet/BetFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="260" column="9" lean-forward="true" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/sidebar/SideBarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1457">
+          <caret line="127" column="69" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_role.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="65" column="72" selection-start-line="65" selection-start-column="60" selection-end-line="65" selection-end-column="72" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pop_cp_order.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/RoleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="132" column="22" lean-forward="true" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/Client.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/QPWebSetting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+        <state relative-caret-position="270">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/base/BaseDialogFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1736">
-          <caret line="56" column="79" selection-start-line="56" selection-start-column="62" selection-end-line="56" selection-end-column="79" />
+        <state relative-caret-position="-3286">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_content2.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_bet_order_cp.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+        <state relative-caret-position="434">
+          <caret line="132" column="41" lean-forward="true" selection-start-line="132" selection-start-column="41" selection-end-line="132" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/right_content.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/329b61cc36de2348576221e3c76b1a3a/jars/classes.jar!/android/support/v7/widget/GridLayoutManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="207" column="25" selection-start-line="207" selection-start-column="25" selection-end-line="207" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/data/CPBetResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/IHomeApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="43" column="15" lean-forward="true" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/HomePresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="187" column="61" selection-start-line="187" selection-start-column="34" selection-end-line="187" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/events/CPOrderList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="512" column="89" selection-start-line="512" selection-start-column="71" selection-end-line="512" selection-end-column="89" />
+          <caret line="261" column="78" lean-forward="true" selection-start-line="259" selection-start-column="8" selection-end-line="261" selection-end-column="78" />
           <folding>
             <element signature="e#14022#17405#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/utils/TimeHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/right_content.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="611" column="24" selection-start-line="611" selection-start-column="24" selection-end-line="611" selection-end-column="24" />
+        <state relative-caret-position="237">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/ICpBetApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_title_cp.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/order/CPOrderContract.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pop_cp_title.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPBetManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="53" column="33" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="33" />
+        <state relative-caret-position="450">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding>
+            <element signature="e#2694#2695#0" expanded="true" />
+            <element signature="e#2725#2726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPTitleDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+          <folding>
+            <element signature="e#3419#3420#0" expanded="true" />
+            <element signature="e#3465#3466#0" expanded="true" />
+            <element signature="e#12887#12888#0" expanded="true" />
+            <element signature="e#12929#12930#0" expanded="true" />
+            <element signature="e#4616#4617#0" expanded="true" />
+            <element signature="e#4653#4654#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CpBetApiContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="403">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetParam.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/widget/CustomPopWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding>
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1415#1416#0" expanded="true" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-            <element signature="e#1600#1601#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1697#1698#0" expanded="true" />
-            <element signature="e#1749#1750#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
-            <element signature="e#1951#1952#0" expanded="true" />
-            <element signature="e#1987#1988#0" expanded="true" />
-            <element signature="e#2033#2034#0" expanded="true" />
-            <element signature="e#2075#2076#0" expanded="true" />
-            <element signature="e#2124#2125#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
-            <element signature="e#2223#2224#0" expanded="true" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2696#2697#0" expanded="true" />
-            <element signature="e#2741#2742#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
-            <element signature="e#2884#2885#0" expanded="true" />
-            <element signature="e#2927#2928#0" expanded="true" />
-            <element signature="e#2975#2976#0" expanded="true" />
-            <element signature="e#3023#3024#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
-            <element signature="e#3109#3110#0" expanded="true" />
-            <element signature="e#3098#3099#0" expanded="true" />
-            <element signature="e#3150#3151#0" expanded="true" />
-            <element signature="e#3190#3191#0" expanded="true" />
-            <element signature="e#3234#3235#0" expanded="true" />
-            <element signature="e#3284#3285#0" expanded="true" />
-            <element signature="e#3334#3335#0" expanded="true" />
-            <element signature="e#3376#3377#0" expanded="true" />
-            <element signature="e#3422#3423#0" expanded="true" />
-            <element signature="e#3476#3477#0" expanded="true" />
-            <element signature="e#3530#3531#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="208">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CPBetParams.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_cp_order_list.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/common/http/request/AppTextMessageResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="24" />
+        <state relative-caret-position="224">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
           <folding>
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1643#1644#0" expanded="true" />
-            <element signature="e#1671#1672#0" expanded="true" />
-            <element signature="e#1713#1714#0" expanded="true" />
-            <element signature="e#1747#1748#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/CpBetApiPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/lottery/LotteryResultFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="1556" column="32" selection-start-line="1556" selection-start-column="16" selection-end-line="1556" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/me/pwd/PwdFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="157" column="9" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
+        <state relative-caret-position="404">
+          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/bet/BetCPOrderDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="196" column="23" selection-start-line="196" selection-start-column="23" selection-end-line="196" selection-end-column="23" />
+        <state relative-caret-position="347">
+          <caret line="382" column="22" lean-forward="true" selection-start-line="382" selection-start-column="22" selection-end-line="382" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cfcp/a01/ui/home/cplist/CPOrderFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="27944" column="25" lean-forward="true" selection-start-line="27944" selection-start-column="25" selection-end-line="27944" selection-end-column="25" />
+        <state relative-caret-position="179">
+          <caret line="28957" column="9" lean-forward="true" selection-start-line="28957" selection-start-column="9" selection-end-line="28957" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#928474#928500#0" expanded="true" />
-            <element signature="e#1597598#1609773#0" expanded="true" />
-            <element signature="e#1609008#1609322#0" expanded="true" />
-            <element signature="e#1609321#1609322#0" expanded="true" />
-            <element signature="e#1609383#1609697#0" expanded="true" />
-            <element signature="e#1609696#1609697#0" expanded="true" />
-            <element signature="e#1609772#1609773#0" expanded="true" />
-            <element signature="e#1632390#1632391#0" expanded="true" />
-            <element signature="e#1632455#1632456#0" expanded="true" />
-            <element signature="e#1633176#1633177#0" expanded="true" />
-            <element signature="e#1633218#1633219#0" expanded="true" />
+            <element signature="e#1633422#1633423#0" expanded="true" />
+            <element signature="e#1633468#1633469#0" expanded="true" />
+            <element signature="e#1653927#1654233#0" expanded="true" />
+            <element signature="e#1654232#1654233#0" expanded="true" />
           </folding>
         </state>
       </provider>

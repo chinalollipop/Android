@@ -103,6 +103,7 @@ public class BetParam {
              */
 
             private String playId;
+            private String playIds;
             private String odds;
             private String rebate;
             private String money;
@@ -114,6 +115,14 @@ public class BetParam {
 
             public void setPlayId(String playId) {
                 this.playId = playId;
+            }
+
+            public String getPlayIds() {
+                return playIds;
+            }
+
+            public void setPlayIds(String playIds) {
+                this.playIds = playIds;
             }
 
             public String getOdds() {

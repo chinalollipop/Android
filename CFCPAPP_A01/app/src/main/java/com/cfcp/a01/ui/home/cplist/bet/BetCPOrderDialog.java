@@ -16,6 +16,7 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseDialogFragment;
 import com.cfcp.a01.common.utils.CalcHelper;
 import com.cfcp.a01.common.utils.CombinationHelper;
+import com.cfcp.a01.common.utils.CombinationHelperGid;
 import com.cfcp.a01.common.utils.DoubleClickHelper;
 import com.cfcp.a01.data.CPBetResult;
 import com.cfcp.a01.ui.home.cplist.events.CPOrderList;
@@ -24,6 +25,7 @@ import com.cfcp.a01.ui.home.cplist.events.CloseLotteryEvent;
 import com.cfcp.a01.ui.home.cplist.events.ServiceEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.kongzue.dialog.v2.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -70,6 +72,9 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
     CPBetParams cpBetParams;
     String userMoney;
     private String betGold="",betType;
+
+    List<String> dtaName = new ArrayList<>();
+    List<String> dtaGid = new ArrayList<>();
 
     String fTime, game_code,  round, totalNums,totalMoney,number,typeCode,rtype, x_session_token;
     CpBetApiContract.Presenter presenter;
@@ -119,12 +124,14 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
             List<String> dataString = new ArrayList<>();
             String nameData="";
             String nameData1="";
+            String nameDataDaniel="";
             String gouName="";
             String gouRote="";
             String otherRote="";
             for(int k=0;k<sXize;++k){
                 dataString.add(betResult.get(k).gName.split(" - ")[1]);
                 nameData+= betResult.get(k).gName.split(" - ")[1].replace("尾","")+",";
+                nameDataDaniel+= betResult.get(k).gid+",";
                 nameData1 = betResult.get(k).gName.split(" - ")[0];
                 if(betResult.get(k).gName.split(" - ")[1].equals("狗")||betResult.get(k).gName.split(" - ")[1].replace("尾","").equals("0")){
                     gouRote= betResult.get(k).rate;
@@ -132,7 +139,8 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
                     otherRote= betResult.get(k).rate;
                 }
             }
-            String [] dataL = nameData.split(",");
+            String [] dataL = nameData.split(",");//字的排列
+            String [] dataDaniel = nameDataDaniel.split(",");//数值的排列
             //CombinationHelper.arrangementSelect(dataL, 2);
             /*int[] num = new int[]{1,2,3,4,5,6};
             try {
@@ -141,14 +149,16 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
                 e.printStackTrace();
             }*/
             CombinationHelper.combinationSelect(dataL, Integer.parseInt(cpBetParams.getTypeNumber()));
-            List<String> dta = CombinationHelper.newDataList();
-            int ssDta = dta.size();
+            dtaName = CombinationHelper.newDataList();
+            CombinationHelperGid.combinationSelect(dataDaniel, Integer.parseInt(cpBetParams.getTypeNumber()));
+            dtaGid = CombinationHelperGid.newDataList();
+            int ssDta = dtaName.size();
             ArrayList<CPOrderList> newBetListData = new ArrayList<>();
             for(int k=0;k<ssDta;++k){
-                if(dta.get(k).contains("狗")||dta.get(k).contains("0")){
-                    newBetListData.add(new CPOrderList(""+k,k+"",nameData1+" "+dta.get(k).replace("[","").replace("]",""),gouRote,""));
+                if(dtaName.get(k).contains("狗")||dtaName.get(k).contains("0")){
+                    newBetListData.add(new CPOrderList(""+k,k+"",nameData1+" "+dtaName.get(k).replace("[","").replace("]",""),gouRote,""));
                 }else{
-                    newBetListData.add(new CPOrderList(""+k,k+"",nameData1+" "+dta.get(k).replace("[","").replace("]",""),otherRote,""));
+                    newBetListData.add(new CPOrderList(""+k,k+"",nameData1+" "+dtaName.get(k).replace("[","").replace("]",""),otherRote,""));
                 }
             }
             //newBetListData(betResult,2);
@@ -261,10 +271,13 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
+        WaitDialog.dismiss();
+        hide();
     }
 
     @Override
     public void postCpBetResult(CPBetResult betResult) {
+        WaitDialog.dismiss();
         showMessage("投注成功！");
         EventBus.getDefault().post(new CPOrderSuccessEvent());
         hide();
@@ -299,6 +312,7 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
                 hide();
                 break;
             case R.id.betOrderCpSubmit:
+                WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
                 int size = betResult.size();
                 number="";
                 ArrayList<BetParam.BetdataBean.BetBeanBean> beanArrayList = new ArrayList<>();
@@ -324,7 +338,18 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
                     beanArrayList.add(betBeanBean);
                     betParam.setBetBean(beanArrayList);
                     presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",null, JSON.toJSONString(betParam));
-                }else if("HKLM".equals(betType)||"HKHX".equals(betType)||"HKZXBZ".equals(betType)||"HKGG".equals(betType)||"HKSXL".equals(betType)){
+                }else if("HKSXL".equals(betType)){
+                    for(int i=0;i<dtaName.size();++i){
+                        BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
+                        betBeanBean.setMoney(betGold);
+                        betBeanBean.setPlayIds(dtaGid.get(i).replace("[","").replace("]",""));
+                        betBeanBean.setPlayId(dtaGid.get(i).replace("[","").replace("]","").split(", ")[0]);
+                        betBeanBean.setBetInfo(dtaName.get(i).replace("[","").replace("]",""));
+                        beanArrayList.add(betBeanBean);
+                    }
+                    betParam.setBetBean(beanArrayList);
+                    presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",null, JSON.toJSONString(betParam));
+                }else if("HKLM".equals(betType)||"HKHX".equals(betType)||"HKZXBZ".equals(betType)||"HKGG".equals(betType)){
                     for(int i=0;i<size;++i){
                         number += betResult.get(i).getGid()+",";
                     }

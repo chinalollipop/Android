@@ -37,7 +37,7 @@ public class CpBetApiPresenter implements CpBetApiContract.Presenter {
                         if(response.isSuccess()){
                             view.postCpBetResult(response.getData());
                         }else{
-                            view.showMessage(response.getErrno());
+                            view.showMessage(response.getDescribe());
                         }
                     }
 

@@ -170,6 +170,10 @@ public abstract class HGConstant {
     //用户的vg棋牌地址
     public static final String USERNAME_VG_QIPAI_URL = "username_vg_qipai_url";
 
+
+    //用户的Ly棋牌地址
+    public static final String USERNAME_LY_QIPAI_URL = "username_ly_qipai_url";
+
     //用户的红包地址
     public static final String USERNAME_GIFT_URL = "username_gift_url";
 
@@ -208,6 +212,10 @@ public abstract class HGConstant {
 
     //棋牌维护状态的日志
     public static final String USERNAME_VG_MAINTAIN = "username_vg_maintain";
+
+
+    //棋牌维护状态的日志
+    public static final String USERNAME_LY_MAINTAIN = "username_ly_maintain";
 
     //彩票维护状态的日志
     public static final String USERNAME_LOTTERY_MAINTAIN = "username_lottery_maintain";

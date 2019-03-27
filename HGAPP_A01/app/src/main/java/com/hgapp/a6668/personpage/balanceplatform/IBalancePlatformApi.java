@@ -29,6 +29,11 @@ public interface IBalancePlatformApi {
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferKY(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
 
+    @POST("lyqp/ly_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferLY(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
+
     //皇冠棋牌额度转换  f=hg&t=ag f=ag&t=hg
     @POST("hgqp/hg_api.php")
     @FormUrlEncoded
@@ -57,5 +62,12 @@ public interface IBalancePlatformApi {
     @POST("vgqp/vg_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceVG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+
+    //获取开元余额
+    @POST("lyqp/ly_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceLY(@Field("appRefer") String appRefer, @Field("action") String action);
+
 
 }
