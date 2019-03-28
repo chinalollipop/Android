@@ -16,6 +16,9 @@ import com.cfcp.a01.ui.home.cplist.bet.betrecords.betlistrecords.ICpBetListRecor
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betnow.CpBetNowContract;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betnow.CpBetNowPresenter;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betnow.ICpBetNowApi;
+import com.cfcp.a01.ui.home.cplist.bet.betrecords.chonglong.CpChangLongContract;
+import com.cfcp.a01.ui.home.cplist.bet.betrecords.chonglong.CpChangLongPresenter;
+import com.cfcp.a01.ui.home.cplist.bet.betrecords.chonglong.ICpChangLongApi;
 import com.cfcp.a01.ui.home.cplist.lottery.CPLotteryListContract;
 import com.cfcp.a01.ui.home.cplist.lottery.CPLotteryListPresenter;
 import com.cfcp.a01.ui.home.cplist.lottery.ICPLotteryListApi;
@@ -90,6 +93,15 @@ public class CPInjections {
             api = Client.getRetrofit().create(ICPLotteryListApi.class);
         }
         return new CPLotteryListPresenter(api,view);
+    }
+
+    public static CpChangLongContract.Presenter inject(@NonNull CpChangLongContract.View view, @Nullable ICpChangLongApi api)
+    {
+        if(null == api)
+        {
+            api = Client.getRetrofit().create(ICpChangLongApi.class);
+        }
+        return new CpChangLongPresenter(api,view);
     }
 
     public static QuickBetContract.Presenter inject(@NonNull QuickBetContract.View view, @Nullable IQuickBetApi api)

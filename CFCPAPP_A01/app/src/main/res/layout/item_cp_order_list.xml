@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:text="AG真人"
         android:gravity="center"
-        android:textColor="@color/register_left"
+        android:textColor="#000"
         android:textSize="16sp" />
     <!--<TextView
         android:background="#2f5a9e"

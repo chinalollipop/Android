@@ -131,60 +131,68 @@ public class RoleActivity extends Activity {
         String  gameName="";
         switch (gameid){
             case "50":
-                gameUrl = "role/role_51.html";
-                gameName ="北京赛车";
+                gameUrl = "role/role_50.html";
+                gameName ="北京PK拾";
                 break;
             case "1":
-                gameUrl = "role/role_2.html";
+                gameUrl = "role/role_1.html";
                 gameName ="重庆时时彩";
                 break;
             case "51":
-                gameUrl = "role/role_189.html";
+                gameUrl = "role/role_51.html";
                 gameName ="极速赛车";
                 break;
             case "55":
-                gameUrl = "role/role_222.html";
+                gameUrl = "role/role_55.html";
                 gameName ="幸运飞艇";
                 break;
             case "2":
-                gameUrl = "role/role_207.html";
-                gameName ="分分彩";
+                gameUrl = "role/role_2.html";
+                gameName ="官方分分彩";
                 break;
             case "5":
-                gameUrl = "role/role_407.html";
-                gameName ="三分彩";
+                gameUrl = "role/role_5.html";
+                gameName ="腾讯三分彩";
                 break;
             case "6":
-                gameUrl = "role/role_507.html";
-                gameName ="五分彩";
+                gameUrl = "role/role_6.html";
+                gameName ="百度五分彩";
                 break;
             case "4":
-                gameUrl = "role/role_607.html";
-                gameName ="腾讯二分彩";
+                gameUrl = "role/role_4.html";
+                gameName ="阿里二分彩";
                 break;
             case "66":
-                gameUrl = "role/role_304.html";
+                gameUrl = "role/role_66.html";
                 gameName ="PC蛋蛋";
                 break;
-            case "159":
-                gameUrl = "role/role_159.html";
-                gameName ="江苏快3";
-                break;
             case "61":
-                gameUrl = "role/role_47.html";
-                gameName ="幸运农场";
+                gameUrl = "role/role_61.html";
+                gameName ="重庆幸运农场";
                 break;
             case "60":
-                gameUrl = "role/role_3.html";
-                gameName ="快乐十分";
+                gameUrl = "role/role_60.html";
+                gameName ="广东快乐十分";
+                break;
+            case "65":
+                gameUrl = "role/role_65.html";
+                gameName ="北京快乐8";
+                break;
+            case "21":
+                gameUrl = "role/role_21.html";
+                gameName ="广东11选5";
                 break;
             case "70":
-                gameUrl = "role/role_69.html";
+                gameUrl = "role/role_70.html";
                 gameName ="香港六合彩";
                 break;
+            case "72":
+                gameUrl = "role/role_72.html";
+                gameName ="极速六合彩";
+                break;
             case "10":
-                gameUrl = "role/role_384.html";
-                gameName ="极速快三";
+                gameUrl = "role/role_10.html";
+                gameName ="江苏骰宝(快3)";
                 break;
         }
         gameUrl = "file:///android_asset/"+gameUrl;

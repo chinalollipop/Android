@@ -5,14 +5,14 @@ import java.util.List;
 public class CPLotteryListResult {
 
 
-    private List<DataBean> data;
+    private List<DataBean> list;
 
     public List<DataBean> getData() {
-        return data;
+        return list;
     }
 
-    public void setData(List<DataBean> data) {
-        this.data = data;
+    public void setData(List<DataBean> list) {
+        this.list = list;
     }
 
     public static class DataBean {

@@ -4,9 +4,15 @@ import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.common.http.ResponseSubscriber;
 import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
+import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.data.CPLotteryListResult;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.cfcp.a01.common.utils.Utils.getContext;
 
 public class CPLotteryListPresenter implements CPLotteryListContract.Presenter {
 
@@ -36,14 +42,17 @@ public class CPLotteryListPresenter implements CPLotteryListContract.Presenter {
 
     @Override
     public void postCPLotteryList(String dataId) {
-        //postLogin("");
-        String date= System.currentTimeMillis()+"";
-        String getUtl3 = ACache.get(Utils.getContext()).getAsString(CFConstant.APP_CP_X_SESSION_TOKEN);
-        subscriptionHelper.add(RxHelper.addSugar(api.get("main/result_android/"+dataId+"?x-session-token="+getUtl3))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<CPLotteryListResult>() {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "Credit");
+        params.put("action", "HistoryData");
+        params.put("lottery_id", dataId);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.get(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPLotteryListResult>>() {
                     @Override
-                    public void success(CPLotteryListResult response) {
-                            view.postCPLotteryListResult(response);
+                    public void success(AppTextMessageResponse<CPLotteryListResult> response) {
+                            view.postCPLotteryListResult(response.getData());
                     }
 
                     @Override

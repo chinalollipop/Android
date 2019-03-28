@@ -66,13 +66,13 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
         Intent intent = getIntent();
 //        game_code = intent.getStringExtra("gameId");
         gameTime = intent.getStringExtra("gameTime");
-        GameLog.log("船只的时间是才 "+gameTime);
-        presenter.getCpBetRecords("");
-        final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
-        /*cpBetRecordsList.setLayoutManager(gridLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
+        cpBetRecordsList.setLayoutManager(gridLayoutManager);
         cpBetRecordsList.setHasFixedSize(true);
         cpBetRecordsList.setNestedScrollingEnabled(false);
-        cpBetRecordsList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        GameLog.log("船只的时间是才 "+gameTime);
+        presenter.getCpBetRecords("");
+        /*cpBetRecordsList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         cpBetRecordsList.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         cpBetRecordsList.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
@@ -110,71 +110,61 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
 
     class BetListRecordsItemGameAdapter extends BaseQuickAdapter<BetNow, BaseViewHolder> {
 
-        public BetListRecordsItemGameAdapter(Context context, int layoutId, List datas) {
+        public BetListRecordsItemGameAdapter( int layoutId, List datas) {
             super(layoutId, datas);
         }
 
         @Override
         protected void convert(BaseViewHolder holder, final BetNow data) {
-            /** 北京赛车    game_code 51
-             *  重庆时时彩    game_code 2
-             *  极速赛车    game_code 189
-             *  极速飞艇    game_code 222
-             *  分分彩    game_code 207
-             *  三分彩    game_code 407
-             *  五分彩    game_code 507
-             *  腾讯二分彩    game_code 607
-             *  PC蛋蛋    game_code 304
-             *  江苏快3    game_code 159
-             *  幸运农场    game_code 47
-             *  快乐十分    game_code 3
-             *  香港六合彩  game_code 69
-             *  极速快三    game_code 384
-             *
-             */
             String name ="";
             switch (data.id){
-                case "51":
-                    name ="北京赛车";
+                case "50":
+                    name ="北京PK拾";
                     break;
-                case "2":
+                case "1":
                     name ="重庆时时彩";
                     break;
-                case "189":
-                    name ="极速赛车";
+                case "55":
+                    name ="幸运飞艇";
                     break;
-                case "222":
-                    name ="极速飞艇";
-                    break;
-                case "207":
-                    name ="分分彩";
-                    break;
-                case "407":
-                    name ="三分彩";
-                    break;
-                 case "507":
-                     name ="五分彩";
-                    break;
-                case "607":
-                    name ="腾讯二分彩";
-                    break;
-                case "304":
-                    name ="PC蛋蛋";
-                    break;
-                case "159":
-                    name ="江苏快3";
-                    break;
-                case "47":
-                    name ="幸运农场";
-                    break;
-                case "3":
-                    name ="快乐十分";
-                    break;
-                case "69":
+                case "70":
                     name ="香港六合彩";
                     break;
-                case "384":
-                    name ="极速快三";
+                case "72":
+                    name ="极速六合彩";
+                    break;
+                case "66":
+                    name ="PC蛋蛋";
+                    break;
+                 case "10":
+                     name ="江苏骰宝(快3)";
+                    break;
+                case "51":
+                    name ="极速赛车";
+                    break;
+                case "2":
+                    name ="官方分分彩";
+                    break;
+                case "60":
+                    name ="广东快乐十分";
+                    break;
+                case "61":
+                    name ="重庆幸运农场";
+                    break;
+                case "65":
+                    name ="北京快乐8";
+                    break;
+                case "21":
+                    name ="广东11选5";
+                    break;
+                case "4":
+                    name ="阿里二分彩";
+                    break;
+                case "5":
+                    name ="腾讯三分彩";
+                    break;
+                case "6":
+                    name ="百度五分彩";
                     break;
 
             }
@@ -229,33 +219,100 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
         return " <font color='#ff0000'>" + sign+"</font>";
     }
 
+    private BetNow getData(String gameId,CPBetNowResult betRecordsResult){
+        int listSize = betRecordsResult.getList().size();
+        for(CPBetNowResult.ListBean listBean:betRecordsResult.getList()){
+            if(gameId.equals(listBean.getGameId())){
+                BetNow betNow = new BetNow();
+                betNow.id = listBean.getGameId()+"";
+                betNow.moeny = listBean.getTotalMoney();
+                betNow.num = listBean.getTotalNums();
+                return betNow;
+            }
+        }
+        return null;
+    }
+
     @Override
     public void getBetRecordsResult(CPBetNowResult betRecordsResult) {
-
+        List<CPBetNowResult.ListBean> listBeanList = betRecordsResult.getList();
+        int listSize = listBeanList.size();
+        List<String> betNowListID = new ArrayList<>();
+        for(int k=0;k<listSize;++k){
+            betNowListID.add(listBeanList.get(k).getGameId()+"");
+        }
         List<BetNow> betNowList = new ArrayList<>();
-        /** 北京赛车    game_code 51
-         *  重庆时时彩    game_code 2
-         *  极速赛车    game_code 189
-         *  极速飞艇    game_code 222
-         *  分分彩    game_code 207
-         *  三分彩    game_code 407
-         *  五分彩    game_code 507
-         *  腾讯二分彩    game_code 607
-         *  PC蛋蛋    game_code 304
-         *  江苏快3    game_code 159
-         *  幸运农场    game_code 47
-         *  快乐十分    game_code 3
-         *  香港六合彩  game_code 69
-         *  极速快三    game_code 384
-         *
-         */
-        if(!Check.isNull(betRecordsResult)){
-            if(!Check.isNull(betRecordsResult.getData51())){
+        if(listSize>0){
+            if(betNowListID.contains("50")){
+                betNowList.add(getData("50",betRecordsResult));
+            }else{
                 BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData51().getGameId();
-                betNow.moeny = betRecordsResult.getData51().getTotalMoney();
-                betNow.num = betRecordsResult.getData51().getTotalNums();
+                betNow.id = "50";
+                betNow.moeny = "0";
+                betNow.num = "0";
                 betNowList.add(betNow);
+            }
+            if(betNowListID.contains("1")){
+                betNowList.add(getData("1",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "1";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+            if(betNowListID.contains("55")){
+                betNowList.add(getData("55",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "55";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
+            if(betNowListID.contains("70")){
+                betNowList.add(getData("70",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "70";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
+            if(betNowListID.contains("72")){
+                betNowList.add(getData("72",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "72";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
+            if(betNowListID.contains("66")){
+                betNowList.add(getData("66",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "66";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
+            if(betNowListID.contains("10")){
+                betNowList.add(getData("10",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "10";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
+            if(betNowListID.contains("51")){
+                betNowList.add(getData("51",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
                 betNow.id = "51";
@@ -263,12 +320,9 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
-            if(!Check.isNull(betRecordsResult.getData2())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData2().getGameId();
-                betNow.moeny = betRecordsResult.getData2().getTotalMoney();
-                betNow.num = betRecordsResult.getData2().getTotalNums();
-                betNowList.add(betNow);
+
+            if(betNowListID.contains("2")){
+                betNowList.add(getData("2",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
                 betNow.id = "2";
@@ -276,182 +330,83 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
-            if(!Check.isNull(betRecordsResult.getData189())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData189().getGameId();
-                betNow.moeny = betRecordsResult.getData189().getTotalMoney();
-                betNow.num = betRecordsResult.getData189().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "189";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
 
-            if(!Check.isNull(betRecordsResult.getData222())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData222().getGameId();
-                betNow.moeny = betRecordsResult.getData222().getTotalMoney();
-                betNow.num = betRecordsResult.getData222().getTotalNums();
-                betNowList.add(betNow);
+            if(betNowListID.contains("60")){
+                betNowList.add(getData("60",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
-                betNow.id = "222";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
-
-            if(!Check.isNull(betRecordsResult.getData207())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData207().getGameId();
-                betNow.moeny = betRecordsResult.getData207().getTotalMoney();
-                betNow.num = betRecordsResult.getData207().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "207";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
-
-            if(!Check.isNull(betRecordsResult.getData407())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData407().getGameId();
-                betNow.moeny = betRecordsResult.getData407().getTotalMoney();
-                betNow.num = betRecordsResult.getData407().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "407";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
-
-            if(!Check.isNull(betRecordsResult.getData507())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData507().getGameId();
-                betNow.moeny = betRecordsResult.getData507().getTotalMoney();
-                betNow.num = betRecordsResult.getData507().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "507";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
-
-            if(!Check.isNull(betRecordsResult.getData607())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData607().getGameId();
-                betNow.moeny = betRecordsResult.getData607().getTotalMoney();
-                betNow.num = betRecordsResult.getData607().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "607";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
-
-            if(!Check.isNull(betRecordsResult.getData304())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData304().getGameId();
-                betNow.moeny = betRecordsResult.getData304().getTotalMoney();
-                betNow.num = betRecordsResult.getData304().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "304";
-                betNow.moeny = "0";
-                betNow.num = "0";
-                betNowList.add(betNow);
-            }
-
-            if(!Check.isNull(betRecordsResult.getData159())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData159().getGameId();
-                betNow.moeny = betRecordsResult.getData159().getTotalMoney();
-                betNow.num = betRecordsResult.getData159().getTotalNums();
-                betNowList.add(betNow);
-            }else{
-                BetNow betNow = new BetNow();
-                betNow.id = "159";
+                betNow.id = "60";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
 
 
-            if(!Check.isNull(betRecordsResult.getData47())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData47().getGameId();
-                betNow.moeny = betRecordsResult.getData47().getTotalMoney();
-                betNow.num = betRecordsResult.getData47().getTotalNums();
-                betNowList.add(betNow);
+            if(betNowListID.contains("61")){
+                betNowList.add(getData("61",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
-                betNow.id = "47";
+                betNow.id = "61";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
 
-            if(!Check.isNull(betRecordsResult.getData3())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData3().getGameId();
-                betNow.moeny = betRecordsResult.getData3().getTotalMoney();
-                betNow.num = betRecordsResult.getData3().getTotalNums();
-                betNowList.add(betNow);
+            if(betNowListID.contains("65")){
+                betNowList.add(getData("65",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
-                betNow.id = "3";
+                betNow.id = "65";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
 
-            if(!Check.isNull(betRecordsResult.getData69())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData69().getGameId();
-                betNow.moeny = betRecordsResult.getData69().getTotalMoney();
-                betNow.num = betRecordsResult.getData69().getTotalNums();
-                betNowList.add(betNow);
+            if(betNowListID.contains("21")){
+                betNowList.add(getData("21",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
-                betNow.id = "69";
+                betNow.id = "21";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
 
-            if(!Check.isNull(betRecordsResult.getData384())){
-                BetNow betNow = new BetNow();
-                betNow.id = betRecordsResult.getData384().getGameId();
-                betNow.moeny = betRecordsResult.getData384().getTotalMoney();
-                betNow.num = betRecordsResult.getData384().getTotalNums();
-                betNowList.add(betNow);
+            if(betNowListID.contains("4")){
+                betNowList.add(getData("4",betRecordsResult));
             }else{
                 BetNow betNow = new BetNow();
-                betNow.id = "384";
+                betNow.id = "4";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+            if(betNowListID.contains("5")){
+                betNowList.add(getData("5",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "5";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
 
+            if(betNowListID.contains("6")){
+                betNowList.add(getData("6",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "6";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
         }
 
         /*cpBetRecordsList.refreshComplete();
         cpBetRecordsList.loadMoreComplete();*/
         if(null == cpOrederContentGameAdapter){
-            cpOrederContentGameAdapter = new BetListRecordsItemGameAdapter(getContext(), R.layout.item_cp_records_4, betNowList);
-            //cpBetRecordsList.setAdapter(cpOrederContentGameAdapter);
+            cpOrederContentGameAdapter = new BetListRecordsItemGameAdapter( R.layout.item_cp_records_4, betNowList);
+            cpBetRecordsList.setAdapter(cpOrederContentGameAdapter);
         }
         cpOrederContentGameAdapter.notifyDataSetChanged();
 

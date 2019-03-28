@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.home.cplist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -25,6 +26,7 @@ import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.CPInjections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseActivity2;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.DateHelper;
@@ -57,11 +59,13 @@ import com.cfcp.a01.data.CQSSCResult;
 import com.cfcp.a01.data.Cp11X5Result;
 import com.cfcp.a01.data.PCDDResult;
 import com.cfcp.a01.data.PersonBalanceResult;
+import com.cfcp.a01.ui.home.bet.BetFragment;
 import com.cfcp.a01.ui.home.cplist.bet.BetCPOrderDialog;
 import com.cfcp.a01.ui.home.cplist.bet.CPBetParams;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.CPBetRecordsFragment;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betnow.CPBetNowFragment;
+import com.cfcp.a01.ui.home.cplist.bet.betrecords.chonglong.CPChangLongFragment;
 import com.cfcp.a01.ui.home.cplist.events.CPOrderList;
 import com.cfcp.a01.ui.home.cplist.events.CPOrderSuccessEvent;
 import com.cfcp.a01.ui.home.cplist.events.CloseLotteryEvent;
@@ -91,6 +95,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 
 
 public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.View {
@@ -28670,10 +28675,10 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     @Override
                     public void run() {
                         GameLog.log("+++++++++++++++++++++++++++++++++++-----每15秒执行一次+++++++++++++++++++++++++++++++++++");
-                        /*presenter.postNextIssue(lottery_id,x_session_token);
+                        presenter.postNextIssue(lottery_id,x_session_token);
                         presenter.postLastResult(lottery_id,x_session_token);
                         //onRefreshRightCQ(type);
-                        presenter.postCPLeftInfo(lottery_id,x_session_token);*/
+                        presenter.postCPLeftInfo(lottery_id,x_session_token);
                     }
                 });
         }
@@ -28962,12 +28967,61 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     private void showPopTitle(){
         //CPTitleDialog.newInstances((ArrayList<AllGamesResult.DataBean.LotteriesBean>) XinYongLotteries).show(getSupportFragmentManager());
         View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_cp_title,null);
-        RecyclerView popTitleRView = contentView.findViewById(R.id.popTitleRView);
+        final List<AllGamesResult.DataBean.LotteriesBean> AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
+
+        final RecyclerView popTitleRView = contentView.findViewById(R.id.popTitleRView);
         GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
         popTitleRView.setLayoutManager(gridLayoutManager);
         popTitleRView.setHasFixedSize(true);
         popTitleRView.setNestedScrollingEnabled(false);
         popTitleRView.addItemDecoration(new GridRvItemDecoration(getContext()));
+        LinearLayout homeCredit = contentView.findViewById(R.id.homeCredit);
+        ImageView homePopTitle = contentView.findViewById(R.id.homePopTitle);
+        final View homeCreditImg = contentView.findViewById(R.id.homeCreditImg);
+        final View homeOfficialImg = contentView.findViewById(R.id.homeOfficialImg);
+        LinearLayout homeOfficial = contentView.findViewById(R.id.homeOfficial);
+        homePopTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCustomPopWindowtitle.dissmiss();
+            }
+        });
+        homeCredit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeCreditImg.setBackgroundColor(getResources().getColor(R.color.home_method_line));
+                homeOfficialImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
+                CPTitleGameAdapter cpOrederGameAdapter  = new CPTitleGameAdapter(R.layout.item_cp_order_list,XinYongLotteries);
+                cpOrederGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+                    @Override
+                    public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                        mCustomPopWindowtitle.dissmiss();
+                        onCpGameItemClick(XinYongLotteries.get(position));
+                    }
+                });
+                popTitleRView.setAdapter(cpOrederGameAdapter);
+            }
+        });
+        homeOfficial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeCreditImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
+                homeOfficialImg.setBackgroundColor(getResources().getColor(R.color.home_method_line));
+
+                CPTitleGameAdapter cpOrederGameAdapter  = new CPTitleGameAdapter(R.layout.item_cp_order_list,AvailableLottery);
+                cpOrederGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+                    @Override
+                    public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                        mCustomPopWindowtitle.dissmiss();
+                        finish();
+                        //onCpGameItemClick(AvailableLottery.get(position));
+                        EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(AvailableLottery.get(position),(ArrayList)AvailableLottery), SupportFragment.SINGLETASK));
+                    }
+                });
+                popTitleRView.setAdapter(cpOrederGameAdapter);
+            }
+        });
+
         CPTitleGameAdapter cpOrederGameAdapter  = new CPTitleGameAdapter(R.layout.item_cp_order_list,XinYongLotteries);
         cpOrederGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
@@ -28981,6 +29035,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 .setView(contentView)
                 .size(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)//显示大小
                 .enableBackgroundDark(true)
+                .setAnimationStyle(R.style.BottomDialog_AnimationStylePopTitle)
                 .create()
                 .showAsDropDown(cpOrderTitle,0,20);
     }
@@ -29023,8 +29078,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                         break;
                     case R.id.popCPOrder4:
                         Intent intent4 = new Intent(getContext(), CPLotteryListFragment.class);
-                        intent4.putExtra("gameId","51");
-                        intent4.putExtra("gameName","北京赛车");
+                        intent4.putExtra("gameId","50");
+                        intent4.putExtra("gameName","北京PK10");
                         startActivity(intent4);
                         break;
                     case R.id.popCPOrder5:
@@ -29034,10 +29089,10 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                         startActivity(intent5);
                         break;
                     case R.id.popCPOrder6:
-                        /*Intent intent6 = new Intent(getContext(),CPServiceActivity.class);
-                        intent6.putExtra("gameId",game_code);
+                        Intent intent6 = new Intent(getContext(), CPChangLongFragment.class);
+                        intent6.putExtra("gameId",lottery_id);
                         intent6.putExtra("gameName",titleName);
-                        startActivity(intent6);*/
+                        startActivity(intent6);
                         break;
                 }
                 //showMessage(showContent);
@@ -29074,6 +29129,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
 
     private void onCpGameItemClick(AllGamesResult.DataBean.LotteriesBean data) {
         lottery_id = data.getId()+"";
+        onResetData();
         onChangeData();
         cpOrderTitle.setText(data.getName());
         GameLog.log("你点击了 "+data.getName()+" id  "+data.getId());

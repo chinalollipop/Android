@@ -169,7 +169,7 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
         String tvTime = tvDepositCompanyPayTime.getText().toString().trim();
         String edRemark = edDepositCompanyPayRemark.getText().toString().trim();
 
-        if (Check.isEmpty(etMoney)||Integer.parseInt(etMoney)<Integer.parseInt("100")) {
+        if (Check.isEmpty(etMoney)||Double.parseDouble(etMoney)<Double.parseDouble("100")) {
             super.showMessage("汇款金额须大于100元！");
             return;
         }

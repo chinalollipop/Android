@@ -64,6 +64,7 @@
         <activity android:name="com.cfcp.a01.ui.home.cplist.lottery.CPLotteryListFragment" android:screenOrientation="portrait"/>
         <activity android:name="com.cfcp.a01.ui.home.cplist.CPOrderFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name="com.cfcp.a01.ui.home.cplist.RoleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name="com.cfcp.a01.ui.home.cplist.bet.betrecords.chonglong.CPChangLongFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
 
