@@ -98,10 +98,10 @@ public class BetData {
         private String ball;
         private int wayId;
         private int num;
-        private double onePrice;
         private String viewBalls;
         private String type;
         private int prizeGroup;
+        private Object extra;
 
         public int getJsId() {
             return jsId;
@@ -151,14 +151,6 @@ public class BetData {
             this.num = num;
         }
 
-        public double getOnePrice() {
-            return onePrice;
-        }
-
-        public void setOnePrice(double onePrice) {
-            this.onePrice = onePrice;
-        }
-
         public String getViewBalls() {
             return viewBalls;
         }
@@ -181,6 +173,14 @@ public class BetData {
 
         public void setPrizeGroup(int prizeGroup) {
             this.prizeGroup = prizeGroup;
+        }
+
+        public Object getExtra() {
+            return extra;
+        }
+
+        public void setExtra(Object extra) {
+            this.extra = extra;
         }
     }
 

@@ -31,6 +31,7 @@ import com.alibaba.fastjson.JSON;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.adapters.LotteryAdapter;
+import com.cfcp.a01.common.adapters.LotteryBottomAdapter;
 import com.cfcp.a01.common.adapters.LotteryNumDetailsAdapter;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.utils.GameLog;
@@ -158,12 +159,14 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     private LotteryTypePop mLotteryTypePop;//彩种选择弹窗
     private LotteryNumPop mLotteryNumPop;//开奖号码弹窗
     private LotteryPlayMethodPop mLotteryPlayingMethodPop;//玩法设置弹窗
-    private List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> wayGroups;
+    private List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> wayGroups;//玩法
     private List<UpBetData> mUpdateBet;//投注号码
     private LotteryAdapter lotteryAdapter;
     private String[] position;//记录玩法选择位置，并且判断是否和上次位置一样
     private AnKeyboardUtils keyboardUtils;
     private GenerateMoney generateMoney;
+    private int mListSecSize;//重庆时时彩任选模式下单式玩法选择的位数
+    private String mOptional;//重庆时时彩任选模式下单式玩法输入的数字
     private RotateAnimation showArrowAnim;
     private RotateAnimation dismissArrowAnim;
     private AllGamesResult.DataBean.LotteriesBean lotteriesBean;//当前选中的某个彩种数据
@@ -182,6 +185,8 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     private int mProgress;
     private float percentRate;
     private float mRate;
+    private String seat;//设置任选模式下的任选标记
+    private StringBuilder extraPosition = new StringBuilder(); //设置任选模式下任选位数
 
     private CustomDialog betSuccessTips;//投注成功的提示
 
@@ -209,6 +214,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         return R.layout.fragment_bet;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
@@ -360,9 +366,8 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void afterTextChanged(Editable s) {
-                        generateMoney = new GenerateMoney(lottery_id, wayGroups, position, s.toString());
-                        number = generateMoney.generateMoney();
-                        generateMoney();
+                        mOptional = s.toString();
+                        optional();
                     }
                 });
                 rvTop.setLayoutManager(new GridLayoutManager(_mActivity, 5));
@@ -375,7 +380,6 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     public void setGameSettingsForRefreshResult(BetGameSettingsForRefreshResult betGameSettingsForRefreshResult, boolean isRefresh) {
         WaitDialog.dismiss();
         if (betGameSettingsForRefreshResult.getErrno() == 0) {
-//            betGameSettingsForRefreshResult.getData().getPrizeSettings().
             //历史开奖弹窗、期数、投注时间、最新一期
             setBetNumber(betGameSettingsForRefreshResult);
             //投注区域
@@ -434,8 +438,9 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         }
     }
 
+    //投注结果
     @Override
-    public void setBetResult(BetDataResult betDataResult) {
+    public void setBetResult(final BetDataResult betDataResult) {
         WaitDialog.dismiss();
         if (betDataResult.getErrno() == 0) {
             lotteryAdapter.clearList();
@@ -452,7 +457,21 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 }
             });
         } else {
-            ToastUtils.showShortToast(betDataResult.getError());
+            betSuccessTips = CustomDialog.show(_mActivity, R.layout.layout_bet_success_tips, new CustomDialog.BindView() {
+                @Override
+                public void onBind(CustomDialog dialog, View rootView) {
+                    rootView.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            betSuccessTips.doDismiss();
+                        }
+                    });
+                    TextView tvTips = rootView.findViewById(R.id.tv_tips);
+                    ImageView ivTips = rootView.findViewById(R.id.iv_tips);
+                    tvTips.setText(betDataResult.getError());
+                    ivTips.setImageResource(R.mipmap.ic_bet_failure_tips);
+                }
+            });
         }
     }
 
@@ -479,13 +498,20 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         finish();
     }
 
-    //刷新投注注数及金额
+    //非任选且不为单式时刷新投注注数及金额
     @Subscribe
     public void onEventMain(List<UpBetData> updateBet) {
         mUpdateBet = updateBet;
-        generateMoney = new GenerateMoney(lottery_id, wayGroups, position, updateBet);
+        generateMoney = new GenerateMoney(lottery_id, wayGroups, position, mUpdateBet);
         number = generateMoney.generateMoney();
         generateMoney();
+    }
+
+    //任选且为单式时刷新投注注数及金额
+    @Subscribe
+    public void onEventMain(OptionalSizeEvent optionalSizeEvent) {
+        mListSecSize = optionalSizeEvent.getSize();
+        optional();
     }
 
     @Override
@@ -530,12 +556,8 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             case R.id.betChat:
                 break;
             case R.id.betMethodNameLay:
-                if (mLotteryPlayingMethodPop != null) {
-                    showArrowAnim(betMethodDown);
-                    mLotteryPlayingMethodPop.showPopupWindow(rlInfo);
-                } else {
-                    ToastUtils.showShortToast("请登陆");
-                }
+                showArrowAnim(betMethodDown);
+                mLotteryPlayingMethodPop.showPopupWindow(rlInfo);
                 break;
             case R.id.betModel:
                 enterAnimation = createVerticalAnimation(1f, 0);
@@ -590,21 +612,27 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 betData.setGameId(lottery_id);
                 betData.setTraceStopValue(1);
                 betData.setIsTrace(0);
-                Map<String, Integer> map = new HashMap<>();
-                map.put(newIssue, multiple);
-                betData.setOrders(JSON.toJSON(map));
+                Map<String, Integer> mapOrders = new HashMap<>();
+                mapOrders.put(newIssue, multiple);
+                betData.setOrders(JSON.toJSON(mapOrders));
                 List<BetData.BallsBean> list = new ArrayList<>();
                 BetData.BallsBean ballsBean = new BetData.BallsBean();
                 ballsBean.setJsId(0);
                 ballsBean.setMultiple(multiple);
-                ballsBean.setMoneyunit(moneyModel);
+                ballsBean.setMoneyunit(moneyModel * 0.5);
                 ballsBean.setBall(JointBetNumber.jointNum(mUpdateBet, lottery_id, wayGroups, position));
                 ballsBean.setWayId(wayGroups.get(Integer.valueOf(position[0])).getChildren().get(Integer.valueOf(position[1])).getChildren().get(Integer.valueOf(position[2])).getSeries_way_id());
                 ballsBean.setNum(number);
-                ballsBean.setOnePrice(onePrice);
                 ballsBean.setViewBalls("");
                 ballsBean.setType(wayGroups.get(Integer.valueOf(position[0])).getName_en() + "." + wayGroups.get(Integer.valueOf(position[0])).getChildren().get(Integer.valueOf(position[1])).getName_en() + "." + wayGroups.get(Integer.valueOf(position[0])).getChildren().get(Integer.valueOf(position[1])).getChildren().get(Integer.valueOf(position[2])).getName_en());
                 ballsBean.setPrizeGroup(mProgress);
+                Map<String, String> mapExtra = new HashMap<>();
+                if (mUpdateBet.get(0).getListSec().size() != 0) {
+                    setExtraParameter();
+                    mapExtra.put("position", extraPosition.toString());
+                    mapExtra.put("seat", seat);
+                }
+                ballsBean.setExtra(JSON.toJSON(mapExtra));
                 list.add(ballsBean);
                 betData.setBalls(list);
                 betData.setAmount(onePrice);
@@ -627,6 +655,36 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         }
     }
 
+    private void setExtraParameter() {
+        int detailId = wayGroups.get(Integer.valueOf(position[0])).getChildren().get(Integer.valueOf(position[1])).getChildren().get(Integer.valueOf(position[2])).getId();
+        if (lottery_id == 1 || lottery_id == 13 || lottery_id == 16) {//重庆时时彩任选模式下的投注参数
+            if (wayGroups.get(Integer.valueOf(position[0])).getId() == 93) {
+                //任选直选模式
+                if (detailId == 199 || detailId == 179 || detailId == 180) {
+                    for (int i = 0; i < mUpdateBet.size(); i++) {
+                        if (mUpdateBet.get(i).getSelectList().size() != 0) {
+                            extraPosition.append(i);
+                        }
+                    }
+                } else {//其他模式
+                    extraPosition.append(mUpdateBet.get(0).getListSec().toString().replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", ""));
+                }
+                //任选标识
+                switch (wayGroups.get(Integer.valueOf(position[0])).getChildren().get(Integer.valueOf(position[1])).getId()) {
+                    case 94:
+                        seat = "2";
+                        break;
+                    case 95:
+                        seat = "3";
+                        break;
+                    case 96:
+                        seat = "4";
+                        break;
+                }
+            }
+        }
+    }
+
     //设置开奖号码、当前期数、最新期数以及倒计时
     @SuppressLint("SetTextI18n")
     private void setBetNumber(BetGameSettingsForRefreshResult betGameSettingsForRefreshResult) {
@@ -638,13 +696,13 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         if (TextUtils.isEmpty(betGameSettingsForRefreshResult.getData().getIssueHistory().getIssues().get(0).getWn_number())) {
             numList.add("开奖中...");
             lotteryNumAdapter = new LotteryNumDetailsAdapter(R.layout.item_lottery_details_txt, numList);
-            new CountDownTimer(10 * 1000, 1000) {
+            new CountDownTimer(5 * 1000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                 }
 
                 public void onFinish() {
-//                    refresh(false);
+                    refresh(false);
                 }
             }.start();
         } else {
@@ -668,7 +726,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         betIssue.setText("第" + betGameSettingsForRefreshResult.getData().getIssueHistory().getIssues().get(0).getIssue() + "期");
         betLastIssue.setText("第" + betGameSettingsForRefreshResult.getData().getIssueHistory().getCurrent_issue() + "期");
         newIssue = betGameSettingsForRefreshResult.getData().getGameNumbers().get(1).getNumber();
-        long millisFuture = Long.valueOf(betGameSettingsForRefreshResult.getData().getCurrentNumberTime()) * 1000 - Long.valueOf(betGameSettingsForRefreshResult.getData().getCurrentTime()) * 1000;
+        long millisFuture = (long) betGameSettingsForRefreshResult.getData().getCurrentNumberTime() * 1000 - (long) betGameSettingsForRefreshResult.getData().getCurrentTime() * 1000;
         if (millisFuture != 0) {
             initCountDownTimer(millisFuture);
         }
@@ -687,6 +745,9 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
 
     //监听开奖倒计时
     private void initCountDownTimer(long millisInFuture) {
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+        }
         mCountDownTimer = new CountDownTimer(millisInFuture, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -703,6 +764,13 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 }
             }
         }.start();
+    }
+
+    //任选模式下单式的计算注数
+    private void optional() {
+        generateMoney = new GenerateMoney(lottery_id, wayGroups, position, mOptional, mListSecSize);
+        number = generateMoney.generateMoney();
+        generateMoney();
     }
 
     //计算注数以及投注金额

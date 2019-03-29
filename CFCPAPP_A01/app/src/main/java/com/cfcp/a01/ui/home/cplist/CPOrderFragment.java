@@ -1799,7 +1799,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 cpOrderContentResult2016.setOrderName("合双");
                 cpOrderContentResult2016.setFullName("第一球");
                 cpOrderContentResult2016.setOrderState(cpbjscResult.getdata607528());
-                cpOrderContentResult2016.setOrderId("607578");
+                cpOrderContentResult2016.setOrderId("607528");
                 cpOrderContentResultList1.add(cpOrderContentResult2016);
 
 

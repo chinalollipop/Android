@@ -5,7 +5,10 @@ import android.view.View;
 
 import com.cfcp.a01.common.adapters.LotteryBottomAdapter;
 import com.cfcp.a01.data.LotteryResult;
+import com.cfcp.a01.ui.home.bet.OptionalSizeEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,10 +17,9 @@ import java.util.List;
 /**
  * 重庆时时彩生成投注区域号码
  */
- class CqsscGenerateNum {
-    /*
-     *  底部FootView及顶部View公用方法
-     */
+class CqsscGenerateNum {
+
+    //任选模式顶部View公用方法
     static void rvOps(RecyclerView rv, final List<Integer> listSec) {
         String[] ops = {"万位", "千位", "百位", "十位", "个位"};
         final LotteryBottomAdapter mLotteryBottomAdapter = new LotteryBottomAdapter(Arrays.asList(ops));
@@ -37,9 +39,15 @@ import java.util.List;
                 } else {
                     listSec.add(position);
                 }
+                OptionalSizeEvent optionalSizeEvent = new OptionalSizeEvent();
+                optionalSizeEvent.setSize(listSec.size());
+                EventBus.getDefault().post(optionalSizeEvent);
                 mLotteryBottomAdapter.notifyDataSetChanged();
             }
         });
+        OptionalSizeEvent optionalSizeEvent = new OptionalSizeEvent();
+        optionalSizeEvent.setSize(listSec.size());
+        EventBus.getDefault().post(optionalSizeEvent);
     }
 
     //公用方法

@@ -33,7 +33,6 @@ public class LotteryTypePop extends BasePopupWindow {
     public LotteryTypePop(Context context, List<AllGamesResult.DataBean.LotteriesBean> lotteriesBeanList, String title) {
         super(context);
         setAlignBackground(true);
-
         rvContent.setLayoutManager(new GridLayoutManager(context, 3));
         rvContent.addItemDecoration(new GridRvItemDecoration(getContext()));
         final LotteryTypeAdapter mLotteryTypeAdapter = new LotteryTypeAdapter(lotteriesBeanList);

@@ -262,8 +262,8 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                     setText(R.id.itemBetRecordBetNumber,item.getActionData()).
                     setText(R.id.itemBetRecordIssue,item.getActionNo()+"期" ).
                     setText(R.id.itemBetRecordSerialNumber,item.getWjorderId()).
-                    setText(R.id.itemBetRecordWinNumber,item.getBonus()).
-                    setText(R.id.itemBetRecordPrize,item.getMoney()).
+                    setText(R.id.itemBetRecordWinNumber,item.getLotteryNo()).
+                    setText(R.id.itemBetRecordPrize,item.getBonus()).
                     setText(R.id.itemBetRecordUserName, item.getUsername()).
                     addOnClickListener(R.id.itemPersonDetail);
         }

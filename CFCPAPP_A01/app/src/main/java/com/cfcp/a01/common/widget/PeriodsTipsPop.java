@@ -52,7 +52,7 @@ public class PeriodsTipsPop extends BasePopupWindow {
             @Override
             public void onTick(long millisUntilFinished) {
                 String second = String.valueOf(millisUntilFinished / 1000);
-                tvTime.setText("请留意期号变化(" + second + ")");
+                tvTime.setText("请留意期号变化 [ " + second + " ]");
             }
 
             @Override
