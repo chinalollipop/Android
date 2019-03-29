@@ -62,20 +62,6 @@
         android:layout_height="1dp"
         android:background="@color/n_editText_hint" />
     <TextView
-        android:id="@+id/popCPOrder3"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textSize="16sp"
-        android:textColor="@color/cp_hall_tv"
-        android:background="@color/white"
-        android:text="下注记录"
-        android:gravity="center"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/n_editText_hint" />
-    <TextView
         android:id="@+id/popCPOrder4"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -127,6 +113,20 @@
         android:textColor="@color/cp_order_bg"
         android:background="@color/white"
         android:text="今日输赢"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/n_editText_hint" />
+    <TextView
+        android:id="@+id/popCPOrder3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="@color/cp_hall_tv"
+        android:background="@color/white"
+        android:text="历史记录"
         android:gravity="center"
         />
 </LinearLayout>

@@ -25,87 +25,72 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="下注记录"
+            android:text="历史记录"
             android:textColor="@color/white"
             android:textSize="22sp" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:layout_height="40dp">
         <TextView
-            android:text="时间"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="@color/cp_hall_tv"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text="笔数"
+            android:id="@+id/recordBetStartTime"
+            android:text="开始时间"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/cp_hall_tv"
+            android:gravity="center|start"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1"
+            />
         <TextView
-            android:text="投注额"
-            android:textSize="16sp"
+            android:id="@+id/recordBetEndTime"
+            android:text="结束时间"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/cp_hall_tv"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableRight="@mipmap/icon_ex_down"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1"
+            />
         <TextView
-            android:text="输赢"
-            android:textSize="16sp"
+            android:id="@+id/cpLotteryName"
+            android:text="重庆时时彩"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/cp_hall_tv"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableRight="@mipmap/icon_ex_down"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </LinearLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/cpBetRecordsList"
-        android:layout_marginBottom="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    <RelativeLayout
+    <android.support.design.widget.TabLayout
+        android:id="@+id/recordBetStyle"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_gravity="bottom"
-        android:background="@mipmap/cp_title">
+        android:background="#000"
+        app:tabIndicatorColor="#c42133"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="#c42133"
+        app:tabTextColor="#fff" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recordBetRView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-        <TextView
-            android:id="@+id/cpBetRecordsNumber"
-            android:layout_toLeftOf="@+id/cpBetRecordsMoney"
-            android:gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:text="总笔数："
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/cpBetRecordsMoney"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="20dp"
-            android:text="总输赢："
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-    </RelativeLayout>
-    </FrameLayout>
+        />
 
 </LinearLayout>

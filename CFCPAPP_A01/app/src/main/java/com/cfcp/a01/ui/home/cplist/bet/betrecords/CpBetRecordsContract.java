@@ -8,7 +8,7 @@ import com.cfcp.a01.data.BetRecordsResult;
 
 public interface CpBetRecordsContract {
     public interface Presenter extends IPresenter {
-        public void getCpBetRecords();
+        public void getCpBetRecords(String lottery_id,String page,String date_start,String date_end);
     }
 
     public interface View extends IView<Presenter>, IMessageView {

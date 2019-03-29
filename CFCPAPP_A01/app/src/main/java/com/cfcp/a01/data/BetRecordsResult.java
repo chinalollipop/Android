@@ -1,248 +1,133 @@
 package com.cfcp.a01.data;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 public class BetRecordsResult {
 
-    /**
-     * ThisWeek : {"1":{"datetime":1544389153,"dateformat":"2018-12-10","week":"星期一"},"2":{"datetime":1544475553,"dateformat":"2018-12-11","week":"星期二"},"3":{"datetime":1544561953,"dateformat":"2018-12-12","week":"星期三"},"4":{"datetime":1544648353,"dateformat":"2018-12-13","week":"星期四"},"5":{"datetime":1544734753,"dateformat":"2018-12-14","week":"星期五"},"6":{"datetime":1544821153,"dateformat":"2018-12-15","week":"星期六"},"7":{"datetime":1544907553,"dateformat":"2018-12-16","week":"星期日"}}
-     * LastWeek : {"1":{"datetime":1543784353,"dateformat":"2018-12-03","week":"星期一"},"2":{"datetime":1543870753,"dateformat":"2018-12-04","week":"星期二"},"3":{"datetime":1543957153,"dateformat":"2018-12-05","week":"星期三"},"4":{"datetime":1544043553,"dateformat":"2018-12-06","week":"星期四"},"5":{"datetime":1544129953,"dateformat":"2018-12-07","week":"星期五"},"6":{"datetime":1544216353,"dateformat":"2018-12-08","week":"星期六"},"7":{"datetime":1544302753,"dateformat":"2018-12-09","week":"星期日"}}
-     * TodayWeek : 1
-     * row : [{"Allnum":"85","AllMoney":"455","AllWin":"-197.120","AllCut":"0.000","bet_time":"1544407630","date":"2018-12-09"},{"Allnum":"8","AllMoney":"8","AllWin":"-0.04800000000000004","AllCut":"0","bet_time":"1544415139"}]
-     */
 
-    private ThisWeekBean ThisWeek;
-    private ThisWeekBean LastWeek;
-    private String TodayWeek;
-    private List<ThisWeekBean.RowBean> row;
+    private List<ListBean> list;
 
-    public ThisWeekBean getThisWeek() {
-        return ThisWeek;
+    public List<ListBean> getList() {
+        return list;
     }
 
-    public void setThisWeek(ThisWeekBean ThisWeek) {
-        this.ThisWeek = ThisWeek;
+    public void setList(List<ListBean> list) {
+        this.list = list;
     }
 
-    public ThisWeekBean getLastWeek() {
-        return LastWeek;
-    }
-
-    public void setLastWeek(ThisWeekBean LastWeek) {
-        this.LastWeek = LastWeek;
-    }
-
-    public String getTodayWeek() {
-        return TodayWeek;
-    }
-
-    public void setTodayWeek(String TodayWeek) {
-        this.TodayWeek = TodayWeek;
-    }
-
-    public List<ThisWeekBean.RowBean> getRow() {
-        return row;
-    }
-
-    public void setRow(List<ThisWeekBean.RowBean> row) {
-        this.row = row;
-    }
-
-    public static class ThisWeekBean {
+    public static class ListBean {
         /**
-         * 1 : {"datetime":1544389153,"dateformat":"2018-12-10","week":"星期一"}
-         * 2 : {"datetime":1544475553,"dateformat":"2018-12-11","week":"星期二"}
-         * 3 : {"datetime":1544561953,"dateformat":"2018-12-12","week":"星期三"}
-         * 4 : {"datetime":1544648353,"dateformat":"2018-12-13","week":"星期四"}
-         * 5 : {"datetime":1544734753,"dateformat":"2018-12-14","week":"星期五"}
-         * 6 : {"datetime":1544821153,"dateformat":"2018-12-15","week":"星期六"}
-         * 7 : {"datetime":1544907553,"dateformat":"2018-12-16","week":"星期日"}
+         * wjorderId : 201903271718514dIT8Z7qJ6
+         * username : daniel02
+         * type : 1
+         * Groupname : 总和-龙虎和
+         * actionNo : 20190327040
+         * actionData : 总和双
+         * actionTime : 2019-03-27 17:18:51
+         * lotteryNo : 5,8,4,0,7
+         * money : 1.00
+         * bonus : 2.00
+         * status : 3
          */
 
-        @SerializedName("1")
-        private data1Bean data1;
-        @SerializedName("2")
-        private data1Bean data2;
-        @SerializedName("3")
-        private data1Bean data3;
-        @SerializedName("4")
-        private data1Bean data4;
-        @SerializedName("5")
-        private data1Bean data5;
-        @SerializedName("6")
-        private data1Bean data6;
-        @SerializedName("7")
-        private data1Bean data7;
+        private String wjorderId;
+        private String username;
+        private int type;
+        private String Groupname;
+        private String actionNo;
+        private String actionData;
+        private String actionTime;
+        private String lotteryNo;
+        private String money;
+        private String bonus;
+        private int status;
 
-        public data1Bean getdata1() {
-            return data1;
+        public String getWjorderId() {
+            return wjorderId;
         }
 
-        public void setdata1(data1Bean data1) {
-            this.data1 = data1;
+        public void setWjorderId(String wjorderId) {
+            this.wjorderId = wjorderId;
         }
 
-        public data1Bean getdata2() {
-            return data2;
+        public String getUsername() {
+            return username;
         }
 
-        public void setdata2(data1Bean data2) {
-            this.data2 = data2;
+        public void setUsername(String username) {
+            this.username = username;
         }
 
-        public data1Bean getdata3() {
-            return data3;
+        public int getType() {
+            return type;
         }
 
-        public void setdata3(data1Bean data3) {
-            this.data3 = data3;
+        public void setType(int type) {
+            this.type = type;
         }
 
-        public data1Bean getdata4() {
-            return data4;
+        public String getGroupname() {
+            return Groupname;
         }
 
-        public void setdata4(data1Bean data4) {
-            this.data4 = data4;
+        public void setGroupname(String Groupname) {
+            this.Groupname = Groupname;
         }
 
-        public data1Bean getdata5() {
-            return data5;
+        public String getActionNo() {
+            return actionNo;
         }
 
-        public void setdata5(data1Bean data5) {
-            this.data5 = data5;
+        public void setActionNo(String actionNo) {
+            this.actionNo = actionNo;
         }
 
-        public data1Bean getdata6() {
-            return data6;
+        public String getActionData() {
+            return actionData;
         }
 
-        public void setdata6(data1Bean data6) {
-            this.data6 = data6;
+        public void setActionData(String actionData) {
+            this.actionData = actionData;
         }
 
-        public data1Bean getdata7() {
-            return data7;
+        public String getActionTime() {
+            return actionTime;
         }
 
-        public void setdata7(data1Bean data7) {
-            this.data7 = data7;
+        public void setActionTime(String actionTime) {
+            this.actionTime = actionTime;
         }
 
-        public static class data1Bean {
-            /**
-             * datetime : 1544389153
-             * dateformat : 2018-12-10
-             * week : 星期一
-             */
-
-            private int datetime;
-            private String dateformat;
-            private String week;
-            private String money;
-
-            public int getDatetime() {
-                return datetime;
-            }
-
-            public void setDatetime(int datetime) {
-                this.datetime = datetime;
-            }
-
-            public String getDateformat() {
-                return dateformat;
-            }
-
-            public void setDateformat(String dateformat) {
-                this.dateformat = dateformat;
-            }
-
-            public String getWeek() {
-                return week;
-            }
-
-            public void setWeek(String week) {
-                this.week = week;
-            }
-
-            public String getMoney() {
-                return money;
-            }
-
-            public void setMoney(String money) {
-                this.money = money;
-            }
+        public String getLotteryNo() {
+            return lotteryNo;
         }
 
+        public void setLotteryNo(String lotteryNo) {
+            this.lotteryNo = lotteryNo;
+        }
 
+        public String getMoney() {
+            return money;
+        }
 
-        public static class RowBean {
-            /**
-             * Allnum : 85
-             * AllMoney : 455
-             * AllWin : -197.120
-             * AllCut : 0.000
-             * bet_time : 1544407630
-             * date : 2018-12-09
-             */
+        public void setMoney(String money) {
+            this.money = money;
+        }
 
-            private String Allnum;
-            private String AllMoney;
-            private String AllWin;
-            private String AllCut;
-            private String bet_time;
-            private String date;
+        public String getBonus() {
+            return bonus;
+        }
 
-            public String getAllnum() {
-                return Allnum;
-            }
+        public void setBonus(String bonus) {
+            this.bonus = bonus;
+        }
 
-            public void setAllnum(String Allnum) {
-                this.Allnum = Allnum;
-            }
+        public int getStatus() {
+            return status;
+        }
 
-            public String getAllMoney() {
-                return AllMoney;
-            }
-
-            public void setAllMoney(String AllMoney) {
-                this.AllMoney = AllMoney;
-            }
-
-            public String getAllWin() {
-                return AllWin;
-            }
-
-            public void setAllWin(String AllWin) {
-                this.AllWin = AllWin;
-            }
-
-            public String getAllCut() {
-                return AllCut;
-            }
-
-            public void setAllCut(String AllCut) {
-                this.AllCut = AllCut;
-            }
-
-            public String getBet_time() {
-                return bet_time;
-            }
-
-            public void setBet_time(String bet_time) {
-                this.bet_time = bet_time;
-            }
-
-            public String getDate() {
-                return date;
-            }
-
-            public void setDate(String date) {
-                this.date = date;
-            }
+        public void setStatus(int status) {
+            this.status = status;
         }
     }
 }
