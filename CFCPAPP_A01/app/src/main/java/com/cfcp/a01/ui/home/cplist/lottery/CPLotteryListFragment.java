@@ -266,6 +266,9 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                     break;
                 case "159":
                 case "10":
+                case "73":
+                case "74":
+                case "75":
                     cpLeftEventList2.add(total+"");
                     cpLeftEventList2.add((total >= 11) ? "大":"小");
                     cpOrderLotteryOpen1.setAdapter(new OpenK3GameAdapter(R.layout.item_cp_order_open_1, cpLeftEventList1));

@@ -541,7 +541,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
         //EventBus.getDefault().register(this);
         AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
         lotteryResultType.setText(AvailableLottery.get(0).getName());
-        initZTTablayout(AvailableLottery.get(0).getId()+"");
+        initZTTablayout(AvailableLottery.get(0).getLottery_id()+"");
         initPK10TrendView();
         initCQTrendView();
         init11X5TrendView();
@@ -560,7 +560,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 // 2、下面做查询数据的请求和展示
                 String text = AvailableLottery.get(options1).getName();
                 lotteryResultType.setText(text);
-                lotteryId = AvailableLottery.get(options1).getId()+"";
+                lotteryId = AvailableLottery.get(options1).getLottery_id()+"";
                 initZTTablayout(lotteryId);
             }
         }).build();

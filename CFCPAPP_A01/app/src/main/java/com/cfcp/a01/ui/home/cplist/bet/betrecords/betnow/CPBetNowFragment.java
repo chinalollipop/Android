@@ -139,6 +139,15 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                  case "10":
                      name ="江苏骰宝(快3)";
                     break;
+                case "73":
+                    name ="极速快3五分彩";
+                    break;
+                case "74":
+                    name ="极速快3三分彩";
+                    break;
+                case "75":
+                    name ="极速快3分分彩";
+                    break;
                 case "51":
                     name ="极速赛车";
                     break;
@@ -306,6 +315,33 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
             }else{
                 BetNow betNow = new BetNow();
                 betNow.id = "10";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+            if(betNowListID.contains("73")){
+                betNowList.add(getData("73",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "73";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+            if(betNowListID.contains("74")){
+                betNowList.add(getData("74",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "74";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+            if(betNowListID.contains("75")){
+                betNowList.add(getData("75",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "75";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);

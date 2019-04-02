@@ -209,6 +209,15 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 case "10":
                     name ="江苏骰宝(快3)";
                     break;
+                case "73":
+                    name ="极速快3五分彩";
+                    break;
+                case "74":
+                    name ="极速快3三分彩";
+                    break;
+                case "75":
+                    name ="极速快3分分彩";
+                    break;
                 case "51":
                     name ="极速赛车";
                     break;

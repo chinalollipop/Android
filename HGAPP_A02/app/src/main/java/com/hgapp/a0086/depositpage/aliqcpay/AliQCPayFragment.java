@@ -14,6 +14,7 @@ import com.bigkoo.pickerview.view.TimePickerView;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
+import com.hgapp.a0086.common.util.DoubleClickHelper;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.a0086.data.DepositAliPayQCCodeResult;
 import com.hgapp.common.util.Check;
@@ -181,6 +182,7 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
 
     @OnClick(R.id.btnDepositAliQCPaySubmit)
     public void onViewClicked() {
+        DoubleClickHelper.getNewInstance().disabledView(btnDepositAliQCPaySubmit);
         onCheckThirdMobilePay();
     }
     @OnClick(R.id.tvDepositAliQCPayTime)

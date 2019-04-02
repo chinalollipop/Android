@@ -5,9 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -15,6 +13,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
@@ -26,13 +27,9 @@ import com.cfcp.a01.common.utils.CPIWebSetting;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
-import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.PersonReportResult;
-import com.cfcp.a01.ui.chat.ChatFragment;
-import com.cfcp.a01.ui.home.texthtml.html.HtmlUtils;
 import com.cfcp.a01.ui.me.report.PersonContract;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.coolindicator.sdk.CoolIndicator;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.SslError;
@@ -42,16 +39,23 @@ import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
+import static com.cfcp.a01.common.utils.Utils.getContext;
 
 public class CaiInfoFragment extends BaseFragment implements PersonContract.View {
 
     private static final String TYPE1 = "type1";
     private static final String TYPE2 = "type2";
     private static final String TYPE3 = "type3";
+    Unbinder unbinder;
     private String typeArgs2, typeArgs3;
     PersonContract.Presenter presenter;
     @BindView(R.id.flayout_xpay)
@@ -59,12 +63,19 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
 
     @BindView(R.id.wv_service_online)
     WebView wvServiceOnlineContent;
+    @BindView(R.id.caiInfoLotteryId)
+    TextView caiInfoLotteryId;
     @BindView(R.id.indicator)
     CoolIndicator mCoolIndicator;
     @BindView(R.id.eventListBack)
     NTitleBar eventListBack;
     private ValueCallback<Uri> uploadFile;
     private ValueCallback<Uri[]> uploadFiles;
+    OptionsPickerView typeOptionsPicker;
+    String lotteryId="1";
+    //信用盘的列表
+    private List<AllGamesResult.DataBean.LotteriesBean> AvailableLottery = new ArrayList<>();
+
     public static CaiInfoFragment newInstance(String deposit_mode, String money) {
         CaiInfoFragment betFragment = new CaiInfoFragment();
         Bundle args = new Bundle();
@@ -99,13 +110,36 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
         });
         mCoolIndicator.setMax(100);
         CPIWebSetting.init(wvServiceOnlineContent);
+        AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
+        caiInfoLotteryId.setText(AvailableLottery.get(0).getName());
+        lotteryId = AvailableLottery.get(0).getLottery_id() + "";
+        typeOptionsPicker = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                //1、tab做相应的切换
+                // 2、下面做查询数据的请求和展示
+                String text = AvailableLottery.get(options1).getName();
+                caiInfoLotteryId.setText(text);
+                lotteryId = AvailableLottery.get(options1).getLottery_id() + "";
+                onLoadView ();
+            }
+        }).build();
+        typeOptionsPicker.setPicker(AvailableLottery);
         webviewsetting(wvServiceOnlineContent);
-        String webUrl = Client.baseUrl().replace("api.","")+ "prize-sets/game-prize-set?tip=app";
+       /* String webUrl = Client.baseUrl().replace("api.", "") + "prize-sets/game-prize-set?tip=app";
         if (Check.isEmpty(webUrl)) {
             webUrl = "http://dh5588.com/prize-sets/game-prize-set?tip=app";
-        }
-        GameLog.log("加载了彩种信息地址是 "+webUrl);
+        }*/
+
         //wvServiceOnlineContent.clearCache(true);
+        onLoadView ();
+
+    }
+
+    private void onLoadView (){
+        String webUrl = Client.baseUrl()+"service?packet=Game&action=GetUserPrizeSet&lottery_id="+lotteryId+"&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+        GameLog.log("加载了彩种信息地址是 " + webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);
     }
 
@@ -143,7 +177,7 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
 
             @Override
             public void onHideCustomView() {
-                if(null!=customViewCallback){//!Check.isNull(customViewCallback)
+                if (null != customViewCallback) {//!Check.isNull(customViewCallback)
                     customViewCallback.onCustomViewHidden();
                 }
                 wvServiceOnlineContent.setVisibility(View.VISIBLE);
@@ -161,6 +195,7 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
                 flayoutXpay.addView(view);
                 super.onShowCustomView(view, customViewCallback);
             }
+
             // For Android 3.0+
             public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
                 GameLog.log("openFileChooser 1");
@@ -239,11 +274,11 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
     @Override
     public void onDestroy() {
         super.onDestroy();
-        try{
-            if(!Check.isNull(wvServiceOnlineContent)){
+        try {
+            if (!Check.isNull(wvServiceOnlineContent)) {
                 ViewParent parent = wvServiceOnlineContent.getParent();
-                if(!Check.isNull(parent)){
-                    ((ViewGroup)parent).removeAllViews();
+                if (!Check.isNull(parent)) {
+                    ((ViewGroup) parent).removeAllViews();
                 }
                 wvServiceOnlineContent.stopLoading();
                 wvServiceOnlineContent.getSettings().setJavaScriptEnabled(false);
@@ -255,8 +290,8 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
                 System.gc();
                 GameLog.log("PayGanmeActivity:--------onDestroy()--------");
             }
-        }catch (Exception value){
-            GameLog.log("PayGanmeActivity异常:"+value);
+        } catch (Exception value) {
+            GameLog.log("PayGanmeActivity异常:" + value);
         }
 
     }
@@ -265,7 +300,6 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
     @Override
     public void getPersonReportResult(PersonReportResult personReportResult) {
     }
-
 
 
     @Override
@@ -283,4 +317,9 @@ public class CaiInfoFragment extends BaseFragment implements PersonContract.View
         super.onSupportVisible();
     }
 
+
+    @OnClick(R.id.caiInfoLotteryId)
+    public void onViewClicked() {
+        typeOptionsPicker.show();
+    }
 }

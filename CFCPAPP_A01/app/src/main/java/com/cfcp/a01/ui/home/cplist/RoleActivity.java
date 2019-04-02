@@ -191,6 +191,9 @@ public class RoleActivity extends Activity {
                 gameName ="极速六合彩";
                 break;
             case "10":
+            case "73":
+            case "74":
+            case "75":
                 gameUrl = "role/role_10.html";
                 gameName ="江苏骰宝(快3)";
                 break;

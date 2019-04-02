@@ -24542,6 +24542,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 break;
             case "159":
             case "10":
+            case "73":
+            case "74":
+            case "75":
                 cpLeftEventList2.add(total+"");
                 cpLeftEventList2.add((total >= 11) ? "大":"小");
                 group = "group6";
@@ -25107,10 +25110,13 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 presenter.postRateInfoPCDD(lottery_id,x_session_token);
                 break;
             case "10"://江苏快3
+            case "73"://江苏快3
+            case "74"://江苏快3
+            case "75"://江苏快3
                 initDataSsc();
                 type = "1";
                 initViewJSK3Data();
-                presenter.postRateInfoJsk3(lottery_id,type,x_session_token);
+                presenter.postRateInfoJsk3("10",type,x_session_token);
                 break;
             case "384":// 极速快3
                 initDataSsc();
@@ -27067,8 +27073,11 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 presenter.postRateInfoPCDD(lottery_id,x_session_token);
                 break;
             case "10"://江苏快3
+            case "73"://极速快3五分彩
+            case "74"://极速快3三分彩
+            case "75"://极速快3分分彩
                 type = "1";
-                presenter.postRateInfoJsk3(lottery_id,type,x_session_token);
+                presenter.postRateInfoJsk3("10",type,x_session_token);
                 break;
             case "384":// 极速快3
                 //type = "undefined";

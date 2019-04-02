@@ -14,9 +14,11 @@ import com.bigkoo.pickerview.view.TimePickerView;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
+import com.hgapp.a6668.common.util.DoubleClickHelper;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.data.DepositAliPayQCCodeResult;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.TimeUtils;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -151,7 +153,6 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
         String etMoney = etDepositAliQCPayMoney.getText().toString().trim();
         String number = edDepositAliQCPayOrderNumber.getText().toString().trim();
         String tvTime = tvDepositAliQCPayTime.getText().toString().trim();
-
         if (Check.isEmpty(etMoney)) {
             showMessage("汇款金额必须是整数！");
             return;
@@ -181,6 +182,7 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
 
     @OnClick(R.id.btnDepositAliQCPaySubmit)
     public void onViewClicked() {
+        DoubleClickHelper.getNewInstance().disabledView(btnDepositAliQCPaySubmit);
         onCheckThirdMobilePay();
     }
     @OnClick(R.id.tvDepositAliQCPayTime)
