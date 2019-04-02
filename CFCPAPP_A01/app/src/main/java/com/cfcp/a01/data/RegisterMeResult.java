@@ -40,7 +40,7 @@ public class RegisterMeResult {
     private int fUserSinglePercentValue;
     private int fUserMultiPercentValue;
     private List<APossibleAgentPrizeGroupsBean> aPossibleAgentPrizeGroups;
-    private List<AAllPossiblePrizeGroupsBean> aAllPossiblePrizeGroups;
+    private List<AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroups;
     private List<AAllPossibleAgentPrizeGroupsBean> aAllPossibleAgentPrizeGroups;
     private List<APossiblePrizeGroupsBean> aPossiblePrizeGroups;
     private List<ALotteriesPrizeSetsBean> aLotteriesPrizeSets;
@@ -135,11 +135,11 @@ public class RegisterMeResult {
         this.aPossibleAgentPrizeGroups = aPossibleAgentPrizeGroups;
     }
 
-    public List<AAllPossiblePrizeGroupsBean> getAAllPossiblePrizeGroups() {
+    public List<AAllPossibleAgentPrizeGroupsBean> getAAllPossiblePrizeGroups() {
         return aAllPossiblePrizeGroups;
     }
 
-    public void setAAllPossiblePrizeGroups(List<AAllPossiblePrizeGroupsBean> aAllPossiblePrizeGroups) {
+    public void setAAllPossiblePrizeGroups(List<AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroups) {
         this.aAllPossiblePrizeGroups = aAllPossiblePrizeGroups;
     }
 

@@ -373,6 +373,18 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 case "JSQk3":
                     ids = R.mipmap.gf_jsks;
                     break;
+                case "JSQk35fc":
+                case "JSK35FC":
+                    ids = R.mipmap.gf_kswfc;
+                    break;
+                case "JSQk33fc":
+                case "JSK33FC":
+                    ids = R.mipmap.gf_kssfc;
+                    break;
+                case "JSQk3ffc":
+                case "JSQk3FFC":
+                    ids = R.mipmap.gf_ksffc;
+                    break;
                 case "FastPK10":
                     ids = R.mipmap.xy_jssc;
                     break;

@@ -133,7 +133,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="额度转换"
+                        android:text="长头助手"
                         android:textColor="@color/text_main" />
 
                     <TextView

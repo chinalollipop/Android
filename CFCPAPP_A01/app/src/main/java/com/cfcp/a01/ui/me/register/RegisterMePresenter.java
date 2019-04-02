@@ -61,7 +61,7 @@ public class RegisterMePresenter implements RegisterMeContract.Presenter {
     }
 
     @Override
-    public void getRegisterFundGroup(String is_agent,String prize_group_type, String nickname, String username, String password,String series_prize_group_json) {
+    public void getRegisterFundGroup(String is_agent,String prize_group_id,String prize_group_type, String nickname, String username, String password,String series_prize_group_json) {
         Map<String,String> params = new HashMap<>();
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","User");

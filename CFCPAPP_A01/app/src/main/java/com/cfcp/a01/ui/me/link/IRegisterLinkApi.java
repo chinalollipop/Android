@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.me.link;
 
 
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
+import com.cfcp.a01.data.RegisterLinkListResult;
 import com.cfcp.a01.data.RegisterMeResult;
 
 import java.util.Map;
@@ -20,6 +21,10 @@ public interface IRegisterLinkApi {
     //存款方式提交 (encoded = true)
     @GET("service")
     Observable<AppTextMessageResponse<RegisterMeResult>> getFundGroup(
+            @QueryMap Map<String, String> params
+    );
+    @GET("service")
+    Observable<AppTextMessageResponse<RegisterLinkListResult>> getFundList(
             @QueryMap Map<String, String> params
     );
 }

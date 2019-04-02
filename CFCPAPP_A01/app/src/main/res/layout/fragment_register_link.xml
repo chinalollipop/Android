@@ -13,196 +13,223 @@
         app:backText="返回"
         app:moreTextOnly="true"
         app:titleText="推广链接" />
+
     <android.support.design.widget.TabLayout
         android:id="@+id/registerLinkStyle"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#e9e9e9"
+        app:tabGravity="fill"
         app:tabIndicatorColor="#c42133"
         app:tabIndicatorHeight="2dp"
-        app:tabGravity="fill"
         app:tabSelectedTextColor="#c42133"
         app:tabTextColor="#c42133" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <LinearLayout
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="10dp"
+        android:background="#e4e1e1" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/registerLinkRView"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:text="推广渠道："
-            android:textColor="#333"
-            android:gravity="center|start"
-            android:layout_width="120dp"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/registerLinkChannel"
-            android:text="请选择"
-            android:textColor="#000"
-            android:gravity="center|start"
-            android:drawableEnd="@mipmap/icon_ex_down"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/registerLink1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text="推广渠道："
+                android:textColor="#333" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <LinearLayout
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:text="用户类型："
-            android:textColor="#333"
-            android:gravity="center|start"
-            android:layout_width="120dp"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/registerLinkType"
-            android:text="代理"
-            android:textColor="#000"
-            android:gravity="center|start"
-            android:drawableEnd="@mipmap/icon_ex_down"
+            <TextView
+                android:id="@+id/registerLinkChannel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@mipmap/icon_ex_down"
+                android:gravity="center|start"
+                android:text="请选择"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
 
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <LinearLayout
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:text="链接有效期："
-            android:textColor="#333"
-            android:gravity="center|start"
-            android:layout_width="120dp"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/registerLinkTime"
-            android:text="请选择"
-            android:textColor="#000"
-            android:gravity="center|start"
-            android:drawableEnd="@mipmap/icon_ex_down"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp">
 
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_height="40dp">
-        <TextView
-            android:text="推广QQ："
-            android:textColor="#333"
-            android:gravity="center|start"
-            android:layout_width="120dp"
-            android:layout_height="match_parent" />
-        <EditText
-            android:id="@+id/registerLinkQQ"
-            android:hint="请输入推广QQ"
-            android:textColor="#000"
-            android:textSize="14sp"
-            android:background="@null"
-            android:layout_weight="1"
-            android:maxLength="16"
-            android:gravity="center|start"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text="用户类型："
+                android:textColor="#333" />
 
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <TextView
-        android:text="奖金组设定"
-        android:textColor="#c52133"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <LinearLayout
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:text="设置奖金："
-            android:textColor="#333"
-            android:gravity="center|start"
-            android:layout_width="120dp"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/registerLinkFund"
-            android:text="请选择"
-            android:textColor="#000"
-            android:gravity="center|start"
-            android:drawableEnd="@mipmap/icon_ex_down"
+            <TextView
+                android:id="@+id/registerLinkType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@mipmap/icon_ex_down"
+                android:gravity="center|start"
+                android:text="代理"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text="链接有效期："
+                android:textColor="#333" />
+
+            <TextView
+                android:id="@+id/registerLinkTime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@mipmap/icon_ex_down"
+                android:gravity="center|start"
+                android:text="请选择"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text="推广QQ："
+                android:textColor="#333" />
+
+            <EditText
+                android:id="@+id/registerLinkQQ"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center|start"
+                android:hint="请输入推广QQ"
+                android:maxLength="16"
+                android:inputType="number"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="奖金组设定"
+            android:textColor="#c52133" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text="设置奖金："
+                android:textColor="#333" />
+
+            <TextView
+                android:id="@+id/registerLinkFund"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@mipmap/icon_ex_down"
+                android:gravity="center|start"
+                android:text="请选择"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="奖金组一旦上调后则无法降低，请谨慎操作"
+            android:textColor="#3b3b3b" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
+
+        <TextView
+            android:id="@+id/registerLinkSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/bg_btn_blue"
+            android:gravity="center"
+            android:text="生成链接"
+            android:textColor="@color/white" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-    <TextView
-        android:text="奖金组一旦上调后则无法降低，请谨慎操作"
-        android:textColor="#3b3b3b"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:background="#e4e1e1"
-        />
-
-
-    <TextView
-        android:id="@+id/registerLinkSubmit"
-        android:textColor="@color/white"
-        android:text="生成链接"
-        android:gravity="center"
-        android:layout_margin="30dp"
-        android:background="@drawable/bg_btn_blue"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
 </LinearLayout>

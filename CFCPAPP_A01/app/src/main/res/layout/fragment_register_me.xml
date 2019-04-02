@@ -33,7 +33,7 @@
             android:layout_height="match_parent" />
         <TextView
             android:id="@+id/registerMeType"
-            android:text="代理"
+            android:text="会员"
             android:textColor="#000"
             android:gravity="center|start"
             android:drawableEnd="@mipmap/icon_ex_down"

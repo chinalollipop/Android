@@ -6,6 +6,7 @@ import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.data.RegisterLinkListResult;
 import com.cfcp.a01.data.RegisterMeResult;
 
 import java.util.HashMap;
@@ -35,8 +36,8 @@ public class RegisterLinkPresenter implements RegisterLinkContract.Presenter {
         Map<String,String> params = new HashMap<>();
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","User");
-        params.put("action","UserUser");
-        params.put("way","accurateCreate");
+        params.put("action","UserRegisterLink");
+        params.put("way","create");
         params.put("token",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getFundGroup(params))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<RegisterMeResult>>() {
@@ -60,22 +61,82 @@ public class RegisterLinkPresenter implements RegisterLinkContract.Presenter {
     }
 
     @Override
-    public void getRegisterFundGroup(String is_agent,String prize_group_type, String nickname, String username, String password,String series_prize_group_json) {
+    public void getFundList() {
         Map<String,String> params = new HashMap<>();
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","User");
-        params.put("action","UserUser");
-        params.put("way","accurateCreate");
+        params.put("action","UserRegisterLink");
+        params.put("way","index");
+        params.put("pagesize","1000");
+        params.put("token",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getFundList(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<RegisterLinkListResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<RegisterLinkListResult> response) {
+                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
+                            view.getFundListResult(response.getData());
+                        } else {
+                            view.showMessage(response.getDescribe());
+                        }
+                        //view.postLoginResult(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getFundDelete(String id) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","User");
+        params.put("action","UserRegisterLink");
+        params.put("way","closeLink");
+        params.put("id",id);
+        params.put("token",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getFundGroup(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<RegisterMeResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<RegisterMeResult> response) {
+                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
+                            view.getFundDeleteResult();
+                        } else {
+                            view.showMessage(response.getDescribe());
+                        }
+                        //view.postLoginResult(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getRegisterFundGroup(String is_agent,String prize_group_id,String prize_group_type,String channel, String agent_qqs, String valid_days,String series_prize_group_json) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","User");
+        params.put("action","UserRegisterLink");
+        params.put("way","create");
         params.put("is_agent",is_agent);
-        params.put("prize_group_id","");
+        params.put("prize_group_id",prize_group_id);
         params.put("agent_prize_set_quota","{}");
         params.put("fb_single","0.0");
         params.put("fb_all","0.0");
         params.put("lottery_id","");
         params.put("prize_group_type",prize_group_type);
-        params.put("nickname",nickname);
-        params.put("username",username);
-        params.put("password",password);
+        params.put("channel",channel);
+        params.put("agent_qqs[]",agent_qqs);
+        params.put("valid_days",valid_days);
         params.put("series_prize_group_json",series_prize_group_json);
         params.put("token",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getFundGroup(params))

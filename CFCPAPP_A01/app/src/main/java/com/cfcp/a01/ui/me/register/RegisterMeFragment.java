@@ -67,9 +67,11 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
     RegisterMeContract.Presenter presenter;
     OptionsPickerView typeOptionsPicker;
     OptionsPickerView typeOptionsPickerFund;
-    String is_agent="0",series_prize_group_json;
+    String is_agent="0",prize_group_id,series_prize_group_json;
     String type,classic_prize;
     List<RegisterMeResult.AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroupsBeans = new ArrayList<>();
+    List<RegisterMeResult.AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroupsBeans0 = new ArrayList<>();
+    List<RegisterMeResult.AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroupsBeans1 = new ArrayList<>();
 
 
     static List<String> typeOptionsList  = new ArrayList<>();
@@ -166,6 +168,31 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
                 }else{
                     is_agent = "1";
                 }
+                if(is_agent.equals("1")){
+                    aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans1;
+                }else{
+                    aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans0;
+                }
+                type = aAllPossiblePrizeGroupsBeans.get(0).getType()+"";
+                classic_prize = aAllPossiblePrizeGroupsBeans.get(0).getClassic_prize()+"";
+                prize_group_id =aAllPossiblePrizeGroupsBeans.get(0).getId()+"";
+                registerMeSetFund.setText(aAllPossiblePrizeGroupsBeans.get(0).getPickerViewText());
+                typeOptionsPickerFund = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
+                    @Override
+                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                        //1、tab做相应的切换
+                        // 2、下面做查询数据的请求和展示
+                        String text = aAllPossiblePrizeGroupsBeans.get(options1).getPickerViewText();
+                        type = aAllPossiblePrizeGroupsBeans.get(options1).getType()+"";
+                        classic_prize = aAllPossiblePrizeGroupsBeans.get(options1).getClassic_prize()+"";
+                        prize_group_id = aAllPossiblePrizeGroupsBeans.get(options1).getId()+"";
+                        series_prize_group_json = "{"+text.replace("--",":")+"}";
+                        registerMeSetFund.setText(text);
+                    }
+                }).build();
+                typeOptionsPickerFund.setPicker(aAllPossiblePrizeGroupsBeans);
+
                 registerMeType.setText(text);
             }
         }).build();
@@ -178,7 +205,7 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
         Map<String, String> map = new HashMap<String, String>();
         map.put(type,classic_prize);
         series_prize_group_json = JSON.toJSONString(map);
-        presenter.getRegisterFundGroup(is_agent,"2",registerNameEvent.nickName, registerNameEvent.accountName, registerNameEvent.pwd, series_prize_group_json);
+        presenter.getRegisterFundGroup(is_agent,prize_group_id,"2",registerNameEvent.nickName, registerNameEvent.accountName, registerNameEvent.pwd, series_prize_group_json);
     }
 
     //请求数据接口
@@ -224,7 +251,13 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
     public void getFundGroupResult(RegisterMeResult registerMeResult) {
         //转账前渠道确认
         GameLog.log("设置真实姓名 成功");
-        aAllPossiblePrizeGroupsBeans = registerMeResult.getAAllPossibleAgentPrizeGroups();
+        aAllPossiblePrizeGroupsBeans0 = registerMeResult.getAAllPossibleAgentPrizeGroups();
+        aAllPossiblePrizeGroupsBeans1 = registerMeResult.getAAllPossiblePrizeGroups();
+        if(is_agent.equals("1")){
+            aAllPossiblePrizeGroupsBeans =  aAllPossiblePrizeGroupsBeans1;
+        }else{
+            aAllPossiblePrizeGroupsBeans =  aAllPossiblePrizeGroupsBeans0;
+        }
         typeOptionsPickerFund = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
 
             @Override
@@ -234,6 +267,7 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
                 String text = aAllPossiblePrizeGroupsBeans.get(options1).getPickerViewText();
                 type = aAllPossiblePrizeGroupsBeans.get(options1).getType()+"";
                 classic_prize = aAllPossiblePrizeGroupsBeans.get(options1).getClassic_prize()+"";
+                prize_group_id = aAllPossiblePrizeGroupsBeans.get(options1).getId()+"";
                 series_prize_group_json = "{"+text.replace("--",":")+"}";
                 registerMeSetFund.setText(text);
             }

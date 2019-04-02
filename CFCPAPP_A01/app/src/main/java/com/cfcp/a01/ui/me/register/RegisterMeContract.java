@@ -15,7 +15,7 @@ public interface RegisterMeContract {
     interface Presenter extends IPresenter {
 
         void getFundGroup();
-        void getRegisterFundGroup(String is_agent,String prize_group_type, String nickname, String username, String password,String series_prize_group_json);
+        void getRegisterFundGroup(String is_agent,String prize_group_id,String prize_group_type, String nickname, String username, String password,String series_prize_group_json);
     }
 
     interface View extends IView<Presenter>, IMessageView {
