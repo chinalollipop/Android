@@ -19,6 +19,9 @@ import com.cfcp.a01.ui.home.deposit.DepositSubmitPresenter;
 import com.cfcp.a01.ui.home.deposit.DepositPresenter;
 import com.cfcp.a01.ui.home.deposit.IDepositApi;
 import com.cfcp.a01.ui.home.deposit.IDepositSubmitApi;
+import com.cfcp.a01.ui.home.dragon.DragonContract;
+import com.cfcp.a01.ui.home.dragon.DragonPresenter;
+import com.cfcp.a01.ui.home.dragon.IDragonApi;
 import com.cfcp.a01.ui.home.login.fastlogin.ILoginApi;
 import com.cfcp.a01.ui.home.login.fastlogin.LoginContract;
 import com.cfcp.a01.ui.home.login.fastlogin.LoginPresenter;
@@ -144,6 +147,14 @@ public class Injections {
             iApi = Client.getRetrofit().create(IHomeApi.class);
         }
         return new HomePresenter(iApi, view);
+    }
+
+    //长龙的逻辑处理
+    public static DragonContract.Presenter inject(@NonNull DragonContract.View view, @Nullable IDragonApi iApi) {
+        if (null == iApi) {
+            iApi = Client.getRetrofit().create(IDragonApi.class);
+        }
+        return new DragonPresenter(iApi, view);
     }
 
     //优惠活动的逻辑处理

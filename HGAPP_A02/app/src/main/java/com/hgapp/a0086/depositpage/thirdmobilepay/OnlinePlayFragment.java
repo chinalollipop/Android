@@ -11,6 +11,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
@@ -22,6 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -35,7 +37,8 @@ public class OnlinePlayFragment extends HGBaseFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
-
+    @BindView(R.id.backOnline)
+    ImageView backOnline;
     @BindView(R.id.wv_online_play)
     WebView wvOnlinePlay;
     //接收webview的参数传参
@@ -224,4 +227,8 @@ public class OnlinePlayFragment extends HGBaseFragment {
         super.onDestroyView();
     }
 
+    @OnClick(R.id.backOnline)
+    public void onViewClicked() {
+        finish();
+    }
 }

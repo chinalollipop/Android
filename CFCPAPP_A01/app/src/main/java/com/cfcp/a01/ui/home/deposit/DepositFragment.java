@@ -415,7 +415,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     public void getDepositVerifyResult(DepositTypeResult depositTypeResult) {
         //转账前渠道确认
         GameLog.log("获取转账前渠道确认接口 成功  "+depositTypeResult.toString());
-        EventBus.getDefault().post(new StartBrotherEvent(DepositSubmitFragment.newInstance(depositTypeResult.getaPlatform(),deposit_mode,depositInputMoneyEt.getText().toString().trim())));
+        EventBus.getDefault().post(new StartBrotherEvent(DepositSubmitFragment.newInstance(depositTypeResult.getaPlatform(),depositTypeResult.getAPaymentPlatformBankCard(),deposit_mode,depositInputMoneyEt.getText().toString().trim())));
     }
 
 

@@ -6,11 +6,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
@@ -22,6 +26,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 
 /**
@@ -36,6 +43,8 @@ public class OnlinePlayFragment extends HGBaseFragment {
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
 
+    @BindView(R.id.backOnline)
+    ImageView backOnline;
     @BindView(R.id.wv_online_play)
     WebView wvOnlinePlay;
     //接收webview的参数传参
@@ -44,15 +53,16 @@ public class OnlinePlayFragment extends HGBaseFragment {
     private String mParam1;
     private String mParam2;
     private String mParam3;
+
     public OnlinePlayFragment() {
     }
 
 
-    public static OnlinePlayFragment newInstance(String param,String param0,String param1, String param2, String param3) {
+    public static OnlinePlayFragment newInstance(String param, String param0, String param1, String param2, String param3) {
         OnlinePlayFragment fragment = new OnlinePlayFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM,param);
-        args.putString(ARG_PARAM0,param0);
+        args.putString(ARG_PARAM, param);
+        args.putString(ARG_PARAM0, param0);
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         args.putString(ARG_PARAM3, param3);
@@ -126,9 +136,9 @@ public class OnlinePlayFragment extends HGBaseFragment {
         webSettings.setAllowFileAccess(true);
         //webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             wvOnlinePlay.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        }else{
+        } else {
             try {
                 Class<?> clazz = wvOnlinePlay.getSettings().getClass();
                 Method method = clazz.getMethod("setAllowUniversalAccessFromFileURLs", boolean.class);
@@ -143,17 +153,17 @@ public class OnlinePlayFragment extends HGBaseFragment {
                 e.printStackTrace();
             }
         }
-        wvOnlinePlay.setWebChromeClient(new WebChromeClient(){
+        wvOnlinePlay.setWebChromeClient(new WebChromeClient() {
 
 
         });
-        wvOnlinePlay.setWebViewClient(new WebViewClient(){
+        wvOnlinePlay.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView wv, String url) {
-                if(url == null) return false;
+                if (url == null) return false;
 
                 try {
-                    if(url.startsWith("weixin://") //微信
+                    if (url.startsWith("weixin://") //微信
                             || url.startsWith("alipays://") //支付宝
                             || url.startsWith("mailto://") //邮件
                             || url.startsWith("tel://")//电话
@@ -172,6 +182,7 @@ public class OnlinePlayFragment extends HGBaseFragment {
                 wv.loadUrl(url);
                 return true;
             }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 return super.shouldOverrideUrlLoading(view, request);
@@ -182,13 +193,13 @@ public class OnlinePlayFragment extends HGBaseFragment {
                 append("&order_amount=").append(mParam0).
                 append("&userid=").append(mParam1).
                 append("&payid=").append(mParam2);
-        if(!Check.isEmpty(mParam3)){
+        if (!Check.isEmpty(mParam3)) {
             payString.append("&onlineIntoBank=").append(mParam3);
         }
-        GameLog.log("存款的URL地址是："+mParam+payString.toString());
-        wvOnlinePlay.loadUrl(mParam+payString.toString());
+        GameLog.log("存款的URL地址是：" + mParam + payString.toString());
+        wvOnlinePlay.loadUrl(mParam + payString.toString());
         //wvOnlinePlay.loadUrl(mParam+payString.toString());
-                //wvOnlinePlay.postUrl(mParam,payString.toString().getBytes());
+        //wvOnlinePlay.postUrl(mParam,payString.toString().getBytes());
         /*try {
             String postData = URLEncoder.encode(payString.toString(),"utf-8");
             wvOnlinePlay.postUrl(onlinePay.getUrl(),postData.getBytes());
@@ -222,4 +233,9 @@ public class OnlinePlayFragment extends HGBaseFragment {
         super.onDestroyView();
     }
 
+
+    @OnClick(R.id.backOnline)
+    public void onViewClicked() {
+        finish();
+    }
 }

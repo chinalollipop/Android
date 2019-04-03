@@ -42,21 +42,32 @@
             android:textColorHint="@color/white"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/loginPwd"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_login_edit"
-            android:drawableLeft="@mipmap/login_pwd"
-            android:drawablePadding="10dp"
-            android:inputType="textPassword"
-            android:hint="请输入密码"
-            android:paddingLeft="5dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="16sp" />
-
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/loginPwd"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_login_edit"
+                android:drawableLeft="@mipmap/login_pwd"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword"
+                android:hint="请输入密码"
+                android:paddingLeft="5dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/etLoginEyes"
+                android:background="@mipmap/icon_eye_close"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </FrameLayout>
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

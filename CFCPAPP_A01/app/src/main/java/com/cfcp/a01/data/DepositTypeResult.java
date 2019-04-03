@@ -6,6 +6,7 @@ import android.os.Parcelable;
 
 public class DepositTypeResult implements Parcelable {
 
+
     /**
      * oPaymentPlatformBankCard : {"orderColumns":{"status":"asc","platform_id":"asc"},"moved":false,"columnSettings":[],"columnTypes":[],"errno":null,"error":null,"validationErrors":{},"throwOnValidation":false,"autoHydrateEntityFromInput":false,"forceEntityHydrationFromInput":false,"autoPurgeRedundantAttributes":false,"autoHashPasswordAttributes":false,"incrementing":true,"timestamps":true,"exists":true}
      * aAllBanks : []
@@ -18,6 +19,11 @@ public class DepositTypeResult implements Parcelable {
 
     public String iPlatformId;
     public APlatformBean aPlatform;
+    /**
+     * aPaymentPlatformBankCard : {"id":25,"platform_name":"西安松琳通信息科技有限公司-宋军","platform_id":70,"platform_identifier":"gongsi bank","bank_card_id":12,"bank_id":3,"bank":"中国农业银行","account_no":"26127101040008389","owner":"西安松琳通信息科技有限公司","email":"左翠华","status":1,"creator_id":68,"creator":"paigu","editor_id":68,"editor":"paigu","created_at":"2018-08-17 16:25:37","updated_at":"2018-09-17 12:49:51","branch":"西安科技二路支行"}
+     */
+
+    private APaymentPlatformBankCardBean aPaymentPlatformBankCard;
 
     public String getiPlatformId() {
         return iPlatformId;
@@ -33,6 +39,14 @@ public class DepositTypeResult implements Parcelable {
 
     public void setaPlatform(APlatformBean aPlatform) {
         this.aPlatform = aPlatform;
+    }
+
+    public APaymentPlatformBankCardBean getAPaymentPlatformBankCard() {
+        return aPaymentPlatformBankCard;
+    }
+
+    public void setAPaymentPlatformBankCard(APaymentPlatformBankCardBean aPaymentPlatformBankCard) {
+        this.aPaymentPlatformBankCard = aPaymentPlatformBankCard;
     }
 
     public static class APlatformBean implements Parcelable {
@@ -516,6 +530,7 @@ public class DepositTypeResult implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.iPlatformId);
         dest.writeParcelable(this.aPlatform, flags);
+        dest.writeParcelable(this.aPaymentPlatformBankCard, flags);
     }
 
     public DepositTypeResult() {
@@ -524,9 +539,10 @@ public class DepositTypeResult implements Parcelable {
     protected DepositTypeResult(Parcel in) {
         this.iPlatformId = in.readString();
         this.aPlatform = in.readParcelable(APlatformBean.class.getClassLoader());
+        this.aPaymentPlatformBankCard = in.readParcelable(APaymentPlatformBankCardBean.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<DepositTypeResult> CREATOR = new Parcelable.Creator<DepositTypeResult>() {
+    public static final Creator<DepositTypeResult> CREATOR = new Creator<DepositTypeResult>() {
         @Override
         public DepositTypeResult createFromParcel(Parcel source) {
             return new DepositTypeResult(source);
@@ -537,4 +553,253 @@ public class DepositTypeResult implements Parcelable {
             return new DepositTypeResult[size];
         }
     };
+
+    public static class APaymentPlatformBankCardBean implements Parcelable {
+        /**
+         * id : 25
+         * platform_name : 西安松琳通信息科技有限公司-宋军
+         * platform_id : 70
+         * platform_identifier : gongsi bank
+         * bank_card_id : 12
+         * bank_id : 3
+         * bank : 中国农业银行
+         * account_no : 26127101040008389
+         * owner : 西安松琳通信息科技有限公司
+         * email : 左翠华
+         * status : 1
+         * creator_id : 68
+         * creator : paigu
+         * editor_id : 68
+         * editor : paigu
+         * created_at : 2018-08-17 16:25:37
+         * updated_at : 2018-09-17 12:49:51
+         * branch : 西安科技二路支行
+         */
+
+        private int id;
+        private String platform_name;
+        private int platform_id;
+        private String platform_identifier;
+        private int bank_card_id;
+        private int bank_id;
+        private String bank;
+        private String account_no;
+        private String owner;
+        private String email;
+        private int status;
+        private int creator_id;
+        private String creator;
+        private int editor_id;
+        private String editor;
+        private String created_at;
+        private String updated_at;
+        private String branch;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getPlatform_name() {
+            return platform_name;
+        }
+
+        public void setPlatform_name(String platform_name) {
+            this.platform_name = platform_name;
+        }
+
+        public int getPlatform_id() {
+            return platform_id;
+        }
+
+        public void setPlatform_id(int platform_id) {
+            this.platform_id = platform_id;
+        }
+
+        public String getPlatform_identifier() {
+            return platform_identifier;
+        }
+
+        public void setPlatform_identifier(String platform_identifier) {
+            this.platform_identifier = platform_identifier;
+        }
+
+        public int getBank_card_id() {
+            return bank_card_id;
+        }
+
+        public void setBank_card_id(int bank_card_id) {
+            this.bank_card_id = bank_card_id;
+        }
+
+        public int getBank_id() {
+            return bank_id;
+        }
+
+        public void setBank_id(int bank_id) {
+            this.bank_id = bank_id;
+        }
+
+        public String getBank() {
+            return bank;
+        }
+
+        public void setBank(String bank) {
+            this.bank = bank;
+        }
+
+        public String getAccount_no() {
+            return account_no;
+        }
+
+        public void setAccount_no(String account_no) {
+            this.account_no = account_no;
+        }
+
+        public String getOwner() {
+            return owner;
+        }
+
+        public void setOwner(String owner) {
+            this.owner = owner;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public int getCreator_id() {
+            return creator_id;
+        }
+
+        public void setCreator_id(int creator_id) {
+            this.creator_id = creator_id;
+        }
+
+        public String getCreator() {
+            return creator;
+        }
+
+        public void setCreator(String creator) {
+            this.creator = creator;
+        }
+
+        public int getEditor_id() {
+            return editor_id;
+        }
+
+        public void setEditor_id(int editor_id) {
+            this.editor_id = editor_id;
+        }
+
+        public String getEditor() {
+            return editor;
+        }
+
+        public void setEditor(String editor) {
+            this.editor = editor;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
+
+        public String getUpdated_at() {
+            return updated_at;
+        }
+
+        public void setUpdated_at(String updated_at) {
+            this.updated_at = updated_at;
+        }
+
+        public String getBranch() {
+            return branch;
+        }
+
+        public void setBranch(String branch) {
+            this.branch = branch;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(this.id);
+            dest.writeString(this.platform_name);
+            dest.writeInt(this.platform_id);
+            dest.writeString(this.platform_identifier);
+            dest.writeInt(this.bank_card_id);
+            dest.writeInt(this.bank_id);
+            dest.writeString(this.bank);
+            dest.writeString(this.account_no);
+            dest.writeString(this.owner);
+            dest.writeString(this.email);
+            dest.writeInt(this.status);
+            dest.writeInt(this.creator_id);
+            dest.writeString(this.creator);
+            dest.writeInt(this.editor_id);
+            dest.writeString(this.editor);
+            dest.writeString(this.created_at);
+            dest.writeString(this.updated_at);
+            dest.writeString(this.branch);
+        }
+
+        public APaymentPlatformBankCardBean() {
+        }
+
+        protected APaymentPlatformBankCardBean(Parcel in) {
+            this.id = in.readInt();
+            this.platform_name = in.readString();
+            this.platform_id = in.readInt();
+            this.platform_identifier = in.readString();
+            this.bank_card_id = in.readInt();
+            this.bank_id = in.readInt();
+            this.bank = in.readString();
+            this.account_no = in.readString();
+            this.owner = in.readString();
+            this.email = in.readString();
+            this.status = in.readInt();
+            this.creator_id = in.readInt();
+            this.creator = in.readString();
+            this.editor_id = in.readInt();
+            this.editor = in.readString();
+            this.created_at = in.readString();
+            this.updated_at = in.readString();
+            this.branch = in.readString();
+        }
+
+        public static final Creator<APaymentPlatformBankCardBean> CREATOR = new Creator<APaymentPlatformBankCardBean>() {
+            @Override
+            public APaymentPlatformBankCardBean createFromParcel(Parcel source) {
+                return new APaymentPlatformBankCardBean(source);
+            }
+
+            @Override
+            public APaymentPlatformBankCardBean[] newArray(int size) {
+                return new APaymentPlatformBankCardBean[size];
+            }
+        };
+    }
 }

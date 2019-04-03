@@ -28,10 +28,12 @@ import butterknife.OnClick;
 
 public class DepositSubmitFragment extends BaseFragment implements DepositSubmitContract.View {
 
+    private static final String TYPE0 = "type0";
     private static final String TYPE1 = "type1";
     private static final String TYPE2 = "type2";
     private static final String TYPE3 = "type3";
     private DepositTypeResult.APlatformBean typeArgs1;
+    private DepositTypeResult.APaymentPlatformBankCardBean aPaymentPlatformBankCardBean;
     private String typeArgs2,typeArgs3;
     DepositSubmitContract.Presenter presenter;
     @BindView(R.id.depositNextBack)
@@ -75,9 +77,10 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
     @BindView(R.id.depositNextInputMoney)
     EditText depositNextInputMoney;
 
-    public static DepositSubmitFragment newInstance(DepositTypeResult.APlatformBean aPlatformBean,String deposit_mode, String money) {
+    public static DepositSubmitFragment newInstance(DepositTypeResult.APlatformBean aPlatformBean,DepositTypeResult.APaymentPlatformBankCardBean aPaymentPlatformBankCardBean,String deposit_mode, String money) {
         DepositSubmitFragment loginFragment = new DepositSubmitFragment();
         Bundle args = new Bundle();
+        args.putParcelable(TYPE0, aPaymentPlatformBankCardBean);
         args.putParcelable(TYPE1, aPlatformBean);
         args.putString(TYPE2, deposit_mode);
         args.putString(TYPE3, money);
@@ -100,6 +103,7 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (null != getArguments()) {
+            aPaymentPlatformBankCardBean = getArguments().getParcelable(TYPE0);
             typeArgs1 = getArguments().getParcelable(TYPE1);
             typeArgs2 = getArguments().getString(TYPE2);
             typeArgs3 = getArguments().getString(TYPE3);
@@ -121,9 +125,17 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
         }else{
             depositNextInputNameLay.setVisibility(View.GONE);
         }
-        depositNextTypeAName.setText(typeArgs1.getName());
+        depositNextTypeAName.setText(typeArgs1.getDisplay_name());
         switch (typeArgs1.getIcon_type()){
             case 0://银行卡
+                depositNextBankMothed.setVisibility(View.VISIBLE);
+                depositNextTypeName.setText("银行转账");
+                depositNextTypeImg.setImageDrawable(getResources().getDrawable(R.mipmap.deposit_union_code));
+                depositNextBankName.setText(aPaymentPlatformBankCardBean.getBank());
+                depositNextBankAccount.setText(aPaymentPlatformBankCardBean.getOwner());
+                depositNextBankNumber.setText(aPaymentPlatformBankCardBean.getAccount_no());
+                depositNextBankNextName.setText(aPaymentPlatformBankCardBean.getBranch());
+                break;
             case 5://云闪付
                 depositNextTypeName.setText("银行转账");
                 depositNextTypeImg.setImageDrawable(getResources().getDrawable(R.mipmap.deposit_union_code));
@@ -190,7 +202,7 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.depositNextTypeANameCopy:
-                CLipHelper.copy(getContext(),depositNextTypeAName.getText().toString());
+                CLipHelper.copy(getActivity(),depositNextTypeAName.getText().toString());
                 showMessage("复制成功！");
                 break;
             case R.id.depositNextBankAccountCopy:

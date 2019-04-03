@@ -2,9 +2,11 @@ package com.cfcp.a01.ui.home.login.fastlogin;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cfcp.a01.CFConstant;
@@ -41,6 +43,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     EditText loginName;
     @BindView(R.id.loginPwd)
     EditText loginPwd;
+    @BindView(R.id.etLoginEyes)
+    ImageView etLoginEyes;
     @BindView(R.id.loginRememberPwd)
     CheckBox loginRememberPwd;
     @BindView(R.id.loginForgetPwd)
@@ -137,10 +141,20 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         return Arrays.asList((IPresenter) presenter);
     }
 
-    @OnClick({R.id.loginForgetPwd, R.id.loginGoSubmitX, R.id.loginGoRegister, R.id.loginGoDemo})
+    @OnClick({R.id.etLoginEyes,R.id.loginForgetPwd, R.id.loginGoSubmitX, R.id.loginGoRegister, R.id.loginGoDemo})
     public void onViewClicked(View view) {
 
         switch (view.getId()) {
+            case R.id.etLoginEyes:
+                if (loginPwd.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                    etLoginEyes.setBackgroundResource(R.mipmap.icon_eye);
+                    loginPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
+                } else {
+                    etLoginEyes.setBackgroundResource(R.mipmap.icon_eye_close);
+                    loginPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                loginPwd.setSelection(loginPwd.getText().toString().length());
+                break;
             case R.id.loginForgetPwd:
                 break;
             case R.id.loginGoSubmitX:

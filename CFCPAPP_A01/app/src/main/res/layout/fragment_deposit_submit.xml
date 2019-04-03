@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f0f0f0"
@@ -80,7 +81,9 @@
 
                         <TextView
                             android:id="@+id/depositNextTypeAName"
-                            android:layout_width="160dp"
+                            android:layout_width="match_parent"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="80dp"
                             android:layout_height="30dp"
                             android:layout_centerInParent="true"
                             android:layout_gravity="center"
@@ -90,7 +93,7 @@
 
                         <TextView
                             android:id="@+id/depositNextTypeANameCopy"
-                            android:layout_width="80dp"
+                            android:layout_width="60dp"
                             android:layout_height="40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginLeft="5dp"
@@ -119,7 +122,9 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankName"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="80dp"
+                                android:layout_marginRight="80dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center"
@@ -143,7 +148,9 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankAccount"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="80dp"
                                 android:layout_height="30dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true"
@@ -155,7 +162,7 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankAccountCopy"
-                                android:layout_width="80dp"
+                                android:layout_width="60dp"
                                 android:layout_height="40dp"
                                 android:layout_alignParentRight="true"
                                 android:layout_marginLeft="5dp"
@@ -179,7 +186,9 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankNumber"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="80dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center"
@@ -189,7 +198,7 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankNumberCopy"
-                                android:layout_width="80dp"
+                                android:layout_width="60dp"
                                 android:layout_height="40dp"
                                 android:layout_alignParentRight="true"
                                 android:layout_marginLeft="5dp"
@@ -212,7 +221,9 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankNextName"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="80dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center"
@@ -222,7 +233,7 @@
 
                             <TextView
                                 android:id="@+id/depositNextBankNextNameCopy"
-                                android:layout_width="80dp"
+                                android:layout_width="60dp"
                                 android:layout_height="40dp"
                                 android:layout_alignParentRight="true"
                                 android:layout_marginLeft="5dp"
