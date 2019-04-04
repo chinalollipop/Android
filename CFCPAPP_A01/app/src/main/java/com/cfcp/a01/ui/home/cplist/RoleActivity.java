@@ -136,7 +136,7 @@ public class RoleActivity extends Activity {
                 break;
             case "1":
                 gameUrl = "role/role_1.html";
-                gameName ="重庆时时彩";
+                gameName ="欢乐生肖";
                 break;
             case "51":
                 gameUrl = "role/role_51.html";
@@ -191,11 +191,14 @@ public class RoleActivity extends Activity {
                 gameName ="极速六合彩";
                 break;
             case "10":
+                gameUrl = "role/role_10.html";
+                gameName ="江苏骰宝(快3)";
+                break;
             case "73":
             case "74":
             case "75":
-                gameUrl = "role/role_10.html";
-                gameName ="江苏骰宝(快3)";
+                gameUrl = "role/role_73.html";
+                gameName ="江苏快三";
                 break;
         }
         gameUrl = "file:///android_asset/"+gameUrl;

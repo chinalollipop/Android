@@ -367,6 +367,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 case "MarkSix":
                     ids = R.mipmap.xy_xglhc;
                     break;
+                case "JSMarkSix":
+                    ids = R.mipmap.xy_jslhc;
+                    break;
                 case "PCEgg":
                     ids = R.mipmap.xy_pcdd;
                     break;

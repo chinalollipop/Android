@@ -14,7 +14,7 @@
         android:id="@+id/backOnline"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@mipmap/cp_back"
+        android:background="@mipmap/icon_hand_back"
         android:layout_margin="10dp"
         />
 </FrameLayout>

@@ -70,6 +70,8 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     //deposit_mode  1 银行卡或者二维码，2 第三方
     String deposit_mode="1",payment_platform_id="";
 
+    boolean isBankAccount ;
+
     public static DepositFragment newInstance() {
         DepositFragment loginFragment = new DepositFragment();
         Injections.inject(loginFragment, null);
@@ -177,6 +179,11 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                                     deposit_mode = AlipayList.get(position).getType()+"";
                                     AlipayList.get(position).setChecked(true);
                                 }
+                                if(AlipayList.get(position).getDisplay_name().contains("银行")){
+                                    isBankAccount = true;
+                                }else{
+                                    isBankAccount = false;
+                                }
                                 adapter.notifyDataSetChanged();
                             }
                         });
@@ -202,6 +209,11 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                                     payment_platform_id = WeixinList.get(position).getId();
                                     deposit_mode = WeixinList.get(position).getType()+"";
                                     WeixinList.get(position).setChecked(true);
+                                }
+                                if(WeixinList.get(position).getDisplay_name().contains("银行")){
+                                    isBankAccount = true;
+                                }else{
+                                    isBankAccount = false;
                                 }
                                 adapter.notifyDataSetChanged();
                             }
@@ -230,6 +242,11 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                                     deposit_mode = bankList.get(position).getType()+"";
                                     bankList.get(position).setChecked(true);
                                 }
+                                if(bankList.get(position).getDisplay_name().contains("银行")){
+                                    isBankAccount = true;
+                                }else{
+                                    isBankAccount = false;
+                                }
                                 adapter.notifyDataSetChanged();
                             }
                         });
@@ -238,6 +255,9 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                         break;
                     case 3:
                         deposit_mode = "2";
+                        if(Check.isNull(yunshanfuList)){
+                            return;
+                        }
                         for(int k=0;k<yunshanfuList.size();++k){
                             yunshanfuList.get(k).setChecked(false);
                         }
@@ -256,6 +276,11 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                                     payment_platform_id = yunshanfuList.get(position).getId();
                                     deposit_mode = yunshanfuList.get(position).getType()+"";
                                     yunshanfuList.get(position).setChecked(true);
+                                }
+                                if(yunshanfuList.get(position).getDisplay_name().contains("银行")){
+                                    isBankAccount = true;
+                                }else{
+                                    isBankAccount = false;
                                 }
                                 adapter.notifyDataSetChanged();
                             }
@@ -405,6 +430,13 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                     payment_platform_id = AlipayList.get(position).getId();
                     AlipayList.get(position).setChecked(true);
                 }
+
+                if(AlipayList.get(position).getDisplay_name().contains("银行")){
+                    isBankAccount = true;
+                }else{
+                    isBankAccount = false;
+                }
+
                 adapter.notifyDataSetChanged();
             }
         });
@@ -414,8 +446,9 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     @Override
     public void getDepositVerifyResult(DepositTypeResult depositTypeResult) {
         //转账前渠道确认
-        GameLog.log("获取转账前渠道确认接口 成功  "+depositTypeResult.toString());
-        EventBus.getDefault().post(new StartBrotherEvent(DepositSubmitFragment.newInstance(depositTypeResult.getaPlatform(),depositTypeResult.getAPaymentPlatformBankCard(),deposit_mode,depositInputMoneyEt.getText().toString().trim())));
+        GameLog.log("获取转账前渠道确认接口 成功  "+isBankAccount);
+        EventBus.getDefault().post(new StartBrotherEvent(DepositSubmitFragment.newInstance(depositTypeResult.getaPlatform(),depositTypeResult.getAPaymentPlatformBankCard(),
+                isBankAccount?"1":"0",depositInputMoneyEt.getText().toString().trim())));
     }
 
 

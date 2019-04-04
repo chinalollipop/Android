@@ -118,7 +118,15 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
                 finish();
             }
         });
-        depositNextBankMothed.setVisibility(View.GONE);
+        if(typeArgs2.equals("1")){
+            depositNextBankMothed.setVisibility(View.VISIBLE);
+            depositNextBankName.setText(aPaymentPlatformBankCardBean.getBank());
+            depositNextBankAccount.setText(aPaymentPlatformBankCardBean.getOwner());
+            depositNextBankNumber.setText(aPaymentPlatformBankCardBean.getAccount_no());
+            depositNextBankNextName.setText(aPaymentPlatformBankCardBean.getBranch());
+        }else{
+            depositNextBankMothed.setVisibility(View.GONE);
+        }
         depositNextInputMoney.setText(typeArgs3);
         if(typeArgs1.getPayer_name_enabled()==1){//1 需要姓名 0 不需要
             depositNextInputNameLay.setVisibility(View.VISIBLE);
@@ -128,13 +136,9 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
         depositNextTypeAName.setText(typeArgs1.getDisplay_name());
         switch (typeArgs1.getIcon_type()){
             case 0://银行卡
-                depositNextBankMothed.setVisibility(View.VISIBLE);
+
                 depositNextTypeName.setText("银行转账");
                 depositNextTypeImg.setImageDrawable(getResources().getDrawable(R.mipmap.deposit_union_code));
-                depositNextBankName.setText(aPaymentPlatformBankCardBean.getBank());
-                depositNextBankAccount.setText(aPaymentPlatformBankCardBean.getOwner());
-                depositNextBankNumber.setText(aPaymentPlatformBankCardBean.getAccount_no());
-                depositNextBankNextName.setText(aPaymentPlatformBankCardBean.getBranch());
                 break;
             case 5://云闪付
                 depositNextTypeName.setText("银行转账");
@@ -206,10 +210,13 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
                 showMessage("复制成功！");
                 break;
             case R.id.depositNextBankAccountCopy:
+                CLipHelper.copy(getActivity(),depositNextBankAccount.getText().toString());
                 break;
             case R.id.depositNextBankNumberCopy:
+                CLipHelper.copy(getActivity(),depositNextBankNumber.getText().toString());
                 break;
             case R.id.depositNextBankNextNameCopy:
+                CLipHelper.copy(getActivity(),depositNextBankNextName.getText().toString());
                 break;
             case R.id.depositNextSubmit:
                 onSubmit();

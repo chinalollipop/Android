@@ -52,7 +52,7 @@
                 android:drawableRight="@mipmap/icon_ex_down"
                 android:drawablePadding="5dp"
                 android:padding="6dp"
-                android:text="重庆时时彩"
+                android:text="欢乐生肖"
                 android:textColor="@color/cp_hall_tv" />
 
             <TextView

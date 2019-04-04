@@ -94,7 +94,7 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="北京PK拾";
                     break;
                 case "1":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "55":
                     name ="幸运飞艇";
@@ -196,7 +196,7 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="北京PK拾";
                     break;
                 case "1":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "55":
                     name ="幸运飞艇";
