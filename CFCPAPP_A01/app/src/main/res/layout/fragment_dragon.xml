@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:backText="返回"
         app:moreTextOnly="true"
-        app:titleText="团队报表" />
+        app:titleText="长龙助手" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/dragonTab"

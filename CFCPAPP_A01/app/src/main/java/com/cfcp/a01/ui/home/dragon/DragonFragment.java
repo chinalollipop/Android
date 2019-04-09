@@ -386,9 +386,11 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
     @Override
     public void postCpBetResult(CPBetResult betResult) {
         EventBus.getDefault().post(new DragonBetCloseEvent("投注成功"));
-        //dragonBetNumberAndMoney.setText("共0注,0元");
+        betGold = dragonBetGold.getText().toString().trim();
+        dragonBetNumberAndMoney.setText("共0注,"+betGold+"元");
         number = "";
         payId  ="99";
+        presenter.getDragonBetList("","");
     }
 
     @Subscribe
