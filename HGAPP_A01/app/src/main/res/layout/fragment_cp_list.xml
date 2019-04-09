@@ -116,7 +116,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="重庆时时彩" />
+                    android:text="欢乐生肖" />
             </LinearLayout>
 
             <TextView

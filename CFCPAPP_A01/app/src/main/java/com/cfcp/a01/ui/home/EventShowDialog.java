@@ -35,8 +35,7 @@ public class EventShowDialog extends BaseDialogFragment {
     @BindView(R.id.eventShowRView)
     RecyclerView eventShowRView;
 
-    List<LoginResult.NoticeListBean> data;
-
+    List<LoginResult.NoticeListBean> data = new ArrayList<>();
     public static EventShowDialog newInstance(ArrayList<LoginResult.NoticeListBean> data, String param1) {
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(PARAM0, data);
@@ -58,6 +57,7 @@ public class EventShowDialog extends BaseDialogFragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
         eventShowRView.setLayoutManager(linearLayoutManager);
         EventShowAdapter eventShowAdapter = new EventShowAdapter(R.layout.item_dialog_event,data);
+        eventShowRView.setAdapter(eventShowAdapter);
         eventShowAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
@@ -73,14 +73,13 @@ public class EventShowDialog extends BaseDialogFragment {
                 adapter.notifyDataSetChanged();*/
             }
         });
-        eventShowRView.setAdapter(eventShowAdapter);
     }
 
     //联合一起使用新的适配器 https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     class EventShowAdapter extends BaseQuickAdapter<LoginResult.NoticeListBean, BaseViewHolder>{
 
-        public EventShowAdapter(int layoutResId, @Nullable List<LoginResult.NoticeListBean> data) {
-            super(layoutResId, data);
+        public EventShowAdapter(int layoutResId, @Nullable List<LoginResult.NoticeListBean> datas) {
+            super(layoutResId, datas);
         }
 
         @Override

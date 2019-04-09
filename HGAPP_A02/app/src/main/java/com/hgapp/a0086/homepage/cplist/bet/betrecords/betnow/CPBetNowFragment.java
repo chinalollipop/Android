@@ -119,7 +119,7 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
         @Override
         protected void convert(ViewHolder holder, final BetNow data, final int position) {
             /** 北京赛车    game_code 51
-             *  重庆时时彩    game_code 2
+             *  欢乐生肖    game_code 2
              *  极速赛车    game_code 189
              *  极速飞艇    game_code 222
              *  分分彩    game_code 207
@@ -140,7 +140,7 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                     name ="北京赛车";
                     break;
                 case "2":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "189":
                     name ="极速赛车";
@@ -236,7 +236,7 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
 
         List<BetNow> betNowList = new ArrayList<>();
         /** 北京赛车    game_code 51
-         *  重庆时时彩    game_code 2
+         *  欢乐生肖    game_code 2
          *  极速赛车    game_code 189
          *  极速飞艇    game_code 222
          *  分分彩    game_code 207

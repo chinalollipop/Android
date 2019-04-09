@@ -233,7 +233,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         cpGameList.add(new HomePageIcon("系统菜单", R.mipmap.home_hgty));
         cpGameList.add(new HomePageIcon("返回大厅", R.mipmap.home_hgty));
         cpGameList.add(new HomePageIcon("北京赛车(PK10)", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("重庆时时彩", R.mipmap.home_vrcp));
+        cpGameList.add(new HomePageIcon("欢乐生肖", R.mipmap.home_vrcp));
         cpGameList.add(new HomePageIcon("极速赛车", R.mipmap.home_qipai));
         cpGameList.add(new HomePageIcon("极速飞艇", R.mipmap.home_hgty));
         cpGameList.add(new HomePageIcon("分分彩", R.mipmap.home_lhj));

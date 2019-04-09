@@ -160,6 +160,13 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                 switch (tab.getPosition()) {
                     case 0:
                         deposit_mode = "1";
+                        if(Check.isNull(AlipayList)){
+                            depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,AlipayList);
+                            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);
+                            depositMothedRViewAdapter.setEmptyView(view);
+                            depositMothedRView.setAdapter(depositMothedRViewAdapter);
+                            return;
+                        }
                         for(int k=0;k<AlipayList.size();++k){
                             AlipayList.get(k).setChecked(false);
                         }
@@ -192,6 +199,13 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                         break;
                     case 1:
                         deposit_mode = "1";
+                        if(Check.isNull(WeixinList)){
+                            depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,WeixinList);
+                            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);
+                            depositMothedRViewAdapter.setEmptyView(view);
+                            depositMothedRView.setAdapter(depositMothedRViewAdapter);
+                            return;
+                        }
                         for(int k=0;k<WeixinList.size();++k){
                             WeixinList.get(k).setChecked(false);
                         }
@@ -223,6 +237,13 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                         break;
                     case 2:
                         deposit_mode = "1";
+                        if(Check.isNull(bankList)){
+                            depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,bankList);
+                            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);
+                            depositMothedRViewAdapter.setEmptyView(view);
+                            depositMothedRView.setAdapter(depositMothedRViewAdapter);
+                            return;
+                        }
                         for(int k=0;k<bankList.size();++k){
                             bankList.get(k).setChecked(false);
                         }
@@ -256,6 +277,10 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                     case 3:
                         deposit_mode = "2";
                         if(Check.isNull(yunshanfuList)){
+                            depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,yunshanfuList);
+                            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);
+                            depositMothedRViewAdapter.setEmptyView(view);
+                            depositMothedRView.setAdapter(depositMothedRViewAdapter);
                             return;
                         }
                         for(int k=0;k<yunshanfuList.size();++k){

@@ -6,7 +6,14 @@ import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.data.BetDragonResult;
+import com.cfcp.a01.data.BetRecordsResult;
+import com.cfcp.a01.data.CPBetResult;
 import com.cfcp.a01.data.TeamReportResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.cfcp.a01.common.utils.Utils.getContext;
 
@@ -27,19 +34,47 @@ public class DragonPresenter implements DragonContract.Presenter {
     }
 
     @Override
-    public void getChangeFundPwdFirst(String fund_password, String confirm_fund_password) {
-        subscriptionHelper.add(RxHelper.addSugar(api.getChangeFundPwdFirst(CFConstant.PRODUCT_PLATFORM,"User",
-                "SetFundPwd",fund_password,confirm_fund_password,
-                ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN)))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<TeamReportResult>>() {
+    public void postCpBets(String game_code, String round, String totalNums, String totalMoney, String number, Map<String, String> fields, String x_session_token) {
+        GameLog.log("投注的信息是 "+x_session_token);
+        subscriptionHelper.add(RxHelper.addSugar(api.postCpBets("CreditBet","Credit",x_session_token, ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN)))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPBetResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<TeamReportResult> response) {
+                    public void success(AppTextMessageResponse<CPBetResult> response) {
+                        if(response.isSuccess()){
+                            view.postCpBetResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        /*if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }*/
+                    }
+                }));
+    }
+
+
+    @Override
+    public void getDragonBetList(String current_password, String new_password) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "Credit");
+        params.put("action", "LongDragonData");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getDragonBetList(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<BetDragonResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<BetDragonResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
-                            view.getChangeFundPwdResult(response.getData());
+                            view.getDragonBetListResult(response.getData());
                         } else {
                             view.showMessage(response.getDescribe());
                         }
-                        //view.postLoginResult(response.getData());
                     }
 
                     @Override
@@ -52,41 +87,18 @@ public class DragonPresenter implements DragonContract.Presenter {
     }
 
     @Override
-    public void getChangeFundPwd(String current_password, String new_password) {
-        subscriptionHelper.add(RxHelper.addSugar(api.getChangeFundPwd(CFConstant.PRODUCT_PLATFORM,"User",
-                "ChangeFundPwd",current_password,new_password,
-                ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT),
-                ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN)))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<TeamReportResult>>() {
+    public void getDragonBetRecordList(String current_password, String new_password) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "Credit");
+        params.put("action", "ReportSelf");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getDragonBetRecordList(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<BetRecordsResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<TeamReportResult> response) {
+                    public void success(AppTextMessageResponse<BetRecordsResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
-                            view.getChangeFundPwdResult(response.getData());
-                        } else {
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if (null != view) {
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-    }
-
-    @Override
-    public void getChangeLoginPwd(String current_password, String new_password) {
-        subscriptionHelper.add(RxHelper.addSugar(api.getChangeLoginPwd(CFConstant.PRODUCT_PLATFORM,"User",
-                "ChangeLoginPwd",current_password,new_password,
-                ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT),
-                ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN)))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<TeamReportResult>>() {
-                    @Override
-                    public void success(AppTextMessageResponse<TeamReportResult> response) {
-                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
-                            view.getChangeLoginPwdResult(response.getData());
+                            view.getDragonBetRecordListResult(response.getData());
                         } else {
                             view.showMessage(response.getDescribe());
                         }

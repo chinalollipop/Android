@@ -133,7 +133,7 @@ public class RoleActivity extends Activity {
                 break;
             case "2":
                 gameUrl = "role/role_2.html";
-                gameName ="重庆时时彩";
+                gameName ="欢乐生肖";
                 break;
             case "189":
                 gameUrl = "role/role_189.html";

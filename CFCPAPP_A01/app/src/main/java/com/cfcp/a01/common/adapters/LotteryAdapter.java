@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
-public class
-LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHolder> {
+public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHolder> {
 
     private int optionLayoutPosition = -1;
     private int optionSelectPosition = -1;
@@ -34,6 +34,7 @@ LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHolder> {
     private List<Integer> listSec = new ArrayList<>();//有FootView时底部re的选择
     private int mLotteryID = 0;
     private int mSelectMode = 0;
+    private int mSelectHappy8 = 0;
     private int listSecSize = 0;//根据任选模式判断底部选择数量
 
     public LotteryAdapter() {
@@ -97,61 +98,103 @@ LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHolder> {
                 betLayoutPosition = helper.getLayoutPosition();
                 selectList.clear();
                 updateBetList.get(optionLayoutPosition).getSelectList().clear();
-                switch (item.getOption().get(position)) {
-                    case "全":
-                        for (int i = 0; i < item.getData().size(); i++) {
-                            selectList.add(i);
-                        }
-                        break;
-                    case "大":
-                        for (int i = item.getData().size() - 1; i >= item.getData().size() / 2; i--) {
-                            selectList.add(i);
-                        }
-                        break;
-                    case "小":
-                        for (int i = 0; i < item.getData().size() / 2; i++) {
-                            selectList.add(i);
-                        }
-                        break;
-                    case "单":
-                    case "奇":
-                        if (Integer.valueOf(item.getData().get(0)) % 2 == 0) {
-                            for (int i = 0; i < item.getData().size() / 2; i++) {
-                                selectList.add(i * 2 + 1);
+                if (mSelectHappy8 != 0) {//北京快乐8的选择模式
+                    Random rand = new Random();
+                    switch (item.getOption().get(position)) {
+                        case "随机":
+                            for (int i = 0; i < 10; i++) {
+                                selectList.add(rand.nextInt(80));
                             }
-                        } else {
-                            if (item.getData().size() % 2 == 0) {
+                            break;
+                        case "大":
+                            for (int i = 0; i < 10; i++) {
+                                selectList.add(rand.nextInt(40) + 40);
+                            }
+                            break;
+                        case "小":
+                            for (int i = 0; i < 10; i++) {
+                                selectList.add(rand.nextInt(40));
+                            }
+                            break;
+                        case "单":
+                            for (int i = 0; i < 10; i++) {
+                                int j = rand.nextInt(80);
+                                if (j % 2 != 0) {
+                                    j = j - 1;
+                                }
+                                selectList.add(j);
+                            }
+                            break;
+                        case "双":
+                            for (int i = 0; i < 10; i++) {
+                                int j = rand.nextInt(80);
+                                if (j % 2 == 0) {
+                                    j = j + 1;
+                                }
+                                selectList.add(j);
+                            }
+                            break;
+                        case "清":
+                            optionSelectPosition = -1;
+                            break;
+                    }
+                } else {
+                    switch (item.getOption().get(position)) {
+                        case "全":
+                            for (int i = 0; i < item.getData().size(); i++) {
+                                selectList.add(i);
+                            }
+                            break;
+                        case "大":
+                            for (int i = item.getData().size() - 1; i >= item.getData().size() / 2; i--) {
+                                selectList.add(i);
+                            }
+                            break;
+                        case "小":
+                            for (int i = 0; i < item.getData().size() / 2; i++) {
+                                selectList.add(i);
+                            }
+                            break;
+                        case "单":
+                        case "奇":
+                            if (Integer.valueOf(item.getData().get(0)) % 2 == 0) {
                                 for (int i = 0; i < item.getData().size() / 2; i++) {
-                                    selectList.add(i * 2);
+                                    selectList.add(i * 2 + 1);
                                 }
                             } else {
-                                for (int i = 0; i < item.getData().size() / 2 + 1; i++) {
-                                    selectList.add(i * 2);
+                                if (item.getData().size() % 2 == 0) {
+                                    for (int i = 0; i < item.getData().size() / 2; i++) {
+                                        selectList.add(i * 2);
+                                    }
+                                } else {
+                                    for (int i = 0; i < item.getData().size() / 2 + 1; i++) {
+                                        selectList.add(i * 2);
+                                    }
                                 }
                             }
-                        }
-                        break;
-                    case "双":
-                    case "偶":
-                        if (Integer.valueOf(item.getData().get(0)) % 2 != 0) {
-                            for (int i = 0; i < item.getData().size() / 2; i++) {
-                                selectList.add(i * 2 + 1);
-                            }
-                        } else {
-                            if (item.getData().size() % 2 == 0) {
+                            break;
+                        case "双":
+                        case "偶":
+                            if (Integer.valueOf(item.getData().get(0)) % 2 != 0) {
                                 for (int i = 0; i < item.getData().size() / 2; i++) {
-                                    selectList.add(i * 2);
+                                    selectList.add(i * 2 + 1);
                                 }
                             } else {
-                                for (int i = 0; i < item.getData().size() / 2 + 1; i++) {
-                                    selectList.add(i * 2);
+                                if (item.getData().size() % 2 == 0) {
+                                    for (int i = 0; i < item.getData().size() / 2; i++) {
+                                        selectList.add(i * 2);
+                                    }
+                                } else {
+                                    for (int i = 0; i < item.getData().size() / 2 + 1; i++) {
+                                        selectList.add(i * 2);
+                                    }
                                 }
                             }
-                        }
-                        break;
-                    case "清":
-                        optionSelectPosition = -1;
-                        break;
+                            break;
+                        case "清":
+                            optionSelectPosition = -1;
+                            break;
+                    }
                 }
                 for (int i = 0; i < selectList.size(); i++) {
                     updateBetList.get(optionLayoutPosition).getSelectList().add(selectList.get(i));
@@ -384,5 +427,10 @@ LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHolder> {
     //单独设置十一选5的特殊选择模式
     public void setEleven(int selectMode) {
         mSelectMode = selectMode;
+    }
+
+    //单独设置北京快乐8的特殊选择模式
+    public void setHappy8(int selectMode) {
+        mSelectHappy8 = selectMode;
     }
 }

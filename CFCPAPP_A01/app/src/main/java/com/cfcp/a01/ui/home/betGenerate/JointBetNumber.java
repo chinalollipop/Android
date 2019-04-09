@@ -6,8 +6,8 @@ import com.cfcp.a01.data.UpBetData;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.exZ2;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxHz;
+import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxZ2;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxZ3;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxZ6;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.zuDS;
@@ -86,7 +86,7 @@ public class JointBetNumber {
                                 break;
                             case 5:
                             case 12://二星单式组选
-                                balls = exZ2().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                balls = sxZ2().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
                                 break;
                             case 72:
                             case 74://二星直选和值
@@ -360,22 +360,7 @@ public class JointBetNumber {
                 List<Integer> listKS = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 65:
-                        for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
-                            listKS.add(mUpdateBet.get(0).getSelectList().get(i) - 1);
-                        }
-                        for (int j = 0; j < listKS.size(); j++) {
-                            if (listKS.get(j) == 0) {
-                                listKS.set(j, -2);
-                            }
-                            if (listKS.get(j) == 1) {
-                                listKS.set(j, -3);
-                            }
-                            if (listKS.get(j) == 2) {
-                                listKS.set(j, -4);
-                            }
-                        }
-                        balls = listKS.toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "")
-                                .replace("-1", "大").replace("-2", "小").replace("-3", "单").replace("-4", "双");
+                        balls = mUpdateBet.get(0).getSelectList().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
                         break;
                     case 66:
                     case 68:
@@ -452,7 +437,7 @@ public class JointBetNumber {
                                 break;
                             case 127:
                             case 129:
-                                balls = exZ2().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                balls = sxZ2().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
                                 break;
                             case 130:
                                 balls = sxHz().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
@@ -508,7 +493,56 @@ public class JointBetNumber {
                 break;
             //快乐8
             case 37:
-
+                List<Integer> listHappy8 = new ArrayList<>();
+                switch (mBetMethodContentID) {
+                    case 150:
+                        switch (mBetMethodDetailsID) {
+                            case 427:
+                                for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                                    listHappy8.add(mUpdateBet.get(0).getSelectList().get(i) - 1);
+                                }
+                                balls = listHappy8.toString().replace("-", "").replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "");
+                                break;
+                            case 428:
+                                for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                                    listHappy8.add(mUpdateBet.get(0).getSelectList().get(i) - 2);
+                                }
+                                balls = listHappy8.toString().replace("-", "").replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "");
+                                break;
+                            case 431:
+                                balls = mUpdateBet.get(0).getSelectList().toString().replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "");
+                                break;
+                        }
+                        break;
+                    case 152:
+                        for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                            if (mUpdateBet.get(0).getSelectList().get(i) < 2) {
+                                listHappy8.add(mUpdateBet.get(0).getSelectList().get(i) - 1);
+                            } else {
+                                listHappy8.add(mUpdateBet.get(0).getSelectList().get(i));
+                            }
+                        }
+                        balls = listHappy8.toString().replace("-", "").replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "");
+                        break;
+                    case 153:
+                        for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                            listHappy8.add(mUpdateBet.get(0).getSelectList().get(i) - 2);
+                        }
+                        balls = listHappy8.toString().replace("-", "").replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "");
+                        break;
+                    case 120:
+                    case 121:
+                    case 122:
+                    case 123:
+                    case 124:
+                    case 125:
+                    case 126:
+                        for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                            listHappy8.add(mUpdateBet.get(0).getSelectList().get(i) + 1);
+                        }
+                        balls = listHappy8.toString().replaceAll(",", "").replace("[", "").replace("]", "");
+                        break;
+                }
                 break;
         }
         return balls;

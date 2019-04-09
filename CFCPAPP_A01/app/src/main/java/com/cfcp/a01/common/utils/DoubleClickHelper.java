@@ -16,6 +16,7 @@ public class DoubleClickHelper {
     //进入大厅游戏的事件范围15S内有效
     private static final int MIN_ENTER_HOME_GAME_TIME = 0;
     private static long lastClickTime ;
+    private static long lastClickTime2 ;
     private static long lastClickElecTime ;
     private static long lastClickHomeTime ;
     private static Handler mHandler = new Handler();
@@ -88,6 +89,19 @@ public class DoubleClickHelper {
             isFastClick =false;
             //Timber.d("非快速点击:%d-%d=%d",currClickTime,lastClickTime,currClickTime-lastClickTime);
             lastClickTime = currClickTime;
+        }
+
+        return isFastClick;
+    }
+    public  boolean isFastClick2(){
+        boolean isFastClick = true;
+        long currClickTime = System.currentTimeMillis();
+        Timber.d("点击:%d-%d=%d",currClickTime,lastClickTime2,currClickTime-lastClickTime2);
+        final int interval = 1000;
+        if(currClickTime - lastClickTime2 >= interval){
+            isFastClick =false;
+            //Timber.d("非快速点击:%d-%d=%d",currClickTime,lastClickTime,currClickTime-lastClickTime);
+            lastClickTime2 = currClickTime;
         }
 
         return isFastClick;

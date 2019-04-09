@@ -56,7 +56,7 @@ public class GenerateNum {
                 break;
             //快乐8
             case 37:
-
+                lotteryAdapter.setNewData(Happy8GenerateNum.ds());
                 break;
         }
     }
@@ -72,6 +72,7 @@ public class GenerateNum {
         lotteryAdapter.removeAllFooterView();
         lotteryAdapter.setLotteryID(0);
         lotteryAdapter.setEleven(0);
+        lotteryAdapter.setHappy8(0);
         switch (lottery_id) {
             case 1://时时彩
             case 13:
@@ -515,6 +516,8 @@ public class GenerateNum {
                 break;
             case 15://快三类
             case 17:
+            case 50:
+            case 51:
                 lotteryAdapter.setLotteryID(lottery_id);
                 switch (mBetMethodContentID) {
                     case 65:
@@ -729,6 +732,41 @@ public class GenerateNum {
                                 lotteryAdapter.setNewData(ThreeDGenerateNum.sg());
                                 break;
                         }
+                        break;
+                }
+                break;
+            case 37://北京快乐8类
+                lotteryAdapter.setPlacesShow(false);
+                switch (mBetMethodContentID) {
+                    case 150:
+                        switch (mBetMethodDetailsID) {
+                            case 427:
+                                lotteryAdapter.setNewData(Happy8GenerateNum.ds());
+                                break;
+                            case 428:
+                                lotteryAdapter.setNewData(Happy8GenerateNum.dx810());
+                                break;
+                            case 431:
+                                lotteryAdapter.setNewData(Happy8GenerateNum.wx());
+                                break;
+                        }
+                        break;
+                    case 152:
+                        lotteryAdapter.setNewData(Happy8GenerateNum.joh());
+                        break;
+                    case 153:
+                        lotteryAdapter.setNewData(Happy8GenerateNum.szx());
+                        break;
+                    case 120:
+                    case 121:
+                    case 122:
+                    case 123:
+                    case 124:
+                    case 125:
+                    case 126:
+                        lotteryAdapter.setNewData(Happy8GenerateNum.common());
+                        lotteryAdapter.setPlacesShow(true);
+                        lotteryAdapter.setHappy8(lottery_id);
                         break;
                 }
                 break;

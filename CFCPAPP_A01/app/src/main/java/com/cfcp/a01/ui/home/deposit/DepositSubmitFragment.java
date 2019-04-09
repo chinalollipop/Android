@@ -14,6 +14,7 @@ import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.utils.CLipHelper;
 import com.cfcp.a01.common.utils.Check;
+import com.cfcp.a01.common.utils.DoubleClickHelper;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.DepositTypeResult;
@@ -163,6 +164,7 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
 
 
     private void onSubmit() {
+        DoubleClickHelper.getNewInstance().disabledView(depositNextSubmit);
         String money = depositNextInputMoney.getText().toString().trim();
         if(Check.isEmpty(money)){
             showMessage("请输入金额");
@@ -184,7 +186,9 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
     @Override
     public void getDepositSubmitResult(LoginResult loginResult) {
         //转账前渠道确认
-        GameLog.log("转账前渠道确认 成功");
+        GameLog.log("充值成功 渠道确认 成功");
+        showMessage("充值成功！");
+        finish();
     }
 
     @Override

@@ -91,7 +91,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     String moneyStr="0.00";
     static {
         cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
-        cpGameList.add(new CPHallIcon("重庆时时彩", R.mipmap.cp_cqssc, 0,2));
+        cpGameList.add(new CPHallIcon("欢乐生肖", R.mipmap.cp_cqssc, 0,2));
         cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsft, 0,189));
         cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsfc, 0,222));
         cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 0,207));

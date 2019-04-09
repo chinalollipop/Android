@@ -258,7 +258,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                     helper.setText(R.id.itemBetRecordStatus,"已撤销");
                     break;
                 case 2:
-                    helper.setTextColor(R.id.itemBetRecordStatus,Color.parseColor("#c52133"));
+                    helper.setTextColor(R.id.itemBetRecordStatus,Color.parseColor("#908e8e"));
                     helper.setText(R.id.itemBetRecordStatus,"未中奖");
                     break;
                 case 3:

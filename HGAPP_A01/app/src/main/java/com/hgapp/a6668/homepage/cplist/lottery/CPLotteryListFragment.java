@@ -95,7 +95,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
          *  极速快三    game_code 384
          */
         lotteryList.add("北京赛车");
-        lotteryList.add("重庆时时彩");
+        lotteryList.add("欢乐生肖");
         lotteryList.add("极速赛车");
         lotteryList.add("极速飞艇");
         lotteryList.add("分分彩");
@@ -180,7 +180,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                     case "北京赛车":
                         gameId ="51";
                         break;
-                    case "重庆时时彩":
+                    case "欢乐生肖":
                         gameId ="2";
                         break;
                     case "极速赛车":

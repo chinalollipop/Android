@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.home.betGenerate;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.cfcp.a01.common.widget.DeleteTipsPop;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
@@ -23,7 +24,7 @@ import java.util.regex.Pattern;
  */
 public class GenerateMoney {
     private int M = 0;
-    private Integer lotteryId;
+    private int lotteryId;
     private List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> mWayGroups;
     private String[] mPosition;
     private List<UpBetData> mUpdateBet;
@@ -32,7 +33,7 @@ public class GenerateMoney {
     private List<String> result = new ArrayList<>();
 
     //列表选择时生成投注金额
-    public GenerateMoney(Integer lottery_id, List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> wayGroups, String[] position, List<UpBetData> updateBet) {
+    public GenerateMoney(int lottery_id, List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> wayGroups, String[] position, List<UpBetData> updateBet) {
         lotteryId = lottery_id;
         mWayGroups = wayGroups;
         mPosition = position;
@@ -40,7 +41,7 @@ public class GenerateMoney {
     }
 
     //输入框输入时生成投注金额
-    public GenerateMoney(Integer lottery_id, List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> wayGroups, String[] position, String input, int size) {
+    public GenerateMoney(int lottery_id, List<BetGameSettingsForRefreshResult.DataBean.WayGroupsBean> wayGroups, String[] position, String input, int size) {
         lotteryId = lottery_id;
         mWayGroups = wayGroups;
         mPosition = position;
@@ -104,8 +105,8 @@ public class GenerateMoney {
                                 break;
                             case 5:
                             case 12:
-                                new DeleteTipsPop(context, getDifferent(zuD(2), exZ2()), interception(2)).showPopupWindow();
-                                result = exZ2();
+                                new DeleteTipsPop(context, getDifferent(zuD(2), sxZ2()), interception(2)).showPopupWindow();
+                                result = sxZ2();//--------------
                                 break;
                         }
                         break;
@@ -124,8 +125,8 @@ public class GenerateMoney {
                                 result = zuDS(4);
                                 break;
                             case 201:
-                                new DeleteTipsPop(context, getDifferent(zuD(2), exZ2()), interception(2)).showPopupWindow();
-                                result = exZ2();
+                                new DeleteTipsPop(context, getDifferent(zuD(2), sxZ2()), interception(2)).showPopupWindow();
+                                result = sxZ2();
                                 break;
                             case 188:
                                 new DeleteTipsPop(context, getDifferent(zuD(3), sxZ3()), interception(3)).showPopupWindow();
@@ -174,8 +175,8 @@ public class GenerateMoney {
                                 break;
                             case 129:
                             case 127:
-                                new DeleteTipsPop(context, getDifferent(zuD(2), exZ2()), interception(2)).showPopupWindow();
-                                result = exZ2();
+                                new DeleteTipsPop(context, getDifferent(zuD(2), sxZ2()), interception(2)).showPopupWindow();
+                                result = sxZ2();
                                 break;
                         }
                         break;
@@ -206,7 +207,7 @@ public class GenerateMoney {
                                 M = zuDS(5).size();
                                 break;
                             case 32:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 5);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 5);
                                 break;
                             case 31:
                                 if (mUpdateBet.get(1).getSelectList().size() > 2) {
@@ -255,7 +256,7 @@ public class GenerateMoney {
                                 break;
                             case 242:
                             case 26:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 4);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 4);
                                 break;
                             case 329:
                             case 25:
@@ -263,7 +264,7 @@ public class GenerateMoney {
                                 break;
                             case 243:
                             case 24:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                             case 330:
                             case 23:
@@ -305,12 +306,12 @@ public class GenerateMoney {
                             case 16:
                             case 49:
                             case 145:
-                                M = arrangement(mUpdateBet.get(0).getSelectList().size());
+                                M = (int)arrangement(mUpdateBet.get(0).getSelectList().size());
                                 break;
                             case 17:
                             case 50:
                             case 146:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
                                 break;
                             case 13:
                             case 81:
@@ -369,7 +370,7 @@ public class GenerateMoney {
                                 break;
                             case 59:
                             case 20:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                             case 4:
                             case 11:
@@ -377,7 +378,7 @@ public class GenerateMoney {
                                 break;
                             case 5:
                             case 12:
-                                M = exZ2().size();
+                                M = sxZ2().size();
                                 break;
                             case 74:
                             case 72:
@@ -419,10 +420,10 @@ public class GenerateMoney {
                             case 21:
                             case 35:
                             case 36:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M =(int) combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                             case 37:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
                                 break;
                         }
                         break;
@@ -485,13 +486,13 @@ public class GenerateMoney {
                                         mUpdateBet.get(1).getSelectList().size() * mUpdateBet.get(2).getSelectList().size() * mUpdateBet.get(3).getSelectList().size() * mUpdateBet.get(4).getSelectList().size();
                                 break;
                             case 200:
-                                M = zuDS(2).size() * combination(mListSecSize, 2);
+                                M = zuDS(2).size() * (int)combination(mListSecSize, 2);
                                 break;
                             case 186:
-                                M = zuDS(3).size() * combination(mListSecSize, 3);
+                                M = zuDS(3).size() * (int)combination(mListSecSize, 3);
                                 break;
                             case 187:
-                                M = zuDS(4).size() * combination(mListSecSize, 4);
+                                M = zuDS(4).size() * (int)combination(mListSecSize, 4);
                                 break;
                             case 196:
                                 for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
@@ -519,7 +520,7 @@ public class GenerateMoney {
                                 }
                                 break;
                             case 201:
-                                M = exZ2().size() * combination(mListSecSize, 2);
+                                M = sxZ2().size() *(int) combination(mListSecSize, 2);
                                 break;
                             case 197:
                                 for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
@@ -532,19 +533,19 @@ public class GenerateMoney {
                                 }
                                 break;
                             case 181:
-                                M = arrangement(mUpdateBet.get(0).getSelectList().size()) * combination(mUpdateBet.get(0).getListSec().size(), 3);
+                                M = (int)arrangement(mUpdateBet.get(0).getSelectList().size()) * (int)combination(mUpdateBet.get(0).getListSec().size(), 3);
                                 break;
                             case 188:
-                                M = sxZ3().size() * combination(mListSecSize, 3);
+                                M = sxZ3().size() * (int)combination(mListSecSize, 3);
                                 break;
                             case 182:
                                 M += combination(mUpdateBet.get(0).getSelectList().size(), 3) * combination(mUpdateBet.get(0).getListSec().size(), 3);
                                 break;
                             case 189:
-                                M = sxZ6().size() * combination(mListSecSize, 3);
+                                M = sxZ6().size() * (int)combination(mListSecSize, 3);
                                 break;
                             case 190:
-                                M = sxHz().size() * combination(mListSecSize, 3);
+                                M = sxHz().size() * (int)combination(mListSecSize, 3);
                                 break;
                             case 194:
                                 M += combination(mUpdateBet.get(0).getSelectList().size(), 4) * combination(mUpdateBet.get(0).getListSec().size(), 4);
@@ -588,6 +589,8 @@ public class GenerateMoney {
                 break;
             case 15://快三类
             case 17:
+            case 50:
+            case 51:
                 switch (mWayGroups.get(Integer.valueOf(mPosition[0])).getId()) {
                     case 65:
                     case 66:
@@ -610,15 +613,16 @@ public class GenerateMoney {
                         break;
                     case 70:
                         if (mUpdateBet.get(0).getSelectList().size() > 2) {
-                            M = combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                            M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
                         }
                         break;
                     case 71:
                         if (mUpdateBet.get(0).getSelectList().size() > 1) {
-                            M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                            M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
                         }
                         break;
                 }
+                break;
             case 9://11选5类
             case 14:
             case 44:
@@ -629,13 +633,13 @@ public class GenerateMoney {
                                 M = pk10sx();
                                 break;
                             case 108:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
                                 break;
                             case 121:
                                 if (mUpdateBet.get(0).getSelectList().size() > 1) {
                                     M = mUpdateBet.get(1).getSelectList().size();
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 2) * mUpdateBet.get(0).getSelectList().size();
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 2) * mUpdateBet.get(0).getSelectList().size();
                                 }
                                 break;
                         }
@@ -646,7 +650,7 @@ public class GenerateMoney {
                                 M = z4();
                                 break;
                             case 107:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                             case 120:
                                 M = mUpdateBet.get(1).getSelectList().size() * mUpdateBet.get(0).getSelectList().size();
@@ -668,25 +672,25 @@ public class GenerateMoney {
                                 M = mUpdateBet.get(0).getSelectList().size();
                                 break;
                             case 99:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                             case 100:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
                                 break;
                             case 101:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 4);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 4);
                                 break;
                             case 102:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 5);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 5);
                                 break;
                             case 103:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 6);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 6);
                                 break;
                             case 104:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 7);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 7);
                                 break;
                             case 105:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 8);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 8);
                                 break;
                         }
                         break;
@@ -699,47 +703,48 @@ public class GenerateMoney {
                                 if (mUpdateBet.get(0).getSelectList().size() == 0 || mUpdateBet.get(0).getSelectList().size() > 3) {
                                     M = 0;
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 3 - mUpdateBet.get(0).getSelectList().size());
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 3 - mUpdateBet.get(0).getSelectList().size());
                                 }
                                 break;
                             case 115:
                                 if (mUpdateBet.get(0).getSelectList().size() == 0 || mUpdateBet.get(0).getSelectList().size() > 4) {
                                     M = 0;
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 4 - mUpdateBet.get(0).getSelectList().size());
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 4 - mUpdateBet.get(0).getSelectList().size());
                                 }
                                 break;
                             case 116:
                                 if (mUpdateBet.get(0).getSelectList().size() == 0 || mUpdateBet.get(0).getSelectList().size() > 5) {
                                     M = 0;
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 5 - mUpdateBet.get(0).getSelectList().size());
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 5 - mUpdateBet.get(0).getSelectList().size());
                                 }
                                 break;
                             case 117:
                                 if (mUpdateBet.get(0).getSelectList().size() == 0 || mUpdateBet.get(0).getSelectList().size() > 6) {
                                     M = 0;
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 6 - mUpdateBet.get(0).getSelectList().size());
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 6 - mUpdateBet.get(0).getSelectList().size());
                                 }
                                 break;
                             case 118:
                                 if (mUpdateBet.get(0).getSelectList().size() == 0 || mUpdateBet.get(0).getSelectList().size() > 7) {
                                     M = 0;
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 7 - mUpdateBet.get(0).getSelectList().size());
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 7 - mUpdateBet.get(0).getSelectList().size());
                                 }
                                 break;
                             case 119:
                                 if (mUpdateBet.get(0).getSelectList().size() == 0 || mUpdateBet.get(0).getSelectList().size() > 8) {
                                     M = 0;
                                 } else {
-                                    M = combination(mUpdateBet.get(1).getSelectList().size(), 8 - mUpdateBet.get(0).getSelectList().size());
+                                    M = (int)combination(mUpdateBet.get(1).getSelectList().size(), 8 - mUpdateBet.get(0).getSelectList().size());
                                 }
                                 break;
                         }
                         break;
                 }
+                break;
             case 20://3D类
                 switch (mWayGroups.get(Integer.valueOf(mPosition[0])).getId()) {
                     case 48:
@@ -768,10 +773,10 @@ public class GenerateMoney {
                                 }
                                 break;
                             case 131:
-                                M = arrangement(mUpdateBet.get(0).getSelectList().size());
+                                M = (int)arrangement(mUpdateBet.get(0).getSelectList().size());
                                 break;
                             case 132:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
                                 break;
                             case 140:
                                 for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
@@ -788,7 +793,7 @@ public class GenerateMoney {
                                 break;
                             case 127:
                             case 129:
-                                M = exZ2().size();
+                                M = sxZ2().size();
                                 break;
                             case 138:
                             case 137:
@@ -799,7 +804,7 @@ public class GenerateMoney {
                                 break;
                             case 134:
                             case 135:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M =(int) combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                         }
                         break;
@@ -814,12 +819,40 @@ public class GenerateMoney {
                                 M = mUpdateBet.get(0).getSelectList().size();
                                 break;
                             case 485:
-                                M = combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                                M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
                                 break;
                         }
                         break;
                     case 104:
                         M = mUpdateBet.get(0).getSelectList().size();
+                        break;
+                }
+                break;
+            case 37://北京快乐8类
+                switch (mWayGroups.get(Integer.valueOf(mPosition[0])).getId()) {
+                    case 150:
+                    case 152:
+                    case 153:
+                    case 120:
+                        M = mUpdateBet.get(0).getSelectList().size();
+                        break;
+                    case 121:
+                        M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 2);
+                        break;
+                    case 122:
+                        M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 3);
+                        break;
+                    case 123:
+                        M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 4);
+                        break;
+                    case 124:
+                        M = (int)combination(mUpdateBet.get(0).getSelectList().size(), 5);
+                        break;
+                    case 125:
+                        M = (int) combination(mUpdateBet.get(0).getSelectList().size(), 6);
+                        break;
+                    case 126:
+                        M = (int) combination(mUpdateBet.get(0).getSelectList().size(), 7);
                         break;
                 }
                 break;
@@ -947,14 +980,21 @@ public class GenerateMoney {
     }
 
     //二星组选单式的注数
-    static List<String> exZ2() {
+    static List<String> sxZ2() {
         List<String> list = zuDS(2);
-        // 去掉相同数字元素的数据
-        String[] same2 = {"00", "11", "22", "33", "44", "55", "66", "77", "88", "99"};
-        for (int j = 0; j < 10; j++) {
-            list.remove(same2[j]);
+        List<List<Integer>> dataArray = charList(list);
+        // 去掉三个元素不相同的数据
+        List<List<Integer>> dataRepeat = new ArrayList<>();
+        for (int idx = 0; idx < dataArray.size(); idx++) {
+            List<Integer> dataElem = dataArray.get(idx);
+            int elem1 = dataElem.get(0);
+            int elem2 = dataElem.get(1);
+            if (elem1 == elem2) {
+                continue;
+            }
+            dataRepeat.add(dataElem);
         }
-        return list;
+        return removeRepeat(dataRepeat);
     }
 
     /**
@@ -1131,21 +1171,21 @@ public class GenerateMoney {
     /**
      * 计算阶乘数，即n! = n * (n-1) * ... * 2 * 1
      */
-    private int factorial(int n) {
+    private double factorial(int n) {
         return (n > 1) ? n * factorial(n - 1) : 1;
     }
 
     /**
      * 计算排列数，即A(n, m) = n!/(n-m)!
      */
-    private int arrangement(int n) {
+    private double arrangement(int n) {
         return (n >= 2) ? factorial(n) / factorial(n - 2) : 0;
     }
 
     /**
      * 计算组合数，即C(n, m) = n!/((n-m)! * m!)
      */
-    private int combination(int n, int m) {
+    private double combination(int n, int m) {
         return (n >= m) ? factorial(n) / factorial(n - m) / factorial(m) : 0;
     }
 }

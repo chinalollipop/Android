@@ -41,6 +41,7 @@ import com.cfcp.a01.data.NoticeResult;
 import com.cfcp.a01.ui.home.bet.BetFragment;
 import com.cfcp.a01.ui.home.cplist.CPOrderFragment;
 import com.cfcp.a01.ui.home.deposit.DepositFragment;
+import com.cfcp.a01.ui.home.dragon.DragonFragment;
 import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
 import com.cfcp.a01.ui.home.playgame.XPlayGameActivity;
 import com.cfcp.a01.ui.home.playgame.XPlayGameFragment;
@@ -608,7 +609,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         if(!Check.isEmpty(loginResult.getNoticeList())){
             noticeListBeanList = (ArrayList<LoginResult.NoticeListBean>) loginResult.getNoticeList();
             ACache.get(getContext()).put(CFConstant.USERNAME_HOME_EVENTLIST, JSON.toJSONString(noticeListBeanList));
-            EventShowDialog.newInstance((ArrayList<LoginResult.NoticeListBean>) loginResult.getNoticeList(),"").show(getFragmentManager());
+            homeNotice.performClick();
+            //EventShowDialog.newInstance((ArrayList<LoginResult.NoticeListBean>) loginResult.getNoticeList(),"").show(getFragmentManager());
         }
 
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, loginResult.getToken());
@@ -694,6 +696,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 }
                 break;
             case R.id.homeDown:
+                EventBus.getDefault().post(new StartBrotherEvent(DragonFragment.newInstance("","")));
                 break;
             case R.id.homeService:
                 EventBus.getDefault().post(new MainEvent(1));

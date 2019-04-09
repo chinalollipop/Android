@@ -98,7 +98,7 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="北京赛车";
                     break;
                 case "2":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "189":
                     name ="极速赛车";
@@ -220,7 +220,7 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="北京赛车";
                     break;
                 case "2":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "189":
                     name ="极速赛车";

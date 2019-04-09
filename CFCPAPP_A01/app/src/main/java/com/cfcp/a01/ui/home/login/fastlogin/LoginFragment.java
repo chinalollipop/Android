@@ -128,7 +128,9 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BALANCE,loginResult.getAbalance());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT_ID,loginResult.getId()+"");
         EventBus.getDefault().post(loginResult);
-        popTo(LoginFragment.class,true);
+//        popTo(LoginFragment.class,true);
+        finish();
+//        popToChild(LoginFragment.class,true);
     }
 
     @Override

@@ -34,6 +34,7 @@ import com.cfcp.a01.common.adapters.LotteryAdapter;
 import com.cfcp.a01.common.adapters.LotteryBottomAdapter;
 import com.cfcp.a01.common.adapters.LotteryNumDetailsAdapter;
 import com.cfcp.a01.common.base.BaseFragment;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.TimeTools;
 import com.cfcp.a01.common.utils.ToastUtils;
@@ -54,6 +55,7 @@ import com.cfcp.a01.ui.home.betGenerate.JointBetNumber;
 import com.cfcp.a01.ui.home.sidebar.BackHomeEvent;
 import com.cfcp.a01.ui.home.sidebar.LotteryResultEvent;
 import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
+import com.cfcp.a01.ui.me.report.PersonFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.kongzue.dialog.v2.CustomDialog;
 import com.kongzue.dialog.v2.WaitDialog;
@@ -73,6 +75,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 import razerdp.basepopup.BasePopupWindow;
 import razerdp.basepopup.QuickPopupBuilder;
 import razerdp.basepopup.QuickPopupConfig;
@@ -219,7 +222,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     public void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
         betTitleName.setText(lotteriesBean.getName());
-        lottery_id = lotteriesBean.getId();
+        lottery_id = lotteriesBean.getLottery_id();
         //弹窗的动画效果
         buildShowArrowAnim();
         buildDismissArrowAnim();
@@ -320,7 +323,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             String title = lotteriesBeanList.get(mLotteryTypePop.getPosition()).getName();
             if (mLotteryTypePop.getPosition() != -1 && !betTitleName.getText().toString().equals(title)) {
                 betTitleName.setText(title);
-                lottery_id = lotteriesBeanList.get(mLotteryTypePop.getPosition()).getId();
+                lottery_id = lotteriesBeanList.get(mLotteryTypePop.getPosition()).getLottery_id();
                 refresh(true);
             }
         }
@@ -524,7 +527,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     }
 
     @SuppressLint("SetTextI18n")
-    @OnClick({R.id.betTitleBack, R.id.betTitleLay, R.id.betTitleSet, R.id.betTitleMenu, R.id.betArea, R.id.betChat, R.id.betMethodNameLay, R.id.betModel, R.id.betMinus, R.id.betPlus, R.id.betClear, R.id.betSubmit, R.id.betSure, R.id.tv_delete, R.id.tv_clear})
+    @OnClick({R.id.betTitleBack, R.id.betTitleLay, R.id.betTitleSet, R.id.betDaysProfit, R.id.betTitleMenu, R.id.betArea, R.id.betChat, R.id.betMethodNameLay, R.id.betModel, R.id.betMinus, R.id.betPlus, R.id.betClear, R.id.betSubmit, R.id.betSure, R.id.tv_delete, R.id.tv_clear})
     public void onViewClicked(View view) {
         //赔率的进度条  减法不能小于最小值
         switch (view.getId()) {
@@ -545,13 +548,23 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                                 .clipChildren(true)
                                 .withShowAnimation(enterAnimation)
                                 .withDismissAnimation(dismissAnimation)
-                                .gravity(gravity))
+                                .gravity(gravity)
+                                .withClick(R.id.tv_explain, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        EventBus.getDefault().post(new StartBrotherEvent(ExplainWebFragment.newInstance(lottery_id), SupportFragment.SINGLETASK));
+                                    }
+                                }, true))
                         .show(betTitleSet);
                 break;
             case R.id.betTitleMenu:
                 SideBarFragment.newInstance().show(getFragmentManager());
                 break;
+            case R.id.betDaysProfit:
+                EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("", "")));
+                break;
             case R.id.betArea:
+
                 break;
             case R.id.betChat:
                 break;
@@ -638,7 +651,6 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 betData.setAmount(onePrice);
                 betData.setTraceWinStop(1);
                 String betJson = JSON.toJSONString(betData);
-                Log.e("colin---betJson", betJson);
                 presenter.getBet(lottery_id, betJson);
                 break;
             case R.id.betSure:
@@ -652,12 +664,15 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             case R.id.tv_clear:
                 etLottery.getText().clear();
                 break;
+            default:
+                break;
         }
     }
 
+    //设置重庆时时彩任选模式下的请求参数
     private void setExtraParameter() {
         int detailId = wayGroups.get(Integer.valueOf(position[0])).getChildren().get(Integer.valueOf(position[1])).getChildren().get(Integer.valueOf(position[2])).getId();
-        if (lottery_id == 1 || lottery_id == 13 || lottery_id == 16) {//重庆时时彩任选模式下的投注参数
+        if (lottery_id == 1 || lottery_id == 13 || lottery_id == 16) {
             if (wayGroups.get(Integer.valueOf(position[0])).getId() == 93) {
                 //任选直选模式
                 if (detailId == 199 || detailId == 179 || detailId == 180) {

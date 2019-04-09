@@ -62,7 +62,7 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
          */
         cpGameList.add(new CPIcon("返回大厅", R.mipmap.home_hgty,0));
         cpGameList.add(new CPIcon("北京赛车", R.mipmap.home_hgty,51));
-        cpGameList.add(new CPIcon("重庆时时彩", R.mipmap.home_vrcp,2));
+        cpGameList.add(new CPIcon("欢乐生肖", R.mipmap.home_vrcp,2));
         cpGameList.add(new CPIcon("极速赛车", R.mipmap.home_qipai,189));
         cpGameList.add(new CPIcon("极速飞艇", R.mipmap.home_hgty,222));
         cpGameList.add(new CPIcon("分分彩", R.mipmap.home_lhj,207));

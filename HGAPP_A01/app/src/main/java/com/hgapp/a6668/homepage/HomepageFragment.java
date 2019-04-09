@@ -116,10 +116,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0));
         homeGameList.add(new HomePageIcon("真人视讯",R.mipmap.home_ag,1));
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai,3));
         homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
+        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai,3));
+        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
@@ -355,6 +355,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 presenter.postNoticeList("");
                 break;
             case 13:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;

@@ -279,7 +279,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             case R.id.cpTv3:
                 Intent intent3  = new Intent(getContext(),CPOrderFragment.class);
                 intent3.putExtra("gameId","2");
-                intent3.putExtra("gameName","重庆时时彩");
+                intent3.putExtra("gameName","欢乐生肖");
                 startActivity(intent3);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("2", "重庆时时彩", "333"))));
                 break;

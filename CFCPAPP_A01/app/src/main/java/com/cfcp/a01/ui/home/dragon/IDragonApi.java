@@ -2,11 +2,17 @@ package com.cfcp.a01.ui.home.dragon;
 
 
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
-import com.cfcp.a01.data.TeamReportResult;
+import com.cfcp.a01.data.BetDragonResult;
+import com.cfcp.a01.data.BetRecordsResult;
+import com.cfcp.a01.data.CPBetResult;
+
+import java.util.Map;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
@@ -15,41 +21,20 @@ import rx.Observable;
 
 public interface IDragonApi {
 
-    //修改资金密码首次(encoded = true)
     @POST("service")
     @FormUrlEncoded
-    Observable<AppTextMessageResponse<TeamReportResult>> getChangeFundPwdFirst(
-            @Field("terminal_id") String terminal_id,
-            @Field("packet") String packet,
-            @Field("action") String action,
-            @Field("fund_password") String fund_password,
-            @Field("confirm_fund_password") String confirm_fund_password,
-            @Field("token") String token
-    );
+    public Observable<AppTextMessageResponse<CPBetResult>> postCpBets(@Field("action") String action, @Field("packet") String packet,
+                                                                      @Field("betdata") String betdata, @Field("token") String token);
+
     //修改资金密码(encoded = true)
-    @POST("service")
-    @FormUrlEncoded
-    Observable<AppTextMessageResponse<TeamReportResult>> getChangeFundPwd(
-            @Field("terminal_id") String terminal_id,
-            @Field("packet") String packet,
-            @Field("action") String action,
-            @Field("current_password") String current_password,
-            @Field("new_password") String new_password,
-            @Field("username") String username,
-            @Field("token") String token
-    );
+    @GET("service")
+    Observable<AppTextMessageResponse<BetDragonResult>> getDragonBetList(
+            @QueryMap Map<String, String> params);
 
     //修改密码(encoded = true)
-    @POST("service")
-    @FormUrlEncoded
-    Observable<AppTextMessageResponse<TeamReportResult>> getChangeLoginPwd(
-            @Field("terminal_id") String terminal_id,
-            @Field("packet") String packet,
-            @Field("action") String action,
-            @Field("current_password") String current_password,
-            @Field("new_password") String new_password,
-            @Field("username") String username,
-            @Field("token") String token
+    @GET("service")
+    Observable<AppTextMessageResponse<BetRecordsResult>> getDragonBetRecordList(
+            @QueryMap Map<String, String> params
     );
 
 }

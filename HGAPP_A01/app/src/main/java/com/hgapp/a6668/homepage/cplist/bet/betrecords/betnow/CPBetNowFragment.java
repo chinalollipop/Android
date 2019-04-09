@@ -142,7 +142,7 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                     name ="北京赛车";
                     break;
                 case "2":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "189":
                     name ="极速赛车";
