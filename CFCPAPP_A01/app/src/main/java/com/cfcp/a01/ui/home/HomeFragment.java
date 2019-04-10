@@ -696,7 +696,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 }
                 break;
             case R.id.homeDown:
-                EventBus.getDefault().post(new StartBrotherEvent(DragonFragment.newInstance("","")));
+                String token2 = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+                if(Check.isEmpty(token2)){
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(DragonFragment.newInstance("","")));
+                }
                 break;
             case R.id.homeService:
                 EventBus.getDefault().post(new MainEvent(1));
