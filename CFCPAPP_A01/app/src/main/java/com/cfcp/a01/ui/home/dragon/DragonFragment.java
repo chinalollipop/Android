@@ -143,6 +143,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                         dragonMyBetRecordList.setVisibility(View.GONE);
                         break;
                     case 1:
+                        number = "";
+                        payId  ="99";
+                        betGold = dragonBetGold.getText().toString().trim();
+                        dragonBetNumberAndMoney.setText("共0注,"+betGold+"元");
                         presenter.getDragonBetRecordList("", "");
                         /*String  data = getFromAssets("DragonRecord.json");
                         BetRecordsResult betDragonResult = JSON.parseObject(data, BetRecordsResult.class);

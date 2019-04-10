@@ -1719,7 +1719,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
 
                     cpOrderLotteryOpen2.setVisibility(View.VISIBLE);
                     cpOrderLotteryOpen1.setAdapter(new OpenPKGameAdapter(R.layout.item_lottery_result_open_1,cpLeftEventList1));
-                    cpOrderLotteryOpen2.setAdapter(new OpenRectangleGameAdapter(R.layout.item_lottery_result_open_1,cpLeftEventList2));
+                    cpOrderLotteryOpen2.setAdapter(new OpenRectangleGameAdapter(R.layout.item_cp_order_open_2,cpLeftEventList2));
                     holder.setGone(R.id.itemLotteryResultText,false);
                     break;
                 case "16"://Gw3fc
