@@ -30,6 +30,7 @@ import com.cfcp.a01.data.DepositTypeResult;
 import com.cfcp.a01.data.LoginResult;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.kongzue.dialog.v2.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -471,6 +472,12 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     }
 
     @Override
+    public void showMessage(String message) {
+        super.showMessage(message);
+        WaitDialog.dismiss();
+    }
+
+    @Override
     public void getDepositMethodResult(DepositMethodResult depositMethodResult) {
         //保存用户登录成功之后的消息
         GameLog.log("支付宝的方式有几种"+depositMethodResult.getAlipay().size());
@@ -493,6 +500,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                         AlipayList.get(k).setChecked(false);
                     }
                     payment_platform_id = AlipayList.get(position).getId();
+                    deposit_mode = AlipayList.get(position).getType()+"";
                     AlipayList.get(position).setChecked(true);
                 }
 
@@ -510,6 +518,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
 
     @Override
     public void getDepositVerifyResult(DepositTypeResult depositTypeResult) {
+        WaitDialog.dismiss();
         //转账前渠道确认
         GameLog.log("获取转账前渠道确认接口 成功  "+isBankAccount);
         EventBus.getDefault().post(new StartBrotherEvent(DepositSubmitFragment.newInstance(depositTypeResult.getaPlatform(),depositTypeResult.getAPaymentPlatformBankCard(),
@@ -538,6 +547,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                 EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(linkUrl,"","","",""), SupportFragment.SINGLETASK));
                 return;
             }
+            WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
             presenter.getDepositVerify(deposit_mode,payment_platform_id);
         }
     }

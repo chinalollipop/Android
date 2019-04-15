@@ -3,6 +3,7 @@ package com.cfcp.a01.ui.home.deposit;
 import com.cfcp.a01.common.base.IMessageView;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.IView;
+import com.cfcp.a01.data.DepositH5Result;
 import com.cfcp.a01.data.DepositMethodResult;
 import com.cfcp.a01.data.LoginResult;
 
@@ -19,6 +20,6 @@ public interface DepositSubmitContract {
 
     interface View extends IView<Presenter>, IMessageView {
 
-        void getDepositSubmitResult(LoginResult loginResult);
+        void getDepositSubmitResult(DepositH5Result depositH5Result);
     }
 }

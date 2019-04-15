@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.home.deposit;
 
 
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
+import com.cfcp.a01.data.DepositH5Result;
 import com.cfcp.a01.data.DepositMethodResult;
 import com.cfcp.a01.data.LoginResult;
 
@@ -20,7 +21,7 @@ public interface IDepositSubmitApi {
 
     //存款方式提交 (encoded = true)
     @GET("service")
-    Observable<AppTextMessageResponse<LoginResult>> getDepositSubmit(
+    Observable<AppTextMessageResponse<DepositH5Result>> getDepositSubmit(
             @QueryMap Map<String, String> params
     );
 }

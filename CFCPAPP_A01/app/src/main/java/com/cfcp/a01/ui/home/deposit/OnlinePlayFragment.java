@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.home.deposit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,8 +18,10 @@ import android.widget.ImageView;
 
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
+import com.kongzue.dialog.v2.WaitDialog;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -101,6 +104,9 @@ public class OnlinePlayFragment extends BaseFragment {
                 finish();
             }
         });
+        if(!Check.isEmpty(mParam0)){
+            onlineDepositBack.setTitle(mParam0);
+        }
         WebSettings webSettings = wvOnlinePlay.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUseWideViewPort(true);
@@ -153,6 +159,18 @@ public class OnlinePlayFragment extends BaseFragment {
                 //处理http和https开头的url
                 wv.loadUrl(url);
                 return true;
+            }
+
+            @Override
+            public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+                super.onPageStarted(webView, s, bitmap);
+                WaitDialog.show(getActivity(), "加载中...").setCanCancel(true);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                WaitDialog.dismiss();
             }
 
             @Override

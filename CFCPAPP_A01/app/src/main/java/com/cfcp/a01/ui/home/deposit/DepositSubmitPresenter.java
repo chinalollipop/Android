@@ -7,6 +7,7 @@ import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
+import com.cfcp.a01.data.DepositH5Result;
 import com.cfcp.a01.data.LoginResult;
 
 import java.io.UnsupportedEncodingException;
@@ -54,9 +55,9 @@ public class DepositSubmitPresenter implements DepositSubmitContract.Presenter {
         params.put("amount",amount);
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getDepositSubmit(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<DepositH5Result>>() {
                     @Override
-                    public void success(AppTextMessageResponse<LoginResult> response) {
+                    public void success(AppTextMessageResponse<DepositH5Result> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getDepositSubmitResult(response.getData());
                         } else {

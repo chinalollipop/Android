@@ -12,20 +12,26 @@ import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.CLipHelper;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.DoubleClickHelper;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
+import com.cfcp.a01.data.DepositH5Result;
 import com.cfcp.a01.data.DepositTypeResult;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.ui.home.texthtml.html.HtmlUtils;
+import com.kongzue.dialog.v2.WaitDialog;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 
 public class DepositSubmitFragment extends BaseFragment implements DepositSubmitContract.View {
 
@@ -179,16 +185,27 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
         }else{
             name = "";
         }
-        presenter.getDepositSubmit(typeArgs2,typeArgs1.getId()+"",name,money);
+        WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
+        presenter.getDepositSubmit(typeArgs1.getType()+"",typeArgs1.getId()+"",name,money);
     }
 
 
     @Override
-    public void getDepositSubmitResult(LoginResult loginResult) {
+    public void getDepositSubmitResult(DepositH5Result depositH5Result) {
+        WaitDialog.dismiss();
         //转账前渠道确认
         GameLog.log("充值成功 渠道确认 成功");
-        showMessage("充值成功！");
-        finish();
+        if (Check.isNull(depositH5Result)){
+            showMessage("充值成功！");
+            finish();
+        }else{
+            if(!Check.isEmpty(depositH5Result.getSGotoUrl())){
+                pop();
+                EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(depositH5Result.getSGotoUrl(),typeArgs1.getDisplay_name(),"","",""), SupportFragment.SINGLETASK));
+                //finish();
+            }
+        }
+
     }
 
     @Override
@@ -206,6 +223,12 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
         super.onSupportVisible();
     }
 
+    @Override
+    public void showMessage(String message) {
+        super.showMessage(message);
+        WaitDialog.dismiss();
+    }
+
     @OnClick({R.id.depositNextTypeANameCopy, R.id.depositNextBankAccountCopy, R.id.depositNextBankNumberCopy, R.id.depositNextBankNextNameCopy, R.id.depositNextSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -215,12 +238,15 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
                 break;
             case R.id.depositNextBankAccountCopy:
                 CLipHelper.copy(getActivity(),depositNextBankAccount.getText().toString());
+                showMessage("复制成功！");
                 break;
             case R.id.depositNextBankNumberCopy:
                 CLipHelper.copy(getActivity(),depositNextBankNumber.getText().toString());
+                showMessage("复制成功！");
                 break;
             case R.id.depositNextBankNextNameCopy:
                 CLipHelper.copy(getActivity(),depositNextBankNextName.getText().toString());
+                showMessage("复制成功！");
                 break;
             case R.id.depositNextSubmit:
                 onSubmit();
