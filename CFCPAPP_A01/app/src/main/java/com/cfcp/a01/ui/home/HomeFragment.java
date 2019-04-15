@@ -134,10 +134,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     static {
 
+        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(101,"开元棋牌","KYQP","更多精彩游戏"));
+        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(101,"乐游棋牌","LYQP","更多精彩游戏"));
         GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(101,"电子游戏","DZYX","更多精彩游戏"));
         GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(101,"真人视讯","ZRSX","更多精彩游戏"));
         GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(101,"AG捕鱼","AGBY","更多精彩游戏"));
-        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(101,"开元棋牌","KYQP","更多精彩游戏"));
        /* homeGameList.add(new HomeIconEvent("五分彩", "每分钟一期", R.mipmap.home_wfc, LotteryType.TYPE_5FC, 1));
         homeGameList.add(new HomeIconEvent("极速赛车", "每分钟一期", R.mipmap.home_jssc, LotteryType.TYPE_JSSC, 2));
         homeGameList.add(new HomeIconEvent("重庆时时彩", "每分钟一期", R.mipmap.home_cqssc, LotteryType.TYPE_CQSSC, 3));
@@ -413,6 +414,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 case "BDSSC":
                     ids = R.mipmap.xy_baidu5fc;
                     break;
+                case "LYQP":
+                    ids = R.mipmap.other_ly;
+                    break;
                 case "DZYX":
                     ids = R.mipmap.other_dz;
                     break;
@@ -474,15 +478,28 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
             EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(lotteriesBean,(ArrayList)AvailableLottery), SupportFragment.SINGLETASK));
         }else{
             //presenter.getKaiYuanGame("");
-            String url =  Client.baseUrl()+"service?packet=ThirdGame&action=KaiyuanGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+            if(postion ==2){
+                String url =  Client.baseUrl()+"service?packet=ThirdGame&action=KaiyuanGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
 //            initWebView(url);
             /*EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(
                     "开元棋牌",url,""), SupportFragment.SINGLETASK));*/
-            Intent intent = new Intent(getContext(), XPlayGameActivity.class);
-            intent.putExtra("url",url);
-            intent.putExtra("gameCnName","开元棋牌");
-            intent.putExtra("hidetitlebar",false);
-            getActivity().startActivity(intent);
+                Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+                intent.putExtra("url",url);
+                intent.putExtra("gameCnName","开元棋牌");
+                intent.putExtra("hidetitlebar",false);
+                getActivity().startActivity(intent);
+            }else{
+                String url =  Client.baseUrl()+"service?packet=ThirdGame&action=LeyouGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+//            initWebView(url);
+            /*EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(
+                    "开元棋牌",url,""), SupportFragment.SINGLETASK));*/
+                Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+                intent.putExtra("url",url);
+                intent.putExtra("gameCnName","乐游棋牌");
+                intent.putExtra("hidetitlebar",false);
+                getActivity().startActivity(intent);
+            }
+
         }
     }
 
@@ -745,6 +762,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                     @Override
                     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                         if(position==0){
+                            postion = 2;
+                            onHomeGameItemClick(GameVideos.get(position));
+                        }else if(position==1){
+                            postion = 3;
                             onHomeGameItemClick(GameVideos.get(position));
                         }else{
                             showMessage(GameVideos.get(position).getName()+"敬请期待");

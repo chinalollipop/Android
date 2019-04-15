@@ -7,6 +7,7 @@ public class DepositMethodResult {
     private List<AlipayAndWeiXinBean> alipay;
     private List<AlipayAndWeiXinBean> weixin;
     private List<AlipayAndWeiXinBean> bank;
+    private List<AlipayAndWeiXinBean> kscz;
     private List<AlipayAndWeiXinBean> yunshanfu;
     public List<AlipayAndWeiXinBean> getAlipay() {
         return alipay;
@@ -30,6 +31,14 @@ public class DepositMethodResult {
 
     public void setBank(List<AlipayAndWeiXinBean> bank) {
         this.bank = bank;
+    }
+
+    public List<AlipayAndWeiXinBean> getKscz() {
+        return kscz;
+    }
+
+    public void setKscz(List<AlipayAndWeiXinBean> kscz) {
+        this.kscz = kscz;
     }
 
     public List<AlipayAndWeiXinBean> getYunshanfu() {
@@ -123,6 +132,7 @@ public class DepositMethodResult {
         private int teminal;
         private String grade;
         private int icon_type;
+        private String link;
         private String brief_description;
         private String brief_description_color;
 
@@ -436,6 +446,14 @@ public class DepositMethodResult {
 
         public void setIcon_type(int icon_type) {
             this.icon_type = icon_type;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
         }
 
         public String getBrief_description() {

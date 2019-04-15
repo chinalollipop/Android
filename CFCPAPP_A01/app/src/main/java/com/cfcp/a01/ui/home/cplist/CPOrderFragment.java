@@ -14,6 +14,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -28,6 +29,7 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseActivity2;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.CPIWebSetting;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.DateHelper;
 import com.cfcp.a01.common.utils.GameLog;
@@ -80,6 +82,7 @@ import com.cfcp.a01.ui.main.MainEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jaeger.library.StatusBarUtil;
+import com.tencent.smtt.sdk.WebView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -102,6 +105,17 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.cpOrderBetArea)
+    TextView cpOrderBetArea;
+    @BindView(R.id.cpOrderChatArea)
+    TextView cpOrderChatArea;
+
+    @BindView(R.id.cpOrderBetAreaLay)
+    LinearLayout cpOrderBetAreaLay;
+    @BindView(R.id.cpOrderChatAreaLay)
+    WebView cpOrderChatAreaLay;
+    @BindView(R.id.cpOrderBottom)
+    FrameLayout cpOrderBottom;
     /*
     @BindView(R.id.drawer_layout)
     HGDrawerLayout drawer_layout;*/
@@ -28577,6 +28591,26 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             GameLog.log("+++++++++++++++++++++++++++++++++++销毁结束时间的倒计时++++++++++++++");
         }
 
+        try{
+            if(!Check.isNull(cpOrderChatAreaLay)){
+                ViewParent parent = cpOrderChatAreaLay.getParent();
+                if(!Check.isNull(parent)){
+                    ((ViewGroup)parent).removeAllViews();
+                }
+                cpOrderChatAreaLay.stopLoading();
+                cpOrderChatAreaLay.getSettings().setJavaScriptEnabled(false);
+                cpOrderChatAreaLay.clearHistory();
+                cpOrderChatAreaLay.clearView();
+                cpOrderChatAreaLay.removeAllViews();
+                cpOrderChatAreaLay.destroy();
+                cpOrderChatAreaLay = null;
+                System.gc();
+                GameLog.log("WebView 销毁了:--------onDestroy()--------");
+            }
+        }catch (Exception value){
+            GameLog.log("PayGanmeActivity异常:"+value);
+        }
+
     }
 
 
@@ -28784,9 +28818,21 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         GameLog.log("重置了 ");
     }
 
-    @OnClick({R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu,R.id.cpOrderReset,R.id.cpOrderSubmit,R.id.cpOrderTeMaB,R.id.cpOrderTeMaA,R.id.cpOrderFastSubmit})
+    @OnClick({R.id.cpOrderBetArea,R.id.cpOrderChatArea,R.id.cpOrderTitle,R.id.cpOrderShow,R.id.llCPOrderAll,R.id.cpOrderMenu,R.id.cpOrderReset,R.id.cpOrderSubmit,R.id.cpOrderTeMaB,R.id.cpOrderTeMaA,R.id.cpOrderFastSubmit})
     public void onClickedView(View view ){
         switch (view.getId()){
+            case R.id.cpOrderBetArea:
+                cpOrderChatAreaLay.setVisibility(View.GONE);
+                cpOrderBottom.setVisibility(View.VISIBLE);
+                cpOrderBetAreaLay.setVisibility(View.VISIBLE);
+                break;
+            case R.id.cpOrderChatArea:
+                cpOrderChatAreaLay.setVisibility(View.VISIBLE);
+                cpOrderBetAreaLay.setVisibility(View.GONE);
+                cpOrderBottom.setVisibility(View.GONE);
+                CPIWebSetting.init(cpOrderChatAreaLay);//http://58.84.55.207/
+                cpOrderChatAreaLay.loadUrl("https://www.google.com/");
+                break;
             case R.id.cpOrderTeMaA:
                 onResetData();
                 cpOrderTeMaA.setBackgroundColor(getResources().getColor(R.color.cp_order_hk_click));

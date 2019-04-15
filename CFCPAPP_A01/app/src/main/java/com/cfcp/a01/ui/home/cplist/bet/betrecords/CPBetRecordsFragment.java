@@ -192,7 +192,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                     name ="北京PK拾";
                     break;
                 case "1":
-                    name ="重庆时时彩";
+                    name ="欢乐生肖";
                     break;
                 case "55":
                     name ="幸运飞艇";

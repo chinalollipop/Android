@@ -40,6 +40,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 
 public class DepositFragment extends BaseFragment implements DepositContract.View {
     DepositContract.Presenter presenter;
@@ -61,6 +62,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
 
     List<DepositMethodResult.AlipayAndWeiXinBean> WeixinList =  new ArrayList<>();
     List<DepositMethodResult.AlipayAndWeiXinBean> bankList =  new ArrayList<>();
+    List<DepositMethodResult.AlipayAndWeiXinBean> ksczList =  new ArrayList<>();
 
     List<DepositMethodResult.AlipayAndWeiXinBean> yunshanfuList =  new ArrayList<>();
     DepositMothedRViewAdapter depositMothedRViewAdapter;
@@ -68,7 +70,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     ArrayList<DepositInputEvent> depositInputMoneyList = new ArrayList<>();
 
     //deposit_mode  1 银行卡或者二维码，2 第三方
-    String deposit_mode="1",payment_platform_id="";
+    String deposit_mode="1",payment_platform_id="",linkUrl;
 
     boolean isBankAccount ;
 
@@ -148,6 +150,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
         depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("微信")));
         depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("银行转账")));
         depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("云闪付")));
+        depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("快捷支付")));
        /* depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("QQ")));
         depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("银行转账")));
         depositMothedTab.addTab(depositMothedTab.newTab().setCustomView(tabCustomView("在线网银")));*/
@@ -314,6 +317,42 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
 
                         break;
                     case 4:
+
+                        deposit_mode = "2";
+                        if(Check.isNull(ksczList)){
+                            depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,ksczList);
+                            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);
+                            depositMothedRViewAdapter.setEmptyView(view);
+                            depositMothedRView.setAdapter(depositMothedRViewAdapter);
+                            return;
+                        }
+                        for(int k=0;k<ksczList.size();++k){
+                            ksczList.get(k).setChecked(false);
+                        }
+                        depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,ksczList);
+                        depositMothedRViewAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+                            @Override
+                            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+
+                                if(ksczList.get(position).isChecked()){
+                                    ksczList.get(position).setChecked(false);
+                                    payment_platform_id = "";
+                                }else{
+                                    for(int k=0;k<ksczList.size();++k){
+                                        ksczList.get(k).setChecked(false);
+                                    }
+                                    payment_platform_id = ksczList.get(position).getId();
+                                    deposit_mode = ksczList.get(position).getType()+"";
+                                    payment_platform_id = "kscz";
+                                    deposit_mode = "kscz";
+                                    linkUrl = ksczList.get(position).getLink();
+                                    ksczList.get(position).setChecked(true);
+                                }
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+                        depositMothedRView.setAdapter(depositMothedRViewAdapter);
+
                         break;
                 }
             }
@@ -439,6 +478,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
         AlipayList = depositMethodResult.getAlipay();
         WeixinList = depositMethodResult.getWeixin();
         bankList = depositMethodResult.getBank();
+        ksczList = depositMethodResult.getKscz();
         yunshanfuList = depositMethodResult.getYunshanfu();
 
         depositMothedRViewAdapter = new DepositMothedRViewAdapter(R.layout.item_deposit_method,AlipayList);
@@ -494,6 +534,10 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
         if(Check.isEmpty(deposit_mode)||Check.isEmpty(payment_platform_id)){
             showMessage("请选择支付方式");
         }else{
+            if("kscz".equals(deposit_mode)&&"kscz".equals(payment_platform_id)){
+                EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(linkUrl,"","","",""), SupportFragment.SINGLETASK));
+                return;
+            }
             presenter.getDepositVerify(deposit_mode,payment_platform_id);
         }
     }

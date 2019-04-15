@@ -38,6 +38,7 @@ public class DepositPresenter implements DepositContract.Presenter {
         params.put("packet","Fund");
         params.put("action","Payment");
         params.put("step","1");
+        params.put("platform","cf");
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getDepositMethod(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<DepositMethodResult>>() {
