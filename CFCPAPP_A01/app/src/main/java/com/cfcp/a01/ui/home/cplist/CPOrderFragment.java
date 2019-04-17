@@ -1,6 +1,7 @@
 package com.cfcp.a01.ui.home.cplist;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -82,6 +83,9 @@ import com.cfcp.a01.ui.main.MainEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jaeger.library.StatusBarUtil;
+import com.kongzue.dialog.v2.DialogSettings;
+import com.kongzue.dialog.v2.MessageDialog;
+import com.kongzue.dialog.v2.SelectDialog;
 import com.tencent.smtt.sdk.WebView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -24516,6 +24520,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             case "50":
             case "51":
             case "55":
+            case "76"://北京PK10 5分
             case "168"://幸运飞艇 暂无
                 group = "group1";
                 cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");
@@ -25083,6 +25088,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 presenter.postRateInfoJsft(lottery_id,type,x_session_token);
                 break;
             case "51":
+            case "76"://北京PK10 5分
                 initDataSsc();
                 initViewBjscData();
                 presenter.postRateInfoBjsc("50",type,x_session_token);
@@ -27061,6 +27067,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 presenter.postRateInfoBjsc(lottery_id,type,x_session_token);
                 break;
             case "51":
+            case "76"://北京PK10 5分
                 presenter.postRateInfoBjsc("50",type,x_session_token);
                 //presenter.postRateInfoJssc(lottery_id,type,x_session_token);
                 break;
@@ -28830,8 +28837,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 cpOrderChatAreaLay.setVisibility(View.VISIBLE);
                 cpOrderBetAreaLay.setVisibility(View.GONE);
                 cpOrderBottom.setVisibility(View.GONE);
-                CPIWebSetting.init(cpOrderChatAreaLay);//http://58.84.55.207/
-                cpOrderChatAreaLay.loadUrl("https://www.google.com/");
+                CPIWebSetting.init(cpOrderChatAreaLay);//http://58.84.55.207/ https://www.google.com/
+                cpOrderChatAreaLay.loadUrl("http://58.84.55.207/");
                 break;
             case R.id.cpOrderTeMaA:
                 onResetData();
@@ -29199,6 +29206,31 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
 
     @Subscribe
     public void onEventMain(CPOrderSuccessEvent cpOrderSuccessEvent){
+        DialogSettings.use_blur = false;
+        DialogSettings.style = DialogSettings.STYLE_IOS;
+        MessageDialog.show(getContext(), "提示", "投注成功！", "知道了", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        /*SelectDialog.show(getContext(), "提示", "投注成功！", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Toast.makeText(context, "您点击了确定按钮", Toast.LENGTH_SHORT).show();
+            }
+        });*/
+        /*SelectDialog.show(getContext(), "提示", "投注成功！", "分享", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Toast.makeText(context, "您点击了确定按钮", Toast.LENGTH_SHORT).show();
+                showMessage("分享中");
+            }
+        }, "确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Toast.makeText(context, "您点击了取消按钮", Toast.LENGTH_SHORT).show();
+            }
+        });*/
         presenter.postCPLeftInfo("",x_session_token);
         onResetDataChecked();
         if(!Check.isNull(cpOrederListRightGameAdapter))

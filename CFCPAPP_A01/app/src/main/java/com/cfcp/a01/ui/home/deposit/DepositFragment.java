@@ -480,8 +480,8 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     @Override
     public void getDepositMethodResult(DepositMethodResult depositMethodResult) {
         //保存用户登录成功之后的消息
-        GameLog.log("支付宝的方式有几种"+depositMethodResult.getAlipay().size());
-        GameLog.log("微信的方式有几种"+depositMethodResult.getWeixin().size());
+        /*GameLog.log("支付宝的方式有几种"+depositMethodResult.getAlipay().size());
+        GameLog.log("微信的方式有几种"+depositMethodResult.getWeixin().size());*/
         AlipayList = depositMethodResult.getAlipay();
         WeixinList = depositMethodResult.getWeixin();
         bankList = depositMethodResult.getBank();
@@ -540,6 +540,11 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     @OnClick(R.id.depositSubmit)
     public void onViewClicked() {
         //对用户选择方式存款的下一步
+        String amount = depositInputMoneyEt.getText().toString();
+        if(Check.isEmpty(amount)){
+            showMessage("请输入充值金额");
+            return;
+        }
         if(Check.isEmpty(deposit_mode)||Check.isEmpty(payment_platform_id)){
             showMessage("请选择支付方式");
         }else{
@@ -548,7 +553,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                 return;
             }
             WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
-            presenter.getDepositVerify(deposit_mode,payment_platform_id);
+            presenter.getDepositVerify(amount,deposit_mode,payment_platform_id);
         }
     }
 

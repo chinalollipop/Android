@@ -62,11 +62,12 @@ public class DepositPresenter implements DepositContract.Presenter {
     }
 
     @Override
-    public void getDepositVerify(String deposit_mode,String payment_platform_id) {
+    public void getDepositVerify(String amount,String deposit_mode,String payment_platform_id) {
         Map<String,String> params = new HashMap<>();
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","Fund");
         params.put("action","Payment");
+        params.put("amount",amount);
         params.put("step","2");
         params.put("deposit_mode",deposit_mode);
         params.put("payment_platform_id",payment_platform_id);

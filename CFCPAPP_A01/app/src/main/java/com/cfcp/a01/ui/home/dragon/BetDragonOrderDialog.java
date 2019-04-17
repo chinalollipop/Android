@@ -105,7 +105,7 @@ public class BetDragonOrderDialog extends BaseDialogFragment {
     }
     @Subscribe
     public void onEventMain(DragonBetCloseEvent cpBetResult){
-        showMessage(cpBetResult.mesg);
+        //showMessage(cpBetResult.mesg);
         WaitDialog.dismiss();
         hide();
     }

@@ -16,7 +16,7 @@ public interface DepositContract {
     interface Presenter extends IPresenter {
 
         void getDepositMethod(String appRefer);
-        void getDepositVerify(String deposit_mode,String payment_platform_id);
+        void getDepositVerify(String amount,String deposit_mode,String payment_platform_id);
     }
 
     interface View extends IView<Presenter>, IMessageView {

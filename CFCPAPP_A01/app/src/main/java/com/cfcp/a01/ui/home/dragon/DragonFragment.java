@@ -1,6 +1,7 @@
 package com.cfcp.a01.ui.home.dragon;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -39,6 +40,8 @@ import com.cfcp.a01.ui.home.cplist.bet.BetParam;
 import com.cfcp.a01.ui.home.cplist.events.CloseLotteryEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.kongzue.dialog.v2.DialogSettings;
+import com.kongzue.dialog.v2.MessageDialog;
 import com.kongzue.dialog.v2.WaitDialog;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -389,6 +392,13 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
 
     @Override
     public void postCpBetResult(CPBetResult betResult) {
+        DialogSettings.use_blur = true;
+        DialogSettings.style = DialogSettings.STYLE_IOS;
+        MessageDialog.show(getContext(), "提示", "投注成功！", "知道了", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
         EventBus.getDefault().post(new DragonBetCloseEvent("投注成功"));
         betGold = dragonBetGold.getText().toString().trim();
         dragonBetNumberAndMoney.setText("共0注,"+betGold+"元");

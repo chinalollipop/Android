@@ -209,5 +209,98 @@ public class HomePresenter implements HomeContract.Presenter {
                     }
                 }));
     }
+
+    @Override
+    public void getAGGames(String username) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "ThirdGame");
+        params.put("gameType", "electronic");
+        params.put("way", "login");
+        params.put("gameid", "8776");
+        params.put("isTest", "0");
+        params.put("action", "AgGame");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getAGGames(params))
+                .subscribe(new ResponseSubscriber<AllGamesResult>() {
+                    @Override
+                    public void success(AllGamesResult response) {
+                        if (response.getErrno() == 0) {
+                            view.getAllGamesResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getAGVideoGames(String username) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "ThirdGame");
+        params.put("gameType", "immortal");
+        params.put("way", "login");
+        params.put("gameid", "101");
+        params.put("isTest", "0");
+        params.put("action", "AgGame");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getAGGames(params))
+                .subscribe(new ResponseSubscriber<AllGamesResult>() {
+                    @Override
+                    public void success(AllGamesResult response) {
+                        if (response.getErrno() == 0) {
+                            view.getAllGamesResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getAGFishGames(String username) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "ThirdGame");
+        params.put("gameType", "fishes");
+        params.put("way", "login");
+        params.put("gameid", "6");
+        params.put("isTest", "0");
+        params.put("action", "AgGame");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getAGGames(params))
+                .subscribe(new ResponseSubscriber<AllGamesResult>() {
+                    @Override
+                    public void success(AllGamesResult response) {
+                        if (response.getErrno() == 0) {
+                            view.getAllGamesResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 }
 

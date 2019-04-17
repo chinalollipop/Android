@@ -10,8 +10,11 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import com.hgapp.a6668.common.useraction.UserActionHandler;
 import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.a6668.common.util.EntranceUtils;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.homepage.push.ExampleUtil;
+import com.hgapp.a6668.launcher.LauncherActivity;
+import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.ToastUtils;
 
@@ -94,6 +97,12 @@ public class MainActivity extends SupportActivity {
                 ACache.get(getApplicationContext()).put(HGConstant.APP_CP_COOKIE,"");
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_ALIAS, "");
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_LOGOUT, "true");
+                String isLogoChange = ACache.get(getApplicationContext()).getAsString("change_logo");
+                if(Check.isEmpty(isLogoChange)){
+                    GameLog.log("当前的状态是 "+isLogoChange);
+                    ACache.get(getApplicationContext()).put("change_logo","1");
+                    EntranceUtils.getInstance().enable(this,"com.hgapp.a6668.EntranceSpec");
+                }
                 finish();
             } else {
                 TOUCH_TIME = System.currentTimeMillis();

@@ -38,6 +38,21 @@ public interface IHomeApi {
     @GET("service")
     Observable<AllGamesResult> getAllGames(@QueryMap Map<String, String> params);
 
+    //AG电子游戏列表
+    @GET("service")
+    Observable<AllGamesResult> getAGGames(@QueryMap Map<String, String> params);
+
+    //AG真人游戏列表
+    @GET("service")
+    Observable<AllGamesResult> getAGVideoGames(@QueryMap Map<String, String> params);
+
+    //AG捕鱼游戏
+    @GET("service")
+    Observable<AllGamesResult> getAGFishGames(@QueryMap Map<String, String> params);
+
+
+
+
     //退出
     @POST("api/logout.php")
     @FormUrlEncoded

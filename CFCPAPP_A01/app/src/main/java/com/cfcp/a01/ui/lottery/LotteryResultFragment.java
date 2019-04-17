@@ -491,6 +491,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             case "48"://幸运飞艇
             case "49"://幸运飞艇
             case "10"://北京PK拾
+            case "52"://北京PK拾 5
             case "19"://Gwpk10
                 initPK10();
                 break;
@@ -1530,6 +1531,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             case "48"://幸运飞艇
             case "49":
             case "10"://北京PK拾
+            case "52"://北京PK拾 5分
             case "19"://Gwpk10
                 mTrendListPK1.addAll(onShowPK10(lotteryListResult,0));
                 mTrendListPK2.addAll(onShowPK10(lotteryListResult,1));
@@ -1578,93 +1580,6 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             super(layoutId, datas);
         }
 
-        private void onShowImage(String identifier,BaseViewHolder holder){
-            int ids =  R.mipmap.gf_ssc;
-            switch (identifier){
-                case "XYFT":
-                    ids = R.mipmap.xy_xyft;
-                    break;
-                case "CQSSC":
-                    ids = R.mipmap.gf_ssc;
-                    break;
-                case "GD115":
-                    ids = R.mipmap.gf_11x5;
-                    break;
-                case "BJPK10":
-                    ids = R.mipmap.gf_pk10;
-                    break;
-                case "GWFFC":
-                    ids = R.mipmap.gf_ffc;
-                    break;
-                case "GW115":
-                    ids = R.mipmap.gf_gd;
-                    break;
-                case "JSK3":
-                    ids = R.mipmap.gf_jsks;//江苏快三
-                    break;
-                case "GW3FC":
-                    ids = R.mipmap.gf_sfc;
-                    break;
-                case "GWK3":
-                    ids = R.mipmap.gf_ks;
-                    break;
-                case "GWPK10":
-                    ids = R.mipmap.gf_jspk10;
-                    break;
-                case "GW3D":
-                    ids = R.mipmap.gf_jisu3d;
-                    break;
-                case "GW5FC":
-                    ids = R.mipmap.gf_wufc;
-                    break;
-                case "BJKL8":
-                    ids = R.mipmap.gf_ks8;
-                    break;
-                case "GW115SFC":
-                    ids = R.mipmap.gf_sanf;
-                    break;
-
-                case "LkShip":
-                    ids = R.mipmap.xy_xyft;
-                    break;
-                case "MarkSix":
-                    ids = R.mipmap.xy_xglhc;
-                    break;
-                case "PCEgg":
-                    ids = R.mipmap.xy_pcdd;
-                    break;
-                case "JSQk3":
-                    ids = R.mipmap.gf_jsks;
-                    break;
-                case "FastPK10":
-                    ids = R.mipmap.xy_jssc;
-                    break;
-                case "FastSSC":
-                    ids = R.mipmap.gf_ffc;
-                    break;
-                case "GDHp10":
-                    ids = R.mipmap.xy_klsf;
-                    break;
-                case "CQFarm":
-                    ids = R.mipmap.xy_xync;
-                    break;
-                case "BJHp8":
-                    ids = R.mipmap.xy_ks8;
-                    break;
-                case "ALISSC":
-                    ids = R.mipmap.xy_ali2fen;
-                    break;
-                case "TXSSC":
-                    ids = R.mipmap.xy_tx3;
-                    break;
-                case "BDSSC":
-                    ids = R.mipmap.xy_baidu5fc;
-                    break;
-
-            }
-            holder.setBackgroundRes(R.id.itemHomeIconDrawable, ids);
-        }
-
         @Override
         protected void convert(BaseViewHolder holder, final LotteryListResult data) {
 
@@ -1703,6 +1618,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 case "48"://幸运飞艇
                 case "49"://幸运飞艇
                 case "10"://北京PK拾
+                case "52"://北京PK拾 5分
                 case "19"://Gwpk10
                     List<String> cpLeftEventList2 = new ArrayList<String>();
                     cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");

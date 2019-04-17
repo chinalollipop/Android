@@ -278,7 +278,7 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
     @Override
     public void postCpBetResult(CPBetResult betResult) {
         WaitDialog.dismiss();
-        showMessage("投注成功！");
+        //showMessage("投注成功！");
         EventBus.getDefault().post(new CPOrderSuccessEvent());
         hide();
     }

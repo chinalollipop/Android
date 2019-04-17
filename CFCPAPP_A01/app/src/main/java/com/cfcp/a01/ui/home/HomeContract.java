@@ -19,6 +19,9 @@ public interface HomeContract {
         void postLogout(String appRefer);
         void getJointLogin(String username);
         void getKaiYuanGame(String username);
+        void getAGGames(String username);
+        void getAGVideoGames(String username);
+        void getAGFishGames(String username);
     }
 
     interface View extends IView<Presenter>, IMessageView {
@@ -28,5 +31,8 @@ public interface HomeContract {
         void getAllGamesResult(AllGamesResult allGamesResult);
         void postLogoutResult(String logoutResult);
         void getJointLoginResult(String logoutResult);
+        void getAGGamesResult(AllGamesResult allGamesResult);
+        void getAGVideoGamesResult(AllGamesResult allGamesResult);
+        void getAGFishGamesResult(AllGamesResult allGamesResult);
     }
 }
