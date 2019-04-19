@@ -92,7 +92,6 @@ import com.jaeger.library.StatusBarUtil;
 import com.kongzue.dialog.v2.DialogSettings;
 import com.kongzue.dialog.v2.MessageDialog;
 import com.kongzue.dialog.v2.SelectDialog;
-import com.kongzue.dialog.v2.WaitDialog;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -316,13 +315,11 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
-                //WaitDialog.show(getContext(),"加载中...").setCanCancel(true);
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                //WaitDialog.dismiss();
             }
 
             @Override
