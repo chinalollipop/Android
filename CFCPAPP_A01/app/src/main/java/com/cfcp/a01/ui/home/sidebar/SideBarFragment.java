@@ -29,6 +29,7 @@ import com.cfcp.a01.ui.me.EventListFragment;
 import com.cfcp.a01.ui.me.MeContract;
 import com.cfcp.a01.ui.me.bankcard.CardFragment;
 import com.cfcp.a01.ui.me.emailbox.EmailBoxFragment;
+import com.cfcp.a01.ui.me.game.GameFragment;
 import com.cfcp.a01.ui.me.info.InfoFragment;
 import com.cfcp.a01.ui.me.pwd.PwdFragment;
 import com.cfcp.a01.ui.me.record.BetFragment;
@@ -67,16 +68,17 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
             "投注记录",
             "报表管理",
             "账号管理",
-            "代理管理",
-            "短信管理",
+            //"代理管理",
+            "短信公告",
             "开奖结果",
             "返回大厅",
             "退出登录" };
     private String[][] children = {
             { "游戏记录", "追号记录" },
-            { "充值记录", "个人报表","团队报表", "账变报表", "优惠活动详情" },
-            { "个人总览", "修改密码", "密码设定","银行卡管理", "资料修改", "彩种信息" , "彩种额度"},
-            { "团队总览", "用户列表","注册管理", "推广注册"  },
+            { "资金明细", "盈亏状态","团队报表", "账变报表", "优惠活动详情" },
+            { "开元棋牌余额","乐游棋牌余额","AG游戏余额", "修改密码","银行卡管理",  "我的奖金组"},
+            //{ "个人总览", "修改密码", "密码设定","银行卡管理", "资料修改", "彩种信息" , "彩种额度"},
+            //{ "团队总览", "用户列表","注册管理", "推广注册"  },
             { "站内短信", "网站公告" },
             {  },
             {  },
@@ -122,19 +124,19 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 switch (groupPosition){
-                    case 5:
+                    case 4:
                         //showMessage("开奖结果");
                         //展示开奖结果 且 关闭投注界面
                         EventBus.getDefault().post(new MainEvent(3));
                         EventBus.getDefault().post(new LotteryResultEvent("LotteryResult"));
                         hide();
                         break;
-                    case 6:
+                    case 5:
                         //showMessage("返回大厅");
                         EventBus.getDefault().post(new BackHomeEvent("BackHome"));
                         hide();
                         break;
-                    case 7:
+                    case 6:
                         //showMessage("退出登录");
                         presenter.postLogout("");
                         break;
@@ -193,39 +195,53 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                         switch (childPosition){
                             case 0:
                                 //showMessage("个人总览");
+                                //EventBus.getDefault().post(new StartBrotherEvent(InfoFragment.newInstance("","")));
+                                EventBus.getDefault().post(new StartBrotherEvent(GameFragment.newInstance(children[groupPosition][childPosition],"KaiyuanGame")));
                                 hide();
-                                EventBus.getDefault().post(new StartBrotherEvent(InfoFragment.newInstance("","")));
                                 break;
                             case 1:
                                 hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(GameFragment.newInstance(children[groupPosition][childPosition],"LeyouGame")));
                                 //showMessage("修改密码");
-                                EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("2","")));
                                 break;
                             case 2:
                                 hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(GameFragment.newInstance(children[groupPosition][childPosition],"AgGame")));
                                 //showMessage("密码设定");
-                                EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("1","")));
+                                //EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("1","")));
                                 break;
                             case 3:
                                 hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("1","")));
                                 //showMessage("银行卡管理");
-                                EventBus.getDefault().post(new StartBrotherEvent(CardFragment.newInstance("","")));
                                 break;
                             case 4:
-                                showMessage("资料修改");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(CardFragment.newInstance("","")));
+                                //showMessage("资料修改");
                                 break;
                             case 5:
                                 hide();
-                                //showMessage("彩种信息");
                                 EventBus.getDefault().post(new StartBrotherEvent(CaiInfoFragment.newInstance("2","")));
-                                break;
-                            case 6:
-                                showMessage("彩种额度");
+                                //showMessage("彩种信息");
                                 break;
                         }
                         break;
                     case 3:
                         switch (childPosition){
+                            case 0:
+                                //showMessage("站内短信");
+                                hide();
+                                EventBus.getDefault().post(new StartBrotherEvent(EmailBoxFragment.newInstance("","")));
+                                break;
+                            case 1:
+                                hide();
+                                //showMessage("网站公告");
+                                EventBus.getDefault().post(new StartBrotherEvent(EventListFragment.newInstance("","")));
+                                break;
+                        }
+                        //以下是代理管理的内容
+                        /*switch (childPosition){
                             case 0:
                                 showMessage("团队总览");
                                 break;
@@ -241,15 +257,17 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                             case 3:
                                 showMessage("推广注册");
                                 break;
-                        }
+                        }*/
                         break;
                     case 4:
                         switch (childPosition){
                             case 0:
                                 //showMessage("站内短信");
+                                hide();
                                 EventBus.getDefault().post(new StartBrotherEvent(EmailBoxFragment.newInstance("","")));
                                 break;
                             case 1:
+                                hide();
                                 //showMessage("网站公告");
                                 EventBus.getDefault().post(new StartBrotherEvent(EventListFragment.newInstance("","")));
                                 break;

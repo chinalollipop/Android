@@ -61,6 +61,9 @@ import com.cfcp.a01.ui.me.bankcard.ModifyPresenter;
 import com.cfcp.a01.ui.me.emailbox.EmailBoxContract;
 import com.cfcp.a01.ui.me.emailbox.EmailBoxPresenter;
 import com.cfcp.a01.ui.me.emailbox.IEmailBoxApi;
+import com.cfcp.a01.ui.me.game.GameContract;
+import com.cfcp.a01.ui.me.game.GamePresenter;
+import com.cfcp.a01.ui.me.game.IGameApi;
 import com.cfcp.a01.ui.me.info.IInfoApi;
 import com.cfcp.a01.ui.me.info.InfoContract;
 import com.cfcp.a01.ui.me.info.InfoPresenter;
@@ -299,6 +302,14 @@ public class Injections {
             iApi = Client.getRetrofit().create(IInfoApi.class);
         }
         return new InfoPresenter(iApi, view);
+    }
+
+    //设置游戏余额的逻辑处理
+    public static GameContract.Presenter inject(@NonNull GameContract.View view, @Nullable IGameApi iApi) {
+        if (null == iApi) {
+            iApi = Client.getRetrofit().create(IGameApi.class);
+        }
+        return new GamePresenter(iApi, view);
     }
 
     //设置下级的返点的逻辑处理

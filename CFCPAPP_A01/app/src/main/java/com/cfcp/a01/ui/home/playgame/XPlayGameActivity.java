@@ -24,6 +24,7 @@ import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.ToastUtils;
 import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.NTitleBar;
+import com.cfcp.a01.ui.home.CloseGameViewEvent;
 import com.google.gson.Gson;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
@@ -34,6 +35,8 @@ import com.tencent.smtt.sdk.CookieSyncManager;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -440,6 +443,7 @@ public class XPlayGameActivity extends Activity {
                 wvPayGame.destroy();
                 wvPayGame = null;
                 System.gc();
+                EventBus.getDefault().post(new CloseGameViewEvent());
                 GameLog.log("XplayGameActivity:--------onDestroy()--------");
             }
         }catch (Exception value){

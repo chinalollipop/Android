@@ -5,6 +5,7 @@ import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.http.request.AppTextMessageResponseList;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BannerResult;
+import com.cfcp.a01.data.GameQueueMoneyResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
 
@@ -51,6 +52,11 @@ public interface IHomeApi {
     Observable<AllGamesResult> getAGFishGames(@QueryMap Map<String, String> params);
 
 
+
+    @GET("service")
+    Observable<AppTextMessageResponse<GameQueueMoneyResult>> getPlayOutWithMoney(
+            @QueryMap Map<String, String> params
+    );
 
 
     //退出

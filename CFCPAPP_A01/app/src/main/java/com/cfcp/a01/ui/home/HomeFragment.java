@@ -35,6 +35,7 @@ import com.cfcp.a01.common.widget.MarqueeTextView;
 import com.cfcp.a01.common.widget.RollPagerViewManager;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BannerResult;
+import com.cfcp.a01.data.GameQueueMoneyResult;
 import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
@@ -128,6 +129,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     LoginResult loginResult;
     boolean isLoadAlread ;
     int postion=0;
+    String action;
     //公告数据
     ArrayList<LoginResult.NoticeListBean> noticeListBeanList;
 
@@ -482,10 +484,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         }else if(postion==0){
             EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(lotteriesBean,(ArrayList)AvailableLottery), SupportFragment.SINGLETASK));
         }else{
+            action = "AgGame";
             //presenter.getKaiYuanGame("");
             if(postion ==2){
                 switch (lotteriesBean.getLottery_id()){
                     case 1:
+                        action = "KaiyuanGame";
                         String url =  Client.baseUrl()+"service?packet=ThirdGame&action=KaiyuanGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
 //            initWebView(url);
             /*EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(
@@ -497,6 +501,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                         getActivity().startActivity(intent1);
                         break;
                     case 2:
+                        action = "LeyouGame";
                         String url2 =  Client.baseUrl()+"service?packet=ThirdGame&action=LeyouGame&way=index&token="+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
 //            initWebView(url);
             /*EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(
@@ -610,6 +615,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
+    public void getPlayOutWithMoneyResult(GameQueueMoneyResult gameQueueMoneyResult) {
+        GameLog.log("---getPlayOutWithMoneyResult---");
+    }
+
+    @Override
     public void showMessage(String message) {
         ToastUtils.showLongToast(message);
     }
@@ -655,6 +665,14 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
             homeName.setText("");
         }
     }
+
+    @Subscribe
+    public void onEventMain(CloseGameViewEvent closeGameViewEvent) {
+        GameLog.log("--CloseGameViewEvent---");
+        presenter.getPlayOutWithMoney(action);
+    }
+
+
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {

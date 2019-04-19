@@ -5,6 +5,7 @@ import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.IView;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BannerResult;
+import com.cfcp.a01.data.GameQueueMoneyResult;
 import com.cfcp.a01.data.NoticeResult;
 
 /**
@@ -22,6 +23,7 @@ public interface HomeContract {
         void getAGGames(String username);
         void getAGVideoGames(String username);
         void getAGFishGames(String username);
+        void getPlayOutWithMoney(String action);
     }
 
     interface View extends IView<Presenter>, IMessageView {
@@ -34,5 +36,6 @@ public interface HomeContract {
         void getAGGamesResult(AllGamesResult allGamesResult);
         void getAGVideoGamesResult(AllGamesResult allGamesResult);
         void getAGFishGamesResult(AllGamesResult allGamesResult);
+        void getPlayOutWithMoneyResult(GameQueueMoneyResult gameQueueMoneyResult);
     }
 }

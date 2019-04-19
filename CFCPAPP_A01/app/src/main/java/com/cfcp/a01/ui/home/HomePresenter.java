@@ -5,12 +5,14 @@ import com.cfcp.a01.common.http.Client;
 import com.cfcp.a01.common.http.ResponseSubscriber;
 import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
+import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.http.request.AppTextMessageResponseList;
 import com.cfcp.a01.common.http.util.Md5Utils;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Timber;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BannerResult;
+import com.cfcp.a01.data.GameQueueMoneyResult;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.NoticeResult;
 
@@ -302,5 +304,35 @@ public class HomePresenter implements HomeContract.Presenter {
                     }
                 }));
     }
+
+    @Override
+    public void getPlayOutWithMoney(final String action) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","ThirdGame");
+        params.put("action",action);
+        params.put("way","platIn");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getPlayOutWithMoney(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<GameQueueMoneyResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<GameQueueMoneyResult> response) {
+                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
+                            view.getPlayOutWithMoneyResult(response.getData());
+                        } else {
+                            view.showMessage(response.getDescribe());
+                        }
+                        //view.postLoginResult(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
 }
 

@@ -92,7 +92,7 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
         }else{
             gpViewHolder.img.setImageResource(R.mipmap.icon_ex__right);
         }
-        if(groupPosition>4){
+        if(groupPosition>3){
             gpViewHolder.img.setVisibility(View.GONE);
         }else{
             gpViewHolder.img.setVisibility(View.VISIBLE);
@@ -133,19 +133,19 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
             case 2:
                 img.setImageResource(R.mipmap.sidebar_account_manage);
                 break;
-            case 3:
+            /*case 3:
                 img.setImageResource(R.mipmap.sidebar_agency);
-                break;
-            case 4:
+                break;*/
+            case 3:
                 img.setImageResource(R.mipmap.me_instation_infor);
                 break;
-            case 5:
+            case 4:
                 img.setImageResource(R.mipmap.sidebar_lottery);
                 break;
-            case 6:
+            case 5:
                 img.setImageResource(R.mipmap.sidebar_back_home);
                 break;
-            case 7:
+            case 6:
                 img.setImageResource(R.mipmap.me_logout);
                 break;
             /*case 8:

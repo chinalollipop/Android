@@ -89,18 +89,18 @@ public class TokenInterceptor implements Interceptor {
                     return response;
                 }
                 //GameLog.log(resposeData);
-                /*try{
+                try{
                     ReLoginResult restartLoginResult =  JSON.parseObject(resposeData, ReLoginResult.class);
                     if(restartLoginResult.getErrno()==3004){
-                        LoginFragment.newInstance().showMessage(restartLoginResult.getError());
+                        //LoginFragment.newInstance().showMessage(restartLoginResult.getError());
                         //LoginFragment.newInstance().getPreFragment().popTo(LoginFragment.class,true);
-                        GameLog.log("返回的异常信息是："+restartLoginResult.getError());
+                        //GameLog.log("返回的异常信息是："+restartLoginResult.getError());
                         Client.cancelAllRequest();
                         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     }
                 }catch (Exception e){
-                    GameLog.log("返回的异常信息是："+e.getMessage());
-                }*/
+                    GameLog.log(""+e.getMessage());
+                }
             }
 
             GameLog.log("<-- END HTTP (" + var34.size() + "-byte body)");
