@@ -121,6 +121,9 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                 case "50":
                     name ="北京PK拾";
                     break;
+                case "76":
+                    name ="北京赛车";
+                    break;
                 case "1":
                     name ="欢乐生肖";
                     break;
@@ -346,6 +349,17 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                 betNow.num = "0";
                 betNowList.add(betNow);
             }
+
+            if(betNowListID.contains("76")){
+                betNowList.add(getData("76",betRecordsResult));
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "76";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
 
             if(betNowListID.contains("51")){
                 betNowList.add(getData("51",betRecordsResult));

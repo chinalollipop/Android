@@ -2,7 +2,6 @@ package com.cfcp.a01.ui.home.betGenerate;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.cfcp.a01.common.widget.DeleteTipsPop;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
@@ -56,6 +55,7 @@ public class GenerateMoney {
             case 1://时时彩类
             case 13:
             case 16:
+            case 28:
                 switch (mWayGroups.get(Integer.valueOf(mPosition[0])).getId()) {
                     case 2:
                         new DeleteTipsPop(context, getDifferent(zuD(5), zuDS(5)), interception(5)).showPopupWindow();
@@ -569,6 +569,7 @@ public class GenerateMoney {
             case 10://pk10类
             case 19:
             case 49:
+            case 52:
                 switch (mWayGroups.get(Integer.valueOf(mPosition[0])).getId()) {
                     case 87:
                         M = mUpdateBet.get(0).getSelectList().size();

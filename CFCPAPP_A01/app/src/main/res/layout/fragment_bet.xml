@@ -122,67 +122,155 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <android.support.v4.widget.NestedScrollView
+    <RelativeLayout
+        android:id="@+id/ll_bet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/cv_switch"
-        android:layout_marginBottom="95dp"
-        android:background="@color/text_line_other">
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="95dp"
+            android:background="@color/text_line_other">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <LinearLayout
+                        android:id="@+id/betMethodNameLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <TextView
+                            android:id="@+id/betMethodName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxEms="4"
+                            android:singleLine="true"
+                            android:textColor="@color/text_bet_model_in" />
+
+                        <ImageView
+                            android:id="@+id/betMethodDown"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="7dp"
+                            android:background="@mipmap/bet_down_black"
+                            tools:ignore="ContentDescription" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_bet_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+
+                    <TextView
+                        android:id="@+id/betIssue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/text_bet_time_n"
+                        android:textSize="12sp"
+                        tools:ignore="RelativeOverlap" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/text_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/text_line_other">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        tools:ignore="RelativeOverlap">
+
+                        <TextView
+                            android:id="@+id/betLastIssue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:drawableStart="@mipmap/bet_star"
+                            android:drawablePadding="5dp"
+                            android:gravity="center"
+                            android:textColor="@color/text_bet_time_n"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center"
+                            android:text="投注时间"
+                            android:textColor="@color/text_bet_time_n"
+                            android:textSize="12sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/betTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/text_bet_time" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/betDaysProfit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/btn_bet_profit"
+                        android:gravity="center"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:text="每日盈亏"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_lottery"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp" />
+
+                <include layout="@layout/layout_lottery_input" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="95dp"
+            android:layout_alignParentBottom="true"
             android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/rl_info"
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-
-                <LinearLayout
-                    android:id="@+id/betMethodNameLay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    tools:ignore="UseCompoundDrawables">
-
-                    <TextView
-                        android:id="@+id/betMethodName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="20dp"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:maxEms="4"
-                        android:singleLine="true"
-                        android:textColor="@color/text_bet_model_in" />
-
-                    <ImageView
-                        android:id="@+id/betMethodDown"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="7dp"
-                        android:background="@mipmap/bet_down_black"
-                        tools:ignore="ContentDescription" />
-                </LinearLayout>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_bet_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
-
-                <TextView
-                    android:id="@+id/betIssue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginEnd="10dp"
-                    android:textColor="@color/text_bet_time_n"
-                    android:textSize="12sp"
-                    tools:ignore="RelativeOverlap" />
-            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -191,249 +279,196 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/text_line_other">
+                android:layout_height="45dp"
+                android:background="@color/white">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    tools:ignore="RelativeOverlap">
+                    android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/betLastIssue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:id="@+id/betModel"
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:layout_marginStart="5dp"
-                        android:drawableStart="@mipmap/bet_star"
-                        android:drawablePadding="5dp"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/btn_bet_model"
                         android:gravity="center"
-                        android:textColor="@color/text_bet_time_n"
-                        android:textSize="12sp" />
+                        android:textColor="@color/text_bet_model_in" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
                         android:gravity="center"
-                        android:text="投注时间"
-                        android:textColor="@color/text_bet_time_n"
-                        android:textSize="12sp"
+                        android:text="模式"
+                        android:textColor="@color/text_bet_model_chan"
                         tools:ignore="HardcodedText" />
 
-                    <TextView
-                        android:id="@+id/betTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <EditText
+                        android:id="@+id/betTimes"
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/btn_bet_model"
                         android:gravity="center"
-                        android:textColor="@color/text_bet_time" />
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:text="1"
+                        android:textColor="@color/text_bet_model_in"
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="倍"
+                        android:textColor="@color/text_bet_model_chan"
+                        tools:ignore="HardcodedText" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/betDaysProfit"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="45dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/btn_bet_profit"
-                    android:gravity="center"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:text="每日盈亏"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
+                    android:layout_centerVertical="true"
+                    tools:ignore="RelativeOverlap">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/betMinusTxt"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:textColor="@color/text_bet_model_pro"
+                            android:textSize="12sp"
+                            tools:ignore="RtlHardcoded" />
+
+                        <ImageView
+                            android:id="@+id/betMinus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/bet_minus"
+                            tools:ignore="ContentDescription" />
+
+                        <com.xw.repo.BubbleSeekBar
+                            android:id="@+id/bs_bet_bar"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            app:bsb_second_track_color="#e1222a"
+                            app:bsb_touch_to_seek="true"
+                            app:bsb_track_color="@color/text_main_down" />
+
+                        <ImageView
+                            android:id="@+id/betPlus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/bet_plus"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/betPlusTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="3dp"
+                            android:textColor="@color/text_bet_model_pro"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </RelativeLayout>
             </RelativeLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_lottery"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp" />
-
-            <include layout="@layout/layout_lottery_input" />
-
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/text_line" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@color/white">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/betModel"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="3dp"
-                    android:background="@drawable/btn_bet_model"
-                    android:gravity="center"
-                    android:textColor="@color/text_bet_model_in" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="模式"
-                    android:textColor="@color/text_bet_model_chan"
-                    tools:ignore="HardcodedText" />
-
-                <EditText
-                    android:id="@+id/betTimes"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="3dp"
-                    android:background="@drawable/btn_bet_model"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:text="1"
-                    android:textColor="@color/text_bet_model_in"
-                    tools:ignore="Autofill,HardcodedText,LabelFor" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="倍"
-                    android:textColor="@color/text_bet_model_chan"
-                    tools:ignore="HardcodedText" />
-            </LinearLayout>
-
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                tools:ignore="RelativeOverlap">
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/text_bet_bottom">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
                     android:gravity="center"
-                    tools:ignore="UselessParent">
-
-                    <TextView
-                        android:id="@+id/betMinusTxt"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:textColor="@color/text_bet_model_pro"
-                        android:textSize="12sp"
-                        tools:ignore="RtlHardcoded" />
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
-                        android:id="@+id/betMinus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/bet_minus"
-                        tools:ignore="ContentDescription" />
-
-                    <com.xw.repo.BubbleSeekBar
-                        android:id="@+id/bs_bet_bar"
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        app:bsb_second_track_color="#e1222a"
-                        app:bsb_touch_to_seek="true"
-                        app:bsb_track_color="@color/text_main_down" />
-
-                    <ImageView
-                        android:id="@+id/betPlus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/bet_plus"
+                        android:id="@+id/betClear"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@mipmap/bet_clear"
                         tools:ignore="ContentDescription" />
 
                     <TextView
-                        android:id="@+id/betPlusTxt"
+                        android:id="@+id/betMoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="3dp"
-                        android:textColor="@color/text_bet_model_pro"
-                        android:textSize="12sp" />
+                        android:layout_marginStart="15dp"
+                        android:text="0注0元"
+                        android:textColor="@color/white"
+                        tools:ignore="HardcodedText" />
                 </LinearLayout>
-            </RelativeLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/text_bet_bottom">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:gravity="center"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:id="@+id/betClear"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:background="@mipmap/bet_clear"
-                    tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:id="@+id/betMoney"
+                    android:id="@+id/betSubmit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:text="0注0元"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@+id/betSure"
+                    android:background="@drawable/btn_bet_submit_no"
+                    android:clickable="false"
+                    android:padding="10dp"
+                    android:text="立即下注"
                     android:textColor="@color/white"
                     tools:ignore="HardcodedText" />
-            </LinearLayout>
 
-            <TextView
-                android:id="@+id/betSubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp"
-                android:layout_toStartOf="@+id/betSure"
-                android:background="@drawable/btn_bet_submit_no"
-                android:clickable="false"
-                android:padding="10dp"
-                android:text="立即下注"
-                android:textColor="@color/white"
-                tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/betSure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/btn_bet_sure"
+                    android:padding="10dp"
+                    android:text="确认选号"
+                    android:textColor="@color/white"
+                    tools:ignore="HardcodedText" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/betSure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/btn_bet_sure"
-                android:padding="10dp"
-                android:text="确认选号"
-                android:textColor="@color/white"
-                tools:ignore="HardcodedText" />
-        </RelativeLayout>
-    </LinearLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ll_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cv_switch"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/flayout_xpay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.tencent.smtt.sdk.WebView
+            android:id="@+id/wv_service_online"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.coolindicator.sdk.CoolIndicator
+            android:id="@+id/indicator"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/default_drawable_indicator"
+            tools:ignore="MissingConstraints" />
+    </android.support.constraint.ConstraintLayout>
 
     <android.inputmethodservice.KeyboardView
         android:id="@+id/kv_lottery"

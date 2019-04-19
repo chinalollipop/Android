@@ -1,10 +1,15 @@
 package com.cfcp.a01.ui.home.bet;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.inputmethodservice.KeyboardView;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,25 +21,31 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
+import android.webkit.JavascriptInterface;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.adapters.LotteryAdapter;
-import com.cfcp.a01.common.adapters.LotteryBottomAdapter;
 import com.cfcp.a01.common.adapters.LotteryNumDetailsAdapter;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.CPIWebSetting;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.TimeTools;
 import com.cfcp.a01.common.utils.ToastUtils;
@@ -52,13 +63,24 @@ import com.cfcp.a01.data.UpBetData;
 import com.cfcp.a01.ui.home.betGenerate.GenerateMoney;
 import com.cfcp.a01.ui.home.betGenerate.GenerateNum;
 import com.cfcp.a01.ui.home.betGenerate.JointBetNumber;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
 import com.cfcp.a01.ui.home.sidebar.BackHomeEvent;
 import com.cfcp.a01.ui.home.sidebar.LotteryResultEvent;
 import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
+import com.cfcp.a01.ui.main.MainEvent;
 import com.cfcp.a01.ui.me.report.PersonFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.coolindicator.sdk.CoolIndicator;
+import com.google.gson.Gson;
 import com.kongzue.dialog.v2.CustomDialog;
 import com.kongzue.dialog.v2.WaitDialog;
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
+import com.tencent.smtt.export.external.interfaces.SslError;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 import com.xw.repo.BubbleSeekBar;
 
 import org.greenrobot.eventbus.EventBus;
@@ -158,6 +180,16 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     RecyclerView rvTop;
     @BindView(R.id.bs_bet_bar)
     BubbleSeekBar bsBetBar;
+    @BindView(R.id.ll_bet)
+    RelativeLayout llBet;
+    @BindView(R.id.indicator)
+    CoolIndicator indicator;
+    @BindView(R.id.wv_service_online)
+    WebView wvServiceOnline;
+    @BindView(R.id.ll_chart)
+    ConstraintLayout llChart;
+    @BindView(R.id.flayout_xpay)
+    FrameLayout flayoutXpay;
 
     private LotteryTypePop mLotteryTypePop;//彩种选择弹窗
     private LotteryNumPop mLotteryNumPop;//开奖号码弹窗
@@ -188,10 +220,14 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     private int mProgress;
     private float percentRate;
     private float mRate;
+
     private String seat;//设置任选模式下的任选标记
     private StringBuilder extraPosition = new StringBuilder(); //设置任选模式下任选位数
 
     private CustomDialog betSuccessTips;//投注成功的提示
+
+    private ValueCallback<Uri> uploadFile;
+    private ValueCallback<Uri[]> uploadFiles;
 
     public static BetFragment newInstance(AllGamesResult.DataBean.LotteriesBean lotteriesBean, ArrayList<AllGamesResult.DataBean.LotteriesBean> lotteriesBeanList) {
         BetFragment betFragment = new BetFragment();
@@ -217,7 +253,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         return R.layout.fragment_bet;
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
@@ -260,6 +296,17 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 generateMoney();
             }
         });
+
+        indicator.setMax(100);
+        CPIWebSetting.init(wvServiceOnline);
+        webViewSetting(wvServiceOnline);
+        wvServiceOnline.getSettings().setJavaScriptEnabled(true);
+        wvServiceOnline.addJavascriptInterface(new ADInterface(), "AndroidWebView");
+        String webUrl = ACache.get(getContext()).getAsString(CFConstant.USERNAME_SERVICE_URL);
+        if (Check.isEmpty(webUrl)) {
+            webUrl = CFConstant.USERNAME_SERVICE_DEFAULT_URL;
+        }
+        wvServiceOnline.loadUrl("http://58.84.55.207/room/test22.php");
     }
 
     //请求数据
@@ -498,7 +545,20 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     @Subscribe
     public void onEventMain(LogoutResult logoutResult) {
         GameLog.log("================投注页面需要消失的================");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, "");
+        EventBus.getDefault().post(new MainEvent(0));
         finish();
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        //先判断是否登录  如果没有登录 需要登录然后在显示这个界面
+        String token = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+        if (Check.isEmpty(token)) {
+            EventBus.getDefault().post(new MainEvent(0));
+            EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
+        }
     }
 
     //非任选且不为单式时刷新投注注数及金额
@@ -510,7 +570,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         generateMoney();
     }
 
-    //任选且为单式时刷新投注注数及金额
+    //重庆时时彩任选且为单式时刷新投注注数及金额
     @Subscribe
     public void onEventMain(OptionalSizeEvent optionalSizeEvent) {
         mListSecSize = optionalSizeEvent.getSize();
@@ -524,12 +584,28 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             mCountDownTimer.cancel();
         }
         EventBus.getDefault().unregister(this);
+        try {
+            if (!Check.isNull(wvServiceOnline)) {
+                ViewParent parent = wvServiceOnline.getParent();
+                if (!Check.isNull(parent)) {
+                    ((ViewGroup) parent).removeAllViews();
+                }
+                wvServiceOnline.stopLoading();
+                wvServiceOnline.clearHistory();
+                wvServiceOnline.removeAllViews();
+                wvServiceOnline.destroy();
+                wvServiceOnline = null;
+                System.gc();
+                GameLog.log("PayGanmeActivity:--------onDestroy()--------");
+            }
+        } catch (Exception value) {
+            GameLog.log("PayGanmeActivity异常:" + value);
+        }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "NewApi"})
     @OnClick({R.id.betTitleBack, R.id.betTitleLay, R.id.betTitleSet, R.id.betDaysProfit, R.id.betTitleMenu, R.id.betArea, R.id.betChat, R.id.betMethodNameLay, R.id.betModel, R.id.betMinus, R.id.betPlus, R.id.betClear, R.id.betSubmit, R.id.betSure, R.id.tv_delete, R.id.tv_clear})
     public void onViewClicked(View view) {
-        //赔率的进度条  减法不能小于最小值
         switch (view.getId()) {
             case R.id.betTitleBack:
                 finish();
@@ -564,9 +640,16 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("", "")));
                 break;
             case R.id.betArea:
-
+                llBet.setVisibility(View.VISIBLE);
+                llChart.setVisibility(View.GONE);
+                betArea.setTextColor(_mActivity.getColor(R.color.text_bet_clicked));
+                betChat.setTextColor(_mActivity.getColor(R.color.black));
                 break;
             case R.id.betChat:
+                llBet.setVisibility(View.GONE);
+                llChart.setVisibility(View.VISIBLE);
+                betArea.setTextColor(_mActivity.getColor(R.color.black));
+                betChat.setTextColor(_mActivity.getColor(R.color.text_bet_clicked));
                 break;
             case R.id.betMethodNameLay:
                 showArrowAnim(betMethodDown);
@@ -705,7 +788,9 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     private void setBetNumber(BetGameSettingsForRefreshResult betGameSettingsForRefreshResult) {
         LinearLayoutManager betNum = new LinearLayoutManager(_mActivity);
         betNum.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvBetNum.setLayoutManager(betNum);
+        if (rvBetNum!=null){
+            rvBetNum.setLayoutManager(betNum);
+        }
         LotteryNumDetailsAdapter lotteryNumAdapter;
         List<String> numList = new ArrayList<>();
         if (TextUtils.isEmpty(betGameSettingsForRefreshResult.getData().getIssueHistory().getIssues().get(0).getWn_number())) {
@@ -781,7 +866,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         }.start();
     }
 
-    //任选模式下单式的计算注数
+    //重庆时时彩任选模式下单式的计算注数
     private void optional() {
         generateMoney = new GenerateMoney(lottery_id, wayGroups, position, mOptional, mListSecSize);
         number = generateMoney.generateMoney();
@@ -828,5 +913,145 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         animation.setDuration(500);
         animation.setInterpolator(new DecelerateInterpolator());
         return animation;
+    }
+
+    public class ADInterface {
+
+        @JavascriptInterface
+        public void closeWebView(String actionName, String param) {
+        }
+
+        @JavascriptInterface
+        public void goLogin(String actionName, String param) {
+            //EventBus.getDefault().post(new StartBrotherEvent(NLoginFragment.newInstance("", ""), SINGLETASK));
+        }
+
+        @JavascriptInterface
+        public void chatRoomUserLoginInfo(String foo) {
+            //必须开启线程进行JS调用
+            wvServiceOnline.post(new Runnable() {
+                @Override
+                public void run() {
+                    JSLoginParamBet userInformJS = new JSLoginParamBet();
+                    userInformJS.setUsername(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT));
+                    userInformJS.setPassword(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PWD));
+                    userInformJS.setApi_id("2");
+                    userInformJS.setParent(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT_ID));
+                    userInformJS.setRoomid("0");
+                    userInformJS.setToken(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+                    String userInformJson = new Gson().toJson(userInformJS);
+                    Log.e("Colin---",userInformJson);
+                    if (!Check.isNull(wvServiceOnline)) {
+                        wvServiceOnline.loadUrl("javascript:chatRoomUserLoginInfo('" + userInformJson + "')");
+                    }
+                }
+            });
+        }
+
+    }
+
+    private void webViewSetting(WebView webView) {
+
+        webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+                super.onPageStarted(webView, s, bitmap);
+                indicator.start();
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                indicator.complete();
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            IX5WebChromeClient.CustomViewCallback customViewCallback;
+
+            @Override
+            public void onHideCustomView() {
+                if (null != customViewCallback) {//!Check.isNull(customViewCallback)
+                    customViewCallback.onCustomViewHidden();
+                }
+                wvServiceOnline.setVisibility(View.VISIBLE);
+                flayoutXpay.removeAllViews();
+                flayoutXpay.setVisibility(View.GONE);
+                super.onHideCustomView();
+            }
+
+            @Override
+            public void onShowCustomView(View view, IX5WebChromeClient.CustomViewCallback customViewCallback) {
+                wvServiceOnline.setVisibility(View.GONE);
+                this.customViewCallback = customViewCallback;
+                flayoutXpay.removeAllViews();
+                flayoutXpay.setVisibility(View.VISIBLE);
+                flayoutXpay.addView(view);
+                super.onShowCustomView(view, customViewCallback);
+            }
+
+            // For Android  > 4.1.1
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                openFileChooseProcess();
+            }
+
+            // For Android  >= 5.0
+            public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+                BetFragment.this.uploadFiles = filePathCallback;
+                openFileChooseProcess();
+                return true;
+            }
+        });
+
+    }
+
+    private void openFileChooseProcess() {
+        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+        i.addCategory(Intent.CATEGORY_OPENABLE);
+        i.setType("*/*");
+        startActivityForResult(Intent.createChooser(i, "cf_better"), 0);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case 0:
+                    if (null != uploadFile) {
+                        Uri result = data == null ? null
+                                : data.getData();
+                        uploadFile.onReceiveValue(result);
+                        uploadFile = null;
+                    }
+                    if (null != uploadFiles) {
+                        Uri result = data == null ? null
+                                : data.getData();
+                        uploadFiles.onReceiveValue(new Uri[]{result});
+                        uploadFiles = null;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } else if (resultCode == RESULT_CANCELED) {
+            if (null != uploadFile) {
+                uploadFile.onReceiveValue(null);
+                uploadFile = null;
+            }
+        }
     }
 }

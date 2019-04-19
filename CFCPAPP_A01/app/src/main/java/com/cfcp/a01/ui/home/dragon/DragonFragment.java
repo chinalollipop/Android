@@ -1445,6 +1445,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                     name = "北京PK拾";
                     ids = R.mipmap.gf_pk10;
                     break;
+                case "52"://北京PK拾 5
+                    name = "北京PK拾5分彩";
+                    ids = R.mipmap.xy_js5sc;
+                    break;
                 case "1":
                     name = "欢乐生肖";
                     ids = R.mipmap.gf_ssc;
@@ -1536,6 +1540,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                 case "50":
                     name = "北京PK拾";
                     ids = R.mipmap.gf_pk10;
+                    break;
+                case "52"://北京PK拾 5
+                    name = "北京PK拾5分彩";
+                    ids = R.mipmap.xy_js5sc;
                     break;
                 case "1":
                     name = "欢乐生肖";
@@ -1690,6 +1698,9 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                 case "50":
                     name = "北京PK拾";
                     break;
+                case "52"://北京PK拾 5
+                    name = "北京PK拾5分彩";
+                    break;
                 case "1":
                     name = "重庆时时彩";
                     break;
@@ -1795,7 +1806,7 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
 
     @Override
     public void showMessage(String message) {
-        //super.showMessage(message);
+        super.showMessage(message);
         number = "";
         EventBus.getDefault().post(new DragonBetCloseEvent(message));
     }

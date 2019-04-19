@@ -116,6 +116,9 @@ public abstract class CFConstant {
     public static final String USERNAME_LOGIN_PARENT_ID = "username_login_parent_id";
 
 
+    //用户的parent_id
+    public static final String USERNAME_LOGIN_PARENT = "username_login_parent";
+
     //用户的是否设置过资金密码
     public static final String USERNAME_LOGIN_FUND_PWD = "username_login_fund_pwd";
 

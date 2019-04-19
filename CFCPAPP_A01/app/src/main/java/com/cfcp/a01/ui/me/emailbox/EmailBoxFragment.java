@@ -44,7 +44,7 @@ public class EmailBoxFragment extends BaseFragment implements EmailBoxContract.V
     @BindView(R.id.emailListBackRView)
     RecyclerView emailListBackRView;
     String startTime, endTime;
-    List<EmailBoxListResult> noticeListBeanList;
+    List<EmailBoxListResult.ListBean> noticeListBeanList;
     public static EmailBoxFragment newInstance(String deposit_mode, String money) {
         EmailBoxFragment betFragment = new EmailBoxFragment();
         Bundle args = new Bundle();
@@ -86,24 +86,24 @@ public class EmailBoxFragment extends BaseFragment implements EmailBoxContract.V
     }
 
 
-    class EmailListAdapter extends BaseQuickAdapter<EmailBoxListResult, BaseViewHolder>{
+    class EmailListAdapter extends BaseQuickAdapter<EmailBoxListResult.ListBean, BaseViewHolder>{
 
-        public EmailListAdapter(int layoutResId, @Nullable List<EmailBoxListResult> data) {
+        public EmailListAdapter(int layoutResId, @Nullable List<EmailBoxListResult.ListBean> data) {
             super(layoutResId, data);
         }
 
         @Override
-        protected void convert(BaseViewHolder helper, EmailBoxListResult item) {
+        protected void convert(BaseViewHolder helper, EmailBoxListResult.ListBean item) {
             helper.setText(R.id.itemEmailTitle,item.getMsg_title()).
                     setText(R.id.itemEmailTime,item.getCreated_at());
         }
     }
 
     @Override
-    public void getPersonReportResult(List<EmailBoxListResult> emailBoxListResult) {
+    public void getPersonReportResult(EmailBoxListResult emailBoxListResult) {
 
         GameLog.log("收件箱的数据正常");
-        noticeListBeanList = emailBoxListResult;
+        noticeListBeanList = emailBoxListResult.getList();
         EmailListAdapter emailListAdapter = new EmailListAdapter(R.layout.item_email_list, noticeListBeanList);
         if(noticeListBeanList.size()==0){
             View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);

@@ -32,8 +32,8 @@ public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHold
     private boolean mSingleSelection = false;//号码选择是否为单选
     private List<UpBetData> updateBetList = new ArrayList<>();
     private List<Integer> listSec = new ArrayList<>();//有FootView时底部re的选择
-    private int mLotteryID = 0;
-    private int mSelectMode = 0;
+    private int mSelectKs = 0;
+    private int mSelectEleven = 0;
     private int mSelectHappy8 = 0;
     private int listSecSize = 0;//根据任选模式判断底部选择数量
 
@@ -69,10 +69,10 @@ public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHold
         //设置数字号码区域RecyclerView
         RecyclerView rvBet = helper.getView(R.id.rv_bet);
         rvBet.setLayoutManager(new FlowLayoutManager());
-        final LotteryBetAdapter mLotteryBetAdapter = new LotteryBetAdapter(item.getData(), helper.getLayoutPosition(), mLotteryID);
+        final LotteryBetAdapter mLotteryBetAdapter = new LotteryBetAdapter(item.getData(), helper.getLayoutPosition(), mSelectKs);
         rvBet.setAdapter(mLotteryBetAdapter);
         mLotteryOptionAdapter.setSelect(optionLayoutPosition, optionSelectPosition);
-        switch (mSelectMode) {//11选5下的特殊选择模式
+        switch (mSelectEleven) {//11选5下的特殊选择模式
             case 113:
             case 114:
             case 115:
@@ -199,7 +199,7 @@ public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHold
                 for (int i = 0; i < selectList.size(); i++) {
                     updateBetList.get(optionLayoutPosition).getSelectList().add(selectList.get(i));
                 }
-                if (mSelectMode != 0) {//11选5特殊选择模式下的删除
+                if (mSelectEleven != 0) {//11选5特殊选择模式下的删除
                     updateBetList.get(1).getSelectList().removeAll(updateBetList.get(0).getSelectList());
                 }
                 EventBus.getDefault().post(updateBetList);
@@ -228,7 +228,7 @@ public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHold
                     }
                 }
                 //单独设置11选5下的特殊选择模式
-                switch (mSelectMode) {
+                switch (mSelectEleven) {
                     case 113:
                     case 114:
                     case 115:
@@ -238,25 +238,25 @@ public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHold
                     case 119:
                     case 120:
                     case 121:
-                        if ((mSelectMode == 113 || mSelectMode == 120) && updateBetList.get(0).getSelectList().size() > 1) {
+                        if ((mSelectEleven == 113 || mSelectEleven == 120) && updateBetList.get(0).getSelectList().size() > 1) {
                             updateBetList.get(0).getSelectList().remove(0);
                         }
-                        if ((mSelectMode == 114 || mSelectMode == 121) && updateBetList.get(0).getSelectList().size() > 2) {
+                        if ((mSelectEleven == 114 || mSelectEleven == 121) && updateBetList.get(0).getSelectList().size() > 2) {
                             updateBetList.get(0).getSelectList().remove(1);
                         }
-                        if (mSelectMode == 115 && updateBetList.get(0).getSelectList().size() > 3) {
+                        if (mSelectEleven == 115 && updateBetList.get(0).getSelectList().size() > 3) {
                             updateBetList.get(0).getSelectList().remove(2);
                         }
-                        if (mSelectMode == 116 && updateBetList.get(0).getSelectList().size() > 4) {
+                        if (mSelectEleven == 116 && updateBetList.get(0).getSelectList().size() > 4) {
                             updateBetList.get(0).getSelectList().remove(3);
                         }
-                        if (mSelectMode == 117 && updateBetList.get(0).getSelectList().size() > 5) {
+                        if (mSelectEleven == 117 && updateBetList.get(0).getSelectList().size() > 5) {
                             updateBetList.get(0).getSelectList().remove(4);
                         }
-                        if (mSelectMode == 118 && updateBetList.get(0).getSelectList().size() > 6) {
+                        if (mSelectEleven == 118 && updateBetList.get(0).getSelectList().size() > 6) {
                             updateBetList.get(0).getSelectList().remove(5);
                         }
-                        if (mSelectMode == 119 && updateBetList.get(0).getSelectList().size() > 7) {
+                        if (mSelectEleven == 119 && updateBetList.get(0).getSelectList().size() > 7) {
                             updateBetList.get(0).getSelectList().remove(6);
                         }
                         if (betLayoutPosition == 0) {
@@ -420,13 +420,13 @@ public class LotteryAdapter extends BaseQuickAdapter<LotteryResult, BaseViewHold
     }
 
     //单独设置快三类的样式
-    public void setLotteryID(int lotteryID) {
-        mLotteryID = lotteryID;
+    public void setKs(int selectMode) {
+        mSelectKs = selectMode;
     }
 
     //单独设置十一选5的特殊选择模式
     public void setEleven(int selectMode) {
-        mSelectMode = selectMode;
+        mSelectEleven = selectMode;
     }
 
     //单独设置北京快乐8的特殊选择模式

@@ -41,9 +41,9 @@ public class EmailBoxPresenter implements EmailBoxContract.Presenter {
         params.put("emailbox","inbox");
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getPersonReport(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<EmailBoxListResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<EmailBoxListResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<EmailBoxListResult> response) {
+                    public void success(AppTextMessageResponse<EmailBoxListResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getPersonReportResult(response.getData());
                         } else {

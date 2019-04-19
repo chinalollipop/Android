@@ -21,7 +21,7 @@ public interface IEmailBoxApi {
 
     //存款方式提交 (encoded = true)
     @GET("service")
-    Observable<AppTextMessageResponseList<EmailBoxListResult>> getPersonReport(
+    Observable<AppTextMessageResponse<EmailBoxListResult>> getPersonReport(
             @QueryMap Map<String, String> params
     );
 }

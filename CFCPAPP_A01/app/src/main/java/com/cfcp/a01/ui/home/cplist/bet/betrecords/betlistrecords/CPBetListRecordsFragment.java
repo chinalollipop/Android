@@ -93,6 +93,9 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                 case "50":
                     name ="北京PK拾";
                     break;
+                case "76":
+                    name ="北京赛车";
+                    break;
                 case "1":
                     name ="欢乐生肖";
                     break;
@@ -195,6 +198,9 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                 case "50":
                     name ="北京PK拾";
                     break;
+                case "76":
+                    name ="北京赛车";
+                    break;
                 case "1":
                     name ="欢乐生肖";
                     break;
@@ -212,6 +218,15 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     break;
                 case "10":
                     name ="江苏骰宝(快3)";
+                    break;
+                case "73":
+                    name ="极速快3五分彩";
+                    break;
+                case "74":
+                    name ="极速快3三分彩";
+                    break;
+                case "75":
+                    name ="极速快3分分彩";
                     break;
                 case "51":
                     name ="极速赛车";

@@ -3,7 +3,9 @@ package com.cfcp.a01.ui.home.cplist;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -60,8 +63,10 @@ import com.cfcp.a01.data.CQ3FCResult;
 import com.cfcp.a01.data.CQ5FCResult;
 import com.cfcp.a01.data.CQSSCResult;
 import com.cfcp.a01.data.Cp11X5Result;
+import com.cfcp.a01.data.JSLoginParam;
 import com.cfcp.a01.data.PCDDResult;
 import com.cfcp.a01.data.PersonBalanceResult;
+import com.cfcp.a01.ui.chat.ChatFragment;
 import com.cfcp.a01.ui.home.bet.BetFragment;
 import com.cfcp.a01.ui.home.cplist.bet.BetCPOrderDialog;
 import com.cfcp.a01.ui.home.cplist.bet.CPBetParams;
@@ -82,11 +87,19 @@ import com.cfcp.a01.ui.home.cplist.quickbet.QuickBetParam;
 import com.cfcp.a01.ui.main.MainEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.kongzue.dialog.v2.DialogSettings;
 import com.kongzue.dialog.v2.MessageDialog;
 import com.kongzue.dialog.v2.SelectDialog;
+import com.kongzue.dialog.v2.WaitDialog;
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
+import com.tencent.smtt.export.external.interfaces.SslError;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -252,6 +265,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     private boolean isCloseLottery = false;
     CPQuickBetResult cpQuickBetResult;
     private List<AllGamesResult.DataBean.LotteriesBean> XinYongLotteries = new ArrayList<>();
+
+    private ValueCallback<Uri> uploadFile;
+    private ValueCallback<Uri[]> uploadFiles;
     static {
         //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
         homePageIcons.add(new HomePageIcon("系统菜单", 0));
@@ -290,6 +306,192 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         cpLeftEventList2.add("龙");*/
 
 
+    }
+
+
+    private void webviewsetting(WebView webView) {
+
+        webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+                super.onPageStarted(webView, s, bitmap);
+                //WaitDialog.show(getContext(),"加载中...").setCanCancel(true);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                //WaitDialog.dismiss();
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            IX5WebChromeClient.CustomViewCallback customViewCallback;
+
+            @Override
+            public void onHideCustomView() {
+                if(null!=customViewCallback){//!Check.isNull(customViewCallback)
+                    customViewCallback.onCustomViewHidden();
+                }
+                cpOrderChatAreaLay.setVisibility(View.VISIBLE);
+                super.onHideCustomView();
+            }
+
+            @Override
+            public void onShowCustomView(View view, IX5WebChromeClient.CustomViewCallback customViewCallback) {
+                cpOrderChatAreaLay.setVisibility(View.GONE);
+                this.customViewCallback = customViewCallback;
+                super.onShowCustomView(view, customViewCallback);
+            }
+            // For Android 3.0+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
+                GameLog.log("openFileChooser 1");
+                CPOrderFragment.this.uploadFile = uploadFile;
+                openFileChooseProcess();
+            }
+
+            // For Android < 3.0
+            public void openFileChooser(ValueCallback<Uri> uploadMsgs) {
+                GameLog.log("openFileChooser 2");
+                CPOrderFragment.this.uploadFile = uploadFile;
+                openFileChooseProcess();
+            }
+
+            // For Android  > 4.1.1
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                GameLog.log("openFileChooser 3");
+                CPOrderFragment.this.uploadFile = uploadFile;
+                openFileChooseProcess();
+            }
+
+            // For Android  >= 5.0
+            public boolean onShowFileChooser(WebView webView,
+                                             ValueCallback<Uri[]> filePathCallback,
+                                             FileChooserParams fileChooserParams) {
+                GameLog.log("openFileChooser 4:" + filePathCallback.toString());
+                CPOrderFragment.this.uploadFiles = filePathCallback;
+                openFileChooseProcess();
+                return true;
+            }
+
+        });
+
+    }
+
+    private void openFileChooseProcess() {
+        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+        i.addCategory(Intent.CATEGORY_OPENABLE);
+        i.setType("*/*");
+        startActivityForResult(Intent.createChooser(i, "cf_better"), 0);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case 0:
+                    if (null != uploadFile) {
+                        Uri result = data == null || resultCode != RESULT_OK ? null
+                                : data.getData();
+                        uploadFile.onReceiveValue(result);
+                        uploadFile = null;
+                    }
+                    if (null != uploadFiles) {
+                        Uri result = data == null || resultCode != RESULT_OK ? null
+                                : data.getData();
+                        uploadFiles.onReceiveValue(new Uri[]{result});
+                        uploadFiles = null;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } else if (resultCode == RESULT_CANCELED) {
+            if (null != uploadFile) {
+                uploadFile.onReceiveValue(null);
+                uploadFile = null;
+            }
+        }
+    }
+
+
+    public class ADInterface{
+        private Context mContext;
+
+        public ADInterface(Context mContext){
+            this.mContext = mContext;
+        }
+
+        @JavascriptInterface
+        public void closeWebview(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+        }
+        @JavascriptInterface
+        public void goLogin(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+            //EventBus.getDefault().post(new StartBrotherEvent(NLoginFragment.newInstance("", ""), SINGLETASK));
+        }
+
+        @JavascriptInterface
+        public void chatRoomUserLoginInfo(String foo){
+            GameLog.log("javascriptTOjava(getLoginInfo");
+            //必须开启线程进行JS调用
+            cpOrderChatAreaLay.post(new Runnable() {
+                @Override
+                public void run() {
+                    JSLoginParam userInformJS  =new JSLoginParam();
+                    userInformJS.setUsername(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT));
+                    userInformJS.setPassword(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PWD));
+                    userInformJS.setApi_id("1");
+                    userInformJS.setParent(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT));
+                    userInformJS.setRoomid("0");
+                    userInformJS.setToken(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+                    String userInformJson = new Gson().toJson(userInformJS);
+                    //wvAd.loadData("","text/html","UTF-8");
+                    if(!Check.isNull(cpOrderChatAreaLay))//chatRoomUserLoginInfo getLoginInfo
+                        cpOrderChatAreaLay.loadUrl("javascript:chatRoomUserLoginInfo('"+userInformJson+"')");
+                    //wvAd.loadUrl("javascript:showInfoFromJava('"+userInformJson+ "')");
+                }
+            });
+
+        }
+
+        @JavascriptInterface
+        public void openNewWebView(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+            //EventBus.getDefault().post(new StartBrotherEvent(IntroduceFragment.newInstance(param,actionName)));
+        }
+
+        @JavascriptInterface
+        public void goDeposit(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+            //EventBus.getDefault().post(new ADEvent(1,"adEvent"));
+        }
+
+    }
+
+
+    private void initWebView(){
+        CPIWebSetting.init(cpOrderChatAreaLay);//http://58.84.55.207/ https://www.google.com/
+        webviewsetting(cpOrderChatAreaLay);
+        cpOrderChatAreaLay.addJavascriptInterface(new ADInterface(getContext()),"AndroidWebView");
+        cpOrderChatAreaLay.loadUrl("http://58.84.55.207/room/test22.php");
     }
 
    /* public static CPOrderFragment newInstance(List<String> param1) {
@@ -26645,7 +26847,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         CPBetManager.getSingleton().onClearData();
         x_session_token = ACache.get(Utils.getContext()).getAsString(CFConstant.APP_CP_X_SESSION_TOKEN);
         onChangeData();
-
+        initWebView();
         //setSystemUIVisible(false);
         cpOrderTitle.setText(titleName);
         /*ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -28837,8 +29039,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 cpOrderChatAreaLay.setVisibility(View.VISIBLE);
                 cpOrderBetAreaLay.setVisibility(View.GONE);
                 cpOrderBottom.setVisibility(View.GONE);
-                CPIWebSetting.init(cpOrderChatAreaLay);//http://58.84.55.207/ https://www.google.com/
-                cpOrderChatAreaLay.loadUrl("http://58.84.55.207/");
+
                 break;
             case R.id.cpOrderTeMaA:
                 onResetData();

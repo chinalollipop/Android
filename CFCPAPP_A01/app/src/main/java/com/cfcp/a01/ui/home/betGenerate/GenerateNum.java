@@ -21,7 +21,7 @@ public class GenerateNum {
         lotteryAdapter.setPlacesShow(true);
         lotteryAdapter.setSingleSelection(false);
         lotteryAdapter.removeAllFooterView();
-        lotteryAdapter.setLotteryID(0);
+        lotteryAdapter.setKs(0);
         lotteryAdapter.setEleven(0);
         switch (lottery_id) {
             //时时彩类
@@ -41,13 +41,16 @@ public class GenerateNum {
             case 10:
             case 19:
             case 49:
+            case 52:
                 lotteryAdapter.setNewData(Pk10GenerateNum.allNum());
                 break;
             //快三类
             case 15:
             case 17:
+            case 50:
+            case 51:
                 lotteryAdapter.setNewData(KsGenerateNum.sumKS());
-                lotteryAdapter.setLotteryID(lottery_id);
+                lotteryAdapter.setKs(lottery_id);
                 lotteryAdapter.setPlacesShow(false);
                 break;
             //3D
@@ -70,7 +73,7 @@ public class GenerateNum {
         rvLottery.setVisibility(View.VISIBLE);
         llLotteryInput.setVisibility(View.GONE);
         lotteryAdapter.removeAllFooterView();
-        lotteryAdapter.setLotteryID(0);
+        lotteryAdapter.setKs(0);
         lotteryAdapter.setEleven(0);
         lotteryAdapter.setHappy8(0);
         switch (lottery_id) {
@@ -518,7 +521,7 @@ public class GenerateNum {
             case 17:
             case 50:
             case 51:
-                lotteryAdapter.setLotteryID(lottery_id);
+                lotteryAdapter.setKs(lottery_id);
                 switch (mBetMethodContentID) {
                     case 65:
                         lotteryAdapter.setNewData(KsGenerateNum.sumKS());

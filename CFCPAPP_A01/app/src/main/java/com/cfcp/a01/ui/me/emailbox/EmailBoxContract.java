@@ -21,6 +21,6 @@ public interface EmailBoxContract {
 
     interface View extends IView<Presenter>, IMessageView {
 
-        void getPersonReportResult(List<EmailBoxListResult> emailBoxListResult);
+        void getPersonReportResult(EmailBoxListResult emailBoxListResult);
     }
 }

@@ -1,5 +1,6 @@
 package com.cfcp.a01.ui.chat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,16 +9,23 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.CPIWebSetting;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.data.JSLoginParam;
+import com.cfcp.a01.data.LogoutResult;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
+import com.cfcp.a01.ui.main.MainEvent;
 import com.coolindicator.sdk.CoolIndicator;
+import com.google.gson.Gson;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -25,6 +33,9 @@ import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -58,16 +69,92 @@ public class ChatFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         mCoolIndicator.setMax(100);
         CPIWebSetting.init(wvServiceOnlineContent);
         webviewsetting(wvServiceOnlineContent);
+        wvServiceOnlineContent.addJavascriptInterface(new ADInterface(getActivity()),"AndroidWebView");
+
         String webUrl = ACache.get(getContext()).getAsString(CFConstant.USERNAME_SERVICE_URL);
         if (Check.isEmpty(webUrl)) {
             webUrl = CFConstant.USERNAME_SERVICE_DEFAULT_URL;
         }
+        webUrl  = "http://58.84.55.207/room/test22.php";//http://58.84.55.207/room/test33.php
         GameLog.log("加载了在线客服。。。");
         //wvServiceOnlineContent.clearCache(true);
         wvServiceOnlineContent.loadUrl(webUrl);
+        /*wvServiceOnlineContent.post(new Runnable() {
+            @Override
+            public void run() {
+                JSLoginParam userInformJS  =new JSLoginParam();
+                userInformJS.setUsername(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT));
+                userInformJS.setPassword(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PWD));
+                userInformJS.setApi_id("1");
+                userInformJS.setParent(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT));
+                userInformJS.setRoomid("0");
+                userInformJS.setToken(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+                String userInformJson = new Gson().toJson(userInformJS);
+                //wvAd.loadData("","text/html","UTF-8");
+                if(!Check.isNull(wvServiceOnlineContent))//chatRoomUserLoginInfo getLoginInfo
+                    wvServiceOnlineContent.loadUrl("javascript:chatRoomUserLoginInfo('"+userInformJson+"')");
+                //wvAd.loadUrl("javascript:showInfoFromJava('"+userInformJson+ "')");
+            }
+        });*/
+    }
+
+    public class ADInterface{
+        private Context mContext;
+
+        public ADInterface(Context mContext){
+            this.mContext = mContext;
+        }
+
+        @JavascriptInterface
+        public void closeWebview(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+        }
+        @JavascriptInterface
+        public void goLogin(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+            //EventBus.getDefault().post(new StartBrotherEvent(NLoginFragment.newInstance("", ""), SINGLETASK));
+        }
+
+        @JavascriptInterface
+        public void chatRoomUserLoginInfo(String foo){
+            GameLog.log("javascriptTOjava(getLoginInfo");
+            //必须开启线程进行JS调用
+            wvServiceOnlineContent.post(new Runnable() {
+                @Override
+                public void run() {
+                    JSLoginParam userInformJS  =new JSLoginParam();
+                    userInformJS.setUsername(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT));
+                    userInformJS.setPassword(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PWD));
+                    userInformJS.setApi_id("1");
+                    userInformJS.setParent(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT));
+                    userInformJS.setRoomid("0");
+                    userInformJS.setToken(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+                    String userInformJson = new Gson().toJson(userInformJS);
+                    //wvAd.loadData("","text/html","UTF-8");
+                    if(!Check.isNull(wvServiceOnlineContent))//chatRoomUserLoginInfo getLoginInfo
+                        wvServiceOnlineContent.loadUrl("javascript:chatRoomUserLoginInfo('"+userInformJson+"')");
+                    //wvAd.loadUrl("javascript:showInfoFromJava('"+userInformJson+ "')");
+                }
+            });
+
+        }
+
+        @JavascriptInterface
+        public void openNewWebView(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+            //EventBus.getDefault().post(new StartBrotherEvent(IntroduceFragment.newInstance(param,actionName)));
+        }
+
+        @JavascriptInterface
+        public void goDeposit(String actionName,String param){
+            GameLog.log("javascriptTOjava("+actionName+","+param+")");
+            //EventBus.getDefault().post(new ADEvent(1,"adEvent"));
+        }
+
     }
 
 
@@ -227,7 +314,7 @@ public class ChatFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -235,7 +322,22 @@ public class ChatFragment extends BaseFragment {
         super.onSupportVisible();
         //showMessage("开奖结果界面");
         //EventBus.getDefault().post(new MainEvent(0));
+        //先判断是否登录  如果没有登录 需要登录然后在显示这个界面
+        String token = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+        GameLog.log(" onSupportVisible  个人的token是 "+token );
+        if(Check.isEmpty(token)){
+            EventBus.getDefault().post(new MainEvent(0));
+            EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
+        }
+    }
 
+
+    @Subscribe
+    public void onEventMain(LogoutResult logoutResult) {
+        GameLog.log("=======在线聊天界面=========用户退出了================");
+        //meUser.setText("");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN,"");
+        EventBus.getDefault().post(new MainEvent(0));
     }
 
     @OnClick(R.id.servicePageRefresh)
@@ -244,6 +346,7 @@ public class ChatFragment extends BaseFragment {
         if(Check.isEmpty(webUrl)){
             webUrl = CFConstant.USERNAME_SERVICE_DEFAULT_URL;
         }
+        webUrl = "http://58.84.55.207/room/test22.php";
         wvServiceOnlineContent.loadUrl(webUrl);
     }
 

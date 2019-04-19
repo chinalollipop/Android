@@ -268,6 +268,7 @@ public class JointBetNumber {
             case 10:
             case 19:
             case 49:
+            case 52:
                 List<Integer> listPK10 = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 89:
@@ -357,6 +358,8 @@ public class JointBetNumber {
             //快三类
             case 15:
             case 17:
+            case 50:
+            case 51:
                 List<Integer> listKS = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 65:

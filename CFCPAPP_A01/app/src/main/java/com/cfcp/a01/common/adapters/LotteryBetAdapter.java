@@ -19,7 +19,6 @@ public class LotteryBetAdapter extends BaseQuickAdapter<String, BaseViewHolder> 
     private List<UpBetData> isSelect = new ArrayList<>();//记录选择的投注号码位置
     private int mLotteryID;
     private List<Integer> modePosition = new ArrayList<>();
-    ;
 
     LotteryBetAdapter(List<String> data, int position, int lotteryID) {
         super(R.layout.item_lottery, data);

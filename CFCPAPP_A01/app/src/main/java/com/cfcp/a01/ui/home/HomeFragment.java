@@ -45,6 +45,7 @@ import com.cfcp.a01.ui.home.dragon.DragonFragment;
 import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
 import com.cfcp.a01.ui.home.playgame.XPlayGameActivity;
 import com.cfcp.a01.ui.home.playgame.XPlayGameFragment;
+import com.cfcp.a01.ui.home.service.ServiceFragment;
 import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
 import com.cfcp.a01.ui.home.withdraw.WithDrawFragment;
 import com.cfcp.a01.ui.main.MainEvent;
@@ -756,7 +757,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 }
                 break;
             case R.id.homeService:
-                EventBus.getDefault().post(new MainEvent(1));
+                EventBus.getDefault().post(new StartBrotherEvent(ServiceFragment.newInstance()));
+                //EventBus.getDefault().post(new MainEvent(1));
                 break;
             case R.id.homeOfficial:
                 postion = 0;
