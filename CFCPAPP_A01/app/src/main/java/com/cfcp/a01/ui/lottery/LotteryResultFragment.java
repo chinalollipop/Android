@@ -21,6 +21,7 @@ import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.TimeHelper;
 import com.cfcp.a01.data.AllGamesResult;
@@ -484,10 +485,12 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
     }
 
     private void initZTTablayout(String lottery_id){
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.getLotteryList("",lottery_id,"");
         lotteryResultTab.setVisibility(View.VISIBLE);
         switch (lottery_id){
-            case "50"://幸运飞艇
             case "48"://幸运飞艇
             case "49"://幸运飞艇
             case "10"://北京PK拾
@@ -498,7 +501,8 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             case "16"://Gw3fc
             case "28"://Gw5fc
             case "13"://Gwffc
-            case "1"://重庆时时彩
+            case "1"://欢乐生肖
+            case "53"://重庆时时彩
                 initCQSSC();
                 break;
             case "9"://广东11选5
@@ -509,6 +513,8 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             case "15"://江苏快三
             case "17"://Gwk3ffc
             case "30"://安徽快三
+            case "50"://极速快三五分彩
+            case "51"://
                 initJSK3();
                 break;
             case "20"://Gw3d
@@ -541,8 +547,10 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
     public void setEvents(@Nullable Bundle savedInstanceState) {
         //EventBus.getDefault().register(this);
         AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
-        lotteryResultType.setText(AvailableLottery.get(0).getName());
-        initZTTablayout(AvailableLottery.get(0).getLottery_id()+"");
+        if(!Check.isNull(AvailableLottery)) {
+            lotteryResultType.setText(AvailableLottery.get(0).getName());
+            initZTTablayout(AvailableLottery.get(0).getLottery_id() + "");
+        }
         initPK10TrendView();
         initCQTrendView();
         init11X5TrendView();
@@ -565,7 +573,14 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 initZTTablayout(lotteryId);
             }
         }).build();
-        typeOptionsPicker.setPicker(AvailableLottery);
+        try {
+            if (Check.isNull(AvailableLottery) || AvailableLottery.size() == 0) {
+                AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
+            }
+            typeOptionsPicker.setPicker(AvailableLottery);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     //初始化走势图视图
@@ -1518,6 +1533,8 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             case "15"://江苏快三
             case "17"://Gwk3ffc
             case "30"://安徽快三
+            case "50"://极速快三五分彩
+            case "51"://
                 mTrendListPK1.addAll(onShowK3(lotteryListResult,0));
                 mTrendListPK2.addAll(onShowK3(lotteryListResult,1));
                 mTrendListPK3.addAll(onShowK3(lotteryListResult,2));
@@ -1527,7 +1544,6 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 mTrendListPK2.addAll(onShowCQSSC(lotteryListResult,1));
                 mTrendListPK3.addAll(onShowCQSSC(lotteryListResult,2));
                 break;
-            case "50"://幸运飞艇
             case "48"://幸运飞艇
             case "49":
             case "10"://北京PK拾
@@ -1614,7 +1630,15 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             cpOrderLotteryOpen2.setNestedScrollingEnabled(false);
 
             switch (lotteryId){
-                case "50"://幸运飞艇
+                case "16"://Gw3fc
+                case "28"://Gw5fc
+                case "13"://Gwffc
+                case "1"://重庆时时彩
+                    cpOrderLotteryOpen1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    cpOrderLotteryOpen2.setVisibility(View.GONE);
+                    cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(R.layout.item_lottery_result_open_1,cpLeftEventList1));
+                    holder.setText(R.id.itemLotteryResultText,"总和："+total+" 大小："+((total >= 23)?"大":"小")+" 单双："+((total % 2 ==1)?"单":"双"));
+                    break;
                 case "48"://幸运飞艇
                 case "49"://幸运飞艇
                 case "10"://北京PK拾
@@ -1638,15 +1662,6 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                     cpOrderLotteryOpen2.setAdapter(new OpenRectangleGameAdapter(R.layout.item_cp_order_open_2,cpLeftEventList2));
                     holder.setGone(R.id.itemLotteryResultText,false);
                     break;
-                case "16"://Gw3fc
-                case "28"://Gw5fc
-                case "13"://Gwffc
-                case "1"://重庆时时彩
-                    cpOrderLotteryOpen1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                    cpOrderLotteryOpen2.setVisibility(View.GONE);
-                    cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(R.layout.item_lottery_result_open_1,cpLeftEventList1));
-                    holder.setText(R.id.itemLotteryResultText,"总和："+total+" 大小："+((total >= 23)?"大":"小")+" 单双："+((total % 2 ==1)?"单":"双"));
-                    break;
                 case "9"://广东11选5
                 case "14"://GW115
                 case "44"://11选5三分彩
@@ -1660,6 +1675,8 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 case "17"://Gwk3ffc
                 case "20"://Gw3d
                 case "30"://安徽快三
+                case "50"://极速快三五分彩
+                case "51"://
                     cpOrderLotteryOpen1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
                     cpOrderLotteryOpen2.setVisibility(View.GONE);

@@ -303,6 +303,7 @@ public class BetRecordResult {
             private String vs_team_name2;
             private String bet_content;
             private String bet_rate;
+            private String font_a;
 
             public String getM_League() {
                 return M_League;
@@ -350,6 +351,14 @@ public class BetRecordResult {
 
             public void setBet_rate(String bet_rate) {
                 this.bet_rate = bet_rate;
+            }
+
+            public String getFont_a() {
+                return font_a;
+            }
+
+            public void setFont_a(String font_a) {
+                this.font_a = font_a;
             }
         }
     }

@@ -41,12 +41,14 @@ class CqsscGenerateNum {
                 }
                 OptionalSizeEvent optionalSizeEvent = new OptionalSizeEvent();
                 optionalSizeEvent.setSize(listSec.size());
+                optionalSizeEvent.setListSec(listSec);
                 EventBus.getDefault().post(optionalSizeEvent);
                 mLotteryBottomAdapter.notifyDataSetChanged();
             }
         });
         OptionalSizeEvent optionalSizeEvent = new OptionalSizeEvent();
         optionalSizeEvent.setSize(listSec.size());
+        optionalSizeEvent.setListSec(listSec);
         EventBus.getDefault().post(optionalSizeEvent);
     }
 

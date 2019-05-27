@@ -59,7 +59,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
-                            ACache.get(Utils.getContext()).put(CFConstant.USERNAME_LOGIN_DEMO, "false");
+                            //ACache.get(Utils.getContext()).put(CFConstant.USERNAME_LOGIN_DEMO, "false");
                             view.postLoginResult(response.getData());
                         } else {
                             view.showMessage(response.getDescribe());
@@ -88,7 +88,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
-                            ACache.get(Utils.getContext()).put(CFConstant.USERNAME_LOGIN_DEMO, "true");
+                            //ACache.get(Utils.getContext()).put(CFConstant.USERNAME_LOGIN_DEMO, "true");
                             view.postLoginResult(response.getData());
                         } else {
                             view.showMessage(response.getDescribe());

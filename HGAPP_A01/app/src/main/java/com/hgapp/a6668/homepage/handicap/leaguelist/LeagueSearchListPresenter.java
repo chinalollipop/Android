@@ -1,12 +1,14 @@
 package com.hgapp.a6668.homepage.handicap.leaguelist;
 
 import com.hgapp.a6668.common.http.ResponseSubscriber;
+import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.RxHelper;
 import com.hgapp.a6668.common.util.SubscriptionHelper;
 import com.hgapp.a6668.data.LeagueDetailSearchListResult;
 import com.hgapp.a6668.data.LeagueSearchListResult;
 import com.hgapp.a6668.data.LeagueSearchTimeResult;
+import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.common.util.Check;
 
 
@@ -148,6 +150,31 @@ public class LeagueSearchListPresenter implements LeagueSearchListContract.Prese
                             }else{
                                 view.showMessage("暂无数据，请稍后再试！");
                             }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postMaintain() {
+        subscriptionHelper.add(RxHelper.addSugar(api.postMaintain(HGConstant.PRODUCT_PLATFORM))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<MaintainResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<MaintainResult> response) {
+                        //view.postDownAppGiftResult("38");
+                        if(response.isSuccess()){
+                            view.postMaintainResult(response.getData());
                         }else{
                             view.showMessage(response.getDescribe());
                         }

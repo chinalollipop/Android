@@ -513,6 +513,12 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                 adapter.notifyDataSetChanged();
             }
         });
+        if(Check.isNull(AlipayList)){
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_card_nodata, null);
+            depositMothedRViewAdapter.setEmptyView(view);
+            depositMothedRView.setAdapter(depositMothedRViewAdapter);
+            return;
+        }
         depositMothedRView.setAdapter(depositMothedRViewAdapter);
     }
 

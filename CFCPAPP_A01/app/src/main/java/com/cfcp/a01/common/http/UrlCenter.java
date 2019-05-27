@@ -18,68 +18,63 @@ import okhttp3.Response;
 
 public class UrlCenter {
 
-    public interface OnCompleteListener
-    {
+    public interface OnCompleteListener {
         void onComplete(String url);
+
         void onError(String msg);
     }
+
     private String pid;
     private OnCompleteListener listener;
-    public UrlCenter(String pid, OnCompleteListener listener)
-    {
+
+    public UrlCenter(String pid, OnCompleteListener listener) {
         this.pid = pid;
         this.listener = listener;
     }
 
-    public void getUrl()
-    {
+    public void getUrl() {
         Request request = new Request.Builder().url("http://b79-01.cdnp1.com/mobile/B79/mobileweb.json").get().build();
 
         Client.getClient().newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                GameLog.loge("获取主站地址出错了 " +e.getMessage());
-                if(null != listener)
-                {
+                GameLog.loge("获取主站地址出错了 " + e.getMessage());
+                if (null != listener) {
                     listener.onError("获取主站地址出错了 " + e.getMessage());
                 }
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     String body = response.body().string();
                     GameLog.log("从中心得到:" + body);
                     Gson gson = new Gson();
                     UrlCenterInfo urlCenterInfo = gson.fromJson(body, UrlCenterInfo.class);
-                    if(null != urlCenterInfo && null != urlCenterInfo.list )
-                    {
-                        for(UrlInfo urlInfo : urlCenterInfo.list)
-                        {
-                            if(pid.equals(urlInfo.pid))
-                            {
+                    if (null != urlCenterInfo && null != urlCenterInfo.list) {
+                        for (UrlInfo urlInfo : urlCenterInfo.list) {
+                            if (pid.equals(urlInfo.pid)) {
                                 GameLog.log("找到:" + pid + " --> " + urlInfo.url);
-                                if(null != listener)
-                                {
+                                if (null != listener) {
                                     listener.onComplete(urlInfo.url);
                                 }
                                 return;
                             }
                         }
                     }
+                }
             }
-        }});
+        });
     }
 
-    class UrlCenterInfo
-    {
+    class UrlCenterInfo {
         @SerializedName("title")
         public String title;
         @SerializedName("list")
         public List<UrlInfo> list;
     }
-    class UrlInfo
-    {
+
+    class UrlInfo {
         @SerializedName("pid")
         public String pid;
         @SerializedName("url")

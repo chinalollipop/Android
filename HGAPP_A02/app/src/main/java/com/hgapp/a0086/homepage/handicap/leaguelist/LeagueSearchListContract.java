@@ -7,6 +7,9 @@ import com.hgapp.a0086.base.IView;
 import com.hgapp.a0086.data.LeagueDetailSearchListResult;
 import com.hgapp.a0086.data.LeagueSearchListResult;
 import com.hgapp.a0086.data.LeagueSearchTimeResult;
+import com.hgapp.a0086.data.MaintainResult;
+
+import java.util.List;
 
 public interface LeagueSearchListContract {
 
@@ -17,6 +20,7 @@ public interface LeagueSearchListContract {
         public void postLeaguePassSearchList(String appRefer, String gtype,String showtype, String sorttype,String date);
         public void postLeagueSearchChampionList(String appRefer, String showtype,String FStype, String mtype);
         public void postLeagueDetailSearchList(String appRefer, String type,String more, String gid);
+        public void postMaintain();
     }
     public interface View extends IView<LeagueSearchListContract.Presenter>,IMessageView,IProgressView
     {
@@ -24,6 +28,7 @@ public interface LeagueSearchListContract {
         public void postLeagueSearchListResult(LeagueSearchListResult leagueSearchListResult);
         public void postLeagueSearchListNoDataResult(String message);
         public void postLeagueDetailSearchListResult(LeagueDetailSearchListResult leagueDetailSearchListResult);
+        public void postMaintainResult(List<MaintainResult> maintainResult);
     }
 
 }

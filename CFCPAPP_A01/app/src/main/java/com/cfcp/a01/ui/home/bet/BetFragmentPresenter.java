@@ -5,9 +5,11 @@ import com.cfcp.a01.common.http.ResponseSubscriber;
 import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BetDataResult;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -40,7 +42,11 @@ public class BetFragmentPresenter implements BetFragmentContract.Presenter {
                 .subscribe(new ResponseSubscriber<BetGameSettingsForRefreshResult>() {
                     @Override
                     public void success(BetGameSettingsForRefreshResult response) {
-                        view.setGameSettingsForRefreshResult(response, isRefresh);
+                        try {
+                            view.setGameSettingsForRefreshResult(response, isRefresh);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
@@ -66,6 +72,33 @@ public class BetFragmentPresenter implements BetFragmentContract.Presenter {
                     @Override
                     public void success(BetDataResult response) {
                         view.setBetResult(response);
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getAllGames(String appRefer) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "Game");
+        params.put("platform", "cf");
+        params.put("action", "GetAllGames");
+        subscriptionHelper.add(RxHelper.addSugar(api.getAllGames(params))
+                .subscribe(new ResponseSubscriber<AllGamesResult>() {
+                    @Override
+                    public void success(AllGamesResult response) {
+                        if (response.getErrno() == 0) {
+                            view.getAllGamesResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
                     }
 
                     @Override

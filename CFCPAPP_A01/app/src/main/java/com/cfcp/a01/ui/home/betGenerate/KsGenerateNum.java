@@ -13,7 +13,7 @@ class KsGenerateNum {
 
     //生成和值选项
     static List<LotteryResult> sumKS() {
-        String[] lotteryNum = {"大", "小", "单", "双", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"};
+        String[] lotteryNum = {"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"};
         List<LotteryResult> lotteryResultList = new ArrayList<>();
         LotteryResult lotteryResult = new LotteryResult();
         lotteryResult.setPlaces("和值");

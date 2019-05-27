@@ -78,10 +78,10 @@ import com.cfcp.a01.ui.me.record.betdetail.BetDetailPresenter;
 import com.cfcp.a01.ui.me.record.betdetail.IBetDetailApi;
 import com.cfcp.a01.ui.me.record.overbet.TraceListContract;
 import com.cfcp.a01.ui.me.record.overbet.TraceListPresenter;
-import com.cfcp.a01.ui.me.record.BetContract;
-import com.cfcp.a01.ui.me.record.BetPresenter;
+import com.cfcp.a01.ui.me.record.BetRecordContract;
+import com.cfcp.a01.ui.me.record.BetRecordPresenter;
 import com.cfcp.a01.ui.me.record.overbet.ITraceListApi;
-import com.cfcp.a01.ui.me.record.IBetApi;
+import com.cfcp.a01.ui.me.record.IBetRecordApi;
 import com.cfcp.a01.ui.me.record.tracedetail.ITraceDetailApi;
 import com.cfcp.a01.ui.me.record.tracedetail.TraceDetailContract;
 import com.cfcp.a01.ui.me.record.tracedetail.TraceDetailPresenter;
@@ -201,11 +201,11 @@ public class Injections {
     }
 
     //投注的逻辑处理
-    public static BetContract.Presenter inject(@NonNull BetContract.View view, @Nullable IBetApi iApi) {
+    public static BetRecordContract.Presenter inject(@NonNull BetRecordContract.View view, @Nullable IBetRecordApi iApi) {
         if (null == iApi) {
-            iApi = Client.getRetrofit().create(IBetApi.class);
+            iApi = Client.getRetrofit().create(IBetRecordApi.class);
         }
-        return new BetPresenter(iApi, view);
+        return new BetRecordPresenter(iApi, view);
     }
 
     //投注详情的逻辑处理

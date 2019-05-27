@@ -32,7 +32,7 @@ public class CPIWebSetting {
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
-        webSettings.setAppCacheEnabled(true);
+        webSettings.setAppCacheEnabled(false);
         webSettings.setAllowContentAccess(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setAllowFileAccessFromFileURLs(false);
@@ -42,8 +42,8 @@ public class CPIWebSetting {
         webSettings.setBuiltInZoomControls(false);
         webSettings.setCursiveFontFamily("cursive");
         webSettings.setDisplayZoomControls(true);
-        webSettings.setDatabaseEnabled(true);
-        webSettings.setDomStorageEnabled(true);
+        webSettings.setDatabaseEnabled(false);
+        webSettings.setDomStorageEnabled(false);
         webSettings.setFantasyFontFamily("fantasy");
         webSettings.setFixedFontFamily("monospace");
         webSettings.setJavaScriptCanOpenWindowsAutomatically(false);

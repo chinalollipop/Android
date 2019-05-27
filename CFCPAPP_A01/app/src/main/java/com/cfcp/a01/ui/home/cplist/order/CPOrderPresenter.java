@@ -68,7 +68,11 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPLeftInfoResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<CPLeftInfoResult> response) {
-                        view.postCPLeftInfoResult(response.getData());
+                        if(response.isSuccess()) {
+                            view.postCPLeftInfoResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
                     }
 
                     @Override

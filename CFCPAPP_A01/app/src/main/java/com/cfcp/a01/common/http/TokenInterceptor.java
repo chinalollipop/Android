@@ -36,20 +36,19 @@ public class TokenInterceptor implements Interceptor {
     //private IUserManager userManager = UserManagerFactory.get();
     private static final Charset UTF8 = Charset.forName("UTF-8");
     private ClientConfig config;
-    public TokenInterceptor(ClientConfig config)
-    {
+
+    public TokenInterceptor(ClientConfig config) {
         this.config = config;
     }
 
     @Override
-    public Response intercept(Chain chain)throws IOException{
+    public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         RequestBody requestBody = request.body();
         Response response = chain.proceed(request);
-        GameLog.log("code:"+response.code()+" message "+response.message());
+        GameLog.log("code:" + response.code() + " message " + response.message());
         //开始重试 有且仅重试一次
-        if(response.code()==401 && null == request.header("DoneTryToken"))
-        {
+        if (response.code() == 401 && null == request.header("DoneTryToken")) {
             /*RefreshTokenContract.Presenter presenter = Injections.inject((RefreshTokenContract.View)null);
             String newToken = presenter.synRefreshToken();
             if(Check.isEmpty(newToken))
@@ -59,20 +58,20 @@ public class TokenInterceptor implements Interceptor {
             userManager.modifyToken(newToken);*/
 
             Request completeRequest = request.newBuilder()
-                    .post(withNewToken(request.body(),""))
-                    .addHeader("DoneTryToken","yes")
+                    .post(withNewToken(request.body(), ""))
+                    .addHeader("DoneTryToken", "yes")
                     .build();
             return chain.proceed(completeRequest);
-        }else{
+        } else {
             ResponseBody responseBody = response.body();
             long contentLength = responseBody.contentLength();
-            String bodySize = contentLength != -1L?contentLength + "-byte":"unknown-length";
+            String bodySize = contentLength != -1L ? contentLength + "-byte" : "unknown-length";
             BufferedSource var33 = responseBody.source();
             var33.request(9223372036854775807L);
             Buffer var34 = var33.buffer();
             Charset charset = UTF8;
             MediaType contentType = responseBody.contentType();
-            if(contentType != null) {
+            if (contentType != null) {
                 try {
                     charset = contentType.charset(UTF8);
                 } catch (UnsupportedCharsetException var26) {
@@ -82,24 +81,24 @@ public class TokenInterceptor implements Interceptor {
                 }
             }
 
-            if(contentLength != 0L) {
+            if (contentLength != 0L) {
                 //GameLog.log("返回的数据是xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx：");
                 String resposeData = var34.clone().readString(charset);
-                if(Check.isEmpty(resposeData)){
+                if (Check.isEmpty(resposeData)) {
                     return response;
                 }
                 //GameLog.log(resposeData);
-                try{
-                    ReLoginResult restartLoginResult =  JSON.parseObject(resposeData, ReLoginResult.class);
-                    if(restartLoginResult.getErrno()==3004){
+                try {
+                    ReLoginResult restartLoginResult = JSON.parseObject(resposeData, ReLoginResult.class);
+                    if (restartLoginResult.getErrno() == 3004) {
                         //LoginFragment.newInstance().showMessage(restartLoginResult.getError());
                         //LoginFragment.newInstance().getPreFragment().popTo(LoginFragment.class,true);
                         //GameLog.log("返回的异常信息是："+restartLoginResult.getError());
                         Client.cancelAllRequest();
                         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     }
-                }catch (Exception e){
-                    GameLog.log(""+e.getMessage());
+                } catch (Exception e) {
+                    GameLog.log("" + e.getMessage());
                 }
             }
 
@@ -109,9 +108,7 @@ public class TokenInterceptor implements Interceptor {
     }
 
 
-
-    private RequestBody withNewToken(RequestBody requestBody, String newToken)
-    {
+    private RequestBody withNewToken(RequestBody requestBody, String newToken) {
         SerializerFeature[] serializerFeature = {
                 SerializerFeature.WriteMapNullValue,
                 SerializerFeature.WriteNullListAsEmpty,
@@ -120,22 +117,20 @@ public class TokenInterceptor implements Interceptor {
         };
 
         String body = fromRequestBody(requestBody);
-        if(Check.isEmpty(body))
-        {
+        if (Check.isEmpty(body)) {
             return null;
         }
         AppTextMessageRequest messageRequest = JSON.parseObject(body, AppTextMessageRequest.class);
         messageRequest.setToken(newToken);
         messageRequest.setMac(MacUtil.generateMac(messageRequest));
-        String newjsonstring = JSON.toJSONString(messageRequest,serializerFeature);
+        String newjsonstring = JSON.toJSONString(messageRequest, serializerFeature);
         MediaType contentType = MediaType.parse("application/json");
-        return RequestBody.create(contentType,newjsonstring);
+        return RequestBody.create(contentType, newjsonstring);
     }
 
-    private String fromRequestBody(RequestBody requestBody)
-    {
+    private String fromRequestBody(RequestBody requestBody) {
         ByteArrayOutputStream outputStream = null;
-        Buffer buffer=null;
+        Buffer buffer = null;
         try {
             buffer = new Buffer();
             requestBody.writeTo(buffer);
@@ -145,14 +140,11 @@ public class TokenInterceptor implements Interceptor {
             return body;
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
-            if(null != buffer)
-            {
+        } finally {
+            if (null != buffer) {
                 buffer.close();
             }
-            if(null != outputStream)
-            {
+            if (null != outputStream) {
                 try {
                     outputStream.close();
                 } catch (IOException e) {

@@ -8,11 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.http.Client;
+import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.CLipHelper;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.DoubleClickHelper;
@@ -125,7 +128,7 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
                 finish();
             }
         });
-        if(typeArgs2.equals("1")){
+        if(typeArgs2.equals("1")&&!Check.isNull(aPaymentPlatformBankCardBean)){
             depositNextBankMothed.setVisibility(View.VISIBLE);
             depositNextBankName.setText(aPaymentPlatformBankCardBean.getBank());
             depositNextBankAccount.setText(aPaymentPlatformBankCardBean.getOwner());
@@ -186,7 +189,15 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
             name = "";
         }
         WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
-        presenter.getDepositSubmit(typeArgs1.getType()+"",typeArgs1.getId()+"",name,money);
+        if(typeArgs1.getPay_type()==1){
+            //pop();
+            //http://api.dh5588.com/service?payment_platform_id=153&amount=10&deposit_mode=2&action=Payment&step=3&packet=Fund&terminal_id=2&token=68e7a0fd65b9c3d7872afad467aacd8c36528a64
+            String url = Client.baseUrl()+"service?payment_platform_id="+typeArgs1.getId()+"&amount="+money+"&deposit_mode="+ typeArgs1.getType()+
+                    "&action=Payment&step=3&packet=Fund&terminal_id=2&token="+ ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+            EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(url,typeArgs1.getDisplay_name(),"","",""), SupportFragment.SINGLETASK));
+        }else {
+            presenter.getDepositSubmit(typeArgs1.getType() + "", typeArgs1.getId() + "", name, money);
+        }
     }
 
 

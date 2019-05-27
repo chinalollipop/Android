@@ -42,6 +42,7 @@ public class DomainUrl {
 
         private String pid;
         private String url;
+        private boolean isChecked;
 
         public String getPid() {
             return pid;
@@ -59,5 +60,12 @@ public class DomainUrl {
             this.url = url;
         }
 
+        public boolean isChecked() {
+            return isChecked;
+        }
+
+        public void setChecked(boolean checked) {
+            isChecked = checked;
+        }
     }
 }

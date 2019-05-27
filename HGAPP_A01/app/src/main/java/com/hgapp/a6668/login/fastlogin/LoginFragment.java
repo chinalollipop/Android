@@ -175,6 +175,11 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         ACache.get(getContext()).put(HGConstant.DOWNLOAD_APP_GIFT_GOLD, loginResult.getDOWNLOAD_APP_GIFT_GOLD());
         ACache.get(getContext()).put(HGConstant.DOWNLOAD_APP_GIFT_DEPOSIT, loginResult.getDOWNLOAD_APP_GIFT_DEPOSIT());
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_INFO, JSON.toJSONString(loginResult));
+        //试玩的时候有返回
+        ACache.get(getContext()).put(HGConstant.KY_DEMO_URL, loginResult.getChess_demo_url().getKy_demo_url());
+        ACache.get(getContext()).put(HGConstant.LY_DEMO_URL, loginResult.getChess_demo_url().getLy_demo_url());
+        ACache.get(getContext()).put(HGConstant.HG_DEMO_URL, loginResult.getChess_demo_url().getHg_demo_url());
+        ACache.get(getContext()).put(HGConstant.VG_DEMO_URL, loginResult.getChess_demo_url().getVg_demo_url());
     }
 
     @Override
@@ -261,7 +266,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 //start(RegisterFragment.newInstance());
                 break;
             case R.id.btnLoginDemo:
-                presenter.postLoginDemo("","demoguest","nicainicainicaicaicaicai");
+                presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
                 break;
         }
     }

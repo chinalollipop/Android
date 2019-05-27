@@ -94,10 +94,13 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="北京PK拾";
                     break;
                 case "76":
-                    name ="北京赛车";
+                    name ="北京赛车(5分彩)";
                     break;
                 case "1":
                     name ="欢乐生肖";
+                    break;
+                case "7":
+                    name ="重庆时时彩";
                     break;
                 case "55":
                     name ="幸运飞艇";
@@ -115,13 +118,13 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="江苏骰宝(快3)";
                     break;
                 case "73":
-                    name ="极速快3五分彩";
+                    name ="五分快三";
                     break;
                 case "74":
-                    name ="极速快3三分彩";
+                    name ="三分快三";
                     break;
                 case "75":
-                    name ="极速快3分分彩";
+                    name ="一分快三";
                     break;
                 case "51":
                     name ="极速赛车";
@@ -142,13 +145,13 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="广东11选5";
                     break;
                 case "4":
-                    name ="阿里二分彩";
+                    name ="二分彩";
                     break;
                 case "5":
-                    name ="腾讯三分彩";
+                    name ="三分彩";
                     break;
                 case "6":
-                    name ="百度五分彩";
+                    name ="五分彩";
                     break;
 
             }
@@ -199,10 +202,13 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="北京PK拾";
                     break;
                 case "76":
-                    name ="北京赛车";
+                    name ="北京赛车(5分彩)";
                     break;
                 case "1":
                     name ="欢乐生肖";
+                    break;
+                case "7":
+                    name ="重庆时时彩";
                     break;
                 case "55":
                     name ="幸运飞艇";
@@ -220,19 +226,19 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="江苏骰宝(快3)";
                     break;
                 case "73":
-                    name ="极速快3五分彩";
+                    name ="五分快三";
                     break;
                 case "74":
-                    name ="极速快3三分彩";
+                    name ="三分快三";
                     break;
                 case "75":
-                    name ="极速快3分分彩";
+                    name ="一分快三";
                     break;
                 case "51":
                     name ="极速赛车";
                     break;
                 case "2":
-                    name ="官方分分彩";
+                    name ="分分彩";
                     break;
                 case "60":
                     name ="广东快乐十分";
@@ -247,13 +253,13 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     name ="广东11选5";
                     break;
                 case "4":
-                    name ="阿里二分彩";
+                    name ="二分彩";
                     break;
                 case "5":
-                    name ="腾讯三分彩";
+                    name ="三分彩";
                     break;
                 case "6":
-                    name ="百度五分彩";
+                    name ="五分彩";
                     break;
 
             }

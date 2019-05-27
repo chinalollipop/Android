@@ -1,6 +1,7 @@
 package com.cfcp.a01.ui.main;
 
 import android.content.pm.PackageInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,13 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cfcp.a01.CFApplication;
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.PackageUtil;
+import com.cfcp.a01.common.utils.ToastUtils;
 import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.NoTouchViewPager;
 import com.cfcp.a01.data.CheckUpgradeResult;
@@ -66,7 +70,6 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
 
     public static MainFragment newInstance() {
         MainFragment homeFragment = new MainFragment();
-        Injections.inject(homeFragment, null);
         return homeFragment;
     }
 
@@ -75,7 +78,6 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-
         if (savedInstanceState == null) {
             mFragments[FIRST] = HomeFragment.newInstance();
             mFragments[SECOND] = ChatFragment.newInstance();
@@ -112,6 +114,7 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     private void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
         //presenters();
+        presenter = Injections.inject(this, null);
         presenter.checkupdate();
 
         NavigationController navigationController = tab.custom()
@@ -138,17 +141,18 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
             GameLog.log("检查更新失败，获取不到app版本号");
             throw new RuntimeException("检查更新失败，获取不到app版本号");
         }
+        ACache.get(getContext()).put(CFConstant.USERNAME_SERVICE_URL,checkUpgradeResult.getCustom_service());
         String localver = packageInfo.versionName;
         GameLog.log("当前APP的版本号是："+localver);
         if(!localver.equals(checkUpgradeResult.getVersion())){
-            //UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
+            UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
         }
     }
 
-    @Override
+    /*@Override
     public void showMessage(String message) {
         showMessage(message);
-    }
+    }*/
 
     @Override
     public void setPresenter(CheckUpdateContract.Presenter presenter) {
@@ -183,7 +187,7 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     private BaseTabItem newItem(int drawable, int checkedDrawable, String text){
         SpecialTab mainTab = new SpecialTab(CFApplication.instance().getApplicationContext());
         mainTab.initialize(drawable,checkedDrawable,text);
-        mainTab.setTextDefaultColor(0x56000000);
+        mainTab.setTextDefaultColor(Color.parseColor("#404040"));
         mainTab.setTextCheckedColor(0xFFFF0000);
         return mainTab;
     }
@@ -194,7 +198,7 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     private BaseTabItem newRoundItem(int drawable,int checkedDrawable,String text){
         SpecialTabRound mainTab = new SpecialTabRound(CFApplication.instance().getApplicationContext());
         mainTab.initialize(drawable,checkedDrawable,text);
-        mainTab.setTextDefaultColor(0x56000000);
+        mainTab.setTextDefaultColor(Color.parseColor("#404040"));
         mainTab.setTextCheckedColor(0xFFFF0000);
         return mainTab;
     }
@@ -207,12 +211,12 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
         start(event.targetFragment, event.launchmode);
     }
 
-   /* @Override
+   @Override
     public void showMessage(String message) {
         ToastUtils.showLongToast(message);
     }
 
-    @Override
+   /*  @Override
     public void setPresenter(HomeContract.Presenter presenter) {
         this.presenter = presenter;
     }*/

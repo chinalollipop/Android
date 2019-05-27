@@ -39,14 +39,14 @@ public class CheckUpdatePresenter implements CheckUpdateContract.Presenter {
         params.put("action", "GetLatestRelease");
         params.put("terminal_id", "2");
         subscriptionHelper.add(RxHelper.addSugar(api.checkupdate(params))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<CheckUpgradeResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CheckUpgradeResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<CheckUpgradeResult> response) {
+                    public void success(AppTextMessageResponse<CheckUpgradeResult> response) {
                         if (null == view) {
                             return;
                         }
                         if (response.isSuccess()) {
-                            CheckUpgradeResult checkUpgradeResult = response.getData().get(0);
+                            CheckUpgradeResult checkUpgradeResult = response.getData();
                             view.wantShowMessage(checkUpgradeResult);
                         } else {
                             if (!Check.isEmpty(response.getDescribe())) {

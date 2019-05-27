@@ -45,8 +45,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/meBottom"
-                    android:layout_marginBottom="10dp">
+                    android:layout_above="@+id/meVersion"
+                    >
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                         android:drawablePadding="5dp"
                         android:text="注册管理"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/meLogout"
@@ -92,8 +92,18 @@
                         android:drawablePadding="5dp"
                         android:text="退出登录"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
+                <TextView
+                    android:id="@+id/meVersion"
+                    android:text="1.0.0"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_above="@+id/meBottom"
+                    android:textColor="@color/bg_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:id="@+id/meBottom"
@@ -119,7 +129,7 @@
                             android:gravity="center"
                             android:text="充值"
                             android:textColor="@color/white"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <View
@@ -144,7 +154,7 @@
                             android:gravity="center"
                             android:text="提款"
                             android:textColor="@color/white"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>

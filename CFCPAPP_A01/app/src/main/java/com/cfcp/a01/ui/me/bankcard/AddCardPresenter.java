@@ -47,7 +47,9 @@ public class AddCardPresenter implements AddCardContract.Presenter {
                     public void success(AppTextMessageResponse<BankListResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getBankListResult(response.getData());
-                        } else {
+                        }else if("7001".equals(response.getErrno())) {
+                            view.getFundPwdResult(response.getDescribe());
+                        }else {
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -82,6 +84,8 @@ public class AddCardPresenter implements AddCardContract.Presenter {
                     public void success(AppTextMessageResponse<BankCardAddResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getAddCardResult(response.getData());
+                        }else if("7001".equals(response.getErrno())) {
+                            view.getFundPwdResult(response.getDescribe());
                         } else {
                             view.showMessage(response.getDescribe());
                         }

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:backText="返回"
         app:moreTextOnly="true"
-        app:titleText="账变报表" />
+        app:titleText="账单报表" />
 
 
     <android.support.design.widget.TabLayout

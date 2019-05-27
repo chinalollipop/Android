@@ -26,6 +26,7 @@ import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.BankCardAddResult;
 import com.cfcp.a01.data.BankListResult;
 import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.ui.me.pwd.PwdFragment;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -93,17 +94,6 @@ public class AddCardFragment extends BaseFragment implements AddCardContract.Vie
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         presenter.getBankList();
-        typeOptionsPicker = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
-
-            @Override
-            public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                //1、tab做相应的切换
-                // 2、下面做查询数据的请求和展示
-                String text = aBanksBeans.get(options1).getName();
-                addCardBankName.setText(text);
-                bankId = aBanksBeans.get(options1).getId();
-            }
-        }).build();
         addCardBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,6 +231,17 @@ public class AddCardFragment extends BaseFragment implements AddCardContract.Vie
         //转账前渠道确认
         GameLog.log("设置真实姓名 成功");
         aBanksBeans=  bankListResult.getABanks();
+        typeOptionsPicker = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                //1、tab做相应的切换
+                // 2、下面做查询数据的请求和展示
+                String text = aBanksBeans.get(options1).getName();
+                addCardBankName.setText(text);
+                bankId = aBanksBeans.get(options1).getId();
+            }
+        }).build();
         typeOptionsPicker.setPicker(aBanksBeans);
         //默认展示第一个
         String text = aBanksBeans.get(0).getName();
@@ -252,6 +253,14 @@ public class AddCardFragment extends BaseFragment implements AddCardContract.Vie
     public void getAddCardResult(BankCardAddResult bankCardAddResult) {
         GameLog.log("设置真实姓名2 成功");
         EventBus.getDefault().post(new StartBrotherEvent(AddCardSubmitFragment.newInstance(bankCardAddResult,"","0")));
+    }
+
+    @Override
+    public void getFundPwdResult(String message) {
+        showMessage(message);
+        pop();
+        EventBus.getDefault().post(new StartBrotherEvent(PwdFragment.newInstance("2","")));
+        GameLog.log("没有设置资金密码");
     }
 
     @Override
@@ -275,7 +284,9 @@ public class AddCardFragment extends BaseFragment implements AddCardContract.Vie
         switch (view.getId()) {
             case R.id.addCardBankName:
                 hideKeyboard();
-                typeOptionsPicker.show();
+                if(!Check.isNull(typeOptionsPicker)) {
+                    typeOptionsPicker.show();
+                }
                 break;
             case R.id.addCardSubmit:
                 onRequsetData();

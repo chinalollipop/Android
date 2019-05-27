@@ -43,6 +43,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     @BindView(R.id.tvWithdrawBankSubmit)
     Button tvWithdrawBankSubmit;
 
+    private String accountNumber;
     private String typeArgs1;
     private String typeArgs2;
     private WithdrawContract.Presenter presenter;
@@ -105,7 +106,10 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     public void postWithdrawResult(WithdrawResult withdrawResult) {
 
         tvWithdrawBankAddress.setText(withdrawResult.getBank_Address());
-        tvWithdrawBankAccount.setText(withdrawResult.getBank_Account());
+        //前6后3
+        accountNumber = withdrawResult.getBank_Account();
+        String account = accountNumber.substring(0,6)+"******"+accountNumber.substring(accountNumber.length()-3);
+        tvWithdrawBankAccount.setText(account);
         tvWithdrawBankName.setText(withdrawResult.getBank_Name());
     }
 
@@ -144,7 +148,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
             return;
         }
         DoubleClickHelper.getNewInstance().disabledView(tvWithdrawBankSubmit);
-        presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),tvWithdrawBankAccount.getText().toString(),tvWithdrawBankName.getText().toString(),
+        presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
                 money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y");
 
     }

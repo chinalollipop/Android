@@ -18,6 +18,8 @@ import com.cfcp.a01.common.utils.CalcHelper;
 import com.cfcp.a01.common.utils.CombinationHelper;
 import com.cfcp.a01.common.utils.CombinationHelperGid;
 import com.cfcp.a01.common.utils.DoubleClickHelper;
+import com.cfcp.a01.data.BetParam;
+import com.cfcp.a01.data.CPBetParams;
 import com.cfcp.a01.data.CPBetResult;
 import com.cfcp.a01.ui.home.cplist.events.CPOrderList;
 import com.cfcp.a01.ui.home.cplist.events.CPOrderSuccessEvent;
@@ -342,9 +344,9 @@ public class BetCPOrderDialog extends BaseDialogFragment implements CpBetApiCont
                     for(int i=0;i<dtaName.size();++i){
                         BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
                         betBeanBean.setMoney(betGold);
-                        betBeanBean.setPlayIds(dtaGid.get(i).replace("[","").replace("]",""));
+                        betBeanBean.setPlayIds(dtaGid.get(i).replace("[","").replace("]","").replace(", ",","));
                         betBeanBean.setPlayId(dtaGid.get(i).replace("[","").replace("]","").split(", ")[0]);
-                        betBeanBean.setBetInfo(dtaName.get(i).replace("[","").replace("]",""));
+                        betBeanBean.setBetInfo(dtaName.get(i).replace("[","").replace("]","").replace(", ",","));
                         beanArrayList.add(betBeanBean);
                     }
                     betParam.setBetBean(beanArrayList);

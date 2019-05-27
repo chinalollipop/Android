@@ -26,6 +26,7 @@ import com.hgapp.a6668.common.widgets.NListView;
 import com.hgapp.a6668.data.LeagueDetailSearchListResult;
 import com.hgapp.a6668.data.LeagueSearchListResult;
 import com.hgapp.a6668.data.LeagueSearchTimeResult;
+import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
 import com.hgapp.a6668.homepage.handicap.HandicapFragment;
 import com.hgapp.a6668.homepage.handicap.betnew.LeagueEvent;
@@ -316,7 +317,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
     }
 
     private void onSartTime(){
-        postLeagueSearchList();
+        presenter.postMaintain();
         if(null!=executorService){
             executorService.shutdownNow();
             executorService.shutdown();
@@ -427,6 +428,63 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
         ivLeagueSearchRefresh.clearAnimation();
         EventBus.getDefault().post(leagueDetailSearchListResult);
         //EventBus.getDefault().post(new StartBrotherEvent(LeagueDetailListFragment.newInstance(leagueDetailSearchListResult)));
+    }
+
+    @Override
+    public void postMaintainResult(List<MaintainResult> maintainResult) {
+
+        switch (getArgParam1){
+            case "1":
+                for(MaintainResult maintainResult1:maintainResult){
+                    if (maintainResult1.getType().equals("rb")){
+                        if("1".equals(maintainResult1.getState())){
+                            //滚球维护状态
+                            lvLeagueSearchList.setVisibility(View.GONE);
+                            tvLeagueSearchRBTime.setVisibility(View.GONE);
+                            lvLeagueSearchNoData.setVisibility(View.VISIBLE);
+                            lvLeagueSearchNoData.setText(maintainResult1.getContent());
+                        }else{
+                            postLeagueSearchList();
+                        }
+                    }
+                }
+                break;
+            case "2":
+                for(MaintainResult maintainResult1:maintainResult){
+                    if (maintainResult1.getType().equals("today")){
+                        if("1".equals(maintainResult1.getState())){
+                            //今日赛事状态
+                            lvLeagueSearchList.setVisibility(View.GONE);
+                            tvLeagueSearchRBTime.setVisibility(View.GONE);
+                            llLeagueSearchType.setVisibility(View.GONE);
+                            llLeagueSearchTimeAll.setVisibility(View.GONE);
+                            lvLeagueSearchNoData.setVisibility(View.VISIBLE);
+                            lvLeagueSearchNoData.setText(maintainResult1.getContent());
+                        }else{
+                            postLeagueSearchList();
+                        }
+                    }
+                }
+                break;
+            case "3":
+                for(MaintainResult maintainResult1:maintainResult){
+                    if (maintainResult1.getType().equals("future")){
+                        if("1".equals(maintainResult1.getState())){
+                            //早盘维护状态
+                            lvLeagueSearchList.setVisibility(View.GONE);
+                            tvLeagueSearchRBTime.setVisibility(View.GONE);
+                            llLeagueSearchType.setVisibility(View.GONE);
+                            llLeagueSearchTimeAll.setVisibility(View.GONE);
+                            lvLeagueSearchNoData.setVisibility(View.VISIBLE);
+                            lvLeagueSearchNoData.setText(maintainResult1.getContent());
+                        }else{
+                            postLeagueSearchList();
+                        }
+                    }
+                }
+                break;
+        }
+
     }
 
     @Override

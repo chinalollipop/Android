@@ -621,6 +621,23 @@ public class TimeHelper {
         return time;
     }
 
+    /**
+     * 将字符串转为时间戳
+     * @param dateString
+     * @return
+     */
+    public static long getStringToDate(String dateString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        try{
+            date = dateFormat.parse(dateString);
+        } catch(ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return date.getTime();
+    }
+
 
 
 

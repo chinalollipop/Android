@@ -14,6 +14,7 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.http.Client;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.data.CouponResult;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -45,6 +46,9 @@ public class EventFragment extends BaseFragment implements EventContract.View{
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
 //        EventBus.getDefault().register(this);
+        if(Check.isNull(presenter)){
+            presenter =  Injections.inject(this, null);
+        }
         presenter.getCoupon("","","");
     }
 
@@ -80,7 +84,7 @@ public class EventFragment extends BaseFragment implements EventContract.View{
                 }else{
                     dataBeanList.get(position) .setShow(true);
                 }
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemChanged(position);
             }
         });
     }
@@ -95,9 +99,10 @@ public class EventFragment extends BaseFragment implements EventContract.View{
         protected void convert(BaseViewHolder holder, final CouponResult.DataBean data) {
             //holder.setText(R.id.itemEventText,data.getContent());
             String url = Client.baseUrl().replace("api.","");
-            GameLog.log("图片地址是："+url);
-            Glide.with(EventFragment.this).load(url+data.getPic_url()).into((ImageView) holder.getView(R.id.itemEventId));
-            Glide.with(EventFragment.this).load(url+data.getRedirect_url()).into((ImageView) holder.getView(R.id.itemEventText));
+            GameLog.log("图片地址Pic_url 是："+url+data.getPic_url().substring(1));
+            GameLog.log("图片地址Redirect是："+url+data.getRedirect_url().substring(1));
+            Glide.with(EventFragment.this).load(url+data.getPic_url().substring(1)).into((ImageView) holder.getView(R.id.itemEventId));
+            Glide.with(EventFragment.this).load(url+data.getRedirect_url().substring(1)).into((ImageView) holder.getView(R.id.itemEventText));
             if(data.isShow()){
                 holder.setVisible(R.id.itemEventText,true);
             }else{

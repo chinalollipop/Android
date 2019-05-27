@@ -59,7 +59,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/bg_deposit_input"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:text="10" />
 
             <TextView

@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.instacart.truetime-android:library:3.4@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.4.aar/a4b66309a2523ecf403168fdfa93636a/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.4.aar/a4b66309a2523ecf403168fdfa93636a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.4.aar/1eba7d99b5deeac94e2d1c665dcfeff5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.4.aar/1eba7d99b5deeac94e2d1c665dcfeff5/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.instacart.truetime-android/library/3.4/d832ef611e9ce0bb110faa9acf29103277bef846/library-3.4-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -43,7 +43,7 @@
                 android:gravity="center"
                 android:text="玩法选择"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <ImageView
@@ -101,7 +101,7 @@
                 android:gravity="center"
                 android:text="投注区"
                 android:textColor="@color/text_bet_clicked"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -117,7 +117,7 @@
                 android:gravity="center"
                 android:text="聊天室"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -307,7 +307,7 @@
 
                     <EditText
                         android:id="@+id/betTimes"
-                        android:layout_width="40dp"
+                        android:layout_width="60dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="5dp"
@@ -315,7 +315,7 @@
                         android:background="@drawable/btn_bet_model"
                         android:gravity="center"
                         android:inputType="number"
-                        android:maxLength="3"
+                        android:maxLength="6"
                         android:text="1"
                         android:textColor="@color/text_bet_model_in"
                         tools:ignore="Autofill,HardcodedText,LabelFor" />
@@ -360,8 +360,10 @@
 
                         <com.xw.repo.BubbleSeekBar
                             android:id="@+id/bs_bet_bar"
-                            android:layout_width="100dp"
+                            android:layout_width="80dp"
                             android:layout_height="match_parent"
+                            app:bsb_bubble_color="@android:color/transparent"
+                            app:bsb_bubble_text_color="@android:color/transparent"
                             app:bsb_second_track_color="#e1222a"
                             app:bsb_touch_to_seek="true"
                             app:bsb_track_color="@color/text_main_down" />
@@ -408,7 +410,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:text="0注0元"
+                        android:text="0注,1倍,共0元"
                         android:textColor="@color/white"
                         tools:ignore="HardcodedText" />
                 </LinearLayout>
@@ -417,9 +419,9 @@
                     android:id="@+id/betSubmit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@+id/betSure"
                     android:background="@drawable/btn_bet_submit_no"
                     android:clickable="false"
                     android:padding="10dp"
@@ -431,16 +433,18 @@
                     android:id="@+id/betSure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
+
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/btn_bet_sure"
                     android:padding="10dp"
                     android:text="确认选号"
                     android:textColor="@color/white"
+                    android:visibility="gone"
                     tools:ignore="HardcodedText" />
             </RelativeLayout>
+
         </LinearLayout>
+
     </RelativeLayout>
 
     <android.support.constraint.ConstraintLayout

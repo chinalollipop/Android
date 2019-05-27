@@ -105,6 +105,12 @@ public class GameFragment extends BaseFragment implements GameContract.View {
     }
 
     @Override
+    public void showMessage(String message) {
+        super.showMessage(message);
+        WaitDialog.dismiss();
+    }
+
+    @Override
     public void getLowerLevelReportResult(GameQueueMoneyResult gameQueueMoneyResult) {
         GameLog.log("获取余额成功了 ");
         gamesMsg.setText(gameQueueMoneyResult.getSMsg());

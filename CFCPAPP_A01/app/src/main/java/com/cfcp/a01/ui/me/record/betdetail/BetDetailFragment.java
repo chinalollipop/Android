@@ -135,11 +135,13 @@ public class BetDetailFragment extends BaseFragment implements BetDetailContract
         switch (betDetailResult.getLottery_id()){
             case 49:
             case 48:
-            case 50:
                 betDetaillotteryId.setText("幸运飞艇");
                 break;
+            case 52:
+                betDetaillotteryId.setText("北京赛车五分彩");
+                break;
             case 1:
-                betDetaillotteryId.setText("重庆时时彩");
+                betDetaillotteryId.setText("欢乐生肖");
                 break;
             case 9:
                 betDetaillotteryId.setText("广东11选5");
@@ -148,28 +150,34 @@ public class BetDetailFragment extends BaseFragment implements BetDetailContract
                 betDetaillotteryId.setText("北京PK10");
                 break;
             case 13:
-                betDetaillotteryId.setText("官网分分彩");
+                betDetaillotteryId.setText("分分彩");
                 break;
             case 14:
-                betDetaillotteryId.setText("官网11选5");
+                betDetaillotteryId.setText("11选5");
                 break;
             case 15:
                 betDetaillotteryId.setText("江苏快三");
                 break;
             case 16:
-                betDetaillotteryId.setText("官网三分彩");
+                betDetaillotteryId.setText("三分彩");
+                break;
+            case 50:
+                betDetaillotteryId.setText("快三五分彩");
+                break;
+            case 51:
+                betDetaillotteryId.setText("快三三分彩");
                 break;
             case 17:
-                betDetaillotteryId.setText("官网快三分分彩");
+                betDetaillotteryId.setText("快三分分彩");
                 break;
             case 19:
-                betDetaillotteryId.setText("官网极速PK10");
+                betDetaillotteryId.setText("极速PK10");
                 break;
             case 20:
-                betDetaillotteryId.setText("官网极速3D");
+                betDetaillotteryId.setText("极速3D");
                 break;
             case 28:
-                betDetaillotteryId.setText("官网五分彩");
+                betDetaillotteryId.setText("五分彩");
                 break;
             case 30:
                 betDetaillotteryId.setText("安徽快三");
@@ -177,7 +185,7 @@ public class BetDetailFragment extends BaseFragment implements BetDetailContract
             case 37:
                 betDetaillotteryId.setText("北京快乐8");
                 break;
-            case 40:
+            case 44:
                 betDetaillotteryId.setText("11选5三分彩");
                 break;
         }

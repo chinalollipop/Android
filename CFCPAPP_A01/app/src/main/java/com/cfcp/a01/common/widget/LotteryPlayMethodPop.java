@@ -132,4 +132,15 @@ public class LotteryPlayMethodPop extends BasePopupWindow {
     public boolean getConfirm() {
         return mConfirm;
     }
+
+    //设置默认选项
+    public void setDefault(String[] position) {
+        contentPosition = Integer.valueOf(position[0]);
+        playPosition = Integer.valueOf(position[1]);
+        playSelect = Integer.valueOf(position[2]);
+        mLotteryContent.setSelect(contentPosition);
+        mLotteryContent.notifyDataSetChanged();
+        mLotteryPlay.setSelect(playPosition, playSelect);
+        mLotteryPlay.setNewData(mBetWaySettingsResult.get(contentPosition).getChildren());
+    }
 }

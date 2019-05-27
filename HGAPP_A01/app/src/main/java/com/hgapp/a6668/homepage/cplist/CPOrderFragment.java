@@ -283,7 +283,11 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        CPInjections.inject(null, this);
+        try {
+            CPInjections.inject(null, this);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         game_code = intent.getStringExtra("gameId");
@@ -31831,6 +31835,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             executor15Service.shutdownNow();
             executor15Service.shutdown();
             executor15Service = null;
+            onWaiting15Thread = null;
             GameLog.log("+++++++++++++++++++++++++++++++++++销毁15秒倒计时++++++++++++++");
         }
 
@@ -31838,6 +31843,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             executorService.shutdownNow();
             executorService.shutdown();
             executorService = null;
+            lotteryTimeThread= null;
             GameLog.log("+++++++++++++++++++++++++++++++++++销毁开奖时间的倒计时++++++++++++++");
         }
 
@@ -31845,6 +31851,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             executorEndService.shutdownNow();
             executorEndService.shutdown();
             executorEndService = null;
+            onWaitingEndThread = null;
             GameLog.log("+++++++++++++++++++++++++++++++++++销毁结束时间的倒计时++++++++++++++");
         }
 
@@ -31987,6 +31994,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             executor15Service = null;
         }
         executor15Service = Executors.newScheduledThreadPool(1);
+        if(onWaiting15Thread==null){
+            onWaiting15Thread = new onWaiting15Thread();
+        }
         executor15Service.scheduleAtFixedRate(onWaiting15Thread, 0, 15000, TimeUnit.MILLISECONDS);
     }
 
@@ -32000,6 +32010,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }
 
         executorService = Executors.newScheduledThreadPool(1);
+        if(lotteryTimeThread == null){
+            lotteryTimeThread = new onLotteryTimeThread();
+        }
         executorService.scheduleAtFixedRate(lotteryTimeThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
@@ -32013,6 +32026,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         }
 
         executorEndService = Executors.newScheduledThreadPool(1);
+        if(onWaitingEndThread ==null){
+            onWaitingEndThread = new onWaitingEndThread();
+        }
         executorEndService.scheduleAtFixedRate(onWaitingEndThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 

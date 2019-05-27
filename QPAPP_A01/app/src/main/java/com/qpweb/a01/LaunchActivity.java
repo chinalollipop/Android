@@ -2,17 +2,17 @@ package com.qpweb.a01;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.qpweb.a01.http.DomainUrl;
 import com.qpweb.a01.http.MyHttpClient;
+import com.qpweb.a01.ui.loginhome.LoginHomeActivity;
 import com.qpweb.a01.utils.ACache;
-import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.NetworkUtils;
 import com.qpweb.a01.utils.ToastUtils;
@@ -24,22 +24,24 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends AppCompatActivity implements View.OnClickListener,View.OnTouchListener {
     private boolean ifStop = false;
     MyHttpClient myHttpClient = new MyHttpClient();
-    Button button;
+    ImageView homeRegister,homeLogin,homeDemo;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
-        button = (Button)findViewById(R.id.retry);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onGetAvailableDomain();
-            }
-        });
-        onGetAvailableDomain();
+        homeRegister = (ImageView)findViewById(R.id.homeRegister);
+        homeLogin = (ImageView)findViewById(R.id.homeLogin);
+        homeDemo = (ImageView)findViewById(R.id.homeDemo);
+        homeRegister.setOnClickListener(this);
+        homeLogin.setOnClickListener(this);
+        homeDemo.setOnClickListener(this);
+        homeRegister.setOnTouchListener(this);
+        homeLogin.setOnTouchListener(this);
+        homeDemo.setOnTouchListener(this);
+        //onGetAvailableDomain();
     }
 
 
@@ -59,7 +61,7 @@ public class LaunchActivity extends AppCompatActivity {
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
-                button.post(new Runnable() {
+                homeRegister.post(new Runnable() {
                     @Override
                     public void run() {
                         GameLog.log("====================1=======================");
@@ -85,7 +87,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     private synchronized void postDomain(final String demain){
-        button.post(new Runnable() {
+        homeRegister.post(new Runnable() {
             @Override
             public void run() {
                 GameLog.log("====================请求的域名是======================="+demain);
@@ -101,7 +103,7 @@ public class LaunchActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText =  response.body().string();
                 if(ifStop){
-                    button.post(new Runnable() {
+                    homeRegister.post(new Runnable() {
                         @Override
                         public void run() {
                             GameLog.log("停止请求："+demain);
@@ -112,7 +114,7 @@ public class LaunchActivity extends AppCompatActivity {
                 }
                 if(response.isSuccessful()){
                     ifStop = true;
-                    button.post(new Runnable() {
+                    homeRegister.post(new Runnable() {
                         @Override
                         public void run() {
                             GameLog.log("最终的域名是："+demain);
@@ -140,7 +142,7 @@ public class LaunchActivity extends AppCompatActivity {
             GameLog.log("request url : " + e.toString());
         }
         if(!ifStop){
-            button.postDelayed(new Runnable() {
+            homeRegister.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if(!ifStop){
@@ -158,5 +160,54 @@ public class LaunchActivity extends AppCompatActivity {
                 }
             },6000);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.homeRegister:
+                ToastUtils.showLongToast("注册");
+                break;
+            case R.id.homeLogin:
+                ToastUtils.showLongToast("登录");
+                startActivity(new Intent(getApplicationContext(), LoginHomeActivity.class));
+                finish();
+                break;
+            case R.id.homeDemo:
+                ToastUtils.showLongToast("试玩");
+                break;
+        }
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if (view.getId() == R.id.homeRegister) {
+                    homeRegister.setScaleX(1.1f);
+                    homeRegister.setScaleY(1.1f);
+                    break;
+                }else if(view.getId() == R.id.homeLogin) {
+                    homeLogin.setScaleX(1.1f);
+                    homeLogin.setScaleY(1.1f);
+                }else if(view.getId() == R.id.homeDemo) {
+                    homeDemo.setScaleX(1.1f);
+                    homeDemo.setScaleY(1.1f);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                if (view.getId() == R.id.homeRegister) {
+                    homeRegister.setScaleX((float) 0.95);
+                    homeRegister.setScaleY((float) 0.95);
+                }else if(view.getId() == R.id.homeLogin) {
+                    homeLogin.setScaleX((float) 0.95);
+                    homeLogin.setScaleY((float) 0.95);
+                }else if(view.getId() == R.id.homeDemo) {
+                    homeDemo.setScaleX((float) 0.95);
+                    homeDemo.setScaleY((float) 0.95);
+                }
+                break;
+        }
+        return false;
     }
 }

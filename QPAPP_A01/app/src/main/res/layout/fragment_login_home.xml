@@ -31,7 +31,7 @@
         android:id="@+id/homeDemo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/login_wx"
+        android:background="@mipmap/login_demo"
         android:text="试玩"
         />
     </LinearLayout>

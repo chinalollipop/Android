@@ -29,13 +29,14 @@ public class GenerateNum {
             case 13:
             case 16:
             case 28:
+            case 53:
                 lotteryAdapter.setNewData(CqsscGenerateNum.allNum());
                 break;
             //11选5类
             case 9:
             case 14:
             case 44:
-                lotteryAdapter.setNewData(ElevenGenerateNum.threeNum());
+                lotteryAdapter.setNewData(ElevenGenerateNum.allNum());
                 break;
             //PK10类
             case 10:
@@ -72,6 +73,7 @@ public class GenerateNum {
         lotteryAdapter.setSingleSelection(false);
         rvLottery.setVisibility(View.VISIBLE);
         llLotteryInput.setVisibility(View.GONE);
+        llLotteryInput.findViewById(R.id.rv_top).setVisibility(View.GONE);
         lotteryAdapter.removeAllFooterView();
         lotteryAdapter.setKs(0);
         lotteryAdapter.setEleven(0);
@@ -81,6 +83,7 @@ public class GenerateNum {
             case 13:
             case 16:
             case 28:
+            case 53:
                 List<Integer> listSec = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 2:
@@ -475,6 +478,7 @@ public class GenerateNum {
             case 10://PK10
             case 19:
             case 49:
+            case 52:
                 switch (mBetMethodContentID) {
                     case 87:
                         switch (mBetMethodDetailsID) {
@@ -503,6 +507,11 @@ public class GenerateNum {
                             case 394:
                                 lotteryAdapter.setNewData(Pk10GenerateNum.h2());
                                 break;
+                            case 396:
+                            case 398:
+                                rvLottery.setVisibility(View.GONE);
+                                llLotteryInput.setVisibility(View.VISIBLE);
+                                break;
                         }
                         break;
                     case 117:
@@ -512,6 +521,11 @@ public class GenerateNum {
                                 break;
                             case 395:
                                 lotteryAdapter.setNewData(Pk10GenerateNum.h3());
+                                break;
+                            case 397:
+                            case 399:
+                                rvLottery.setVisibility(View.GONE);
+                                llLotteryInput.setVisibility(View.VISIBLE);
                                 break;
                         }
                         break;
@@ -589,6 +603,11 @@ public class GenerateNum {
                 switch (mBetMethodContentID) {
                     case 30:
                         switch (mBetMethodDetailsID) {
+                            case 95:
+                            case 97:
+                                rvLottery.setVisibility(View.GONE);
+                                llLotteryInput.setVisibility(View.VISIBLE);
+                                break;
                             case 112:
                                 lotteryAdapter.setNewData(ElevenGenerateNum.threeNum());
                                 break;
@@ -603,6 +622,11 @@ public class GenerateNum {
                         break;
                     case 31:
                         switch (mBetMethodDetailsID) {
+                            case 94:
+                            case 96:
+                                rvLottery.setVisibility(View.GONE);
+                                llLotteryInput.setVisibility(View.VISIBLE);
+                                break;
                             case 111:
                                 lotteryAdapter.setNewData(ElevenGenerateNum.twoNum());
                                 break;
@@ -659,6 +683,10 @@ public class GenerateNum {
                                 lotteryAdapter.setNewData(ElevenGenerateNum.rx85());
                                 break;
                         }
+                        break;
+                    case 35:
+                        rvLottery.setVisibility(View.GONE);
+                        llLotteryInput.setVisibility(View.VISIBLE);
                         break;
                     case 36:
                         lotteryAdapter.setNewData(ElevenGenerateNum.DNum());

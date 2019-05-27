@@ -21,6 +21,7 @@ public interface WithDrawContract {
     interface View extends IView<Presenter>, IMessageView {
 
         void getWithDrawResult(WithDrawResult withDrawResult);
+        void getAddCard();
         void getWithDrawNextResult(WithDrawNextResult withDrawNextResult);
     }
 }

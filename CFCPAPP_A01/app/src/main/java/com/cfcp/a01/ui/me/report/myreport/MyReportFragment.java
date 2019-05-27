@@ -168,7 +168,7 @@ public class MyReportFragment extends BaseFragment implements MyReportContract.V
         if(typeArgs2.equals("0")){
             type_id ="";
             startTime = DateHelper.getToday();
-            myReportBack.setTitle("账变报表");
+            myReportBack.setTitle("账单报表");
             myRepostTime.setVisibility(View.VISIBLE);
             myReportTab.setVisibility(View.GONE);
         }else{
@@ -307,7 +307,7 @@ public class MyReportFragment extends BaseFragment implements MyReportContract.V
         @Override
         protected void convert(BaseViewHolder helper, MyReportResult.ATransactionsBean item) {
 
-            String lotteryName = "";
+            /*String lotteryName = "";
             switch (item.getLottery_id()) {
                 case 49:
                 case 48:
@@ -356,7 +356,7 @@ public class MyReportFragment extends BaseFragment implements MyReportContract.V
                 case 40:
                     lotteryName= "11选5三分彩";
                     break;
-            }
+            }*/
             if(item.getIs_income()==1){
                 helper.setText(R.id.itemMyReportamount, "+"+GameShipHelper.formatMoney(item.getAmount()));
                 helper.setText(R.id.itemMyReportcoefficient, "/");
@@ -366,14 +366,15 @@ public class MyReportFragment extends BaseFragment implements MyReportContract.V
             }
 
             helper.setText(R.id.itemMyReportcreated_at, item.getCreated_at()+"").
-                    setText(R.id.itemMyReportablance, GameShipHelper.formatMoney(item.getAblance())).
+                    setText(R.id.itemMyReportablance, item.getAblance()).//GameShipHelper.formatMoney()
                     setText(R.id.itemMyReportdescription, item.getDescription()).
                     setText(R.id.itemMyReportUserName, ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT));
-            if(typeArgs2.equals("0")){
+            /*if(typeArgs2.equals("0")){
                 helper.setText(R.id.itemMyReportReMarket, "官方盘 "+lotteryName+"ID"+item.getLottery_id()+" 注单ID"+item.getProject_id());
             }else{
                 helper.setText(R.id.itemMyReportReMarket,item.getNote());
-            }
+            }*/
+            helper.setText(R.id.itemMyReportReMarket,item.getNote());
         }
     }
 

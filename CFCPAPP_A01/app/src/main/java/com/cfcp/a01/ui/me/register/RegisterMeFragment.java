@@ -164,9 +164,9 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
                 // 2、下面做查询数据的请求和展示
                 String text = typeOptionsList.get(options1);
                 if(options1==0){
-                    is_agent = "0";
-                }else{
                     is_agent = "1";
+                }else{
+                    is_agent = "0";
                 }
                 if(is_agent.equals("1")){
                     aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans1;
@@ -303,13 +303,19 @@ public class RegisterMeFragment extends BaseFragment implements RegisterMeContra
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.registerMeType:
-                typeOptionsPicker.show();
+                hideKeyboard();
+                if(!Check.isNull(typeOptionsPicker)){
+                    typeOptionsPicker.show();
+                }
                 break;
             case R.id.registerMeSetFund:
                 hideKeyboard();
-                typeOptionsPickerFund.show();
+                if(!Check.isNull(typeOptionsPickerFund)){
+                    typeOptionsPickerFund.show();
+                }
                 break;
             case R.id.registerMeSubmit:
+                hideKeyboard();
                 onRequsetData();
                 break;
         }

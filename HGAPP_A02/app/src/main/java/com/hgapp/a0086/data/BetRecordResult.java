@@ -295,6 +295,7 @@ public class BetRecordResult {
              * vs_team_name2 : RB莱比锡
              * bet_content : (70069) 小 2.5 / 3
              * bet_rate : 1.89
+             * "font_a": "2 : 0"
              */
 
             private String M_League;
@@ -303,6 +304,7 @@ public class BetRecordResult {
             private String vs_team_name2;
             private String bet_content;
             private String bet_rate;
+            private String font_a;
 
             public String getM_League() {
                 return M_League;
@@ -350,6 +352,14 @@ public class BetRecordResult {
 
             public void setBet_rate(String bet_rate) {
                 this.bet_rate = bet_rate;
+            }
+
+            public String getFont_a() {
+                return font_a;
+            }
+
+            public void setFont_a(String font_a) {
+                this.font_a = font_a;
             }
         }
     }

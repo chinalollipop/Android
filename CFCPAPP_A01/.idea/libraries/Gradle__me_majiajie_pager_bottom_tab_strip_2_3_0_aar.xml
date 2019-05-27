@@ -4,7 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/pager-bottom-tab-strip-2.3.0.aar/96e747801e1eb83ad90ea1fc4dc71ebc/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/pager-bottom-tab-strip-2.3.0.aar/96e747801e1eb83ad90ea1fc4dc71ebc/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.majiajie/pager-bottom-tab-strip/2.3.0/dfc1d03e1cad4b7e536411b35213e74dfdfb2076/pager-bottom-tab-strip-2.3.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.majiajie/pager-bottom-tab-strip/2.3.0/e439be7c4ae39e643eeb4d271269c74143a6f2fe/pager-bottom-tab-strip-2.3.0-sources.jar!/" />
     </SOURCES>

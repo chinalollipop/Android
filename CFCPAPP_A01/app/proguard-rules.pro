@@ -155,6 +155,19 @@
 # -keepnames class * implements android.os.Parcelable {
 #  public static final ** CREATOR;
 # }
+-keep class com.chad.library.adapter. {
+*;
+}
+-keep public class * extends com.chad.library.adapter.base.BaseQuickAdapter
+-keep public class * extends com.chad.library.adapter.base.BaseViewHolder
+-keepclassmembers  class **$ extends com.chad.library.adapter.base.BaseViewHolder {
+     <init>(...);
+}
+#-----------------------------agentweb的内核混淆---------------------------------------
+-keep class com.just.agentweb.** {
+    *;
+}
+-dontwarn com.just.agentweb.**
 
 #-----------------------------X5的内核混淆---------------------------------------
 -dontwarn com.tencent.smtt.sdk.**

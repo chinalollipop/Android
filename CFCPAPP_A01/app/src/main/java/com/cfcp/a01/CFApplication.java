@@ -22,22 +22,18 @@ import com.tencent.smtt.sdk.QbSdk;
 import java.io.File;
 import java.util.Locale;
 
-import me.jessyan.autosize.AutoSizeConfig;
-import me.jessyan.autosize.unit.Subunits;
-
 import static com.kongzue.dialog.v2.DialogSettings.THEME_LIGHT;
 
 public class CFApplication extends MultiDexApplication {
     private static CFApplication qpwebApplication;
     private String comment;
     private ClientConfig clientConfig;
+
     @Override
     public void onCreate() {
         super.onCreate();
         qpwebApplication = this;
-        AutoSizeConfig.getInstance().getUnitsManager().setSupportSubunits(Subunits.MM);
         Utils.init(getApplicationContext());
-        initconfigCommentClient();
         initFlurry();
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
@@ -59,19 +55,20 @@ public class CFApplication extends MultiDexApplication {
             }
         };
         //x5内核初始化接口
-        QbSdk.initX5Environment(getApplicationContext(),  cb);
+        QbSdk.initX5Environment(getApplicationContext(), cb);
         //设置dialog主题
         DialogSettings.use_blur = true;//设置是否启用模糊
         DialogSettings.tip_theme = THEME_LIGHT;
+        initconfigCommentClient();
     }
 
 
-    private void initFlurry(){
+    private void initFlurry() {
         new FlurryAgent.Builder().
                 withLogEnabled(true).
                 withContinueSessionMillis(10).
                 withCaptureUncaughtExceptions(true).
-                build(this, "djkjdkjdjj");
+                build(this, "SH42RRV7ZYQGF43JKZTR");
        /* String deviceId = DeviceUtils.getAndroidID();
         if(Check.isEmpty(deviceId))
         {
@@ -81,38 +78,36 @@ public class CFApplication extends MultiDexApplication {
         FlurryAgent.setUserId(deviceId);*/
     }
 
-    public void  initconfigCommentClient(){
+    public void initconfigCommentClient() {
         String versionName = AppUtil.getPackageInfo(getApplicationContext()).versionName;
 
         String locale = DeviceUtils.getLocaleLanguage(getApplicationContext());
-        if(Check.isEmpty(locale))
-        {
-            locale= Locale.SIMPLIFIED_CHINESE.getLanguage();
+        if (Check.isEmpty(locale)) {
+            locale = Locale.SIMPLIFIED_CHINESE.getLanguage();
         }
         String deviceId = DeviceUtils.getAndroidID();
-        if(Check.isEmpty(deviceId))
-        {
-            deviceId = Build.BRAND+Build.SERIAL+Build.DEVICE;
+        if (Check.isEmpty(deviceId)) {
+            deviceId = Build.BRAND + Build.SERIAL + Build.DEVICE;
         }
-        String filePath = FileUtils.getFilePath(getApplicationContext(),"")+"/markets.txt";
+        String filePath = FileUtils.getFilePath(getApplicationContext(), "") + "/markets.txt";
         //先读本地文件，没有的话，再读comments，然后在保存到本地
         comment = FileIOUtils.readFile2String(filePath);
-        if(Check.isEmpty(comment)){
-            comment =  CommentUtils.readAPK(new File(getApplicationContext().getPackageCodePath()));
-            FileIOUtils.writeFileFromString(filePath,comment);
-        }else{
-            FileIOUtils.writeFileFromString(filePath,comment);
+        if (Check.isEmpty(comment)) {
+            comment = CommentUtils.readAPK(new File(getApplicationContext().getPackageCodePath()));
+            FileIOUtils.writeFileFromString(filePath, comment);
+        } else {
+            FileIOUtils.writeFileFromString(filePath, comment);
         }
-        clientConfig =new ClientConfig("a01",comment, "14",versionName,locale,deviceId);
+        clientConfig = new ClientConfig("a01", comment, "14", versionName, locale, deviceId);
         //Client.config(new ClientConfig("e04","android",versionName,locale,deviceId));
         Client.config(clientConfig);
     }
 
-    public static CFApplication instance(){
+    public static CFApplication instance() {
         return qpwebApplication;
     }
 
-    public String getCommentData(){
+    public String getCommentData() {
         return comment;
     }
 

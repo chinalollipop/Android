@@ -19,6 +19,8 @@ public class JSLoginParam {
     private String api_id;
     private String parent;
     private String roomid;
+    private String hiddenheader;
+
 
     public String getUsername() {
         return username;
@@ -74,5 +76,13 @@ public class JSLoginParam {
 
     public void setRoomid(String roomid) {
         this.roomid = roomid;
+    }
+
+    public String getHiddenheader() {
+        return hiddenheader;
+    }
+
+    public void setHiddenheader(String hiddenheader) {
+        this.hiddenheader = hiddenheader;
     }
 }

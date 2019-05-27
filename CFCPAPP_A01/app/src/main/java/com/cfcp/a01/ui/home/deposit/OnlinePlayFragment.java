@@ -1,6 +1,7 @@
 package com.cfcp.a01.ui.home.deposit;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -16,18 +17,28 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 
+import com.alibaba.fastjson.JSON;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
+import com.cfcp.a01.common.http.MyHttpClient;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.ToastUtils;
+import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.NTitleBar;
+import com.cfcp.a01.data.AgGamePayResult;
+import com.kongzue.dialog.v2.MessageDialog;
 import com.kongzue.dialog.v2.WaitDialog;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 
 /**
@@ -98,13 +109,14 @@ public class OnlinePlayFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        WaitDialog.show(getContext(), "加载中...").setCanCancel(true);
         onlineDepositBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        if(!Check.isEmpty(mParam0)){
+        if (!Check.isEmpty(mParam0)) {
             onlineDepositBack.setTitle(mParam0);
         }
         WebSettings webSettings = wvOnlinePlay.getSettings();
@@ -113,7 +125,10 @@ public class OnlinePlayFragment extends BaseFragment {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setAllowFileAccess(true);
         //webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            wvOnlinePlay.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        wvOnlinePlay.getSettings().setBlockNetworkImage(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             wvOnlinePlay.getSettings().setAllowUniversalAccessFromFileURLs(true);
         } else {
@@ -164,7 +179,6 @@ public class OnlinePlayFragment extends BaseFragment {
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
-                WaitDialog.show(getActivity(), "加载中...").setCanCancel(true);
             }
 
             @Override
@@ -178,8 +192,9 @@ public class OnlinePlayFragment extends BaseFragment {
                 return super.shouldOverrideUrlLoading(view, request);
             }
         });
-        GameLog.log("加载的地址是 "+mParam);
-        wvOnlinePlay.loadUrl(mParam );
+        GameLog.log("加载的地址是 " + mParam);
+        wvOnlinePlay.loadUrl(mParam);
+        loadGameData(mParam);
         //wvOnlinePlay.loadUrl(mParam+payString.toString());
         //wvOnlinePlay.postUrl(mParam,payString.toString().getBytes());
         /*try {
@@ -215,4 +230,43 @@ public class OnlinePlayFragment extends BaseFragment {
         super.onDestroyView();
     }
 
+    private void loadGameData(String gameUrl) {
+
+        MyHttpClient myHttpClient = new MyHttpClient();
+        myHttpClient.executeGet(gameUrl, new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                wvOnlinePlay.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        GameLog.log("====================1=======================");
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    final String responseText = response.body().string();
+                    final AgGamePayResult agGamePayResult = JSON.parseObject(responseText, AgGamePayResult.class);
+                    wvOnlinePlay.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            GameLog.log("错误提示语 " + agGamePayResult.getError());
+                            ToastUtils.showLongToast(agGamePayResult.getError());
+                            //DialogSettings.style = DialogSettings.STYLE_IOS;
+                            MessageDialog.show(getActivity(), "提示", agGamePayResult.getError(), "知道了", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+                        }
+                    });
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        });
+    }
 }

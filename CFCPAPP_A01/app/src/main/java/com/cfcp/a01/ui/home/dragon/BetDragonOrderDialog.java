@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseDialogFragment;
 import com.cfcp.a01.data.CPBetResult;
+import com.cfcp.a01.data.DragonBetCloseEvent;
+import com.cfcp.a01.data.DragonBetEvent;
 import com.kongzue.dialog.v2.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;

@@ -134,9 +134,17 @@ public class RoleActivity extends Activity {
                 gameUrl = "role/role_50.html";
                 gameName ="北京PK拾";
                 break;
+            case "76":
+                gameUrl = "role/role_50.html";
+                gameName ="北京赛车(5分彩)";
+                break;
             case "1":
                 gameUrl = "role/role_1.html";
                 gameName ="欢乐生肖";
+                break;
+            case "7":
+                gameUrl = "role/role_7.html";
+                gameName ="重庆时时彩";
                 break;
             case "51":
                 gameUrl = "role/role_51.html";
@@ -148,19 +156,19 @@ public class RoleActivity extends Activity {
                 break;
             case "2":
                 gameUrl = "role/role_2.html";
-                gameName ="官方分分彩";
+                gameName ="分分彩";
                 break;
             case "5":
                 gameUrl = "role/role_5.html";
-                gameName ="腾讯三分彩";
+                gameName ="三分彩";
                 break;
             case "6":
                 gameUrl = "role/role_6.html";
-                gameName ="百度五分彩";
+                gameName ="五分彩";
                 break;
             case "4":
                 gameUrl = "role/role_4.html";
-                gameName ="阿里二分彩";
+                gameName ="二分彩";
                 break;
             case "66":
                 gameUrl = "role/role_66.html";

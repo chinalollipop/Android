@@ -254,6 +254,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:hint="请输入确认密码"
+            android:inputType="textPassword"
             android:textSize="15sp" />
     </LinearLayout>
     <!--<TextView

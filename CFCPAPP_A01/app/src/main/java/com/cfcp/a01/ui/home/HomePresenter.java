@@ -107,6 +107,7 @@ public class HomePresenter implements HomeContract.Presenter {
         Map<String, String> params = new HashMap<>();
         params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
         params.put("packet", "Game");
+        params.put("platform", "cf");
         params.put("action", "GetAllGames");
         subscriptionHelper.add(RxHelper.addSugar(api.getAllGames(params))
                 .subscribe(new ResponseSubscriber<AllGamesResult>() {
@@ -219,7 +220,7 @@ public class HomePresenter implements HomeContract.Presenter {
         params.put("packet", "ThirdGame");
         params.put("gameType", "electronic");
         params.put("way", "login");
-        params.put("gameid", "8776");
+        params.put("gameid", "101");
         params.put("isTest", "0");
         params.put("action", "AgGame");
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
@@ -250,7 +251,7 @@ public class HomePresenter implements HomeContract.Presenter {
         params.put("packet", "ThirdGame");
         params.put("gameType", "immortal");
         params.put("way", "login");
-        params.put("gameid", "101");
+        params.put("gameid", "8776");
         params.put("isTest", "0");
         params.put("action", "AgGame");
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
@@ -311,7 +312,11 @@ public class HomePresenter implements HomeContract.Presenter {
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","ThirdGame");
         params.put("action",action);
-        params.put("way","platIn");
+        if("AgGame".equals(action)){
+            params.put("way","playOutWithMoney");
+        }else{
+            params.put("way","platIn");
+        }
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getPlayOutWithMoney(params))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<GameQueueMoneyResult>>() {
@@ -319,9 +324,9 @@ public class HomePresenter implements HomeContract.Presenter {
                     public void success(AppTextMessageResponse<GameQueueMoneyResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getPlayOutWithMoneyResult(response.getData());
-                        } else {
+                        } /*else {
                             view.showMessage(response.getDescribe());
-                        }
+                        }*/
                         //view.postLoginResult(response.getData());
                     }
 

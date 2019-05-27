@@ -44,7 +44,7 @@ public abstract class ResponseSubscriber<T> extends Subscriber<T> {
             int code = ((HttpException) e).code();
             String errorMsg = ((HttpException) e).message();
             GameLog.log(errorMsg);
-            if (code == 406 ) {//|| code == 404
+            if (code == 406 || code == 404) {//|| code == 404
                 /*Client.cancelAllRequest();
                 //intent.putExtra("msg", "登录信息已过期，请重新登录！");
                 IUserManager userManager = UserManagerFactory.get();

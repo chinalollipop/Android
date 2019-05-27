@@ -360,8 +360,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     public void onVisible() {
         super.onVisible();
 
-        presenter.getPersonBalance("", "");
-        presenter.getPersonInform("");
+        if(!Check.isNull(presenter)){
+            presenter.getPersonBalance("", "");
+            presenter.getPersonInform("");
+        }
         /*String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
         GameLog.log("用户的登录状态 [ 1登录成功 ] [ 0 未登录 ] ："+userStatus);
         if("1".equals(userStatus)){

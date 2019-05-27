@@ -285,28 +285,28 @@ public class TraceListFragment extends BaseFragment implements TraceListContract
                     helper.setText(R.id.itemTraceRecordName, "北京PK10");
                     break;
                 case 13:
-                    helper.setText(R.id.itemTraceRecordName, "官网分分彩");
+                    helper.setText(R.id.itemTraceRecordName, "分分彩");
                     break;
                 case 14:
-                    helper.setText(R.id.itemTraceRecordName, "官网11选5");
+                    helper.setText(R.id.itemTraceRecordName, "11选5");
                     break;
                 case 15:
                     helper.setText(R.id.itemTraceRecordName, "江苏快三");
                     break;
                 case 16:
-                    helper.setText(R.id.itemTraceRecordName, "官网三分彩");
+                    helper.setText(R.id.itemTraceRecordName, "三分彩");
                     break;
                 case 17:
-                    helper.setText(R.id.itemTraceRecordName, "官网快三分分彩");
+                    helper.setText(R.id.itemTraceRecordName, "快三分分彩");
                     break;
                 case 19:
-                    helper.setText(R.id.itemTraceRecordName, "官网极速PK10");
+                    helper.setText(R.id.itemTraceRecordName, "极速PK10");
                     break;
                 case 20:
-                    helper.setText(R.id.itemTraceRecordName, "官网极速3D");
+                    helper.setText(R.id.itemTraceRecordName, "极速3D");
                     break;
                 case 28:
-                    helper.setText(R.id.itemTraceRecordName, "官网五分彩");
+                    helper.setText(R.id.itemTraceRecordName, "五分彩");
                     break;
                 case 30:
                     helper.setText(R.id.itemTraceRecordName, "安徽快三");

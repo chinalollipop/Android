@@ -194,6 +194,7 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
                 }else{
                     aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans0;
                 }
+                assert aAllPossiblePrizeGroupsBeans !=null;
                 type = aAllPossiblePrizeGroupsBeans.get(0).getType()+"";
                 classic_prize = aAllPossiblePrizeGroupsBeans.get(0).getClassic_prize()+"";
                 prize_group_id =aAllPossiblePrizeGroupsBeans.get(0).getId()+"";
@@ -403,16 +404,20 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.registerLinkType:
+                if(!Check.isNull(typeOptionsPickerType))
                 typeOptionsPickerType.show();
                 break;
             case R.id.registerLinkChannel:
+                if(!Check.isNull(typeOptionsPickerChannel))
                 typeOptionsPickerChannel.show();
                 break;
             case R.id.registerLinkTime:
+                if(!Check.isNull(typeOptionsPickerTime))
                 typeOptionsPickerTime.show();
                 break;
             case R.id.registerLinkFund:
                 hideKeyboard();
+                if(!Check.isNull(typeOptionsPickerFund))
                 typeOptionsPickerFund.show();
                 break;
             case R.id.registerLinkSubmit:

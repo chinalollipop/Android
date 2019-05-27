@@ -1,8 +1,10 @@
 package com.hgapp.a6668.homepage.handicap.leaguelist;
 
+import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a6668.data.LeagueDetailSearchListResult;
 import com.hgapp.a6668.data.LeagueSearchListResult;
 import com.hgapp.a6668.data.LeagueSearchTimeResult;
+import com.hgapp.a6668.data.MaintainResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -43,6 +45,12 @@ public interface ILeagueSearchListApi {
     @POST("date_of_next_15_days_api.php")
     @FormUrlEncoded
     public Observable<LeagueSearchTimeResult> postLeagueSearchTime(@Field("appRefer") String appRefer);
+
+
+    //维护日志信息
+    @POST("maintenance_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<MaintainResult>> postMaintain(@Field("appRefer") String appRefer);
 
 
 

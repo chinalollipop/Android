@@ -2,12 +2,20 @@ package com.cfcp.a01.ui.lunch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
+import com.alibaba.fastjson.JSON;
+import com.cfcp.a01.CFApplication;
+import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.R;
+import com.cfcp.a01.common.http.Client;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.data.DomainUrl;
 import com.cfcp.a01.common.http.MyHttpClient;
 import com.cfcp.a01.common.utils.ACache;
@@ -24,23 +32,43 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+import static com.cfcp.a01.common.utils.Utils.getContext;
+
 public class LaunchActivity extends AppCompatActivity {
     private boolean ifStop = false;
     MyHttpClient myHttpClient = new MyHttpClient();
     Button button;
-
+    private MyCountDownTimer mCountDownTimer;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //去除标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //去除状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_launch);
         button = findViewById(R.id.retry);
+        //创建倒计时类
+        mCountDownTimer = new MyCountDownTimer(6000, 1000);
+        mCountDownTimer.start();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onGetAvailableDomain();
+                String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
+                if(!Check.isEmpty(demainUrl)){
+                    enterMain();
+                }else{
+                    onGetAvailableDomain();
+                }
             }
         });
-        onGetAvailableDomain();
+        String urlLoad = ACache.get(getApplicationContext()).getAsString(CFConstant.USERNAME_LOAD_LUNCHER);
+        if("0".equals(urlLoad)||Check.isEmpty(urlLoad)){
+            onGetAvailableDomain();
+        }else{
+            enterMain();
+        }
     }
 
 
@@ -55,7 +83,8 @@ public class LaunchActivity extends AppCompatActivity {
             ToastUtils.showLongToast("无网络连接！");
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
-        String domainUrl = "https://hg00086.firebaseapp.com/y/cf.txt";
+//        String domainUrl = "https://hg00086.firebaseapp.com/y/cf.txt";
+        String domainUrl = "https://cp-appdown.firebaseapp.com/cf.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
@@ -65,8 +94,12 @@ public class LaunchActivity extends AppCompatActivity {
                         GameLog.log("====================1=======================");
                     }
                 });
-                String demainUrl = ACache.get(getApplicationContext()).getAsString("app_demain_url");
-                enterMain();
+                String demainUrl = ACache.get(getContext()).getAsString("app_demain_url");
+                if(!Check.isEmpty(demainUrl)){
+                    Client.setClientDomain(demainUrl);
+                }else{
+                    Client.setClientDomain(Client.domainUrl);
+                }
             }
 
             @Override
@@ -74,12 +107,25 @@ public class LaunchActivity extends AppCompatActivity {
                 final String responseText = response.body().string();
                 if (response.isSuccessful()) {
                     onGetSuccessDomain(responseText);
+                }else{
+                    String demainUrl = ACache.get(getContext()).getAsString("app_demain_url");
+                    if(!Check.isEmpty(demainUrl)){
+                        Client.setClientDomain(demainUrl);
+                    }else{
+                        Client.setClientDomain(Client.domainUrl);
+                    }
                 }
             }
         });
     }
 
     private void enterMain() {
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+            mCountDownTimer = null;
+            GameLog.log("===============enterMain====================加载了数据========================");
+        }
+        ACache.get(getApplicationContext()).put(CFConstant.USERNAME_LOAD_LUNCHER,"1");
         startActivity(new Intent(LaunchActivity.this, MainActivity.class));
         finish();
     }
@@ -91,7 +137,7 @@ public class LaunchActivity extends AppCompatActivity {
                 GameLog.log("====================请求的域名是=======================" + demain);
             }
         });
-        myHttpClient.executeGet(demain + "api/answer.php", new Callback() {//
+        myHttpClient.executeGet(demain + "service?packet=Release&action=Answer&terminal_id=2", new Callback() {//
             @Override
             public void onFailure(Call call, final IOException e) {
                 GameLog.log("request url error: " + e.toString());
@@ -101,13 +147,15 @@ public class LaunchActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText = response.body().string();
                 if (ifStop) {
+
                     button.post(new Runnable() {
                         @Override
                         public void run() {
                             GameLog.log("停止请求：" + demain);
+                            GameLog.log("停止请求请求返回的消息：" + responseText);
+                            GameLog.log("====================2=======================");
                         }
                     });
-                    GameLog.log("====================2=======================");
                     return;
                 }
                 if (response.isSuccessful()) {
@@ -116,19 +164,29 @@ public class LaunchActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             GameLog.log("最终的域名是：" + demain);
+                            GameLog.log("最终的域名请求返回的消息：" + responseText);
+                            ACache.get(getContext()).put("app_demain_url", demain);
+                            int size = domainUrl.getList().size();
+                            for(int k=0;k<size;++k){
+                                if(domainUrl.getList().get(k).getUrl().equals(demain)){
+                                    domainUrl.getList().get(k).setChecked(true);
+                                }else{
+                                    domainUrl.getList().get(k).setChecked(false);
+                                }
+                            }
+                            ACache.get(getContext()).put("homeLineChoice", JSON.toJSONString(domainUrl));
+                            Client.setClientDomain(demain);
                         }
                     });
 
-                    ACache.get(getApplicationContext()).put("app_demain_url", demain);
-                    enterMain();
                 }
             }
         });
     }
-
+    DomainUrl domainUrl;
     private void onGetSuccessDomain(String responseText) {
         try {
-            DomainUrl domainUrl = new Gson().fromJson(responseText, DomainUrl.class);
+            domainUrl = new Gson().fromJson(responseText, DomainUrl.class);
             final List<DomainUrl.ListBean> domains = domainUrl.getList();
             for (int k = 0; k < domains.size(); ++k) {
                 if (ifStop) {
@@ -138,25 +196,41 @@ public class LaunchActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             GameLog.log("request url : " + e.toString());
-        }
-        if (!ifStop) {
-            button.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (!ifStop) {
-                        String demainUrl = ACache.get(getApplicationContext()).getAsString("app_demain_url");
-                        if (ifStop) {
-                            GameLog.log("====================3=======================");
-                            return;
-                        }
-                        enterMain();
-                        ifStop = true;
-                        ToastUtils.showLongToast("网络缓慢，请切换网络或联系客服");
-                        GameLog.log("网络缓慢，请切换网络或联系客服");
-                    }
-
-                }
-            }, 6000);
+            String demainUrl = ACache.get(getContext()).getAsString("app_demain_url");
+            if(!Check.isEmpty(demainUrl)){
+                Client.setClientDomain(demainUrl);
+            }else{
+                Client.setClientDomain(Client.domainUrl);
+            }
         }
     }
+
+    class MyCountDownTimer extends CountDownTimer {
+        /**
+         * @param millisInFuture
+         *      表示以「 毫秒 」为单位倒计时的总数
+         *      例如 millisInFuture = 1000 表示1秒
+         *
+         * @param countDownInterval
+         *      表示 间隔 多少微秒 调用一次 onTick()
+         *      例如: countDownInterval = 1000 ; 表示每 1000 毫秒调用一次 onTick()
+         *
+         */
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+
+        public void onFinish() {
+            button.setText("0s 跳过");
+            enterMain();
+        }
+
+        public void onTick(long millisUntilFinished) {
+            button.setText( millisUntilFinished / 1000 + "s 跳过");
+        }
+
+    }
+
 }

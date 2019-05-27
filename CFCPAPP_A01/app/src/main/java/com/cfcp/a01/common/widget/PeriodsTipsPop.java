@@ -8,7 +8,6 @@ import android.view.animation.Animation;
 import android.widget.TextView;
 
 import com.cfcp.a01.R;
-import com.cfcp.a01.ui.home.bet.BetFragment;
 
 import razerdp.basepopup.BasePopupWindow;
 

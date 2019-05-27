@@ -514,17 +514,20 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
             }else{
                 int sizeTemp  = rowsBean.getMiddle().size();
                 StringBuilder stringBuilder = new StringBuilder();
+                StringBuilder stringBuilderFront = new StringBuilder();
                 for(int k=0;k<sizeTemp;++k){
+                    stringBuilderFront.append(rowsBean.getMiddle().get(k).getFont_a()).append("<br>");
                     stringBuilder.append(rowsBean.getMiddle().get(k).getM_League()).append("<br>")
                             .append(rowsBean.getMiddle().get(k).getVs_team_name1()).append(onMarkGreen(rowsBean.getMiddle().get(k).getVs_or_let_ball_num())).append(rowsBean.getMiddle().get(k).getVs_team_name2()).append("<br>")
                             .append(onMarkRed(rowsBean.getMiddle().get(k).getBet_content())).append("@").append(onMarkRed(rowsBean.getMiddle().get(k).getBet_rate())).append("<br>");
                 }
+                rowsBean.setFont_a(stringBuilderFront.toString());
                 TextView textView1 =  holder.getView(R.id.betRecordItem1);
                 textView1.setText(Html.fromHtml(stringBuilder.toString()));
                 holder.setVisible(R.id.betRecordItem2,false);
                 holder.setVisible(R.id.betRecordItem3,false);
                 holder.setVisible(R.id.betRecordItem4,false);
-            }
+            };
             holder.setText(R.id.betRecordItemMoney, GameShipHelper.formatNumber(rowsBean.getBetScore()+""));
             String money = GameShipHelper.formatNumber(rowsBean.getM_Result());
             TextView betRecordItemWin =  holder.getView(R.id.betRecordItemWin);

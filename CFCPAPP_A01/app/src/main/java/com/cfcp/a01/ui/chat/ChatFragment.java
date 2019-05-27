@@ -12,17 +12,23 @@ import android.view.ViewParent;
 import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 
+import com.alibaba.fastjson.JSON;
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
+import com.cfcp.a01.common.http.MyHttpClient;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.CPIWebSetting;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.NetworkUtils;
+import com.cfcp.a01.common.utils.ToastUtils;
+import com.cfcp.a01.data.AgGamePayResult;
 import com.cfcp.a01.data.JSLoginParam;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
+import com.cfcp.a01.ui.home.playgame.XPlayGameActivity;
 import com.cfcp.a01.ui.main.MainEvent;
 import com.coolindicator.sdk.CoolIndicator;
 import com.google.gson.Gson;
@@ -37,8 +43,13 @@ import com.tencent.smtt.sdk.WebViewClient;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.IOException;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 //在线客服
 public class ChatFragment extends BaseFragment {
@@ -70,19 +81,6 @@ public class ChatFragment extends BaseFragment {
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
-        mCoolIndicator.setMax(100);
-        CPIWebSetting.init(wvServiceOnlineContent);
-        webviewsetting(wvServiceOnlineContent);
-        wvServiceOnlineContent.addJavascriptInterface(new ADInterface(getActivity()),"AndroidWebView");
-
-        String webUrl = ACache.get(getContext()).getAsString(CFConstant.USERNAME_SERVICE_URL);
-        if (Check.isEmpty(webUrl)) {
-            webUrl = CFConstant.USERNAME_SERVICE_DEFAULT_URL;
-        }
-        webUrl  = "http://58.84.55.207/room/test22.php";//http://58.84.55.207/room/test33.php
-        GameLog.log("加载了在线客服。。。");
-        //wvServiceOnlineContent.clearCache(true);
-        wvServiceOnlineContent.loadUrl(webUrl);
         /*wvServiceOnlineContent.post(new Runnable() {
             @Override
             public void run() {
@@ -132,6 +130,7 @@ public class ChatFragment extends BaseFragment {
                     userInformJS.setApi_id("1");
                     userInformJS.setParent(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT));
                     userInformJS.setRoomid("0");
+                    userInformJS.setHiddenheader("0");
                     userInformJS.setToken(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
                     String userInformJson = new Gson().toJson(userInformJS);
                     //wvAd.loadData("","text/html","UTF-8");
@@ -165,13 +164,17 @@ public class ChatFragment extends BaseFragment {
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
-                mCoolIndicator.start();
+                if(!Check.isNull(mCoolIndicator)) {
+                    mCoolIndicator.start();
+                }
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                mCoolIndicator.complete();
+                if(!Check.isNull(mCoolIndicator)) {
+                    mCoolIndicator.complete();
+                }
             }
 
             @Override
@@ -328,6 +331,24 @@ public class ChatFragment extends BaseFragment {
         if(Check.isEmpty(token)){
             EventBus.getDefault().post(new MainEvent(0));
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
+        }else{
+            mCoolIndicator.setMax(100);
+            CPIWebSetting.init(wvServiceOnlineContent);
+            webviewsetting(wvServiceOnlineContent);
+            wvServiceOnlineContent.addJavascriptInterface(new ADInterface(getActivity()),"AndroidWebView");
+
+            String  webUrl  = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_CHAT_ROOM);//http://58.84.55.207/room/test33.php
+//            webUrl = "http://58.84.55.207/room/test22.php";
+            if(Check.isEmpty(webUrl)){
+                webUrl = "http://58.84.55.207/room/test22.php";
+            }
+            GameLog.log("加载了在线聊天。。。"+webUrl);
+            //wvServiceOnlineContent.clearCache(true);
+            if (!NetworkUtils.isConnected()) {
+                showMessage("无网络连接！");
+            }
+            wvServiceOnlineContent.loadUrl(webUrl);
+            //loadGameData(webUrl);
         }
     }
 
@@ -342,12 +363,70 @@ public class ChatFragment extends BaseFragment {
 
     @OnClick(R.id.servicePageRefresh)
     public void onViewRefreshClicked(){
-        String webUrl = ACache.get(getContext()).getAsString(CFConstant.USERNAME_SERVICE_URL);
+        String webUrl = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_CHAT_ROOM);
+//        webUrl = "http://58.84.55.207/room/test22.php";
         if(Check.isEmpty(webUrl)){
-            webUrl = CFConstant.USERNAME_SERVICE_DEFAULT_URL;
+            webUrl = "http://58.84.55.207/room/test22.php";
         }
-        webUrl = "http://58.84.55.207/room/test22.php";
         wvServiceOnlineContent.loadUrl(webUrl);
+        //loadGameData(webUrl);
+        if (!NetworkUtils.isConnected()) {
+            showMessage("无网络连接！");
+        }
+    }
+
+
+    private void loadGameData(String gameUrl) {
+        MyHttpClient myHttpClient = new MyHttpClient();
+        myHttpClient.executeGet(gameUrl, new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                //网络异常或者超时的时候调用此处
+                wvServiceOnlineContent.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        GameLog.log("无网络的情况下调用了");
+                        wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
+                        showMessage("请检查网络是否正常");
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                final String responseText = response.body().string();
+                try {
+                    wvServiceOnlineContent.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            GameLog.log("在线聊天 code是 "+ response.code());
+                            GameLog.log("在线聊天Json"+responseText);
+                            //showMessage("请检查网络是否正常");
+                            //wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
+                        }
+                    });
+                } catch (Exception exception) {
+                    wvServiceOnlineContent.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
+                            wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
+                            showMessage("请检查网络是否正常");
+                        }
+                    });
+                }
+                if(!response.isSuccessful()){
+                    GameLog.log("我去 ，既然白屏了  "+responseText);
+                    wvServiceOnlineContent.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
+                            showMessage("请检查网络是否正常");
+                        }
+                    });
+                }
+            }
+        });
     }
 
 }

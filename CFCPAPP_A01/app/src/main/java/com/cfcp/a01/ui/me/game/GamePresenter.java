@@ -38,7 +38,12 @@ public class GamePresenter implements GameContract.Presenter {
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","ThirdGame");
         params.put("action",action);
-        params.put("way","queueMoney");
+        if("AgGame".equals(action)){
+            params.put("way","getAgBlance");
+        }else{
+            params.put("way","queueMoney");
+
+        }
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getLowerLevelReport(params))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<GameQueueMoneyResult>>() {
@@ -67,7 +72,12 @@ public class GamePresenter implements GameContract.Presenter {
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","ThirdGame");
         params.put("action",action);
-        params.put("way","playOutWithMoney");
+        if("AgGame".equals(action)){
+            params.put("way","playOutWithMoney");
+        }else{
+            params.put("way","platIn");
+        }
+        //params.put("way","playOutWithMoney");
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getLowerLevelReport(params))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<GameQueueMoneyResult>>() {

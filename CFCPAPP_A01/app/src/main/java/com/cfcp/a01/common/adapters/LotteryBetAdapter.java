@@ -30,13 +30,9 @@ public class LotteryBetAdapter extends BaseQuickAdapter<String, BaseViewHolder> 
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.tv_lottery_num, item);
         TextView tvLotteryNum = helper.getView(R.id.tv_lottery_num);
-        if (mLotteryID == 15 || mLotteryID == 17) {
+        if (mLotteryID == 15 || mLotteryID == 17 || mLotteryID == 50 || mLotteryID == 51) {
             tvLotteryNum.setBackgroundResource(R.drawable.selector_lottery_method);
-            if (getData().size() > 6 && helper.getLayoutPosition() < 4) {
-                tvLotteryNum.setWidth(DimensUtils.dipToPx(mContext, 120));
-            } else {
-                tvLotteryNum.setWidth(DimensUtils.dipToPx(mContext, 55));
-            }
+            tvLotteryNum.setWidth(DimensUtils.dipToPx(mContext, 55));
             tvLotteryNum.setHeight(120);
         } else if (!CommentUtils.isNumeric(item) && item.length() > 1) {
             tvLotteryNum.setBackgroundResource(R.drawable.selector_lottery_num_oval);

@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.hgapp.a0086.MainActivity;
 import com.hgapp.a0086.R;
@@ -27,6 +28,8 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import static com.hgapp.common.util.Utils.getContext;
 
 /**
  * Created by Daniel on 2018/8/18.
@@ -134,18 +137,32 @@ public class LauncherActivity extends AppCompatActivity{
                 }
                 if(response.isSuccessful()){
                     ifStop = true;
-                    GameLog.log("最终的域名是："+demain);
-                    ACache.get(LauncherActivity.this).put(HGConstant.APP_DEMAIN_URL,demain);
-                    Client.setClientDomain(demain);
-                    enterMain();
+                    button.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            GameLog.log("最终的域名是："+demain);
+                            ACache.get(LauncherActivity.this).put(HGConstant.APP_DEMAIN_URL,demain);
+                            int size = domainUrl.getList().size();
+                            for(int k=0;k<size;++k){
+                                if(domainUrl.getList().get(k).getUrl().equals(demain)){
+                                    domainUrl.getList().get(k).setChecked(true);
+                                }
+                            }
+                            ACache.get(getContext()).put("homeLineChoice", JSON.toJSONString(domainUrl));
+                            Client.setClientDomain(demain);
+                            enterMain();
+                        }
+                    });
+
+
                 }
             }
         });
     }
-
+    DomainUrl domainUrl;
     private void onGetSuccessDomain(String responseText) {
         try {
-            DomainUrl domainUrl = new Gson().fromJson(responseText, DomainUrl.class);
+            domainUrl = new Gson().fromJson(responseText, DomainUrl.class);
             final List<DomainUrl.ListBean> domains = domainUrl.getList();
             for(int k=0;k<domains.size();++k){
                 if(ifStop){

@@ -42,7 +42,8 @@ public class MainActivity extends SupportActivity {
             pop();
         }else{
             if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
-                ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, "");
+//                ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, "");
+                ACache.get(getApplicationContext()).put(CFConstant.USERNAME_LOAD_LUNCHER,"0");
                 finish();
             } else {
                 TOUCH_TIME = System.currentTimeMillis();

@@ -94,9 +94,11 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
                         String.valueOf(mRandom.nextInt(10)) +
                         String.valueOf(mRandom.nextInt(10));
                 */
-                registerVerificationCodeView.setvCode(vCode);
-                vCode = registerVerificationCodeView.getvCode();
-                GameLog.log("当前的值是 "+vCode);
+                if(!Check.isNull(registerVerificationCodeView)){
+                    registerVerificationCodeView.setvCode(vCode);
+                    vCode = registerVerificationCodeView.getvCode();
+                    GameLog.log("当前的值是 "+vCode);
+                }
             }
         });
     }
@@ -104,10 +106,14 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
     @Override
     public void postRegisterMemberResult(LoginResult loginResult) {
         GameLog.log("================注册页需要消失的================");
+        showMessage("注册账号成功！");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PWD, "");
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_ACCOUNT, loginResult.getUsername());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, loginResult.getToken());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BALANCE, loginResult.getAbalance());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT_ID, loginResult.getId() + "");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_USER_ID,loginResult.getId()+"");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT,loginResult.getParent()+"");
         EventBus.getDefault().post(loginResult);
         popTo(LoginFragment.class, true);
     }
@@ -148,6 +154,9 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
         if(!vCode.equals(userCode)){
             showMessage("验证码错误");
             return;
+        }
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this,null);
         }
         presenter.postRegisterMember(userName,userPwd,userPwd2);
     }

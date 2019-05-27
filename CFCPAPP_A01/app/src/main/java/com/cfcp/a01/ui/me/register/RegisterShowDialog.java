@@ -55,7 +55,7 @@ public class RegisterShowDialog extends BaseDialogFragment {
     protected void setEvents(View view, Bundle bundle) {
         EventBus.getDefault().register(this);
         data = getArguments().getParcelable(PARAM0);
-        registerDType.setText(data.type.equals("0")?"代理":"会员");
+        registerDType.setText(data.type.equals("1")?"代理":"会员");
         registerDUserName.setText(data.accountName);
         registerDPwd.setText(data.pwd);
         registerDNickName.setText(data.nickName);

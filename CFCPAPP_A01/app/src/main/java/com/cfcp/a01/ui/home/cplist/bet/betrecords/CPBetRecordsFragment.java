@@ -1,16 +1,12 @@
 package com.cfcp.a01.ui.home.cplist.bet.betrecords;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,18 +25,11 @@ import com.cfcp.a01.CPInjections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseActivity2;
 import com.cfcp.a01.common.base.IPresenter;
-import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.ACache;
-import com.cfcp.a01.common.utils.CalcHelper;
 import com.cfcp.a01.common.utils.DateHelper;
 import com.cfcp.a01.common.utils.GameLog;
-import com.cfcp.a01.common.utils.GameShipHelper;
 import com.cfcp.a01.data.AllGamesResult;
-import com.cfcp.a01.data.BetRecordResult;
 import com.cfcp.a01.data.BetRecordsResult;
-import com.cfcp.a01.ui.home.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
-import com.cfcp.a01.ui.me.record.BetFragment;
-import com.cfcp.a01.ui.me.record.betdetail.BetDetailFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
@@ -89,7 +78,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
 
     private List<AllGamesResult.DataBean.LotteriesBean> AvailableLottery  = new ArrayList<>();
     String startTime,endTime;
-    String lottery_id="1";
+    String lottery_id="";
     int position = -1;
     int pageTotal = 1;
     int page = 1;
@@ -191,8 +180,14 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 case "50":
                     name ="北京PK拾";
                     break;
+                case "76":
+                    name ="北京赛车(5分彩)";
+                    break;
                 case "1":
                     name ="欢乐生肖";
+                    break;
+                case "7":
+                    name ="重庆时时彩";
                     break;
                 case "55":
                     name ="幸运飞艇";
@@ -210,19 +205,19 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                     name ="江苏骰宝(快3)";
                     break;
                 case "73":
-                    name ="极速快3五分彩";
+                    name ="五分快三";
                     break;
                 case "74":
-                    name ="极速快3三分彩";
+                    name ="三分快三";
                     break;
                 case "75":
-                    name ="极速快3分分彩";
+                    name ="一分快三";
                     break;
                 case "51":
                     name ="极速赛车";
                     break;
                 case "2":
-                    name ="官方分分彩";
+                    name ="分分彩";
                     break;
                 case "60":
                     name ="广东快乐十分";
@@ -237,13 +232,13 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                     name ="广东11选5";
                     break;
                 case "4":
-                    name ="阿里二分彩";
+                    name ="二分彩";
                     break;
                 case "5":
-                    name ="腾讯三分彩";
+                    name ="三分彩";
                     break;
                 case "6":
-                    name ="百度五分彩";
+                    name ="五分彩";
                     break;
             }
             helper.setText(R.id.itemBetRecordName, name);

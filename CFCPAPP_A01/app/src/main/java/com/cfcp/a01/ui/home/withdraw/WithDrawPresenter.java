@@ -43,6 +43,9 @@ public class WithDrawPresenter implements WithDrawContract.Presenter {
                     public void success(AppTextMessageResponse<WithDrawResult> response) {
                         if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
                             view.getWithDrawResult(response.getData());
+                        }else if(response.getErrno().equals("7024")) {
+                            view.getAddCard();
+                            view.showMessage(response.getDescribe());
                         } else {
                             view.showMessage(response.getDescribe());
                         }

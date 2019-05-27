@@ -1162,6 +1162,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
     private void onSendAuthCode() {
         GameLog.log("-----开始-----");
         executorService = Executors.newScheduledThreadPool(1);
+        if(onWaitingThread ==null){
+            onWaitingThread =  new onWaitingThread();
+        }
         executorService.scheduleAtFixedRate(onWaitingThread, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
@@ -1178,6 +1181,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             executorService.shutdownNow();
             executorService.shutdown();
             executorService = null;
+            onWaitingThread = null;
         }
     }
 

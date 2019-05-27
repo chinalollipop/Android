@@ -4,11 +4,14 @@ import android.webkit.CookieManager;
 
 import com.cfcp.a01.common.http.util.LoggerInterceptor;
 import com.cfcp.a01.common.http.util.SaveCookiesInterceptor;
+import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.Call;
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;
@@ -16,6 +19,8 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.cfcp.a01.common.utils.Utils.getContext;
 
 /**
  * Created by Daniel on 2019/12/17.
@@ -27,7 +32,7 @@ public class Client {
     private static OkHttpClient client;
     private static ClientConfig clientConfig;
     private static ProxyCallFactory proxyCallFactory;
-    private static String domainUrl = "http://api.dh5588.com/";
+    public static String domainUrl = "http://cf5501.com/";
 
     /**
      * 应该在Application onCreate中使用
@@ -41,7 +46,14 @@ public class Client {
      * 基本域名（+path）
      */
     public static String baseUrl() {
-//        domainUrl = "http://api.dh5588.com/";// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
+        //domainUrl = "http://cf5501.com/"; //线上
+        domainUrl = ACache.get(getContext()).getAsString("app_demain_url"); //线上
+        if(Check.isNull(domainUrl)){
+            domainUrl = "http://cf5501.com/";
+        }
+//        domainUrl = "http://api.dh5588.com/";//测试
+// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
+        GameLog.log("get domainUrl:" + domainUrl);
         return domainUrl;
     }
 
@@ -52,7 +64,7 @@ public class Client {
 
     public static OkHttpClient getClient() {
         if (null == client) {
-            client = new OkHttpClient.Builder()
+            client = RetrofitUrlManager.getInstance().with(new OkHttpClient.Builder())
                     .connectTimeout(30, TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -42,7 +43,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class HomeFragment extends SupportFragment implements HomeContract.View{
+public class HomeFragment extends SupportFragment implements HomeContract.View, View.OnTouchListener {
 
     @BindView(R.id.homeAccountLogo)
     ImageView homeAccountLogo;
@@ -111,9 +112,12 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
         return view;
     }
 
-
     private void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
+        homeKy.setOnTouchListener(this);
+        homeVg.setOnTouchListener(this);
+        homeBy.setOnTouchListener(this);
+        homeHg.setOnTouchListener(this);
         presenters();
         presenter.postBanner("");
         presenter.postNotice("","1");
@@ -154,6 +158,8 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
             case R.id.homeCheck:
                 break;
             case R.id.homeRegent:
+                //签到红包
+
                 break;
             case R.id.homePop:
                 break;
@@ -274,4 +280,41 @@ public class HomeFragment extends SupportFragment implements HomeContract.View{
         homeUserMoney.setText("0");
     }
 
+    @Override
+    public boolean onTouch(View view, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if (view.getId() == R.id.homeBy) {
+                        homeBy.setScaleX(1.1f);
+                        homeBy.setScaleY(1.1f);
+                        break;
+                }else if(view.getId() == R.id.homeHg) {
+                    homeHg.setScaleX(1.1f);
+                    homeHg.setScaleY(1.1f);
+                }else if(view.getId() == R.id.homeVg) {
+                    homeVg.setScaleX(1.1f);
+                    homeVg.setScaleY(1.1f);
+                }else if(view.getId() == R.id.homeKy) {
+                    homeKy.setScaleX(1.1f);
+                    homeKy.setScaleY(1.1f);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                if (view.getId() == R.id.homeBy) {
+                    homeBy.setScaleX((float) 0.95);
+                    homeBy.setScaleY((float) 0.95);
+                }else if(view.getId() == R.id.homeHg) {
+                    homeHg.setScaleX((float) 0.95);
+                    homeHg.setScaleY((float) 0.95);
+                }else if(view.getId() == R.id.homeVg) {
+                    homeVg.setScaleX((float) 0.95);
+                    homeVg.setScaleY((float) 0.95);
+                }else if(view.getId() == R.id.homeKy) {
+                    homeKy.setScaleX((float) 0.95);
+                    homeKy.setScaleY((float) 0.95);
+                }
+                break;
+        }
+        return false;
+    }
 }

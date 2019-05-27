@@ -1,5 +1,6 @@
 package com.cfcp.a01.ui.main.upgrade;
 
+import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.http.request.AppTextMessageResponseList;
 import com.cfcp.a01.data.CheckUpgradeResult;
 
@@ -11,5 +12,5 @@ import rx.Observable;
 
 public interface ICheckVerUpdateApi {
     @GET("service")
-    public Observable<AppTextMessageResponseList<CheckUpgradeResult>> checkupdate(@QueryMap Map<String, String> params);
+    public Observable<AppTextMessageResponse<CheckUpgradeResult>> checkupdate(@QueryMap Map<String, String> params);
 }

@@ -1,5 +1,6 @@
 package com.cfcp.a01.ui.home.bet;
 
+import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BetDataResult;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
 
@@ -24,4 +25,7 @@ public interface IBetFragmentApi {
             @QueryMap Map<String, String> params
     );
 
+    //所有游戏列表
+    @GET("service")
+    Observable<AllGamesResult> getAllGames(@QueryMap Map<String, String> params);
 }

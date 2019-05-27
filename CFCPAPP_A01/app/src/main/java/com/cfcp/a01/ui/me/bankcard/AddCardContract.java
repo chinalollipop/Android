@@ -23,5 +23,6 @@ public interface AddCardContract {
 
         void getBankListResult(BankListResult bankListResult);
         void getAddCardResult(BankCardAddResult bankCardAddResult);
+        void getFundPwdResult(String message);
     }
 }

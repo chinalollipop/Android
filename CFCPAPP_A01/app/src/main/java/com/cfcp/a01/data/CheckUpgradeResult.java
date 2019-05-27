@@ -20,6 +20,7 @@ public class CheckUpgradeResult implements Parcelable {
     private String file_path;
     private String start_time;
     private String description;
+    private String custom_service;
 
     public String getVersion() {
         return version;
@@ -69,6 +70,14 @@ public class CheckUpgradeResult implements Parcelable {
         this.description = description;
     }
 
+    public String getCustom_service() {
+        return custom_service;
+    }
+
+    public void setCustom_service(String custom_service) {
+        this.custom_service = custom_service;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -82,6 +91,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.file_path);
         dest.writeString(this.start_time);
         dest.writeString(this.description);
+        dest.writeString(this.custom_service);
     }
 
     public CheckUpgradeResult() {
@@ -94,6 +104,7 @@ public class CheckUpgradeResult implements Parcelable {
         this.file_path = in.readString();
         this.start_time = in.readString();
         this.description = in.readString();
+        this.custom_service = in.readString();
     }
 
     public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {

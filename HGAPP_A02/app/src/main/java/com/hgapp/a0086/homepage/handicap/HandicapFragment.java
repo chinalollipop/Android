@@ -233,7 +233,11 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         BottombarViewManager.getSingleton().onShowView(getActivity(),this,"","","");
-        onPostData();
+        try {
+            onPostData();
+        }catch (Exception  e){
+            e.printStackTrace();
+        }
         tvHandicapUserName.setText(userName);
         tvHandicapUserMoney.setText(userMoney);
         myExAdapter = new MyExpandableAdapter(getContext(), groups, children);

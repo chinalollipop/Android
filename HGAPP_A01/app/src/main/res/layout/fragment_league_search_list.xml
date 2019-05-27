@@ -204,7 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawablePadding="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
             android:drawableTop="@mipmap/bet_nodata"
             android:text="无赛程"
             android:visibility="gone" />

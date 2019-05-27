@@ -12,6 +12,7 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.data.BetRecordResult;
 import com.hgapp.a6668.data.LoginResult;
+import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 
 import java.util.Arrays;
@@ -65,7 +66,12 @@ public class AccountCenterMainFragment extends HGBaseFragment implements Account
 
         LoginResult loginResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_INFO), LoginResult.class);
         accountName.setText(loginResult.getUserName());
-        accountAlias.setText(loginResult.getAlias());
+        if(Check.isEmpty(loginResult.getAlias())){
+            accountAlias.setText(loginResult.getAlias());
+        }else {
+            String name = "" + loginResult.getAlias().substring(0, 1) + (loginResult.getAlias().length() >= 3 ? "**" : "*");
+            accountAlias.setText(name);
+        }
         accountPhone.setText(loginResult.getPhone());
         accountBirthday.setText(loginResult.getBirthday());
         accountWechat.setText(loginResult.getE_Mail());

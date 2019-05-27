@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -66,10 +66,9 @@ import com.cfcp.a01.data.Cp11X5Result;
 import com.cfcp.a01.data.JSLoginParam;
 import com.cfcp.a01.data.PCDDResult;
 import com.cfcp.a01.data.PersonBalanceResult;
-import com.cfcp.a01.ui.chat.ChatFragment;
 import com.cfcp.a01.ui.home.bet.BetFragment;
 import com.cfcp.a01.ui.home.cplist.bet.BetCPOrderDialog;
-import com.cfcp.a01.ui.home.cplist.bet.CPBetParams;
+import com.cfcp.a01.data.CPBetParams;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.CPBetRecordsFragment;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
 import com.cfcp.a01.ui.home.cplist.bet.betrecords.betnow.CPBetNowFragment;
@@ -87,11 +86,11 @@ import com.cfcp.a01.ui.home.cplist.quickbet.QuickBetParam;
 import com.cfcp.a01.ui.main.MainEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.coolindicator.sdk.CoolIndicator;
 import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.kongzue.dialog.v2.DialogSettings;
 import com.kongzue.dialog.v2.MessageDialog;
-import com.kongzue.dialog.v2.SelectDialog;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -125,7 +124,12 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     TextView cpOrderBetArea;
     @BindView(R.id.cpOrderChatArea)
     TextView cpOrderChatArea;
-
+    @BindView(R.id.XChatView)
+    ConstraintLayout XChatView;
+    @BindView(R.id.flayout_xpay)
+    FrameLayout flayoutXpay;
+    @BindView(R.id.indicator)
+    CoolIndicator mCoolIndicator;
     @BindView(R.id.cpOrderBetAreaLay)
     LinearLayout cpOrderBetAreaLay;
     @BindView(R.id.cpOrderChatAreaLay)
@@ -315,11 +319,17 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
+                GameLog.log("----开始加载界面了 ----");
+                mCoolIndicator.start();
+                //WaitDialog.show(getContext(),"加载中...").setCanCancel(true);
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                mCoolIndicator.complete();
+                GameLog.log("----完成加载界面了 ----");
+                //WaitDialog.dismiss();
             }
 
             @Override
@@ -344,6 +354,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     customViewCallback.onCustomViewHidden();
                 }
                 cpOrderChatAreaLay.setVisibility(View.VISIBLE);
+                flayoutXpay.removeAllViews();
+                flayoutXpay.setVisibility(View.GONE);
                 super.onHideCustomView();
             }
 
@@ -351,6 +363,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             public void onShowCustomView(View view, IX5WebChromeClient.CustomViewCallback customViewCallback) {
                 cpOrderChatAreaLay.setVisibility(View.GONE);
                 this.customViewCallback = customViewCallback;
+                flayoutXpay.removeAllViews();
+                flayoutXpay.setVisibility(View.VISIBLE);
+                flayoutXpay.addView(view);
                 super.onShowCustomView(view, customViewCallback);
             }
             // For Android 3.0+
@@ -458,6 +473,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     userInformJS.setApi_id("1");
                     userInformJS.setParent(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT));
                     userInformJS.setRoomid("0");
+                    userInformJS.setHiddenheader("0");
                     userInformJS.setToken(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
                     String userInformJson = new Gson().toJson(userInformJS);
                     //wvAd.loadData("","text/html","UTF-8");
@@ -485,10 +501,17 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
 
 
     private void initWebView(){
+        mCoolIndicator.setMax(100);
         CPIWebSetting.init(cpOrderChatAreaLay);//http://58.84.55.207/ https://www.google.com/
         webviewsetting(cpOrderChatAreaLay);
         cpOrderChatAreaLay.addJavascriptInterface(new ADInterface(getContext()),"AndroidWebView");
-        cpOrderChatAreaLay.loadUrl("http://58.84.55.207/room/test22.php");
+        //cpOrderChatAreaLay.loadUrl("http://58.84.55.207/room/test22.php");
+        String chartUrl = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_CHAT_ROOM);
+        if(Check.isEmpty(chartUrl)){
+            chartUrl = "http://58.84.55.207/room/test22.php";
+        }
+        cpOrderChatAreaLay.loadUrl(chartUrl);
+        //cpOrderChatAreaLay.loadUrl("http://58.84.55.207/62642217");
     }
 
    /* public static CPOrderFragment newInstance(List<String> param1) {
@@ -4830,141 +4853,47 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
             switch (k){
                 case 0:
-                    CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
-                    cpOrderContentListResult.setOrderContentListName("三军、大小");
-                    cpOrderContentListResult.setShowNumber(2);
-                    cpOrderContentListResult.setShowType("DANIEL_");
-
-                    List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
-                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
-
-                    cpOrderContentResult3.setOrderName("1_");
-                    cpOrderContentResult3.setFullName("三军");
-                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata105601());
-                    cpOrderContentResult3.setOrderId("105601");
-                    cpOrderContentResultList.add(cpOrderContentResult3);
-
-                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
-                    cpOrderContentResult4.setOrderName("2_");
-                    cpOrderContentResult4.setFullName("三军");
-                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata105602());
-                    cpOrderContentResult4.setOrderId("105602");
-                    cpOrderContentResultList.add(cpOrderContentResult4);
-
-                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
-                    cpOrderContentResult5.setOrderName("3_");
-                    cpOrderContentResult5.setFullName("三军");
-                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata105603());
-                    cpOrderContentResult5.setOrderId("105603");
-                    cpOrderContentResultList.add(cpOrderContentResult5);
-
-                    CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
-                    cpOrderContentResult6.setOrderName("4_");
-                    cpOrderContentResult6.setFullName("三军");
-                    cpOrderContentResult6.setOrderState(cpbjscResult.getdata105604());
-                    cpOrderContentResult6.setOrderId("105604");
-                    cpOrderContentResultList.add(cpOrderContentResult6);
-
-                    CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
-                    cpOrderContentResult7.setOrderName("5_");
-                    cpOrderContentResult7.setFullName("三军");
-                    cpOrderContentResult7.setOrderState(cpbjscResult.getdata105605());
-                    cpOrderContentResult7.setOrderId("105605");
-                    cpOrderContentResultList.add(cpOrderContentResult7);
-
-                    CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
-                    cpOrderContentResult8.setOrderName("6_");
-                    cpOrderContentResult8.setFullName("三军");
-                    cpOrderContentResult8.setOrderState(cpbjscResult.getdata105606());
-                    cpOrderContentResult8.setOrderId("105606");
-                    cpOrderContentResultList.add(cpOrderContentResult8);
-
-                    CPOrderContentListResult cpOrderContentListResult1 = new CPOrderContentListResult();
-                    cpOrderContentListResult1.setOrderContentListName("");
-                    cpOrderContentListResult1.setShowNumber(2);
-
-                    List<CPOrderContentResult> cpOrderContentResultList1 = new ArrayList<>();
+                    CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
+                    cpOrderContentListResult3.setOrderContentListName("和值");
+                    cpOrderContentListResult3.setShowNumber(2);
+                    List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
                     CPOrderContentResult cpOrderContentResult9 = new CPOrderContentResult();
                     cpOrderContentResult9.setOrderName("大");
-                    cpOrderContentResult9.setFullName("三军");
+                    cpOrderContentResult9.setFullName("和值");
                     cpOrderContentResult9.setOrderState(cpbjscResult.getdata106101());
                     cpOrderContentResult9.setOrderId("106101");
-                    cpOrderContentResultList1.add(cpOrderContentResult9);
+                    cpOrderContentResultList3.add(cpOrderContentResult9);
 
                     CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
                     cpOrderContentResult10.setOrderName("小");
-                    cpOrderContentResult10.setFullName("三军");
+                    cpOrderContentResult10.setFullName("和值");
                     cpOrderContentResult10.setOrderState(cpbjscResult.getdata106102());
                     cpOrderContentResult10.setOrderId("106102");
-                    cpOrderContentResultList1.add(cpOrderContentResult10);
+                    cpOrderContentResultList3.add(cpOrderContentResult10);
 
-                    cpOrderContentListResult.setData(cpOrderContentResultList);
-                    CPOrderContentListResult.add(cpOrderContentListResult);
 
-                    cpOrderContentListResult1.setData(cpOrderContentResultList1);
-                    CPOrderContentListResult.add(cpOrderContentListResult1);
+                    CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
+                    cpOrderContentResult11.setOrderName("单");
+                    cpOrderContentResult11.setFullName("和值");
+                    cpOrderContentResult11.setOrderState(cpbjscResult.getdata106103());
+                    cpOrderContentResult11.setOrderId("106103");
+                    cpOrderContentResultList3.add(cpOrderContentResult11);
 
-                    break;
-                case 1:
-                    CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
-                    cpOrderContentListResult2.setOrderContentListName("围骰、全骰");
-                    cpOrderContentListResult2.setShowNumber(2);
-                    cpOrderContentListResult2.setShowType("DANIEL");
+                    CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
+                    cpOrderContentResult12.setOrderName("双");
+                    cpOrderContentResult12.setFullName("和值");
+                    cpOrderContentResult12.setOrderState(cpbjscResult.getdata106104());
+                    cpOrderContentResult12.setOrderId("106104");
+                    cpOrderContentResultList3.add(cpOrderContentResult12);
 
-                    List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
-                    CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
-                    cpOrderContentResult21.setOrderName("1_1_1");
-                    cpOrderContentResult21.setFullName("");
-                    cpOrderContentResult21.setOrderState(cpbjscResult.getdata105701());
-                    cpOrderContentResult21.setOrderId("105701");
-                    cpOrderContentResultList2.add(cpOrderContentResult21);
+                    CPOrderContentResult cpOrderContentResult30 = new CPOrderContentResult();
+                    cpOrderContentResult30.setOrderName("3点");
+                    cpOrderContentResult30.setFullName("");
+                    cpOrderContentResult30.setOrderState(cpbjscResult.getdata105803());
+                    cpOrderContentResult30.setOrderId("105803");
+                    cpOrderContentResultList3.add(cpOrderContentResult30);
 
-                    CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
-                    cpOrderContentResult22.setOrderName("2_2_2");
-                    cpOrderContentResult22.setFullName("");
-                    cpOrderContentResult22.setOrderState(cpbjscResult.getdata105702());
-                    cpOrderContentResult22.setOrderId("105702");
-                    cpOrderContentResultList2.add(cpOrderContentResult22);
-
-                    CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
-                    cpOrderContentResult23.setOrderName("3_3_3");
-                    cpOrderContentResult23.setFullName("");
-                    cpOrderContentResult23.setOrderState(cpbjscResult.getdata105703());
-                    cpOrderContentResult23.setOrderId("105703");
-                    cpOrderContentResultList2.add(cpOrderContentResult23);
-
-                    CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
-                    cpOrderContentResult24.setOrderName("4_4_4");
-                    cpOrderContentResult24.setFullName("");
-                    cpOrderContentResult24.setOrderState(cpbjscResult.getdata105704());
-                    cpOrderContentResult24.setOrderId("105704");
-                    cpOrderContentResultList2.add(cpOrderContentResult24);
-
-                    CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
-                    cpOrderContentResult25.setOrderName("5_5_5");
-                    cpOrderContentResult25.setFullName("");
-                    cpOrderContentResult25.setOrderState(cpbjscResult.getdata105705());
-                    cpOrderContentResult25.setOrderId("105705");
-                    cpOrderContentResultList2.add(cpOrderContentResult25);
-
-                    CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
-                    cpOrderContentResult26.setOrderName("6_6_6");
-                    cpOrderContentResult26.setFullName("");
-                    cpOrderContentResult26.setOrderState(cpbjscResult.getdata105706());
-                    cpOrderContentResult26.setOrderId("105706");
-                    cpOrderContentResultList2.add(cpOrderContentResult26);
-
-                    cpOrderContentListResult2.setData(cpOrderContentResultList2);
-
-                    CPOrderContentListResult.add(cpOrderContentListResult2);
-                    break;
-                case 2:
-                    CPOrderContentListResult cpOrderContentListResult3 = new CPOrderContentListResult();
-                    cpOrderContentListResult3.setOrderContentListName("点数");
-                    cpOrderContentListResult3.setShowNumber(2);
-
-                    List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
                     CPOrderContentResult cpOrderContentResult31 = new CPOrderContentResult();
                     cpOrderContentResult31.setOrderName("4点");
                     cpOrderContentResult31.setFullName("");
@@ -5068,9 +4997,128 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     cpOrderContentResult44.setOrderId("105817");
                     cpOrderContentResultList3.add(cpOrderContentResult44);
 
+                    CPOrderContentResult cpOrderContentResult45 = new CPOrderContentResult();
+                    cpOrderContentResult45.setOrderName("18点");
+                    cpOrderContentResult45.setFullName("");
+                    cpOrderContentResult45.setOrderState(cpbjscResult.getdata105818());
+                    cpOrderContentResult45.setOrderId("105818");
+                    cpOrderContentResultList3.add(cpOrderContentResult45);
+
+
                     cpOrderContentListResult3.setData(cpOrderContentResultList3);
 
                     CPOrderContentListResult.add(cpOrderContentListResult3);
+                    break;
+
+                case 1:
+                    CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
+                    cpOrderContentListResult.setOrderContentListName("三军");
+                    cpOrderContentListResult.setShowNumber(2);
+                    cpOrderContentListResult.setShowType("DANIEL_");
+
+                    List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult3 = new CPOrderContentResult();
+
+                    cpOrderContentResult3.setOrderName("1_");
+                    cpOrderContentResult3.setFullName("三军");
+                    cpOrderContentResult3.setOrderState(cpbjscResult.getdata105601());
+                    cpOrderContentResult3.setOrderId("105601");
+                    cpOrderContentResultList.add(cpOrderContentResult3);
+
+                    CPOrderContentResult cpOrderContentResult4 = new CPOrderContentResult();
+                    cpOrderContentResult4.setOrderName("2_");
+                    cpOrderContentResult4.setFullName("三军");
+                    cpOrderContentResult4.setOrderState(cpbjscResult.getdata105602());
+                    cpOrderContentResult4.setOrderId("105602");
+                    cpOrderContentResultList.add(cpOrderContentResult4);
+
+                    CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
+                    cpOrderContentResult5.setOrderName("3_");
+                    cpOrderContentResult5.setFullName("三军");
+                    cpOrderContentResult5.setOrderState(cpbjscResult.getdata105603());
+                    cpOrderContentResult5.setOrderId("105603");
+                    cpOrderContentResultList.add(cpOrderContentResult5);
+
+                    CPOrderContentResult cpOrderContentResult6 = new CPOrderContentResult();
+                    cpOrderContentResult6.setOrderName("4_");
+                    cpOrderContentResult6.setFullName("三军");
+                    cpOrderContentResult6.setOrderState(cpbjscResult.getdata105604());
+                    cpOrderContentResult6.setOrderId("105604");
+                    cpOrderContentResultList.add(cpOrderContentResult6);
+
+                    CPOrderContentResult cpOrderContentResult7 = new CPOrderContentResult();
+                    cpOrderContentResult7.setOrderName("5_");
+                    cpOrderContentResult7.setFullName("三军");
+                    cpOrderContentResult7.setOrderState(cpbjscResult.getdata105605());
+                    cpOrderContentResult7.setOrderId("105605");
+                    cpOrderContentResultList.add(cpOrderContentResult7);
+
+                    CPOrderContentResult cpOrderContentResult8 = new CPOrderContentResult();
+                    cpOrderContentResult8.setOrderName("6_");
+                    cpOrderContentResult8.setFullName("三军");
+                    cpOrderContentResult8.setOrderState(cpbjscResult.getdata105606());
+                    cpOrderContentResult8.setOrderId("105606");
+                    cpOrderContentResultList.add(cpOrderContentResult8);
+
+                    cpOrderContentListResult.setData(cpOrderContentResultList);
+                    CPOrderContentListResult.add(cpOrderContentListResult);
+
+
+
+                    break;
+
+                case 2:
+                    CPOrderContentListResult cpOrderContentListResult2 = new CPOrderContentListResult();
+                    cpOrderContentListResult2.setOrderContentListName("围骰、全骰");
+                    cpOrderContentListResult2.setShowNumber(2);
+                    cpOrderContentListResult2.setShowType("DANIEL");
+
+                    List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
+                    CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
+                    cpOrderContentResult21.setOrderName("1_1_1");
+                    cpOrderContentResult21.setFullName("");
+                    cpOrderContentResult21.setOrderState(cpbjscResult.getdata105701());
+                    cpOrderContentResult21.setOrderId("105701");
+                    cpOrderContentResultList2.add(cpOrderContentResult21);
+
+                    CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
+                    cpOrderContentResult22.setOrderName("2_2_2");
+                    cpOrderContentResult22.setFullName("");
+                    cpOrderContentResult22.setOrderState(cpbjscResult.getdata105702());
+                    cpOrderContentResult22.setOrderId("105702");
+                    cpOrderContentResultList2.add(cpOrderContentResult22);
+
+                    CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
+                    cpOrderContentResult23.setOrderName("3_3_3");
+                    cpOrderContentResult23.setFullName("");
+                    cpOrderContentResult23.setOrderState(cpbjscResult.getdata105703());
+                    cpOrderContentResult23.setOrderId("105703");
+                    cpOrderContentResultList2.add(cpOrderContentResult23);
+
+                    CPOrderContentResult cpOrderContentResult24 = new CPOrderContentResult();
+                    cpOrderContentResult24.setOrderName("4_4_4");
+                    cpOrderContentResult24.setFullName("");
+                    cpOrderContentResult24.setOrderState(cpbjscResult.getdata105704());
+                    cpOrderContentResult24.setOrderId("105704");
+                    cpOrderContentResultList2.add(cpOrderContentResult24);
+
+                    CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
+                    cpOrderContentResult25.setOrderName("5_5_5");
+                    cpOrderContentResult25.setFullName("");
+                    cpOrderContentResult25.setOrderState(cpbjscResult.getdata105705());
+                    cpOrderContentResult25.setOrderId("105705");
+                    cpOrderContentResultList2.add(cpOrderContentResult25);
+
+                    CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
+                    cpOrderContentResult26.setOrderName("6_6_6");
+                    cpOrderContentResult26.setFullName("");
+                    cpOrderContentResult26.setOrderState(cpbjscResult.getdata105706());
+                    cpOrderContentResult26.setOrderId("105706");
+                    cpOrderContentResultList2.add(cpOrderContentResult26);
+
+                    cpOrderContentListResult2.setData(cpOrderContentResultList2);
+
+                    CPOrderContentListResult.add(cpOrderContentListResult2);
                     break;
                 case 3:
 
@@ -11065,7 +11113,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                         CPOrderContentResult cpOrderContentResult5 = new CPOrderContentResult();
                                         cpOrderContentResult5.setOrderName("虎");
                                         cpOrderContentResult5.setFullName("亚军");
-                                        cpOrderContentResult5.setOrderId("50120");
+                                        cpOrderContentResult5.setOrderId("501206");
                                         cpOrderContentResult5.setOrderState(cpbjscResult.getdata_501206());
                                         cpOrderContentResultList2.add(cpOrderContentResult5);
                                         break;
@@ -11151,7 +11199,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第四名");
-                                        cpOrderContentResult1.setOrderId("50140");
+                                        cpOrderContentResult1.setOrderId("501401");
                                         cpOrderContentResult1.setOrderState(cpbjscResult.getdata_501401());
                                         cpOrderContentResultList4.add(cpOrderContentResult1);
                                         break;
@@ -11398,7 +11446,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第九名");
-                                        cpOrderContentResult1.setOrderId("50190");
+                                        cpOrderContentResult1.setOrderId("501901");
                                         cpOrderContentResult1.setOrderState(cpbjscResult.getdata_501901());
                                         cpOrderContentResultList9.add(cpOrderContentResult1);
                                         break;
@@ -11406,7 +11454,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                         CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                                         cpOrderContentResult2.setOrderName("双");
                                         cpOrderContentResult2.setFullName("第九名");
-                                        cpOrderContentResult2.setOrderId("50190");
+                                        cpOrderContentResult2.setOrderId("501904");
                                         cpOrderContentResult2.setOrderState(cpbjscResult.getdata_501904());
                                         cpOrderContentResultList9.add(cpOrderContentResult2);
                                         break;
@@ -11441,7 +11489,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                         CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                                         cpOrderContentResult1.setOrderName("大");
                                         cpOrderContentResult1.setFullName("第十名");
-                                        cpOrderContentResult1.setOrderId("3502001");
+                                        cpOrderContentResult1.setOrderId("502001");
                                         cpOrderContentResult1.setOrderState(cpbjscResult.getdata_502001());
                                         cpOrderContentResultList10.add(cpOrderContentResult1);
                                         break;
@@ -24701,6 +24749,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
             case "4":
             case "5":
             case "6":
+            case "7":
                 group = "group2";
                 cpLeftEventList2.add(total+"");
                 cpLeftEventList2.add((total >= 23)?"大":"小");
@@ -24816,7 +24865,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 cpOrderNoYet.setText("未开盘");
                 GameLog.log("=============六合彩未开盘=================");
             }
-            fTime = ""+TimeHelper.StringToDate(cpNextIssueResult.getEndtime())/1000;
+//            fTime = ""+TimeHelper.StringToDate(cpNextIssueResult.getEndtime())/1000;
+            fTime = cpNextIssueResult.getEndtime2();
             if(!lottery_id.equals("70")||!lottery_id.equals("71")){
                 cpOrderLastTime.setVisibility(View.VISIBLE);
                 round = cpNextIssueResult.getIssue();
@@ -24847,7 +24897,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         cpOrderNoYet.setText("已封盘");
         cpOrderLastTime.setVisibility(View.VISIBLE);
         round = cpNextIssueResult.getIssue();
-        fTime = ""+TimeHelper.StringToDate(cpNextIssueResult.getEndtime())/1000;
+//        fTime = ""+TimeHelper.StringToDate(cpNextIssueResult.getEndtime())/1000;
+        fTime = cpNextIssueResult.getEndtime2();
         cpOrderLotteryNextTime.setText(round+"期");
         String systTime2 = TimeUtils.getDateAndTimeString();
         String systTime = cpNextIssueResult.getServerTime();//TimeUtils.convertToDetailTime(TrueTime.now());
@@ -25318,6 +25369,11 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 presenter.postRateInfo("1",type,x_session_token);
                 break;
             case "6":
+                initDataSsc();
+                initViewCqsscData();
+                presenter.postRateInfo("1",type,x_session_token);
+                break;
+            case "7":
                 initDataSsc();
                 initViewCqsscData();
                 presenter.postRateInfo("1",type,x_session_token);
@@ -26706,7 +26762,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     private void initJsk3LeftData(){
         allResultList.clear();
         CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
-        cpOrderAllResult1.setEventChecked(true);
+
         cpOrderAllResult1.setType("1");
         cpOrderAllResult1.setOrderAllName("三军");
 
@@ -26715,7 +26771,8 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         cpOrderAllResult2.setType("1");
 
         CPOrderAllResult cpOrderAllResult3 = new CPOrderAllResult();
-        cpOrderAllResult3.setOrderAllName("点数");
+        cpOrderAllResult3.setEventChecked(true);
+        cpOrderAllResult3.setOrderAllName("和值");
         cpOrderAllResult3.setType("1");
 
         CPOrderAllResult cpOrderAllResult4 = new CPOrderAllResult();
@@ -26726,9 +26783,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
         cpOrderAllResult5.setOrderAllName("短牌");
         cpOrderAllResult5.setType("1");
 
+        allResultList.add(cpOrderAllResult3);
         allResultList.add(cpOrderAllResult1);
         allResultList.add(cpOrderAllResult2);
-        allResultList.add(cpOrderAllResult3);
         allResultList.add(cpOrderAllResult4);
         allResultList.add(cpOrderAllResult5);
 
@@ -27286,6 +27343,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                 presenter.postRateInfo("1",type,x_session_token);
                 break;
             case "6":
+                presenter.postRateInfo("1",type,x_session_token);
+                break;
+            case "7":
                 presenter.postRateInfo("1",type,x_session_token);
                 break;
             case "66"://PC蛋蛋
@@ -28355,17 +28415,17 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                                     break;
                                 case 10:
                                     typeCode = "709810";
-                                    cpOrderRXRadio.setText("赔率：5.58");
+                                    cpOrderRXRadio.setText("赔率：5");
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 case 11:
                                     typeCode = "709811";
-                                    cpOrderRXRadio.setText("赔率：6.8");
+                                    cpOrderRXRadio.setText("赔率：6");
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 case 12:
                                     typeCode = "709812";
-                                    cpOrderRXRadio.setText("赔率：8.5");
+                                    cpOrderRXRadio.setText("赔率：8");
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 default:
@@ -28749,6 +28809,9 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
+        if("请登录后访问".equals(message)){
+            finish();
+        }
     }
 
     @Override
@@ -29028,12 +29091,15 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
     public void onClickedView(View view ){
         switch (view.getId()){
             case R.id.cpOrderBetArea:
-                cpOrderChatAreaLay.setVisibility(View.GONE);
+                XChatView.setVisibility(View.GONE);
+                //cpOrderChatAreaLay.setVisibility(View.GONE);
                 cpOrderBottom.setVisibility(View.VISIBLE);
                 cpOrderBetAreaLay.setVisibility(View.VISIBLE);
                 break;
             case R.id.cpOrderChatArea:
-                cpOrderChatAreaLay.setVisibility(View.VISIBLE);
+                XChatView.setVisibility(View.VISIBLE);
+                cpOrderChatAreaLay.loadUrl("javascript:callJS()");
+                //cpOrderChatAreaLay.setVisibility(View.VISIBLE);
                 cpOrderBetAreaLay.setVisibility(View.GONE);
                 cpOrderBottom.setVisibility(View.GONE);
 
@@ -29079,7 +29145,7 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                     cpBetParams.setRound(round);
                     cpBetParams.setfTime(fTime);
                     cpBetParams.setX_session_token(x_session_token);
-                    if((lottery_id.equals("60")&&type.equals("10")||((lottery_id.equals("61")&&type.equals("10"))))){
+                    if((lottery_id.equals("60")&&type.equals("10")||((lottery_id.equals("61")&&type.equals("10")))||((lottery_id.equals("21")&&type.equals("10"))))){
                         cpBetParams.setType("LM");
                         cpBetParams.setTypeCode(typeCode);
                         cpBetParams.setRtype(cpOrderRXRadio.getText().toString().replace("赔率:",""));
@@ -29104,6 +29170,33 @@ public class CPOrderFragment extends BaseActivity2 implements CPOrderContract.Vi
                             case "617306":
                             case "608406":
                                 cpBetParams.setTypeName("任选五");
+                                break;
+                            case "213601":
+                                cpBetParams.setTypeName("任选二中二");
+                                break;
+                            case "213602":
+                                cpBetParams.setTypeName("任选三中三");
+                                break;
+                            case "213603":
+                                cpBetParams.setTypeName("任选四中四");
+                                break;
+                            case "213604":
+                                cpBetParams.setTypeName("任选五中五");
+                                break;
+                            case "213605":
+                                cpBetParams.setTypeName("任选六中五");
+                                break;
+                            case "213606":
+                                cpBetParams.setTypeName("任选七中五");
+                                break;
+                            case "213607":
+                                cpBetParams.setTypeName("任选八中五");
+                                break;
+                            case "213608":
+                                cpBetParams.setTypeName("前二组选");
+                                break;
+                            case "213609":
+                                cpBetParams.setTypeName("前三组选");
                                 break;
                         }
                     }else if(lottery_id.equals("70")||lottery_id.equals("72")){

@@ -4,9 +4,6 @@ package com.cfcp.a01.ui.home.bet;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -18,9 +15,7 @@ import com.just.agentweb.AgentWeb;
 import com.kongzue.dialog.v2.WaitDialog;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class ExplainWebFragment extends BaseFragment {
 
@@ -76,6 +71,7 @@ public class ExplainWebFragment extends BaseFragment {
                 url = "file:///android_asset/official_bjpk10.html";
                 break;
             case 19:
+            case 52:
                 url = "file:///android_asset/official_gwpk10.html";
                 break;
             case 49:
@@ -85,9 +81,13 @@ public class ExplainWebFragment extends BaseFragment {
                 url = "file:///android_asset/official_jsk3.html";
                 break;
             case 17:
-            case 50:
-            case 51:
                 url = "file:///android_asset/official_gwk3.html";
+                break;
+            case 50:
+                url = "file:///android_asset/official_gwk35.html";
+                break;
+            case 51:
+                url = "file:///android_asset/official_gwk33.html";
                 break;
             case 9:
                 url = "file:///android_asset/official_gd115.html";

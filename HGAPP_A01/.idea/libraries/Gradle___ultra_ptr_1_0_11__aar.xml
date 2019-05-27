@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: :ultra-ptr-1.0.11:@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ultra-ptr-1.0.11.aar/819b1175f375862a1f723290d06fbb59/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ultra-ptr-1.0.11.aar/819b1175f375862a1f723290d06fbb59/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ultra-ptr-1.0.11.aar/b85273b26b1ff7ec672bf416de007b9e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ultra-ptr-1.0.11.aar/b85273b26b1ff7ec672bf416de007b9e/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

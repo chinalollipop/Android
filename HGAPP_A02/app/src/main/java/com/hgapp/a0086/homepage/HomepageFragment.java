@@ -9,10 +9,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
@@ -25,12 +27,14 @@ import com.hgapp.a0086.common.http.cphttp.CPClient;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
+import com.hgapp.a0086.common.widgets.CustomPopWindow;
 import com.hgapp.a0086.common.widgets.MarqueeTextView;
 import com.hgapp.a0086.common.widgets.RoundCornerImageView;
 import com.hgapp.a0086.data.AGCheckAcountResult;
 import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
+import com.hgapp.a0086.data.DomainUrl;
 import com.hgapp.a0086.data.LoginResult;
 import com.hgapp.a0086.data.MaintainResult;
 import com.hgapp.a0086.data.NoticeResult;
@@ -71,8 +75,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
+
+import static com.hgapp.common.util.Utils.getContext;
 
 /**
  *
@@ -82,6 +89,8 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
  */
 public class HomepageFragment extends HGBaseFragment implements HomePageContract.View{
 
+    @BindView(R.id.tvHomePageLine)
+    TextView tvHomePageLine;
     @BindView(R.id.tvHomePageLogin)
     TextView tvHomePageLogin;
     @BindView(R.id.tvHomePageUserMoney)
@@ -101,7 +110,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private RollPagerViewManager rollPagerViewManager;
 
     private NoticeResult noticeResultList;
-
+    private CustomPopWindow mCustomPopWindowIn;
     private String userName ="";
     private String userMoney = "";
     private String userState = "9";
@@ -153,7 +162,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-
+        DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
+        int sizeq = domainUrl.getList().size();
+        for(int k=0;k<sizeq;++k){
+            if(domainUrl.getList().get(k).isChecked()){
+                tvHomePageLine.setText("线路"+domainUrl.getList().get(k).getPid());
+            }
+        }
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
         rvHomapageGameHall.setLayoutManager(gridLayoutManager);
         rvHomapageGameHall.setHasFixedSize(true);
@@ -401,16 +416,87 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin})
+    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tvHomePageLogin:
                 //start(LoginFragment.newInstance());  启动一个新的Fragment 但是还是覆盖在以前的Fragemnet的基础上
                 EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                 break;
+            case R.id.tvHomePageLine:
+                showPopMenuIn();
+                break;
         }
 
     }
+
+    private void showPopMenuIn(){
+        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_line_choice,null);
+        //处理popWindow 显示内容
+        DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
+        RecyclerView recyclerView = contentView.findViewById(R.id.popLineChoice);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1, OrientationHelper.VERTICAL,false);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        rvHomapageGameHall.setNestedScrollingEnabled(false);
+        recyclerView.setAdapter(new LineChoiceAdapter(getContext(),R.layout.pop_line_choice_item,domainUrl.getList()));
+        mCustomPopWindowIn= new CustomPopWindow.PopupWindowBuilder(getContext())
+                .setView(contentView)
+                .enableBackgroundDark(true)
+                .create()
+                .showAsDropDown(tvHomePageLine,0,0);
+        //}
+    }
+
+
+    class LineChoiceAdapter extends AutoSizeRVAdapter<DomainUrl.ListBean> {
+        private Context context;
+        public LineChoiceAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder holder, final DomainUrl.ListBean data, final int position) {
+            holder.setText(R.id.popLineName,"线路"+data.getPid());
+            if(data.isChecked()){
+                holder.setBackgroundRes(R.id.popLineImg,R.mipmap.line_choice_cheack1);
+            }else{
+                holder.setBackgroundRes(R.id.popLineImg,R.mipmap.line_choice_cheack2);
+            }
+            holder.setOnClickListener(R.id.popLineName, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!NetworkUtils.isConnected()){
+                        showMessage("请检查您的网络！");
+                        return;
+                    }
+                    DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
+                    int size = domainUrl.getList().size();
+                    for(int k=0;k<size;++k){
+                        if(domainUrl.getList().get(k).getUrl().equals(data.getUrl())){
+                            domainUrl.getList().get(k).setChecked(true);
+                        }else{
+                            domainUrl.getList().get(k).setChecked(false);
+                        }
+                    }
+                    ACache.get(getContext()).put("homeLineChoice", JSON.toJSONString(domainUrl));
+                    ACache.get(getContext()).put("homeTYUrl", data.getUrl());
+                    ACache.get(getContext()).put("homeCPUrl", data.getUrl());
+                    //ACache.get(getContext()).put("app_demain_url", data.getUrl());
+                    RetrofitUrlManager.getInstance().setGlobalDomain(data.getUrl());
+                   /* Client.setClientDomain(data.getUrl());
+                    HGApplication.instance().configClient();*/
+                    /*CPClient.setClientDomain(data.getUrl().replace("m.","mc."));
+                    HGApplication.instance().configCPClient();*/
+                    tvHomePageLine.setText("线路"+data.getPid());
+                    mCustomPopWindowIn.dissmiss();
+                    //onHomeGameItemClick(data.getId());
+                }
+            });
+        }
+    }
+
 
     @Override
     public void postOnlineServiceResult(OnlineServiceResult onlineServiceResult) {
@@ -585,6 +671,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
         CPClient.setClientDomain(cpResult.getCpUrl());
         HGApplication.instance().configCPClient();
+        ACache.get(getContext()).put("homeCPUrl", cpResult.getCpUrl());
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
         initWebView(cpResult.getUrlLogin());

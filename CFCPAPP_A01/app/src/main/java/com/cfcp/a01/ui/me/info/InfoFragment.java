@@ -151,7 +151,9 @@ public class InfoFragment extends BaseFragment implements InfoContract.View {
     public void getRealNameResult(LoginResult loginResult) {
         //转账前渠道确认
         GameLog.log("设置真实姓名 成功");
+        showMessage("设置用户信息成功！");
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_NAME,infoAccount.getText().toString().trim());
+        finish();
     }
 
     @Override

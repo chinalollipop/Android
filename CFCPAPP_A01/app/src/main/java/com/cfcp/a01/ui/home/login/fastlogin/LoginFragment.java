@@ -72,7 +72,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         loginBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().post(new LogoutResult("您已登出!"));
+                EventBus.getDefault().post(new LogoutResult("您已登出"));
                 finish();
             }
         });
@@ -99,7 +99,10 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         if (Check.isEmpty(uPwd)) {
             showMessage("请输入密码");
         }
-        uPwd = Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(uName + uPwd)));
+        uPwd = Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(uName.toLowerCase() + uPwd)));
+        if(Check.isNull(presenter)){
+            presenter =  Injections.inject(this, null);
+        }
         presenter.postLogin("", uName, uPwd);
         //
     }
@@ -109,7 +112,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         String token = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
         GameLog.log(" LoginFragment onBackPressedSupport   个人的token是 "+token );
         if(Check.isEmpty(token)){
-            EventBus.getDefault().post(new LogoutResult("您已登出!"));
+            EventBus.getDefault().post(new LogoutResult("您已登出"));
         }
         //finish();  如果打开会白板
         return super.onBackPressedSupport();
@@ -127,6 +130,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, loginResult.getToken());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BALANCE,loginResult.getAbalance());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT_ID,loginResult.getParent_id()+"");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_USER_ID,loginResult.getId()+"");
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_PARENT,loginResult.getParent()+"");
         EventBus.getDefault().post(loginResult);
 //        popTo(LoginFragment.class,true);

@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.FrameLayout;
 
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.R;
+import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.http.PNThreadFactory;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
@@ -25,24 +28,32 @@ import com.cfcp.a01.common.utils.ToastUtils;
 import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.ui.home.CloseGameViewEvent;
+import com.cfcp.a01.ui.home.login.fastlogin.LoginFragment;
 import com.google.gson.Gson;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.CookieManager;
 import com.tencent.smtt.sdk.CookieSyncManager;
+import com.tencent.smtt.sdk.MimeTypeMap;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.yokeyword.fragmentation.SupportFragment;
 
 
 /**
@@ -219,7 +230,6 @@ public class XPlayGameActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
                // super.onPageFinished(view, url);
-                String title = view.getTitle();
                 CookieSyncManager.createInstance(XPlayGameActivity.this);
                 android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
                 /*if (cookieManager != null) {
@@ -227,6 +237,8 @@ public class XPlayGameActivity extends Activity {
                         cookieManager.setAcceptThirdPartyCookies(wvPayGame, true);
                     }
                 }*/
+                /*view.loadUrl("javascript:window.AndroidWebView.showSource('<head>'+" +
+                        "document.getElementsByTagName('html')[0].innerHTML+'</head>');");*/
                 String CookieStr = cookieManager.getCookie(url);
                 GameLog.log(CookieStr);
                 //ACache.get(XPlayGameActivity.this).put(HGConstant.APP_CP_COOKIE,CookieStr);
@@ -346,6 +358,9 @@ public class XPlayGameActivity extends Activity {
     public class JsInterface{
         private Context mContext;
 
+        public void showSource(String html) {
+            GameLog.log("HTML "+html);
+        }
         public JsInterface(Context mContext){
             this.mContext = mContext;
         }

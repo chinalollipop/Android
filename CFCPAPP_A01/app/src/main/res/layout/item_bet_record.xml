@@ -161,7 +161,7 @@
             android:layout_gravity="center|left"
             android:layout_marginLeft="25dp"
             android:gravity="center"
-            android:text="状态"
+            android:text="用户"
             android:textColor="#3b3b3b" />
 
         <TextView

@@ -107,13 +107,28 @@ public abstract class CFConstant {
     //用户的登录token
     public static final String USERNAME_LOGIN_TOKEN = "username_login_token";
 
+    //用户的是否可以操作 1 禁止登陆，2 禁止投注全部的玩法，3 禁止资金操作
+    public static final String USERNAME_LOGIN_BLOCKED = "username_login_blocked";
 
     //用户的金额
     public static final String USERNAME_LOGIN_BALANCE = "username_login_balance";
 
 
+    //用户的聊天室
+    public static final String USERNAME_LOGIN_CHAT_ROOM = "username_login_chat_room";
+
+    //是否为代理 1为代理
+    public static final String USERNAME_LOGIN_IS_AGENT = "username_login_is_agent";
+
+
     //用户的parent_id
     public static final String USERNAME_LOGIN_PARENT_ID = "username_login_parent_id";
+
+
+
+    //用户的user_id
+    public static final String USERNAME_LOGIN_USER_ID = "username_login_user_id";
+
 
 
     //用户的parent_id
@@ -143,6 +158,9 @@ public abstract class CFConstant {
 
     //用户的是否绑卡
     public static final String USERNAME_BIND_CARD = "username_bind_card";
+
+    //用户加载了启动图
+    public static final String USERNAME_LOAD_LUNCHER = "username_load_luncher";
 
 
     //用户登录信息

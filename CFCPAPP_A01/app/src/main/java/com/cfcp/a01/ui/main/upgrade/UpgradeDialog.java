@@ -18,6 +18,8 @@ import com.cfcp.a01.ui.main.upgrade.downunit.DownloadIntent;
 import com.cfcp.a01.ui.main.upgrade.downunit.DownloadProgress;
 import com.cfcp.a01.ui.main.upgrade.downunit.FileDownloaderListener;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.File;
 
 import butterknife.BindView;
@@ -96,6 +98,11 @@ public class UpgradeDialog extends BaseDialogFragment {
                 }
                 //启动下载
                 checkUpgradeResult.setFile_path(checkUpgradeResult.getFile_path());
+                if(btnConfirm.getText().toString().equals("马上安装")){
+                    File file = new File(intent.dir,intent.fileName);
+                    InstallHelper.attemptIntallApp(getContext(),file);
+                    return;
+                }
                 //checkUpgradeResult.setFile_path("https://hg006668.firebaseapp.com/d/cfqp.apk");
                 if (null != checkUpgradeResult) {
                     intent = new DownloadIntent();
@@ -145,7 +152,9 @@ public class UpgradeDialog extends BaseDialogFragment {
             {
                 File file = new File(intent.dir,intent.fileName);
                 InstallHelper.attemptIntallApp(getContext(),file);
-                dismiss();
+                tvMsgUpgrade.setText("亲，更新版本体验会更好！");
+                btnConfirm.setText("马上安装");
+                //dismiss();
             }
             AppDownloadServiceBinder.getBinder().unbind();
         }

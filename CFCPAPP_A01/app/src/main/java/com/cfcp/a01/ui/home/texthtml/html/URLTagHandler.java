@@ -22,6 +22,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 
 import com.cfcp.a01.R;
@@ -49,14 +50,16 @@ public class URLTagHandler implements TagHandler {
     private PopupWindow popupWindow;
     //需要放大的图片
     private ZoomImageView tecent_chat_image;
+    private ImageView image_scale_cancel;
 
     public URLTagHandler(Context context,ColorStateList colorStateList) {
         mContext = context.getApplicationContext();
         mOriginColors = colorStateList;
         View popView = LayoutInflater.from(context).inflate(R.layout.pub_zoom_popwindow_layout, null);
         tecent_chat_image = (ZoomImageView) popView.findViewById(R.id.image_scale_image);
+        image_scale_cancel = (ImageView) popView.findViewById(R.id.image_scale_cancel);
 
-        popView.findViewById(R.id.image_scale_rll).setOnClickListener(new View.OnClickListener() {
+        popView.findViewById(R.id.image_scale_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (popupWindow != null && popupWindow.isShowing()) {

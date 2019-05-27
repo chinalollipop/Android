@@ -213,6 +213,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                 case "4":
                 case "5":
                 case "6":
+                case "7":
                     cpLeftEventList2.add(total+"");
                     cpLeftEventList2.add((total >= 23)?"大":"小");
                     cpLeftEventList2.add((total % 2 ==1)?"单":"双");
@@ -229,6 +230,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                     break;
                 case "50":
                 case "51":
+                case "76":
                 case "55":
                 case "168"://幸运飞艇 暂无
                     cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");

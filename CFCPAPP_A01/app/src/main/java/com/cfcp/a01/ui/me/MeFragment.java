@@ -1,5 +1,6 @@
 package com.cfcp.a01.ui.me;
 
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -20,6 +21,8 @@ import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.GameShipHelper;
 import com.cfcp.a01.common.utils.NetworkUtils;
+import com.cfcp.a01.common.utils.PackageUtil;
+import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.GridRvItemDecoration;
 import com.cfcp.a01.data.BalanceResult;
 import com.cfcp.a01.data.LoginResult;
@@ -33,8 +36,8 @@ import com.cfcp.a01.ui.me.emailbox.EmailBoxFragment;
 import com.cfcp.a01.ui.me.info.InfoFragment;
 import com.cfcp.a01.ui.me.link.RegisterLinkFragment;
 import com.cfcp.a01.ui.me.pwd.PwdFragment;
+import com.cfcp.a01.ui.me.record.BetRecordFragment;
 import com.cfcp.a01.ui.me.record.overbet.TraceListFragment;
-import com.cfcp.a01.ui.me.record.BetFragment;
 import com.cfcp.a01.ui.me.register.RegisterMeFragment;
 import com.cfcp.a01.ui.me.report.PersonFragment;
 import com.cfcp.a01.ui.me.report.TeamFragment;
@@ -63,6 +66,8 @@ public class MeFragment extends BaseFragment implements MeContract.View{
     TextView meRegister;
     @BindView(R.id.meLogout)
     TextView meLogout;
+    @BindView(R.id.meVersion)
+    TextView meVersion;
     @BindView(R.id.meDeposit)
     LinearLayout meDeposit;
     @BindView(R.id.meWithDraw)
@@ -73,11 +78,13 @@ public class MeFragment extends BaseFragment implements MeContract.View{
     RecyclerView meRecyView;
     MeContract.Presenter presenter;
     private static List<MeIconEvent> meCenterList = new ArrayList<MeIconEvent>();
+    private static List<MeIconEvent> meCenterListAgent = new ArrayList<MeIconEvent>();
 
     @Override
     public void postLogoutResult(LogoutResult logoutResult) {
         //退出登录的逻辑  发送消息
-        EventBus.getDefault().post(new LogoutResult("您已登出!"));
+        //EventBus.getDefault().post(new LogoutResult("您已登出!"));
+        showMessage("用户已退出登录！");
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN,"");
         EventBus.getDefault().post(new MainEvent(0));
     }
@@ -127,8 +134,8 @@ public class MeFragment extends BaseFragment implements MeContract.View{
         meCenterList.add(new MeIconEvent("游戏记录","每分钟一期",R.mipmap.me_game_records,MemberType.ME_GAME_RECORDS,1));
         meCenterList.add(new MeIconEvent("追号查询","每分钟一期",R.mipmap.me_zhuihao_records,MemberType.ME_ZHUIHAO_RECORDS,2));
         meCenterList.add(new MeIconEvent("个人报表","每分钟一期",R.mipmap.me_personal_table,MemberType.ME_PERSONAL_TABLE,3));
-        meCenterList.add(new MeIconEvent("团队报表","每分钟一期",R.mipmap.me_team_table,MemberType.ME_TEAM_TABLE,4));
-        meCenterList.add(new MeIconEvent("账变报表","每分钟一期",R.mipmap.me_account_change,MemberType.ME_ACCOUNT_CHANGE,5));
+        //meCenterList.add(new MeIconEvent("团队报表","每分钟一期",R.mipmap.me_team_table,MemberType.ME_TEAM_TABLE,4));
+        meCenterList.add(new MeIconEvent("账单报表","每分钟一期",R.mipmap.me_account_change,MemberType.ME_ACCOUNT_CHANGE,5));
         meCenterList.add(new MeIconEvent("充值记录","每分钟一期",R.mipmap.me_deposit_records,MemberType.ME_DEPOSIT_RECORDS,6));
         meCenterList.add(new MeIconEvent("优惠活动","每分钟一期",R.mipmap.me_discounts_activity,MemberType.ME_DISCOUNTS_ACTIVITY,7));
         meCenterList.add(new MeIconEvent("用户资料","每分钟一期",R.mipmap.me_use_infor,MemberType.ME_USE_INFOR,8));
@@ -137,14 +144,37 @@ public class MeFragment extends BaseFragment implements MeContract.View{
         meCenterList.add(new MeIconEvent("修改登录密码","每分钟一期",R.mipmap.me_pwd_set,MemberType.ME_PWD_SET,11));
         meCenterList.add(new MeIconEvent("设置资金密码","每分钟一期",R.mipmap.me_pwd_change,MemberType.ME_PWD_CHANGE,12));
         meCenterList.add(new MeIconEvent("彩种信息","每分钟一期",R.mipmap.me_lottery_infor,MemberType.ME_LOTTERY_INFOR,13));
-        meCenterList.add(new MeIconEvent("彩种限额","每分钟一期",R.mipmap.me_lottery_limit,MemberType.ME_LOTTERY_INFOR,14));
+        //meCenterList.add(new MeIconEvent("彩种限额","每分钟一期",R.mipmap.me_lottery_limit,MemberType.ME_LOTTERY_INFOR,14));
         meCenterList.add(new MeIconEvent("开奖结果","每分钟一期",R.mipmap.me_lottery_end,MemberType.ME_LOTTERY_END,15));
         meCenterList.add(new MeIconEvent("走势图","每分钟一期",R.mipmap.me_run_chart,MemberType.ME_RUN_CHART,16));
         //meCenterList.add(new MeIconEvent("团队总览","每分钟一期",R.mipmap.me_team_overview,MemberType.ME_TEAM_OVERVIEW,17));
-        meCenterList.add(new MeIconEvent("用户列表","每分钟一期",R.mipmap.me_use_list,MemberType.ME_USE_LIST,18));
-        meCenterList.add(new MeIconEvent("推广链接","每分钟一期",R.mipmap.me_seo_link,MemberType.ME_SEO_LINK,19));
+        //meCenterList.add(new MeIconEvent("用户列表","每分钟一期",R.mipmap.me_use_list,MemberType.ME_USE_LIST,18));
+        //meCenterList.add(new MeIconEvent("推广链接","每分钟一期",R.mipmap.me_seo_link,MemberType.ME_SEO_LINK,19));
         meCenterList.add(new MeIconEvent("站内短信","每分钟一期",R.mipmap.me_instation_infor,MemberType.ME_INSTATION_INFOR,20));
         meCenterList.add(new MeIconEvent("网站公告","每分钟一期",R.mipmap.me_website_notice,MemberType.ME_WEBSITE_NOTICE,21));
+
+
+        meCenterListAgent.add(new MeIconEvent("游戏记录","每分钟一期",R.mipmap.me_game_records,MemberType.ME_GAME_RECORDS,1));
+        meCenterListAgent.add(new MeIconEvent("追号查询","每分钟一期",R.mipmap.me_zhuihao_records,MemberType.ME_ZHUIHAO_RECORDS,2));
+        meCenterListAgent.add(new MeIconEvent("个人报表","每分钟一期",R.mipmap.me_personal_table,MemberType.ME_PERSONAL_TABLE,3));
+        meCenterListAgent.add(new MeIconEvent("团队报表","每分钟一期",R.mipmap.me_team_table,MemberType.ME_TEAM_TABLE,4));
+        meCenterListAgent.add(new MeIconEvent("账单报表","每分钟一期",R.mipmap.me_account_change,MemberType.ME_ACCOUNT_CHANGE,5));
+        meCenterListAgent.add(new MeIconEvent("充值记录","每分钟一期",R.mipmap.me_deposit_records,MemberType.ME_DEPOSIT_RECORDS,6));
+        meCenterListAgent.add(new MeIconEvent("优惠活动","每分钟一期",R.mipmap.me_discounts_activity,MemberType.ME_DISCOUNTS_ACTIVITY,7));
+        meCenterListAgent.add(new MeIconEvent("用户资料","每分钟一期",R.mipmap.me_use_infor,MemberType.ME_USE_INFOR,8));
+        meCenterListAgent.add(new MeIconEvent("银行卡","每分钟一期",R.mipmap.me_bank_card,MemberType.ME_BANK_CARD,9));
+        //meCenterList.add(new MeIconEvent("个人总览","每分钟一期",R.mipmap.me_personal_overview,MemberType.ME_PERSONAL_OVERVIEW,10));
+        meCenterListAgent.add(new MeIconEvent("修改登录密码","每分钟一期",R.mipmap.me_pwd_set,MemberType.ME_PWD_SET,11));
+        meCenterListAgent.add(new MeIconEvent("设置资金密码","每分钟一期",R.mipmap.me_pwd_change,MemberType.ME_PWD_CHANGE,12));
+        meCenterListAgent.add(new MeIconEvent("彩种信息","每分钟一期",R.mipmap.me_lottery_infor,MemberType.ME_LOTTERY_INFOR,13));
+        //meCenterListAgent.add(new MeIconEvent("彩种限额","每分钟一期",R.mipmap.me_lottery_limit,MemberType.ME_LOTTERY_INFOR,14));
+        meCenterListAgent.add(new MeIconEvent("开奖结果","每分钟一期",R.mipmap.me_lottery_end,MemberType.ME_LOTTERY_END,15));
+        meCenterListAgent.add(new MeIconEvent("走势图","每分钟一期",R.mipmap.me_run_chart,MemberType.ME_RUN_CHART,16));
+        //meCenterList.add(new MeIconEvent("团队总览","每分钟一期",R.mipmap.me_team_overview,MemberType.ME_TEAM_OVERVIEW,17));
+        meCenterListAgent.add(new MeIconEvent("用户列表","每分钟一期",R.mipmap.me_use_list,MemberType.ME_USE_LIST,18));
+        meCenterListAgent.add(new MeIconEvent("推广链接","每分钟一期",R.mipmap.me_seo_link,MemberType.ME_SEO_LINK,19));
+        meCenterListAgent.add(new MeIconEvent("站内短信","每分钟一期",R.mipmap.me_instation_infor,MemberType.ME_INSTATION_INFOR,20));
+        meCenterListAgent.add(new MeIconEvent("网站公告","每分钟一期",R.mipmap.me_website_notice,MemberType.ME_WEBSITE_NOTICE,21));
     }
 
     public static MeFragment newInstance() {
@@ -162,12 +192,21 @@ public class MeFragment extends BaseFragment implements MeContract.View{
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
+        PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
+        meVersion.setText("V:"+packageInfo.versionName);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
         meRecyView.setLayoutManager(gridLayoutManager);
         meRecyView.setHasFixedSize(true);
         meRecyView.setNestedScrollingEnabled(false);
         meRecyView.addItemDecoration(new GridRvItemDecoration(getContext()));
-        meRecyView.setAdapter(new MeAdapter(R.layout.item_me,meCenterList));
+        if("0".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))){
+            meRegister.setVisibility(View.GONE);
+            meRecyView.setAdapter(new MeAdapter(R.layout.item_me,meCenterList));
+        }else{
+            meRecyView.setAdapter(new MeAdapter(R.layout.item_me,meCenterListAgent));
+        }
+
+
     }
 
     class MeAdapter extends BaseQuickAdapter<MeIconEvent, BaseViewHolder> {
@@ -195,7 +234,7 @@ public class MeFragment extends BaseFragment implements MeContract.View{
                     }
                     switch (data.getIconId()){
                         case ME_GAME_RECORDS:
-                            EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance("","")));
+                            EventBus.getDefault().post(new StartBrotherEvent(BetRecordFragment.newInstance("","")));
                             break;
                         case ME_ZHUIHAO_RECORDS:
                             EventBus.getDefault().post(new StartBrotherEvent(TraceListFragment.newInstance("","")));
@@ -286,6 +325,9 @@ public class MeFragment extends BaseFragment implements MeContract.View{
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
             //EventBus.getDefault().post(new MainEvent(0));
         }else{
+            if(Check.isNull(presenter)){
+                presenter =  Injections.inject(this, null);
+            }
             presenter.getBalance();
             meUser.setText(""+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT)+" 余额："+
                     GameShipHelper.formatMoney(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_BALANCE))+" 元");
@@ -304,14 +346,22 @@ public class MeFragment extends BaseFragment implements MeContract.View{
                 presenter.postLogout("");
                 break;
             case R.id.meDeposit:
+                /*if("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }*/
                 //检查是否登录 如果未登录  请调整到登录页先登录
                 EventBus.getDefault().post(new StartBrotherEvent(DepositFragment.newInstance(), SupportFragment.SINGLETASK));
                 break;
             case R.id.meWithDraw:
-                if(Check.isEmpty(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_NAME))){
+                /*if("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }*/
+                /*if(Check.isEmpty(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_NAME))){
                     EventBus.getDefault().post(new StartBrotherEvent(CardFragment.newInstance("","")));
                     return;
-                }
+                }*/
                 EventBus.getDefault().post(new StartBrotherEvent(WithDrawFragment.newInstance("",""), SupportFragment.SINGLETASK));
                 break;
         }

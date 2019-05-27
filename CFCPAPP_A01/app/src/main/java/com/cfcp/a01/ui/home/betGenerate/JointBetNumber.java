@@ -6,6 +6,8 @@ import com.cfcp.a01.data.UpBetData;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.comJoint;
+import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.endJoint;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxHz;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxZ2;
 import static com.cfcp.a01.ui.home.betGenerate.GenerateMoney.sxZ3;
@@ -29,6 +31,7 @@ public class JointBetNumber {
             case 13:
             case 16:
             case 28:
+            case 53:
                 List<Integer> listQC = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 1:
@@ -169,11 +172,57 @@ public class JointBetNumber {
                         break;
                     case 93://任选
                         sb.setLength(0);
-                        for (int i = 0; i < mUpdateBet.size(); i++) {
-                            sb.append(mUpdateBet.get(i).getSelectList().toString().replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "")).append("|");
-                        }
-                        if (sb.length() != 0) {
-                            balls = sb.toString().substring(0, sb.toString().length() - 1);
+                        switch (mBetMethodDetailsID) {
+                            case 183:
+                            case 196:
+                                for (int i = 0; i < mUpdateBet.size(); i++) {
+                                    sb.append(mUpdateBet.get(i).getSelectList().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "")).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
+                            case 184:
+                            case 197:
+                                for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                                    listQC.add(mUpdateBet.get(0).getSelectList().get(i) + 1);
+                                }
+                                for (int i = 0; i < listQC.size(); i++) {
+                                    sb.append(listQC.get(i).toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "")).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
+                            case 200:
+                                balls = zuDS(2).toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 201:
+                                balls = sxZ2().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 186:
+                                balls = zuDS(3).toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 188:
+                                balls = sxZ3().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 189:
+                                balls = sxZ6().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 190:
+                                balls = sxHz().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 187:
+                                balls = zuDS(4).toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            default:
+                                for (int i = 0; i < mUpdateBet.size(); i++) {
+                                    sb.append(mUpdateBet.get(i).getSelectList().toString().replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "")).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
                         }
                         break;
                     case 100://龙虎和
@@ -207,16 +256,41 @@ public class JointBetNumber {
             case 9:
             case 14:
             case 44:
+                List<String> betNumEle = new ArrayList<>();
+                sb.setLength(0);
                 switch (mBetMethodContentID) {
                     case 30:
                     case 31:
                     case 32:
                     case 33:
                     case 34:
-                    case 35://-------任选单式
                     case 36:
                     case 42:
                         switch (mBetMethodDetailsID) {
+                            case 94:
+                            case 95:
+                                for (int i = 0; i < endJoint().size(); i++) {
+                                    betNumEle.add(endJoint().get(i).toString().replaceAll(",", "").replace("[", "").replace("]", ""));
+                                }
+                                for (int i = 0; i < betNumEle.size(); i++) {
+                                    sb.append(betNumEle.get(i)).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
+                            case 96:
+                            case 97:
+                                for (int i = 0; i < comJoint().size(); i++) {
+                                    betNumEle.add(comJoint().get(i).toString().replaceAll(",", "").replace("[", "").replace("]", ""));
+                                }
+                                for (int i = 0; i < betNumEle.size(); i++) {
+                                    sb.append(betNumEle.get(i)).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
                             case 109:
                                 List<Integer> list11X5 = new ArrayList<>();
                                 for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
@@ -235,12 +309,10 @@ public class JointBetNumber {
                                 balls = sb.toString();
                                 break;
                             default:
-                                sb.setLength(0);
-                                List<String> betNum = new ArrayList<>();
                                 StringBuilder sbBetNum = new StringBuilder();
                                 for (int i = 0; i < mUpdateBet.size(); i++) {
                                     if (mUpdateBet.get(i).getSelectList().size() == 0) {
-                                        betNum.add("");
+                                        betNumEle.add("");
                                     } else {
                                         for (int j = 0; j < mUpdateBet.get(i).getSelectList().size(); j++) {
                                             if (j == mUpdateBet.get(i).getSelectList().size() - 1) {
@@ -249,17 +321,28 @@ public class JointBetNumber {
                                                 sbBetNum.append(mUpdateBet.get(i).getSelectList().get(j) + 1).append(" ");
                                             }
                                         }
-                                        betNum.add(sbBetNum.toString());
+                                        betNumEle.add(sbBetNum.toString());
                                         sbBetNum.setLength(0);
                                     }
                                 }
-                                for (int i = 0; i < betNum.size(); i++) {
-                                    sb.append(betNum.get(i)).append("|");
+                                for (int i = 0; i < betNumEle.size(); i++) {
+                                    sb.append(betNumEle.get(i)).append("|");
                                 }
                                 if (sb.length() != 0) {
                                     balls = sb.toString().substring(0, sb.toString().length() - 1);
                                 }
                                 break;
+                        }
+                        break;
+                    case 35://-------任选单式
+                        for (int i = 0; i < comJoint().size(); i++) {
+                            betNumEle.add(comJoint().get(i).toString().replaceAll(",", "").replace("[", "").replace("]", ""));
+                        }
+                        for (int i = 0; i < betNumEle.size(); i++) {
+                            sb.append(betNumEle.get(i)).append("|");
+                        }
+                        if (sb.length() != 0) {
+                            balls = sb.toString().substring(0, sb.toString().length() - 1);
                         }
                         break;
                 }
@@ -270,33 +353,55 @@ public class JointBetNumber {
             case 49:
             case 52:
                 List<Integer> listPK10 = new ArrayList<>();
+                List<String> listPK = new ArrayList<>();
+                sb.setLength(0);
                 switch (mBetMethodContentID) {
                     case 89:
                     case 114:
                     case 117:
-                        sb.setLength(0);
-                        List<String> betNum = new ArrayList<>();
-                        StringBuilder sbBetNum = new StringBuilder();
-                        for (int i = 0; i < mUpdateBet.size(); i++) {
-                            if (mUpdateBet.get(i).getSelectList().size() == 0) {
-                                betNum.add("");
-                            } else {
-                                for (int j = 0; j < mUpdateBet.get(i).getSelectList().size(); j++) {
-                                    if (j == mUpdateBet.get(i).getSelectList().size() - 1) {
-                                        sbBetNum.append(mUpdateBet.get(i).getSelectList().get(j) + 1);
-                                    } else {
-                                        sbBetNum.append(mUpdateBet.get(i).getSelectList().get(j) + 1).append(" ");
+                        switch (mBetMethodDetailsID) {
+                            case 396:
+                            case 398:
+                            case 397:
+                            case 399:
+                                for (int i = 0; i < endJoint().size(); i++) {
+                                    listPK.add(endJoint().get(i).toString().replaceAll(",", "").replace("[", "").replace("]", ""));
+                                }
+                                for (int i = 0; i < listPK.size(); i++) {
+                                    sb.append(listPK.get(i)).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
+                            default:
+                                sb.setLength(0);
+                                List<String> betNum = new ArrayList<>();
+                                StringBuilder sbBetNum = new StringBuilder();
+                                if (mUpdateBet != null) {
+                                    for (int i = 0; i < mUpdateBet.size(); i++) {
+                                        if (mUpdateBet.get(i).getSelectList().size() == 0) {
+                                            betNum.add("");
+                                        } else {
+                                            for (int j = 0; j < mUpdateBet.get(i).getSelectList().size(); j++) {
+                                                if (j == mUpdateBet.get(i).getSelectList().size() - 1) {
+                                                    sbBetNum.append(mUpdateBet.get(i).getSelectList().get(j) + 1);
+                                                } else {
+                                                    sbBetNum.append(mUpdateBet.get(i).getSelectList().get(j) + 1).append(" ");
+                                                }
+                                            }
+                                            betNum.add(sbBetNum.toString());
+                                            sbBetNum.setLength(0);
+                                        }
                                     }
                                 }
-                                betNum.add(sbBetNum.toString());
-                                sbBetNum.setLength(0);
-                            }
-                        }
-                        for (int i = 0; i < betNum.size(); i++) {
-                            sb.append(betNum.get(i)).append("|");
-                        }
-                        if (sb.length() != 0) {
-                            balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                for (int i = 0; i < betNum.size(); i++) {
+                                    sb.append(betNum.get(i)).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
+                                break;
                         }
                         break;
                     case 87:
@@ -363,7 +468,10 @@ public class JointBetNumber {
                 List<Integer> listKS = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 65:
-                        balls = mUpdateBet.get(0).getSelectList().toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                        for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
+                            listKS.add(mUpdateBet.get(0).getSelectList().get(i) + 3);
+                        }
+                        balls = listKS.toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
                         break;
                     case 66:
                     case 68:
@@ -405,7 +513,7 @@ public class JointBetNumber {
                         for (int i = 0; i < mUpdateBet.get(0).getSelectList().size(); i++) {
                             listKS.add(mUpdateBet.get(0).getSelectList().get(i) - 1);
                         }
-                        balls = listKS.toString().replace("-", "").replaceAll(" ", "").replaceAll(",", "").replace("[", "").replace("]", "");
+                        balls = listKS.toString().replace("-", "").replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
                         break;
                     case 85:
                     case 110:
@@ -419,6 +527,7 @@ public class JointBetNumber {
             //3D
             case 20:
                 List<Integer> list3D = new ArrayList<>();
+                List<String> list3DS = new ArrayList<>();
                 switch (mBetMethodContentID) {
                     case 48:
                     case 49:
@@ -451,7 +560,6 @@ public class JointBetNumber {
                             case 136:
                             case 137:
                             case 138:
-                            case 141:
                             case 485:
                                 sb.setLength(0);
                                 for (int i = 0; i < mUpdateBet.size(); i++) {
@@ -475,6 +583,27 @@ public class JointBetNumber {
                                     list3D.add(mUpdateBet.get(0).getSelectList().get(i) + 1);
                                 }
                                 balls = list3D.toString().replaceAll(" ", "").replaceAll(",", "|").replace("[", "").replace("]", "");
+                                break;
+                            case 141:
+                                sb.setLength(0);
+                                StringBuilder sbBetNum = new StringBuilder();
+                                for (int i = 0; i < mUpdateBet.size(); i++) {
+                                    if (mUpdateBet.get(i).getSelectList().size() == 0) {
+                                        list3DS.add("");
+                                    } else {
+                                        for (int j = 0; j < mUpdateBet.get(i).getSelectList().size(); j++) {
+                                            sbBetNum.append(mUpdateBet.get(i).getSelectList().get(j));
+                                        }
+                                        list3DS.add(sbBetNum.toString());
+                                        sbBetNum.setLength(0);
+                                    }
+                                }
+                                for (int i = 0; i < list3DS.size(); i++) {
+                                    sb.append(list3DS.get(i)).append("|");
+                                }
+                                if (sb.length() != 0) {
+                                    balls = sb.toString().substring(0, sb.toString().length() - 1);
+                                }
                                 break;
                         }
                         break;

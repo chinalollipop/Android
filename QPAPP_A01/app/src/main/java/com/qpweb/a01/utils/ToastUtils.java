@@ -3,6 +3,7 @@ package com.qpweb.a01.utils;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.StringRes;
+import android.view.Gravity;
 import android.widget.Toast;
 
 
@@ -273,6 +274,7 @@ public final class ToastUtils {
             sToast.setText(text);
             sToast.setDuration(duration);
         }
+        sToast.setGravity(Gravity.CENTER_VERTICAL,0,0);
         sToast.show();
     }
 

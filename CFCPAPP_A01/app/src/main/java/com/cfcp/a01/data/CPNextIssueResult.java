@@ -19,6 +19,7 @@ public class CPNextIssueResult {
 
     private String issue;
     private String endtime;
+    private String endtime2;
     private String nums;
     private String lotteryTime;
     private String preIssue;
@@ -43,6 +44,14 @@ public class CPNextIssueResult {
 
     public void setEndtime(String endtime) {
         this.endtime = endtime;
+    }
+
+    public String getEndtime2() {
+        return endtime2;
+    }
+
+    public void setEndtime2(String endtime2) {
+        this.endtime2 = endtime2;
     }
 
     public String getNums() {

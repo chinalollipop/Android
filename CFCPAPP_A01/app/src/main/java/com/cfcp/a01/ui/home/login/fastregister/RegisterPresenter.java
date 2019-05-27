@@ -5,7 +5,9 @@ import com.cfcp.a01.common.http.ResponseSubscriber;
 import com.cfcp.a01.common.http.RxHelper;
 import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
+import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Timber;
+import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.data.LoginResult;
 
 import java.util.HashMap;
@@ -45,6 +47,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                     public void success(AppTextMessageResponse<LoginResult> response) {
                         if(response.isSuccess())
                         {
+                            //ACache.get(Utils.getContext()).put(CFConstant.USERNAME_LOGIN_DEMO, "false");
                             view.postRegisterMemberResult(response.getData());
                         }
                         else

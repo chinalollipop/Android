@@ -2,46 +2,24 @@ package com.cfcp.a01.ui.home.cplist;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.CPInjections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseDialogFragment;
-import com.cfcp.a01.common.utils.CalcHelper;
-import com.cfcp.a01.common.utils.CombinationHelper;
-import com.cfcp.a01.common.utils.CombinationHelperGid;
-import com.cfcp.a01.common.utils.DoubleClickHelper;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.CPBetResult;
-import com.cfcp.a01.ui.home.cplist.bet.BetParam;
-import com.cfcp.a01.ui.home.cplist.bet.CPBetParams;
 import com.cfcp.a01.ui.home.cplist.bet.CpBetApiContract;
 import com.cfcp.a01.ui.home.cplist.events.CPOrderList;
-import com.cfcp.a01.ui.home.cplist.events.CPOrderSuccessEvent;
-import com.cfcp.a01.ui.home.cplist.events.CloseLotteryEvent;
-import com.cfcp.a01.ui.home.cplist.events.ServiceEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.v2.WaitDialog;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class CPTitleDialog extends BaseDialogFragment implements CpBetApiContract.View{
     public static final String PARAM0 = "betResult";

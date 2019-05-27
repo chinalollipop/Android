@@ -42,6 +42,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
@@ -112,7 +113,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        CPInjections.inject(this,null);
+        try {
+            CPInjections.inject(this, null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         super.onCreate(savedInstanceState);
         /*if (getArguments() != null) {
             userName = getArguments().getStringArrayList(ARG_PARAM1).get(0);
@@ -136,6 +141,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             presenter.postCPLogin(ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM));
         }else{
         }*/
+        RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeCPUrl").replace("m.","mc."));
         String[] cptoken = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_COOKIE).split("; ");
         String token="";
         for(int i=0;i<cptoken.length;++i){
@@ -171,6 +177,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                 switch (position) {
                     case 0:
                         GameLog.log("当前选择的事");
+                        RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeTYUrl"));
                         finish();
                         break;
                     case 1:
@@ -203,6 +210,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             @Override
             public void onTabReselected(int position) {
                 if (position == 0) {
+                    RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeTYUrl"));
                     finish();
                 } else if (position == 2) {
                     Intent intent2  = new Intent(getContext(),CPMeFragment.class);
@@ -411,6 +419,8 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
     @Override
     public void onDestroy() {
         super.onDestroy();
+        GameLog.log("彩票小时之后的 体育的域名"+ACache.get(getContext()).getAsString("homeTYUrl"));
+        RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeTYUrl"));
         EventBus.getDefault().unregister(this);
     }
 }

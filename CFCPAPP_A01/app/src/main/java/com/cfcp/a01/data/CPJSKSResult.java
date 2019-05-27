@@ -81,6 +81,8 @@ public class CPJSKSResult {
     private String data105705;
     @SerializedName("105706")
     private String data105706;
+    @SerializedName("105803")
+    private String data105803;
     @SerializedName("105804")
     private String data105804;
     @SerializedName("105805")
@@ -109,6 +111,8 @@ public class CPJSKSResult {
     private String data105816;
     @SerializedName("105817")
     private String data105817;
+    @SerializedName("105818")
+    private String data105818;
     @SerializedName("105912")
     private String data105912;
     @SerializedName("105913")
@@ -155,6 +159,10 @@ public class CPJSKSResult {
     private String data106101;
     @SerializedName("106102")
     private String data106102;
+    @SerializedName("106103")
+    private String data106103;
+    @SerializedName("106104")
+    private String data106104;
     @SerializedName("106201")
     private String data106201;
 
@@ -262,6 +270,14 @@ public class CPJSKSResult {
         this.data105804 = data105804;
     }
 
+    public String getdata105803() {
+        return data105803;
+    }
+
+    public void setdata105803(String data105803) {
+        this.data105803 = data105803;
+    }
+
     public String getdata105805() {
         return data105805;
     }
@@ -365,6 +381,15 @@ public class CPJSKSResult {
     public void setdata105817(String data105817) {
         this.data105817 = data105817;
     }
+
+    public String getdata105818() {
+        return data105818;
+    }
+
+    public void setdata105818(String data105818) {
+        this.data105818 = data105818;
+    }
+
 
     public String getdata105912() {
         return data105912;
@@ -549,6 +574,23 @@ public class CPJSKSResult {
     public void setdata106102(String data106102) {
         this.data106102 = data106102;
     }
+
+    public String getdata106104() {
+        return data106104;
+    }
+
+    public void setdata106104(String data106104) {
+        this.data106104 = data106104;
+    }
+
+    public String getdata106103() {
+        return data106103;
+    }
+
+    public void setdata106103(String data106103) {
+        this.data106103 = data106103;
+    }
+
 
     public String getdata106201() {
         return data106201;

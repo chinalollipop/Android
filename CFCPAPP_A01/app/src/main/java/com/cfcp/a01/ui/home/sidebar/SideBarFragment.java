@@ -15,6 +15,7 @@ import com.cfcp.a01.common.base.BaseDialogFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.GameShipHelper;
 import com.cfcp.a01.common.widget.NExpandableListView;
@@ -30,15 +31,12 @@ import com.cfcp.a01.ui.me.MeContract;
 import com.cfcp.a01.ui.me.bankcard.CardFragment;
 import com.cfcp.a01.ui.me.emailbox.EmailBoxFragment;
 import com.cfcp.a01.ui.me.game.GameFragment;
-import com.cfcp.a01.ui.me.info.InfoFragment;
 import com.cfcp.a01.ui.me.pwd.PwdFragment;
-import com.cfcp.a01.ui.me.record.BetFragment;
+import com.cfcp.a01.ui.me.record.BetRecordFragment;
 import com.cfcp.a01.ui.me.record.overbet.TraceListFragment;
-import com.cfcp.a01.ui.me.register.RegisterMeFragment;
 import com.cfcp.a01.ui.me.report.PersonFragment;
 import com.cfcp.a01.ui.me.report.TeamFragment;
 import com.cfcp.a01.ui.me.report.myreport.MyReportFragment;
-import com.cfcp.a01.ui.me.userlist.UserListFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -115,6 +113,9 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
         setCancelable(true);
         EventBus.getDefault().register(this);
         //sidebarFrame.getBackground().setAlpha(200);
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this,null);
+        }
         presenter.getBalance();
         sidebarUser.setText(""+ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_ACCOUNT)+" 余额："+
                 GameShipHelper.formatMoney(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_BALANCE))+" 元");
@@ -153,7 +154,7 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                             case 0:
                                 hide();
                                 //showMessage("游戏记录");
-                                EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance("","")));
+                                EventBus.getDefault().post(new StartBrotherEvent(BetRecordFragment.newInstance("","")));
                                 break;
                             case 1:
                                 hide();
@@ -290,8 +291,11 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
         });
     }
 
-
-
+    @Override
+    public void showMessage(String message) {
+        super.showMessage(message);
+        hide();
+    }
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
@@ -318,6 +322,10 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                 break;
             case R.id.sidebarWithDraw:
                 hide();
+                /*if(Check.isEmpty(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_NAME))){
+                    EventBus.getDefault().post(new StartBrotherEvent(CardFragment.newInstance("","")));
+                }else {
+                }*/
                 EventBus.getDefault().post(new StartBrotherEvent(WithDrawFragment.newInstance("", ""), SupportFragment.SINGLETASK));
                 break;
         }

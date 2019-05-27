@@ -54,6 +54,7 @@ public class LoginResult implements Parcelable {
     private String mobile;
     private int is_tester;
     private String qq;
+    private String chat_domain;
     private String skype;
     private String bet_coefficient;
     private String login_ip;
@@ -198,6 +199,14 @@ public class LoginResult implements Parcelable {
 
     public void setQq(String qq) {
         this.qq = qq;
+    }
+
+    public String getChat_domain() {
+        return chat_domain;
+    }
+
+    public void setChat_domain(String chat_domain) {
+        this.chat_domain = chat_domain;
     }
 
     public String getSkype() {
@@ -545,6 +554,7 @@ public class LoginResult implements Parcelable {
         dest.writeString(this.mobile);
         dest.writeInt(this.is_tester);
         dest.writeString(this.qq);
+        dest.writeString(this.chat_domain);
         dest.writeString(this.skype);
         dest.writeString(this.bet_coefficient);
         dest.writeString(this.login_ip);
@@ -577,6 +587,7 @@ public class LoginResult implements Parcelable {
         this.mobile = in.readString();
         this.is_tester = in.readInt();
         this.qq = in.readString();
+        this.chat_domain = in.readString();
         this.skype = in.readString();
         this.bet_coefficient = in.readString();
         this.login_ip = in.readString();

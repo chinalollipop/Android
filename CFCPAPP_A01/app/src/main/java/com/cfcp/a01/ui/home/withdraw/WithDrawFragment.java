@@ -107,6 +107,9 @@ public class WithDrawFragment extends BaseFragment implements WithDrawContract.V
             }
         });
         withDrawMoney.setText(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_BALANCE));
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this,null);
+        }
         presenter.getWithDraw();
     }
 
@@ -118,7 +121,12 @@ public class WithDrawFragment extends BaseFragment implements WithDrawContract.V
             showMessage("请输入取款金额");
             return;
         }
-        if(money.compareTo(min)>=0&&money.compareTo(max)<0){
+//        if(money.compareTo(min)>=0&&money.compareTo(max)<0){
+        if(Check.isEmpty(min)||Check.isEmpty(max)){
+            presenter.getWithDraw();
+            return;
+        }
+        if(Integer.parseInt(money)>=Integer.parseInt(min)&&Integer.parseInt(max)>=Integer.parseInt(money)){
             presenter.getWithDrawNext(id,money);
         }else{
             showMessage("取款金额必须在"+min+"~"+max+"之间");
@@ -174,6 +182,13 @@ public class WithDrawFragment extends BaseFragment implements WithDrawContract.V
     }
 
     @Override
+    public void getAddCard() {
+        GameLog.log("跳转到添加银行卡");
+        pop();
+        withDrawAddCard.performClick();
+    }
+
+    @Override
     public void getWithDrawNextResult(WithDrawNextResult withDrawNextResult) {
         GameLog.log("取款输入金额点击下一步  成功");
         EventBus.getDefault().post(new StartBrotherEvent(WithDrawSubmitFragment.newInstance(withDrawNextResult,"")));
@@ -206,7 +221,9 @@ public class WithDrawFragment extends BaseFragment implements WithDrawContract.V
                 }
                 break;
             case R.id.withDrawBankCardList:
-                typeOptionsPicker.show();
+                if(!Check.isNull(typeOptionsPicker)){
+                    typeOptionsPicker.show();
+                }
                 break;
             case R.id.withDrawNext:
                 onRequsetData();

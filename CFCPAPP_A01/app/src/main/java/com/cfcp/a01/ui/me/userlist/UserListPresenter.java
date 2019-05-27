@@ -38,7 +38,7 @@ public class UserListPresenter implements UserListContract.Presenter {
         params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
         params.put("packet","User");
         params.put("action","GetDirectChildren");
-        params.put("parent_id",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_PARENT_ID));
+        params.put("parent_id",ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_USER_ID));
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getUserList(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<UserListResult>>() {

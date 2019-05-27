@@ -17,57 +17,69 @@
     <TextView
         android:id="@+id/gameName"
         android:text="查询棋牌余额"
-        android:background="#000"
+        android:background="#333"
         android:textColor="#fff"
-        android:gravity="center|left"
+        android:gravity="center"
         android:paddingLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="40dp" />
-    <View
+   <!-- <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="center"
         android:background="#e4e1e1"
-        android:layout_marginBottom="20dp"
         />
+-->
     <LinearLayout
-        android:gravity="center"
+        android:background="#333"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_bet_model"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="查询状态："
-            />
-        <TextView
-            android:id="@+id/gamesMsg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="查询中..."
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="总的余额："
+            android:text="总余额："
             />
 
         <TextView
             android:id="@+id/gamefTotalMoney"
+            android:textColor="#fe8503"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="查询中..." />
 
     </LinearLayout>
-
+    </LinearLayout>
     <LinearLayout
         android:gravity="center"
+        android:background="#333"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:textColor="#fff"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="查询状态："
+            />
+        <TextView
+            android:id="@+id/gamesMsg"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="查询中..."
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -83,14 +95,19 @@
             />
 
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
     <TextView
         android:id="@+id/gameWithdraw"
-        android:textColor="#337ab7"
-        android:text="转入到平台"
+        android:textColor="#ffffff"
+        android:text="确认转换"
         android:gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/bg_btn_gray"
+        android:background="@drawable/bg_login_text"
         android:layout_width="match_parent"
         android:layout_height="40dp" />
 

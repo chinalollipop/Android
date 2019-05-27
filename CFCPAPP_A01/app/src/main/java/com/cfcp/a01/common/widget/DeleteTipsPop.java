@@ -57,12 +57,14 @@ public class DeleteTipsPop extends BasePopupWindow {
             if (diff.size() == 0) {
                 tvTips.setText(interception.length() + "个无效数字");
                 tvContent.setText(stringBuilder.toString());
-            } else if (TextUtils.isEmpty(interception)) {
-                tvTips.setText(diff.size() + "个无效号码");
-                tvContent.setText(diff.toString().replace("[", "").replace("]", ""));
             } else {
-                tvTips.setText(diff.size() + "个无效号码，" + interception.length() + "个无效数字");
-                tvContent.setText(diff.toString().replace("[", "").replace("]", "") + " + " + stringBuilder.toString());
+                if (TextUtils.isEmpty(interception)) {
+                    tvTips.setText(diff.size() + "个无效号码");
+                    tvContent.setText(diff.toString().replace("[", "").replace("]", ""));
+                } else {
+                    tvTips.setText(diff.size() + "个无效号码，" + interception.length() + "个无效数字");
+                    tvContent.setText(diff.toString().replace("[", "").replace("]", "") + " + " + stringBuilder.toString());
+                }
             }
         }
 

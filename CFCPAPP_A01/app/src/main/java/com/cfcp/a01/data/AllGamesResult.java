@@ -56,6 +56,7 @@ public class AllGamesResult {
 
     public static class DataBean implements Parcelable {
         private List<LotteriesBean> XinYongLotteries;
+        private List<LotteriesBean> OfficialShowSsc;
         private List<LotteriesBean> AvailableLottery;
 
         public List<LotteriesBean> getXinYongLotteries() {
@@ -64,6 +65,14 @@ public class AllGamesResult {
 
         public void setXinYongLotteries(List<LotteriesBean> XinYongLotteries) {
             this.XinYongLotteries = XinYongLotteries;
+        }
+
+        public List<LotteriesBean> getOfficialShowSsc() {
+            return OfficialShowSsc;
+        }
+
+        public void setOfficialShowSsc(List<LotteriesBean> officialShowSsc) {
+            OfficialShowSsc = officialShowSsc;
         }
 
         public List<LotteriesBean> getAvailableLottery() {
@@ -184,6 +193,7 @@ public class AllGamesResult {
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeTypedList(this.XinYongLotteries);
+            dest.writeTypedList(this.OfficialShowSsc);
             dest.writeTypedList(this.AvailableLottery);
         }
 
@@ -192,6 +202,7 @@ public class AllGamesResult {
 
         protected DataBean(Parcel in) {
             this.XinYongLotteries = in.createTypedArrayList(LotteriesBean.CREATOR);
+            this.OfficialShowSsc = in.createTypedArrayList(LotteriesBean.CREATOR);
             this.AvailableLottery = in.createTypedArrayList(LotteriesBean.CREATOR);
         }
 

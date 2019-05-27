@@ -138,7 +138,14 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         }else{
             tvBindingCardSubmit.setText("确认绑定");
         }
-        tvBindingCardAccountName.setText(ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS));
+        String aliasName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+        if(Check.isEmpty(aliasName)){
+            tvBindingCardAccountName.setText("暂无");
+        }else{
+            String name = ""+aliasName.substring(0,1)+(aliasName.length()>=3?"**":"*");
+            tvBindingCardAccountName.setText(name);
+        }
+        //tvBindingCardAccountName.setText(ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS));
         presenter.postGetBankCardList("","banks");
         tvBindingCardCBack.setMoreText(typeArgs1);
         tvBindingCardCBack.setBackListener(new View.OnClickListener() {

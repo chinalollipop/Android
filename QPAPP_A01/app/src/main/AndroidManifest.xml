@@ -33,7 +33,7 @@
             android:value="1920" />
 
         <activity
-            android:name=".ui.loginhome.LoginHomeActivity"
+            android:name="com.qpweb.a01.LaunchActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Splash"
@@ -43,6 +43,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.loginhome.LoginHomeActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity
             android:name="com.qpweb.a01.MainActivity"
             android:hardwareAccelerated="true"

@@ -13,6 +13,9 @@ import com.qpweb.a01.ui.home.fastlogout.LogoutPresenter;
 import com.qpweb.a01.ui.loginhome.fastlogin.ILoginApi;
 import com.qpweb.a01.ui.loginhome.fastlogin.LoginContract;
 import com.qpweb.a01.ui.loginhome.fastlogin.LoginPresenter;
+import com.qpweb.a01.ui.loginhome.sign.ISignTodayApi;
+import com.qpweb.a01.ui.loginhome.sign.SignTodayContract;
+import com.qpweb.a01.ui.loginhome.sign.SignTodayPresenter;
 
 
 public class Injections {
@@ -44,6 +47,13 @@ public class Injections {
             loginApi = Client.getRetrofit().create(IHomeApi.class);
         }
         return new HomePresenter(loginApi, view);
+    }
+
+    public static SignTodayContract.Presenter inject(@NonNull SignTodayContract.View view, @Nullable ISignTodayApi loginApi) {
+        if (null == loginApi) {
+            loginApi = Client.getRetrofit().create(ISignTodayApi.class);
+        }
+        return new SignTodayPresenter(loginApi, view);
     }
 
 

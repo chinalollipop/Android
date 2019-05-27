@@ -101,7 +101,7 @@ public class PwdFragment extends BaseFragment implements PwdContract.View {
                         break;
                     case 1:
                         pwdBack.setTitle("设置资金密码");
-                        if ("1".equals(fundPwd)) {
+                        if (!Check.isEmpty(fundPwd)&&"1".equals(fundPwd)) {
                             pwdOldLogin.setHint("输入旧资金密码");
                             pwdOldLogin.setVisibility(View.VISIBLE);
                             pwdFundText.setVisibility(View.GONE);
@@ -198,7 +198,7 @@ public class PwdFragment extends BaseFragment implements PwdContract.View {
 
                 break;
             case 1:
-                if(fundPwd.equals("1")){
+                if(!Check.isEmpty(fundPwd)&&fundPwd.equals("1")){
                     if(Check.isEmpty(oldLogin)){
                         showMessage("请输入旧资金密码");
                         return;
