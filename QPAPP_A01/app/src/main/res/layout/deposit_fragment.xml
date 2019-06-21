@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/flayBg"
+        android:layout_width="575dp"
+        android:layout_height="355dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/deposit">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/depositRView"
+                android:layout_width="150dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="55dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/depositQClay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    >
+
+                    <ImageView
+                        android:id="@+id/depositQCImge"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp">
+
+                        <TextView
+                            android:id="@+id/depositQCNameLeft"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text="支付宝姓名："
+                            android:textColor="@color/register_left" />
+
+                        <TextView
+                            android:id="@+id/depositQCName"
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:text="姓名"
+                            android:textColor="@color/register_left" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/l_view_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text="存款金额："
+                            android:textColor="@color/register_left" />
+
+                        <EditText
+                            android:id="@+id/depositQCMoney"
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:background="@mipmap/bg_et"
+                            android:gravity="center"
+                            android:hint="请输入存款金额"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/register_left"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/l_view_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp">
+
+                        <TextView
+                            android:id="@+id/depositQCMomeLeft"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text="存款人姓名："
+                            android:textColor="@color/register_left" />
+
+                        <EditText
+                            android:id="@+id/depositQCMome"
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:background="@mipmap/bg_et"
+                            android:gravity="center"
+                            android:hint="请输入真实姓名"
+                            android:textColor="@color/register_left"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/l_view_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text="汇款日期："
+                            android:textColor="@color/register_left" />
+
+                        <org.angmarch.views.NiceSpinner
+                            android:id="@+id/depositQCTime"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="-5dp"
+                            android:background="@mipmap/textview_choice"
+                            android:text="请选择时间"
+                            android:textColor="@color/register_left"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/l_view_color" />
+
+                    <TextView
+                        android:id="@+id/depositQCSubmit"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@mipmap/register_me"
+                        android:gravity="center"
+                        android:text="确认存款"
+                        android:textColor="@color/register_left" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/depositBanklay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="存款金额："
+                                android:textColor="@color/register_left" />
+
+                            <EditText
+                                android:id="@+id/depositEditBankMoney"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:background="@mipmap/bg_et"
+                                android:gravity="center"
+                                android:hint="请输入存款金额"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/register_left"
+                                android:textSize="13sp" />
+
+                            <ImageView
+                                android:id="@+id/depositClear"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:background="@mipmap/icon_red_packet_close"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="存款人姓名："
+                                android:textColor="@color/register_left" />
+
+                            <EditText
+                                android:id="@+id/depositEditBankAccount"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:background="@mipmap/bg_et"
+                                android:gravity="center"
+                                android:hint="请输入存款人姓名"
+                                android:textColor="@color/register_left"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="转入银行："
+                                android:textColor="@color/register_left" />
+
+                            <org.angmarch.views.NiceSpinner
+                                android:id="@+id/depositEditBankName"
+                                android:layout_width="150dp"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="-5dp"
+                                android:background="@mipmap/textview_choice"
+                                android:text="请选择转入银行"
+                                android:textColor="@color/register_left"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintVertical_bias="0.0" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="银行账号："
+                                android:textColor="@color/register_left" />
+
+                            <TextView
+                                android:id="@+id/depositEditBankNumber"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="请选择银行账号"
+                                android:textColor="@color/register_left" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="银行地址："
+                                android:textColor="@color/register_left" />
+
+                            <TextView
+                                android:id="@+id/depositEditBankAdds"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="请选择银行地址"
+                                android:textColor="@color/register_left" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="汇款方式："
+                                android:textColor="@color/register_left" />
+
+                            <org.angmarch.views.NiceSpinner
+                                android:id="@+id/depositEditBankType"
+                                android:layout_width="150dp"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="-5dp"
+                                android:text="请选择充值金额"
+                                android:textColor="@color/register_left"
+                                android:textSize="12sp"
+                                app:backgroundSelector="@color/red_packet_tv"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintVertical_bias="0.0" />
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="请选择充值金额"
+                                android:textColor="@color/register_left"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="汇款日期："
+                                android:textColor="@color/register_left" />
+
+                            <TextView
+                                android:id="@+id/depositEditBankTime"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:background="@mipmap/textview_choice"
+                                android:gravity="center"
+                                android:text="请选择汇款日期"
+                                android:textColor="@color/register_left" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/l_view_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text="备注："
+                                android:textColor="@color/register_left" />
+
+                            <EditText
+                                android:id="@+id/depositEditBankMemo"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:background="@mipmap/bg_et"
+                                android:gravity="center"
+                                android:hint="请输入备注信息"
+                                android:textColor="@color/register_left"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/depositMoneyRView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/depositEditBankSubmit"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@mipmap/register_me"
+                            android:gravity="center"
+                            android:text="立即充值"
+                            android:textColor="@color/register_left" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/depositClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

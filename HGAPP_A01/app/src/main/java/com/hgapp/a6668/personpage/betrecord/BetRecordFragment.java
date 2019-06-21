@@ -516,12 +516,12 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 StringBuilder stringBuilder = new StringBuilder();
                 StringBuilder stringBuilderFront = new StringBuilder();
                 for(int k=0;k<sizeTemp;++k){
-                    stringBuilderFront.append(rowsBean.getMiddle().get(k).getFont_a()).append("<br>");
+                    stringBuilderFront.append(rowsBean.getMiddle().get(k).getInball_mb_tg()).append("<br>");
                     stringBuilder.append(rowsBean.getMiddle().get(k).getM_League()).append("<br>")
                             .append(rowsBean.getMiddle().get(k).getVs_team_name1()).append(onMarkGreen(rowsBean.getMiddle().get(k).getVs_or_let_ball_num())).append(rowsBean.getMiddle().get(k).getVs_team_name2()).append("<br>")
                             .append(onMarkRed(rowsBean.getMiddle().get(k).getBet_content())).append("@").append(onMarkRed(rowsBean.getMiddle().get(k).getBet_rate())).append("<br>");
                 }
-                rowsBean.setFont_a(stringBuilderFront.toString());
+                rowsBean.setInball_mb_tg(stringBuilderFront.toString());
                 TextView textView1 =  holder.getView(R.id.betRecordItem1);
                 textView1.setText(Html.fromHtml(stringBuilder.toString()));
                 holder.setVisible(R.id.betRecordItem2,false);
@@ -533,24 +533,29 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
             TextView betRecordItemWin =  holder.getView(R.id.betRecordItemWin);
             if(money.compareTo("0")>=0){
                 if(rowsBean.getChecked().equals("1")){          //如果checked为1 且first_half为上半场  比分用 corner_num 否则 比分用 font_a
-                    if(!Check.isEmpty(rowsBean.getFirst_half())){
-                        betRecordItemWin.setText(Html.fromHtml(onMarkRed(rowsBean.getCorner_num()+"<br>赢<br>"+money)));
+                    betRecordItemWin.setText(Html.fromHtml(onMarkRed(rowsBean.getInball_mb_tg()+"<br>赢<br>"+money)));
+                    /*if(!Check.isEmpty(rowsBean.getFirst_half())){
+                        betRecordItemWin.setText(Html.fromHtml(onMarkRed(rowsBean.getInball_mb_tg()+"<br>赢<br>"+money)));
                     }else{
                         betRecordItemWin.setText(Html.fromHtml(onMarkRed(rowsBean.getFont_a()+"<br>赢<br>"+money)));
-                    }
+                    }*/
                 }else{
                     betRecordItemWin.setText(Html.fromHtml(onMarkRed("赢<br>"+money)));
+                }
+                if(money.equals("0.00")){
+                    betRecordItemWin.setText(Html.fromHtml(onMarkRed("和局")));
                 }
             }else{
                 if(Check.isNumericNull(money)){
                     betRecordItemWin.setText("");
                 }else{
                     if(rowsBean.getChecked().equals("1")){      //如果checked为1 且first_half为上半场  比分用 corner_num 否则 比分用 font_a
-                        if(!Check.isEmpty(rowsBean.getFirst_half())){
-                            betRecordItemWin.setText(Html.fromHtml(onMarkGreen(rowsBean.getCorner_num()+"<br>输<br>"+money)));
+                        /*if(!Check.isEmpty(rowsBean.getFirst_half())){
+                            betRecordItemWin.setText(Html.fromHtml(onMarkGreen(rowsBean.getInball_mb_tg()+"<br>输<br>"+money)));
                         }else{
                             betRecordItemWin.setText(Html.fromHtml(onMarkGreen(rowsBean.getFont_a()+"<br>输<br>"+money)));
-                        }
+                        }*/
+                        betRecordItemWin.setText(Html.fromHtml(onMarkGreen(rowsBean.getInball_mb_tg()+"<br>输<br>"+money)));
                     }else{
                         betRecordItemWin.setText(Html.fromHtml(onMarkGreen("输<br>"+money)));
                     }

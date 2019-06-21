@@ -14,7 +14,6 @@ import android.widget.FrameLayout;
 import com.qpweb.a01.R;
 import com.qpweb.a01.utils.ToastUtils;
 import com.qpweb.a01.widget.GifView;
-import com.zhy.autolayout.utils.AutoUtils;
 
 
 
@@ -71,7 +70,7 @@ public abstract class BaseActivity extends BaseMainActivity implements IMessageV
             View contentview = LayoutInflater.from(getContext()).inflate(setLayoutId(),null,false);
             contentLayout.addView(contentview);
 
-            AutoUtils.auto(view);
+//            AutoUtils.auto(view);
             unbinder = ButterKnife.bind(this,view);
             layoutLoading = view.findViewById(R.id.layout_loading);
             ivloading = (GifView)view.findViewById(R.id.iv_loading);

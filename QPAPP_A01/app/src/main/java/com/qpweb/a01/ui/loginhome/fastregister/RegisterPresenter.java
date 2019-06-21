@@ -40,7 +40,6 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                         }
                         else
                         {
-                            Timber.d("快速登陆失败:%s",response);
                             view.showMessage(response.getDescribe());
                         }
                     }

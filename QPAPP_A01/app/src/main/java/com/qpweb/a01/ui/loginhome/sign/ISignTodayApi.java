@@ -1,7 +1,8 @@
 package com.qpweb.a01.ui.loginhome.sign;
 
 
-import com.qpweb.a01.data.LoginResult;
+import com.qpweb.a01.data.RedPacketResult;
+import com.qpweb.a01.data.SignTodayResult;
 import com.qpweb.a01.http.request.AppTextMessageResponse;
 
 import retrofit2.http.Field;
@@ -15,11 +16,17 @@ import rx.Observable;
 
 public interface ISignTodayApi {
 
-    //会员注册
-    @POST("api/login.php")
+    //签到
+    @POST("api/signin.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<LoginResult>> postLogin(
+    public Observable<AppTextMessageResponse<SignTodayResult>> postSignTodays(
             @Field("appRefer") String appRefer,
-            @Field("username") String username, @Field("passwd") String passwd);
+            @Field("action") String action);
+
+    //签到领取
+    @POST("api/signin.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<RedPacketResult>> postRed(
+            @Field("appRefer") String appRefer);
 
 }

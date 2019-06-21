@@ -27,7 +27,7 @@ public class Client {
     private static OkHttpClient client;
     private static ClientConfig clientConfig;
     private static ProxyCallFactory proxyCallFactory;
-    public static String domainUrl = "https://m.hhhg6668.com/";
+    public static String domainUrl = "http://www.hg066a.com/";
     /**
      * 应该在Application onCreate中使用
      * @param config
@@ -44,7 +44,7 @@ public class Client {
      */
     public static String baseUrl()
     {
-        domainUrl = "http://hg06606.com/";// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
+        domainUrl = "http://www.hg066a.com/";// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
         return domainUrl;
     }
 

@@ -27,10 +27,13 @@ import com.hgapp.a0086.homepage.handicap.BottombarViewManager;
 import com.hgapp.a0086.homepage.handicap.betnew.CloseBottomEvent;
 import com.hgapp.a0086.login.fastregister.RegisterFragment;
 import com.hgapp.a0086.login.forgetpwd.ForgetPwdFragment;
+import com.hgapp.a0086.login.resetpwd.ResetPwdDialog;
+import com.hgapp.a0086.login.resetpwd.ResetPwdEvent;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Arrays;
 import java.util.List;
@@ -100,6 +103,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         BottombarViewManager.getSingleton().onCloseView();
         String userName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT);
         String pwd = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_PWD);
@@ -163,7 +167,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         }else{
             ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_PWD, "");
         }
-        pop();
+        popTo(LoginFragment.class,true);
         GameLog.log("用户登录成功：别名是 "+loginResult.getAlias());
         //正对每一个用户做数据缓存
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_STATUS+loginResult.getUserName(), "1");
@@ -176,6 +180,19 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         ACache.get(getContext()).put(HGConstant.DOWNLOAD_APP_GIFT_GOLD, loginResult.getDOWNLOAD_APP_GIFT_GOLD());
         ACache.get(getContext()).put(HGConstant.DOWNLOAD_APP_GIFT_DEPOSIT, loginResult.getDOWNLOAD_APP_GIFT_DEPOSIT());
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_INFO, JSON.toJSONString(loginResult));
+        //试玩的时候有返回
+        if(!Check.isNull(loginResult.getChess_demo_url())) {
+            ACache.get(getContext()).put(HGConstant.KY_DEMO_URL, loginResult.getChess_demo_url().getKy_demo_url());
+            ACache.get(getContext()).put(HGConstant.LY_DEMO_URL, loginResult.getChess_demo_url().getLy_demo_url());
+            ACache.get(getContext()).put(HGConstant.VG_DEMO_URL, loginResult.getChess_demo_url().getVg_demo_url());
+        }
+        GameLog.log("登录执行完成 "+loginResult.getAlias());
+    }
+
+    @Override
+    public void postLoginResultError(String message) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT,etLoginType.getText().toString().trim());
+        ResetPwdDialog.newInstance(message).show(getFragmentManager());
     }
 
     @Override
@@ -185,8 +202,6 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void successGet(LoginResult loginResult) {
-
-
         ACache.get(getContext()).put(HGConstant.USERNAME_ALIAS, loginResult.getAlias());
     }
 
@@ -201,6 +216,20 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         super.showMessage(message);
     }
 
+    @Subscribe
+    public void onEventMain(ResetPwdEvent resetPwdEvent){
+        GameLog.log("重置密码成功 需要重新登录");
+        etLoginPwd.setText(resetPwdEvent.getPwd());
+        if(!Check.isNull(presenter)) {
+            presenter.postLogin(HGConstant.PRODUCT_PLATFORM, resetPwdEvent.getName(), resetPwdEvent.getPwd());
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
 
     private void btnLoginSubmit(){
         String loginType = etLoginType.getText().toString().trim();
@@ -262,7 +291,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 //start(RegisterFragment.newInstance());
                 break;
             case R.id.btnLoginDemo:
-                presenter.postLoginDemo("","demoguest","nicainicainicaicaicaicai");
+                presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
                 break;
         }
     }

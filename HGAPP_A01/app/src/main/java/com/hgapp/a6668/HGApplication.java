@@ -28,6 +28,7 @@ import com.hgapp.common.util.Timber;
 import com.hgapp.common.util.Utils;
 import com.instacart.library.truetime.TrueTime;
 import com.lzy.okgo.OkGo;
+import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.File;
 import java.io.IOException;
@@ -118,10 +119,6 @@ public class HGApplication extends MultiDexApplication {
     }
 
     private void initX5(){
-        /*if(!QbSdk.isTbsCoreInited()){
-            QbSdk.preInit(getApplicationContext());
-        }*/
-        //x5内核初始化接口
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -139,32 +136,23 @@ public class HGApplication extends MultiDexApplication {
             }
         }).start();
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
-        /*QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
             @Override
             public void onViewInitFinished(boolean arg0) {
                 // TODO Auto-generated method stub
                 //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
                 GameLog.log("app  onViewInitFinished is " + arg0);
-                ToastUtils.showLongToast("onViewInitFinished");
-            *//*if(!arg0){
-                QbSdk.initX5Environment(getApplicationContext(),  cb);
-            }*//*
-                if(!QbSdk.isTbsCoreInited()){
-                    QbSdk.preInit(getApplicationContext());
-                }
             }
-
             @Override
             public void onCoreInitFinished() {
                 // TODO Auto-generated method stub
                 GameLog.log("app  onCoreInitFinished ");
-                //ToastUtils.showLongToast("onCoreInitFinished");
             }
-        };*/
-        //QbSdk.initX5Environment(getApplicationContext(),  cb);
-        Intent intent = new Intent(this,StartX5Service.class);
-        startService(intent);
+        };
+        QbSdk.initX5Environment(getApplicationContext(),  cb);
+        /*Intent intent = new Intent(this,StartX5Service.class);
+        startService(intent);*/
     }
 
     public static HGApplication instance()

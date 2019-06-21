@@ -177,7 +177,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                 switch (position) {
                     case 0:
                         GameLog.log("当前选择的事");
-                        RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeTYUrl"));
+                        String homeUrl = ACache.get(getContext()).getAsString("homeTYUrl");
+                        GameLog.log("onTabSelected "+homeUrl);
+                        if(!Check.isNull(homeUrl)) {
+                            RetrofitUrlManager.getInstance().setGlobalDomain(homeUrl);
+                        }
                         finish();
                         break;
                     case 1:
@@ -210,7 +214,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             @Override
             public void onTabReselected(int position) {
                 if (position == 0) {
-                    RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeTYUrl"));
+                    String homeUrl = ACache.get(getContext()).getAsString("homeTYUrl");
+                    GameLog.log("onTabReselected "+homeUrl);
+                    if(!Check.isNull(homeUrl)) {
+                        RetrofitUrlManager.getInstance().setGlobalDomain(homeUrl);
+                    }
                     finish();
                 } else if (position == 2) {
                     Intent intent2  = new Intent(getContext(),CPMeFragment.class);
@@ -419,8 +427,11 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
     @Override
     public void onDestroy() {
         super.onDestroy();
-        GameLog.log("彩票小时之后的 体育的域名"+ACache.get(getContext()).getAsString("homeTYUrl"));
-        RetrofitUrlManager.getInstance().setGlobalDomain(ACache.get(getContext()).getAsString("homeTYUrl"));
+        String homeUrl = ACache.get(getContext()).getAsString("homeTYUrl");
+        GameLog.log("彩票小时之后的 体育的域名"+homeUrl);
+        if(!Check.isNull(homeUrl)) {
+            RetrofitUrlManager.getInstance().setGlobalDomain(homeUrl);
+        }
         EventBus.getDefault().unregister(this);
     }
 }

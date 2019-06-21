@@ -22,6 +22,7 @@ import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.CalcHelper;
+import com.hgapp.a6668.common.util.DoubleClickHelper;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.data.BetZHResult;
@@ -221,6 +222,7 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
                     showMessage("下注单数最少3注");
                     return;
                 }
+                DoubleClickHelper.getNewInstance().disabledView(btnBetSubmitSuccess);
                 onPostRquestZHBet(god);
                // GameLog.log("下注的请求参数是："+prepareRequestParams.autoOdd);
                 break;

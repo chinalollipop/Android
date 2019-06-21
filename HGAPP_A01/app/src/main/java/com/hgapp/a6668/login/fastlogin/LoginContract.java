@@ -28,6 +28,7 @@ public interface LoginContract {
     {
         public void successGet(LoginResult loginResult);
         public void postLoginResult(LoginResult loginResult);
+        public void postLoginResultError(String message);
         public void success(SportsPlayMethodRBResult fullPayGameResult);
     }
 }

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="475dp"
+        android:layout_height="285dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/bind_phone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/register_left"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="为了您的资金安全,防止账号数据丢失\n我们强烈建议您绑定为正式账号"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginRight="65dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="right"
+                        android:text="昵称"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/bindAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/bg_et"
+                        android:hint="请输入您的昵称"
+                        android:imeOptions="flagNoExtractUi|flagNoFullscreen"
+                        android:maxLength="20"
+                        android:paddingLeft="10dp"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginRight="65dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="right"
+                        android:text="手机号"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/loginPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/bg_et"
+                        android:hint="请输入您的手机号"
+                        android:inputType="number"
+                        android:maxLength="14"
+                        android:imeOptions="flagNoExtractUi|flagNoFullscreen"
+                        android:paddingLeft="10dp"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/h_text_height"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="right"
+                        android:text="验证码"
+                        android:textColor="@color/register_left"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/bindCode"
+                        android:layout_width="130dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/bg_et"
+                        android:hint="请输入验证码"
+                        android:imeOptions="actionNext|flagNoFullscreen"
+                        android:paddingLeft="10dp"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/bindGetCode"
+                        android:layout_width="99dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#0053b0"
+                        android:text="获取验证码"
+                        android:paddingBottom="5dp"
+                        android:background="@mipmap/get_verify_code" />
+                    <TextView
+                        android:id="@+id/bindGetCodeTView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#0053b0"
+                        android:text="60s"
+                        android:visibility="gone"
+                        android:paddingBottom="5dp"
+                        />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/bindSubmit"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:textColor="@color/register_left"
+                    android:textSize="18sp"
+                    android:text="手机绑定"
+                    android:gravity="center"
+                    android:background="@mipmap/register_me" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bindClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right" />
+    </FrameLayout>
+
+</RelativeLayout>

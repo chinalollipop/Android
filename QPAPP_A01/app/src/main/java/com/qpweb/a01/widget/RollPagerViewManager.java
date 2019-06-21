@@ -17,6 +17,7 @@ import com.jude.rollviewpager.hintview.IconHintView;
 import com.qpweb.a01.R;
 import com.qpweb.a01.data.BannerResult;
 import com.qpweb.a01.utils.GameLog;
+import com.qpweb.a01.utils.Utils;
 import com.squareup.picasso.Picasso;
 
 
@@ -243,29 +244,28 @@ public class RollPagerViewManager {
 
     }*/
 
-
     private class UrlImageAdapter extends StaticPagerAdapter {
 
         @Override
         public View getView(ViewGroup container, int position) {
-            GameLog.log("getView:"+activityList.get(position).getImg_path());
-//            ImageView view = new ImageView(container.getContext());
-            RoundCornerImageView view = new RoundCornerImageView(container.getContext());
+            GameLog.log("网络获取图片的地址 getView: "+activityList.get(position).getImg_path());
+            ImageView view = new ImageView(container.getContext());
+            //RoundCornerImageView view = new RoundCornerImageView(container.getContext());
+            //view.onCornerAll(view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                    GameLog.log("onClick");
                 }
             });
-            view.onCornerAll(view);
+            //view.setBackground(Utils.getContext().getDrawable(R.mipmap.change_bg));
             view.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
             Picasso.get()
                     .load(activityList.get(position).getImg_path())
-//                    .placeholder(R.drawable.placeholder)
-                    .error(R.mipmap.login_bg)
-                    .fit()
+                    .placeholder(R.mipmap.change_bg)
+//                    .resize(120,200)
+                    .error(R.mipmap.change_bg)
                     .into(view);
             /*Picasso.with(context)
                     .load(activityList.get(position).getImg_path())

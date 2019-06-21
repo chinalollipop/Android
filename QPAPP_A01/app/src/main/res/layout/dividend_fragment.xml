@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dTView1"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/d_btn_click"
+                    android:textColor="@color/d_btn_click"
+                    android:gravity="center"
+                    android:text="我要投资" />
+
+                <TextView
+                    android:id="@+id/dTView2"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/d_btn_unclick"
+                    android:gravity="center"
+                    android:textColor="@color/d_btn_unclick"
+                    android:text="投资说明" />
+
+                <TextView
+                    android:id="@+id/dTView3"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/d_btn_unclick"
+                    android:gravity="center"
+                    android:textColor="@color/d_btn_unclick"
+                    android:text="投资记录" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="550dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-40dp"
+                android:background="@mipmap/dividend_bg">
+
+                <LinearLayout
+                    android:id="@+id/dividendLay1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="260dp"
+                        android:layout_marginLeft="30dp"
+                        android:background="@mipmap/d_lastday"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="60dp"
+                        android:paddingRight="30dp"
+                        android:paddingBottom="30dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="昵称"
+                                android:textColor="#3b1daa"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="投资额"
+                                android:textColor="#3b1daa"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="回报额"
+                                android:textColor="#3b1daa"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/dRView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/dSignTimeLeft"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="签到倒计时"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/dSignTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/d_money_bg"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="0:00:00"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/dSignPerson"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="91人已签到"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
+
+                            <TextView
+                                android:id="@+id/dLastDayBetMoneyLeft"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="昨日投资额"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/dLastDayBetMoney"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/d_money_bg"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/dLastDayBetPerson"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="91人已签到"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
+
+                            <TextView
+                                android:id="@+id/dLastDayBetLeft"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="昨日已投资"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/dLastDayBet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/d_money_bg"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/dSingToday"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="20dp"
+                            android:background="@mipmap/d_btn_sign"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,每天8:00~12:00进行当日的签到\n2,只有已投资且已签到的人，才能瓜分昨日的总投资额\n3,昨日已投资但未签到的人，投资额将会分给签到的人"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--投资说明的内容-->
+                <LinearLayout
+                    android:id="@+id/dividendLay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:visibility="gone"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/d_lay2_bg"
+                        android:alpha="0.5"
+                        android:padding="20dp"
+                        android:orientation="vertical"
+                        android:layout_margin="30dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="每天可进行小投资，并在第二天规定时间内进行签到，签到后在本日会返还昨日投资的本金\n同时还可以瓜分未签到人的投资额，在规定时间内未签到的人，昨日的投资额将分给签到的人"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="\n只要投资了，只要签到了，100%可获得大回报\n"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1.每天8:00~12:00,进行本日的签到，只有签到的人才可以瓜分昨日的总投资额\n2.每天12:00~12:10,瓜分昨日投资额，将按照签到人的投资金额比例获得投资额对应的比例\n3.每天12:10，开始今天的投资\n4.每天23:50，停止今天的投资\n5.每次投资最少为10金币\n6.每人每天最多可投资1000金币\n"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--投资记录的内容-->
+                <LinearLayout
+                    android:id="@+id/dividendLay3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/d_lay2_bg"
+                    android:layout_marginTop="80dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:alpha="0.5"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="30dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="时间"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="昵称"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="投资额"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="回报额"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="回报率"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="状态"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/dRView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="600dp"
+                    android:layout_gravity="bottom|right"
+                    android:background="@mipmap/d_money_t"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dividendOpenLottery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="150dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="2019/6/22 11:22:54" />
+
+        <ImageView
+            android:id="@+id/dividendClose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="580dp"
+            android:layout_marginTop="40dp"
+            android:background="@mipmap/d_close"
+            android:layout_marginRight="20dp" />
+
+    </FrameLayout>
+
+</RelativeLayout>

@@ -33,7 +33,7 @@ public class LoginResult {
      */
 
     private MembermessageBean membermessage;
-
+    private ChessDemoUrlBean chess_demo_url;
     public LoginResult() {
     }
 
@@ -200,34 +200,20 @@ public class LoginResult {
         this.DOWNLOAD_APP_GIFT_DEPOSIT = DOWNLOAD_APP_GIFT_DEPOSIT;
     }
 
-    @Override
-    public String toString() {
-        return "LoginResult{" +
-                "UserName='" + UserName + '\'' +
-                ", Agents='" + Agents + '\'' +
-                ", LoginTime='" + LoginTime + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", Money='" + Money + '\'' +
-                ", Phone='" + Phone + '\'' +
-                ", test_flag='" + test_flag + '\'' +
-                ", BetMinMoney='" + BetMinMoney + '\'' +
-                ", BetMaxMoney='" + BetMaxMoney + '\'' +
-                ", E_Mail='" + E_Mail + '\'' +
-                ", DOWNLOAD_APP_GIFT_GOLD='" + DOWNLOAD_APP_GIFT_GOLD + '\'' +
-                ", DOWNLOAD_APP_GIFT_DEPOSIT='" + DOWNLOAD_APP_GIFT_DEPOSIT + '\'' +
-                ", Oid='" + Oid + '\'' +
-                ", userid='" + userid + '\'' +
-                ", Alias='" + Alias + '\'' +
-                ", BindCard_Flag='" + BindCard_Flag + '\'' +
-                '}';
-    }
-
     public MembermessageBean getMembermessage() {
         return membermessage;
     }
 
     public void setMembermessage(MembermessageBean membermessage) {
         this.membermessage = membermessage;
+    }
+
+    public ChessDemoUrlBean getChess_demo_url() {
+        return chess_demo_url;
+    }
+
+    public void setChess_demo_url(ChessDemoUrlBean chess_demo_url) {
+        this.chess_demo_url = chess_demo_url;
     }
 
     public static class MembermessageBean {
@@ -254,5 +240,76 @@ public class LoginResult {
         public void setMcou(int mcou) {
             this.mcou = mcou;
         }
+    }
+
+    public static class ChessDemoUrlBean {
+        /**
+         * KY_DEMO_URL : http://play.ky206.com/jump.do
+         * LY_DEMO_URL : https://demo.leg666.com
+         * HG_DEMO_URL : /hgqp/index.php?uid=6df17071e63ed737cd17ra1&flag=test&tip=app
+         * VG_DEMO_URL : /vgqp/index.php?uid=6df17071e63ed737cd17ra1&flag=test&tip=app
+         */
+
+        private String ky_demo_url;
+        private String ly_demo_url;
+        private String hg_demo_url;
+        private String vg_demo_url;
+
+        public String getKy_demo_url() {
+            return ky_demo_url;
+        }
+
+        public void setKy_demo_url(String ky_demo_url) {
+            this.ky_demo_url = ky_demo_url;
+        }
+
+        public String getLy_demo_url() {
+            return ly_demo_url;
+        }
+
+        public void setLy_demo_url(String ly_demo_url) {
+            this.ly_demo_url = ly_demo_url;
+        }
+
+        public String getHg_demo_url() {
+            return hg_demo_url;
+        }
+
+        public void setHg_demo_url(String hg_demo_url) {
+            this.hg_demo_url = hg_demo_url;
+        }
+
+        public String getVg_demo_url() {
+            return vg_demo_url;
+        }
+
+        public void setVg_demo_url(String vg_demo_url) {
+            this.vg_demo_url = vg_demo_url;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "LoginResult{" +
+                "UserName='" + UserName + '\'' +
+                ", Agents='" + Agents + '\'' +
+                ", LoginTime='" + LoginTime + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", Money='" + Money + '\'' +
+                ", Phone='" + Phone + '\'' +
+                ", test_flag='" + test_flag + '\'' +
+                ", BetMinMoney='" + BetMinMoney + '\'' +
+                ", BetMaxMoney='" + BetMaxMoney + '\'' +
+                ", E_Mail='" + E_Mail + '\'' +
+                ", DOWNLOAD_APP_GIFT_GOLD='" + DOWNLOAD_APP_GIFT_GOLD + '\'' +
+                ", DOWNLOAD_APP_GIFT_DEPOSIT='" + DOWNLOAD_APP_GIFT_DEPOSIT + '\'' +
+                ", membermessage=" + membermessage +
+                ", chess_demo_url=" + chess_demo_url +
+                ", Oid='" + Oid + '\'' +
+                ", userid='" + userid + '\'' +
+                ", noteMessage='" + noteMessage + '\'' +
+                ", Alias='" + Alias + '\'' +
+                ", BindCard_Flag='" + BindCard_Flag + '\'' +
+                '}';
     }
 }

@@ -5,6 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="red_packet_tv">#ffffae</color>
+    <color name="d_btn_unclick">#7d7513</color>
+    <color name="d_btn_click">#734c0b</color>
     <color name="color_bg_dialog">#e0000000</color>
     <color name="color_translucent">#e0000000</color>
 
@@ -15,4 +18,5 @@
     <!--Textview跑马灯的默认颜色值-->
     <color name="textview_marque">#FFFFFF</color>
     <color name="textview_marque_bg">#7b5d32</color>
+    <color name="l_view_color">#D6D6D6</color>
 </resources>

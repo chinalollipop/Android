@@ -71,6 +71,9 @@ import com.hgapp.a6668.login.fastregister.RegisterPresenter;
 import com.hgapp.a6668.login.forgetpwd.ForgetPwdContract;
 import com.hgapp.a6668.login.forgetpwd.ForgetPwdPresenter;
 import com.hgapp.a6668.login.forgetpwd.IForgetPwdApi;
+import com.hgapp.a6668.login.resetpwd.IResetPwdApi;
+import com.hgapp.a6668.login.resetpwd.ResetPwdContract;
+import com.hgapp.a6668.login.resetpwd.ResetPwdPresenter;
 import com.hgapp.a6668.personpage.IPersonApi;
 import com.hgapp.a6668.personpage.PersonContract;
 import com.hgapp.a6668.personpage.PersonPresenter;
@@ -121,6 +124,17 @@ public class Injections {
         }
 
         LoginContract.Presenter presenter = new LoginPresenter(loginApi,view);
+        return presenter;
+    }
+
+    public static ResetPwdContract.Presenter inject(@NonNull ResetPwdContract.View view, @Nullable IResetPwdApi loginApi)
+    {
+        if(null == loginApi)
+        {
+            loginApi = Client.getRetrofit().create(IResetPwdApi.class);
+        }
+
+        ResetPwdContract.Presenter presenter = new ResetPwdPresenter(loginApi,view);
         return presenter;
     }
 

@@ -109,6 +109,7 @@ public class BetRecordResult {
         private String bet_content;
         private String bet_rate;
         private String corner_num;
+        private String inball_mb_tg;
         private List<MiddleBean> Middle;
 
         public String getID() {
@@ -279,6 +280,14 @@ public class BetRecordResult {
             this.corner_num = corner_num;
         }
 
+        public String getInball_mb_tg() {
+            return inball_mb_tg;
+        }
+
+        public void setInball_mb_tg(String inball_mb_tg) {
+            this.inball_mb_tg = inball_mb_tg;
+        }
+
         public List<MiddleBean> getMiddle() {
             return Middle;
         }
@@ -304,6 +313,7 @@ public class BetRecordResult {
             private String bet_content;
             private String bet_rate;
             private String font_a;
+            private String inball_mb_tg;
 
             public String getM_League() {
                 return M_League;
@@ -359,6 +369,14 @@ public class BetRecordResult {
 
             public void setFont_a(String font_a) {
                 this.font_a = font_a;
+            }
+
+            public String getInball_mb_tg() {
+                return inball_mb_tg;
+            }
+
+            public void setInball_mb_tg(String inball_mb_tg) {
+                this.inball_mb_tg = inball_mb_tg;
             }
         }
     }

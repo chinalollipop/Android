@@ -374,6 +374,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     }
     @OnClick(R.id.personLogout)
     public void onLogout(){
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(null, this);
+        }
         presenter.logOut();
     }
 

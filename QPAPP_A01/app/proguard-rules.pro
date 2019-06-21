@@ -402,6 +402,7 @@
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
 -keep class com.qpweb.a01.http.** { *; }
+-keep class com.qpweb.a01.data.** { *; }
 #-keep class com.xxx.app.deposit.model.** { *; }
 #-keep class com.xxx.app.repository.data.** { *; }
 #-keep class com.xxx.app.common.http.**{*;}

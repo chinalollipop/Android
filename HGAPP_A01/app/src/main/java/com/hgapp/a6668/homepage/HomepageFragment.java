@@ -166,12 +166,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     public void setEvents(@Nullable Bundle savedInstanceState) {
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
-        int sizeq = domainUrl.getList().size();
-        for(int k=0;k<sizeq;++k){
-            if(domainUrl.getList().get(k).isChecked()){
-                tvHomePageLine.setText("线路"+domainUrl.getList().get(k).getPid());
+        if(!Check.isNull(domainUrl)&&domainUrl.getList().size()>0){
+            int sizeq = domainUrl.getList().size();
+            for(int k=0;k<sizeq;++k){
+                if(domainUrl.getList().get(k).isChecked()){
+                    tvHomePageLine.setText("线路"+domainUrl.getList().get(k).getPid());
+                }
             }
         }
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
         rvHomapageGameHall.setLayoutManager(gridLayoutManager);
         rvHomapageGameHall.setHasFixedSize(true);
@@ -285,10 +288,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }*/
                  break;
             case 3:
-                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
-                }*/
+                }
                 userState = "3";
                 String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_MAINTAIN);
                 if("1".equals(qp_url)){
@@ -425,6 +428,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_line_choice,null);
         //处理popWindow 显示内容
         DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
+        if(Check.isNull(domainUrl)){
+            showMessage("已是最优线路！");
+            return;
+        }
         RecyclerView recyclerView = contentView.findViewById(R.id.popLineChoice);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1, OrientationHelper.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -781,9 +788,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private void postHGQiPaiGo(){
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_QIPAI_URL);
-        if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
-            qipai_url = Client.baseUrl()+ACache.get(getContext()).getAsString(HGConstant.HG_DEMO_URL);
-        }
         if (Check.isEmpty(qipai_url)) {
             showMessage("正在加载中，请稍后再试!");
             presenter.postHGQipai("", "");
@@ -802,7 +806,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private void postVGQiPaiGo(){
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VG_QIPAI_URL);
         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-            qipai_url = Client.baseUrl()+ACache.get(getContext()).getAsString(HGConstant.VG_DEMO_URL);
+            qipai_url = ACache.get(getContext()).getAsString(HGConstant.VG_DEMO_URL);
+            //qipai_url = qipai_url+"&flag=test";
         }
         if(Check.isEmpty(qipai_url)){
             showMessage("正在加载中，请稍后再试!");

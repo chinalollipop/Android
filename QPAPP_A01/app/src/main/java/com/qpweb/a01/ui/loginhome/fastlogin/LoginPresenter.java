@@ -52,6 +52,77 @@ public class LoginPresenter implements LoginContract.Presenter {
                 }));
     }
 
+    @Override
+    public void postPhone(String appRefer, String phone, String code) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPhone(QPConstant.PRODUCT_PLATFORM,phone,code))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<LoginResult> response) {
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postRegister(String appRefer, String phone, String code) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postRegister(QPConstant.PRODUCT_PLATFORM,"register"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<LoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postLoginResult(response.getData());
+                            view.showMessage(response.getDescribe());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postLoginPhone(String appRefer, String mem_phone,String mem_yzm, String reference, String code) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postLoginPhone(QPConstant.PRODUCT_PLATFORM,mem_phone,mem_yzm,reference,code))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<LoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postLoginResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 
 
     @Override

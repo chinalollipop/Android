@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="220dp"
+    android:layout_marginLeft="-400dp"
+    >
+    <ImageView
+        android:id="@+id/iv_item_game_icon"
+        android:layout_width="120dp"
+        android:layout_height="220dp"
+        android:background="@mipmap/home_hall_fishicon"
+        />
+</RelativeLayout>

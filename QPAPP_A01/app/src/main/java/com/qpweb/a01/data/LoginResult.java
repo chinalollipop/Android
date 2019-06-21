@@ -6,20 +6,33 @@ import android.os.Parcelable;
 public class LoginResult implements Parcelable {
 
     /**
-     * Oid : c9d8a4807901e02c31afra0
-     * UserName : daniel00
-     * Agents : jack001
-     * Money : 0
+     * ID : 81318
+     * Oid : d1cb8a90e53b012b23d3ra4
+     * Phone :
+     * UserName : daniel111
+     * AvatarId : null
+     * NickName : 幽雪沫儿jxbx
+     * PersonalizedSignature : 这家伙很懒，什么都没有留下vg
+     * PassWord : qqqaaa
+     * Agents : ddm423
+     * Money : 2
      * Alias :
      * isTest : 0
      * isBindCard : 0
-     * LoginTime : 2018-12-28 17:09:00
-     * lastLoginTime : 首次登录
+     * LoginTime : 2019-06-17 12:15:53
+     * lastLoginTime : 2019-06-17 00:10:13
      * promotion_code : null
+     * OnlineServer : https://e-60193.chatnow.meiqia.com/dist/standalone.html
      */
 
+    private String ID;
     private String Oid;
+    private String Phone;
     private String UserName;
+    private String AvatarId;
+    private String NickName;
+    private String PersonalizedSignature;
+    private String PassWord;
     private String Agents;
     private String Money;
     private String Alias;
@@ -28,6 +41,16 @@ public class LoginResult implements Parcelable {
     private String LoginTime;
     private String lastLoginTime;
     private String promotion_code;
+    private String OnlineServer;
+    private String haveLyAccount;//1 有乐游账号  0 没有乐游账号
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public String getOid() {
         return Oid;
@@ -37,12 +60,52 @@ public class LoginResult implements Parcelable {
         this.Oid = Oid;
     }
 
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String Phone) {
+        this.Phone = Phone;
+    }
+
     public String getUserName() {
         return UserName;
     }
 
     public void setUserName(String UserName) {
         this.UserName = UserName;
+    }
+
+    public String getAvatarId() {
+        return AvatarId;
+    }
+
+    public void setAvatarId(String AvatarId) {
+        this.AvatarId = AvatarId;
+    }
+
+    public String getNickName() {
+        return NickName;
+    }
+
+    public void setNickName(String NickName) {
+        this.NickName = NickName;
+    }
+
+    public String getPersonalizedSignature() {
+        return PersonalizedSignature;
+    }
+
+    public void setPersonalizedSignature(String PersonalizedSignature) {
+        this.PersonalizedSignature = PersonalizedSignature;
+    }
+
+    public String getPassWord() {
+        return PassWord;
+    }
+
+    public void setPassWord(String PassWord) {
+        this.PassWord = PassWord;
     }
 
     public String getAgents() {
@@ -109,6 +172,22 @@ public class LoginResult implements Parcelable {
         this.promotion_code = promotion_code;
     }
 
+    public String getOnlineServer() {
+        return OnlineServer;
+    }
+
+    public void setOnlineServer(String OnlineServer) {
+        this.OnlineServer = OnlineServer;
+    }
+
+    public String getHaveLyAccount() {
+        return haveLyAccount;
+    }
+
+    public void setHaveLyAccount(String haveLyAccount) {
+        this.haveLyAccount = haveLyAccount;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -116,8 +195,14 @@ public class LoginResult implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.ID);
         dest.writeString(this.Oid);
+        dest.writeString(this.Phone);
         dest.writeString(this.UserName);
+        dest.writeString(this.AvatarId);
+        dest.writeString(this.NickName);
+        dest.writeString(this.PersonalizedSignature);
+        dest.writeString(this.PassWord);
         dest.writeString(this.Agents);
         dest.writeString(this.Money);
         dest.writeString(this.Alias);
@@ -126,14 +211,22 @@ public class LoginResult implements Parcelable {
         dest.writeString(this.LoginTime);
         dest.writeString(this.lastLoginTime);
         dest.writeString(this.promotion_code);
+        dest.writeString(this.OnlineServer);
+        dest.writeString(this.haveLyAccount);
     }
 
     public LoginResult() {
     }
 
     protected LoginResult(Parcel in) {
+        this.ID = in.readString();
         this.Oid = in.readString();
+        this.Phone = in.readString();
         this.UserName = in.readString();
+        this.AvatarId = in.readString();
+        this.NickName = in.readString();
+        this.PersonalizedSignature = in.readString();
+        this.PassWord = in.readString();
         this.Agents = in.readString();
         this.Money = in.readString();
         this.Alias = in.readString();
@@ -142,6 +235,8 @@ public class LoginResult implements Parcelable {
         this.LoginTime = in.readString();
         this.lastLoginTime = in.readString();
         this.promotion_code = in.readString();
+        this.OnlineServer = in.readString();
+        this.haveLyAccount = in.readString();
     }
 
     public static final Parcelable.Creator<LoginResult> CREATOR = new Parcelable.Creator<LoginResult>() {

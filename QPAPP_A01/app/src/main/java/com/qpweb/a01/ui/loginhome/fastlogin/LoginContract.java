@@ -14,6 +14,9 @@ public interface LoginContract {
     public interface Presenter extends IPresenter {
 
         public void postLogin(String appRefer, String username, String password);
+        public void postPhone(String appRefer, String phone, String code);
+        public void postRegister(String appRefer, String phone, String code);
+        public void postLoginPhone(String appRefer, String mem_phone,String mem_yzm, String reference, String code);
     }
 
     public interface View extends IView<Presenter>, IMessageView {

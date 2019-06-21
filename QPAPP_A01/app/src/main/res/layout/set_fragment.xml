@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="475dp"
+        android:layout_height="285dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/set">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="游戏音效"
+                    android:textColor="@color/register_left"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/setGameMusic"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@mipmap/switch_open" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="背景音乐"
+                    android:textColor="@color/register_left"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/setBgMusic"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@mipmap/switch_open" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/setWithDrawPwd"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/register_me"
+                    android:gravity="center"
+                    android:text="设置密码" />
+
+                <TextView
+                    android:id="@+id/setBindPhone"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@mipmap/register_me"
+                    android:gravity="center"
+                    android:text="绑定手机" />
+
+                <TextView
+                    android:id="@+id/setChangeAccount"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/register_me"
+                    android:gravity="center"
+                    android:text="切换账号" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/setClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

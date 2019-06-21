@@ -1,7 +1,10 @@
 package com.qpweb.a01.data;
 
 
-public class NoticeResult {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class NoticeResult implements Parcelable {
         /**
          * title : 尊敬的创富棋牌会员
          * content : 创富棋牌已正式上线啦 ， 欢迎各位大咖莅临参观！目前棋牌自动转账功能已经上线，无需进行额度转换操作，点击游戏平台后系统会自动帮您转入到您所进的游戏平台上~退出后系统也会自动为您转出！请各位熟知！更多优惠活动详情请查看活动页面进行查看！
@@ -35,4 +38,46 @@ public class NoticeResult {
         public void setCreated_at(String created_at) {
             this.created_at = created_at;
         }
+
+    @Override
+    public String toString() {
+        return "NoticeResult{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", created_at='" + created_at + '\'' +
+                '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.title);
+        dest.writeString(this.content);
+        dest.writeString(this.created_at);
+    }
+
+    public NoticeResult() {
+    }
+
+    protected NoticeResult(Parcel in) {
+        this.title = in.readString();
+        this.content = in.readString();
+        this.created_at = in.readString();
+    }
+
+    public static final Parcelable.Creator<NoticeResult> CREATOR = new Parcelable.Creator<NoticeResult>() {
+        @Override
+        public NoticeResult createFromParcel(Parcel source) {
+            return new NoticeResult(source);
+        }
+
+        @Override
+        public NoticeResult[] newArray(int size) {
+            return new NoticeResult[size];
+        }
+    };
 }

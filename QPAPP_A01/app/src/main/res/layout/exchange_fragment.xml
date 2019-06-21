@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="575dp"
+        android:layout_height="325dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/exchange">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            >
+
+            <LinearLayout
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:background="@mipmap/box_in"
+                    android:gravity="center"
+                    android:text="兑换到银行卡"
+                    android:textColor="@color/register_left"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="40dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:textColor="@color/register_left"
+                        android:text="&#160;&#160;&#160;&#160;当前金额："
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/exMoney"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/register_left"
+                        android:background="@mipmap/bg_et"
+                        android:layout_width="120dp"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/exRecord"
+                        android:background="@mipmap/get_verify_code"
+                        android:text="兑换记录"
+                        android:gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/register_left"
+                    android:text="提现3-5分钟到账，提现前确定绑定的银行卡准确无误，提现收取金额的2%手续费"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="&#160;&#160;&#160;&#160;兑换数量："
+                        android:textStyle="bold"
+                        android:textColor="@color/register_left" />
+                    <EditText
+                        android:id="@+id/exNumber"
+                        android:textColor="@color/register_left"
+                        android:background="@mipmap/bg_et"
+                        android:layout_width="120dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:text="100"
+                        android:layout_height="25dp" />
+
+                    <TextView
+                        android:id="@+id/exMax"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/register_me"
+                        android:gravity="center"
+                        android:textColor="@color/register_left"
+                        android:text="最大" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="银行卡账号："
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/register_left" />
+                    <TextView
+                        android:id="@+id/exBankNumber"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/bg_et"
+                        android:textColor="@color/register_left"
+                        android:layout_width="120dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:hint="未绑定银行卡账号"
+                        android:layout_height="25dp" />
+
+                    <TextView
+                        android:id="@+id/exChangeBank"
+                        android:background="@mipmap/get_verify_code"
+                        android:text="更改银行卡"
+                        android:gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.xw.repo.BubbleSeekBar
+                        android:id="@+id/exSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        app:bsb_bubble_color="@android:color/transparent"
+                        app:bsb_bubble_text_color="@android:color/transparent"
+                        app:bsb_second_track_color="#e1222a"
+                        app:bsb_touch_to_seek="true"
+                        app:bsb_track_color="#717070" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/exSubmit"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/register_me"
+                    android:gravity="center"
+                    android:textColor="@color/register_left"
+                    android:text="提交" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/exClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

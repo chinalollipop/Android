@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="475dp"
+        android:layout_height="285dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/bank_card_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="姓名"
+                        android:textColor="@color/register_left"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/bankCardRealName"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:background="@mipmap/bg_et"
+                        android:gravity="center"
+                        android:hint="请输入银行卡姓名"
+                        android:textColor="@color/register_left"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="银行卡账号"
+                        android:textColor="@color/register_left"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/bankCardAccount"
+                        android:layout_width="170dp"
+                        android:layout_height="40dp"
+                        android:background="@mipmap/bg_et"
+                        android:gravity="center"
+                        android:hint="请输入银行卡账号"
+                        android:inputType="number"
+                        android:maxLength="23"
+                        android:textColor="@color/register_left"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开户行省份/城市"
+                        android:textColor="@color/register_left"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/bankCardAdds"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:background="@mipmap/bg_et"
+                        android:gravity="center"
+                        android:hint="请输入开户行省份/城市"
+                        android:textColor="@color/register_left"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开户行"
+                        android:textColor="@color/register_left"
+                        android:textSize="18sp" />
+
+                    <org.angmarch.views.NiceSpinner
+                        android:id="@+id/bankCardId"
+                        android:layout_width="170dp"
+                        android:layout_height="40dp"
+                        android:paddingTop="-5dp"
+                        android:background="@mipmap/textview_choice"
+                        android:text="请选择开户行"
+                        android:textColor="@color/register_left"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bankCardSubmit"
+                android:layout_marginTop="20dp"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@mipmap/register_me"
+                android:gravity="center"
+                android:text="确认" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/setClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

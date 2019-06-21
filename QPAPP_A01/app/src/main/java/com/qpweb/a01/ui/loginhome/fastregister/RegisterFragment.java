@@ -1,54 +1,56 @@
 package com.qpweb.a01.ui.loginhome.fastregister;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.qpweb.a01.Injections;
 import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseDialogFragment;
 import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.data.LoginResult;
+import com.qpweb.a01.ui.loginhome.LoginHomeActivity;
+import com.qpweb.a01.ui.loginhome.LoginSuccessEvent;
+import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.QPConstant;
-import com.qpweb.a01.utils.QPWebSetting;
-import com.tencent.smtt.sdk.WebView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class RegisterFragment extends BaseDialogFragment implements RegisterContract.View {
-    @BindView(R.id.registerReferralCode)
-    EditText registerReferralCode;
+
+    RegisterContract.Presenter presenter;
     @BindView(R.id.registerAccount)
     EditText registerAccount;
     @BindView(R.id.registerPwd)
     EditText registerPwd;
     @BindView(R.id.registerPwd2)
     EditText registerPwd2;
-    @BindView(R.id.registerSecurityCode)
-    EditText registerSecurityCode;
-    @BindView(R.id.registerCodeRequest)
-    TextView registerCodeRequest;
-    @BindView(R.id.registerSecurityCodeRequest)
-    WebView registerSecurityCodeRequest;
     @BindView(R.id.registerSubmit)
     ImageView registerSubmit;
     @BindView(R.id.registerClose)
     ImageView registerClose;
 
-    RegisterContract.Presenter presenter;
-
     public static RegisterFragment newInstance() {
         Bundle bundle = new Bundle();
         RegisterFragment dialog = new RegisterFragment();
         dialog.setArguments(bundle);
+        Injections.inject(dialog, null);
         return dialog;
     }
 
@@ -63,75 +65,70 @@ public class RegisterFragment extends BaseDialogFragment implements RegisterCont
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
-
     }
 
     @Override
-    public void setEvents(View view,@Nullable Bundle savedInstanceState) {
-        QPWebSetting.init(registerSecurityCodeRequest);
-        //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
-        String url = "http://hg06606.com/include/validatecode/captcha.php?"+System.currentTimeMillis();
-        GameLog.log("请求的url地址是 "+url);
-        registerSecurityCodeRequest.loadUrl(url);
-    }
-
-    @OnClick({R.id.registerCodeRequest, R.id.registerSubmit, R.id.registerClose})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.registerCodeRequest:
-                String url = "http://hg06606.com/include/validatecode/captcha.php?"+System.currentTimeMillis();
-                GameLog.log("请求的url地址是 "+url);
-                registerSecurityCodeRequest.loadUrl(url);
-                break;
-            case R.id.registerSubmit:
-                onCheckDataAndSubmit();
-                break;
-            case R.id.registerClose:
-                hide();
-                break;
-        }
+    public void setEvents(View view, @Nullable Bundle savedInstanceState) {
     }
 
     private void onCheckDataAndSubmit() {
-        String registerReferralCodes = registerReferralCode.getText().toString().trim();
         String registerAccounts = registerAccount.getText().toString().trim();
         String registerPwds = registerPwd.getText().toString().trim();
         String registerPwd2s = registerPwd2.getText().toString().trim();
-        String registerSecurityCodes = registerSecurityCode.getText().toString().trim();
-        if(Check.isEmpty(registerAccounts)){
+        if (Check.isEmpty(registerAccounts)) {
             showMessage("请输入合法的用户账号");
+            return;
         }
-        if(Check.isEmpty(registerPwds)){
-            showMessage("请输入密码");
+        if (Check.isEmpty(registerPwds)) {
+            showMessage("请输入会员密码");
+            return;
         }
-        if(Check.isEmpty(registerPwd2s)){
-            showMessage("请输入密码");
+        if (Check.isEmpty(registerPwd2s)) {
+            showMessage("请再次输入会员密码");
+            return;
         }
-        if(!registerPwds.equals(registerPwd2s)){
-            showMessage("两次输入的密码不一致");
+        if (!registerPwds.equals(registerPwd2s)) {
+            showMessage("两次输入的会员密码不一致");
+            return;
         }
-        if(Check.isEmpty(registerSecurityCodes)){
-            showMessage("请输入验证码");
-        }
-
-        presenter.postRegisterMember(QPConstant.PRODUCT_PLATFORM,"register",registerReferralCodes,registerAccounts,registerPwds,registerPwd2s,registerSecurityCodes,"");
-
+        presenter.postRegisterMember(QPConstant.PRODUCT_PLATFORM, "register", "", registerAccounts, registerPwds, registerPwd2s, "ZRN7", "");
     }
 
     @Override
     public void postRegisterMemberResult(LoginResult loginResult) {
-
+        GameLog.log("用户注册成功 别名是 " + loginResult.getAlias());
+        showMessage("注册成功！");
+        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_ACCOUNT,loginResult.getUserName());
+        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_PWD,loginResult.getPassWord());
+        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_ACCOUNT_ALIAS,loginResult.getAlias());
+        ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_ACCOUNT_MONEY,loginResult.getMoney());
+        ACache.get(getContext()).put("loginResult", JSON.toJSONString(loginResult));
+        EventBus.getDefault().post(new LoginSuccessEvent());
+        startActivity(new Intent(getContext(), LoginHomeActivity.class));
+        hide();
     }
 
     @Override
     public void setPresenter(RegisterContract.Presenter presenter) {
-        this.presenter  = presenter;
+        this.presenter = presenter;
     }
 
 
     @Override
     protected List<IPresenter> presenters() {
         return Arrays.asList((IPresenter) presenter);
+    }
+
+
+    @OnClick({R.id.registerSubmit, R.id.registerClose})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.registerSubmit:
+                onCheckDataAndSubmit();
+                break;
+            case R.id.registerClose:
+                dismiss();
+                break;
+        }
     }
 }

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.coolindicator.sdk.CoolIndicator;
 import com.qpweb.a01.utils.ACache;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout flayoutXpay;
 
     private WebView wvPayGame;
+    private ImageView gameBack;
     private CoolIndicator mCoolIndicator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +45,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         flayoutXpay = this.findViewById(R.id.flayout_xpay);
         wvPayGame = this.findViewById(R.id.wv_pay_x5_game);
+        gameBack = this.findViewById(R.id.gameBack);
         mCoolIndicator = this.findViewById(R.id.indicator);
         mCoolIndicator.setMax(100);
         TBSWebSetting.init(wvPayGame);
-        String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
+        gameBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        String demainUrl =  getIntent().getStringExtra("app_url");
+        /*String demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
         if(Check.isEmpty(demainUrl)){
             demainUrl = "http://www.cfqp88.com/";
-        }
+        }*/
         /*for(int ii=100001;ii<101001;++ii){
             GameLog.log(""+ii);
         }*/
         //demainUrl = "http://hg06606.com/";//测试环境的地址
-        demainUrl += "?code="+QPApplication.instance().getCommentData();
-        ToastUtils.showLongToast("请求的地址是："+demainUrl);
+        //demainUrl += "?code="+QPApplication.instance().getCommentData();
+        //ToastUtils.showLongToast("请求的地址是："+demainUrl);
         GameLog.log("域名地址是"+demainUrl);
         wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");
@@ -107,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                //ToastUtils.showLongToast("加载异常,请重试");
                 mCoolIndicator.complete();
             }
 
@@ -119,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
+                ToastUtils.showLongToast("加载异常,请重试");
+                view.loadUrl("https://www.freepik.com/");
             }
         });
     }
@@ -147,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else {
                     finish();
-                    System.exit(0);
+//                    System.exit(0);
                     return false;
                 }
                 //this.tbsSuiteExit();

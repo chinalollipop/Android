@@ -119,7 +119,7 @@
         <activity android:name="com.hgapp.a0086.homepage.cplist.role.RoleActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.hgapp.a0086.homepage.cplist.role.CPServiceActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.hgapp.a0086.homepage.cplist.CPOrderFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <service android:name="com.hgapp.a0086.common.service.StartX5Service" />
+        <!--<service android:name="com.hgapp.a0086.common.service.StartX5Service" />-->
         <service android:name="com.hgapp.a0086.upgrade.downunit.AppDownloadService" />
         <!--<receiver android:name=".common.broadcast.OpenBrodcast">
             <intent-filter  >

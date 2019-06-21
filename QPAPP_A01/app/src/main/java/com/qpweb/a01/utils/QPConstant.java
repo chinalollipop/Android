@@ -104,6 +104,15 @@ public abstract class QPConstant {
     //用户的登录账号
     public static final String USERNAME_LOGIN_ACCOUNT = "username_login_account";
 
+    //用户的真实姓名
+    public static final String USERNAME_LOGIN_ACCOUNT_ALIAS = "username_login_account_alias";
+
+    //用户头像
+    public static final String USERNAME_LOGIN_ACCOUNT_ICON = "username_login_account_icon";
+
+    //用户的金额
+    public static final String USERNAME_LOGIN_ACCOUNT_MONEY = "username_login_account_money";
+
 
     //用户的试玩账号
     public static final String USERNAME_LOGIN_DEMO = "username_login_demo";

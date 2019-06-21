@@ -4,6 +4,8 @@ import com.qpweb.a01.data.BannerResult;
 import com.qpweb.a01.data.LoginResult;
 import com.qpweb.a01.data.LogoutResult;
 import com.qpweb.a01.data.NoticeResult;
+import com.qpweb.a01.data.RefreshMoneyResult;
+import com.qpweb.a01.data.SignTodayResult;
 import com.qpweb.a01.data.WinNewsResult;
 import com.qpweb.a01.http.ResponseSubscriber;
 import com.qpweb.a01.http.RxHelper;
@@ -75,7 +77,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void postNotice(String appRefer, String type) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postNotice(QPConstant.PRODUCT_PLATFORM,type))
+        subscriptionHelper.add(RxHelper.addSugar(api.postNotice(QPConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<NoticeResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<NoticeResult> response) {
@@ -101,8 +103,35 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
+    public void postPayGame(String appRefer, String uId, String gameId) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPayGame(QPConstant.PRODUCT_PLATFORM,uId,gameId))
+                .subscribe(new ResponseSubscriber<WinNewsResult>() {
+                    @Override
+                    public void success(WinNewsResult response) {
+                        if(response.getStatus()==200)
+                        {
+                            view.postWinNewsResult(response);
+                        }
+                        else
+                        {
+                            Timber.d("快速登陆失败:%s",response);
+                            view.showMessage(response.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postWinNews(String appRefer, String news) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postWinNews(QPConstant.PRODUCT_PLATFORM,news))
+        subscriptionHelper.add(RxHelper.addSugar(api.postWinNews(QPConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<WinNewsResult>() {
                     @Override
                     public void success(WinNewsResult response) {
@@ -153,5 +182,87 @@ public class HomePresenter implements HomeContract.Presenter {
                     }
                 }));
     }
+
+    @Override
+    public void postRefreshMoney(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postRefreshMoney(QPConstant.PRODUCT_PLATFORM,"b"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<RefreshMoneyResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<RefreshMoneyResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postRefreshMoneyResult(response.getData() );
+                        }
+                        else
+                        {
+                            Timber.d("快速登陆失败:%s",response);
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postNeedLyId(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postNeedLyId(QPConstant.PRODUCT_PLATFORM,"cm"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<RefreshMoneyResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<RefreshMoneyResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postRefreshMoneyResult(response.getData() );
+                        }
+                        else
+                        {
+                            Timber.d("快速登陆失败:%s",response);
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postSignToday(String appRefer, String username, String password) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postSignToday(QPConstant.PRODUCT_PLATFORM,"sign_days"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<SignTodayResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<SignTodayResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postSignTodayResult(response.getData());
+                        }
+                        else
+                        {
+                            Timber.d("快速登陆失败:%s",response);
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
 }
 

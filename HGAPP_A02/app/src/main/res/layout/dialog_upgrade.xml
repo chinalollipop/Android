@@ -81,7 +81,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="以后更新"
-                android:visibility="gone"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp"
                 android:gravity="center"

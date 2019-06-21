@@ -127,6 +127,10 @@ public abstract class HGConstant {
     //用户登录信息
     public static final String USERNAME_LOGIN_INFO = "username_login_info";
 
+    public static final String KY_DEMO_URL = "KY_DEMO_URL";
+    public static final String LY_DEMO_URL = "LY_DEMO_URL";
+    public static final String HG_DEMO_URL = "HG_DEMO_URL";
+    public static final String VG_DEMO_URL = "VG_DEMO_URL";
 
     //首页banner
     public static final String USERNAME_HOME_BANNER = "username_home_banner";

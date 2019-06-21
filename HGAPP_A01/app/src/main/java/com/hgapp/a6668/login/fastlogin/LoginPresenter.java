@@ -45,6 +45,10 @@ public class LoginPresenter implements LoginContract.Presenter {
                             {
                                 view.postLoginResult(loginResult);
                             }
+                        }else if(response.getStatus().equals("401.100"))
+                        {
+                            Timber.d("快速登陆失败:%s",response);
+                            view.postLoginResultError(response.getDescribe());
                         }
                         else
                         {

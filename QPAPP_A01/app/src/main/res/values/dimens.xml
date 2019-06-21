@@ -3,9 +3,11 @@
     <dimen name="h_tbn_height">33dp</dimen>
     <dimen name="h_edit_height">33dp</dimen>
 
-    <dimen name="h_text_height">30dp</dimen>
     <dimen name="h_text_width">252dp</dimen>
+    <dimen name="h_text_height">35dp</dimen>
 
     <dimen name="slidingmenu_offset">220dp</dimen>
     <dimen name="shadow_width">1dp</dimen>
+    <dimen name="red_width">180dp</dimen>
+    <dimen name="red_height">220dp</dimen>
 </resources>

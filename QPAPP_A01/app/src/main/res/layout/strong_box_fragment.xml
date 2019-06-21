@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/flayBg"
+        android:layout_width="475dp"
+        android:layout_height="285dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/strongbox">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            >
+
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/boxIn"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/box_in"
+                    android:gravity="center"
+                    android:text="存入"
+                    android:textColor="@color/register_left"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/boxOut"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/box_out"
+                    android:gravity="center"
+                    android:text="取出"
+                    android:textColor="@color/register_left"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:textColor="@color/register_left"
+                        android:text="当前金币："
+                        android:gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/register_left"
+                        android:background="@mipmap/bg_et"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="保险柜金币："
+                        android:textColor="@color/register_left" />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/register_left"
+                        android:background="@mipmap/bg_et"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@mipmap/bg_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:id="@+id/boxTViewType"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="存入数量："
+                        android:gravity="center"
+                        android:textColor="@color/register_left" />
+                    <EditText
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/register_left"
+                        android:layout_width="120dp"
+                        android:background="@null"
+                        android:textSize="10sp"
+                        android:hint="请输入或托选兑换金额"
+                        android:layout_height="22dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.xw.repo.BubbleSeekBar
+                        android:id="@+id/boxSeekBar"
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
+                        app:bsb_bubble_color="@android:color/transparent"
+                        app:bsb_bubble_text_color="@android:color/transparent"
+                        app:bsb_second_track_color="#e1222a"
+                        app:bsb_touch_to_seek="true"
+                        app:bsb_track_color="#717070" />
+                    <TextView
+                        android:id="@+id/boxMax"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/register_me"
+                        android:gravity="center"
+                        android:textColor="@color/register_left"
+                        android:text="最大" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/boxSure"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/register_me"
+                    android:gravity="center"
+                    android:textColor="@color/register_left"
+                    android:text="提交" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/boxClose"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

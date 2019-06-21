@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/redImage"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/check_in_redline" />
+
+        <FrameLayout
+            android:layout_width="160dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/sign_today_red">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/redTView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textSize="25sp"
+                    android:visibility="gone"
+                    android:textColor="@color/red_packet_tv"
+                    android:gravity="center"
+                    android:text="第一天" />
+                <ImageView
+                    android:id="@+id/redIView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/check_sign_3" />
+
+                <TextView
+                    android:id="@+id/redText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:textSize="28sp"
+                    android:textColor="#feda03"
+                    android:gravity="center"
+                    android:text="6.55"
+                    android:visibility="gone"
+                    />
+
+                <ImageView
+                    android:id="@+id/redOpen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@mipmap/icon_open_red_packet1" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.qpweb.a01.widget.IconRainView
+            android:id="@+id/iconRain"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:fallGravity="7"
+            android:visibility="gone"
+            app:firstTimeIconCount="10350"
+            app:launchDuration="1700"
+            app:shadeToGone="true"
+            app:sound="@raw/get_gold_more_1"
+            app:icon="@mipmap/event_fulldiscount" />
+        <com.dingmouren.fallingview.FallingView
+            android:id="@+id/fallingView"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fallingDelay="2"
+            app:flakeDensity="200"
+            app:flakeScale="1"
+            app:flakeSrc="@mipmap/event_fulldiscount" />
+    </FrameLayout>
+</RelativeLayout>
