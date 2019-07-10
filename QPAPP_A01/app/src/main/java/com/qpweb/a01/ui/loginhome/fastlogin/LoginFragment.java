@@ -165,10 +165,6 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
     }
 
     private void onGetCode(){
-        loginGetPhoneCode.setVisibility(View.GONE);
-        loginGetPhoneCodeTView.setVisibility(View.VISIBLE);
-        mCountDownTimer = new MyCountDownTimer(60000, 1000);
-        mCountDownTimer.start();
         String loginAccounts = loginAccount.getText().toString().trim();
         if(Check.isEmpty(loginAccounts)){
             showMessage("请输入有效的用户手机账号");
@@ -216,6 +212,15 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
         intent.putExtra("LoginResult",loginResult);
         startActivity(intent);
         hide();
+    }
+
+    @Override
+    public void postPhoneResult(String errorMessage) {
+        showMessage(errorMessage);
+        loginGetPhoneCode.setVisibility(View.GONE);
+        loginGetPhoneCodeTView.setVisibility(View.VISIBLE);
+        mCountDownTimer = new MyCountDownTimer(60000, 1000);
+        mCountDownTimer.start();
     }
 
     @Override

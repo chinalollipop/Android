@@ -7,6 +7,9 @@ import com.qpweb.a01.http.Client;
 import com.qpweb.a01.ui.home.HomeContract;
 import com.qpweb.a01.ui.home.HomePresenter;
 import com.qpweb.a01.ui.home.IHomeApi;
+import com.qpweb.a01.ui.home.agency.AgencyContract;
+import com.qpweb.a01.ui.home.agency.AgencyPresenter;
+import com.qpweb.a01.ui.home.agency.IAgencyApi;
 import com.qpweb.a01.ui.home.bank.BindCardContract;
 import com.qpweb.a01.ui.home.bank.BindCardPresenter;
 import com.qpweb.a01.ui.home.bank.IBindCardApi;
@@ -94,6 +97,13 @@ public class Injections {
             loginApi = Client.getRetrofit().create(ISetPwdApi.class);
         }
         return new SetPwdPresenter(loginApi, view);
+    }
+
+    public static AgencyContract.Presenter inject(@NonNull AgencyContract.View view, @Nullable IAgencyApi loginApi) {
+        if (null == loginApi) {
+            loginApi = Client.getRetrofit().create(IAgencyApi.class);
+        }
+        return new AgencyPresenter(loginApi, view);
     }
 
     public static HBaoContract.Presenter inject(@NonNull HBaoContract.View view, @Nullable IHBaoApi loginApi) {

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="375dp"
+        android:layout_height="245dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/ly_notice">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="您当前未满足千元红包条件\n需要您再近两日内多进行游戏打到足够的\n【有效下注】后即可参加活动了"
+                android:textColor="@color/register_left"
+                />
+            <TextView
+                android:id="@+id/hBaoNoticePlay"
+                android:textColor="@color/register_left"
+                android:text="去玩游戏"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@mipmap/register_me"
+                android:layout_width="120dp"
+                android:layout_height="56dp" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/hBaoNoticeClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@mipmap/imme_close"
+            android:layout_marginRight="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

@@ -17,6 +17,7 @@ public interface DepositeContract {
         public void postDepositBankCordList(String appRefer);
         public void postDepositAliPayQCCode(String appRefer,String bankid);
         public void postDepositWechatQCCode(String appRefer,String bankid);
+        public void postDepositThirdUQCCode(String appRefer,String bankid);
         public void postDepositThirdBankCard(String appRefer);
         public void postDepositThirdWXPay(String appRefer);
         public void postDepositThirdAliPay(String appRefer);

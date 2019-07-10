@@ -82,9 +82,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     private ScheduledExecutorService executorService2;
     private HallPageGameAdapter hallPageGameAdapter;
     private long cpHallIcon0, cpHallIcon1, cpHallIcon2, cpHallIcon3, cpHallIcon4, cpHallIcon5, cpHallIcon6, cpHallIcon7,
-            cpHallIcon8, cpHallIcon9, cpHallIcon10, cpHallIcon11, cpHallIcon12, cpHallIcon13;
+            cpHallIcon8, cpHallIcon9, cpHallIcon10, cpHallIcon11, cpHallIcon12, cpHallIcon13,cpHallIcon14;
     private int scpHallIcon0, scpHallIcon1, scpHallIcon2, scpHallIcon3, scpHallIcon4, scpHallIcon5, scpHallIcon6, scpHallIcon7,
-            scpHallIcon8, scpHallIcon9, scpHallIcon10, scpHallIcon11, scpHallIcon12, scpHallIcon13;
+            scpHallIcon8, scpHallIcon9, scpHallIcon10, scpHallIcon11, scpHallIcon12, scpHallIcon13,scpHallIcon14;
     private int sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
     private CustomPopWindow mCustomPopWindowIn;
     TextView moneyText;
@@ -104,6 +104,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
         cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,69));
         cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_js, 0,384));
+        cpGameList.add(new CPHallIcon("幸运飞艇", R.mipmap.gf_xyft, 0,168));
     }
 
    /* public static CPHallFragment newInstance(List<String> param1) {
@@ -206,6 +207,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpHallIcon11 = 0;
         cpHallIcon12 = 0;
         cpHallIcon13 = 0;
+        cpHallIcon14 = 0;
     }
 
     private synchronized void onRequestData() {
@@ -495,6 +497,13 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         }else {
             scpHallIcon13 = 0;
             cpHallIcon13 = TimeHelper.timeToSecond(cpHallResult.getdata384().getEndtime(),cpHallResult.getdata384().getServerTime()) ;
+        }
+        if(Check.isNumericNull(cpHallResult.getData168().getEndtime())){
+            cpHallIcon14 = 0;
+            scpHallIcon14 = 1;
+        }else {
+            scpHallIcon14 = 0;
+            cpHallIcon14 = TimeHelper.timeToSecond(cpHallResult.getData168().getEndtime(),cpHallResult.getData168().getServerTime()) ;
         }
         GameLog.log("最后的时间  "+cpHallIcon0+"|"+cpHallIcon1+"|"+cpHallIcon2+"|"+cpHallIcon3+"|"+cpHallIcon4+"|"+cpHallIcon5+"|"+cpHallIcon6+"|"+cpHallIcon7+"|"+cpHallIcon8+"|"+cpHallIcon9+"|"+cpHallIcon10+"|"+cpHallIcon11+"|"+cpHallIcon12+"|"+cpHallIcon13);
         hallPageGameAdapter.notifyDataSetChanged();
@@ -847,6 +856,30 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     @Override
                                     public void run() {
                                         holder.setText(R.id.cpHallItemTime, TimeHelper.getTimeString(cpHallIcon13));
+                                    }
+                                });
+                            }
+                            break;
+                        case 14:
+                            if (cpHallIcon14-- <= 0) {
+                                cpHallList.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        onRequestData();
+                                        if(scpHallIcon14==1){
+                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                        }else{
+                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                        }
+                                        GameLog.log("，，，，，，，，，，，，，重庆请求14，，，，，，，，，，，，，，");
+                                    }
+                                });
+
+                            } else {
+                                cpHallList.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        holder.setText(R.id.cpHallItemTime, TimeHelper.getTimeString(cpHallIcon14));
                                     }
                                 });
                             }

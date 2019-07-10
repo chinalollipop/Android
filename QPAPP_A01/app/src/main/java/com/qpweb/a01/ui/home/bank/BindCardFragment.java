@@ -26,6 +26,7 @@ import com.qpweb.a01.widget.FormatBankCardTextWatcher;
 import org.angmarch.views.NiceSpinner;
 import org.angmarch.views.OnSpinnerItemSelectedListener;
 import org.angmarch.views.SpinnerTextFormatter;
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
@@ -206,6 +207,7 @@ public class BindCardFragment extends BaseDialogFragment implements BindCardCont
     @Override
     public void postBindBankResult(BindCardResult bindCardResult) {
         ACache.get(getContext()).put("BindCardResult","true");
+        EventBus.getDefault().post(new BindCardEvent());
         hide();
     }
 

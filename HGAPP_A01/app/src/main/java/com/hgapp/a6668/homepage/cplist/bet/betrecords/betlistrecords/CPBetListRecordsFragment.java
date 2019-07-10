@@ -106,6 +106,9 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                 case "222":
                     name ="极速飞艇";
                     break;
+                case "168":
+                    name ="幸运飞艇";
+                    break;
                 case "207":
                     name ="分分彩";
                     break;
@@ -224,6 +227,9 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
                     break;
                 case "189":
                     name ="极速赛车";
+                    break;
+                case "168":
+                    name ="幸运飞艇";
                     break;
                 case "222":
                     name ="极速飞艇";

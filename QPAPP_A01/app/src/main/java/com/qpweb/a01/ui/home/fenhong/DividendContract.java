@@ -26,5 +26,6 @@ public interface DividendContract {
 
         public void postTouziYestodayListResult(TouziYestodayResult touziYestodayResult);
         public void postTouziRecordResult(List<TouziResult> touziResult);
+        public void postTouziResult();
     }
 }

@@ -75,6 +75,10 @@ public class DividendPresenter implements DividendContract.Presenter {
                     @Override
                     public void success(AppTextMessageResponse<RedPacketResult> response) {
                         view.showMessage(response.getDescribe());
+                        if (response.isSuccess()) {
+                            view.postTouziResult();
+                        }
+
                     }
 
                     @Override

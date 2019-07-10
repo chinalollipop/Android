@@ -147,6 +147,9 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
                 case "189":
                     name ="极速赛车";
                     break;
+                case "168":
+                    name ="幸运飞艇";
+                    break;
                 case "222":
                     name ="极速飞艇";
                     break;
@@ -444,6 +447,20 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
             }else{
                 BetNow betNow = new BetNow();
                 betNow.id = "384";
+                betNow.moeny = "0";
+                betNow.num = "0";
+                betNowList.add(betNow);
+            }
+
+            if(!Check.isNull(betRecordsResult.getData168())){
+                BetNow betNow = new BetNow();
+                betNow.id = betRecordsResult.getData168().getGameId();
+                betNow.moeny = betRecordsResult.getData168().getTotalMoney();
+                betNow.num = betRecordsResult.getData168().getTotalNums();
+                betNowList.add(betNow);
+            }else{
+                BetNow betNow = new BetNow();
+                betNow.id = "168";
                 betNow.moeny = "0";
                 betNow.num = "0";
                 betNowList.add(betNow);

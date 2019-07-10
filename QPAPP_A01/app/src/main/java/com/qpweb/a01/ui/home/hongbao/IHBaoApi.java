@@ -2,7 +2,9 @@ package com.qpweb.a01.ui.home.hongbao;
 
 
 import com.qpweb.a01.data.RedPacketResult;
+import com.qpweb.a01.data.ValidResult;
 import com.qpweb.a01.http.request.AppTextMessageResponse;
+import com.qpweb.a01.http.request.AppTextMessageResponseList;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -15,20 +17,21 @@ import rx.Observable;
 
 public interface IHBaoApi {
 
-    //修改登录密码
-    @POST("api/account/changepwd.php")
+    //获取昨日有效金额、可领次数
+    @POST("api/activity/lucky_red_envelope_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<RedPacketResult>> postChangLoginPwd(
-            @Field("appRefer") String appRefer, @Field("type") String type,
-            @Field("pwdCur") String pwdCur, @Field("pwdNew") String pwdNew
-            , @Field("pwdNew1") String pwdNew1);
+    public Observable<AppTextMessageResponse<ValidResult>> postValid(
+            @Field("appRefer") String appRefer, @Field("action") String action);
 
-    //修改资金密码
-    @POST("api/account/changepwd.php")
+    //领取红包
+    @POST("api/activity/lucky_red_envelope_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<RedPacketResult>> postChangeWithDrawPwd(
-            @Field("appRefer") String appRefer, @Field("type") String type,
-            @Field("nameReal") String nameReal, @Field("pwdSafe") String pwdSafe
-            , @Field("pwdSafe1") String pwdSafe1);
+    public Observable<AppTextMessageResponseList<RedPacketResult>> postLuckEnvelope(
+            @Field("appRefer") String appRefer, @Field("action") String action);
+    //获取红包记录
+    @POST("api/activity/lucky_red_envelope_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<ValidResult>> postLuckEnvelopeRecord(
+            @Field("appRefer") String appRefer, @Field("action") String action);
 
 }

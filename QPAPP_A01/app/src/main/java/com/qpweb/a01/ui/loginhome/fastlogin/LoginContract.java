@@ -22,5 +22,6 @@ public interface LoginContract {
     public interface View extends IView<Presenter>, IMessageView {
 
         public void postLoginResult(LoginResult loginResult);
+        public void postPhoneResult(String errorMessage);
     }
 }

@@ -57,7 +57,7 @@
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:gravity="center|left"
-                            android:text="支付宝姓名："
+                            android:text="姓名："
                             android:textColor="@color/register_left" />
 
                         <TextView
@@ -409,14 +409,19 @@
                                 android:text="汇款日期："
                                 android:textColor="@color/register_left" />
 
-                            <TextView
+                            <org.angmarch.views.NiceSpinner
                                 android:id="@+id/depositEditBankTime"
                                 android:layout_width="150dp"
-                                android:layout_height="30dp"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="-5dp"
                                 android:background="@mipmap/textview_choice"
-                                android:gravity="center"
-                                android:text="请选择汇款日期"
-                                android:textColor="@color/register_left" />
+                                android:text="请选择时间"
+                                android:textColor="@color/register_left"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintVertical_bias="0.0" />
 
                         </LinearLayout>
 

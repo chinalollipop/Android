@@ -53,7 +53,11 @@ public class SetPwdPresenter implements SetPwdContract.Presenter {
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<RedPacketResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<RedPacketResult> response) {
-                        view.showMessage(response.getDescribe());
+                        if (response.isSuccess()) {
+                            view.postChangeWithDrawPwdResult(response.getDescribe());
+                        } else {
+                            view.showMessage(response.getDescribe());
+                        }
                     }
 
                     @Override

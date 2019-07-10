@@ -75,7 +75,7 @@
                         android:text="请输入银行卡账号"
                         android:inputType="number"
                         android:textColor="@color/register_left"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
             </LinearLayout>

@@ -54,4 +54,9 @@ public interface IDepositApi {
     @FormUrlEncoded
     public Observable<DepositAliPayQCCodeResult> postDepositWechatQCCode(@Field("appRefer") String appRefer,@Field("bankid") String bankid);
 
+    //公司入款-云闪付
+    @POST("account/bank_type_YLSMYSF_api.php")
+    @FormUrlEncoded
+    public Observable<DepositAliPayQCCodeResult> postDepositUQCCode(@Field("appRefer") String appRefer,@Field("bankid") String bankid);
+
 }

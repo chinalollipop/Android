@@ -36,7 +36,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static cn.jpush.android.api.b.v;
 
 public class SignTodayFragment extends BaseDialogFragment implements SignTodayContract.View{
 
@@ -177,7 +176,7 @@ public class SignTodayFragment extends BaseDialogFragment implements SignTodayCo
     }
 
     @OnClick({ R.id.loginClose,R.id.imageOpen1,R.id.imageOpen2,R.id.imageOpen3,R.id.imageOpen4,R.id.imageOpen5,R.id.imageOpen6,R.id.imageOpen7,
-            R.id.sign_today_help1,R.id.redTotalAll})
+            R.id.sign_today_help1})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.loginClose:
@@ -210,9 +209,6 @@ public class SignTodayFragment extends BaseDialogFragment implements SignTodayCo
                 break;
             case R.id.sign_today_help1:
                 SignHelpFragment.newInstance().show(getFragmentManager());
-                break;
-            case R.id.redTotalAll:
-                showMessage("签到需满7天才可以领取，加油哟！");
                 break;
         }
     }

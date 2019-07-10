@@ -84,7 +84,7 @@ public class WithDrawFragment extends BaseDialogFragment implements WithDrawCont
 
     private void onCheckAndSubmit() {
         String realName = withDrawAlias.getText().toString().trim();
-        String account = withDrawAccount.getText().toString().trim();
+        String account = withDrawAccount.getText().toString().trim().replace(" ","");
         String adds = withDrawAdds.getText().toString().trim();
         String name = withDrawName.getText().toString().trim();
         String pwd = withDrawPwd.getText().toString().trim();
@@ -108,7 +108,18 @@ public class WithDrawFragment extends BaseDialogFragment implements WithDrawCont
                withDrawAlias.setText(userBankAccountBean.getAlias());
            }
            if(!Check.isEmpty(userBankAccountBean.getBank_Account())){
-               withDrawAccount.setText(userBankAccountBean.getBank_Account());
+               String ms = userBankAccountBean.getBank_Account();
+               String temp = "";
+               //逐个取出字符并在相应位置插入空格
+               for (int i = 0; i < ms.length(); i++) {
+                   temp += ms.charAt(i);
+                   if ((i + 1) % 4 == 0)
+                       temp += " ";
+               }
+               /*if(temp.substring(temp.length()-1).equals(" ")) {
+                   temp = temp.substring(0, temp.length() - 1);
+               }*/
+               withDrawAccount.setText(temp);
            }
            if(!Check.isEmpty(userBankAccountBean.getBank_Address())){
                withDrawAdds.setText(userBankAccountBean.getBank_Address());

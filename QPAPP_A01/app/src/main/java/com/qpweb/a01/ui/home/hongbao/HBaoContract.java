@@ -4,6 +4,9 @@ import com.qpweb.a01.base.IMessageView;
 import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.base.IView;
 import com.qpweb.a01.data.RedPacketResult;
+import com.qpweb.a01.data.ValidResult;
+
+import java.util.List;
 
 /**
  * Created by Daniel on 2017/4/20.
@@ -12,12 +15,16 @@ import com.qpweb.a01.data.RedPacketResult;
 public interface HBaoContract {
 
     public interface Presenter extends IPresenter {
-        public void postChangLoginPwd(String appRefer, String type, String pwdCur, String pwdNew, String pwdNew1);
-        public void postChangeWithDrawPwd(String appRefer, String type, String nameReal, String pwdSafe, String pwdSafe1);
+        public void postValid(String appRefer, String action);
+        public void postLuckEnvelope(String appRefer, String action);
+        public void postLuckEnvelopeRecord(String appRefer, String action);
     }
 
     public interface View extends IView<Presenter>, IMessageView {
 
-        public void postChangLoginPwdResult(RedPacketResult redPacketResult);
+        public void postValidResult(ValidResult redPacketResult);
+        public void postLuckEnvelopeResult(RedPacketResult redPacketResult);
+        public void postLuckEnvelopeErrorResult(String message);
+        public void postLuckEnvelopeRecordResult(List<ValidResult> redPacketResult);
     }
 }

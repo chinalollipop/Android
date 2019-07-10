@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.coolindicator.sdk.CoolIndicator;
+import com.qpweb.a01.ui.home.RefreshMoneyEvent;
 import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.CommentUtils;
@@ -28,6 +29,8 @@ import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 
@@ -197,5 +200,12 @@ public class MainActivity extends AppCompatActivity {
             FileIOUtils.writeFileFromString(filePath,comment);
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        GameLog.log("关闭了游戏界面");
+        EventBus.getDefault().post(new RefreshMoneyEvent());
     }
 }

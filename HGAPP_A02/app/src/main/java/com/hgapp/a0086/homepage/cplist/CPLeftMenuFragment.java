@@ -75,6 +75,7 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
         cpGameList.add(new CPIcon("快乐十分", R.mipmap.home_vrcp,3));
         cpGameList.add(new CPIcon("香港六合彩", R.mipmap.home_lhj,69));
         cpGameList.add(new CPIcon("极速快三", R.mipmap.home_lhj,384));
+        cpGameList.add(new CPIcon("幸运飞艇", R.mipmap.gf_xyft,168));
     }
     public static CPLeftMenuFragment newInstance(List<String> param1) {
         CPLeftMenuFragment fragment = new CPLeftMenuFragment();

@@ -34,8 +34,10 @@ import com.qpweb.a01.data.DepositThirdBankCardResult;
 import com.qpweb.a01.data.DepositThirdQQPayResult;
 import com.qpweb.a01.data.IconEvent;
 import com.qpweb.a01.utils.Check;
+import com.qpweb.a01.utils.DateHelper;
 import com.qpweb.a01.utils.DoubleClickHelper;
 import com.qpweb.a01.utils.GameLog;
+import com.qpweb.a01.utils.TimeHelper;
 import com.qpweb.a01.utils.Utils;
 import com.qpweb.a01.widget.PopupWindowList;
 import com.squareup.picasso.Picasso;
@@ -49,6 +51,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -109,12 +112,12 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
     @BindView(R.id.depositEditBankType)
     NiceSpinner depositEditBankType;
     @BindView(R.id.depositEditBankTime)
-    TextView depositEditBankTime;
+    NiceSpinner depositEditBankTime;
     @BindView(R.id.depositEditBankMemo)
     EditText depositEditBankMemo;
     String payId;//银行存款的id
     String bankName;//银行存款的公司+名字
-
+    List<String> stringListTime  = new ArrayList<String>();
     static List<String> stringListChannel  = new ArrayList<String>();//从0开始的
     static {
         stringListChannel.add("银行柜台");
@@ -202,6 +205,52 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
                 GameLog.log("当前选中的事 "+position +" "+stringListChannel.get(position));
             }
         });
+
+        stringListTime.add(DateHelper.getYesterday6());
+        stringListTime.add(DateHelper.getYesterday5());
+        stringListTime.add(DateHelper.getYesterday4());
+        stringListTime.add(DateHelper.getYesterday3());
+        stringListTime.add(DateHelper.getYesterday2());
+        stringListTime.add(DateHelper.getYesterday());
+        stringListTime.add(DateHelper.getToday());
+
+        /*Calendar cd = Calendar.getInstance();
+        SimpleDateFormat FORMATE = new SimpleDateFormat("yyyy-MM-dd");
+        cd.add(Calendar.DAY_OF_YEAR, -6);
+        DateHelper.getToday();
+        stringListTime.add(FORMATE.format(cd.getTime()));
+        cd.add(Calendar.DAY_OF_WEEK, -5);
+        stringListTime.add(FORMATE.format(cd.getTime()));
+        cd.add(Calendar.DAY_OF_WEEK, -4);
+        stringListTime.add(FORMATE.format(cd.getTime()));
+        cd.add(Calendar.DAY_OF_WEEK, -3);
+        stringListTime.add(FORMATE.format(cd.getTime()));
+        cd.add(Calendar.DAY_OF_WEEK, -2);
+        stringListTime.add(FORMATE.format(cd.getTime()));
+        cd.add(Calendar.DAY_OF_WEEK, -1);
+        stringListTime.add(FORMATE.format(cd.getTime()));
+        cd.add(Calendar.DAY_OF_WEEK, -0);
+        stringListTime.add(FORMATE.format(cd.getTime()));*/
+        //银行卡存款日期选择
+        depositEditBankTime.attachDataSource(stringListTime);
+        depositEditBankTime.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+            @Override
+            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                // This example uses String, but your type can be any
+                depositEditBankTime.setText(stringListTime.get(position));
+            }
+        });
+        depositEditBankTime.setText(getTime(new Date()));
+        //扫码日期选择
+        depositQCTime.attachDataSource(stringListTime);
+        depositQCTime.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+            @Override
+            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                // This example uses String, but your type can be any
+                depositQCTime.setText(stringListTime.get(position));
+            }
+        });
+        depositQCTime.setText(getTime(new Date()));
 
     }
 
@@ -394,8 +443,17 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
         payId = depositAliPayQCCodeResult.getData().getId();
         bankName = depositAliPayQCCodeResult.getData().getBank_user();
         depositQCName.setText(bankName);
+        /*if(bankName.contains("支付宝")){
+            depositQCNameLeft.setText("支付宝姓名：");
+        }else if(bankName.contains("微信")){
+            depositQCNameLeft.setText("微信姓名：");
+        }*/
         depositQCMomeLeft.setText(depositAliPayQCCodeResult.getData().getNotice()+":");
         depositQCMome.setHint(depositAliPayQCCodeResult.getData().getNotice());
+
+
+
+
         depositQCTime.setText(getTime(new Date()));
         Picasso.get()
                 .load(depositAliPayQCCodeResult.getData().getPhoto_name())

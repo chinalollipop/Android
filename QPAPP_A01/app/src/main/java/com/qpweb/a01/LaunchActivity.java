@@ -326,6 +326,11 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    public void postPhoneResult(String errorMessage) {
+
+    }
+
+    @Override
     public void showMessage(String message) {
         ToastUtils.showLongToast(message);
     }

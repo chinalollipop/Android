@@ -36,6 +36,7 @@
                     android:background="@mipmap/home_winnews"
                     android:layout_width="280dp"
                     android:paddingLeft="20dp"
+                    android:visibility="gone"
                     android:layout_marginTop="3dp"
                     android:layout_height="20dp">
                     <com.qpweb.a01.widget.MarqueeTextView
@@ -51,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="58dp"
                     android:layout_marginRight="5dp"
                     android:layout_height="wrap_content">
                     <FrameLayout
@@ -75,7 +76,7 @@
         <LinearLayout
             android:background="@mipmap/hbao_r"
             android:layout_gravity="right|bottom"
-            android:layout_marginBottom="45dp"
+            android:layout_marginBottom="65dp"
             android:layout_marginRight="40dp"
             android:orientation="vertical"
             android:layout_width="100dp"

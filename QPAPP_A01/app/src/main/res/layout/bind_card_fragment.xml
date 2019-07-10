@@ -74,7 +74,7 @@
                         android:gravity="center"
                         android:hint="请输入银行卡账号"
                         android:inputType="number"
-                        android:maxLength="23"
+                        android:maxLength="26"
                         android:textColor="@color/register_left"
                         android:textSize="13sp" />
 

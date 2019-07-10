@@ -39,11 +39,14 @@ import com.qpweb.a01.data.IconEvent;
 import com.qpweb.a01.data.LoginResult;
 import com.qpweb.a01.data.LogoutResult;
 import com.qpweb.a01.data.MusicBgEvent;
+import com.qpweb.a01.data.NickNameEvent;
 import com.qpweb.a01.data.NoticeResult;
 import com.qpweb.a01.data.RefreshMoneyResult;
 import com.qpweb.a01.data.SignTodayResult;
 import com.qpweb.a01.data.WinNewsResult;
 import com.qpweb.a01.http.Client;
+import com.qpweb.a01.ui.home.agency.AgencyFragment;
+import com.qpweb.a01.ui.home.bank.BindCardEvent;
 import com.qpweb.a01.ui.home.bank.BindCardFragment;
 import com.qpweb.a01.ui.home.bind.BindFragment;
 import com.qpweb.a01.ui.home.deposit.DepositFragment;
@@ -54,6 +57,8 @@ import com.qpweb.a01.ui.home.icon.IconFragment;
 import com.qpweb.a01.ui.home.imme.ImmeFragment;
 import com.qpweb.a01.ui.home.notice.NoticeFragment;
 import com.qpweb.a01.ui.home.set.SetFragment;
+import com.qpweb.a01.ui.home.set.SetPwdEvent;
+import com.qpweb.a01.ui.home.set.SetPwdFragment;
 import com.qpweb.a01.ui.home.withdraw.WithDrawFragment;
 import com.qpweb.a01.ui.loginhome.LoginHomeFragment;
 import com.qpweb.a01.ui.loginhome.sign.RedFragment;
@@ -75,7 +80,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -126,6 +133,8 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
     ImageView homeActivity;
     @BindView(R.id.homeGirls)
     ImageView homeGirls;
+    @BindView(R.id.homeGirlsFDC)
+    ImageView homeGirlsFDC;
     @BindView(R.id.payFish)
     ImageView payFish;
     @BindView(R.id.homeService)
@@ -152,16 +161,29 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
     SignTodayResult signTodayResult;
     static {
       //  homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hall_fishicon,0));
-        homeGameList.add(new HomePageIcon("真人视讯",R.mipmap.home_hall_dkicon,720));
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_hall_niuicon,830));
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_hall_bobbinicon,220));
-        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_hall_sgjicon2,860));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hall_niuicon,900));
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_hall_redblack,600));
-        homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_hall_sgjicon1,870));
-        homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_hall_sgjicon1,870));
-        homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_hall_sgjicon1,870));
-        homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_hall_sgjicon1,870));
+        homeGameList.add(new HomePageIcon("龙虎斗",R.mipmap.home_hall_dkicon,900));
+        homeGameList.add(new HomePageIcon("炸金花",R.mipmap.home_hall_220,220));
+        homeGameList.add(new HomePageIcon("极速炸金花",R.mipmap.home_hall_230,230));
+        homeGameList.add(new HomePageIcon("抢庄牛牛",R.mipmap.home_hall_830,830));
+        homeGameList.add(new HomePageIcon("看三张牛牛",R.mipmap.home_hall_890,890));
+        homeGameList.add(new HomePageIcon("看四张抢庄牛牛",R.mipmap.home_hall_8150,8150));
+        homeGameList.add(new HomePageIcon("百人牛牛",R.mipmap.home_hall_930,930));
+        homeGameList.add(new HomePageIcon("通比牛牛",R.mipmap.home_hall_870,870));
+        homeGameList.add(new HomePageIcon("百家乐",R.mipmap.home_hall_910,910));
+        homeGameList.add(new HomePageIcon("斗地主",R.mipmap.home_hall_610,610));
+        homeGameList.add(new HomePageIcon("红黑大战",R.mipmap.home_hall_950,950));
+        homeGameList.add(new HomePageIcon("德州扑克",R.mipmap.home_hall_620,620));
+        homeGameList.add(new HomePageIcon("十三水",R.mipmap.home_hall_630,630));
+        homeGameList.add(new HomePageIcon("宝石消消乐",R.mipmap.home_hall_8180,8180));
+        homeGameList.add(new HomePageIcon("二八杠",R.mipmap.home_hall_720,720));
+        homeGameList.add(new HomePageIcon("二人麻将",R.mipmap.home_hall_740,740));
+        homeGameList.add(new HomePageIcon("二十一点",R.mipmap.home_hall_600,600));
+        homeGameList.add(new HomePageIcon("抢庄牌九",R.mipmap.home_hall_730,730));
+        homeGameList.add(new HomePageIcon("三公",R.mipmap.home_hall_860,860));
+        homeGameList.add(new HomePageIcon("森林舞会",R.mipmap.home_hall_920,920));
+        homeGameList.add(new HomePageIcon("血战到底",R.mipmap.home_hall_8120,8120));
+        homeGameList.add(new HomePageIcon("跑得快",R.mipmap.home_hall_999,999));
+        homeGameList.add(new HomePageIcon("血流成河",R.mipmap.home_hall_1000,1000));
     }
 
 
@@ -193,7 +215,24 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         }
 
         @Override
-        protected void convert(BaseViewHolder holder, final HomePageIcon data) {
+        protected void convert(final BaseViewHolder holder, final HomePageIcon data) {
+           /* holder.setOnTouchListener(R.id.iv_item_game_icon, new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent event) {
+                    ImageView imageView = (ImageView)holder.getView(R.id.iv_item_game_icon);
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            imageView.setScaleX(1.1f);
+                            imageView.setScaleY(1.1f);
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            imageView.setScaleX((float) 1.0);
+                            imageView.setScaleY((float) 1.0);
+                            break;
+                    }
+                    return false;
+                }
+            });*/
             holder.setBackgroundRes(R.id.iv_item_game_icon,data.getIconId());
             holder.addOnClickListener(R.id.iv_item_game_icon);
         }
@@ -212,6 +251,19 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         Intent intent = new Intent(getContext(), LaunchActivity.class);
         startActivity(intent);
         getActivity().finish();
+    }
+
+    @Subscribe
+    public void onEventMain(SetPwdEvent setPwdEvent){
+        loginResult.setIsBindFundPassWord("1");
+        GameLog.log("用户设置了 资金密码" );
+
+    }
+    @Subscribe
+    public void onEventMain(BindCardEvent bindCardEvent){
+        loginResult.setIsBindCard("1");
+        GameLog.log("用户设置了 银行卡" );
+
     }
 
     private void onChangeIcon(String postion){
@@ -258,7 +310,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         }
         ACache.get(getContext()).put(QPConstant.USERNAME_LOGIN_ACCOUNT_ICON,postion);
         onChangeIcon(postion);
-        String username = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_ACCOUNT);
+        String nickName = ACache.get(getContext()).getAsString("NickName");
         if(!Check.isNull(loginResult)){
             ACache.get(getContext()).put("NickName",loginResult.getNickName()+"");
             ACache.get(getContext()).put("OnlineServer",loginResult.getOnlineServer());
@@ -266,10 +318,10 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
             ACache.get(getContext()).put("ID",loginResult.getID());
             ACache.get(getContext()).put("PersonalizedSignature",loginResult.getPersonalizedSignature()+"");
             homeAccountNumber.setText(loginResult.getID());
-            homeAccountName.setText(loginResult.getUserName());
+            homeAccountName.setText(loginResult.getNickName());
             homeUserMoney.setText(loginResult.getMoney());
-        }else if(!Check.isNull(username)){
-            homeAccountName.setText(username);
+        }else if(!Check.isNull(nickName)){
+            homeAccountName.setText(nickName);
             String userMoney = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_ACCOUNT_MONEY);
             homeUserMoney.setText(userMoney);
         }
@@ -299,6 +351,10 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         homaPageGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                if(homeGameList.get(position).getId()==999||homeGameList.get(position).getId()==1000){
+                    showMessage("敬请期待！");
+                    return;
+                }
                 goToPayGame(homeGameList.get(position).getId());
             }
         });
@@ -321,13 +377,35 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
             presenter.postNeedLyId("");
         }
         presenter.postSignToday("","","");
-        /*executorService = Executors.newScheduledThreadPool(1);
-        executorService.scheduleAtFixedRate(new Runnable() {
+        executorService = Executors.newScheduledThreadPool(1);
+        onDeplayView();
+        /*executorService.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                presenter.postWinNews("",System.currentTimeMillis()+"");
+                onDeplayView();
+                //presenter.postWinNews("",System.currentTimeMillis()+"");
             }
-        }, 0, 15000, TimeUnit.MILLISECONDS);*/
+        }, 0, 5000, TimeUnit.MILLISECONDS);*/
+    }
+
+    private void onDeplayView(){
+        //homeGirlsFDC.setVisibility(View.GONE);
+        GameLog.log("onDeplayView是否展示了数据呀");
+        homeGirlsFDC.setVisibility(View.GONE);
+        homeGirls.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                GameLog.log(" VISIBLE 是否展示了数据呀");
+                homeGirlsFDC.setVisibility(View.VISIBLE);
+                homeGirls.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        GameLog.log(" GONE是否展示了数据呀");
+                        onDeplayView();
+                    }
+                },5000);
+            }
+        },15000);
     }
 
     /**
@@ -346,11 +424,14 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         startActivity(intent);
     }
 
-    @OnClick({R.id.homeAccountLogo,R.id.payFish,R.id.homeAccountName, R.id.homeHBao, R.id.homeCheck, R.id.homeRegent, R.id.homePop,
+    @OnClick({R.id.homeGeneralize,R.id.homeAccountLogo,R.id.payFish,R.id.homeAccountName, R.id.homeHBao, R.id.homeCheck, R.id.homeRegent, R.id.homePop,
             R.id.homeDeposit,R.id.homeSetting, R.id.homeUserCenter, R.id.homeActivity, R.id.homeService, R.id.homeWithDraw,
             R.id.homeHg,R.id.homeVg,R.id.homeKy,R.id.homeBy})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.homeGeneralize:
+                AgencyFragment.newInstance().show(getFragmentManager());
+                break;
             case R.id.homeAccountLogo:
                 IconFragment.newInstance().show(getFragmentManager());
                 break;
@@ -423,6 +504,12 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
                 if(Check.isEmpty(loginResult.getPhone())){
                     showMessage("亲，绑定手机号码有红包领取哟~");
                     BindFragment.newInstance().show(getFragmentManager());
+                }else if(loginResult.getIsBindCard().equals("0")){
+                    showMessage("亲，请先设置绑定银行卡~");
+                    BindCardFragment.newInstance().show(getFragmentManager());
+                }else if(loginResult.getIsBindFundPassWord().equals("0")){
+                    showMessage("亲，请先设置资金密码~");
+                    SetPwdFragment.newInstance().show(getFragmentManager());
                 }else{
                     WithDrawFragment.newInstance().show(getFragmentManager());
                 }
@@ -558,6 +645,11 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         mediaPlayer.stop();
         mediaPlayer.release();
         mediaPlayer = null;
+    }
+
+    @Subscribe
+    public void onEventMain(NickNameEvent NickNameEvent) {
+        homeAccountName.setText(NickNameEvent.getNickName());
     }
 
     @Subscribe

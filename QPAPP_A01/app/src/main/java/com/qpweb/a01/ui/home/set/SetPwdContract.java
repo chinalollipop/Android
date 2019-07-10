@@ -19,5 +19,6 @@ public interface SetPwdContract {
     public interface View extends IView<Presenter>, IMessageView {
 
         public void postChangLoginPwdResult(RedPacketResult redPacketResult);
+        public void postChangeWithDrawPwdResult(String message);
     }
 }

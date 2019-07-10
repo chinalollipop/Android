@@ -33,6 +33,8 @@ public class CPBetNowResult {
     private dataBean data2;
     @SerializedName("189")
     private dataBean data189;
+    @SerializedName("168")
+    private dataBean data168;
     @SerializedName("222")
     private dataBean data222;
     @SerializedName("207")
@@ -79,6 +81,14 @@ public class CPBetNowResult {
 
     public void setData189(dataBean data189) {
         this.data189 = data189;
+    }
+
+    public dataBean getData168() {
+        return data168;
+    }
+
+    public void setData168(dataBean data168) {
+        this.data168 = data168;
     }
 
     public dataBean getData222() {

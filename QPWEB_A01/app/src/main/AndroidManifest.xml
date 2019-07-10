@@ -43,6 +43,8 @@
             android:launchMode="singleTask" android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustResize"
             />
+
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"

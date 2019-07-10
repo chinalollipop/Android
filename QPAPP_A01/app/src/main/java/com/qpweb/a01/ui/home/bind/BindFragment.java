@@ -107,7 +107,7 @@ public class BindFragment extends BaseDialogFragment implements BindContract.Vie
     }
 
     private void onGetCode(){
-        String loginAccounts = loginPhone.getText().toString().trim();
+        String loginAccounts = loginPhone.getText().toString().trim().replace(" ","");
         if(Check.isEmpty(loginAccounts)){
             showMessage("请输入有效的用户手机账号");
             return;
@@ -158,7 +158,7 @@ public class BindFragment extends BaseDialogFragment implements BindContract.Vie
     public void postCodeSubmitResult(RedPacketResult redPacketResult) {
         hide();
         //ACache.get(getContext()).put("Bind_phone","1");
-        EventBus.getDefault().post(new RefreshMoneyEvent(loginPhone.getText().toString().trim()));
+        EventBus.getDefault().post(new RefreshMoneyEvent(loginPhone.getText().toString().trim().replace(" ","")));
         if(!Check.isNull(mCountDownTimer)){
             mCountDownTimer.onFinish();
             mCountDownTimer = null;

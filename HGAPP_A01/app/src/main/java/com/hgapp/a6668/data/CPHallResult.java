@@ -51,6 +51,8 @@ public class CPHallResult {
     private DataBean data384;
     @SerializedName("407")
     private DataBean data407;
+    @SerializedName("168")
+    private DataBean data168;
     @SerializedName("507")
     private DataBean data507;
     @SerializedName("607")
@@ -166,6 +168,14 @@ public class CPHallResult {
 
     public void setdata407(DataBean data407) {
         this.data407 = data407;
+    }
+
+    public DataBean getData168() {
+        return data168;
+    }
+
+    public void setData168(DataBean data168) {
+        this.data168 = data168;
     }
 
     public DataBean getdata507() {

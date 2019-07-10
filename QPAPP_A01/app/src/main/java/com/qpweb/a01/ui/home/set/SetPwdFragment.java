@@ -155,6 +155,12 @@ public class SetPwdFragment extends BaseDialogFragment implements SetPwdContract
     }
 
     @Override
+    public void postChangeWithDrawPwdResult(String message) {
+        showMessage(message);
+        EventBus.getDefault().post(new SetPwdEvent());
+    }
+
+    @Override
     public void setPresenter(SetPwdContract.Presenter presenter) {
         this.presenter = presenter;
     }

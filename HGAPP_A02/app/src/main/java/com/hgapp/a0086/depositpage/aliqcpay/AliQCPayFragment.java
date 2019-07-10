@@ -115,6 +115,10 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
                     tvAliQCPayTitle.setText("微信扫一扫，轻松支付");
                     tvDepositAliQCPayType.setText("微信姓名");
                     break;
+                case 8://云闪付
+                    tvAliQCPayTitle.setText("银联扫码|云闪付扫一扫，轻松支付");
+                    tvDepositAliQCPayType.setText("姓名");
+                    break;
             }
         //时间选择器
         pvStartTime = new TimePickerBuilder(getContext(), new OnTimeSelectListener() {

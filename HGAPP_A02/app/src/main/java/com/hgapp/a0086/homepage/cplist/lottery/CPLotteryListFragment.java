@@ -91,6 +91,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
         lotteryList.add("快乐十分");
         lotteryList.add("香港六合彩");
         lotteryList.add("极速快三");
+        lotteryList.add("幸运飞艇");
     }
 
    /* public static CPMeFragment newInstance(List<String> param1) {
@@ -171,6 +172,9 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                         break;
                     case "极速飞艇":
                         gameId ="222";
+                        break;
+                    case "幸运飞艇":
+                        gameId ="168";
                         break;
                     case "分分彩":
                         gameId ="207";

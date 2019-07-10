@@ -16,6 +16,7 @@ import com.qpweb.a01.data.ChangIconResult;
 import com.qpweb.a01.data.ChangeAccountEvent;
 import com.qpweb.a01.data.LoginResult;
 import com.qpweb.a01.data.IconEvent;
+import com.qpweb.a01.data.NickNameEvent;
 import com.qpweb.a01.data.NickNameResult;
 import com.qpweb.a01.data.PSignatureResult;
 import com.qpweb.a01.ui.home.bind.BindFragment;
@@ -195,6 +196,7 @@ public class IconFragment extends BaseDialogFragment implements IconContract.Vie
     @Override
     public void postChangeNickNameResult(NickNameResult nickNameResult) {
         ACache.get(getContext()).put("NickName",nickNameResult.getNickName());
+        EventBus.getDefault().post(new NickNameEvent(nickNameResult.getNickName()));
     }
 
     @Override

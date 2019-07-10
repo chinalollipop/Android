@@ -43,6 +43,7 @@ public class LoginResult implements Parcelable {
     private String promotion_code;
     private String OnlineServer;
     private String haveLyAccount;//1 有乐游账号  0 没有乐游账号
+    private String isBindFundPassWord;//【1 资金密码已设置】  【0 未设置资金密码】
 
     public String getID() {
         return ID;
@@ -188,6 +189,14 @@ public class LoginResult implements Parcelable {
         this.haveLyAccount = haveLyAccount;
     }
 
+    public String getIsBindFundPassWord() {
+        return isBindFundPassWord;
+    }
+
+    public void setIsBindFundPassWord(String isBindFundPassWord) {
+        this.isBindFundPassWord = isBindFundPassWord;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -213,6 +222,7 @@ public class LoginResult implements Parcelable {
         dest.writeString(this.promotion_code);
         dest.writeString(this.OnlineServer);
         dest.writeString(this.haveLyAccount);
+        dest.writeString(this.isBindFundPassWord);
     }
 
     public LoginResult() {
@@ -237,6 +247,7 @@ public class LoginResult implements Parcelable {
         this.promotion_code = in.readString();
         this.OnlineServer = in.readString();
         this.haveLyAccount = in.readString();
+        this.isBindFundPassWord = in.readString();
     }
 
     public static final Parcelable.Creator<LoginResult> CREATOR = new Parcelable.Creator<LoginResult>() {

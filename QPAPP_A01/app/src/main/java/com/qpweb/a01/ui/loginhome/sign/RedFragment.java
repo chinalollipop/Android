@@ -49,12 +49,13 @@ public class RedFragment extends BaseDialogFragment {
             R.mipmap.icon_open_red_packet2,
             R.mipmap.icon_open_red_packet3,
             R.mipmap.icon_open_red_packet4,
+            R.mipmap.icon_open_red_packet1,
             R.mipmap.icon_open_red_packet5,
             R.mipmap.icon_open_red_packet6,
-            R.mipmap.icon_open_red_packet7,
+            R.mipmap.icon_open_red_packet1,
             R.mipmap.icon_open_red_packet8,
             R.mipmap.icon_open_red_packet9,
-            R.mipmap.icon_open_red_packet2,
+            R.mipmap.icon_open_red_packet1,
     };
 
     public static RedFragment newInstance(String current_week_day,String sign_days_money) {

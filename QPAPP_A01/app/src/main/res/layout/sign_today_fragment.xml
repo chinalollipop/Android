@@ -283,38 +283,20 @@
                 </LinearLayout>
 
             </FrameLayout>
-
-            <FrameLayout
+            <TextView
+                android:id="@+id/redTotal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="65dp"
                 android:layout_marginRight="40dp"
-                android:background="@mipmap/sign_today_money1"
+                android:background="@mipmap/sign_today_money"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="40sp" />
 
-                <TextView
-                    android:id="@+id/redTotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="56dp"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
-
-                <ImageView
-                    android:id="@+id/redTotalAll"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@mipmap/check_in_sign_get" />
-            </FrameLayout>
 
         </LinearLayout>
 

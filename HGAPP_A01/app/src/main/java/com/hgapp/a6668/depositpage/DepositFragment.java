@@ -200,6 +200,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 case 7:
                     holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.deposit_wechat_code);
                     break;
+                case 8:
+                    holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.u_pay);
+                    break;
 
             }
 
@@ -247,6 +250,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 break;
             case 7://微信扫码
                 presenter.postDepositWechatQCCode("",bankid);
+                break;
+            case 8://云闪付
+                presenter.postDepositThirdUQCCode("",bankid);
                 break;
         }
     }

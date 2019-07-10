@@ -19,8 +19,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -28,9 +28,9 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:background="@mipmap/d_btn_click"
-                    android:textColor="@color/d_btn_click"
                     android:gravity="center"
-                    android:text="我要投资" />
+                    android:text="我要投资"
+                    android:textColor="@color/d_btn_click" />
 
                 <TextView
                     android:id="@+id/dTView2"
@@ -39,8 +39,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@mipmap/d_btn_unclick"
                     android:gravity="center"
-                    android:textColor="@color/d_btn_unclick"
-                    android:text="投资说明" />
+                    android:text="投资说明"
+                    android:textColor="@color/d_btn_unclick" />
 
                 <TextView
                     android:id="@+id/dTView3"
@@ -49,8 +49,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@mipmap/d_btn_unclick"
                     android:gravity="center"
-                    android:textColor="@color/d_btn_unclick"
-                    android:text="投资记录" />
+                    android:text="投资记录"
+                    android:textColor="@color/d_btn_unclick" />
             </LinearLayout>
 
             <FrameLayout
@@ -71,14 +71,11 @@
                         android:layout_marginLeft="30dp"
                         android:background="@mipmap/d_lastday"
                         android:orientation="vertical"
-                        android:paddingLeft="20dp"
-                        android:paddingTop="60dp"
-                        android:paddingRight="30dp"
-                        android:paddingBottom="30dp">
+                        android:paddingTop="55dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:layout_width="60dp"
@@ -107,13 +104,15 @@
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/dRView1"
+                            android:layout_marginBottom="20dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="220dp"
+                        android:layout_width="320dp"
+                        android:padding="5dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
@@ -137,9 +136,9 @@
                                 android:id="@+id/dSignTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/d_money_bg"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="10dp"
+                                android:background="@mipmap/d_money_bg"
                                 android:gravity="center"
                                 android:text="0:00:00"
                                 android:textColor="@color/white"
@@ -152,7 +151,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="10dp"
                                 android:gravity="center"
-                                android:text="91人已签到"
+                                android:text="人已签到"
                                 android:textColor="@color/white"
                                 android:textSize="12sp" />
 
@@ -177,9 +176,9 @@
                                 android:id="@+id/dLastDayBetMoney"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/d_money_bg"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="10dp"
+                                android:background="@mipmap/d_money_bg"
                                 android:gravity="center"
                                 android:text="0"
                                 android:textColor="@color/white"
@@ -192,7 +191,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="10dp"
                                 android:gravity="center"
-                                android:text="91人已签到"
+                                android:text="人已投资"
                                 android:textColor="@color/white"
                                 android:textSize="12sp" />
 
@@ -217,9 +216,9 @@
                                 android:id="@+id/dLastDayBet"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/d_money_bg"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="10dp"
+                                android:background="@mipmap/d_money_bg"
                                 android:gravity="center"
                                 android:text="0"
                                 android:textColor="@color/white"
@@ -228,6 +227,66 @@
 
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:id="@+id/dTZLay"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_margin="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@mipmap/tz_btn_bg"
+                                android:gravity="center">
+
+                                <EditText
+                                    android:id="@+id/dTZEditView"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="-30dp"
+                                    android:layout_gravity="center"
+                                    android:text="10"
+                                    android:background="@null"
+                                    android:hint="请输入投资金额"
+                                    android:textColor="@color/bg_login_text"
+                                    android:textSize="20sp" />
+
+                                <ImageView
+                                    android:id="@+id/dTZ1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@mipmap/tz_10" />
+
+                                <ImageView
+                                    android:id="@+id/dTZ10"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@mipmap/tz_20" />
+
+                                <ImageView
+                                    android:id="@+id/dTZ50"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@mipmap/tz_50" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/dTZSubMit"
+                                android:layout_width="120dp"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@mipmap/d_btn_nor"
+                                android:gravity="center"
+                                android:text="投资"
+                                android:layout_gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="19sp" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/dSingToday"
                             android:layout_width="120dp"
@@ -238,6 +297,7 @@
                             android:gravity="center" />
 
                         <TextView
+                            android:id="@+id/dSingTodayTView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1,每天8:00~12:00进行当日的签到\n2,只有已投资且已签到的人，才能瓜分昨日的总投资额\n3,昨日已投资但未签到的人，投资额将会分给签到的人"
@@ -252,17 +312,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="50dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/d_lay2_bg"
+                        android:layout_margin="30dp"
                         android:alpha="0.5"
-                        android:padding="20dp"
+                        android:background="@drawable/d_lay2_bg"
                         android:orientation="vertical"
-                        android:layout_margin="30dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -292,20 +351,20 @@
                     android:id="@+id/dividendLay3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/d_lay2_bg"
-                    android:layout_marginTop="80dp"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:alpha="0.5"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="80dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="30dp"
-                    >
+                    android:alpha="0.5"
+                    android:background="@drawable/d_lay2_bg"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
@@ -371,13 +430,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="600dp"
                     android:layout_gravity="bottom|right"
-                    android:background="@mipmap/d_money_t"
-                    />
+                    android:layout_marginLeft="600dp"
+                    android:background="@mipmap/d_money_t" />
             </FrameLayout>
         </LinearLayout>
 
@@ -389,7 +448,8 @@
             android:layout_marginLeft="150dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="2019/6/22 11:22:54" />
+            />
+
 
         <ImageView
             android:id="@+id/dividendClose"
@@ -397,8 +457,8 @@
             android:layout_height="50dp"
             android:layout_marginLeft="580dp"
             android:layout_marginTop="40dp"
-            android:background="@mipmap/d_close"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/d_close" />
 
     </FrameLayout>
 

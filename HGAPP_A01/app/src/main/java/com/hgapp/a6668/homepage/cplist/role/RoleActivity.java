@@ -147,6 +147,10 @@ public class RoleActivity extends Activity {
                 gameUrl = "role/role_222.html";
                 gameName ="极速飞艇";
                 break;
+            case "168":
+                gameUrl = "role/role_222.html";
+                gameName ="幸运飞艇";
+                break;
             case "207":
                 gameUrl = "role/role_207.html";
                 gameName ="分分彩";

@@ -58,7 +58,14 @@ public class LoginPresenter implements LoginContract.Presenter {
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {
-                        view.showMessage(response.getDescribe());
+                        if(response.isSuccess())
+                        {
+                            view.postPhoneResult(response.getDescribe());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
                     }
 
                     @Override
