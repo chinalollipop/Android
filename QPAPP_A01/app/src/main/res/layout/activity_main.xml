@@ -22,9 +22,14 @@
         android:progressDrawable="@drawable/default_drawable_indicator"
         android:layout_width="match_parent"
         android:layout_height="3dp"/>
+    <RelativeLayout
+        android:gravity="center|left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:id="@+id/gameBack"
         android:background="@mipmap/game_back"
         android:layout_width="50dp"
         android:layout_height="40dp" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

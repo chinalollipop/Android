@@ -1,0 +1,518 @@
+
+#homePage{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #3c3c3b;
+    background-size: cover;
+}
+.index{
+    margin-top: 0.25rem;
+    overflow: hidden;
+}
+
+
+.swiper-container {
+    width: 100%;
+    overflow: visible!important;
+}
+.main{
+    width: 100%;
+    height: auto;
+    border-radius: 0.3rem 0.3rem 0 0;
+    position: relative;
+}
+/*轮播*/
+.swiper-container .swiper-wrapper .swiper-slide{ width: 90%;}
+.swiper-container .swiper-wrapper .swiper-slide img{width: 100%;}
+.swiper-container .swiper-wrapper .swiper-slide-prev{ margin-top: .15rem; height: 3rem!important;}
+.swiper-container .swiper-wrapper .swiper-slide-prev img{ height: 3rem!important;}
+.swiper-container .swiper-wrapper .swiper-slide-next{ margin-top: .15rem; height: 3rem!important;}
+.swiper-container .swiper-wrapper .swiper-slide-next img{ height: 3rem!important;}
+.swiper-container .swiper-wrapper .swiper-slide-active{ width: 90%;}
+
+.swiper-pagination{
+    bottom: -30px!important;
+}
+.swiper-pagination .swiper-pagination-bullet{width: 12px; height: 12px; background: #ff1e1e;}
+.swiper-pagination .swiper-pagination-bullet-active{width: 21px; height: 12px; background: #e75230; border-radius: 6px;}
+
+.am-notice-bar {
+    background-color: #fefcec;
+    height: 36px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 36px;
+    color: #f76a24;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.home_noticeBar .am-notice-bar .am-notice-bar-icon {
+    margin-top: .15rem;
+    background: url(../img/title_icon.jpg) center no-repeat;
+    background-size: .7rem;
+    width: .7rem;
+}
+.am-notice-bar-icon {
+    margin-left: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.am-notice-bar-icon+div {
+    margin-left: 5px;
+}
+.home_noticeBar .am-notice-bar-content {
+    margin-left: 5px;
+}
+.am-notice-bar-content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: auto 15px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.home_noticeBar .am-notice-bar .am-notice-bar-content .am-notice-bar-marquee-wrap {
+    height: 30px;
+}
+.login_box{
+    width: 94.666%;
+    height: 1.7rem;
+    margin: 0 auto;
+    border-radius: 0.12rem;
+    overflow: hidden;
+    background: #dadbdc;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.login_title{
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.1rem 0.1rem 0 0;
+    background: url("../img/logo_bg.png") no-repeat center;
+    background-size: cover;
+    z-index: 2;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.login_txt{
+    background: url("../img/logo_icon.png") no-repeat center;
+    background-size: cover;
+    width: 2rem;
+    height: 0.4rem;
+    position: absolute;
+    right: 2rem;
+    top: .04rem;
+}
+.login_title span{
+    font-size: 0.24rem;
+    padding: 0 0.28rem;
+    color: #eabe42;
+}
+.login_title a{
+    display: block;
+    float: right;
+    margin: 0 0.26rem;
+    width: 1.2rem;
+    padding: 0.052rem 0;
+    text-align: center;
+    background: none;
+    color: #eabe42;
+    font-size: 0.2rem;
+}
+.management{
+    width: 100%;
+    background-size: 100%;
+    position: relative;
+    border-radius: 0rem 0rem 0.1rem 0.1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.wallet_center{
+    width: 41%;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.wallet{
+    width: 100%;
+    font-size: 0.24rem;
+    color: #67747c;
+    font-weight: bold;
+    margin-bottom: 0.1rem;
+}
+.wallet_center button{
+    display: block;
+    width: 1.3rem;
+    padding: 0.052rem 0;
+    border: 1px solid #333;
+    text-align: center;
+    font-size: 0.2rem;
+    color: #333;
+    margin: 0.07rem auto 0;
+    background: transparent;
+    border-radius: 0.2rem;
+}
+.segmentation{
+    width: 1px;
+    height: 0.7rem;
+    border-left: 1px solid #333;
+    position: absolute;
+    left: 39%;
+    top: 0.23rem;
+    z-index: 200;
+}
+.financial{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.1rem 0.4rem 0 0.4rem;}
+.financial li div img{
+    width: 0.56rem;
+    height: 0.4rem;
+}
+.financial li div p{
+    font-size: 0.24rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    text-align: center;
+    color: #333;
+    margin-top: .1rem;
+}
+.game_classified{
+    width: 100%;
+    height: auto;
+    margin-top: 0.2rem;
+    padding: 0 0.2rem 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+}
+.render-list-wrap {
+    height: 5.9rem;
+}
+.am-tabs-default-bar, .am-tabs-left, .am-tabs-right {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.am-tabs, .am-tabs * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.am-tabs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.am-tabs-vertical .am-tabs-pane-wrap, .am-tabs-vertical .am-tabs-tab-bar-wrap {
+    height: 100%;
+}
+.am-tabs-pane-wrap, .am-tabs-tab-bar-wrap {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.am-tabs-default-bar-left, .am-tabs-default-bar-left .am-tabs-default-bar-content, .am-tabs-default-bar-right, .am-tabs-default-bar-right .am-tabs-default-bar-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.am-tabs-default-bar, .am-tabs-default-bar-tab {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.am-tabs-default-bar {
+    width: 100%;
+    height: 101.4%;
+    overflow: visible;
+    z-index: 1;
+}
+.render-list-wrap .am-tabs-default-bar-content {
+    padding: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.am-tabs-default-bar-left .am-tabs-default-bar-content, .am-tabs-default-bar-right .am-tabs-default-bar-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+}
+.render-list-wrap .am-tabs-default-bar-content .am-tabs-default-bar-tab {
+    border-bottom: none;
+    margin-bottom: 0.1rem;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: rgba(255, 255, 255, .66);
+}
+.render-list-wrap .am-tabs-default-bar-tab {
+    padding: 0;
+    margin-right: 0.1rem;
+    border-radius: 0.1rem;
+}
+.am-tabs-default-bar-tab {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 15px;
+    height: 43.5px;
+    line-height: 43.5px;
+}
+
+.active{
+    background: url(../img/djbg.png) no-repeat center !important;
+    background-size: 100% 100%;
+    color: #fff;
+}
+.game_species{
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 0.1rem;
+    overflow: hidden;
+}
+.game_species img{
+    width: 0.64rem;
+    height: 0.64rem;
+    vertical-align: middle;
+    margin-left: 0.2rem;
+    vertical-align: 0;
+}
+.game_species span{
+    font-size: 0.24rem;
+    padding: 0 0.2rem 0 0.1rem;
+}
+
+.img_active2{
+    display: none;
+}
+.active .game_species .img_active2{
+    display: block !important;
+}
+.active .game_species .img_active1{
+    display: none;
+}
+.am-tabs-content-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+.game_img{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 0.1rem;
+    overflow: hidden;
+
+}
+.bg_ts{
+    background: #b5b6b7;
+    padding: .08rem;
+}
+.am-tabs-pane-wrap{
+    width: 100%;
+    overflow-y: auto;
+}
+.game_img div{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.game_img div img{
+    width: 100%;
+    height: 100%;
+    vertical-align: 0;
+}
+.game_xz{
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+.game_xz .game_all{
+    width: 49%;
+}
+.game_xz .game_six_img{
+    margin-bottom: 0.1rem;
+}
+.distance > div:nth-child(odd) {
+    margin-right: 2%;
+}
+.game_xz >div{
+    float: left;
+    width: 100%;
+    height: 1.84rem;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.game_xz .game_six_img:nth-child(5),.game_xz .game_six_img:nth-child(6){
+    margin-bottom: 0;
+}
+.am-tabs-pane-wrap{
+    display: none;
+}
+.wrap-active{
+    display: block;
+}
+.game_one_img > div {
+    float: left;
+    width: 100%;
+    height: 1.84rem;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.game_one_img .game_all{
+    width: 49%;
+}
+.qp_img_one{
+    margin-right: 2%;
+}
+

@@ -4,23 +4,39 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ProListResults implements Parcelable {
-    String time;
-    String money;
 
-    public String getTime() {
-        return time;
+    /**
+     * adddate : 2019-07-12 03:28:58
+     * gold : 100
+     * status : 未审核
+     */
+
+    private String adddate;
+    private String gold;
+    private String status;
+
+    public String getAdddate() {
+        return adddate;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setAdddate(String adddate) {
+        this.adddate = adddate;
     }
 
-    public String getMoney() {
-        return money;
+    public String getGold() {
+        return gold;
     }
 
-    public void setMoney(String money) {
-        this.money = money;
+    public void setGold(String gold) {
+        this.gold = gold;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -30,16 +46,18 @@ public class ProListResults implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.time);
-        dest.writeString(this.money);
+        dest.writeString(this.adddate);
+        dest.writeString(this.gold);
+        dest.writeString(this.status);
     }
 
     public ProListResults() {
     }
 
     protected ProListResults(Parcel in) {
-        this.time = in.readString();
-        this.money = in.readString();
+        this.adddate = in.readString();
+        this.gold = in.readString();
+        this.status = in.readString();
     }
 
     public static final Parcelable.Creator<ProListResults> CREATOR = new Parcelable.Creator<ProListResults>() {

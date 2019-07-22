@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/deposit.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div id="header">
+            <div class="am-navbar am-navbar-dark">
+                <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='index.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                </div>
+                <div class="am-navbar-title">
+                    <b>存款</b>
+                </div>
+                <div class="am-navbar-right">存款教程</div>
+            </div>
+        </div>
+        <div class="deposit_main">
+            <div class="deposit_pay_box">
+                <p>选择支付方式</p>
+                <ul>
+                    <li class="active" data-url="deposit2.html">
+                        <div class="deposit_pay_img">
+                           <div>
+                               <img src="img/deposit_icon1.png" alt="">
+                               <div class="deposit_pay_img_txt">公司入款</div>
+                           </div>
+                        </div>
+                    </li>
+                    <li class="" data-url="zfb.html">
+                        <div class="deposit_pay_img">
+                            <div>
+                                <img src="img/deposit_icon2.png" alt="">
+                                <div class="deposit_pay_img_txt">支付宝入款</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="" data-url="">
+                        <div class="deposit_pay_img">
+                            <div>
+                                <img src="img/deposit_icon2.png" alt="">
+                                <div class="deposit_pay_img_txt">线下支付宝</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="" data-url="">
+                        <div class="deposit_pay_img">
+                            <div>
+                                <img src="img/deposit_icon2.png" alt="">
+                                <div class="deposit_pay_img_txt">线下支付宝</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="" data-url="">
+                        <div class="deposit_pay_img">
+                            <div>
+                                <img src="img/deposit_icon3.png" alt="">
+                                <div class="deposit_pay_img_txt">线下微信</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="" data-url="">
+                        <div class="deposit_pay_img">
+                            <div>
+                                <img src="img/deposit_icon4.png" alt="">
+                                <div class="deposit_pay_img_txt">在线支付</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn_next_box">
+                <a href="deposit2.html">
+                <button class="btn_next">下一步</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+            // 支付方式选择
+            $(".deposit_pay_box").on("click","li",function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                 var locationurl = $('.deposit_pay_box ul li.active').data('url');
+                 $('.btn_next_box a').attr('href',locationurl);
+            });
+</script>
+</html>

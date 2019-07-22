@@ -1,0 +1,174 @@
+.deposit_main,.Deposit_records_main {
+    position: absolute;
+    top: 0.9rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 100% 100%;
+    padding: 0.3rem 0.2rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #f7faff;
+}
+.Deposit_records_main{
+    background: url(../img/my/my_bg.jpg) no-repeat center;
+
+}
+.deposit__box{
+    width: 100%;
+    padding: 0 0.34rem 0 0.36rem;
+    margin-bottom: 0.25rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0.02rem 0.04rem 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(0, 0, 0, .1);
+    background: #feffff;
+    border-radius: 5px;
+}
+.control-label {
+    text-align: left;
+    font-size: .25rem;
+    float: left;
+    height: .7rem;
+    line-height: .8rem;
+}
+.form-control{
+    float: left;
+    width: 79%;
+
+}
+input::-webkit-input-placeholder {
+    color: #aab2bd;
+    font-size: .3rem;
+    text-align: right;
+    line-height: normal;
+}
+.form-control input
+{
+    width: 100%;
+    height: .7rem;
+    display: grid;
+    font-size: .3rem !important;
+    text-align: right;
+    color: #aab2bd !important;
+    line-height: normal;
+}
+
+.form-horizontal_box{
+    padding: .2rem 0;
+    color: #333;
+}
+.form-horizontal{
+    border-bottom: 1px solid #929394;
+}
+.form-control_money ul{
+    margin-top: 0.1rem;
+
+}
+.form-control_money ul li{
+    width: 1.04rem;
+    margin-top: 0.1rem;
+    font: 3.2px PingFangSC, sans-serif;
+    font: 0.2rem PingFangSC, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    float: left;
+    background: #b4b5b6;
+    padding: 0.14rem 0;
+    margin-right: .3rem;
+    border-radius: 5px;
+    border: 1px solid #b4b5b6;
+    box-sizing: border-box;
+    position: relative;
+}
+.form-control_money ul li:last-child{
+    margin-right: 0;
+}
+.form-control_money ul li.money_active{
+    border-color: #cc8427;
+}
+.form-control_money ul li.money_active::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 4.8px;
+    width: 0.3rem;
+    height: 4.8px;
+    height: 0.3rem;
+    background: url(../img/dg.png);
+    background-size: 100% 100%;
+}
+.information{
+    padding: .1rem 0;
+}
+.btn_next {
+    width: 100%;
+    display: block;
+    border: none;
+    margin-top: 0.3rem;
+    border-radius: 0.8rem;
+    background-color: #898a8b;
+    font: 3.84px PingFangSC, sans-serif;
+    font: 0.3rem PingFangSC, sans-serif;
+    color: #fff;
+    padding: 0.24rem 0;
+    font-weight: 600;
+}
+.deposit_detail{
+    margin-bottom: 1rem;
+}
+.form-control{
+    position: relative;
+}
+#bank,#pay{
+    font-size: .3rem;
+    text-align: right;
+    margin-top: .18rem;
+    color: #aab2bd;
+}
+#demo2{
+    color: #aab2bd;
+}
+.information .form-control i{
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 0.3rem;
+    height: 0.34rem;
+    background: url(../img/frame_arrow_right.png) no-repeat right center;
+    background-size: contain;
+    right: -.3rem;
+}
+.deposit_detail_ts{
+    font-size: .2rem;
+}
+.deposit_detail_ts p{
+    line-height: .4rem;
+    color: #898a8b;
+}
+.Deposit_records_money_box{
+    text-align: center;
+    font-size: .7rem;
+    padding: .3rem 0 .7rem 0;
+}
+.Deposit_records_money_box span:nth-child(1){
+    font-size: .5rem;
+
+}
+.Deposit_records_state .form-group .control-label{
+    color: #666666;
+    width: 25%;
+}
+.Deposit_records_state .form-group .btn_fz{
+    padding: 0.05rem .3rem;
+    background: #333;
+    color: #fff;
+    font-size: .1rem;
+    border-radius: 5px;
+    margin-left: .3rem;
+    vertical-align: 2px;
+}
+

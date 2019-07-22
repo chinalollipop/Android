@@ -1,0 +1,382 @@
+.registered_main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1000;
+    background: url(../img/zc1.png) no-repeat center center;
+    background-size: cover;
+}
+
+.registered_heard{
+    position: relative;
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    padding: 0 0.33rem;
+    margin: 0.6rem 0 0.92rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+.registered_heard .registered_heard_txt{
+    font-size: 0.36rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+.registered_heard .registered_heard_icon{
+    position: absolute;
+    top: 0;
+    left: 0.33rem;
+    width: 0.48rem;
+    height: 0.48rem;
+    background: url(../img/register_icon_close.png) no-repeat center center;
+    background-size: contain;
+}
+.registered_logo{
+    margin: 0 auto 0.6rem;
+    width: 2.7rem;
+    height: 1.04rem;
+    background: url(../img/HG0086.png) no-repeat center center;
+    background-size: contain;
+}
+.registered_from_box{
+    width: 100%;
+    padding: 0 0.72rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.registered_from{
+    height: 5rem;
+    margin-bottom: 0.2rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.registered_from .registered_from_input_box{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 0.9rem;
+    padding: 0 0.3rem;
+    margin-bottom: 0.2rem;
+    border-radius: 0.45rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, .3);
+}
+.registered_from_icon{
+    background: url(../img/user_name.png) no-repeat center center;
+    background-size: contain;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 0.4rem;
+    -ms-flex: 0 0 0.4rem;
+    flex: 0 0 0.4rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-right: 0.2rem;
+}
+.registered_from_name_box{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+/*.registered_from_name_box .registered_from_input_name{*/
+/*    -webkit-transition: all linear 0.2s;*/
+/*    transition: all linear 0.2s;*/
+/*    width: 100%;*/
+/*    font-size: 0.24rem;*/
+/*    color: #ffffff;*/
+/*}*/
+input::-webkit-input-placeholder {
+    color: #fff;
+    font-size: .24rem;
+    line-height: normal;
+}
+.registered_from_input_name_sr{
+    width: 100%;
+    margin-top: 0.04rem;
+    font-size: 0.24rem;
+    color: #ffffff;
+    padding-left: 0;
+    text-align: justify;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+}
+.registered_from_input_pswd{
+    width: 0.35rem;
+    height: 0.2rem;
+}
+.btn_zc{
+    width: 100%;
+    text-align: center;
+    /* height: .1rem; */
+}
+.btn_zc button{
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    border: none;
+    border-radius: 0.45rem;
+    font-size: 0.28rem;
+    color: #ffffff;
+    opacity: .9;
+    background-image: -webkit-gradient(linear, left top, right top, from(#c59240), to(#e2ae56));
+    background-image: -webkit-linear-gradient(left, #c59240, #e2ae56);
+    background-image: linear-gradient(to right, #c59240, #e2ae56);
+}
+.existing{
+    margin-top: 0.4rem;
+    text-align: center;
+    font-size: .24rem;
+    color: #fff;
+}
+
+
+.login_main_box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.login_main_box .login_main_bg{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: url(../img/login_bg.jpg) no-repeat left bottom;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -1;
+}
+.login_main_box .login_content_box{
+    width: 100%;
+    padding: 1rem 0.23rem 0.4rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.login_content_logo{
+    width: 4rem;
+    height: 3.5rem;
+    margin: 0 auto 0.4rem;
+    background: url(../img/login_logo.png) no-repeat center center;
+    background-size: contain;
+}
+.login_register{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    width: 200vw;
+    -webkit-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out;
+    position: relative;
+}
+
+.login_register.anmtion{
+    left: 0;
+}
+
+.login_register .registered_from{
+    height: 3rem;
+}
+.login_register .registered_from .registered_from_input_box{
+    width: 5.2rem;
+
+}
+.login_register .registered_from .registered_from_input_box:last-child{
+    margin-bottom: 0;
+}
+.login_register .login_register_txt{
+    padding: 0.6rem 0.2rem 0.4rem;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #ffffff;
+}
+.login_register .login_registered_from_box{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 7rem;
+    border: none;
+    margin: 0 auto;
+    padding-bottom: 0.2rem;
+}
+.login_register .login_registered_from_box_one{
+    border-radius: 0.2rem 0 0 0.2rem;
+    background-color: rgba(216, 216, 216, .4);
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 0.4rem 0.4rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.login_register .login_registered_from_box_two{
+    position: relative;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 1rem;
+    -ms-flex: 0 0 1rem;
+    flex: 0 0 1rem;
+    border-radius: 0 0.2rem 0.2rem 0;
+    background-color: rgba(0, 0, 0, .4);
+}
+.login_register .login_registered_from_box_two_details{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.login_register .login_registered_from_box_two_details_tb{
+    width: 0.56rem;
+    height: 0.56rem;
+    margin: 0 auto 0.23rem;
+    background: url(../img/entry_login_toggle_btn.png) no-repeat center center;
+    background-size: contain;
+}
+.login_register .login_registered_from_box_two_details_zc{
+    text-align: center;
+}
+.login_register .login_registered_from_box_two_details_zc span{
+    display: block;
+    margin-bottom: 0.1rem;
+    font-size: 0.28rem;
+    color: #ffffff;
+}
+.login_register .login_forget{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 0.3rem;
+    /* margin-bottom: 0.4rem; */
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 0.2rem;
+    color: #ffffff;
+}
+.login_register .login_forget span{
+    vertical-align: middle;
+}
+.login_register .Keep_icon{
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-right: 0.09rem;
+    background: url(../img/entry_checkbox_false_icon.png) no-repeat center center;
+    background-size: contain;
+}
+.login_register .existing{
+    margin-top: 0.2rem;
+}
+.zc_style{
+    border-radius: 0 0.2rem 0.2rem 0 !important;
+    background-color: rgba(0, 0, 0, .5) !important;
+}
+.zc_style_two{
+    border-radius: 0.2rem 0 0 0.2rem !important;
+    background-color: rgba(255, 255, 255, .3) !important;
+}
+.login_register .zc_style .registered_from{
+    height: 3.9rem !important;
+}

@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.qpweb.a01.Injections;
@@ -24,9 +26,11 @@ import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseDialogFragment;
 import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.data.DetailListResult;
+import com.qpweb.a01.data.DetailWeekListResult;
 import com.qpweb.a01.data.MyAgencyResults;
 import com.qpweb.a01.data.ProListResults;
 import com.qpweb.a01.utils.ACache;
+import com.qpweb.a01.utils.CLipHelper;
 import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.DoubleClickHelper;
 import com.qpweb.a01.utils.GameLog;
@@ -136,6 +140,9 @@ public class AgencyFragment extends BaseDialogFragment implements AgencyContract
 
     @Override
     public void setEvents(View view, @Nullable Bundle savedInstanceState) {
+        String urlQc = ACache.get(getContext()).getAsString("promotion_qrcode_link");
+        GameLog.log("用户二维码的地址 "+urlQc);
+        Glide.with(AgencyFragment.this).load(urlQc).apply(new RequestOptions().fitCenter()).into(agencyLay2QC);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         agencyLay3RView.setLayoutManager(linearLayoutManager);
         LinearLayoutManager linearLayoutManager4 = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
@@ -169,7 +176,9 @@ public class AgencyFragment extends BaseDialogFragment implements AgencyContract
             case R.id.agencyLay2Share://复制分享
             case R.id.agencyShare:
                 //分享
-                showMessage("分享");
+                String shareUrl = ACache.get(getContext()).getAsString("promotion_link");
+                showMessage(shareUrl);
+                CLipHelper.copy(getContext(),shareUrl);
                 break;
             case R.id.agencyLay2GetRecord://领取记录
                 presenter.postGetMyPromotionRecord("","");
@@ -296,9 +305,9 @@ public class AgencyFragment extends BaseDialogFragment implements AgencyContract
         }
     }
 
-    class WeeksDetailAdapter extends BaseQuickAdapter<DetailListResult, BaseViewHolder> {
+    class WeeksDetailAdapter extends BaseQuickAdapter<DetailWeekListResult, BaseViewHolder> {
 
-        public WeeksDetailAdapter(int layoutResId, @Nullable List<DetailListResult> data) {
+        public WeeksDetailAdapter(int layoutResId, @Nullable List<DetailWeekListResult> data) {
             super(layoutResId, data);
         }
 
@@ -403,7 +412,7 @@ public class AgencyFragment extends BaseDialogFragment implements AgencyContract
         }
 
         @Override
-        protected void convert(BaseViewHolder helper, DetailListResult item) {
+        protected void convert(BaseViewHolder helper, DetailWeekListResult item) {
             /*if(item.getDate().equals("总计")){
                 helper.setBackgroundColor(R.id.itemPersonDate,Color.parseColor("#579718"));
                 helper.setBackgroundColor(R.id.itemPersonLay,Color.parseColor("#7e7e7e"));
@@ -411,9 +420,9 @@ public class AgencyFragment extends BaseDialogFragment implements AgencyContract
                 helper.setTextColor(R.id.itemPersonPrize,getResources().getColor(R.color.white));
                 helper.setTextColor(R.id.itemPersonProfit,getResources().getColor(R.color.white));
             }*/
-            onDataBackgot(item.getLevel(),helper);
+            onDataBackgot(item.getProxy_rank(),helper);
             helper.setText(R.id.itemAWeekUserName, item.getUsername()).
-                    setText(R.id.itemAWeekMoney, item.getMoney());
+                    setText(R.id.itemAWeekMoney, item.getReback_money_thisweek());
         }
     }
 
@@ -434,9 +443,8 @@ public class AgencyFragment extends BaseDialogFragment implements AgencyContract
         agencyLay3RView.setAdapter(detailReportAdapter);
     }
     @Override
-    public void postWeeksDetailResult(List<DetailListResult> detailListResult) {
-        this.detailListResult = detailListResult;
-        //我的推广明细
+    public void postWeeksDetailResult(List<DetailWeekListResult> detailListResult) {
+        //我的推广周榜
         GameLog.log("推广明细的 大小 "+detailListResult.size());
         WeeksDetailAdapter detailReportAdapter = new WeeksDetailAdapter(R.layout.item_agency_weeks,detailListResult);
         if(detailListResult.size()==0){

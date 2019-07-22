@@ -1,0 +1,129 @@
+.activity_main_box{
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.activity_main{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: scroll;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.activity_main_bg{
+    position: absolute;
+    top: 0.9rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: url(../img/my/my_bg.jpg);
+    background-size: 100% 100%;
+}
+.activity_tab_box{
+    padding: 0.2rem 0 0;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.activity_tab{
+    padding: 0 0.36rem;
+    width: 616px;
+}
+.activity_tab ul{
+    height: 0.8rem;
+    background-color: #e0b568;
+    border-radius: 0.4rem;
+    white-space: nowrap;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+}
+.activity_tab ul li {
+    float: left;
+    text-align: center;
+    padding: 0.22rem 0;
+    width: 1.76rem;
+    border-radius: 0.38rem;
+}
+.activity_tab ul li a{
+    font-size: 0.24rem;
+    color: #fff;
+}
+.activity_tab .selected{
+    background: #9d742f;
+}
+.activity_img_box{
+    padding: 0 0.36rem;
+}
+.activity_img{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 1.2rem;
+    height: 3.6rem;
+    margin-top: 0.2rem;
+    position: relative;
+}
+.activity_img_one{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 6.6rem;
+    height: 2.4rem;
+    z-index: 10;
+}
+.img_one{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.1rem;
+    position: relative;
+}
+.img_one img{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: none;
+    width: 100%;
+}
+.activity_txt_two{
+    height: 2.2rem;
+    background: #d1d2d3;
+    border-radius: 0.1rem;
+    position: relative;
+    padding: 1.4rem 0.3rem 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.txt_two{
+    font-size: 0.3rem;
+    color: #4a4a4a;
+    height: 0.4rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.txt_two_details{
+    position: absolute;
+    bottom: 0.44rem;
+    right: 0.3rem;
+    width: 1.5rem;
+    height: .5rem;
+    font-size: 0.2rem;
+    background: #ef9837;
+    text-align: center;
+    line-height: .5rem;
+    border-radius: 15px;
+    color: #fff;
+    top: 1.35rem;
+}

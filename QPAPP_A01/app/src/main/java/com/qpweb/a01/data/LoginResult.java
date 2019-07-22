@@ -42,6 +42,8 @@ public class LoginResult implements Parcelable {
     private String lastLoginTime;
     private String promotion_code;
     private String OnlineServer;
+    private String promotion_link;//渠道链接
+    private String promotion_qrcode_link;//渠道二维码链接
     private String haveLyAccount;//1 有乐游账号  0 没有乐游账号
     private String isBindFundPassWord;//【1 资金密码已设置】  【0 未设置资金密码】
 
@@ -181,6 +183,22 @@ public class LoginResult implements Parcelable {
         this.OnlineServer = OnlineServer;
     }
 
+    public String getPromotion_link() {
+        return promotion_link;
+    }
+
+    public void setPromotion_link(String promotion_link) {
+        this.promotion_link = promotion_link;
+    }
+
+    public String getPromotion_qrcode_link() {
+        return promotion_qrcode_link;
+    }
+
+    public void setPromotion_qrcode_link(String promotion_qrcode_link) {
+        this.promotion_qrcode_link = promotion_qrcode_link;
+    }
+
     public String getHaveLyAccount() {
         return haveLyAccount;
     }
@@ -221,6 +239,8 @@ public class LoginResult implements Parcelable {
         dest.writeString(this.lastLoginTime);
         dest.writeString(this.promotion_code);
         dest.writeString(this.OnlineServer);
+        dest.writeString(this.promotion_link);
+        dest.writeString(this.promotion_qrcode_link);
         dest.writeString(this.haveLyAccount);
         dest.writeString(this.isBindFundPassWord);
     }
@@ -246,6 +266,8 @@ public class LoginResult implements Parcelable {
         this.lastLoginTime = in.readString();
         this.promotion_code = in.readString();
         this.OnlineServer = in.readString();
+        this.promotion_link = in.readString();
+        this.promotion_qrcode_link = in.readString();
         this.haveLyAccount = in.readString();
         this.isBindFundPassWord = in.readString();
     }

@@ -42,13 +42,14 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
     @BindView(R.id.agInt)
     Button agInt;
     Unbinder unbinder;
-    private String fagMoney ,fhgMoney;
+    private String fagMoney ,fhgMoney,fshowtype;
     AGPlatformContract.Presenter presenter;
 
-    public static AGPlatformDialog newInstance(String param0, String param1) {
+    public static AGPlatformDialog newInstance(String param0, String param1, String param2) {
         Bundle bundle = new Bundle();
         bundle.putString(PARAM0, param0);
         bundle.putString(PARAM1, param1);
+        bundle.putString(PARAM2, param2);
         //bundle.putParcelable(PARAM2, param2);
         AGPlatformDialog dialog = new AGPlatformDialog();
         Injections.inject(null,dialog);
@@ -72,9 +73,17 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
     public void bindView(View v) {
         fagMoney = getArguments().getString(PARAM0);
         fhgMoney = getArguments().getString(PARAM1);
+        fshowtype = getArguments().getString(PARAM2);
         agMoney.setText(GameShipHelper.formatMoney(fagMoney));
         hgMoney.setText(GameShipHelper.formatMoney(fhgMoney));
-        presenter.postPersonBalance("","");
+        GameLog.log("当把钱  "+fshowtype);
+        if("mg".equals(fshowtype)){
+            agOut.setText("MG电子转出");
+            agInt.setText("MG电子转入");
+            presenter.postMGPersonBalance("","");
+        }else{
+            presenter.postPersonBalance("","");
+        }
         //param2 = getArguments().getParcelable(PARAM2);
     }
 
@@ -86,21 +95,33 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
                 if(Check.isEmpty(text)){
                     return;
                 }
-                presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
+                if(fshowtype.equals("mg")){
+                    presenter.postMGBanalceTransfer("","mg","hg",GameShipHelper.getIntegerString(text));
+                }else{
+                    presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
+                }
                 break;
             case R.id.agInt:
                 String text2 = etAgGoldInput.getText().toString();
                 if(Check.isEmpty(text2)){
                     return;
                 }
-                presenter.postBanalceTransfer("","hg","ag", GameShipHelper.getIntegerString(text2));
+                if(fshowtype.equals("mg")){
+                    presenter.postMGBanalceTransfer("","hg","mg",GameShipHelper.getIntegerString(text2));
+                }else{
+                    presenter.postBanalceTransfer("","hg","ag", GameShipHelper.getIntegerString(text2));
+                }
                 break;
         }
     }
 
     @Override
     public void postBanalceTransferSuccess() {
-        presenter.postPersonBalance("","");
+        if("mg".equals(fshowtype)){
+            presenter.postMGPersonBalance("","");
+        }else{
+            presenter.postPersonBalance("","");
+        }
         dismiss();
     }
 
@@ -115,6 +136,16 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
         if(!Check.isNull(hgMoney)&&!Check.isNull(agMoney)){
             hgMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_hg()));
             agMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_ag()));
+        }
+        EventBus.getDefault().post(personBalance);
+    }
+
+    @Override
+    public void postMGPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("MG转账对话框的展示 "+personBalance.getMg_balance());
+        if(!Check.isNull(hgMoney)&&!Check.isNull(agMoney)){
+            hgMoney.setText(GameShipHelper.formatMoney(personBalance.getHg_balance()));
+            agMoney.setText(GameShipHelper.formatMoney(personBalance.getMg_balance()));
         }
         EventBus.getDefault().post(personBalance);
     }

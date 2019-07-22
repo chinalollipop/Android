@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>皇冠</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/swiper-4.3.5.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/swiper-4.3.5.min.js"></script>
+</head>
+<body>
+<div class="app">
+    <div id="homePage">
+        <div class="index">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/banner1.png" /></div>
+                    <div class="swiper-slide"><img src="img/banner2.jpg" /></div>
+                    <div class="swiper-slide"><img src="img/banner3.png" /></div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="home_noticeBar">
+                <div class="am-notice-bar" style="background: none;color: rgb(255, 255, 255);font-size: 0.2rem;">
+                    <div class="am-notice-bar-icon"></div>
+                    <div class="am-notice-bar-content">
+                        <div class="am-notice-bar-marquee-wrap">
+                            <marquee scrollamount="4">
+                                尊敬的客户：为了玩家的资金安全，防止资料外泄，请勿将个人账户密码提供给以亚博体育名义自称的工作人员，谨防上当受骗。如有任何问题，请您随时联系在线客服~
+                            </marquee>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="login_box">
+                <div class="login_title">
+                    <div class="login_txt"></div>
+                    <!--未登录-->
+                    <span >下午好，请登录</span>
+                    <!--已登录-->
+                    <span style="display: none">下午好，harry</span>
+                    <a>个人资料</a>
+                </div>
+                <div class="management">
+                    <div class="wallet_center">
+                        <div class="wallet">中心钱包</div>
+                        <!--未登录-->
+                        <button onclick="javascript:window.location.href='login/registered.html'">登录查看</button>
+                        <!--已登录-->
+                        <span class="font_Library" style="display:none;"><i>¥</i>0.00</span>
+                    </div>
+                    <span class="segmentation"></span>
+                    <ul class="financial">
+                        <li onclick="javascript:window.location.href='deposit.html'">
+                            <div>
+                                <img src="img/icon_wallet_deposit.png">
+                                <p>存款</p>
+                            </div>
+                        </li>
+                        <li onclick="javascript:window.location.href='transfer.html'">
+                            <div>
+                                <img src="img/icon_wallet_transfer.png">
+                                <p>转账</p>
+                            </div>
+                        </li>
+                        <li onclick="javascript:window.location.href='withdrawals.html'">
+                            <div>
+                                <img src="img/icon_wallet_withdraw.png">
+                                <p>取款</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="game_classified" style="height: 6.68rem; z-index: 0;">
+                <div class="render-list-wrap">
+                    <div class="am-tabs am-tabs-vertical am-tabs-left">
+                        <div class="am-tabs-tab-bar-wrap">
+                            <div class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-left">
+                                <div class="am-tabs-default-bar-content">
+                                    <div class="am-tabs-default-bar-tab active">
+                                        <div class="game_species">
+                                            <img src="img/gameIcon1.png" class="img_active1">
+                                            <img src="img/gameIcon1_bg.png" class="img_active2">
+                                            <span>亚博体育</span>
+                                        </div>
+                                    </div>
+                                    <div class="am-tabs-default-bar-tab">
+                                        <div class="game_species">
+                                            <img src="img/gameIcon2.png" class="img_active1">
+                                            <img src="img/gameIcon2_bg.png" class="img_active2">
+                                            <span>真人视讯</span>
+                                        </div>
+                                    </div>
+                                    <div class="am-tabs-default-bar-tab">
+                                        <div class="game_species">
+                                            <img src="img/gameIcon3.png" class="img_active1">
+                                            <img src="img/gameIcon3_bg.png" class="img_active2">
+                                            <span>彩票游戏</span>
+                                        </div>
+                                    </div>
+                                    <div class="am-tabs-default-bar-tab">
+                                        <div class="game_species">
+                                            <img src="img/gameIcon4.png" class="img_active1">
+                                            <img src="img/gameIcon4_bg.png" class="img_active2">
+                                            <span>老 虎 机</span>
+                                        </div>
+                                    </div>
+                                    <div class="am-tabs-default-bar-tab">
+                                        <div class="game_species">
+                                            <img src="img/gameIcon5.png" class="img_active1">
+                                            <img src="img/gameIcon5_bg.png" class="img_active2">
+                                            <span>捕鱼游戏</span>
+                                        </div>
+                                    </div>
+                                    <div class="am-tabs-default-bar-tab">
+                                        <div class="game_species">
+                                            <img src="img/gameIcon6.png" class="img_active1">
+                                            <img src="img/gameIcon6_bg.png" class="img_active2">
+                                            <span>棋牌游戏</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-tabs-content-wrap am-tabs-content-wrap-animated">
+                            <!--体育-->
+                            <div class="am-tabs-pane-wrap wrap-active">
+                                <div class="game_img">
+                                    <div>
+                                        <img src="img/game_bet.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--真人-->
+                            <div class="am-tabs-pane-wrap">
+                                <div class="game_img bg_ts">
+                                    <div class="game_xz distance">
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_ag1.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_ag2.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_ag3.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_ag4.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_ag5.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_ag6.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--彩票-->
+                            <div class="am-tabs-pane-wrap">
+                                <div class="game_img bg_ts">
+                                    <div class="game_xz distance">
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_cp1.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_cp2.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_cp3.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_cp4.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_cp5.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_cp6.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--老虎机-->
+                            <div class="am-tabs-pane-wrap">
+                                <div class="game_img" onclick="javascript:window.location.href='laohuji.html'">
+                                    <div>
+                                        <img src="img/lhj.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--捕鱼-->
+                            <div class="am-tabs-pane-wrap">
+                                <div class="game_img">
+                                    <div>
+                                        <img src="img/by.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--棋牌-->
+                            <div class="am-tabs-pane-wrap">
+                                <div class="game_img bg_ts">
+                                    <div class="game_all game_one_img">
+                                        <div>
+                                            <img src="img/game_qp1.png">
+                                        </div>
+                                        <div style="margin: 0.1rem 0;">
+                                            <img src="img/game_qp2.png">
+                                        </div>
+                                        <div class="game_all game_six_img qp_img_one">
+                                            <img src="img/game_qp3.png" alt="">
+                                        </div>
+                                        <div class="game_all game_six_img">
+                                            <img src="img/game_qp4.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--页尾-->
+        <div class="footer_box">
+            <div class="footer">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <img src="img/tabIcon1_bg.png" alt="">
+                            <span class="tab_active">首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/tabIcon2.png" alt="">
+                            <span>教程</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/tabIcon3.png" alt="">
+                            <span>客服</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/tabIcon4.png" alt="">
+                            <span>优惠</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="my.html">
+                            <img src="img/tabIcon5.png" alt="">
+                            <span>我的</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: 3000,
+        slidesPerView: "auto",
+        centeredSlides:true,
+        spaceBetween: 10,
+        autoplayDisableOnInteraction : false,
+
+    });
+    $(function () {
+        $('.am-tabs-default-bar-content .am-tabs-default-bar-tab').click(function () {
+            var i = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.am-tabs-content-wrap .am-tabs-pane-wrap').eq(i).show(300).siblings().hide(300);
+        })
+    })
+</script>
+</html>

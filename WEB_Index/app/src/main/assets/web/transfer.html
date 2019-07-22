@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>转账</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/transfer.css">
+    <link rel="stylesheet" href="css/mode.css">
+
+    <script src="js/mobileSelect.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="transfer_details_bg">
+            <div id="header">
+                <div class="am-navbar am-navbar-dark">
+                    <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='index.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                    </div>
+                    <div class="am-navbar-title">
+                        <b>转账</b>
+                    </div>
+                    <div class="am-navbar-right"></div>
+                </div>
+            </div>
+            <div style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 667px; max-height: 200px;">
+                <div style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 667px; max-height: 200px;">
+                        <div class="transfer_details_box">
+                            <ul>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>体育余额</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>彩票余额</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>AG余额</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>开元棋牌</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>乐游棋牌</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>VG余额</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="transfer_details_txt">
+                                        <span>老虎机</span>
+                                    </div>
+                                    <div>
+                                        <span class="transfer_details_money">0.00</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="transfer_details_conversion_box">
+                            <div class="transfer_details_conversion_title">转账金额</div>
+                            <div class="Transfer_amount">
+                                <div class="Transfer_amount_input">
+                                    <img src="img/icon_save_money.png">
+                                    <div class="am-list-item am-input-item am-list-item-middle">
+                                        <div class="am-list-line">
+                                            <div class="am-input-control">
+                                                <div class="fake-input-container fake-input-container-left">
+                                                    <input  type="number" placeholder="请输入转账金额" class="fake-input" style="border: 0;background: none;    padding-left: .2rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="zd">最大</a>
+                                </div>
+                            </div>
+                            <div class="transfer_details_conversion_title">选择转账场馆钱包</div>
+                            <div class="Transfer_venues">
+                                <div class="Transfer_venues_center">
+                                    <span></span>
+                                    <div class="Transfer_venues_center_title" id="conversion1">体育余额</div>
+                                </div>
+                                <div class="Transfer_venues_center venues_center_title">
+                                    <span></span>
+                                    <div class="Transfer_venues_center_title " id="conversion2">彩票余额</div>
+                                </div>
+                            </div>
+                            <button class="btn_ljzz" >立即转账</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 钱包转换
+    var mobileSelect4 = new MobileSelect({
+        trigger: '#conversion1',
+        wheels: [
+            {data:['体育余额','彩票余额','AG余额','开元棋牌余额','皇冠棋牌余额','VG棋牌余额','乐游棋牌余额']}
+        ],
+        position:[0] //Initialize positioning
+    });
+
+    var mobileSelect5 = new MobileSelect({
+        trigger: '#conversion2',
+        wheels: [
+            {data:['体育余额','彩票余额','AG余额','开元棋牌余额','皇冠棋牌余额','VG棋牌余额','乐游棋牌余额']}
+        ],
+        position:[1] //Initialize positioning
+    });
+</script>
+</html>

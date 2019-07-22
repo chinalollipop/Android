@@ -16,7 +16,7 @@
             android:gravity="center"
             android:text="投资额"
             android:textColor="@color/register_left"
-            android:textSize="14sp" />
+            android:textSize="10sp" />
 
         <TextView
             android:background="@color/register_left"
@@ -31,6 +31,6 @@
             android:gravity="center"
             android:text="回报额"
             android:textColor="@color/register_left"
-            android:textSize="14sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 </RelativeLayout>

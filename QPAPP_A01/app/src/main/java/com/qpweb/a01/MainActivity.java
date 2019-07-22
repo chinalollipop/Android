@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     private WebView wvPayGame;
     private ImageView gameBack;
     private CoolIndicator mCoolIndicator;
+
+    private ValueCallback<Uri> uploadFile;
+    private ValueCallback<Uri[]> uploadFiles;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +102,37 @@ public class MainActivity extends AppCompatActivity {
                 super.onShowCustomView(view, customViewCallback);
             }
 
+            // For Android 3.0+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
+                GameLog.log("openFileChooser 1");
+                MainActivity.this.uploadFile = uploadFile;
+                openFileChooseProcess();
+            }
+
+            // For Android < 3.0
+            public void openFileChooser(ValueCallback<Uri> uploadMsgs) {
+                GameLog.log("openFileChooser 2");
+                MainActivity.this.uploadFile = uploadFile;
+                openFileChooseProcess();
+            }
+
+            // For Android  > 4.1.1
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                GameLog.log("openFileChooser 3");
+                MainActivity.this.uploadFile = uploadFile;
+                openFileChooseProcess();
+            }
+
+            // For Android  >= 5.0
+            public boolean onShowFileChooser(WebView webView,
+                                             ValueCallback<Uri[]> filePathCallback,
+                                             FileChooserParams fileChooserParams) {
+                GameLog.log("openFileChooser 4:" + filePathCallback.toString());
+                MainActivity.this.uploadFiles = filePathCallback;
+                openFileChooseProcess();
+                return true;
+            }
+
             @Override
             public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
                 return super.onJsAlert(view, url, message, result);
@@ -133,25 +169,53 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
-                ToastUtils.showLongToast("加载异常,请重试");
-                view.loadUrl("https://www.freepik.com/");
+                //ToastUtils.showLongToast("加载异常,请重试");
+                //view.loadUrl("https://www.freepik.com/");
             }
         });
     }
 
 
+    private void openFileChooseProcess() {
+        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+        i.addCategory(Intent.CATEGORY_OPENABLE);
+        i.setType("*/*");
+        startActivityForResult(Intent.createChooser(i, "cf_better"), 0);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        GameLog.log( "onActivityResult() called with: requestCode = [" + requestCode + "], resultCode = [" + resultCode + "], data = [" + data + "]");
-        switch (resultCode) {
-            case Activity.RESULT_CANCELED:
-                switch (requestCode){
-                    // 得到通过UpdateDialogFragment默认dialog方式安装，用户取消安装的回调通知，以便用户自己去判断，比如这个更新如果是强制的，但是用户下载之后取消了，在这里发起相应的操作
-                }
-                break;
-            default:
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case 0:
+                    if (null != uploadFile) {
+                        Uri result = data == null || resultCode != RESULT_OK ? null
+                                : data.getData();
+                        uploadFile.onReceiveValue(result);
+                        uploadFile = null;
+                    }
+                    if (null != uploadFiles) {
+                        Uri result = data == null || resultCode != RESULT_OK ? null
+                                : data.getData();
+                        uploadFiles.onReceiveValue(new Uri[]{result});
+                        uploadFiles = null;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } else if (resultCode == RESULT_CANCELED) {
+            if (null != uploadFile) {
+                uploadFile.onReceiveValue(null);
+                uploadFile = null;
+            }
+
         }
     }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

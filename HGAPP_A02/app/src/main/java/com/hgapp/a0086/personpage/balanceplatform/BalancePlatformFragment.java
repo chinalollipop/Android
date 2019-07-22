@@ -94,6 +94,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
         balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         lvBalancePlatform.setLayoutManager(mLayoutManager1);
@@ -105,6 +106,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         presenter.postPersonBalanceHG("","");
         presenter.postPersonBalanceVG("","");
         presenter.postPersonBalanceLY("","");
+        presenter.postPersonBalanceMG("","");
         backTitleBalancePlatform.setMoreText(GameShipHelper.formatMoney(typeArgsHG));
         backTitleBalancePlatform.setBackListener(new View.OnClickListener() {
             @Override
@@ -134,8 +136,10 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                 viewHolder.setText(R.id.itemBalancePlatformName,"皇冠棋牌");
             }else if(postion==4){
                 viewHolder.setText(R.id.itemBalancePlatformName,"VG棋牌");
-            }else{
+            }else if(postion==5){
                 viewHolder.setText(R.id.itemBalancePlatformName,"乐游棋牌");
+            }else{
+                viewHolder.setText(R.id.itemBalancePlatformName,"MG电子");
             }
             viewHolder.setText(R.id.itemBalancePlatformMoney,sdata);
             viewHolder.setOnClickListener(R.id.itemBalancePlatformIn,new View.OnClickListener(){
@@ -196,6 +200,12 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             return;
                                         }
                                         presenter.postBanalceTransferLY("", "hg", "ly", GameShipHelper.getIntegerString(text));
+                                    }else{
+                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                            showMessage("非常抱歉，请您注册真实会员！");
+                                            return;
+                                        }
+                                        presenter.postBanalceTransferMG("", "hg", "mg", GameShipHelper.getIntegerString(text));
                                     }
                                 }
                             })
@@ -262,6 +272,12 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             return;
                                         }
                                         presenter.postBanalceTransferLY("", "ly", "hg", GameShipHelper.getIntegerString(text));
+                                    }else{
+                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                            showMessage("非常抱歉，请您注册真实会员！");
+                                            return;
+                                        }
+                                        presenter.postBanalceTransferMG("", "mg", "hg", GameShipHelper.getIntegerString(text));
                                     }
                                 }
                             })
@@ -318,6 +334,12 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     @Override
     public void postPersonBalanceLYResult(KYBalanceResult personBalance) {
         balancePlatformList.set(5,personBalance.getLy_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void postPersonBalanceMGResult(KYBalanceResult personBalance) {
+        balancePlatformList.set(6,personBalance.getMg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
     }
 

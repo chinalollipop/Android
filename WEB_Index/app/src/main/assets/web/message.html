@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>消息中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/message.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="app">
+    <div id="header">
+        <div class="am-navbar am-navbar-dark style_ys">
+            <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='my.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+            </div>
+            <div class="am-navbar-title">
+                <b>消息中心</b>
+            </div>
+            <div class="am-navbar-right"></div>
+        </div>
+    </div>
+    <div class="tab_content">
+        <div class="tab_active">网站公告<span></span></div>
+        <div class="" >站内信<span></span></div>
+    </div>
+    <div class="tab_main">
+        <div class="tab_main_all">
+            <div class="tab_main_img" style="height: 100%;">
+                <div></div>
+                <p>暂无消息</p>
+            </div>
+        </div>
+        <div class="tab_main_all">
+            <ul>
+                <li>
+                    <div class="tab_main_all_txt">
+                       温馨提示
+                    </div>
+                    <div class="tab_main_all_time">
+                        2019-06-09 18:26:36
+                    </div>
+
+                </li>
+                <li>
+                    <div class="tab_main_all_txt">
+                        温馨提示
+                    </div>
+                    <div class="tab_main_all_time">
+                        2019-06-09 18:26:36
+                    </div>
+
+                </li>
+                <div style="clear: both"></div>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+        $('.tab_content div').click(function () {
+            var i = $(this).index();
+            $(this).addClass('tab_active').siblings().removeClass('tab_active');
+            $('.tab_main .tab_main_all').eq(i).show().siblings().hide();
+        })
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页注册</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registered.css">
+    <script src="../js/jquery.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="registered_main">
+            <div class="registered_heard">
+                <div class="registered_heard_txt">注册新账号</div>
+                <span class="registered_heard_icon" onclick="javascript:window.location.href='../index.html'"></span>
+            </div>
+            <div class="registered_logo"></div>
+            <div class="registered_from_box">
+                <div class="registered_from">
+                    <div class="registered_from_input_box">
+                        <div class="registered_from_icon"></div>
+                        <div class="registered_from_name_box">
+<!--                            <div class="registered_from_input_name">用户名</div>-->
+                            <input class="registered_from_input_name_sr" placeholder="用户名" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="registered_from_input_box">
+                        <div class="registered_from_icon"></div>
+                        <div class="registered_from_name_box">
+<!--                            <div class="registered_from_input_name">密码</div>-->
+                            <input class="registered_from_input_name_sr" placeholder="密码" type="text" name="password" id="password" required="required">
+                        </div>
+                        <img src="../img/1111.png" class="registered_from_input_pswd   pswd_xs" id="showText"  onclick="hideShowPsw()">
+                    </div>
+                    <div class="registered_from_input_box">
+                        <div class="registered_from_icon"></div>
+                        <div class="registered_from_name_box">
+<!--                            <div class="registered_from_input_name">确认密码</div>-->
+                            <input class="registered_from_input_name_sr" placeholder="确认密码" type="password" name="password" id="password2" required="required">
+                        </div>
+                        <img src="../img/2222.png" class="registered_from_input_pswd " id="showText2"  onclick="hideShowPsw2()">
+                    </div>
+                    <div class="registered_from_input_box">
+                        <div class="registered_from_icon"></div>
+                        <div class="registered_from_name_box">
+                            <input class="registered_from_input_name_sr" placeholder="验证码" type="text">
+                        </div>
+                        <img src="../img/b80fea28-a8aa-4812-848c-38af69efaab7.png" style="width: 1.8rem;height: 0.6rem;">
+                    </div>
+                </div>
+                <div class="btn_zc">
+                    <button class="" type="button" data-analytics="button" data-label="注册">注 册</button>
+                </div>
+                <div class="existing"><span>已有HG0086账号?</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+
+        //获取input框内的切换图片id和input文本框的id
+        var demoImg = document.getElementById("showText");
+        var demoInput = document.getElementById("password");
+        function hideShowPsw() {
+            if (demoInput.type == "password") {
+                demoInput.type = "text";
+                demoImg.src ="../img/1111.png";
+            } else {
+                demoInput.type = "password";
+                demoImg.src = "../img/2222.png";
+            }
+        }
+
+        var demoImg2 = document.getElementById("showText2");
+        var demoInput2 = document.getElementById("password2");
+        function hideShowPsw2() {
+            if (demoInput2.type == "password") {
+                demoInput2.type = "text";
+                demoImg2.src ="../img/1111.png";
+            } else {
+                demoInput2.type = "password";
+                demoImg2.src = "../img/2222.png";
+            }
+        }
+</script>
+</html>

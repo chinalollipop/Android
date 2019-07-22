@@ -1,0 +1,88 @@
+.tab_content{
+    width: 100%;
+    height: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0.88rem;
+    z-index: 100;
+    background: #fff;
+}
+.tab_content div{
+    float: left;
+    width: 50%;
+    font-size: 0.3rem;
+    color: #999999;
+    height: 0.96rem;
+    line-height: 0.99rem;
+    text-align: center;
+}
+.tab_active span{
+    width: 0.8rem;
+    height: 0.04rem;
+    background: #bf8700;
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.tab_active{
+    color: #bf8700;
+    position: relative;
+}
+.tab_main{
+    position: absolute;
+    top: 1.88rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f8faff;
+}
+.tab_main_all{
+    display: none;
+}
+.tab_main_all:first-child{
+    display: block;
+}
+.tab_main_all ul li{
+    font-size: .28rem;
+    width: 90%;
+    margin: auto;
+    height: 1rem;
+    line-height: 1rem;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: .3rem;
+}
+.tab_main_all{
+    margin-top: .5rem;
+}
+.tab_main_all ul li div{
+    width: 47%;
+    float: left;
+    color: #000;
+}
+.tab_main_all_txt{
+    text-align: left;
+    padding-left: .2rem;
+}
+.tab_main_all_time{
+    text-align: right;
+    padding-right: .2rem;
+
+}
+.tab_main_img{
+    padding-top: 1.76rem;
+    text-align: center;
+}
+.tab_main_img div{
+    width: 4.56rem;
+    height: 4.56rem;
+    background: url(../img/pic_box.png) no-repeat;
+    background-size: 100%;
+    margin: 0 auto 0.9rem;
+}
+.tab_main_img p{
+    color: #999999;
+    font-size: 0.3rem;
+}

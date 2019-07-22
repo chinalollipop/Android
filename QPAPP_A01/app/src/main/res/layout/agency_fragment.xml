@@ -130,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="20dp"
                     android:visibility="gone">
 
                     <LinearLayout
@@ -138,7 +138,9 @@
                         android:layout_height="match_parent"
                         android:background="@mipmap/agent_bg_2"
                         android:orientation="vertical"
-                        android:paddingLeft="20dp">
+                        android:paddingLeft="20dp"
+                        android:layout_marginRight="-20dp"
+                        >
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -327,6 +329,7 @@
                                 android:gravity="center"
                                 android:hint="请输入领取金额"
                                 android:inputType="number"
+                                android:visibility="invisible"
                                 android:textColor="@color/register_left"
                                 android:textColorHint="@android:color/holo_red_light"
                                 android:textSize="12sp" />
@@ -360,7 +363,7 @@
                                 android:layout_width="130dp"
                                 android:layout_height="130dp"
                                 android:layout_margin="6dp"
-                                android:background="@mipmap/logout_cancel" />
+                                android:background="@mipmap/loading" />
                         </FrameLayout>
 
                         <LinearLayout

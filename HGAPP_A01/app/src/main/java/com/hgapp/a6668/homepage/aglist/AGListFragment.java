@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -50,6 +53,10 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.agTitleBack)
     NTitleBar agTitleBack;
+    @BindView(R.id.tabLay)
+    LinearLayout tabLay;
+    @BindView(R.id.gameTab)
+    TabLayout gameTab;
     @BindView(R.id.agUserMoneyShow)
     RelativeLayout agUserMoneyShow;
     @BindView(R.id.agVideo)
@@ -66,6 +73,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     private String titleName = "";
     private String dzTitileName ="";
     private String gameId;
+    int positionl;
     public static AGListFragment newInstance(List<String> param1) {
         AGListFragment fragment = new AGListFragment();
         Bundle args = new Bundle();
@@ -81,7 +89,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         if (getArguments() != null) {
             FStype = getArguments().getStringArrayList(ARG_PARAM1).get(0);
             Mtype = getArguments().getStringArrayList(ARG_PARAM1).get(1);
-            fshowtype = getArguments().getStringArrayList(ARG_PARAM1).get(2);// 用以判断是电子还是真人
+            fshowtype = getArguments().getStringArrayList(ARG_PARAM1).get(2);// 用以判断是电子还是真人 [live真人] 【game电子】
         }
     }
 
@@ -89,6 +97,39 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     public int setLayoutId() {
         return R.layout.fragment_ag_list;
     }
+
+    private void initTabStyle() {
+        //presenter.getDepositSubmit(typeArgs2,"","","");
+        gameTab.addTab(gameTab.newTab().setText("AG电子"));
+        gameTab.addTab(gameTab.newTab().setText("MG电子"));
+        gameTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                positionl = tab.getPosition();
+                switch (positionl) {
+                    case 0:
+                        fshowtype ="game";
+                        presenter.postPersonBalance("","");
+                        presenter.postAGGameList("","","gamelist_dianzi");
+                        break;
+                    case 1:
+                        fshowtype ="mg";
+                        presenter.postMGPersonBalance("","");
+                        presenter.postMGGameList("","","");
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+    }
+
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
@@ -100,7 +141,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         });
         EventBus.getDefault().register(this);
         String userState = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
-        GameLog.log("用户登录的状态 ：["+userState+"]");
+        GameLog.log("用户登录的状态 ：["+userState+"]"+ fshowtype);
         if(!Check.isNull(userState)&&userState.equals("1")){
             presenter.postPersonBalance("","");
             //presenter.postCheckAgAccount("","","check_game_account");
@@ -115,13 +156,16 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             titleName = "真人额度：";
             //onAgLiveTestData();
             agLiveList.setVisibility(View.GONE);
+            tabLay.setVisibility(View.GONE);
             agVideo.setVisibility(View.VISIBLE);
         }else{
             //presenter.postCheckAgGameAccount("");
+            initTabStyle();
             presenter.postAGGameList("","","gamelist_dianzi");
             titleName = "电子额度：";
             //onAgGameTestData();
             agLiveList.setVisibility(View.VISIBLE);
+            tabLay.setVisibility(View.VISIBLE);
             agVideo.setVisibility(View.GONE);
         }
        // presenter.postCreateAgAccount("","","cga");
@@ -179,6 +223,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     }
 
     @Override
+    public void postMGPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("MG用户的真人账户："+personBalance.getMg_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMg_balance()));
+    }
+
+    @Override
     public void postAGGameResult(List<AGLiveResult> agLiveResult) {
         GameLog.log("游戏列表："+agLiveResult);
 
@@ -207,7 +257,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
     @OnClick({R.id.agUserMoneyChange})
     public void onViewClicked(View view ) {
-        AGPlatformDialog.newInstance(agMoney,hgMoney).show(getFragmentManager());
+        AGPlatformDialog.newInstance(agMoney,hgMoney,fshowtype).show(getFragmentManager());
     }
 
     @OnClick({R.id.agVideoGo})
@@ -274,7 +324,11 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 @Override
                 public void onClick(View view) {
                     dzTitileName = data.getName();
-                    presenter.postGoPlayGame("",data.getGameid());
+                    if(fshowtype.equals("mg")){
+                        presenter.postGoPlayGameMG("",data.getGameid());
+                    }else{
+                        presenter.postGoPlayGame("",data.getGameid());
+                    }
                 }
             });
         }
@@ -282,10 +336,15 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Subscribe
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult){
         GameLog.log("通过发送消息得的的数据"+personBalanceResult.getBalance_ag());
-        agMoney = personBalanceResult.getBalance_ag();
-        hgMoney = personBalanceResult.getBalance_hg();
+        if("mg".equals(fshowtype)){
+            agMoney = personBalanceResult.getMg_balance();
+            hgMoney = personBalanceResult.getHg_balance();
+        }else{
+            agMoney = personBalanceResult.getBalance_ag();
+            hgMoney = personBalanceResult.getBalance_hg();
+        }
         EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(hgMoney)));
-        agUserMoney.setText(titleName+GameShipHelper.formatMoney(personBalanceResult.getBalance_ag()));
+        agUserMoney.setText(titleName+GameShipHelper.formatMoney(agMoney));
     }
 
 

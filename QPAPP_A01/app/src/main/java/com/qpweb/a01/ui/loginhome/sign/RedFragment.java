@@ -14,6 +14,7 @@ import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseDialogFragment;
 import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
+import com.qpweb.a01.utils.DoubleClickHelper;
 import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.QPConstant;
 import com.qpweb.a01.widget.IconRainView;
@@ -203,6 +204,7 @@ public class RedFragment extends BaseDialogFragment {
                 fallingView.setVisibility(View.GONE);
             }
         },1500);*/
+        DoubleClickHelper.getNewInstance().disabledView(redOpen);
         EventBus.getDefault().post(new RedEventD());
 
     }

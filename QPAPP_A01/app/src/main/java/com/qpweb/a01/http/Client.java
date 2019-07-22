@@ -2,6 +2,8 @@ package com.qpweb.a01.http;
 
 
 import android.webkit.CookieManager;
+
+import com.google.gson.GsonBuilder;
 import com.qpweb.a01.http.util.LoggerInterceptor;
 import com.qpweb.a01.http.util.SaveCookiesInterceptor;
 import com.qpweb.a01.utils.GameLog;
@@ -138,6 +140,7 @@ public class Client {
                     .baseUrl(baseUrl())
                     .callFactory(proxyCallFactory)
                     .addConverterFactory(GsonConverterFactory.create())//new GsonBuilder().setLenient().create() // RxJava2与Gson混用
+//                    .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())// RxJava2与Retrofit混用
                     .build();
         }

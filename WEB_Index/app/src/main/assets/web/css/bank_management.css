@@ -1,0 +1,124 @@
+.management_main_box{
+    position: absolute;
+    top: 0.9rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 0.8rem;
+    background-color: #fff;
+    overflow: auto;
+}
+.management_main_logo{
+    width: 100%;
+    height: 5.88rem;
+    margin-top: 1rem;
+}
+.management_main_logo i{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bank_bg.png) no-repeat;
+    background-size: 100%;
+}
+.management_main_addBank{
+    width: 5.7rem;
+    padding: 0.3rem 0;
+    border: 1px solid #cc8f27;
+    border-radius: 0.08rem;
+    margin: 0.4rem auto 0;
+    text-align: center;
+}
+.management_main_addBank_txt{
+    color: #cc8f27;
+    font-size: 0.3rem;
+}
+.management_main_addBank_txt i{
+    width: 0.28rem;
+    height: 0.28rem;
+    background: url(../img/addcard.png);
+    background-size: 100% 100%;
+    display: inline-block;
+    margin-right: 0.15rem;
+}
+
+.addCard_main_box{
+    position: absolute;
+    top: 0.88rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f8faff;
+}
+
+.addCard_main_from{
+    padding: 0.4rem 0.36rem;
+}
+.addCard_main_from_name_box{
+    padding-left: 0.3rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
+    border-radius: 0.08rem;
+    margin-bottom: 0.2rem;
+}
+.addCard_main_from_name_box .addCard_main_from_name_bj{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /*border-bottom: 1px solid #e2e2e2;*/
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-right: 0.3rem;
+}
+.addCard_main_from_name_bj .addCard_name{
+    display: block;
+    font-size: 0.28rem;
+    color: #1e1e1e;
+    padding: 0.34rem 0;
+    width: 1.5rem;
+    font-weight: normal;
+}
+.addCard_main_from_name_bj .addCard_name_input{
+    width: 100%;
+    display: block;
+    border: none;
+    margin: 0;
+    text-align: right;
+    font-size: 0.26rem;
+    color: #1e1e1e;
+    padding: 0.33rem 0;
+    background: none;
+}
+input::-webkit-input-placeholder {
+    color: #aab2bd;
+
+}
+#bank_choose{
+    color: #aab2bd;
+}
+.addCard_main_from .addCard_main_from_name_box:nth-child(3){
+    margin-bottom: 1.5rem !important;
+}
+.btn_ljzz{
+    display: block;
+    border: none;
+    width: 100%;
+    height: 0.8rem;
+    border-radius: 0.4rem;
+    margin: 0 auto;
+    margin-top: 0.4rem;
+    margin-bottom: 0.5rem;
+    background: #898a8b;
+    font: 3.84px/12.8px PingFangSC-Regular, sans-serif;
+    font: 0.24rem/0.8rem PingFangSC-Regular, sans-serif;
+    color: #fff;
+}

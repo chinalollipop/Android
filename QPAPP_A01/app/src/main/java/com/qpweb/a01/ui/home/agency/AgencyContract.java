@@ -4,6 +4,7 @@ import com.qpweb.a01.base.IMessageView;
 import com.qpweb.a01.base.IPresenter;
 import com.qpweb.a01.base.IView;
 import com.qpweb.a01.data.DetailListResult;
+import com.qpweb.a01.data.DetailWeekListResult;
 import com.qpweb.a01.data.MyAgencyResults;
 import com.qpweb.a01.data.ProListResults;
 import com.qpweb.a01.data.RedPacketResult;
@@ -28,7 +29,7 @@ public interface AgencyContract {
 
         public void postMyProListResult(MyAgencyResults myAgencyResults);
         public void postDetailListResult(List<DetailListResult> detailListResult);
-        public void postWeeksDetailResult(List<DetailListResult> detailListResult);
+        public void postWeeksDetailResult(List<DetailWeekListResult> detailListResult);
         public void postGetMyPromotionRecordResult(List<ProListResults> proListResults);
     }
 }

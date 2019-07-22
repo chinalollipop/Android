@@ -65,6 +65,7 @@ import com.qpweb.a01.ui.loginhome.sign.RedFragment;
 import com.qpweb.a01.ui.loginhome.sign.SignTodayFragment;
 import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
+import com.qpweb.a01.utils.DoubleClickHelper;
 import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.QPConstant;
 import com.qpweb.a01.utils.ToastUtils;
@@ -141,6 +142,8 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
     ImageView homeService;
     @BindView(R.id.homeShare)
     ImageView homeShare;
+    @BindView(R.id.homeShuaXin)
+    ImageView homeShuaXin;
     @BindView(R.id.homeWithDraw)
     LinearLayout homeWithDraw;
 
@@ -157,6 +160,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
     SoundPool soundPool;
     HashMap<Integer, Integer> soundPoolMap;
     int currStreanId=0;
+    Animation shakeX;
     //用户签到红包
     SignTodayResult signTodayResult;
     static {
@@ -337,6 +341,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         animation.setRepeatMode(Animation.RESTART);
         animation.setRepeatCount(Animation.INFINITE);
         Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.shake_y);
+        shakeX = AnimationUtils.loadAnimation(getContext(), R.anim.rotate_clockwise);
         shake.setRepeatCount(Animation.INFINITE);
         shake.setRepeatMode(Animation.RESTART);
         homeGirls.startAnimation(shake);
@@ -368,8 +373,11 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         homeBy.setOnTouchListener(this);
         homeHg.setOnTouchListener(this);
         presenters();
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.postBanner("");
-        presenter.postNotice("","2");
+        //presenter.postNotice("","2");
         presenter.postWinNews("",System.currentTimeMillis()+"");
         presenter.postRefreshMoney("");
         if(loginResult.getHaveLyAccount().equals("0")){
@@ -426,10 +434,12 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
 
     @OnClick({R.id.homeGeneralize,R.id.homeAccountLogo,R.id.payFish,R.id.homeAccountName, R.id.homeHBao, R.id.homeCheck, R.id.homeRegent, R.id.homePop,
             R.id.homeDeposit,R.id.homeSetting, R.id.homeUserCenter, R.id.homeActivity, R.id.homeService, R.id.homeWithDraw,
-            R.id.homeHg,R.id.homeVg,R.id.homeKy,R.id.homeBy})
+            R.id.homeHg,R.id.homeVg,R.id.homeKy,R.id.homeBy,R.id.homePlus,R.id.homeShuaXin})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.homeGeneralize:
+                ACache.get(getContext()).put("promotion_link",loginResult.getPromotion_link());
+                ACache.get(getContext()).put("promotion_qrcode_link",loginResult.getPromotion_qrcode_link());
                 AgencyFragment.newInstance().show(getFragmentManager());
                 break;
             case R.id.homeAccountLogo:
@@ -468,7 +478,12 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
                 SetFragment.newInstance().show(getFragmentManager());
                 break;
             case R.id.homeDeposit:
+            case R.id.homePlus:
                 DepositFragment.newInstance().show(getFragmentManager());
+                break;
+            case R.id.homeShuaXin:
+                homeShuaXin.startAnimation(shakeX);
+                presenter.postRefreshMoney("");
                 break;
             case R.id.homeUserCenter:
                 String url;
@@ -482,7 +497,8 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
                 startActivity(intent);
                 break;
             case R.id.homeActivity:
-                NoticeFragment.newInstance().show(getFragmentManager());
+                DoubleClickHelper.getNewInstance().disabledView(homeActivity);
+                presenter.postNotice("","2");
                 break;
             case R.id.homeService:
                 //StrongBoxFragment.newInstance().show(getFragmentManager());
@@ -543,6 +559,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
     public void postNoticeResult(List<NoticeResult> noticeResult) {
         GameLog.log("获取公告信息 "+noticeResult.get(0).getTitle());
         ACache.get(getContext()).put("QP_Notice", JSON.toJSONString(noticeResult.get(0)));
+        NoticeFragment.newInstance().show(getFragmentManager());
     }
 
     @Override
@@ -572,6 +589,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
 
     @Override
     public void postRefreshMoneyResult(RefreshMoneyResult refreshMoneyResult) {
+        homeShuaXin.clearAnimation();
         GameLog.log("刷新用户的余额");
         ACache.get(getContext()).put("Money",refreshMoneyResult.getLy_balance());
         homeUserMoney.setText(refreshMoneyResult.getLy_balance());

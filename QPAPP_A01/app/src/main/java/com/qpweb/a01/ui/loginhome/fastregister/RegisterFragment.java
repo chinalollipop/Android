@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.alibaba.fastjson.JSON;
 import com.qpweb.a01.Injections;
+import com.qpweb.a01.QPApplication;
 import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseDialogFragment;
 import com.qpweb.a01.base.IPresenter;
@@ -91,7 +92,7 @@ public class RegisterFragment extends BaseDialogFragment implements RegisterCont
             showMessage("两次输入的会员密码不一致");
             return;
         }
-        presenter.postRegisterMember(QPConstant.PRODUCT_PLATFORM, "register", "", registerAccounts, registerPwds, registerPwd2s, "ZRN7", "");
+        presenter.postRegisterMember(QPConstant.PRODUCT_PLATFORM, "register", QPApplication.instance().getCommentData(), registerAccounts, registerPwds, registerPwd2s, "ZRN7", "1");
     }
 
     @Override

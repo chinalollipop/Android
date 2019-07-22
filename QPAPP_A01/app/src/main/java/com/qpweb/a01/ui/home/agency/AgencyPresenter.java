@@ -1,5 +1,6 @@
 package com.qpweb.a01.ui.home.agency;
 
+import com.qpweb.a01.data.DetailWeekListResult;
 import com.qpweb.a01.data.MyAgencyResults;
 import com.qpweb.a01.data.DetailListResult;
 import com.qpweb.a01.data.ProListResults;
@@ -29,7 +30,7 @@ public class AgencyPresenter implements AgencyContract.Presenter {
 
     @Override
     public void postMyProList(String appRefer, String action) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postMyProList(QPConstant.PRODUCT_PLATFORM,""))
+        subscriptionHelper.add(RxHelper.addSugar(api.postMyProList(QPConstant.PRODUCT_PLATFORM,"info"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<MyAgencyResults>>() {
                     @Override
                     public void success(AppTextMessageResponseList<MyAgencyResults> response) {
@@ -76,9 +77,9 @@ public class AgencyPresenter implements AgencyContract.Presenter {
     @Override
     public void postWeeksDetail(String appRefer, String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postWeeksDetail(QPConstant.PRODUCT_PLATFORM,"info"))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<DetailListResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<DetailWeekListResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<DetailListResult> response) {
+                    public void success(AppTextMessageResponseList<DetailWeekListResult> response) {
                         if (response.isSuccess()) {
                             view.postWeeksDetailResult(response.getData());
                         } else {

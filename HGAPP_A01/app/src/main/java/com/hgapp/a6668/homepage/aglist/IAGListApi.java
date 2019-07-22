@@ -19,10 +19,20 @@ public interface IAGListApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //获取MG余额
+    @POST("mg/mg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postMGPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
     //检查AG真人 或者 电子列表
     @POST("ag_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<AGLiveResult>> postAGGameList(@Field("appRefer") String appRefer, @Field("uid") String uid, @Field("action") String action);
+
+    //检查MG电子列表
+    @POST("mg/mg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<AGLiveResult>> postMGGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
 
     //检查AG视讯账号是否注册
     @POST("live.php")
@@ -39,6 +49,12 @@ public interface IAGListApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<AGGameLoginResult>> postLoginGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid);
 
+    //进入MG游戏
+    @POST("mg/mg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postMGLoginGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid, @Field("action") String action);
+
+
     //检查AG账号
     @POST("ag_api.php")
     @FormUrlEncoded
@@ -49,8 +65,5 @@ public interface IAGListApi {
     @POST("ag_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<CheckAgLiveResult>> postCreateAgAccount(@Field("appRefer") String appRefer, @Field("uid") String uid, @Field("action") String action);
-
-
-
 
 }

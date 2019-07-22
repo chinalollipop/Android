@@ -745,6 +745,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "ly":
                     from = "乐游棋牌";
                     break;
+                case "mg":
+                    from = "MG电子";
+                    break;
             }
             switch (rowsBean.getTo()){
                 case "hg":
@@ -767,6 +770,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     break;
                 case "ly":
                     to = "乐游棋牌";
+                    break;
+                case "mg":
+                    to = "MG电子";
                     break;
             }
             if(rowsBean.getNotes().equals("APP幸运红包活动")||rowsBean.getNotes().contains("新春红包活动")){

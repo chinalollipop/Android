@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>开奖结果</title>
+    <link rel="stylesheet" href="../css/lottery_style.css">
+    <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/lCalendar.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/lCalendar.js"></script>
+</head>
+<body>
+<div class="app">
+    <div class="game_home_box">
+        <div class="main_app">
+            <div style="opacity: 1; transform: translateX(0px);">
+                <div class="game_header">
+                    <a class="back-to-game" onclick="javascript:window.location.href='../lottery_game/jssc.html'">游戏</a>
+                    <div class="title">开奖结果</div>
+                </div>
+                <div class="lottery_results">
+                    <div class="results_dw">
+                        <div class="cz_date">
+                            <div>极速赛车</div>
+                            <div class="Game_selection_icon"></div>
+                        </div>
+                        <div class="cz_date rili">
+                            <input id="demo_time" style="border: 0;" type="text" readonly="" name="input_date" placeholder="" data-lcalendar="2010-01-11,2019-12-31">
+                        </div>
+                    </div>
+                    <div class="rough_lines"></div>
+                    <div class="all_record_box">
+                        <div class="all_record">
+                            <div class="all_record_left">
+                                <div class="all_record_left_time">期数</div>
+                                <div class="all_record_left_date">时间</div>
+                            </div>
+                            <div class="all_record_right">
+                                <div class="all_record_right_number active_color">号码</div>
+                                <div class="all_record_right_dx">大小</div>
+                                <div class="all_record_right_ds">单双</div>
+                                <div class="all_record_right_gy">亚冠/龙虎</div>
+                            </div>
+                        </div>
+                        <div class="all_record_details" style="position: relative">
+                            <div class="all_record_details_kj" style="height: 45px;  width: 100%;">
+                                <div class="all_record_details_kj_one"><span class="title">31118875</span><span class="title">20:13</span>
+                                </div>
+                                <div class="all_record_details_kj_two">
+                                        <div class="sc_number sc_number_4">4</div>
+                                        <div class="sc_number sc_number_10">10</div>
+                                        <div class="sc_number sc_number_2">2</div>
+                                        <div class="sc_number sc_number_6">6</div>
+                                        <div class="sc_number sc_number_9">9</div>
+                                        <div class="sc_number sc_number_3">3</div>
+                                        <div class="sc_number sc_number_8">8</div>
+                                        <div class="sc_number sc_number_7">7</div>
+                                        <div class="sc_number sc_number_1">1</div>
+                                        <div class="sc_number sc_number_5">5</div>
+                                </div>
+                            </div>
+                            <div class="all_record_details_kj" style="height: 45px; width: 100%;">
+                                <div class="all_record_details_kj_one"><span class="title">31118875</span><span class="title">20:13</span>
+                                </div>
+                                <div class="all_record_details_kj_two">
+                                    <div class="sc_number sc_number_4">4</div>
+                                    <div class="sc_number sc_number_10">10</div>
+                                    <div class="sc_number sc_number_2">2</div>
+                                    <div class="sc_number sc_number_6">6</div>
+                                    <div class="sc_number sc_number_9">9</div>
+                                    <div class="sc_number sc_number_3">3</div>
+                                    <div class="sc_number sc_number_8">8</div>
+                                    <div class="sc_number sc_number_7">7</div>
+                                    <div class="sc_number sc_number_1">1</div>
+                                    <div class="sc_number sc_number_5">5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a class="shortcut" onclick="javascript:window.location.href='../lottery_game/home.html'">
+            <div class="bet" style="background-image: url(../img/cp_tab1.png);"></div>
+            <span class="text" >游戏</span>
+        </a>
+        <a class="shortcut" onclick="javascript:window.location.href='../lottery_game/kj.html'">
+            <div class="result" style="background-image: url(../img/cp_tab_bg2.png);"></div>
+            <span class="text" style="color:#c6921d;">开奖</span>
+        </a>
+        <a class="shortcut" onclick="javascript:window.location.href='../lottery_game/wjmx.html'">
+            <div class="stats"></div>
+            <span class="text">未结</span>
+        </a>
+        <a class="shortcut navbar-toggle">
+            <div class="menu"></div>
+            <span class="text">菜单</span>
+        </a>
+    </div>
+
+</div>
+</body>
+<script>
+    //时间选择
+    var calendardatetime = new lCalendar();
+    calendardatetime.init({
+        'trigger': '#demo_time',
+        'type': 'date'
+    });
+
+    Date.prototype.Format = function (fmt) { // author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    var time2 = new Date().Format("yyyy-MM-dd");
+
+    $('#demo_time').attr('placeholder', time2);
+</script>
+</html>

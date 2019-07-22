@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registered.css">
+    <script src="../js/jquery.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="login_main_box">
+            <div class="login_main_bg"></div>
+            <div class="login_content_box">
+                <div class="login_content_logo"></div>
+            </div>
+            <div class="overflow: hidden;">
+                <div class="login_register anmtion">
+                    <div class="login_registered_from_box">
+                        <div class="login_registered_from_box_one">
+                        <div class="login_register_txt">登录</div>
+                        <div class="registered_from">
+                            <div class="registered_from_input_box">
+                                <div class="registered_from_icon"></div>
+                                <div class="registered_from_name_box">
+                                    <!--                            <div class="registered_from_input_name">用户名</div>-->
+                                    <input class="registered_from_input_name_sr" placeholder="用户名" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="registered_from_input_box">
+                                <div class="registered_from_icon"></div>
+                                <div class="registered_from_name_box">
+                                    <!--                            <div class="registered_from_input_name">密码</div>-->
+                                    <input class="registered_from_input_name_sr" placeholder="密码" type="text" name="password" id="password" required="required">
+                                </div>
+                                <img src="../img/1111.png" class="registered_from_input_pswd   pswd_xs" id="showText" onclick="hideShowPsw()">
+                            </div>
+                        </div>
+                            <div class="login_forget">
+                                <div>
+                                    <span class="Keep_icon"></span>
+                                    <span>记住密码</span>
+                                </div>
+                                <span data-analytics="button" data-label="忘记密码?">忘记密码?</span>
+                            </div>
+                            <div class="btn_zc">
+                                <button class="" type="button" data-analytics="button" data-label="注册">登 录</button>
+                            </div>
+                            <div class="existing"><span>先去逛逛</span></div>
+                        </div>
+                        <div class="login_registered_from_box_two switch_zc">
+                            <div class="login_registered_from_box_two_details">
+                                <div class="login_registered_from_box_two_details_tb"></div>
+                            <div class="login_registered_from_box_two_details_zc"><span>注</span><span>册</span><span>新</span><span>用</span><span>户</span></div></div></div>
+                    </div>
+                    <div class="login_registered_from_box">
+                        <div class="login_registered_from_box_two switch_dl zc_style_two">
+                            <div class="login_registered_from_box_two_details">
+                                <div class="login_registered_from_box_two_details_tb"></div>
+                                <div class="login_registered_from_box_two_details_zc"><span>返</span><span>回</span><span>登</span><span>录</span></div></div></div>
+                        <div class="login_registered_from_box_one zc_style">
+                        <div class="login_register_txt">注册</div>
+                        <div class="registered_from">
+                            <div class="registered_from_input_box">
+                                <div class="registered_from_icon"></div>
+                                <div class="registered_from_name_box">
+                                    <!--                            <div class="registered_from_input_name">用户名</div>-->
+                                    <input class="registered_from_input_name_sr" placeholder="用户名" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="registered_from_input_box">
+                                <div class="registered_from_icon"></div>
+                                <div class="registered_from_name_box">
+                                    <!--                            <div class="registered_from_input_name">密码</div>-->
+                                    <input class="registered_from_input_name_sr" placeholder="密码" type="text" name="password" id="password" required="required">
+                                </div>
+                                <img src="../img/1111.png" class="registered_from_input_pswd   pswd_xs" id="showText" onclick="hideShowPsw()">
+                            </div>
+                            <div class="registered_from_input_box">
+                                <div class="registered_from_icon"></div>
+                                <div class="registered_from_name_box">
+                                    <!--                            <div class="registered_from_input_name">确认密码</div>-->
+                                    <input class="registered_from_input_name_sr" placeholder="确认密码" type="password" name="password" id="password2" required="required">
+                                </div>
+                                <img src="../img/2222.png" class="registered_from_input_pswd " id="showText2"  onclick="hideShowPsw2()">
+                            </div>
+                            <div class="registered_from_input_box">
+                                <div class="registered_from_icon"></div>
+                                <div class="registered_from_name_box">
+                                    <input class="registered_from_input_name_sr" placeholder="验证码" type="text">
+                                </div>
+                                <img src="../img/b80fea28-a8aa-4812-848c-38af69efaab7.png" style="width: 1.8rem;height: 0.6rem;">
+                            </div>
+                        </div>
+
+                            <div class="btn_zc">
+                                <button class="" type="button" data-analytics="button" data-label="注册">注 册</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+ $('.switch_zc').click(function () {
+     $('.login_register.anmtion').css('left','-100vw')
+ })
+ $('.switch_dl').click(function () {
+     $('.login_register.anmtion').css('left','0')
+ })
+</script>
+</html>

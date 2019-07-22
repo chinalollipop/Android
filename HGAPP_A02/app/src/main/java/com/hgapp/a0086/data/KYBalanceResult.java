@@ -6,6 +6,7 @@ public class KYBalanceResult {
     private String ff_balance;
     private String vg_balance;
     private String ly_balance;
+    private String mg_balance;
     public String getKy_balance() {
         return ky_balance;
     }
@@ -46,6 +47,14 @@ public class KYBalanceResult {
         this.ly_balance = ly_balance;
     }
 
+    public String getMg_balance() {
+        return mg_balance;
+    }
+
+    public void setMg_balance(String mg_balance) {
+        this.mg_balance = mg_balance;
+    }
+
     @Override
     public String toString() {
         return "KYBalanceResult{" +
@@ -54,6 +63,7 @@ public class KYBalanceResult {
                 ", ff_balance='" + ff_balance + '\'' +
                 ", vg_balance='" + vg_balance + '\'' +
                 ", ly_balance='" + ly_balance + '\'' +
+                ", mg_balance='" + mg_balance + '\'' +
                 '}';
     }
 }

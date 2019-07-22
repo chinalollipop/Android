@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>老虎机</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/laohuji.css">
+    <link rel="stylesheet" href="css/antdMobile.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="app">
+    <div id="games">
+        <div id="header" style="position: fixed; top: 0px; height: 0.9rem; width: 100%; z-index: 9;">
+            <div class="am-navbar am-navbar-dark">
+                <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='index.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                </div>
+                <div class="am-navbar-title">
+                    <b>老虎机</b>
+                </div>
+                <div class="am-navbar-right">
+                    <span class="header_right_icon"></span>
+                </div>
+            </div>
+        </div>
+        <div class="lhj_bg">
+            <div class="list_slot">
+                <div class="am-tabs am-tabs-horizontal am-tabs-top">
+                    <div class="game_lines_box">
+                        <div class="lhj_lines">电子额度:<span>0.00</span></div>
+                        <div class="lhj_lines_conversion"><span></span>额度转换</div>
+                    </div>
+                    <div class="am-tabs-tab-bar-wrap">
+                        <div class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+                             style="background-color: rgb(255, 255, 255);">
+                            <div class="am-tabs-default-bar-content" style="touch-action: pan-y;">
+                                <div id="m-tabs-2-0" class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                                     style="width: 33.3333%;"><span>全部游戏</span></div>
+                                <div id="m-tabs-2-1" class="am-tabs-default-bar-tab"
+                                     style="width: 33.3333%;"><span>热门推荐</span></div>
+                                <div id="m-tabs-2-2" class="am-tabs-default-bar-tab"
+                                     style="width: 33.3333%;"><span>热门游戏</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-tabs-content-wrap am-tabs-content-wrap-animated">
+                        <div class="am-list-body">
+                            <div class="list-view-section-body">
+                                <ul>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SX02_ZH.png">
+                                            <div class="games_title">街头列战</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SB30_ZH.png">
+                                            <div class="games_title">灵猴献瑞</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SB49_ZH.png">
+                                            <div class="games_title">金龙珠</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/DTAG_ZH.png">
+                                            <div class="games_title">新年到</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SB50_ZH.png">
+                                            <div class="games_title">XIN哥来了</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SB33_ZH.png">
+                                            <div class="games_title">糖果碰碰乐</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/FRU_ZH.png">
+                                            <div class="games_title">水果拉霸</div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div style="clear: both"></div>
+                            </div>
+
+                        </div>
+                        <div class="am-list-body">
+                            <div class="list-view-section-body">
+                                <ul>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SX02_ZH.png">
+                                            <div class="games_title">街头列战</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SB30_ZH.png">
+                                            <div class="games_title">灵猴献瑞</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SB49_ZH.png">
+                                            <div class="games_title">金龙珠</div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div style="clear: both"></div>
+                            </div>
+
+                        </div>
+                        <div class="am-list-body">
+                            <div class="list-view-section-body">
+                                <ul>
+                                    <li>
+                                        <div class="games">
+                                            <img src="img/SX02_ZH.png">
+                                            <div class="games_title">街头列战</div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div style="clear: both"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="search">
+        <div class="search_box">
+            <form class="am-search am-search-start" action="#">
+                <div class="am-search-input">
+                    <div class="am-search-synthetic-ph" style="width: 83px;"><span
+                            class="am-search-synthetic-ph-container"><i class="am-search-synthetic-ph-icon"></i><span
+                            class="am-search-synthetic-ph-placeholder" style="visibility: hidden;">搜索关键字</span></span>
+                    </div>
+                    <input type="search" class="am-search-value" placeholder="搜索关键字" value="">
+            </div>
+                <div class="am-search-cancel am-search-cancel-show am-search-cancel-anim">取消</div>
+            </form>
+            <div class="search_classification">
+                <div>
+                    <div class="search_history">
+                        <div>横财神</div>
+                        <div>麻辣火锅</div>
+                        <div>鱼跃龙门</div>
+                        <div>万胜狂欢夜</div>
+                        <div>夜戏貂蝉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+        $('.header_right_icon').click(function () {
+            $('#games').hide()
+            $('#search').show()
+        })
+        $('.am-search-cancel-anim').click(function () {
+            $('#games').show()
+            $('#search').hide()
+        })
+        // 游戏切换
+        $('.am-tabs-default-bar .am-tabs-default-bar-tab').click(function () {
+            var i = $(this).index();
+            $(this).addClass('am-tabs-default-bar-tab-active').siblings().removeClass('am-tabs-default-bar-tab-active');
+            $('.am-tabs-content-wrap-animated .am-list-body').eq(i).show().siblings().hide();
+        })
+</script>
+</html>

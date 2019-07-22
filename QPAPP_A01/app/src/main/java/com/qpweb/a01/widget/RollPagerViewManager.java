@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
@@ -17,8 +19,6 @@ import com.jude.rollviewpager.hintview.IconHintView;
 import com.qpweb.a01.R;
 import com.qpweb.a01.data.BannerResult;
 import com.qpweb.a01.utils.GameLog;
-import com.qpweb.a01.utils.Utils;
-import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
@@ -261,12 +261,13 @@ public class RollPagerViewManager {
             //view.setBackground(Utils.getContext().getDrawable(R.mipmap.change_bg));
             view.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            Picasso.get()
+            Glide.with(context).load(activityList.get(position).getImg_path()).apply(new RequestOptions().fitCenter()).into(view);
+            /*Picasso.get()
                     .load(activityList.get(position).getImg_path())
                     .placeholder(R.mipmap.change_bg)
 //                    .resize(120,200)
                     .error(R.mipmap.change_bg)
-                    .into(view);
+                    .into(view);*/
             /*Picasso.with(context)
                     .load(activityList.get(position).getImg_path())
                     //.placeholder(R.drawable.loading)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>添加银行卡</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bank_management.css">
+    <link rel="stylesheet" href="css/mode.css">
+    <script src="js/mobileSelect.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div id="header">
+            <div class="am-navbar am-navbar-dark">
+                <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='bank_management.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                </div>
+                <div class="am-navbar-title">
+                    <b>添加银行卡</b>
+                </div>
+                <div class="am-navbar-right"></div>
+            </div>
+        </div>
+        <div class="addCard_main_box">
+            <div class="addCard_main_from">
+                <div class="addCard_main_from_name_box">
+                    <div class="addCard_main_from_name_bj">
+                        <b class="addCard_name">姓名</b>
+                        <input class="addCard_name_input" type="text" placeholder="开户姓名" value="">
+                    </div>
+                </div>
+                <div class="addCard_main_from_name_box">
+                    <div class="addCard_main_from_name_bj" style="border-bottom: 1px solid #e2e2e2;">
+                        <b class="addCard_name">开户行</b>
+                        <div class="addCard_name_input" id="bank_choose">请选择银行名称</div>
+                    </div>
+                    <div class="addCard_main_from_name_bj">
+                        <b class="addCard_name">卡号</b>
+                        <input class="addCard_name_input" type="text" placeholder="银行卡卡号" value="">
+                    </div>
+                </div>
+                <div class="addCard_main_from_name_box">
+                    <div class="addCard_main_from_name_bj">
+                        <b class="addCard_name">开户网点</b>
+                        <input class="addCard_name_input" type="text" placeholder="请填写开户行地址" value="">
+                    </div>
+                </div>
+                <button class="btn_ljzz" >确认添加</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    // 银行选择
+    var mobileSelect3 = new MobileSelect({
+        trigger: '#bank_choose',
+        wheels: [
+            {data:['中国银行','建设银行','农业银行','工商银行']}
+        ],
+        position:[0] //Initialize positioning
+    });
+
+</script>
+</html>

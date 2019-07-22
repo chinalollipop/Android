@@ -186,6 +186,11 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
     }
 
     @Override
+    public void postMGPersonBalanceResult(PersonBalanceResult personBalance) {
+
+    }
+
+    @Override
     public void postAGGameResult(List<AGLiveResult> agLiveResult) {
         GameLog.log("游戏列表：" + agLiveResult);
     }

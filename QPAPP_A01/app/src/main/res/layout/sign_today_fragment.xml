@@ -318,9 +318,10 @@
 
         <ImageView
             android:id="@+id/loginClose"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_gravity="right"
+            android:layout_margin="20dp"
             android:background="@mipmap/imme_close" />
     </FrameLayout>
 
@@ -342,8 +343,9 @@
 
         <ImageView
             android:id="@+id/sign_today_help1"
-            android:layout_width="80dp"
-            android:layout_height="54dp"
+            android:layout_width="73dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
             android:background="@mipmap/sign_today_help1" />
 

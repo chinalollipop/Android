@@ -1,5 +1,6 @@
 package com.qpweb.a01.ui.loginhome.fastlogin;
 
+import com.qpweb.a01.QPApplication;
 import com.qpweb.a01.data.LoginResult;
 import com.qpweb.a01.http.ResponseSubscriber;
 import com.qpweb.a01.http.RxHelper;
@@ -80,7 +81,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void postRegister(String appRefer, String phone, String code) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postRegister(QPConstant.PRODUCT_PLATFORM,"register"))
+        subscriptionHelper.add(RxHelper.addSugar(api.postRegister(QPConstant.PRODUCT_PLATFORM,"register", QPApplication.instance().getCommentData(),"1"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {

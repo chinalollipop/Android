@@ -1,0 +1,355 @@
+.my_bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: url(../img/my/my_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+.my_letter{
+    width: 100%;
+    padding: 0.44rem 0.26rem 0.36rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: right;
+}
+.my_letter a{
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url(../img/my/letter.png) no-repeat center;
+    background-size: contain;
+    position: relative;
+    float: right;
+}
+.my_letter a span{
+    position: absolute;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-color: #ca2727;
+    font: 2.4px/4px PingFangSC-Regular, sans-serif;
+    font: 0.15rem/0.25rem PingFangSC-Regular, sans-serif;
+    text-align: center;
+    color: #fff;
+    right: -0.1rem;
+    top: -0.15rem;
+}
+.my_main_box{
+    width: 100%;
+    padding: 0 0.26rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.my_main{
+    width: 100%;
+    padding-bottom: 0.95rem;
+    overflow: auto;
+}
+.my_login_box{
+    width: 100%;
+    height: 3.2rem;
+    border-radius: 0.1rem;
+    padding: 0.28rem 0.3rem 0.3rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, .7);
+    -webkit-box-shadow: 0 0.02rem 0.04rem 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 0.02rem 0.04rem 0 rgba(0, 0, 0, .1);
+}
+.my_login_tx{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 0.16rem;
+    margin-bottom: 0.33rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+.my_login_tx .login_tx{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.28rem;
+    position: relative;
+    border: 0.04rem solid rgba(255, 255, 255, .6);
+    border-radius: 50%;
+}
+.my_login_tx .login_tx img{
+    border: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: block;
+
+}
+.my_login_tx .login_name{
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    display: grid;
+}
+.my_login_tx .login_name .my_dl{
+    display: inline-block;
+    line-height: 0.5rem;
+    padding-top: 0.1rem;
+    font-size: 0.36rem;
+    color: #333;
+}
+.my_login_tx .login_tx img.switch{
+    position: absolute;
+    display: block;
+    border: none;
+    width: 0.38rem;
+    height: 0.38rem;
+    right: 0;
+    bottom: 0;
+}
+.my_login_tx .login_name .my_dl2{
+    position: relative;
+    display: grid;
+    padding-right: 1rem;
+    margin-bottom: 0.08rem;
+}
+.my_login_tx .login_name .my_dl2_txt{
+    margin-right: 0.15rem;
+    line-height: 0.52rem;
+    font-size: 0.38rem;
+    color: #333;
+    vertical-align: middle;
+}
+.my_login_tx .login_name .my_dl2 img{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: inline-block;
+    width: .9rem;
+    height: 0.35rem;
+    vertical-align: middle;
+}
+.my_dl2_js{
+    font-size: 0.21rem;
+    color: #333;
+}
+.my_wallet_box{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.my_wallet{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    padding-right: 0.3rem;
+}
+.my_waller_money{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-bottom: 0.08rem;
+    text-align: center;
+}
+.my_qb{
+    line-height: 1.2;
+    font-size: 0.29rem;
+    color: #333;
+    font-weight: 600;
+}
+.my_money{
+    line-height: 1;
+    font-size: 0.32rem;
+    color: #333;
+    font-family: 'fontLibrary', 'sans-serif';
+    font-weight: 600;
+    word-break: break-all;
+}
+.my_zxqb{
+    text-align: center;
+    font-size: 0.25rem;
+    color: #b6bbbd;
+    font-weight: 600;
+}
+.my_fg{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 1px;
+    -ms-flex: 0 0 1px;
+    flex: 0 0 1px;
+    width: 1px;
+    height: 1rem;
+    margin: 0 0.42rem 0 0.1rem;
+    background: #aeaead;
+}
+.my_bank{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 3.91rem;
+    -ms-flex: 0 0 3.91rem;
+    flex: 0 0 3.91rem;
+    width: 3.91rem;
+}
+.my_allfl{
+    text-align: center;
+}
+.my_allfl img{
+    width: 0.56rem;
+    height: 0.4rem;
+}
+.fl_zt{
+    position: relative;
+    top: -0.1rem;
+    font-size: 0.25rem;
+    color: #4a4a4a;
+    margin-top: .3rem;
+}
+.my_Individual_box{
+    width: 100%;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.my_Individual{
+    width: 100%;
+    height: auto;
+    margin-top: 0.42rem;
+}
+.my_Individual ul{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 1.46rem;
+    border-radius: 0.1rem;
+    background: rgba(255, 255, 255, .7);
+    margin-bottom: 0.42rem;
+    -webkit-box-shadow: 0 0.02rem 0.04rem rgba(0, 0, 0, .1);
+    box-shadow: 0 0.02rem 0.04rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+}
+.my_Individual ul li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 33.1%;
+    -webkit-flex: 33.1%;
+    -ms-flex: 33.1%;
+    flex: 33.1%;
+    width: 33.1%;
+    height: 1.46rem;
+    position: relative;
+}
+.my_Individual ul li img{
+    display: block;
+    border: none;
+    width: 0.58rem;
+    height: 0.58rem;
+    margin: 0 auto;
+}
+.my_Individual ul li p{
+    width: 100%;
+    font: 4px/5.6px PingFangSC-Regular, sans-serif;
+    font: 0.25rem/0.35rem PingFangSC-Regular, sans-serif;
+    color: #4a4a4a;
+    text-align: center;
+    margin-top: .1rem;
+}
+.my_Individual ul li .line{
+    display: block;
+    border-right: 1px solid #aeaead;
+    width: 1px;
+    height: 0.46rem;
+    position: absolute;
+    left: 100%;
+    top: 0.52rem;
+}

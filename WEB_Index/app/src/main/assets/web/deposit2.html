@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/deposit2.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mode.css">
+    <link rel="stylesheet" href="css/lCalendar.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/mobileSelect.js"></script>
+    <script src="js/lCalendar.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div id="header">
+            <div class="am-navbar am-navbar-dark">
+                <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='deposit.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                </div>
+                <div class="am-navbar-title">
+                    <b>公司入款</b>
+                </div>
+                <div class="am-navbar-right"></div>
+            </div>
+        </div>
+        <div class="deposit_main">
+            <div class="deposit_detail">
+                <div class="deposit__box">
+                    <div class="form-horizontal_box">
+                    <div class="form-horizontal">
+                        <label class="control-label">存款金额</label>
+                        <div class="form-control">
+                            <input style="border: 0;"  type="number" id="money_ks" placeholder="请输入存款金额">
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="form-control_money">
+                            <ul>
+                                <li class="" data-val="500">500</li>
+                                <li data-val="1000">1000</li>
+                                <li data-val="5000">5000</li>
+                                <li data-val="10000">10000</li>
+                                <li data-val="30000">30000</li>
+                            </ul>
+                            <div style="clear: both"></div>
+                        </div>
+                </div>
+                </div>
+                <div class="deposit__box">
+                <div class="information">
+                    <label class="control-label">存款人姓名</label>
+                    <div class="form-control" style="width: 76%">
+                        <input style="border: 0;"  type="text"  placeholder="请输入存款人姓名">
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+                </div>
+                <div class="deposit_input_box">
+                    <div class="information">
+                        <label class="control-label">汇款银行</label>
+                        <div class="form-control" style="width: 81%" id="bank">
+                            请选择转入银行<i></i>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+                <div class="deposit_input_box">
+                    <div class="information">
+                        <label class="control-label">汇款日期</label>
+                        <div class="form-control" style="width: 81%">
+                            <input id="demo2" style="border: 0;" type="text" readonly="" name="input_date" placeholder="" data-lcalendar="2010-01-11,2019-12-31"><i></i>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+                <div class="deposit_input_box">
+                    <div class="information">
+                        <label class="control-label">汇款方式</label>
+                        <div class="form-control" style="width: 81%" id="pay">
+                            请填下汇款方式<i></i>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+                <div class="deposit_input_box">
+                    <div class="information">
+                        <label class="control-label">存款备注</label>
+                        <div class="form-control" style="width: 81%">
+                            <input style="border: 0;"  type="text"  placeholder="可填入银行转账号等信息">
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_next_box">
+                <a href="DepositRecords.html">
+                    <button class="btn_next">提交信息</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    // 金额快速选择
+    $(".form-control_money").on("click","li",function() {
+        $('#money_ks').val($(this).data('val'));
+        $(".form-control_money ul li").not($(this)).removeClass("money_active");
+        $(this).addClass("money_active");
+    });
+
+</script>
+
+<script type="text/javascript">
+
+
+
+    // 选择银行
+    var mobileSelect1 = new MobileSelect({
+        trigger: '#bank',
+        wheels: [
+            {data:['农业银行','招商银行','平安银行']}
+        ],
+        position:[0] //Initialize positioning
+    });
+
+
+    // 汇款方式
+    var mobileSelect2 = new MobileSelect({
+        trigger: '#pay',
+        wheels: [
+            {data:['银行柜台','ATM现金','ATM卡转','网银转账','其他']}
+        ],
+        position:[0] //Initialize positioning
+    });
+
+    //时间选择
+    var calendardatetime = new lCalendar();
+    calendardatetime.init({
+        'trigger': '#demo2',
+        'type': 'datetime'
+    });
+
+    Date.prototype.Format = function (fmt) { // author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    var time2 = new Date().Format("yyyy-MM-dd hh:mm");
+
+    $('#demo2').attr('placeholder',time2);
+
+
+</script>
+
+</html>

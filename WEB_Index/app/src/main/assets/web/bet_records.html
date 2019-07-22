@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>投注记录</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/record.css">
+    <link rel="stylesheet" href="css/mode.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/mobileSelect.js"></script>
+
+</head>
+<body>
+<div class="app">
+    <div id="header">
+        <div class="am-navbar am-navbar-dark">
+            <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='my.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+            </div>
+            <div class="am-navbar-title">
+                <b>投注记录</b>
+            </div>
+            <div class="am-navbar-right"><span id="species">存款</span> <i class="am-navbar-right_icon"></i></div>
+        </div>
+    </div>
+    <div class="records_date_box">
+        <div class="records_date_xz">
+            <ul>
+                <li class="records_active">
+                    今日
+                </li>
+                <li>
+                    昨日
+                </li>
+                <li>
+                    近15日
+                </li>
+            </ul>
+            <div style="clear: both"></div>
+        </div>
+        <div class="records_bg">
+            <div class="records_main_box">
+                <div class="Running_water">
+                    <div><span>总投注额:</span><span>0</span></div>
+                    <div><span>有效投注额:</span><span>0.00</span></div>
+                    <div><span>总输赢:</span><span style="color:#f4b840;">0.00</span></div>
+                </div>
+                <div>
+                <div class="settlement">
+                    <div class="zd_active"><span>已结算注单</span></div>
+                    <div><span>未结算注单</span></div>
+                    <div><span>已取消注单</span></div>
+                </div>
+                <div class="records_main_img">
+                    <img src="img/pic_box.png">
+                    <h4>暂无交易记录</h4>
+                </div>
+            </div>
+            <div class="records_main_box">
+                    <div class="Running_water">
+                        <div><span>总投注额:</span><span>0</span></div>
+                        <div><span>有效投注额:</span><span>0.00</span></div>
+                        <div><span>总输赢:</span><span style="color:#f4b840;">0.00</span></div>
+                    </div>
+                    <div>
+                        <div class="settlement">
+                            <div class="zd_active"><span>已结算注单</span></div>
+                            <div><span>未结算注单</span></div>
+                            <div><span>已取消注单</span></div>
+                        </div>
+                        <div class="am-list-body">
+                            <div class="list-view-section-body">
+                                <div class="list-view_box">
+                                    <div class="list-view_first">
+                                        <div class="list-view_first_img">
+                                            <img src="img/my/deposit.png">
+                                        </div>
+                                        <div style="display: grid">
+                                            <h4 class="list-view_first_wz">存款</h4>
+                                            <div style="display: grid"><span
+                                                    class="list-view_first_time">2019-06-25 14:02:35</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="list-view_last">
+                                        <div style="display: grid">
+                                            <p class="list-view_last_money">500.00</p>
+                                            <p class="list-view_last_state" style="color: red">失败</p>
+                                        </div>
+                                        <div style="display: grid">
+                                            <img src="img/mine_arrow_right_icon.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="records_main_box">
+                <div>
+                    <div class="Running_water">
+                        <div><span>总投注额:</span><span>0</span></div>
+                        <div><span>有效投注额:</span><span>0.00</span></div>
+                        <div><span>总输赢:</span><span style="color:#f4b840;">0.00</span></div>
+                    </div>
+                    <div>
+                        <div class="settlement">
+                            <div class="zd_active"><span>已结算注单</span></div>
+                            <div><span>未结算注单</span></div>
+                            <div><span>已取消注单</span></div>
+                        </div>
+                        <div class="am-list-body">
+                            <div class="list-view-section-body">
+                                <div class="list-view_box">
+                                    <div class="list-view_first">
+                                        <div class="list-view_first_img">
+                                            <img src="img/my/deposit.png">
+                                        </div>
+                                        <div style="display: grid">
+                                            <h4 class="list-view_first_wz">存款</h4>
+                                            <div style="display: grid"><span
+                                                    class="list-view_first_time">2019-06-25 14:02:35</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="list-view_last">
+                                        <div style="display: grid">
+                                            <p class="list-view_last_money">500.00</p>
+                                            <p class="list-view_last_state" style="color: red">失败</p>
+                                        </div>
+                                        <div style="display: grid">
+                                            <img src="img/mine_arrow_right_icon.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $('.records_date_xz ul li').click(function () {
+        let i = $(this).index();
+        $(this).addClass('records_active').siblings().removeClass('records_active');
+        $('.records_bg .records_main_box').eq(i).show().siblings().hide();
+    })
+
+    $('.settlement div').click(function () {
+        let i = $(this).index();
+        $(this).addClass('zd_active').siblings().removeClass('zd_active');
+        $('.am-list-body .list-view-section-body').eq(i).show().siblings().hide();
+    })
+
+    // 支付渠道
+    var mobileSelect6 = new MobileSelect({
+        trigger: '#species',
+        wheels: [
+            {data: ['全平台', '皇冠体育', '皇冠彩票', 'AG真人']}
+        ],
+        position: [0] //Initialize positioning
+    });
+</script>
+</html>

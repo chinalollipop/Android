@@ -2,27 +2,22 @@ package com.qpweb.a01.ui.home.deposit;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.interfaces.OnMenuItemClickListener;
-import com.kongzue.dialog.v3.BottomMenu;
 import com.qpweb.a01.Injections;
 import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseDialogFragment;
@@ -37,10 +32,6 @@ import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.DateHelper;
 import com.qpweb.a01.utils.DoubleClickHelper;
 import com.qpweb.a01.utils.GameLog;
-import com.qpweb.a01.utils.TimeHelper;
-import com.qpweb.a01.utils.Utils;
-import com.qpweb.a01.widget.PopupWindowList;
-import com.squareup.picasso.Picasso;
 
 import org.angmarch.views.NiceSpinner;
 import org.angmarch.views.OnSpinnerItemSelectedListener;
@@ -51,14 +42,11 @@ import org.greenrobot.eventbus.Subscribe;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class DepositFragment extends BaseDialogFragment implements DepositContract.View {
 
@@ -455,11 +443,7 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
 
 
         depositQCTime.setText(getTime(new Date()));
-        Picasso.get()
-                .load(depositAliPayQCCodeResult.getData().getPhoto_name())
-                .placeholder(R.mipmap.loading)
-                .error(R.mipmap.error)
-                .into(depositQCImge);
+        Glide.with(DepositFragment.this).load(depositAliPayQCCodeResult.getData().getPhoto_name()).apply(new RequestOptions().fitCenter()).into(depositQCImge);
     }
 
     @Override

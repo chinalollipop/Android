@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/activity.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div id="header">
+            <div class="am-navbar am-navbar-dark">
+                <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='my.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                </div>
+                <div class="am-navbar-title">
+                    <b>优惠活动</b>
+                </div>
+                <div class="am-navbar-right"></div>
+            </div>
+        </div>
+        <div class="activity_main_box">
+            <div class="activity_main">
+                <div class="activity_main_bg">
+                    <div class="activity_tab_box">
+                        <div class="activity_tab">
+                            <ul>
+                                <li class="selected">
+                                    <a>全部优惠</a>
+                                </li>
+                                <li>
+                                    <a>新开户</a>
+                                </li>
+                                <li>
+                                    <a>体育竞技</a>
+                                </li>
+                                <li>
+                                    <a>真人视讯</a>
+                                </li>
+                                <div style="clear: both"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab_qh">
+                    <div class="activity_img_box">
+                        <div class="activity_img">
+                            <div class="activity_img_one">
+                                <div class="img_one">
+                                    <img src="img/youhui1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="activity_txt_two">
+                                <div class="txt_two">周周转运金 最高18888元</div>
+                                <div class="txt_two_details">
+                                    查看详情
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity_img">
+                            <div class="activity_img_one">
+                                <div class="img_one">
+                                    <img src="img/youhui2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="activity_txt_two">
+                                <div class="txt_two">周周转运金 最高18888元</div>
+                                <div class="txt_two_details">
+                                    查看详情
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity_img">
+                            <div class="activity_img_one">
+                                <div class="img_one">
+                                    <img src="img/youhui3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="activity_txt_two">
+                                <div class="txt_two">周周转运金 最高18888元</div>
+                                <div class="txt_two_details">
+                                    查看详情
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity_img_box">
+                        <div class="activity_img">
+                            <div class="activity_img_one">
+                                <div class="img_one">
+                                    <img src="img/youhui3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="activity_txt_two">
+                                <div class="txt_two">周周转运金 最高18888元</div>
+                                <div class="txt_two_details">
+                                    查看详情
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity_img_box">
+                        <div class="activity_img">
+                            <div class="activity_img_one">
+                                <div class="img_one">
+                                    <img src="img/youhui2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="activity_txt_two">
+                                <div class="txt_two">周周转运金 最高18888元</div>
+                                <div class="txt_two_details">
+                                    查看详情
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity_img_box">
+                        <div class="activity_img">
+                            <div class="activity_img_one">
+                                <div class="img_one">
+                                    <img src="img/youhui1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="activity_txt_two">
+                                <div class="txt_two">周周转运金 最高18888元</div>
+                                <div class="txt_two_details">
+                                    查看详情
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $('.activity_tab_box .activity_tab ul li').click(function () {
+            var i = $(this).index();
+            $(this).addClass('selected').siblings().removeClass('selected');
+            $('.tab_qh .activity_img_box').eq(i).show().siblings().hide();
+        })
+    })
+</script>
+</html>

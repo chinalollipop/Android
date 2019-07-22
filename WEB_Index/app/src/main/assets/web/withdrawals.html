@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>取款</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/transfer.css">
+    <link rel="stylesheet" href="css/mode.css">
+
+    <script src="js/mobileSelect.js"></script>
+</head>
+<body>
+<div class="app">
+    <div class="transfer_details_bg">
+        <div id="header">
+            <div class="am-navbar am-navbar-dark">
+                <div class="am-navbar-left">
+                <span class="am-navbar-left-icon">
+                    <div class="btn_return" onclick="javascript:window.location.href='index.html'">
+                        <img src="img/left.png" alt="" style="width: 25%;margin-right: .1rem">
+                        <span class="btn_txt">返回</span>
+                    </div>
+                </span>
+                </div>
+                <div class="am-navbar-title">
+                    <b>取款</b>
+                </div>
+                <div class="am-navbar-right"><span>一键回收<i class="am-navbar-right_icon"></i></span></div>
+            </div>
+        </div>
+        <div style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 667px; max-height: 200px;">
+            <div style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 667px; max-height: 200px;">
+                <div class="transfer_details_box">
+                    <ul>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>体育余额</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>彩票余额</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>AG余额</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>开元棋牌</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>乐游棋牌</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>VG余额</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="transfer_details_txt">
+                                <span>老虎机</span>
+                            </div>
+                            <div>
+                                <span class="transfer_details_money">0.00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+<!--                未绑定银行卡显示-->
+                <div class="binding_box" style="display: none">
+                    <div class="binding_box_img">
+                        <p>请绑定一张银行卡用于收款</p>
+                        <a>前往绑定银行卡</a></div>
+                </div>
+<!--                绑定银行卡显示-->
+                <div class="binding_bank">
+                    <ul>
+                        <li class="existing_bank">
+                            <div>
+                                <p>中国建设银行</p>
+                                <p>卡号 113132****654</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <i></i><span>更换您的银行卡</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="clear: both"></div>
+                </div>
+                <div class="transfer_details_conversion_box">
+                    <div class="transfer_details_conversion_title">提款金额</div>
+                    <div class="Transfer_amount ">
+                        <div class="Transfer_amount_input">
+                            <img src="img/icon_save_money.png">
+                            <div class="am-list-item am-input-item am-list-item-middle">
+                                <div class="am-list-line">
+                                    <div class="am-input-control">
+                                        <div class="fake-input-container fake-input-container-left">
+                                            <input type="number" placeholder="请输入转账金额" class="fake-input" style="border: 0;background: none;    padding-left: .2rem;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Withdrawal_amount">可提款额度<span>0</span>元</div>
+                    <div class="transfer_details_conversion_title">提款密码</div>
+                    <div class="Transfer_amount withdrawals_pswd">
+                        <div class="Transfer_amount_input">
+                            <img src="img/pswd_tk.png" style="width:0.35rem;height: 0.4rem;margin-left: .05rem;">
+                            <div class="am-list-item am-input-item am-list-item-middle">
+                                <div class="am-list-line">
+                                    <div class="am-input-control">
+                                        <div class="fake-input-container fake-input-container-left">
+                                            <input type="password" placeholder="输入提款密码" class="fake-input" style="border: 0;background: none;    padding-left: .2rem;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn_ljzz">确认提款</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+
+</script>
+</html>

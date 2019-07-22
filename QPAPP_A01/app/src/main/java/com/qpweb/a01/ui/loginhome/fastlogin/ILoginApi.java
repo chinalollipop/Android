@@ -27,7 +27,8 @@ public interface ILoginApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<LoginResult>> postRegister(
             @Field("appRefer") String appRefer,
-            @Field("action") String action);
+            @Field("action") String action,
+            @Field("reference") String reference, @Field("code") String code);
 
     //获取验证码
     @POST("api/sms/submail/register_login_xsend.php")

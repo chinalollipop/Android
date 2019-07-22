@@ -60,8 +60,8 @@ public class AgencyGetProListFragment extends BaseDialogFragment {
 
         @Override
         protected void convert(BaseViewHolder helper, ProListResults item) {
-            helper.setText(R.id.itemAProUserName, item.getTime()).
-                    setText(R.id.itemAProMoney, item.getMoney());
+            helper.setText(R.id.itemAProUserName, item.getAdddate()).
+                    setText(R.id.itemAProMoney, item.getGold());
         }
     }
 

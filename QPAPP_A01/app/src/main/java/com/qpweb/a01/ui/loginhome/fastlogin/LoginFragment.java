@@ -186,7 +186,7 @@ public class LoginFragment extends BaseDialogFragment implements LoginContract.V
                 showMessage("请输入验证码");
                 return;
             }
-            presenter.postLoginPhone("",loginAccounts,loginCodes, QPApplication.instance().getCommentData(),QPApplication.instance().getCommentData());
+            presenter.postLoginPhone("",loginAccounts,loginCodes, QPApplication.instance().getCommentData(),"1");
         }else{
             if(Check.isEmpty(loginPwdPwds)){
                 showMessage("请输入密码");

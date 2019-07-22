@@ -1,6 +1,7 @@
 package com.qpweb.a01.ui.home.agency;
 
 
+import com.qpweb.a01.data.DetailWeekListResult;
 import com.qpweb.a01.data.MyAgencyResults;
 import com.qpweb.a01.data.DetailListResult;
 import com.qpweb.a01.data.ProListResults;
@@ -31,9 +32,9 @@ public interface IAgencyApi {
     public Observable<AppTextMessageResponseList<DetailListResult>> postProDetail(
             @Field("appRefer") String appRefer, @Field("action") String action);
     //推广周榜
-    @POST("api/report/promotion_detail.php")
+    @POST("api/report/promotion_week_rank.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<DetailListResult>> postWeeksDetail(
+    public Observable<AppTextMessageResponseList<DetailWeekListResult>> postWeeksDetail(
             @Field("appRefer") String appRefer, @Field("action") String action);
     //领取奖金
     @POST("api/account/promotion_get.php")
@@ -41,7 +42,7 @@ public interface IAgencyApi {
     public Observable<AppTextMessageResponse<RedPacketResult>> postGetMyPromotion(
             @Field("appRefer") String appRefer, @Field("action") String action);
     //领取奖金
-    @POST("api/account/promotion_get.php")
+    @POST("api/report/promotion_get_check_records.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<ProListResults>> postGetMyPromotionRecord(
             @Field("appRefer") String appRefer, @Field("action") String action);
