@@ -132,6 +132,7 @@ public abstract class HGConstant {
 
     public static final String KY_DEMO_URL = "KY_DEMO_URL";
     public static final String LY_DEMO_URL = "LY_DEMO_URL";
+    public static final String AV_DEMO_URL = "AV_DEMO_URL";
     public static final String HG_DEMO_URL = "HG_DEMO_URL";
     public static final String VG_DEMO_URL = "VG_DEMO_URL";
 
@@ -178,6 +179,9 @@ public abstract class HGConstant {
     //用户的Ly棋牌地址
     public static final String USERNAME_LY_QIPAI_URL = "username_ly_qipai_url";
 
+
+    public static final String  USERNAME_AVIA_QIPAI_URL  = "username_avia_qipai_url";
+
     //用户的红包地址
     public static final String USERNAME_GIFT_URL = "username_gift_url";
 
@@ -220,6 +224,9 @@ public abstract class HGConstant {
 
     //棋牌维护状态的日志
     public static final String USERNAME_LY_MAINTAIN = "username_ly_maintain";
+
+    //棋牌维护状态的日志
+    public static final String USERNAME_AVIA_MAINTAIN = "username_avia_maintain";
 
     //彩票维护状态的日志
     public static final String USERNAME_LOTTERY_MAINTAIN = "username_lottery_maintain";

@@ -127,6 +127,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai,3));
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
+        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
 //        homeGameList.add(new HomePageIcon("BBIN",R.mipmap.home_bbin));
@@ -385,6 +386,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 }else {
                     postLYQiPaiGo();
+                }
+                break;
+            case 14:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }*/
+                userState = "8";
+                String avia_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_AVIA_MAINTAIN);
+                if("1".equals(avia_url)){
+                    presenter.postMaintain();
+                }else {
+                    postAviaQiPaiGo();
                 }
                 break;
             /*case 13:
@@ -665,6 +684,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postAviaQiPaiResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============泛亚棋牌的地址=============");
+    }
+
+    @Override
     public void postCPResult(CPResult cpResult) {
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
         CPClient.setClientDomain(cpResult.getCpUrl());
@@ -749,6 +774,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                    }
                    GameLog.log("ly "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_LY_MAINTAIN,maintainResult1.getState());
+                   break;
+               case "avia":
+                   if(userState.equals("8")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("ly "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                    break;
            }
        }
@@ -844,6 +876,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     }
 
+    private void postAviaQiPaiGo(){
+        String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_AVIA_QIPAI_URL);
+        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+            qipai_url = ACache.get(getContext()).getAsString(HGConstant.AV_DEMO_URL);
+        }
+        if(Check.isEmpty(qipai_url)){
+            showMessage("正在加载中，请稍后再试!");
+            presenter.postAviaQiPai("","");
+        }else {
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",qipai_url);
+            intent.putExtra("gameCnName","电子竞技");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
+
+    }
+
 
     private void postCPGo(){
         String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
@@ -932,6 +982,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postHGQipai("","");
         presenter.postVGQipai("","");
         presenter.postLYQipai("","");
+        presenter.postAviaQiPai("","");
     }
 
     @Subscribe

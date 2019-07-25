@@ -48,6 +48,11 @@ public interface IBalancePlatformApi {
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferMG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
 
+    @POST("avia/avia_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferAG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
+
 
     //获取余额
     @POST("ag_api.php")
@@ -77,5 +82,9 @@ public interface IBalancePlatformApi {
     @POST("mg/mg_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceMG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("avia/avia_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceAG(@Field("appRefer") String appRefer, @Field("action") String action);
 
 }

@@ -49,9 +49,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     @BindView(R.id.etBalanceTransferMoney)
     EditText etBalanceTransferMoney;
     private BalanceTransferContract.Presenter presenter;
-    LinearLayout popMenuHG,popMenuCP,popMenuAG,popMenuKY,popMenuFF,popMenuVG,popMenuLY,popMenuMG;
-    TextView popMenuHGtv,popMenuCPtv,popMenuAGtv,popMenuKYtv,popMenuFFtv,popMenuVGtv,popMenuLYtv,popMenuMGtv;
-    ImageView popMenuHGiv,popMenuCPiv,popMenuAGiv,popMenuKYiv,popMenuFFiv,popMenuVGiv,popMenuLYiv,popMenuMGiv;
+    LinearLayout popMenuHG,popMenuCP,popMenuAG,popMenuKY,popMenuFF,popMenuVG,popMenuLY,popMenuMG,popMenuAviaG;
+    TextView popMenuHGtv,popMenuCPtv,popMenuAGtv,popMenuKYtv,popMenuFFtv,popMenuVGtv,popMenuLYtv,popMenuMGtv,popMenuAviaGtv;
+    ImageView popMenuHGiv,popMenuCPiv,popMenuAGiv,popMenuKYiv,popMenuFFiv,popMenuVGiv,popMenuLYiv,popMenuMGiv,popMenuAviaGiv;
     private String from ="hg";
     private String to ="hg";
     private CustomPopWindow mCustomPopWindowIn;
@@ -260,6 +260,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferMG("","hg","mg",transferMoney);
+        }else if(from.equals("avia")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferAG("","avia","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("avia")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferAG("","hg","avia",transferMoney);
         }else {
             showMessage("转账方式不支持");
         }
@@ -416,6 +428,11 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         tvBalanceTransferIn.setText("MG电子");
                         showContent = "In 点击 Item菜单8";
                         break;
+                    case R.id.popMenuAviaG:
+                        to = "avia";
+                        tvBalanceTransferIn.setText("泛亚电竞");
+                        showContent = "In 点击 Item菜单8";
+                        break;
                 }
                 GameLog.log("转入："+showContent);
                 //showMessage(showContent);
@@ -426,6 +443,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVG = (LinearLayout) contentView.findViewById(R.id.popMenuVG);
         popMenuLY = (LinearLayout) contentView.findViewById(R.id.popMenuLY);
         popMenuMG = (LinearLayout) contentView.findViewById(R.id.popMenuMG);
+        popMenuAviaG = (LinearLayout) contentView.findViewById(R.id.popMenuAviaG);
         popMenuCP = (LinearLayout) contentView.findViewById(R.id.popMenuCP);
         popMenuAG = (LinearLayout) contentView.findViewById(R.id.popMenuAG);
         popMenuKY = (LinearLayout) contentView.findViewById(R.id.popMenuKY);
@@ -438,6 +456,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVGiv = (ImageView) contentView.findViewById(R.id.popMenuVGiv);
         popMenuLYiv = (ImageView) contentView.findViewById(R.id.popMenuLYiv);
         popMenuMGiv = (ImageView) contentView.findViewById(R.id.popMenuMGiv);
+        popMenuAviaGiv = (ImageView) contentView.findViewById(R.id.popMenuAviaGiv);
         popMenuHGtv = (TextView) contentView.findViewById(R.id.popMenuHGtv);
         popMenuCPtv = (TextView) contentView.findViewById(R.id.popMenuCPtv);
         popMenuAGtv = (TextView) contentView.findViewById(R.id.popMenuAGtv);
@@ -446,6 +465,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVGtv = (TextView) contentView.findViewById(R.id.popMenuVGtv);
         popMenuLYtv = (TextView) contentView.findViewById(R.id.popMenuLYtv);
         popMenuMGtv = (TextView) contentView.findViewById(R.id.popMenuMGtv);
+        popMenuAviaGtv = (TextView) contentView.findViewById(R.id.popMenuAviaGtv);
         popMenuHG.setOnClickListener(listener);
         popMenuCP.setOnClickListener(listener);
         popMenuAG.setOnClickListener(listener);
@@ -454,6 +474,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVG.setOnClickListener(listener);
         popMenuLY.setOnClickListener(listener);
         popMenuMG.setOnClickListener(listener);
+        popMenuAviaG.setOnClickListener(listener);
         // if(!Check.isNull(popMenuHGtv)&&!Check.isNull(popMenuCPtv)&&!Check.isNull(popMenuAGtv)){
         switch (to){
             case "hg":
@@ -465,6 +486,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -473,6 +495,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -481,6 +504,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "cp":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -491,6 +515,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuAGiv.setBackgroundResource(0);
@@ -499,6 +524,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -507,6 +533,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ag":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -517,6 +544,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
@@ -525,6 +553,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_hight));
@@ -533,6 +562,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ky":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -543,6 +573,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -551,6 +582,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -559,6 +591,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ff":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -569,6 +602,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -577,6 +611,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -585,6 +620,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "vg":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -595,6 +631,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -603,6 +640,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -611,6 +649,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ly":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -621,6 +660,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -629,6 +669,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -637,6 +678,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "mg":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -647,6 +689,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -655,6 +698,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -663,6 +707,36 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_hight));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                break;
+            case "avia":
+                popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuCP.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuKY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuFF.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuHGiv.setBackgroundResource(0);
+                popMenuCPiv.setBackgroundResource(0);
+                popMenuAGiv.setBackgroundResource(0);
+                popMenuKYiv.setBackgroundResource(0);
+                popMenuFFiv.setBackgroundResource(0);
+                popMenuVGiv.setBackgroundResource(0);
+                popMenuLYiv.setBackgroundResource(0);
+                popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
+                popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuKYtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuFFtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 break;
         }
 
@@ -723,6 +797,11 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         tvBalanceTransferOut.setText("MG电子");
                         showContent = "Out 点击 Item菜单8";
                         break;
+                    case R.id.popMenuAviaG:
+                        from = "avia";
+                        tvBalanceTransferOut.setText("泛亚电竞");
+                        showContent = "Out 点击 Item菜单9";
+                        break;
                 }
                 GameLog.log("转出："+showContent);
                 //showMessage(showContent);
@@ -737,6 +816,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVG = (LinearLayout) contentView.findViewById(R.id.popMenuVG);
         popMenuLY = (LinearLayout) contentView.findViewById(R.id.popMenuLY);
         popMenuMG = (LinearLayout) contentView.findViewById(R.id.popMenuMG);
+        popMenuAviaG = (LinearLayout) contentView.findViewById(R.id.popMenuAviaG);
         popMenuHGiv = (ImageView) contentView.findViewById(R.id.popMenuHGiv);
         popMenuCPiv = (ImageView) contentView.findViewById(R.id.popMenuCPiv);
         popMenuAGiv = (ImageView) contentView.findViewById(R.id.popMenuAGiv);
@@ -745,6 +825,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVGiv = (ImageView) contentView.findViewById(R.id.popMenuVGiv);
         popMenuLYiv = (ImageView) contentView.findViewById(R.id.popMenuLYiv);
         popMenuMGiv = (ImageView) contentView.findViewById(R.id.popMenuMGiv);
+        popMenuAviaGiv = (ImageView) contentView.findViewById(R.id.popMenuAviaGiv);
         popMenuHGtv = (TextView) contentView.findViewById(R.id.popMenuHGtv);
         popMenuCPtv = (TextView) contentView.findViewById(R.id.popMenuCPtv);
         popMenuAGtv = (TextView) contentView.findViewById(R.id.popMenuAGtv);
@@ -753,6 +834,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVGtv = (TextView) contentView.findViewById(R.id.popMenuVGtv);
         popMenuLYtv = (TextView) contentView.findViewById(R.id.popMenuLYtv);
         popMenuMGtv = (TextView) contentView.findViewById(R.id.popMenuMGtv);
+        popMenuAviaGtv = (TextView) contentView.findViewById(R.id.popMenuAviaGtv);
         popMenuHG.setOnClickListener(listener);
         popMenuCP.setOnClickListener(listener);
         popMenuAG.setOnClickListener(listener);
@@ -761,6 +843,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         popMenuVG.setOnClickListener(listener);
         popMenuLY.setOnClickListener(listener);
         popMenuMG.setOnClickListener(listener);
+        popMenuAviaG.setOnClickListener(listener);
        // if(!Check.isNull(popMenuHGtv)&&!Check.isNull(popMenuCPtv)&&!Check.isNull(popMenuAGtv)){
         switch (from){
             case "hg":
@@ -772,6 +855,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -780,6 +864,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -788,6 +873,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "cp":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -798,6 +884,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuAGiv.setBackgroundResource(0);
@@ -806,6 +893,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -814,6 +902,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ag":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -824,6 +913,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
@@ -832,6 +922,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_hight));
@@ -840,6 +931,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ky":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -850,6 +942,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -858,6 +951,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -866,6 +960,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ff":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -876,6 +971,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -884,6 +980,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -892,6 +989,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "vg":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -902,6 +1000,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -910,6 +1009,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -919,6 +1019,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "ly":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -929,6 +1030,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -937,6 +1039,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
                 popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -946,6 +1049,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 break;
             case "mg":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -956,6 +1060,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuHGiv.setBackgroundResource(0);
                 popMenuCPiv.setBackgroundResource(0);
                 popMenuAGiv.setBackgroundResource(0);
@@ -964,6 +1069,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGiv.setBackgroundResource(0);
                 popMenuLYiv.setBackgroundResource(0);
                 popMenuMGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
+                popMenuAviaGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
@@ -973,6 +1079,37 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_hight));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                break;
+            case "avia":
+                popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuCP.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuKY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuFF.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuVG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuLY.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuMG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
+                popMenuAviaG.setBackgroundColor(getResources().getColor(R.color.pop_ll_hight));
+                popMenuHGiv.setBackgroundResource(0);
+                popMenuCPiv.setBackgroundResource(0);
+                popMenuAGiv.setBackgroundResource(0);
+                popMenuKYiv.setBackgroundResource(0);
+                popMenuFFiv.setBackgroundResource(0);
+                popMenuVGiv.setBackgroundResource(0);
+                popMenuLYiv.setBackgroundResource(0);
+                popMenuMGiv.setBackgroundResource(0);
+                popMenuAviaGiv.setBackground(getResources().getDrawable(R.mipmap.pop_item));
+                popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuKYtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuFFtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuFFtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuVGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuLYtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuMGtv.setTextColor(getResources().getColor(R.color.pop_normal));
+                popMenuAviaGtv.setTextColor(getResources().getColor(R.color.pop_hight));
                 break;
         }
 
