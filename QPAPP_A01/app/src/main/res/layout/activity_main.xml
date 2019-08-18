@@ -4,32 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/flayout_xpay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
+
     <com.tencent.smtt.sdk.WebView
         android:id="@+id/wv_pay_x5_game"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+
     <com.coolindicator.sdk.CoolIndicator
         android:id="@+id/indicator"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:progressDrawable="@drawable/default_drawable_indicator"
         android:layout_width="match_parent"
-        android:layout_height="3dp"/>
+        android:layout_height="3dp"
+        android:progressDrawable="@drawable/default_drawable_indicator" />
+
     <RelativeLayout
-        android:gravity="center|left"
+        android:id="@+id/mRlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/gameBack"
-        android:background="@mipmap/game_back"
-        android:layout_width="50dp"
-        android:layout_height="40dp" />
+        android:layout_height="match_parent"
+        android:gravity="center|left">
+
+        <com.qpweb.a01.widget.MovableView
+            android:id="@+id/gameBack"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/game_back" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

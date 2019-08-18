@@ -18,8 +18,10 @@
             android:orientation="vertical"
             >
             <TextView
+                android:id="@+id/hBaoNoticeMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="30dp"
                 android:gravity="center"
                 android:text="您当前未满足千元红包条件\n需要您再近两日内多进行游戏打到足够的\n【有效下注】后即可参加活动了"
                 android:textColor="@color/register_left"

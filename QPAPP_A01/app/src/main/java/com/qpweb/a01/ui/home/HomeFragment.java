@@ -76,6 +76,8 @@ import com.qpweb.a01.widget.RollPagerViewManager;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -296,6 +298,15 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         }
     }
 
+    private String getString2Pt(String money){
+        DecimalFormat df = new DecimalFormat("0.00");
+        //DecimalFormat df = new DecimalFormat("#0.00");//与上一行代码的区别是：#表示如果不存在则显示为空，0表示如果没有则该位补0.
+        //DecimalFormat df = new DecimalFormat("#,###.00"); //将数据转换成以3位逗号隔开的字符串，并保留两位小数
+        df.setRoundingMode(RoundingMode.FLOOR);//不四舍五入
+        GameLog.log("需要格式化的值是 "+money);
+        return df.format(Double.parseDouble(money));
+    }
+
     private void setEvents(@Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
         if(Check.isNull(loginResult)){
@@ -323,11 +334,11 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
             ACache.get(getContext()).put("PersonalizedSignature",loginResult.getPersonalizedSignature()+"");
             homeAccountNumber.setText(loginResult.getID());
             homeAccountName.setText(loginResult.getNickName());
-            homeUserMoney.setText(loginResult.getMoney());
+            homeUserMoney.setText(getString2Pt(loginResult.getMoney()));
         }else if(!Check.isNull(nickName)){
             homeAccountName.setText(nickName);
             String userMoney = ACache.get(getContext()).getAsString(QPConstant.USERNAME_LOGIN_ACCOUNT_MONEY);
-            homeUserMoney.setText(userMoney);
+            homeUserMoney.setText(getString2Pt(userMoney));
         }
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2, OrientationHelper.HORIZONTAL,false);
         rViewData.setLayoutManager(gridLayoutManager);
@@ -584,7 +595,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         accountName = "";
         homeAccountLogo.setImageDrawable(getResources().getDrawable(R.mipmap.home_gold));
         homeAccountName.setText("请先登录");
-        homeUserMoney.setText("0");
+        homeUserMoney.setText("0.00");
     }
 
     @Override
@@ -592,7 +603,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         homeShuaXin.clearAnimation();
         GameLog.log("刷新用户的余额");
         ACache.get(getContext()).put("Money",refreshMoneyResult.getLy_balance());
-        homeUserMoney.setText(refreshMoneyResult.getLy_balance());
+        homeUserMoney.setText(getString2Pt(refreshMoneyResult.getLy_balance()));
     }
 
     @Override
@@ -687,7 +698,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         accountName = loginResult.getUserName();
         homeAccountLogo.setImageDrawable(getResources().getDrawable(R.mipmap.home_login_account));
         homeAccountName.setText(accountName);
-        homeUserMoney.setText(loginResult.getMoney());
+        homeUserMoney.setText(getString2Pt(loginResult.getMoney()));
     }
 
     @Subscribe
@@ -697,7 +708,7 @@ public class HomeFragment extends SupportFragment implements HomeContract.View, 
         this.loginResult = null;
         homeAccountLogo.setImageDrawable(getResources().getDrawable(R.mipmap.home_login_account));
         homeAccountName.setText("请先登录");
-        homeUserMoney.setText("0");
+        homeUserMoney.setText("0.00");
     }
 
     @Subscribe

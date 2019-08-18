@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:gravity="center|left"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/addNewItem"
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="新增"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:id="@+id/appVersion"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="版本"
+            />
+        <TextView
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="刷水"
+            android:textSize="16sp"
+            android:textColor="@color/color_bg_dialog"
+            />
+        <TextView
+            android:id="@+id/appFlush"
+            android:layout_width="70dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="刷新"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:id="@+id/clearCookie"
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="清缓存"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:background="@color/bg_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

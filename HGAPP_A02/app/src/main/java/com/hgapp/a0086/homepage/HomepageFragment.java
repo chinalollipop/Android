@@ -403,10 +403,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
-                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
-                }*/
+                }
                 userState = "8";
                 String avia_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_AVIA_MAINTAIN);
                 if("1".equals(avia_url)){
@@ -691,6 +691,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
         CPClient.setClientDomain(cpResult.getCpUrl());
         HGApplication.instance().configCPClient();
+        ACache.get(getContext()).put("homeTYUrl", cpResult.getCpUrl().replace("mc.","m."));
         ACache.get(getContext()).put("homeCPUrl", cpResult.getCpUrl());
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());

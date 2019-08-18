@@ -11,6 +11,7 @@ public class AGLiveResult {
     private String name;
     private String gameurl;
     private String gameid;
+    private String item_id;
 
     public String getName() {
         return name;
@@ -36,12 +37,21 @@ public class AGLiveResult {
         this.gameid = gameid;
     }
 
+    public String getItem_id() {
+        return item_id;
+    }
+
+    public void setItem_id(String item_id) {
+        this.item_id = item_id;
+    }
+
     @Override
     public String toString() {
         return "AGLiveResult{" +
                 "name='" + name + '\'' +
                 ", gameurl='" + gameurl + '\'' +
                 ", gameid='" + gameid + '\'' +
+                ", item_id='" + item_id + '\'' +
                 '}';
     }
 }

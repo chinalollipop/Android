@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.coolindicator.sdk:coolindicator:1.0.0-beta@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ac23a21903d3ac24f6b07e0d0a44665/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ac23a21903d3ac24f6b07e0d0a44665/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coolindicator.sdk/coolindicator/1.0.0-beta/ad89fa98dd4d0a0da24c3b19b6bbce6a8de6f1ed/coolindicator-1.0.0-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

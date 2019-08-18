@@ -1,5 +1,6 @@
 package com.qpweb.a01.ui.home.deposit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.qpweb.a01.Injections;
+import com.qpweb.a01.MainActivity;
 import com.qpweb.a01.R;
 import com.qpweb.a01.base.BaseDialogFragment;
 import com.qpweb.a01.base.IPresenter;
@@ -82,6 +84,8 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
     RecyclerView depositMoneyRView;
     @BindView(R.id.depositEditBankSubmit)
     TextView depositEditBankSubmit;
+    @BindView(R.id.depositEditOnline)
+    TextView depositEditOnline;
     @BindView(R.id.depositClose)
     ImageView depositClose;
     @BindView(R.id.flayBg)
@@ -105,6 +109,7 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
     EditText depositEditBankMemo;
     String payId;//银行存款的id
     String bankName;//银行存款的公司+名字
+    String onlineApi ="";
     List<String> stringListTime  = new ArrayList<String>();
     static List<String> stringListChannel  = new ArrayList<String>();//从0开始的
     static {
@@ -306,7 +311,7 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
 //        hide();
         this.depositListResult = (ArrayList<DepositListResult>) depositListResults;
         depositListResult.get(0).setCheck(true);
-        onListenerDeposit(depositListResult.get(0).getId(), depositListResult.get(0).getBankid(), "");
+        onListenerDeposit(depositListResult.get(0).getId(), depositListResult.get(0).getBankid(), depositListResult.get(0).getApi());
         DepositAdapter depositAdapter = new DepositAdapter(R.layout.item_deposit, depositListResult);
         depositRView.setAdapter(depositAdapter);
         depositAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
@@ -316,7 +321,7 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
                     depositListResult.get(k).isCheck = false;
                 }
                 depositListResult.get(position).isCheck = true;
-                onListenerDeposit(depositListResult.get(position).getId(), depositListResult.get(position).getBankid(), "");
+                onListenerDeposit(depositListResult.get(position).getId(), depositListResult.get(position).getBankid(),  depositListResult.get(position).getApi());
                 adapter.notifyDataSetChanged();
             }
         });
@@ -325,9 +330,14 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
     private void onListenerDeposit(int id, String bankid, String api) {
         String payId = id + "";
         GameLog.log("当前支付的ID是： " + id);
+        depositEditOnline.setVisibility(View.GONE);
         switch (id) {
             case 0://快速充值
                 //直接跳转到支付页面
+                onlineApi = api;
+                depositBanklay.setVisibility(View.GONE);
+                depositEditOnline.setVisibility(View.VISIBLE);
+                depositQClay.setVisibility(View.GONE);
                 //EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(api,"","","",""), SupportFragment.SINGLETASK));
                 break;
             case 1://银行卡线上
@@ -467,9 +477,14 @@ public class DepositFragment extends BaseDialogFragment implements DepositContra
 
     }
 
-    @OnClick({R.id.depositClear, R.id.depositEditBankSubmit,R.id.depositQCSubmit, R.id.depositClose,R.id.depositEditBankType})
+    @OnClick({R.id.depositEditOnline, R.id.depositClear, R.id.depositEditBankSubmit,R.id.depositQCSubmit, R.id.depositClose,R.id.depositEditBankType})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.depositEditOnline:
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.putExtra("app_url",onlineApi);
+                startActivity(intent);
+                break;
             case R.id.depositQCSubmit:
                 DoubleClickHelper.getNewInstance().disabledView(depositQCSubmit);
                 onCheckQCAndSubmit();

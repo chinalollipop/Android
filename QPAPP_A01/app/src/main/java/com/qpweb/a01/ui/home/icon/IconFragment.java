@@ -31,6 +31,8 @@ import com.qpweb.a01.utils.Utils;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -136,6 +138,15 @@ public class IconFragment extends BaseDialogFragment implements IconContract.Vie
         }
     }
 
+    private String getString2Pt(String money){
+        DecimalFormat df = new DecimalFormat("0.00");
+        //DecimalFormat df = new DecimalFormat("#0.00");//与上一行代码的区别是：#表示如果不存在则显示为空，0表示如果没有则该位补0.
+        //DecimalFormat df = new DecimalFormat("#,###.00"); //将数据转换成以3位逗号隔开的字符串，并保留两位小数
+        df.setRoundingMode(RoundingMode.FLOOR);//不四舍五入
+        GameLog.log("需要格式化的值是 "+money);
+        return df.format(Double.parseDouble(money));
+    }
+
     @Override
     public void setEvents(View view, @Nullable Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
@@ -151,7 +162,7 @@ public class IconFragment extends BaseDialogFragment implements IconContract.Vie
         String money = ACache.get(getContext()).getAsString("Money");
         String ID = ACache.get(getContext()).getAsString("ID");
         iconEditName.setText(NickName);
-        iconUserMoney.setText(money);
+        iconUserMoney.setText(getString2Pt(money));
         iconUserId.setText(ID);
         iconEditUserSignature.setText(PersonalizedSignature);
         iconEditName.setOnFocusChangeListener(new View.OnFocusChangeListener() {

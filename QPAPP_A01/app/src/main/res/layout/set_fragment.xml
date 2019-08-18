@@ -29,8 +29,8 @@
 
                 <ImageView
                     android:id="@+id/setGameMusic"
-                    android:layout_width="60dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:background="@mipmap/switch_open" />
 
@@ -50,8 +50,8 @@
 
                 <ImageView
                     android:id="@+id/setBgMusic"
-                    android:layout_width="60dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:background="@mipmap/switch_open" />
 

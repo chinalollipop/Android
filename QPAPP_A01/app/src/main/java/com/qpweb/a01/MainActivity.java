@@ -1,6 +1,5 @@
 package com.qpweb.a01;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,18 +10,16 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.coolindicator.sdk.CoolIndicator;
 import com.qpweb.a01.ui.home.RefreshMoneyEvent;
-import com.qpweb.a01.utils.ACache;
 import com.qpweb.a01.utils.Check;
 import com.qpweb.a01.utils.CommentUtils;
 import com.qpweb.a01.utils.FileIOUtils;
 import com.qpweb.a01.utils.FileUtils;
 import com.qpweb.a01.utils.GameLog;
 import com.qpweb.a01.utils.TBSWebSetting;
-import com.qpweb.a01.utils.ToastUtils;
+import com.qpweb.a01.widget.MovableView;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;
@@ -36,12 +33,12 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private String mUpdateUrl = "https://raw.githubusercontent.com/WVector/AppUpdateDemo/master/json/json.txt";
     private FrameLayout flayoutXpay;
 
     private WebView wvPayGame;
-    private ImageView gameBack;
+    private MovableView gameBack;
     private CoolIndicator mCoolIndicator;
 
     private ValueCallback<Uri> uploadFile;
@@ -174,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void openFileChooseProcess() {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);

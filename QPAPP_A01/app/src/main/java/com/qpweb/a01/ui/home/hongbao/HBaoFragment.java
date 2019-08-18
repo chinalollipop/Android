@@ -95,7 +95,7 @@ public class HBaoFragment extends BaseDialogFragment implements HBaoContract.Vie
     @Override
     public void postLuckEnvelopeErrorResult(String message) {
         showMessage(message);
-        HBaoNoticeFragment.newInstance().show(getFragmentManager());
+        HBaoNoticeFragment.newInstance(message).show(getFragmentManager());
     }
 
     @Override

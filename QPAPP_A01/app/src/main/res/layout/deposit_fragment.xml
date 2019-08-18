@@ -474,6 +474,18 @@
                             android:textColor="@color/register_left" />
                     </LinearLayout>
                 </ScrollView>
+                <TextView
+                    android:id="@+id/depositEditOnline"
+                    android:layout_width="100dp"
+                    android:visibility="gone"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@mipmap/register_me"
+                    android:gravity="center"
+                    android:text="前往快速充值"
+                    android:textColor="@color/register_left" />
             </LinearLayout>
         </LinearLayout>
 

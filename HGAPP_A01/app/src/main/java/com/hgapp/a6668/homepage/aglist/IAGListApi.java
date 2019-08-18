@@ -52,7 +52,7 @@ public interface IAGListApi {
     //进入MG游戏
     @POST("mg/mg_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<AGGameLoginResult>> postMGLoginGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid, @Field("action") String action);
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postMGLoginGame(@Field("appRefer") String appRefer, @Field("game_id") String game_id, @Field("action") String action);
 
 
     //检查AG账号

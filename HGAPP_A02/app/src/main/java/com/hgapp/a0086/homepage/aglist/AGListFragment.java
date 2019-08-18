@@ -325,7 +325,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 public void onClick(View view) {
                     dzTitileName = data.getName();
                     if(fshowtype.equals("mg")){
-                        presenter.postGoPlayGameMG("",data.getGameid());
+                        presenter.postGoPlayGameMG("",data.getItem_id());
                     }else{
                         presenter.postGoPlayGame("",data.getGameid());
                     }

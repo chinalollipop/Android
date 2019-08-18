@@ -32931,7 +32931,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                             int initSize = CPBetManager.getSingleton().onListSize();
                             switch (initSize){
                                 case 5:
-                                    cpOrderRXRadio.setText("赔率：2.17");
+                                    cpOrderRXRadio.setText("赔率：2.18");
                                     cpOrderNumber.setText(Html.fromHtml("已选中"+onMarkRed("1")+"注"));
                                     break;
                                 case 6:
