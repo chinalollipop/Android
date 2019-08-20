@@ -24,6 +24,8 @@ import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.common.widgets.CustomPopWindow;
 import com.sunapp.bloc.common.widgets.NTitleBar;
 import com.sunapp.bloc.data.BetRecordResult;
+import com.sunapp.bloc.data.KYBalanceResult;
+import com.sunapp.bloc.data.PersonBalanceResult;
 import com.sunapp.common.util.Check;
 import com.sunapp.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -46,6 +48,22 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView tvBalanceTransferIn;
     @BindView(R.id.tvBalanceTransferOut)
     TextView tvBalanceTransferOut;
+    @BindView(R.id.BalanceTransferTY)
+    TextView BalanceTransferTY;
+    @BindView(R.id.BalanceTransferCP)
+    TextView BalanceTransferCP;
+    @BindView(R.id.BalanceTransferAG)
+    TextView BalanceTransferAG;
+    @BindView(R.id.BalanceTransferKY)
+    TextView BalanceTransferKY;
+    @BindView(R.id.BalanceTransferLY)
+    TextView BalanceTransferLY;
+    @BindView(R.id.BalanceTransferVG)
+    TextView BalanceTransferVG;
+    @BindView(R.id.BalanceTransferMG)
+    TextView BalanceTransferMG;
+    @BindView(R.id.BalanceTransferFY)
+    TextView BalanceTransferFY;
     @BindView(R.id.etBalanceTransferMoney)
     EditText etBalanceTransferMoney;
     private BalanceTransferContract.Presenter presenter;
@@ -77,7 +95,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         Bundle args = new Bundle();
         args.putString(TYPE, type);
         fragment.setArguments(args);
-        Injections.inject(null, fragment);
+        Injections.inject(null, (BalanceTransferContract.View)fragment);
         return fragment;
     }
 
@@ -96,6 +114,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initBalance();
         backTitleBalanceTransfer.setMoreText(typeArgs);
         backTitleBalanceTransfer.setBackListener(new View.OnClickListener() {
             @Override
@@ -129,6 +148,16 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     }
 
+    private void initBalance() {
+        presenter.postPersonBalance("","");
+        presenter.postPersonBalanceKY("","");
+        presenter.postPersonBalanceHG("","");
+        presenter.postPersonBalanceVG("","");
+        presenter.postPersonBalanceLY("","");
+        presenter.postPersonBalanceMG("","");
+        presenter.postPersonBalanceAG("","");
+    }
+
 
     class FlowBalanceTransferAdapter extends com.sunapp.bloc.common.adapters.AutoSizeRVAdapter<String>{
 
@@ -158,6 +187,43 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     public void postBetRecordResult(BetRecordResult message) {
         GameLog.log("总共充值多少：" + message.getTotal());
 
+    }
+
+    @Override
+    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
+        BalanceTransferTY.setText(personBalance.getBalance_hg());
+        BalanceTransferCP.setText(personBalance.getBalance_cp());
+        BalanceTransferAG.setText(personBalance.getBalance_ag());
+    }
+
+    @Override
+    public void postPersonBalanceKYResult(KYBalanceResult personBalance) {
+        BalanceTransferKY.setText(personBalance.getKy_balance());
+    }
+
+    @Override
+    public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
+
+    }
+
+    @Override
+    public void postPersonBalanceVGResult(KYBalanceResult personBalance) {
+        BalanceTransferVG.setText(personBalance.getVg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceLYResult(KYBalanceResult personBalance) {
+        BalanceTransferLY.setText(personBalance.getLy_balance());
+    }
+
+    @Override
+    public void postPersonBalanceMGResult(KYBalanceResult personBalance) {
+        BalanceTransferMG.setText(personBalance.getMg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceAGResult(KYBalanceResult personBalance) {
+        BalanceTransferFY.setText(personBalance.getAvia_balance());
     }
 
     @Override

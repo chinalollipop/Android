@@ -8,29 +8,238 @@
 
     <com.sunapp.bloc.common.widgets.NTitleBar
         android:id="@+id/backTitleBalanceTransfer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backText="返回"
-        app:moreText="0.0"
-        />
+        app:moreText="0.0" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/all_bg"
         android:layout_marginTop="10dp"
+        android:background="@color/all_bg"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="121dp"
+            android:layout_margin="16dp"
+            android:background="@mipmap/ag_list_top"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="体育余额"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferTY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="彩票余额"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferCP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AG余额"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferAG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开元棋牌"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferKY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:background="#9b9b9b"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="乐游棋牌"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferLY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VG棋牌"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferVG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MG电子"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferMG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="泛亚电竞"
+                        android:textColor="#2d3134" />
+
+                    <TextView
+                        android:id="@+id/BalanceTransferFY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#cc8f28" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
-            android:layout_marginRight="40dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="40dp"
             android:gravity="center|left">
 
             <TextView
@@ -42,37 +251,36 @@
                 android:textSize="15sp" />
 
 
-                <TextView
-                    android:id="@+id/tvBalanceTransferOut"
-                    android:background="@mipmap/icon_textview_transfer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:textColor="#868686"
-                    android:textSize="15sp"
-                    android:text="请选择平台 " />
+            <TextView
+                android:id="@+id/tvBalanceTransferOut"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/icon_textview_transfer"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="请选择平台 "
+                android:textColor="#868686"
+                android:textSize="15sp" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:background="@color/l_view_color" />
 
         <TextView
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:layout_marginTop="10dp"
+            android:background="@color/l_view_color" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
 
-            android:layout_marginRight="40dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="40dp"
             android:gravity="center|left">
 
             <TextView
@@ -85,27 +293,27 @@
 
             <TextView
                 android:id="@+id/tvBalanceTransferIn"
-                android:background="@mipmap/icon_textview_transfer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@mipmap/icon_textview_transfer"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
-                android:textSize="15sp"
+                android:text="请选择平台 "
                 android:textColor="#868686"
-                android:text="请选择平台 " />
+                android:textSize="15sp" />
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
 
         <TextView
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:background="@color/l_view_color" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="10dp"
+            android:background="@color/l_view_color" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
@@ -133,8 +341,7 @@
                     android:hint="请输入转换金额"
                     android:inputType="number"
                     android:textColor="@color/n_edittext_pwd"
-                    android:textColorHint="#868686"
-                    />
+                    android:textColorHint="#868686" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -142,27 +349,28 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="10dp"
-                    android:textSize="15sp"
+                    android:text="元  "
                     android:textColor="#868686"
-                    android:text="元  " />
+                    android:textSize="15sp" />
 
             </RelativeLayout>
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:background="@color/l_view_color" />
+
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:background="@color/l_view_color" />
+
         <LinearLayout
-            android:layout_marginLeft="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:gravity="center|left">
 
             <TextView
@@ -170,8 +378,8 @@
                 android:layout_height="wrap_content"
                 android:text="全转："
                 android:textColor="@color/textview_hight"
-                android:visibility="gone"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="gone" />
             <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -189,46 +397,44 @@
 
                 />
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/l_view_color"
-            />
+            android:background="@color/l_view_color" />
+
         <Button
             android:id="@+id/btnBalanceTrensferSubmit"
             android:layout_width="match_parent"
-            android:text="确 定"
-            android:background="@drawable/btn_inquire"
-            android:layout_marginTop="15dp"
+            android:layout_height="@dimen/h_tbn_height"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
-            android:layout_height="@dimen/h_tbn_height" />
-
+            android:background="@drawable/btn_inquire"
+            android:text="确 定" />
 
 
         <LinearLayout
-            android:layout_marginLeft="16dp"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textview_hight"
-                android:textSize="15sp"
                 android:text="温馨提示：\n"
-                />
+                android:textColor="@color/textview_hight"
+                android:textSize="15sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textview_hight"
-                android:textSize="12sp"
                 android:text="1、 转账前请退出游戏或游戏投注界面。\n\n2、不参与活动时, 户内转账金额不能少于 1元，户内转账\n不收取任何手续费。\n\n3、如遇网速较慢时，请耐心等候片刻，不要多次重复提交。"
-                />
+                android:textColor="@color/textview_hight"
+                android:textSize="12sp" />
         </LinearLayout>
-
-
 
 
     </LinearLayout>

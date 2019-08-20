@@ -7,9 +7,10 @@ import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.common.util.RxHelper;
 import com.sunapp.bloc.common.util.SubscriptionHelper;
 import com.sunapp.bloc.data.KYBalanceResult;
+import com.sunapp.bloc.data.PersonBalanceResult;
 
 
-public class BalanceTransferPresenter implements BalanceTransferContract.Presenter {
+public  class BalanceTransferPresenter implements BalanceTransferContract.Presenter {
 
 
     private IBalanceTransferApi api;
@@ -203,6 +204,185 @@ public class BalanceTransferPresenter implements BalanceTransferContract.Present
                     }
                 }));
     }
+
+
+    @Override
+    public void postPersonBalance(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalance(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PersonBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<PersonBalanceResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceResult(response.getData().get(0));
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceKY(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceKY(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceKYResult(response.getData().get(0));
+                        }
+                        //view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceHG(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceHG(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceHGResult(response.getData().get(0));
+                        }
+                        //view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceVG(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceVG(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceVGResult(response.getData().get(0));
+                        }
+                        //view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceLY(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceLY(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceLYResult(response.getData().get(0));
+                        }
+                        //view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceMG(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceMG(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceMGResult(response.getData().get(0));
+                        }
+                        //view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceAG(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceAG(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceAGResult(response.getData().get(0));
+                        }
+                        //view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
 
     @Override
     public void start() {

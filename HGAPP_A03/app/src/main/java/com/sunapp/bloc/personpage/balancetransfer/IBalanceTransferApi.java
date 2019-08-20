@@ -3,6 +3,7 @@ package com.sunapp.bloc.personpage.balancetransfer;
 import com.sunapp.bloc.common.http.request.AppTextMessageResponse;
 import com.sunapp.bloc.common.http.request.AppTextMessageResponseList;
 import com.sunapp.bloc.data.KYBalanceResult;
+import com.sunapp.bloc.data.PersonBalanceResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -47,5 +48,41 @@ public interface IBalanceTransferApi {
     @POST("avia/avia_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferAG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
+
+
+    //获取余额
+    @POST("ag_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //获取开元余额
+    @POST("ky/ky_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceKY(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //获取皇冠棋牌余额
+    @POST("hgqp/hg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceHG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("vgqp/vg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceVG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+
+    //获取开元余额
+    @POST("lyqp/ly_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceLY(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("mg/mg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceMG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("avia/avia_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceAG(@Field("appRefer") String appRefer, @Field("action") String action);
+
 
 }

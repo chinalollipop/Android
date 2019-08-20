@@ -104,6 +104,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 pop();
             }
         });
+        agTitleBack.setMoreText(Mtype);
         EventBus.getDefault().register(this);
         String userState = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
         GameLog.log("用户登录的状态 ：["+userState+"]"+ fshowtype);
