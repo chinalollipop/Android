@@ -50,9 +50,9 @@ public interface IPersonApi {
 
 
     //彩票联合登录接口
-    @POST("index_api.php")
+    @POST("api/thirdLotteryApi.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<CPResult>> postCP(@Field("appRefer") String appRefer);
+    public Observable<AppTextMessageResponse<CPResult>> postCP(@Field("appRefer") String appRefer,@Field("actype") String actype);
 
     //彩票联合推出
     @Headers({"Domain-Name: CpUrl"})

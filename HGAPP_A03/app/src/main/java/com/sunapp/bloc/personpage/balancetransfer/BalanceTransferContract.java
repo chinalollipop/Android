@@ -20,6 +20,7 @@ public interface BalanceTransferContract {
         public void postBanalceTransferAG(String appRefer, String f, String t, String b);
         public void postBanalceTransferCP(String appRefer,String action, String from,String to, String fund);
         public void postPersonBalance(String appRefer,String action);
+        public void postPersonBalanceCP(String appRefer,String action);
         public void postPersonBalanceKY(String appRefer,String action);
         public void postPersonBalanceHG(String appRefer,String action);
         public void postPersonBalanceVG(String appRefer,String action);
@@ -31,6 +32,7 @@ public interface BalanceTransferContract {
     {
         public void postBetRecordResult(BetRecordResult message);
         public void postPersonBalanceResult(PersonBalanceResult personBalance);
+        public void postPersonBalanceCPResult(KYBalanceResult personBalance);
         public void postPersonBalanceKYResult(KYBalanceResult personBalance);
         public void postPersonBalanceHGResult(KYBalanceResult personBalance);
         public void postPersonBalanceVGResult(KYBalanceResult personBalance);

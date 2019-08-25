@@ -60,6 +60,7 @@
         android:roundIcon="@mipmap/ico_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="design_width"

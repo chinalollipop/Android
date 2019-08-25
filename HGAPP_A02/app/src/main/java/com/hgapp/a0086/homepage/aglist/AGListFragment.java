@@ -2,6 +2,7 @@ package com.hgapp.a0086.homepage.aglist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -197,6 +198,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
         GameLog.log("游戏弟弟值："+agGameLoginResult.getUrl());
 
+        if("真人视讯".equals(dzTitileName)){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(agGameLoginResult.getUrl()));
+            startActivity(intent);
+            return;
+        }
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());

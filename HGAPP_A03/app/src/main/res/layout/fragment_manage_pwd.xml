@@ -67,7 +67,6 @@
             android:hint="请输入旧密码"
             android:inputType="textPassword"
             android:background="@null"
-            android:textColorHint="@color/n_edittext_pwd"
             android:textSize="15sp" />
 
         <ImageView
@@ -121,7 +120,6 @@
             android:background="@null"
             android:inputType="textPassword"
             android:hint="请输入新密码(6-15位字符 ）"
-            android:textColorHint="@color/n_edittext_pwd"
             android:textSize="15sp" />
 
             <ImageView
@@ -169,7 +167,6 @@
             android:background="@null"
             android:inputType="textPassword"
             android:hint="请输入新确认密码(6-15位字符 ）"
-            android:textColorHint="@color/n_edittext_pwd"
             android:textSize="15sp" />
     </LinearLayout>
     <TextView

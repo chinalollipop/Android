@@ -3,6 +3,7 @@ package com.hgapp.a6668.homepage.aglist.playgame;
 import android.os.Build;
 
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.DeviceUtils;
 import com.tencent.smtt.export.external.extension.interfaces.IX5WebViewExtension;
 import com.tencent.smtt.sdk.CookieManager;
 import com.tencent.smtt.sdk.WebSettings;
@@ -54,7 +55,8 @@ public class PTIWebSetting {
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setMediaPlaybackRequiresUserGesture(true);
         webSettings.setNavDump(false);
-        webSettings.setPluginsEnabled(false);
+        webSettings.setPluginsEnabled(true);
+        webSettings.setPluginState(WebSettings.PluginState.ON);//打开播放RTMP流
         webSettings.setSansSerifFontFamily("sans-serif");
         webSettings.setSaveFormData(true);
         webSettings.setSavePassword(false);
@@ -63,6 +65,7 @@ public class PTIWebSetting {
         webSettings.setUseWebViewBackgroundForOverscrollBackground(false);
         webSettings.setSupportMultipleWindows(false);
         webSettings.setSupportZoom(true);
+        //webSettings.setUserAgentString(DeviceUtils.getUserAgent());
         if (Build.VERSION.SDK_INT >= 16) {
             webSettings.setAllowFileAccessFromFileURLs(true);
         }

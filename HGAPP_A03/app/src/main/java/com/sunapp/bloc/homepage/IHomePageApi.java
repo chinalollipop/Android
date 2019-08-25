@@ -71,9 +71,9 @@ public interface IHomePageApi {
     public Observable<AppTextMessageResponse<QipaiResult>> postVGQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //彩票联合登录接口
-    @POST("index_api.php")
+    @POST("api/thirdLotteryApi.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<CPResult>> postCP(@Field("appRefer") String appRefer);
+    public Observable<AppTextMessageResponse<CPResult>> postCP(@Field("appRefer") String appRefer,@Field("actype") String actype);
 
     //昨日有效金额
     @POST("lucky_red_envelope_api.php")

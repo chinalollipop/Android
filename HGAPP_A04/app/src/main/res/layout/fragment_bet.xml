@@ -1,0 +1,2171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/title_bg_black">
+
+                <ImageView
+                    android:id="@+id/ivBetEventBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:background="@mipmap/icon_hand_back" />
+
+                <TextView
+                    android:id="@+id/tvBetEventName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="澳大利亚国际超级二联赛"
+                    android:textColor="#F4F4F4"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/ivBetEventRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:background="@mipmap/bet_refresh"
+                    android:gravity="center"
+                    android:text="60"
+                    android:textColor="@color/title_text"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="122dp"
+                android:background="@drawable/bg_bet_ft">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        android:id="@+id/MB_Team_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="#EBA11E"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/MB_Team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="主队"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="VS"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="30sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TG_Team_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#EBA11E"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/TG_Team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="客队"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bet_all_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 独盈-单场-->
+                <LinearLayout
+                    android:id="@+id/llMB_Win_Rate_ALL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlMB_Win_Rate_ALL"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="独盈-单场"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rlMB_Win_Rate_ALL_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+                    <LinearLayout
+                        android:id="@+id/lllMB_Win_Rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_Win_Rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_Win_Rate_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:inputType="number"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Win_Rate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="2.34"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_Win_Rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_Win_Rate_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:inputType="number"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Win_Rate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="3.15"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlM_Flat_Rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="和"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_Flat_Rate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="3.25"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:background="@color/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" />
+                </LinearLayout>
+
+                <!-- 独盈-半场-->
+                <LinearLayout
+                    android:id="@+id/llMB_Win_Rate_H_ALL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlMB_Win_Rate_H_ALL"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="独盈-半场"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rlMB_Win_Rate_H_ALL_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lllMB_Win_Rate_H_ALL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_Win_Rate_H"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_Win_Rate_H_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Win_Rate_H"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="3.1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_Win_Rate_H"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_Win_Rate_H_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:inputType="number"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Win_Rate_H"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="3.8"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlM_Flat_Rate_H"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="和"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_Flat_Rate_H"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.86"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:background="@color/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" />
+                </LinearLayout>
+                <!--单场让球-->
+                <LinearLayout
+                    android:id="@+id/ll_bet_rq_dan_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_bet_rq_dan_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="让球-单场"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rl_bet_rq_dan_line_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+                    <TextView
+                        android:background="@color/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" />
+                    <!--让球-单场 1-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_dan_list_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_tv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.03"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_tv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.87"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <!--让球-单场 2-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_dan_list_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.03"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.87"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <!--让球-单场 3-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_dan_list_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.03"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.87"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <!--让球-单场 4-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_dan_list_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_tv_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.03"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_tv_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.87"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--半场让球-->
+                <LinearLayout
+                    android:id="@+id/ll_bet_rq_ban_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_bet_rq_ban_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="让球-半场"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rl_bet_rq_ban_line_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+                    <TextView
+                        android:background="@color/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" />
+                    <!--让球-半场 1-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_ban_list_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_H_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_H_tv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.73"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_H_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_H_tv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_H1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.2"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <!--让球-半场 2-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_ban_list_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_H_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_H_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.73"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_H_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_H_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_H2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.2"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <!--让球-半场 3-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_rq_ban_list_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlMB_LetB_Rate_H_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_H_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/M_LetB_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="主队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_LetB_Rate_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.73"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTG_LetB_Rate_H_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@color/bet_line_inside_bg">
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_H_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="16dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+
+                            <TextView
+                                android:id="@+id/TG_LetB_H3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="80dp"
+                                android:text="客队"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_LetB_Rate_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.2"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--大小单场-->
+                <LinearLayout
+                    android:id="@+id/ll_bet_dx_dan_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/rl_bet_dx_dan_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="大小-单场"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rl_bet_dx_dan_line_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:background="@color/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" />
+                    <!--大小单场  1-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_dan_list_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.97"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.91"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+
+                    <!--大小单场  2-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_dan_list_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.97"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.91"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+
+                    <!--大小单场  3-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_dan_list_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.97"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.91"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+
+                    <!--大小单场  4-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_dan_list_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.97"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U2.5"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.91"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--大小半场-->
+                <LinearLayout
+                    android:id="@+id/ll_bet_dx_ban_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/rl_bet_dx_ban_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="大小-半场"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rl_bet_dx_ban_line_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:background="@color/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" />
+                    <!--大小-半场  1-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_ban_list_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_H_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O 0.5/ 1"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.75"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_H_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U0.5 /1"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_H_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.14"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+                    <!--大小-半场  2-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_ban_list_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_H_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O 0.5/ 1"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.75"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_H_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U0.5 /1"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_H_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.14"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+                    <!--大小-半场  3-->
+                    <LinearLayout
+                        android:id="@+id/ll_bet_dx_ban_list_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llMB_Dime_Rate_H_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvMB_Dime_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="大"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="O 0.5/ 1"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/MB_Dime_Rate_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="0.75"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llTG_Dime_Rate_H_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:id="@+id/tvTG_Dime_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="小"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="U0.5 /1"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/TG_Dime_Rate_H_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="1.14"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--单双-->
+
+                <LinearLayout
+                    android:id="@+id/llS_S_D_RateALl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bet_line"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlS_S_D_RateALl"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="单/双"
+                            android:textColor="@color/title_text"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/rlS_S_D_RateALl_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@mipmap/icon_ex_down" />
+                    </RelativeLayout>
+                    <!--单双 1-->
+                    <LinearLayout
+                        android:id="@+id/ll_D_S_Rate_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llS_Single_Rate_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="单"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/S_Single_Rate_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="O 0.5/ 1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llS_Double_Rate_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="双"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/S_Double_Rate_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="U0.5 /1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+                    <!--单双 2-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_D_S_Rate_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llS_Single_Rate_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="单"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/S_Single_Rate_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="O 0.5/ 1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llS_Double_Rate_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="双"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/S_Double_Rate_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="U0.5 /1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/bet_line_image" />
+
+                    <!--单双 3-->
+                    <LinearLayout
+                        android:id="@+id/ll_D_S_Rate_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/bet_line_inside_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/llS_Single_Rate_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:text="单"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/S_Single_Rate_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="O 0.5/ 1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="2px"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/bet_line_image" />
+
+                        <RelativeLayout
+                            android:id="@+id/llS_Double_Rate_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:gravity="center|left">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="双"
+                                android:textColor="@color/bet_line_inside"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/S_Double_Rate_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:text="U0.5 /1"
+                                android:textColor="@color/bet_line_inside_odds"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

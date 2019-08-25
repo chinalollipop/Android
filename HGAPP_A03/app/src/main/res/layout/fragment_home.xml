@@ -147,7 +147,7 @@
                 android:id="@+id/homeMoney"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="25dp"
                 android:text="￥0.00"
                 android:textColor="@color/event_line_title" />
 

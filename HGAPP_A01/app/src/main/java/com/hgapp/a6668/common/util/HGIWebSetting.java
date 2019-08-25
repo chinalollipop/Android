@@ -54,7 +54,8 @@ public class HGIWebSetting {
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setMediaPlaybackRequiresUserGesture(true);
         webSettings.setNavDump(false);
-        webSettings.setPluginsEnabled(false);
+        webSettings.setPluginState(WebSettings.PluginState.ON);//打开播放RTMP流
+        webSettings.setPluginsEnabled(true);
         webSettings.setSansSerifFontFamily("sans-serif");
         webSettings.setSaveFormData(true);
         webSettings.setSavePassword(false);

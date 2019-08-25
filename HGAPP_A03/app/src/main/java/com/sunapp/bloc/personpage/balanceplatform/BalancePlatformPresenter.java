@@ -25,7 +25,7 @@ public class BalancePlatformPresenter implements BalancePlatformContract.Present
 
     @Override
     public void postBanalceTransferCP(String appRefer,  String action, String from,String to, String fund) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCP(HGConstant.PRODUCT_PLATFORM,action,from,to,fund))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCP(HGConstant.PRODUCT_PLATFORM,from,to,fund))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
@@ -54,6 +54,33 @@ public class BalancePlatformPresenter implements BalancePlatformContract.Present
                         if(response.isSuccess())
                         {
                             view.postPersonBalanceResult(response.getData().get(0));
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postPersonBalanceCP(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceCP(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceCPResult(response.getData().get(0));
                         }
                         else
                         {

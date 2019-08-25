@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/event_bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@mipmap/event_click_top"
+                android:paddingLeft="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/downAppGold"
+                    android:layout_marginTop="75dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="【新老会员下载APP免费领取彩金38元】"
+                    android:textColor="@color/event_line_title"
+                    />
+                <TextView
+                    android:id="@+id/roundtv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:text="凡在本公司注册会员，累计存款金额1000元\n即可免费领取。"
+                    android:textColor="@color/title_text"
+                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/ivClickOldestMember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="60dp"
+                    android:background="@mipmap/event_click_red" />
+
+            </LinearLayout>
+            <!--<ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />-->
+
+
+                <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:padding="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentLeft="true"
+                            android:id="@+id/tvLastEventsFlowings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="昨日有效流水："
+                            android:textColor="@color/all_bg"
+                            />
+                        <LinearLayout
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/tvLastEventsNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="可领取次数："
+                                android:textColor="@color/all_bg"
+                                />
+                            <ImageView
+                                android:id="@+id/ivEventRefresh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="30dp"
+                                android:background="@mipmap/event_red_refresh"
+                                />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/event_tab_bg"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="291dp"
+                            android:background="@color/event_line" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:background="@color/event_line_title"
+                                android:gravity="center"
+                                android:text="有效流水"
+                                android:textColor="@color/all_bg"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="≥1000"
+                                android:background="@color/event_tab_bg"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="≥3000"
+                                android:background="@color/event_tab_bg"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:background="@color/event_tab_bg"
+                                android:text="≥5000"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:background="@color/event_tab_bg"
+                                android:text="≥10000"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:background="@color/event_tab_bg"
+                                android:text="≥50000"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:background="@color/event_tab_bg"
+                                android:text="≥100000"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:background="@color/event_tab_bg"
+                                android:gravity="center"
+                                android:text="≥5000000"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:background="@color/event_tab_bg"
+                                android:text="≥10000000"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="≥50000000"
+                                android:background="@color/event_tab_bg"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="≥100000000"
+                                android:background="@color/event_tab_bg"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="291dp"
+                            android:background="@color/event_line" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:background="@color/event_line_title"
+                                android:gravity="center"
+                                android:text="抢红包次数"
+                                android:textColor="@color/all_bg"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="2"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="5"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="7"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="9"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="18"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="28"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="38"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:text="68"
+                                android:textColor="@color/event_tv"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="291dp"
+                            android:background="@color/event_line" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:background="@color/event_line_title"
+                                android:gravity="center"
+                                android:text="提款要求"
+                                android:textColor="@color/all_bg"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+
+                            <TextView
+                                android:background="@color/event_tab_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="259dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="一倍流水"
+                                android:textColor="@color/event_tv"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/event_line" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="291dp"
+                            android:background="@color/event_line" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnClickRed"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@mipmap/event_click_blue"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="注意：此活动有效流水仅计算通过APP投注的流水！"
+                        android:textColor="@color/all_bg"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/event_red_one"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_event_list1"
+                        android:textColor="@color/title_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/event_red_two"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_event_list2"
+                        android:textColor="@color/title_text" />
+                </LinearLayout>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/eventTitleBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/n_titlebar_back"
+                android:drawablePadding="5dp"
+                android:textSize="16sp"
+                android:textColor="@color/title_text"
+                android:drawableLeft="@mipmap/back"
+                />
+            <TextView
+                android:id="@+id/eventTitleUserMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@mipmap/title_right"
+                android:gravity="center"
+                android:text="@string/account"
+                android:textColor="@color/title_text"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <com.hg3366.a3366.common.widgets.redpacket.RedPacketsLayout
+            android:id="@+id/packets_layout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+    </ScrollView>
+</LinearLayout>

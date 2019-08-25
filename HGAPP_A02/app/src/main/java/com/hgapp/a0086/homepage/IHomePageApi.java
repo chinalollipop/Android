@@ -3,6 +3,7 @@ package com.hgapp.a0086.homepage;
 import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
 import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a0086.data.AGCheckAcountResult;
+import com.hgapp.a0086.data.AGGameLoginResult;
 import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
@@ -42,6 +43,11 @@ public interface IHomePageApi {
     @POST("ag_api.php")
     @FormUrlEncoded
     public Observable<AGCheckAcountResult> postAGGameRegisterAccount(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //AG捕鱼
+    @POST("zrsx_login.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postLoginGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid);
 
     //棋牌游戏
     @POST("ky/ky_api.php")

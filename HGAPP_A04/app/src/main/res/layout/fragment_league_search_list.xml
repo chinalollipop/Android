@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/title_text"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:background="#837D89"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvLeagueSearchName"
+                android:layout_toLeftOf="@+id/tvLeagueSearchRefreshF"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center|left"
+                android:paddingLeft="16dp"
+                android:text="滚球赛事滚球赛事滚球赛事滚球赛事滚球赛事滚球赛事滚球赛事"
+                android:maxEms="10"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="#F4F4F4"
+                android:textSize="18sp" />
+
+            <FrameLayout
+                android:id="@+id/tvLeagueSearchRefreshF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp">
+
+                <ImageView
+                    android:id="@+id/ivLeagueSearchRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/bet_refresh" />
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="60"
+                    android:textColor="@color/title_text"
+                    android:textSize="12sp" />
+
+            </FrameLayout>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llLeagueSearchType"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchTitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:text="让球 / 大小"
+                    android:textColor="@color/bet_title_tv_clicked"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchDown1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bet_title_tv_clicked" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchTitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:text="综合过关"
+                    android:textColor="@color/bet_line"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchDown2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bet_line" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchTitle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:text="冠军"
+                    android:textColor="@color/bet_line"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvLeagueSearchDown3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bet_line" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLeagueSearchTimeAll"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvLeagueSearchTime1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@mipmap/icon_textview_transfer"
+                android:gravity="center|left"
+                android:paddingLeft="16dp"
+                android:text="全部日期"
+                android:textColor="#837D78"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvLeagueSearchTime2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@mipmap/icon_textview_transfer"
+                android:gravity="center|left"
+                android:paddingLeft="16dp"
+                android:text="联盟排序"
+                android:textColor="#837D78"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLeagueSearchRBTime"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/icon_textview_transfer"
+            android:gravity="center|left"
+            android:paddingLeft="16dp"
+            android:text="联盟排序"
+            android:textColor="#837D78"
+            android:textSize="18sp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lvLeagueSearchList2"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.hg3366.a3366.common.widgets.NListView
+            android:id="@+id/lvLeagueSearchList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+
+        <TextView
+            android:id="@+id/tvLeagueSearchNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="10dp"
+            android:layout_margin="10dp"
+            android:drawableTop="@mipmap/bet_nodata"
+            android:text="无赛程"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnLeagueSearch"
+            android:background="@drawable/btn_all_bot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="所有球类"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnLeagueSearchBackHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/ex_item_default"
+            android:text="回到首页"
+            android:textColor="#706860"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</ScrollView>

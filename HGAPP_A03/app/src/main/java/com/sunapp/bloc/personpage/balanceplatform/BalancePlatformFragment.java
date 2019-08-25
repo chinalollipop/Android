@@ -103,6 +103,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         lvBalancePlatform.setNestedScrollingEnabled(false);
         lvBalancePlatform.setAdapter(balancePlatformAdapter);
         presenter.postPersonBalance("","");
+        presenter.postPersonBalanceCP("","");
         presenter.postPersonBalanceKY("","");
         presenter.postPersonBalanceHG("","");
         presenter.postPersonBalanceVG("","");
@@ -173,7 +174,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         return;
                                     }
                                     if (postion == 0) {//彩票转入
-                                        presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "cp", GameShipHelper.getIntegerString(text));
+                                        presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "gmcp", GameShipHelper.getIntegerString(text));
                                     } else if (postion == 1){//AG转入
                                         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                             showMessage("非常抱歉，请您注册真实会员！");
@@ -252,7 +253,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         return;
                                     }
                                     if(postion==0){//彩票转出
-                                        presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg", GameShipHelper.getIntegerString(text));
+                                        presenter.postBanalceTransferCP("","fundLimitTrans","gmcp","hg", GameShipHelper.getIntegerString(text));
                                     }else if(postion==1){//AG转入
                                         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                             showMessage("非常抱歉，请您注册真实会员！");
@@ -316,12 +317,21 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
         //balancePlatformList.clear();
-        balancePlatformList.set(0,personBalance.getBalance_cp());
         balancePlatformList.set(1,personBalance.getBalance_ag());
         balancePlatformAdapter.notifyDataSetChanged();
         typeArgsHG = GameShipHelper.formatMoney(personBalance.getBalance_hg());
         backTitleBalancePlatform.setMoreText(typeArgsHG);
         EventBus.getDefault().post(new UserMoneyEvent(typeArgsHG));
+        //lvBalancePlatform.setAdapter(new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList));
+        //balancePlatformAdapter.notifyDataSetInvalidated();
+        //presenter.postPersonBalanceKY("","");
+    }
+
+    @Override
+    public void postPersonBalanceCPResult(KYBalanceResult personBalance) {
+        //balancePlatformList.clear();
+        balancePlatformList.set(0,personBalance.getGmcp_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
         //lvBalancePlatform.setAdapter(new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList));
         //balancePlatformAdapter.notifyDataSetInvalidated();
         //presenter.postPersonBalanceKY("","");
@@ -371,6 +381,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     public void showMessage(String message) {
         super.showMessage(message);
         presenter.postPersonBalance("","");
+        presenter.postPersonBalanceCP("","");
     }
 
     @Override

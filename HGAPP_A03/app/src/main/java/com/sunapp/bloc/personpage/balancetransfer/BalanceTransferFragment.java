@@ -150,6 +150,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     private void initBalance() {
         presenter.postPersonBalance("","");
+        presenter.postPersonBalanceCP("","");
         presenter.postPersonBalanceKY("","");
         presenter.postPersonBalanceHG("","");
         presenter.postPersonBalanceVG("","");
@@ -192,8 +193,13 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
         BalanceTransferTY.setText(personBalance.getBalance_hg());
-        BalanceTransferCP.setText(personBalance.getBalance_cp());
+        backTitleBalanceTransfer.setMoreText(personBalance.getBalance_hg());
         BalanceTransferAG.setText(personBalance.getBalance_ag());
+    }
+
+    @Override
+    public void postPersonBalanceCPResult(KYBalanceResult personBalance) {
+        BalanceTransferCP.setText(personBalance.getGmcp_balance());
     }
 
     @Override
@@ -229,7 +235,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        pop();
+        initBalance();
+        //pop();
     }
 
     @Override
@@ -263,9 +270,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
             }
             presenter.postBanalceTransfer("","ag","hg",transferMoney);
         }else if(from.equals("hg")&&to.equals("cp")){
-            presenter.postBanalceTransferCP("","fundLimitTrans","hg","cp",transferMoney);
+            presenter.postBanalceTransferCP("","fundLimitTrans","hg","gmcp",transferMoney);
         }else if(from.equals("cp")&&to.equals("hg")){
-            presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg",transferMoney);
+            presenter.postBanalceTransferCP("","fundLimitTrans","gmcp","hg",transferMoney);
         }else if(from.equals("hg")&&to.equals("ky")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");

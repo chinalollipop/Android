@@ -5,6 +5,7 @@ import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.base.IProgressView;
 import com.hgapp.a0086.base.IView;
 import com.hgapp.a0086.data.AGCheckAcountResult;
+import com.hgapp.a0086.data.AGGameLoginResult;
 import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
@@ -35,6 +36,7 @@ public interface HomePageContract {
         public void postValidGift(String appRefer,String action);
         public void postValidGift2(String appRefer,String action);
         public void postMaintain();
+        public void postBYGame(String appRefer, String gameid);
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
@@ -53,6 +55,7 @@ public interface HomePageContract {
         public void postValidGiftResult(ValidResult validResult);
         public void postValidGift2Result(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);
+        public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult);
     }
 
 }

@@ -31,6 +31,7 @@ import com.hgapp.a0086.common.widgets.CustomPopWindow;
 import com.hgapp.a0086.common.widgets.MarqueeTextView;
 import com.hgapp.a0086.common.widgets.RoundCornerImageView;
 import com.hgapp.a0086.data.AGCheckAcountResult;
+import com.hgapp.a0086.data.AGGameLoginResult;
 import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
@@ -126,6 +127,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
         homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
+        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
 //        homeGameList.add(new HomePageIcon("BBIN",R.mipmap.home_bbin));
@@ -414,6 +416,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }else {
                     postAviaQiPaiGo();
                 }
+                break;
+            case 15:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "10";
+                presenter.postBYGame("","6");
                 break;
         }
     }
@@ -783,6 +798,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     break;
             }
         }
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
+        GameLog.log("AG捕鱼的返回数据："+agGameLoginResult.getUrl());
+        //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
+        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",agGameLoginResult.getUrl());
+        intent.putExtra("gameCnName","AG捕鱼");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);
     }
 
     private void postValidGiftGo(){

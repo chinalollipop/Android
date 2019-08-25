@@ -119,8 +119,9 @@ public class XPlayGameActivity extends Activity {
 
         PTIWebSetting.init(wvPayGame);
         String gameurl = getIntent().getStringExtra("url");
-        String type = getIntent().getStringExtra("type");
+        String type = getIntent().getStringExtra("type");//正式帐号 POST 请求，测试账号GET 请求
         String gameType = getIntent().getStringExtra("gameType");
+        String postParam = getIntent().getStringExtra("postParam");
         String uuid = getIntent().getStringExtra("uuid");
         String gameCnName = getIntent().getStringExtra("gameCnName");
         boolean hidetitlebar = getIntent().getBooleanExtra("hidetitlebar",false);
@@ -149,8 +150,7 @@ public class XPlayGameActivity extends Activity {
         else if(hidetitlebar)
         {
             payGameTitle.setVisibility(View.GONE);
-        }
-        else{
+        } else{
             payGameTitle.setVisibility(View.VISIBLE);
             GameLog.log("SDK_INT upper ......"+gameurl);
             /*if(gameType.equals("shaba")){
@@ -259,7 +259,7 @@ public class XPlayGameActivity extends Activity {
             }
         }
         if("post".equals(type)){
-            wvPayGame.postUrl(getIntent().getStringExtra("url"),null);
+            wvPayGame.postUrl(getIntent().getStringExtra("url"),postParam.getBytes());
         }else{
             wvPayGame.loadUrl(getIntent().getStringExtra("url"));
         }

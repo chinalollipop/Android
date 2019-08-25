@@ -197,7 +197,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             presenter.postNoticeList("");
                             break;
                         case 6://站内信
-
+                            showMessage("敬请期待！");
                             break;
                         case 7://账户中心
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -214,11 +214,13 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 10://新手教学
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"/template/help.php?tip=app")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"template/help.php?tip=app")));
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 11://关于太阳城
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"template/aboutus.php?tip=app")));
+
                             //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"/template/help.php?tip=app")));
                             break;
                         case 12://代理加盟

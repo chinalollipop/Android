@@ -2,6 +2,7 @@ package com.sunapp.bloc.data;
 
 public class KYBalanceResult {
     private String ky_balance;
+    private String gmcp_balance;
     private String hg_balance;
     private String ff_balance;
     private String vg_balance;
@@ -15,6 +16,14 @@ public class KYBalanceResult {
 
     public void setKy_balance(String ky_balance) {
         this.ky_balance = ky_balance;
+    }
+
+    public String getGmcp_balance() {
+        return gmcp_balance;
+    }
+
+    public void setGmcp_balance(String gmcp_balance) {
+        this.gmcp_balance = gmcp_balance;
     }
 
     public String getHg_balance() {
@@ -69,6 +78,7 @@ public class KYBalanceResult {
     public String toString() {
         return "KYBalanceResult{" +
                 "ky_balance='" + ky_balance + '\'' +
+                ", gmcp_balance='" + gmcp_balance + '\'' +
                 ", hg_balance='" + hg_balance + '\'' +
                 ", ff_balance='" + ff_balance + '\'' +
                 ", vg_balance='" + vg_balance + '\'' +

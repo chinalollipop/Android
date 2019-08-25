@@ -21,7 +21,6 @@ import com.sunapp.bloc.MainActivity;
 import com.sunapp.bloc.R;
 import com.sunapp.bloc.common.http.Client;
 import com.sunapp.bloc.common.util.ACache;
-import com.sunapp.bloc.common.util.EntranceUtils;
 import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.data.DomainUrl;
 import com.sunapp.common.util.Check;
@@ -219,7 +218,7 @@ public class LauncherActivity extends AppCompatActivity{
             ToastUtils.showLongToast("无网络连接！");
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
-        String domainUrl = "https://hg00086.firebaseapp.com/y/hg6668_1.txt";
+        String domainUrl = "https://hg00086.firebaseapp.com/y/gm_suncity.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {

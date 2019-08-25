@@ -7,6 +7,7 @@ import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.util.RxHelper;
 import com.hgapp.a0086.common.util.SubscriptionHelper;
 import com.hgapp.a0086.data.AGCheckAcountResult;
+import com.hgapp.a0086.data.AGGameLoginResult;
 import com.hgapp.a0086.data.BannerResult;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.CheckAgLiveResult;
@@ -409,7 +410,32 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                     }
                 }));
     }
+    @Override
+    public void postBYGame(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postLoginGame(HGConstant.PRODUCT_PLATFORM,gameid))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<AGGameLoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<AGGameLoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postGoPlayGameResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
 
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 
     @Override
     public void start() {

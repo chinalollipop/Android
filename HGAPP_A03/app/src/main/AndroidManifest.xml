@@ -36,7 +36,7 @@
         android:protectionLevel="signature" />
 
     <!-- Required  一些系统要求的权限，如访问网络等-->
-    <uses-permission android:name="com.hgapp.a6668.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.sunapp.bloc.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 
     <!-- Optional for location -->
@@ -58,6 +58,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="design_width"
@@ -201,7 +202,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.hgapp.a6668" />
+                <category android:name="com.sunapp.bloc" />
             </intent-filter>
         </activity>
 
@@ -233,7 +234,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
-                <category android:name="com.hgapp.a6668" />
+                <category android:name="com.sunapp.bloc" />
             </intent-filter>
 
         </service>
@@ -249,7 +250,7 @@
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
-                <category android:name="com.hgapp.a6668" />
+                <category android:name="com.sunapp.bloc" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -281,7 +282,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
                 <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.hgapp.a6668" />
+                <category android:name="com.sunapp.bloc" />
             </intent-filter>
         </receiver>
 
@@ -289,7 +290,7 @@
         <receiver android:name="com.sunapp.bloc.homepage.push.MyJPushMessageReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
-                <category android:name="com.hgapp.a6668"></category>
+                <category android:name="com.sunapp.bloc"></category>
             </intent-filter>
         </receiver>
 
@@ -300,7 +301,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="db9d229616dfad6aa052a49c" /> <!--  </>值来自开发者平台取得的AppKey-->
+            android:value="082983d19500c786306313ea" /> <!--  </>值来自开发者平台取得的AppKey-->
 
         <provider
             android:name="android.support.v4.content.FileProvider"

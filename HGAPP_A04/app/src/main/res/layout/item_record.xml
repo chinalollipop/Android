@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tvRecordOrderCode"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:text="订单号"
+            android:maxLines="2"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:textColor="@color/textview_hight"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/tvRecordTime"
+            android:layout_gravity="center"
+            android:layout_width="70dp"
+            android:maxLines="2"
+            android:layout_height="match_parent"
+            android:textColor="@color/textview_hight"
+            android:text="日期/时间"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/tvRecordName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="项目"
+            android:textColor="@color/textview_hight"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/tvRecordOrderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="订单状态"
+            android:textColor="@color/textview_hight"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/tvRecordMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="金额"
+            android:textColor="#2A8FBD"
+            android:textSize="12sp" />
+
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/n_app_bg" />-->
+</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#C8C7CC" />
+</LinearLayout>
