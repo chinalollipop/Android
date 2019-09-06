@@ -3,15 +3,19 @@ package com.hgapp.a0086.homepage.online;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
+import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.FilterApp;
+import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.PackageUtil;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +38,8 @@ public class ContractFragment extends HGBaseFragment {
     LinearLayout llContractQQ;
     @BindView(R.id.llContractWX)
     LinearLayout llContractWX;
+    @BindView(R.id.tvContractWXBg)
+    ImageView tvContractWXBg;
     private String cate;
     private String getArgParam1;
     private String getArgParam2;
@@ -80,7 +86,11 @@ public class ContractFragment extends HGBaseFragment {
         backContract.setMoreText(getArgParam1);
         tvContractQQNumber.setText(getArgParam2);
         tvContractWXNumber.setText(getArgParam3);
-
+        String wechat_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT+"_url");
+        Picasso.with(getContext())
+                .load(wechat_url)
+                .placeholder(R.drawable.loading)
+                .into(tvContractWXBg);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -98,7 +108,13 @@ public class ContractFragment extends HGBaseFragment {
         switch (view.getId()) {
             case R.id.llContractQQ:
                 if(fasterPayList.contains("com.tencent.mobileqq")){
-                    PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
+                    //PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
+                    String tvContractQQ = tvContractQQNumber.getText().toString();
+                    if(!Check.isEmpty(tvContractQQ)){
+                        PackageUtil.startChatQQ(getContext(), tvContractQQ);
+                    }else{
+                        PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
+                    }
                 }else{
                     showMessage("手机没有安装QQ，请安装再重试！");
                 }
@@ -110,11 +126,16 @@ public class ContractFragment extends HGBaseFragment {
                 }*/
                 break;
             case R.id.llContractWX:
-                if(fasterPayList.contains("com.tencent.mm")){
+                if(!tvContractWXBg.isShown()){
+                    tvContractWXBg.setVisibility(View.VISIBLE);
+                }else{
+                    tvContractWXBg.setVisibility(View.GONE);
+                }
+                /*if(fasterPayList.contains("com.tencent.mm")){
                     PackageUtil.startAppByPackageName(getContext(), "com.tencent.mm");
                 }else{
                     showMessage("手机没有安装微信，请安装再重试！");
-                }
+                }*/
 
                 break;
         }

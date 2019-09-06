@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -115,9 +116,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
+        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
         rvMyList.setLayoutManager(gridLayoutManager);
-        rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
+        //rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
         rvMyList.setAdapter(new RvMylistAdapter(getContext(),R.layout.item_person,myList));
         PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
         if(null == packageInfo)

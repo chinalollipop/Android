@@ -76,13 +76,13 @@ public class NoticeListFragment extends HGBaseFragment{
 
         @Override
         protected void convert(ViewHolder holder, final NoticeResult.DataBean dataBean, final int position) {
-            if(position==0){
+            /*if(position==0){
                 holder.setBackgroundRes(R.id.tvContentCount,R.drawable.notice_item_default);
             }else{
                 holder.setBackgroundRes(R.id.tvContentCount,R.drawable.notice_item_normal);
             }
 
-            holder.setText(R.id.tvContentCount, position+1+"");
+            holder.setText(R.id.tvContentCount, position+1+"");*/
             holder.setText(R.id.tvContent, dataBean.getNotice());
         }
     }

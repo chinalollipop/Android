@@ -19,7 +19,7 @@
         android:paddingTop="6dp"
         android:singleLine="true"
         android:text="200"
-        android:textColor="#ffffff"
+        android:textColor="#2d3134"
         android:textSize="12sp" />
 </LinearLayout>
 

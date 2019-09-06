@@ -98,7 +98,13 @@ public class ContractFragment extends HGBaseFragment {
         switch (view.getId()) {
             case R.id.llContractQQ:
                 if(fasterPayList.contains("com.tencent.mobileqq")){
-                    PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
+                    //PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
+                    String tvContractQQ = tvContractQQNumber.getText().toString();
+                    if(!Check.isEmpty(tvContractQQ)){
+                        PackageUtil.startChatQQ(getContext(), tvContractQQ);
+                    }else{
+                        PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
+                    }
                 }else{
                     showMessage("手机没有安装QQ，请安装再重试！");
                 }

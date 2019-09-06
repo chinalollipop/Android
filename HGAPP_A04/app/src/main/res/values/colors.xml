@@ -30,10 +30,11 @@
     <color name="n_edittext_stroke">#979797</color>
     <color name="n_edittext">#606060</color>
     <color name="n_edittext_cursor">#606060</color>
-    <color name="n_edittext_pwd">#3b3a40</color>
+    <color name="n_edittext_pwd">#f7ae14</color>
+    <color name="n_edittext_pwd2">#3b3a40</color>
     <color name="n_edittext_all_bot">#413e46</color>
     <color name="l_view_color">#D6D6D6</color>
-    <color name="all_bg">#F9F9F9</color>
+    <color name="all_bg">#f1f1f1</color>
     <color name="event_line_title">#fdb22b</color>
     <color name="event_tab_bg">#f6e8bb</color>
     <color name="event_line">#ff0000</color>

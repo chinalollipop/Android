@@ -274,4 +274,8 @@ public class PackageUtil {
         return false;
     }
 
+    public static void startChatQQ(Context context,String qq){
+        String url = "mqqwpa://im/chat?chat_type=wpa&uin="+qq;//uin是发送过去的qq号码
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+    }
 }

@@ -16,7 +16,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="@color/all_bg"
         android:orientation="vertical">
 
@@ -27,22 +26,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="121dp"
-            android:layout_margin="16dp"
-            android:background="@mipmap/ag_list_top"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="60dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:orientation="vertical">
 
                     <TextView
@@ -65,6 +64,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:orientation="vertical">
 
                     <TextView
@@ -87,6 +88,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:orientation="vertical">
 
                     <TextView
@@ -109,6 +112,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:orientation="vertical">
 
                     <TextView
@@ -128,23 +133,17 @@
 
 
             </LinearLayout>
-            <TextView
-                android:background="#9b9b9b"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp" />
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="60dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:orientation="vertical">
 
                     <TextView
@@ -166,6 +165,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -188,6 +189,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -210,6 +213,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/icon_textview_transfer1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -238,6 +243,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="40dp"
             android:gravity="center|left">
@@ -247,7 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="转出："
-                android:textColor="@color/textview_hight"
+                android:textColor="#2d3134"
                 android:textSize="15sp" />
 
 
@@ -255,30 +261,22 @@
                 android:id="@+id/tvBalanceTransferOut"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:background="@mipmap/icon_textview_transfer"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="请选择平台 "
-                android:textColor="#868686"
+                android:textColor="#2d3134"
                 android:textSize="15sp" />
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="10dp"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
-
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="40dp"
             android:gravity="center|left">
@@ -288,35 +286,27 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="转入："
-                android:textColor="@color/textview_hight"
+                android:textColor="#2d3134"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvBalanceTransferIn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:background="@mipmap/icon_textview_transfer"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="请选择平台 "
-                android:textColor="#868686"
+                android:textColor="#2d3134"
                 android:textSize="15sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="10dp"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="16dp"
             android:gravity="center|left">
 
@@ -325,17 +315,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="金额："
-                android:textColor="@color/textview_hight"
+                android:textColor="#2d3134"
                 android:textSize="15sp" />
 
             <RelativeLayout
-                android:layout_width="134dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@mipmap/icon_edittext_transfer">
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/icon_textview_transfer2">
 
                 <EditText
                     android:id="@+id/etBalanceTransferMoney"
-                    android:layout_width="104dp"
+                    android:layout_width="144dp"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:hint="请输入转换金额"
@@ -348,28 +340,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="100dp"
                     android:text="元  "
-                    android:textColor="#868686"
+                    android:textColor="#2d3134"
                     android:textSize="15sp" />
 
             </RelativeLayout>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="10dp"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="16dp"
             android:gravity="center|left">
 
@@ -425,14 +408,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="温馨提示：\n"
-                android:textColor="@color/textview_hight"
+                android:textColor="#2d3134"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1、 转账前请退出游戏或游戏投注界面。\n\n2、不参与活动时, 户内转账金额不能少于 1元，户内转账\n不收取任何手续费。\n\n3、如遇网速较慢时，请耐心等候片刻，不要多次重复提交。"
-                android:textColor="@color/textview_hight"
+                android:text="1、 转账前请退出游戏或游戏投注界面。\n2、不参与活动时, 户内转账金额不能少于 1元，户内转账\n不收取任何手续费。\n3、如遇网速较慢时，请耐心等候片刻，不要多次重复提交。"
+                android:textColor="#2d3134"
                 android:textSize="12sp" />
         </LinearLayout>
 

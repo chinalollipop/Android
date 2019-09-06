@@ -28,6 +28,7 @@ public class CheckUpgradeResult implements Parcelable {
     private String service_meiqia;
     private String service_qq;
     private String service_wechat;
+    private String service_wechat_url;
     private String newcomer_guide;
     private String business_agent;
     private String lottery_link;
@@ -97,6 +98,14 @@ public class CheckUpgradeResult implements Parcelable {
         this.service_wechat = service_wechat;
     }
 
+    public String getService_wechat_url() {
+        return service_wechat_url;
+    }
+
+    public void setService_wechat_url(String service_wechat_url) {
+        this.service_wechat_url = service_wechat_url;
+    }
+
     public String getNewcomer_guide() {
         return newcomer_guide;
     }
@@ -144,6 +153,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.service_meiqia);
         dest.writeString(this.service_qq);
         dest.writeString(this.service_wechat);
+        dest.writeString(this.service_wechat_url);
         dest.writeString(this.newcomer_guide);
         dest.writeString(this.business_agent);
         dest.writeString(this.lottery_link);
@@ -162,6 +172,7 @@ public class CheckUpgradeResult implements Parcelable {
         this.service_meiqia = in.readString();
         this.service_qq = in.readString();
         this.service_wechat = in.readString();
+        this.service_wechat_url = in.readString();
         this.newcomer_guide = in.readString();
         this.business_agent = in.readString();
         this.lottery_link = in.readString();

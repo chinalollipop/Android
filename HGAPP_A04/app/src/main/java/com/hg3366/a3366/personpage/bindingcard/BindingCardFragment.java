@@ -56,16 +56,6 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     Button tvBindingCardSubmit;
     @BindView(R.id.llBindingCardPwd)
     LinearLayout llBindingCardPwd;
-    @BindView(R.id.llBindingCardPwd2)
-    LinearLayout llBindingCardPwd2;
-    @BindView(R.id.tv1)
-    TextView tv1;
-    @BindView(R.id.tv2)
-    TextView tv2;
-    @BindView(R.id.tv3)
-    TextView tv3;
-    @BindView(R.id.tv4)
-    TextView tv4;
 
 
 
@@ -128,12 +118,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     public void setEvents(@Nullable Bundle savedInstanceState) {
         bincCard = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
         if("1".equals(bincCard)){
-            tv1.setVisibility(View.GONE);
-            tv2.setVisibility(View.GONE);
-            tv3.setVisibility(View.GONE);
-            tv4.setVisibility(View.GONE);
             llBindingCardPwd.setVisibility(View.GONE);
-            llBindingCardPwd2.setVisibility(View.GONE);
             tvBindingCardSubmit.setText("更改绑定");
         }else{
             tvBindingCardSubmit.setText("确认绑定");

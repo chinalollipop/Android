@@ -19,17 +19,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginTop="5dp"
-                android:background="@color/l_view_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/h_edit_height"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
                 android:gravity="center|left">
 
                 <TextView
@@ -53,22 +49,13 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/l_view_color" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginTop="5dp"
-                android:background="@color/l_view_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/h_edit_height"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
                 android:gravity="center|left">
 
                 <TextView
@@ -92,26 +79,15 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/l_view_color" />
-
-
         </LinearLayout>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="5dp"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
             android:gravity="center|left">
 
             <TextView
@@ -135,23 +111,13 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="5dp"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
-
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
             android:gravity="center|left">
 
             <TextView
@@ -174,29 +140,17 @@
                 android:textSize="15sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="5dp"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_edit_height"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="40dp"
+            android:layout_margin="10dp"
             android:gravity="center|left">
 
             <TextView
                 android:id="@+id/tvDepositRecordToday"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:layout_margin="2dp"
                 android:background="@drawable/bg_btn_focus"
                 android:gravity="center"
                 android:text="今日"
@@ -205,9 +159,8 @@
 
             <TextView
                 android:id="@+id/tvDepositRecordLastDay"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:layout_margin="2dp"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/bg_btn_no_focus"
                 android:gravity="center"
@@ -217,21 +170,19 @@
 
             <TextView
                 android:id="@+id/tvDepositRecordLastWeek"
-                android:layout_width="60dp"
+                android:layout_width="78dp"
                 android:layout_height="match_parent"
-                android:layout_margin="2dp"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/bg_btn_no_focus"
                 android:gravity="center"
-                android:text="近一周 "
+                android:text="最近一周 "
                 android:textColor="@color/n_edittext_pwd"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvDepositRecordLastMonth"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:layout_margin="2dp"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/bg_btn_no_focus"
                 android:gravity="center"
@@ -240,38 +191,32 @@
                 android:textSize="15sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
-
 
         <Button
             android:id="@+id/btnDepositRecordSubmit"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/h_tbn_height"
+            android:layout_height="38dp"
+            android:background="@mipmap/bet_list_btn"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/btn_inquire"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
             android:text="立即查询" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/l_view_color" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:padding="5dp"
+            android:background="@mipmap/icon_textview_transfer2"
             android:gravity="center|left"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="订单号"
@@ -281,7 +226,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="日期/时间"

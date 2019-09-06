@@ -3,34 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/title_text"
-    android:gravity="center"
     android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/llItemMySelf"
+    <LinearLayout
+        android:id="@+id/llItemMySelf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/ivItemMyImage"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/ivItemMyImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp" />
+        <TextView
+            android:id="@+id/tvItemMyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawableRight="@mipmap/icon_my_right"
+            android:text="我的"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvItemMyName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="我的"
-                android:textColor="@color/textview_hight"
-                android:textSize="15sp" />
-
-        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e9e7ec"
+        />
 
 
 </com.zhy.autolayout.AutoRelativeLayout>
