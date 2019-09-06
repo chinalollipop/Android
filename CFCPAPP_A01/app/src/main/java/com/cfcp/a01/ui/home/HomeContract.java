@@ -17,6 +17,7 @@ public interface HomeContract {
         void getBanner(String appRefer);
         void getNotice(String appRefer);
         void getAllGames(String appRefer);
+        void getAllGamesNew(String appRefer);
         void postLogout(String appRefer);
         void getJointLogin(String username);
         void getKaiYuanGame(String username);
@@ -31,6 +32,7 @@ public interface HomeContract {
         void getBannerResult(BannerResult bannerResult);
         void getNoticeResult(NoticeResult noticeResult);
         void getAllGamesResult(AllGamesResult allGamesResult);
+        void getAllGamesNewResult(AllGamesResult allGamesResult);
         void postLogoutResult(String logoutResult);
         void getJointLoginResult(String logoutResult);
         void getAGGamesResult(AllGamesResult allGamesResult);

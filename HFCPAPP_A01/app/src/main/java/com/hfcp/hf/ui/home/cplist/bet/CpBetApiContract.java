@@ -1,0 +1,22 @@
+package com.hfcp.hf.ui.home.cplist.bet;
+
+import com.hfcp.hf.common.base.IMessageView;
+import com.hfcp.hf.common.base.IPresenter;
+import com.hfcp.hf.common.base.IView;
+import com.hfcp.hf.data.CPBetResult;
+
+import java.util.Map;
+
+public interface CpBetApiContract {
+    public interface Presenter extends IPresenter{
+        public void postCpBets(String game_code, String round, String totalNums, String totalMoney, String number, Map<String, String> fields, String x_session_token);
+        public void postCpBetsHK(String game_code, String round, String totalNums, String totalMoney, String number, String betmoney, String typecode, String rtype, String x_session_token);
+        public void postCpBetsHKMap(String game_code, String round, String totalNums, String totalMoney, String number, Map<String, String> fields, String x_session_token);
+        public void postCpBetsLM(String game_code, String round, String totalNums, String totalMoney, String number, String betmoney, String typecode, String x_session_token);
+
+    }
+
+    public interface View extends IView<CpBetApiContract.Presenter>,IMessageView {
+        public void postCpBetResult(CPBetResult betResult);
+    }
+}

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_gravity="center|left"
+            android:text="用户名"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportUserName"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:text="0"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportcreated_at"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="开始期数"
+            android:textColor="#3b3b3b" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_gravity="center|left"
+            android:text="收入"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportamount"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:text="0"
+            android:textColor="#c52133" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="支出"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportcoefficient"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="0.00"
+            android:textColor="#E4A40B" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_gravity="center|left"
+            android:text="账变类型"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportdescription"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:text="0"
+            android:textColor="#599c22" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="金额"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportablance"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center|left"
+            android:text="0.00"
+            android:textColor="#3b3b3b" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center|left"
+            android:layout_gravity="center|left"
+            android:text="备注"
+            android:textColor="#3b3b3b" />
+
+        <TextView
+            android:id="@+id/itemMyReportReMarket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center|left"
+            android:text="0"
+            android:textColor="#3b3b3b" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#e4e1e1" />
+
+</LinearLayout>

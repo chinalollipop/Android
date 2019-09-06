@@ -1,17 +1,16 @@
 package com.cfcp.a01.ui.lunch;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
 import com.alibaba.fastjson.JSON;
-import com.cfcp.a01.CFApplication;
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.http.Client;
@@ -34,7 +33,7 @@ import okhttp3.Response;
 
 import static com.cfcp.a01.common.utils.Utils.getContext;
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends Activity {
     private boolean ifStop = false;
     MyHttpClient myHttpClient = new MyHttpClient();
     Button button;
@@ -47,7 +46,11 @@ public class LaunchActivity extends AppCompatActivity {
         //去除状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_launch);
+        try {
+            setContentView(R.layout.activity_launch);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         button = findViewById(R.id.retry);
         //创建倒计时类
         mCountDownTimer = new MyCountDownTimer(6000, 1000);

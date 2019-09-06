@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">创富彩票</string>
+    <string name="app_name">创富彩票测试</string>
     <string name="n_exit_app">再按一次退出程序</string>
     <string name="n_titlebar_back">返回</string>
 </resources>

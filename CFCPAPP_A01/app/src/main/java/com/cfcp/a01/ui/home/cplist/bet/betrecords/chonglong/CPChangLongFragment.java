@@ -3,6 +3,7 @@ package com.cfcp.a01.ui.home.cplist.bet.betrecords.chonglong;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +18,7 @@ import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.data.CPChangLongResult;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -41,12 +42,13 @@ public class CPChangLongFragment extends BaseActivity2 implements CpChangLongCon
     private String gameId = "";
     private String dzTitileName = "";
 
-    int page =1;
-    int pageTotal =1;
+    int page = 1;
+    int pageTotal = 1;
     BetChangLongItemGameAdapter cpOrederContentGameAdapter = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        CPInjections.inject(this,null);
+        CPInjections.inject(this, null);
         super.onCreate(savedInstanceState);
     }
 
@@ -64,12 +66,12 @@ public class CPChangLongFragment extends BaseActivity2 implements CpChangLongCon
         cpChangLongList.setHasFixedSize(true);
         cpChangLongList.setNestedScrollingEnabled(false);
         presenter.getCpBetRecords(gameId);
-        WaitDialog.show(getContext(), "加载中...").setCanCancel(true);
+        WaitDialog.show((AppCompatActivity) getContext(), "加载中...");
 
     }
 
 
-    @OnClick({  R.id.cpChangLongbackHome})
+    @OnClick({R.id.cpChangLongbackHome})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cpChangLongbackHome:
@@ -80,16 +82,16 @@ public class CPChangLongFragment extends BaseActivity2 implements CpChangLongCon
     }
 
 
-
     class BetChangLongItemGameAdapter extends BaseQuickAdapter<CPChangLongResult.ListBean, BaseViewHolder> {
 
-        public BetChangLongItemGameAdapter( int layoutId, List datas) {
+        public BetChangLongItemGameAdapter(int layoutId, List datas) {
             super(layoutId, datas);
         }
+
         @Override
-        protected void convert(BaseViewHolder holder,  CPChangLongResult.ListBean data) {
-            holder.setText(R.id.cpChangLongTime, data.getPlayCateName()+"-"+data.getPlayName());
-            holder.setText(R.id.cpChangLongNumber, data.getCount()+"");
+        protected void convert(BaseViewHolder holder, CPChangLongResult.ListBean data) {
+            holder.setText(R.id.cpChangLongTime, data.getPlayCateName() + "-" + data.getPlayName());
+            holder.setText(R.id.cpChangLongNumber, data.getCount() + "");
         }
     }
 
@@ -117,21 +119,21 @@ public class CPChangLongFragment extends BaseActivity2 implements CpChangLongCon
     }
 
     //标记为红色
-    private String onMarkRed(String sign){
-        return " <font color='#ff0000'>" + sign+"</font>";
+    private String onMarkRed(String sign) {
+        return " <font color='#ff0000'>" + sign + "</font>";
     }
 
 
     @Override
     public void getBetRecordsResult(CPChangLongResult cpChangLongResult) {
         WaitDialog.dismiss();
-        if(!Check.isNull(cpChangLongResult.getList())&&cpChangLongResult.getList().size()>0){
-            if(null == cpOrederContentGameAdapter){
+        if (!Check.isNull(cpChangLongResult.getList()) && cpChangLongResult.getList().size() > 0) {
+            if (null == cpOrederContentGameAdapter) {
                 cpOrederContentGameAdapter = new BetChangLongItemGameAdapter(R.layout.item_cp_changlong, cpChangLongResult.getList());
                 cpChangLongList.setAdapter(cpOrederContentGameAdapter);
             }
             cpOrederContentGameAdapter.notifyDataSetChanged();
-        }else{
+        } else {
             showMessage("暂无数据！");
         }
 

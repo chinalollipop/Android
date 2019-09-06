@@ -10,7 +10,7 @@ public interface CPLotteryListContract {
 
     public interface Presenter extends IPresenter
     {
-        public void postCPLotteryList(String data);
+        public void postCPLotteryList(String dataStr,String data);
     }
     public interface View extends IView<Presenter>, IMessageView
     {

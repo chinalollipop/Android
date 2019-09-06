@@ -1,12 +1,12 @@
 package com.cfcp.a01.ui.home.dragon;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -32,17 +32,17 @@ import com.cfcp.a01.common.utils.TimeHelper;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.common.widget.TimeTextView;
 import com.cfcp.a01.data.BetDragonResult;
+import com.cfcp.a01.data.BetParam;
 import com.cfcp.a01.data.BetRecordsResult;
 import com.cfcp.a01.data.CPBetResult;
 import com.cfcp.a01.data.DragonBetCloseEvent;
 import com.cfcp.a01.data.DragonBetEvent;
-import com.cfcp.a01.data.BetParam;
 import com.cfcp.a01.ui.home.cplist.events.CloseLotteryEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.v2.DialogSettings;
-import com.kongzue.dialog.v2.MessageDialog;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.util.DialogSettings;
+import com.kongzue.dialog.v3.MessageDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -60,6 +60,8 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.kongzue.dialog.util.DialogSettings.STYLE.STYLE_IOS;
 
 public class DragonFragment extends BaseFragment implements DragonContract.View {
 
@@ -91,10 +93,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
     BetDragonListBaseAdapter betDragonListBaseAdapter;
     private String typeArgs2, typeArgs3;
     DragonContract.Presenter presenter;
-    String name,fTime, game_code,  round,payId="0",odds, totalNums,totalMoney,number,betGold="",betType;
+    String name, fTime, game_code, round, payId = "0", odds, totalNums, totalMoney, number, betGold = "", betType;
     //代表彩种ID
     private String lotteryId = "1";
-    private int clickPostion =0;
+    private int clickPostion = 0;
     String startTime, endTime;
     private long cpHallIcon0, cpHallIcon1, cpHallIcon2, cpHallIcon3, cpHallIcon4, cpHallIcon5, cpHallIcon6, cpHallIcon7,
             cpHallIcon8, cpHallIcon9, cpHallIcon10, cpHallIcon11, cpHallIcon12, cpHallIcon13, cpHallIcon14, cpHallIcon15,
@@ -107,6 +109,7 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
     List<BetRecordsResult.ListBean> projectsBeansData = new ArrayList<>();
     List<BetDragonResult.DataBean> dataBeansData = new ArrayList<>();
     List<BetDragonResult.DataBean> dataBeansDataTemp = new ArrayList<>();
+
     public static DragonFragment newInstance(String deposit_mode, String money) {
         DragonFragment betFragment = new DragonFragment();
         Bundle args = new Bundle();
@@ -134,7 +137,7 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
         dragonTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                WaitDialog.show(getActivity(), "加载中...").setCanCancel(true);
+                WaitDialog.show((AppCompatActivity) _mActivity, "加载中...");
                 positionl = tab.getPosition();
                 switch (positionl) {
                     case 0:
@@ -144,9 +147,9 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                         break;
                     case 1:
                         number = "";
-                        payId  ="99";
+                        payId = "99";
                         betGold = dragonBetGold.getText().toString().trim();
-                        dragonBetNumberAndMoney.setText("共0注,"+betGold+"元");
+                        dragonBetNumberAndMoney.setText("共0注," + betGold + "元");
                         presenter.getDragonBetRecordList("", "");
                         /*String  data = getFromAssets("DragonRecord.json");
                         BetRecordsResult betDragonResult = JSON.parseObject(data, BetRecordsResult.class);
@@ -187,12 +190,12 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
 
         @Override
         public void afterTextChanged(Editable s) {
-            String ms = s.toString().replace(" ","");
+            String ms = s.toString().replace(" ", "");
             if (Check.isEmpty(ms)) {
                 dragonBetNumberAndMoney.setText("共0注,0元");
                 return;
             }
-            dragonBetNumberAndMoney.setText("共1注,"+ms+"元");
+            dragonBetNumberAndMoney.setText("共1注," + ms + "元");
         }
 
         @Override
@@ -216,9 +219,9 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                 finish();
             }
         });
-        WaitDialog.show(getActivity(), "加载中...").setCanCancel(true);
-        if(Check.isNull(presenter)){
-            presenter = Injections.inject(this,null);
+        WaitDialog.show((AppCompatActivity) _mActivity, "加载中...").setCancelable(true);
+        if (Check.isNull(presenter)) {
+            presenter = Injections.inject(this, null);
         }
         presenter.getDragonBetList("", "");
         executorServiceTime = Executors.newScheduledThreadPool(1);
@@ -346,21 +349,21 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
     }
 
 
-    private void onSetData(){
+    private void onSetData() {
         betGold = dragonBetGold.getText().toString().trim();
-        if(Check.isEmpty(betGold)&&!Check.isEmpty(payId)){
+        if (Check.isEmpty(betGold) && !Check.isEmpty(payId)) {
             dragonBetNumberAndMoney.setText("共1注,0元");
             //dragonBetLayTop.setVisibility(View.VISIBLE);
             return;
         }
-        if(!Check.isEmpty(payId)){
+        if (!Check.isEmpty(payId)) {
             //dragonBetLayTop.setVisibility(View.VISIBLE);
-            dragonBetNumberAndMoney.setText("共1注,"+betGold+"元");
-        }else if(Check.isEmpty(betGold)){
+            dragonBetNumberAndMoney.setText("共1注," + betGold + "元");
+        } else if (Check.isEmpty(betGold)) {
             dragonBetNumberAndMoney.setText("共0注,0元");
             //dragonBetLayTop.setVisibility(View.GONE);
-        }else{
-            dragonBetNumberAndMoney.setText("共0注,"+betGold+"元");
+        } else {
+            dragonBetNumberAndMoney.setText("共0注," + betGold + "元");
             //dragonBetLayTop.setVisibility(View.GONE);
         }
     }
@@ -368,15 +371,15 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
     //请求数据接口
     private void onRequsetData() {
         betGold = dragonBetGold.getText().toString().trim();
-        if(Check.isEmpty(betGold)){
+        if (Check.isEmpty(betGold)) {
             super.showMessage("请输入购买金额");
             return;
         }
-        if(Check.isEmpty(number)){
+        if (Check.isEmpty(number)) {
             super.showMessage("请先选择下注");
             return;
         }
-        BetDragonOrderDialog.newInstance(name,round,betGold,number).show(getFragmentManager());
+        BetDragonOrderDialog.newInstance(name, round, betGold, number).show(getFragmentManager());
     }
 
     public String getFromAssets(String fileName) {
@@ -396,22 +399,18 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
 
     @Override
     public void postCpBetResult(CPBetResult betResult) {
-        DialogSettings.style = DialogSettings.STYLE_IOS;
-        MessageDialog.show(getContext(), "提示", "投注成功！", "知道了", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
+        DialogSettings.style = STYLE_IOS;
+        MessageDialog.show((AppCompatActivity) _mActivity, "提示", "投注成功！", "知道了");
         EventBus.getDefault().post(new DragonBetCloseEvent("投注成功"));
         betGold = dragonBetGold.getText().toString().trim();
-        dragonBetNumberAndMoney.setText("共0注,"+betGold+"元");
+        dragonBetNumberAndMoney.setText("共0注," + betGold + "元");
         number = "";
-        payId  ="99";
-        presenter.getDragonBetList("","");
+        payId = "99";
+        presenter.getDragonBetList("", "");
     }
 
     @Subscribe
-    public void onEventMain(DragonBetEvent dragonBetEvent){
+    public void onEventMain(DragonBetEvent dragonBetEvent) {
         ArrayList<BetParam.BetdataBean.BetBeanBean> beanArrayList = new ArrayList<>();
         BetParam.BetdataBean betParam = new BetParam.BetdataBean();
         betParam.setBetSrc(CFConstant.PRODUCT_PLATFORM);
@@ -420,7 +419,7 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
         betParam.setTotalMoney(betGold);
         betParam.setTotalNums("1");
         betParam.setTurnNum(round);
-        BetParam.BetdataBean.BetBeanBean betBeanBean= new BetParam.BetdataBean.BetBeanBean();
+        BetParam.BetdataBean.BetBeanBean betBeanBean = new BetParam.BetdataBean.BetBeanBean();
         betBeanBean.setMoney(betGold);
         betBeanBean.setOdds(odds);
         betBeanBean.setPlayId(payId);
@@ -428,11 +427,11 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
         betBeanBean.setBetInfo(number);
         beanArrayList.add(betBeanBean);
         betParam.setBetBean(beanArrayList);
-        presenter.postCpBets(game_code,  round, totalNums,totalMoney,"",null, JSON.toJSONString(betParam));
+        presenter.postCpBets(game_code, round, totalNums, totalMoney, "", null, JSON.toJSONString(betParam));
     }
 
     @Subscribe
-    public void onEventMain(CloseLotteryEvent closeLotteryEvent){
+    public void onEventMain(CloseLotteryEvent closeLotteryEvent) {
         showMessage("已封盘，请稍后下注！");
     }
 
@@ -459,10 +458,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
         executorService = Executors.newScheduledThreadPool(1);
         serviceTime = betDragonResult.getServerTime();
         for (int k = 0; k < size; ++k) {
-            if(dataBeansData.get(k).getEndtime() - serviceTime>0){
-                if(payId.equals(dataBeansData.get(k).getADXDSPlayed().get(0).getId()+"")){
+            if (dataBeansData.get(k).getEndtime() - serviceTime > 0) {
+                if (payId.equals(dataBeansData.get(k).getADXDSPlayed().get(0).getId() + "")) {
                     dataBeansData.get(k).setCheckedId(Integer.parseInt(payId));
-                }else if(payId.equals(dataBeansData.get(k).getADXDSPlayed().get(1).getId()+"")){
+                } else if (payId.equals(dataBeansData.get(k).getADXDSPlayed().get(1).getId() + "")) {
                     dataBeansData.get(k).setCheckedId(Integer.parseInt(payId));
                 }
                 dataBeansDataTemp.add(dataBeansData.get(k));
@@ -579,13 +578,13 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
         betDragonListBaseAdapter = new BetDragonListBaseAdapter(getContext(), R.layout.item_bet_dragon, dataBeansData);
         dragonBetList.scrollToPosition(clickPostion);
         dragonBetList.setItemViewCacheSize(100);
-       //((SimpleItemAnimator) Objects.requireNonNull(dragonBetList.getItemAnimator())).setSupportsChangeAnimations(false);
+        //((SimpleItemAnimator) Objects.requireNonNull(dragonBetList.getItemAnimator())).setSupportsChangeAnimations(false);
         dragonBetList.setAdapter(betDragonListBaseAdapter);
         dragonBetList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if(!Check.isNull(dragonBetList)) {
+                if (!Check.isNull(dragonBetList)) {
                     LinearLayoutManager layoutManager = (LinearLayoutManager) dragonBetList.getLayoutManager();
                     clickPostion = layoutManager.findFirstCompletelyVisibleItemPosition();
                 }
@@ -753,14 +752,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                 @Override
                 public void onClick(View v) {
                     //clickPostion = position;
-                    if(DoubleClickHelper.getNewInstance().isFastClick()){
+                    if (DoubleClickHelper.getNewInstance().isFastClick()) {
                         return;
                     }
                     TimeTextView timeTextView = helper.getView(R.id.itemDragonlotteryTime);
                     //LinearLayout itemDragonBetLayName1 = helper.getView(R.id.itemDragonBetLayName1);
                     //DoubleClickHelper.getNewInstance().disabledView1(itemDragonBetLayName1);
                     String textMsg = timeTextView.getText().toString();
-                    if("封盘中".equals(textMsg)){
+                    if ("封盘中".equals(textMsg)) {
                         return;
                     }
                     if (dataBeansData.get(position).getCheckedId() == 0) {
@@ -770,10 +769,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                         dataBeansData.get(position).setCheckedId(dataBeansData.get(position).getADXDSPlayed().get(0).getId());
                         name = dataBeansData.get(position).getLotteryName();
                         game_code = dataBeansData.get(position).getGameId();
-                        fTime = dataBeansData.get(position).getEndtime()+"";
+                        fTime = dataBeansData.get(position).getEndtime() + "";
                         round = dataBeansData.get(position).getCurrIssue();
-                        payId = dataBeansData.get(position).getADXDSPlayed().get(0).getId()+"";
-                        odds = dataBeansData.get(position).getADXDSPlayed().get(0).getOdds()+"";
+                        payId = dataBeansData.get(position).getADXDSPlayed().get(0).getId() + "";
+                        odds = dataBeansData.get(position).getADXDSPlayed().get(0).getOdds() + "";
                         number = dataBeansData.get(position).getADXDSPlayed().get(0).getName();
 
                     } else if (dataBeansData.get(position).getCheckedId() != dataBeansData.get(position).getADXDSPlayed().get(0).getId()) {
@@ -783,10 +782,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                         dataBeansData.get(position).setCheckedId(dataBeansData.get(position).getADXDSPlayed().get(0).getId());
                         name = dataBeansData.get(position).getLotteryName();
                         game_code = dataBeansData.get(position).getGameId();
-                        fTime = dataBeansData.get(position).getEndtime()+"";
+                        fTime = dataBeansData.get(position).getEndtime() + "";
                         round = dataBeansData.get(position).getCurrIssue();
-                        payId = dataBeansData.get(position).getADXDSPlayed().get(0).getId()+"";
-                        odds = dataBeansData.get(position).getADXDSPlayed().get(0).getOdds()+"";
+                        payId = dataBeansData.get(position).getADXDSPlayed().get(0).getId() + "";
+                        odds = dataBeansData.get(position).getADXDSPlayed().get(0).getOdds() + "";
                         number = dataBeansData.get(position).getADXDSPlayed().get(0).getName();
                     } else {
                         dataBeansData.get(position).setCheckedId(0);
@@ -811,7 +810,7 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                 @Override
                 public void onClick(View v) {
                     //clickPostion = position;
-                    if(DoubleClickHelper.getNewInstance().isFastClick2()){
+                    if (DoubleClickHelper.getNewInstance().isFastClick2()) {
                         return;
                     }
                     TimeTextView timeTextView = helper.getView(R.id.itemDragonlotteryTime);
@@ -819,7 +818,7 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                     DoubleClickHelper.getNewInstance().disabledView1(itemDragonBetLayName2);*/
 
                     String textMsg = timeTextView.getText().toString();
-                    if("封盘中".equals(textMsg)){
+                    if ("封盘中".equals(textMsg)) {
                         return;
                     }
                     if (dataBeansData.get(position).getCheckedId() == 0) {
@@ -829,10 +828,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                         dataBeansData.get(position).setCheckedId(dataBeansData.get(position).getADXDSPlayed().get(1).getId());
                         name = dataBeansData.get(position).getLotteryName();
                         game_code = dataBeansData.get(position).getGameId();
-                        fTime = dataBeansData.get(position).getEndtime()+"";
+                        fTime = dataBeansData.get(position).getEndtime() + "";
                         round = dataBeansData.get(position).getCurrIssue();
-                        payId = dataBeansData.get(position).getADXDSPlayed().get(1).getId()+"";
-                        odds = dataBeansData.get(position).getADXDSPlayed().get(1).getOdds()+"";
+                        payId = dataBeansData.get(position).getADXDSPlayed().get(1).getId() + "";
+                        odds = dataBeansData.get(position).getADXDSPlayed().get(1).getOdds() + "";
                         number = dataBeansData.get(position).getADXDSPlayed().get(1).getName();
                     } else if (dataBeansData.get(position).getCheckedId() != dataBeansData.get(position).getADXDSPlayed().get(1).getId()) {
                         for (int k = 0; k < dataBeansData.size(); ++k) {
@@ -841,10 +840,10 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                         dataBeansData.get(position).setCheckedId(dataBeansData.get(position).getADXDSPlayed().get(1).getId());
                         name = dataBeansData.get(position).getLotteryName();
                         game_code = dataBeansData.get(position).getGameId();
-                        fTime = dataBeansData.get(position).getEndtime()+"";
+                        fTime = dataBeansData.get(position).getEndtime() + "";
                         round = dataBeansData.get(position).getCurrIssue();
-                        payId = dataBeansData.get(position).getADXDSPlayed().get(1).getId()+"";
-                        odds = dataBeansData.get(position).getADXDSPlayed().get(1).getOdds()+"";
+                        payId = dataBeansData.get(position).getADXDSPlayed().get(1).getId() + "";
+                        odds = dataBeansData.get(position).getADXDSPlayed().get(1).getOdds() + "";
                         number = dataBeansData.get(position).getADXDSPlayed().get(1).getName();
                     } else {
                         dataBeansData.get(position).setCheckedId(0);
@@ -875,14 +874,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon0), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon0), helper, dataBean);
                                     }
                                 });
                             }
@@ -892,14 +891,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon1), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon1), helper, dataBean);
                                     }
                                 });
                             }
@@ -909,14 +908,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon2), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon2), helper, dataBean);
                                     }
                                 });
                             }
@@ -926,14 +925,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon3), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon3), helper, dataBean);
                                     }
                                 });
                             }
@@ -943,14 +942,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon4), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon4), helper, dataBean);
                                     }
                                 });
                             }
@@ -960,14 +959,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon5), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon5), helper, dataBean);
                                     }
                                 });
                             }
@@ -977,14 +976,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon6), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon6), helper, dataBean);
                                     }
                                 });
                             }
@@ -994,14 +993,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon7), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon7), helper, dataBean);
                                     }
                                 });
                             }
@@ -1011,14 +1010,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon8), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon8), helper, dataBean);
                                     }
                                 });
                             }
@@ -1028,14 +1027,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon9), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon9), helper, dataBean);
                                     }
                                 });
                             }
@@ -1045,14 +1044,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon10), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon10), helper, dataBean);
                                     }
                                 });
                             }
@@ -1062,14 +1061,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon11), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon11), helper, dataBean);
                                     }
                                 });
                             }
@@ -1079,14 +1078,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon12), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon12), helper, dataBean);
                                     }
                                 });
                             }
@@ -1096,14 +1095,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon13), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon13), helper, dataBean);
                                     }
                                 });
                             }
@@ -1113,14 +1112,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon14), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon14), helper, dataBean);
                                     }
                                 });
                             }
@@ -1130,14 +1129,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon15), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon15), helper, dataBean);
                                     }
                                 });
                             }
@@ -1147,14 +1146,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon16), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon16), helper, dataBean);
                                     }
                                 });
                             }
@@ -1164,14 +1163,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon17), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon17), helper, dataBean);
                                     }
                                 });
                             }
@@ -1181,14 +1180,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon18), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon18), helper, dataBean);
                                     }
                                 });
                             }
@@ -1198,14 +1197,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon19), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon19), helper, dataBean);
                                     }
                                 });
                             }
@@ -1215,14 +1214,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon20), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon20), helper, dataBean);
                                     }
                                 });
                             }
@@ -1232,14 +1231,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon21), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon21), helper, dataBean);
                                     }
                                 });
                             }
@@ -1249,14 +1248,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon22), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon22), helper, dataBean);
                                     }
                                 });
                             }
@@ -1266,14 +1265,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon23), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon23), helper, dataBean);
                                     }
                                 });
                             }
@@ -1283,14 +1282,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon24), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon24), helper, dataBean);
                                     }
                                 });
                             }
@@ -1300,14 +1299,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon25), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon25), helper, dataBean);
                                     }
                                 });
                             }
@@ -1317,14 +1316,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon26), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon26), helper, dataBean);
                                     }
                                 });
                             }
@@ -1334,14 +1333,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon27), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon27), helper, dataBean);
                                     }
                                 });
                             }
@@ -1351,14 +1350,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon28), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon28), helper, dataBean);
                                     }
                                 });
                             }
@@ -1368,14 +1367,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon29), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon29), helper, dataBean);
                                     }
                                 });
                             }
@@ -1385,14 +1384,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon30), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon30), helper, dataBean);
                                     }
                                 });
                             }
@@ -1402,14 +1401,14 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText("封盘中", helper,dataBean);
+                                        onShowText("封盘中", helper, dataBean);
                                     }
                                 });
                             } else {
                                 dragonBetList.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onShowText(TimeHelper.getTimeString(cpHallIcon31), helper,dataBean);
+                                        onShowText(TimeHelper.getTimeString(cpHallIcon31), helper, dataBean);
                                     }
                                 });
                             }
@@ -1428,17 +1427,17 @@ public class DragonFragment extends BaseFragment implements DragonContract.View 
             });*/
         }
 
-        private void onShowText(String text, ViewHolder holder,BetDragonResult.DataBean dataBean) {
+        private void onShowText(String text, ViewHolder holder, BetDragonResult.DataBean dataBean) {
             holder.setText(R.id.itemDragonlotteryTime, text);
-            if("封盘中".equals(text)){
-                    dataBean.setCheckedId(0);
-                    holder.setTextColor(R.id.itemDragonBetName1, Color.parseColor("#dc3b40"));
-                    holder.setTextColor(R.id.itemDragonBetOdds1, Color.parseColor("#989898"));
-                    holder.setBackgroundRes(R.id.itemDragonBetLayName1, R.drawable.bg_deposit_input);
+            if ("封盘中".equals(text)) {
+                dataBean.setCheckedId(0);
+                holder.setTextColor(R.id.itemDragonBetName1, Color.parseColor("#dc3b40"));
+                holder.setTextColor(R.id.itemDragonBetOdds1, Color.parseColor("#989898"));
+                holder.setBackgroundRes(R.id.itemDragonBetLayName1, R.drawable.bg_deposit_input);
 
-                    holder.setTextColor(R.id.itemDragonBetName2, Color.parseColor("#dc3b40"));
-                    holder.setTextColor(R.id.itemDragonBetOdds2, Color.parseColor("#989898"));
-                    holder.setBackgroundRes(R.id.itemDragonBetLayName2, R.drawable.bg_deposit_input);
+                holder.setTextColor(R.id.itemDragonBetName2, Color.parseColor("#dc3b40"));
+                holder.setTextColor(R.id.itemDragonBetOdds2, Color.parseColor("#989898"));
+                holder.setBackgroundRes(R.id.itemDragonBetLayName2, R.drawable.bg_deposit_input);
             }
         }
 

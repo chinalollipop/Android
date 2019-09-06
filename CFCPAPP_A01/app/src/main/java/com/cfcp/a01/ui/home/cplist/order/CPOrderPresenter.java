@@ -28,6 +28,7 @@ import com.cfcp.a01.data.CQ3FCResult;
 import com.cfcp.a01.data.CQ5FCResult;
 import com.cfcp.a01.data.CQSSCResult;
 import com.cfcp.a01.data.Cp11X5Result;
+import com.cfcp.a01.data.GamesTipsResult;
 import com.cfcp.a01.data.PCDDResult;
 
 import java.util.HashMap;
@@ -553,6 +554,32 @@ public class CPOrderPresenter implements CPOrderContract.Presenter {
                         if(null != view)
                         {
                            
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getGamesTips() {
+        Map<String, String> params = new HashMap<>();
+        params.put("packet", "Notice");
+        params.put("action", "GetNoticePrize");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getGamesTips(params))
+                .subscribe(new ResponseSubscriber<GamesTipsResult>() {
+                    @Override
+                    public void success(GamesTipsResult response) {
+                        if (response.getErrno() == 0) {
+                            view.setGamesTipsResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
                             view.showMessage(msg);
                         }
                     }

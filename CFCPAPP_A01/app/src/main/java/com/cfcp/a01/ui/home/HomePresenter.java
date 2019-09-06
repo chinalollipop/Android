@@ -130,6 +130,33 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
+    public void getAllGamesNew(String appRefer) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "Game");
+        params.put("platform", "cf");
+        params.put("action", "GetAllGamesNew");
+        subscriptionHelper.add(RxHelper.addSugar(api.getAllGames(params))
+                .subscribe(new ResponseSubscriber<AllGamesResult>() {
+                    @Override
+                    public void success(AllGamesResult response) {
+                        if (response.getErrno() == 0) {
+                            view.getAllGamesNewResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postLogout(String appRefer) {
         subscriptionHelper.add(RxHelper.addSugar(api.postLogout(CFConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LogoutResult>>() {

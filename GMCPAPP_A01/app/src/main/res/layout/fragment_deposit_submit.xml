@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.gmcp.gm.common.widget.NTitleBar
+        android:id="@+id/depositNextBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="充值" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_deposit_input"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/depositNextTypeImg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center" />
+
+                    <TextView
+                        android:id="@+id/depositNextTypeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:text="微信支付"
+                        android:textColor="@color/textview_marque" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ccc3c3" />
+
+                <LinearLayout
+                    android:id="@+id/depositNextBankMidLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:text="支付方式："
+                            android:textColor="@color/text_deposit" />
+
+                        <TextView
+                            android:id="@+id/depositNextTypeAName"
+                            android:layout_width="match_parent"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="80dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/text_deposit"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/depositNextTypeANameCopy"
+                            android:layout_width="60dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:text="复制"
+                            android:textColor="@color/text_deposit_copy" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/depositNextBankMothed"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:gravity="center"
+                                android:text="收款银行："
+                                android:textColor="@color/text_deposit" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankName"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="80dp"
+                                android:layout_marginRight="80dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/text_deposit"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:gravity="center"
+                                android:text="收款账户："
+                                android:textColor="@color/text_deposit" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankAccount"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="80dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:textColor="@color/text_deposit"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankAccountCopy"
+                                android:layout_width="60dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="center"
+                                android:text="复制"
+                                android:textColor="@color/text_deposit_copy" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:gravity="center"
+                                android:text="收款账号："
+                                android:textColor="@color/text_deposit" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankNumber"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="80dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/text_deposit"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankNumberCopy"
+                                android:layout_width="60dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="center"
+                                android:text="复制"
+                                android:textColor="@color/text_deposit_copy" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:gravity="center"
+                                android:text="收款支行："
+                                android:textColor="@color/text_deposit" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankNextName"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="80dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/text_deposit"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/depositNextBankNextNameCopy"
+                                android:layout_width="60dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="center"
+                                android:text="复制"
+                                android:textColor="@color/text_deposit_copy" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/depositNextTypeBg"
+                        android:visibility="gone"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center" />
+
+                    <TextView
+                        android:id="@+id/depositNextTypeText"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_deposit_input"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="存款金额：" />
+
+                        <EditText
+                            android:id="@+id/depositNextInputMoney"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:layout_marginRight="50dp"
+                            android:background="@drawable/bg_deposit_input"
+                            android:hint="请输入存款金额"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/depositNextInputNameLay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginBottom="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="真实姓名：" />
+                        <EditText
+                            android:id="@+id/depositNextInputName"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:inputType="text"
+                            android:layout_marginRight="50dp"
+                            android:background="@drawable/bg_deposit_input"
+                            android:hint="请输入真实姓名" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="存款信息"
+                    android:textColor="@color/text_deposit_copy" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="温馨提示\n为保障您资金权益，充值完成后，请截下充值成功画面并妥善保存。"
+                android:textColor="@color/textview_marque" />
+
+            <TextView
+                android:id="@+id/depositNextSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_login_text"
+                android:gravity="center"
+                android:text="提交订单"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

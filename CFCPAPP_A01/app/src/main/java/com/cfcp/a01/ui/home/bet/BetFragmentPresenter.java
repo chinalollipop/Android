@@ -8,6 +8,7 @@ import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BetDataResult;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
+import com.cfcp.a01.data.GamesTipsResult;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -84,7 +85,7 @@ public class BetFragmentPresenter implements BetFragmentContract.Presenter {
     }
 
     @Override
-    public void getAllGames(String appRefer) {
+    public void getAllGames() {
         Map<String, String> params = new HashMap<>();
         params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
         params.put("packet", "Game");
@@ -95,7 +96,33 @@ public class BetFragmentPresenter implements BetFragmentContract.Presenter {
                     @Override
                     public void success(AllGamesResult response) {
                         if (response.getErrno() == 0) {
-                            view.getAllGamesResult(response);
+                            view.setAllGamesResult(response);
+                        } else {
+                            view.showMessage(response.getError());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getGamesTips() {
+        Map<String, String> params = new HashMap<>();
+        params.put("packet", "Notice");
+        params.put("action", "GetNoticePrize");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getGamesTips(params))
+                .subscribe(new ResponseSubscriber<GamesTipsResult>() {
+                    @Override
+                    public void success(GamesTipsResult response) {
+                        if (response.getErrno() == 0) {
+                            view.setGamesTipsResult(response);
                         } else {
                             view.showMessage(response.getError());
                         }

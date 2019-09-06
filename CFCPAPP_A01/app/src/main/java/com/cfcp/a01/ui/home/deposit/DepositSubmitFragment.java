@@ -2,6 +2,7 @@ package com.cfcp.a01.ui.home.deposit;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,9 +24,8 @@ import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.DepositH5Result;
 import com.cfcp.a01.data.DepositTypeResult;
-import com.cfcp.a01.data.LoginResult;
 import com.cfcp.a01.ui.home.texthtml.html.HtmlUtils;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -134,6 +134,7 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
             depositNextBankAccount.setText(aPaymentPlatformBankCardBean.getOwner());
             depositNextBankNumber.setText(aPaymentPlatformBankCardBean.getAccount_no());
             depositNextBankNextName.setText(aPaymentPlatformBankCardBean.getBranch());
+            depositNextTypeANameCopy.setVisibility(View.GONE);
         }else{
             depositNextBankMothed.setVisibility(View.GONE);
         }
@@ -188,7 +189,7 @@ public class DepositSubmitFragment extends BaseFragment implements DepositSubmit
         }else{
             name = "";
         }
-        WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
+        WaitDialog.show((AppCompatActivity)getActivity(), "提交中...");
         if(typeArgs1.getPay_type()==1){
             //pop();
             //http://api.dh5588.com/service?payment_platform_id=153&amount=10&deposit_mode=2&action=Payment&step=3&packet=Fund&terminal_id=2&token=68e7a0fd65b9c3d7872afad467aacd8c36528a64

@@ -95,9 +95,11 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
 
         if (Check.isEmpty(uName)) {
             showMessage("请输入账号");
+            return;
         }
         if (Check.isEmpty(uPwd)) {
             showMessage("请输入密码");
+            return;
         }
         uPwd = Md5Utils.getMd5(Md5Utils.getMd5(Md5Utils.getMd5(uName.toLowerCase() + uPwd)));
         if(Check.isNull(presenter)){

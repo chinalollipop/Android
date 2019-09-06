@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.hfcp.hf.common.widget.NTitleBar
+        android:id="@+id/pwdBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="团队报表" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/pwdTab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#000"
+        app:tabIndicatorColor="#c42133"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="#c42133"
+        app:tabTextColor="#fff"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/pwdOldLogin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入旧登录密码"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:background="@drawable/bg_deposit_input"
+            />
+        <TextView
+            android:id="@+id/pwdFundText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="为了你的账户安全，请先设置资金密码。"
+            android:gravity="center|left"
+            />
+        <TextView
+            android:text="(由字母和数字组成6-16个字符)"
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/pwdNewLogin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入新登录密码"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:background="@drawable/bg_deposit_input"
+            />
+        <EditText
+            android:id="@+id/pwdNew2Login"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="确认新登录密码"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:background="@drawable/bg_deposit_input"
+            />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:id="@+id/pwdSubmit"
+                android:text="修 改"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_btn_yellow"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/pwdReset"
+                android:text="重 置"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_btn_blue"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

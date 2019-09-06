@@ -184,7 +184,6 @@
                     android:gravity="center"
                     android:hint="请输入取款金额"
                     android:inputType="number"
-                    android:maxLength="5"
                     android:textColor="#000" />
 
             </LinearLayout>

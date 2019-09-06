@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.hfcp.hf.common.widget.NTitleBar
+        android:id="@+id/myReportBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="账单报表" />
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/myReportTab"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#000"
+        app:tabIndicatorColor="#c42133"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="#c42133"
+        app:tabTextColor="#fff"
+        />
+
+    <LinearLayout
+        android:id="@+id/myRepostTime"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/myReportStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:gravity="center|start"
+            android:text="开始时间" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1" />
+
+        <TextView
+            android:id="@+id/myReportEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:gravity="center|start"
+            android:text="结束时间" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#484747">
+
+        <TextView
+            android:id="@+id/myReportCount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="小计 0笔"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/myReportExpenses"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="总支出 0"
+            android:textColor="#f5cf28" />
+
+        <TextView
+            android:id="@+id/myReportRevenue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="总收入 0"
+            android:textColor="#f5cf28" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/myReportRView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#7e7e7e"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/personDate"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:background="#579718"
+            android:gravity="center"
+            android:text="总计"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/personTurnover"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="0.00"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/personPrize"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="0.00"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/personProfit"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="0.00"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/personDetail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/icon_ex__right"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:textColor="#3b3b3b" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/personDetailLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#e4e4e4">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="提款"
+                    android:textColor="#222" />
+
+                <TextView
+                    android:id="@+id/personWithDraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="0.00"
+                    android:textColor="#222" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#e4e4e4">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="充值"
+                    android:textColor="#222" />
+
+                <TextView
+                    android:id="@+id/personDeposit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="0.00"
+                    android:textColor="#222" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#e4e4e4">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="中奖金额"
+                    android:textColor="#222" />
+
+                <TextView
+                    android:id="@+id/personPrize1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="0.00"
+                    android:textColor="#222" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#e4e4e4">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="代理返点"
+                    android:textColor="#222" />
+
+                <TextView
+                    android:id="@+id/personBonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="0.00"
+                    android:textColor="#222" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#e4e4e4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="投注返点"
+                android:textColor="#222" />
+
+            <TextView
+                android:id="@+id/personCom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="0.00"
+                android:textColor="#222" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

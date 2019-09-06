@@ -7,6 +7,7 @@ import com.cfcp.a01.common.http.SubscriptionHelper;
 import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.http.request.AppTextMessageResponseList;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.data.CPLotteryListResult;
 import com.cfcp.a01.data.LotteryListResult;
 
 import java.util.HashMap;
@@ -57,6 +58,35 @@ public class LotteryResultPresenter implements LotteryResultContract.Presenter {
                         }
                     }
                 }));
+    }
+
+
+    @Override
+    public void postCPLotteryList(String dateStr,String dataId) {
+        Map<String, String> params = new HashMap<>();
+        params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
+        params.put("packet", "Credit");
+        params.put("action", "HistoryData");
+        params.put("date", dateStr);
+        params.put("lottery_id", dataId);
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.get(params))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPLotteryListResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<CPLotteryListResult> response) {
+                        view.postCPLotteryListResult(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+
+
     }
 
 

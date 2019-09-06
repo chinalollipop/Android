@@ -353,7 +353,7 @@ public class BetGameSettingsForRefreshResult implements Serializable {
 
                 private String issue;
                 private String wn_number;
-                private int offical_time;
+                private String offical_time;
 
                 public String getIssue() {
                     return issue;
@@ -371,11 +371,11 @@ public class BetGameSettingsForRefreshResult implements Serializable {
                     this.wn_number = wn_number;
                 }
 
-                public int getOffical_time() {
+                public String getOffical_time() {
                     return offical_time;
                 }
 
-                public void setOffical_time(int offical_time) {
+                public void setOffical_time(String offical_time) {
                     this.offical_time = offical_time;
                 }
             }
@@ -389,7 +389,7 @@ public class BetGameSettingsForRefreshResult implements Serializable {
 
                 private String issue;
                 private String wn_number;
-                private int offical_time;
+                private String offical_time;
 
                 public String getIssue() {
                     return issue;
@@ -407,11 +407,11 @@ public class BetGameSettingsForRefreshResult implements Serializable {
                     this.wn_number = wn_number;
                 }
 
-                public int getOffical_time() {
+                public String getOffical_time() {
                     return offical_time;
                 }
 
-                public void setOffical_time(int offical_time) {
+                public void setOffical_time(String offical_time) {
                     this.offical_time = offical_time;
                 }
             }

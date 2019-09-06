@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.gmcp.gm.common.widget.NTitleBar
+        android:id="@+id/reportTeamBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="团队报表" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/reportTeamStartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@mipmap/icon_ex_down"
+                    android:gravity="center|start"
+                    android:text="开始时间" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="#e4e1e1" />
+
+                <TextView
+                    android:id="@+id/reportTeamEndTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@mipmap/icon_ex_down"
+                    android:gravity="center|start"
+                    android:text="结束时间" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:id="@+id/reportType"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="团队详情"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="余额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="充值"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="提现"
+                    android:textColor="#333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBalance"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamRecharge"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWithdraw"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalance"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalance"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWin"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="打和反款"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="代理返点"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注返点"
+                    android:textColor="#333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/reportTeamCookerRefund"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamAgencyRefund"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamBetRefund"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#c52133" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="活动奖励"
+                    android:textColor="#333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/reportTeamActivityAward"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#c52133" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="官方彩票类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceCp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceCp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinCp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="信用彩票类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceXyCp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceXyCp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinXyCp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="开元棋牌类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceKy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceKy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinKy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="贡献抽水"
+                    android:textColor="#333" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamKyWater"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="乐游棋牌类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceLy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceLy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinLy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="贡献抽水"
+                    android:textColor="#333" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamLyWater"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="电子类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceDz"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceDz"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinDz"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="真人类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceZr"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceZr"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinZr"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="AG捕鱼类型"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="投注金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="中奖金额"
+                    android:textColor="#333" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center|left"
+                    android:text="净盈利"
+                    android:textColor="#333" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/reportTeamBetBalanceBy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBalanceBy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/reportTeamWinBy"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="0.00"
+                    android:textColor="#c52133" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#e4e1e1" />
+
+
+            <TextView
+                android:id="@+id/reportMethod"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/bg_report_red_circle"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:text="净盈利=中奖金额+打和返款+投注返点+代理返点+活动奖励-投注金额"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:background="#e4e1e1" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

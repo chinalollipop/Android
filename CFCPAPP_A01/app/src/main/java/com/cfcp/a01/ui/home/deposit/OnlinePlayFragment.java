@@ -1,21 +1,19 @@
 package com.cfcp.a01.ui.home.deposit;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
-
 
 import com.alibaba.fastjson.JSON;
 import com.cfcp.a01.R;
@@ -23,19 +21,18 @@ import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.http.MyHttpClient;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
-import com.cfcp.a01.common.utils.ToastUtils;
-import com.cfcp.a01.common.utils.Utils;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.AgGamePayResult;
-import com.kongzue.dialog.v2.MessageDialog;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener;
+import com.kongzue.dialog.util.BaseDialog;
+import com.kongzue.dialog.v3.MessageDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -109,7 +106,7 @@ public class OnlinePlayFragment extends BaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        WaitDialog.show(getContext(), "加载中...").setCanCancel(true);
+        WaitDialog.show((AppCompatActivity) getContext(), "加载中...");
         onlineDepositBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -253,14 +250,16 @@ public class OnlinePlayFragment extends BaseFragment {
                         @Override
                         public void run() {
                             GameLog.log("错误提示语 " + agGamePayResult.getError());
-                            ToastUtils.showLongToast(agGamePayResult.getError());
-                            //DialogSettings.style = DialogSettings.STYLE_IOS;
-                            MessageDialog.show(getActivity(), "提示", agGamePayResult.getError(), "知道了", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            });
+//                            ToastUtils.showLongToast(agGamePayResult.getError());
+                            MessageDialog.show((AppCompatActivity) _mActivity, "提示", agGamePayResult.getError(), "知道了")
+                                    .setOkButton(new OnDialogButtonClickListener() {
+                                        @Override
+                                        public boolean onClick(BaseDialog baseDialog, View v) {
+                                            //处理确定按钮事务
+                                            finish();
+                                            return false;
+                                        }
+                                    });
                         }
                     });
                 } catch (Exception exception) {

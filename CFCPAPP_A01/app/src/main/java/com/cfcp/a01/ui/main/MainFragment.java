@@ -28,7 +28,6 @@ import com.cfcp.a01.common.widget.NoTouchViewPager;
 import com.cfcp.a01.data.CheckUpgradeResult;
 import com.cfcp.a01.ui.chat.ChatFragment;
 import com.cfcp.a01.ui.event.EventFragment;
-import com.cfcp.a01.ui.home.HomeContract;
 import com.cfcp.a01.ui.home.HomeFragment;
 import com.cfcp.a01.ui.lottery.LotteryResultFragment;
 import com.cfcp.a01.ui.main.upgrade.CheckUpdateContract;
@@ -38,7 +37,6 @@ import com.cfcp.a01.ui.me.MeFragment;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -118,14 +116,14 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
         presenter.checkupdate();
 
         NavigationController navigationController = tab.custom()
-                .addItem(newItem(R.drawable.main_game,R.drawable.main_game_click,"游戏大厅"))
-                .addItem(newItem(R.drawable.main_chat,R.drawable.main_chat_click,"在线聊天"))
-                .addItem(newRoundItem(R.drawable.main_activity,R.drawable.main_activity_click,"优惠活动"))
-                .addItem(newItem(R.drawable.main_lottery,R.drawable.main_lottery_click,"开奖结果"))
-                .addItem(newItem(R.drawable.main_me,R.drawable.main_me_click,"用户中心"))
+                .addItem(newItem(R.drawable.main_game, R.drawable.main_game_click, "游戏大厅"))
+                .addItem(newItem(R.drawable.main_chat, R.drawable.main_chat_click, "在线聊天"))
+                .addItem(newRoundItem(R.drawable.main_activity, R.drawable.main_activity_click, "优惠活动"))
+                .addItem(newItem(R.drawable.main_lottery, R.drawable.main_lottery_click, "开奖结果"))
+                .addItem(newItem(R.drawable.main_me, R.drawable.main_me_click, "用户中心"))
                 .build();
 
-        viewPager.setAdapter(new MyViewPagerAdapter(getActivity().getSupportFragmentManager(),mFragments));
+        viewPager.setAdapter(new MyViewPagerAdapter(getActivity().getSupportFragmentManager(), mFragments));
         //自动适配ViewPager页面切换
         navigationController.setupWithViewPager(viewPager);
         /*presenter.postBanner("");
@@ -137,14 +135,14 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     public void wantShowMessage(CheckUpgradeResult checkUpgradeResult) {
 
         PackageInfo packageInfo = PackageUtil.getAppPackageInfo(Utils.getContext());
-        if(Check.isNull(packageInfo)){
+        if (Check.isNull(packageInfo)) {
             GameLog.log("检查更新失败，获取不到app版本号");
             throw new RuntimeException("检查更新失败，获取不到app版本号");
         }
-        ACache.get(getContext()).put(CFConstant.USERNAME_SERVICE_URL,checkUpgradeResult.getCustom_service());
+        ACache.get(getContext()).put(CFConstant.USERNAME_SERVICE_URL, checkUpgradeResult.getCustom_service());
         String localver = packageInfo.versionName;
-        GameLog.log("当前APP的版本号是："+localver);
-        if(!localver.equals(checkUpgradeResult.getVersion())){
+        GameLog.log("当前APP的版本号是：" + localver);
+        if (!localver.equals(checkUpgradeResult.getVersion())) {
             UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
         }
     }
@@ -184,9 +182,9 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     /**
      * 正常tab
      */
-    private BaseTabItem newItem(int drawable, int checkedDrawable, String text){
+    private BaseTabItem newItem(int drawable, int checkedDrawable, String text) {
         SpecialTab mainTab = new SpecialTab(CFApplication.instance().getApplicationContext());
-        mainTab.initialize(drawable,checkedDrawable,text);
+        mainTab.initialize(drawable, checkedDrawable, text);
         mainTab.setTextDefaultColor(Color.parseColor("#404040"));
         mainTab.setTextCheckedColor(0xFFFF0000);
         return mainTab;
@@ -195,9 +193,9 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     /**
      * 圆形tab
      */
-    private BaseTabItem newRoundItem(int drawable,int checkedDrawable,String text){
+    private BaseTabItem newRoundItem(int drawable, int checkedDrawable, String text) {
         SpecialTabRound mainTab = new SpecialTabRound(CFApplication.instance().getApplicationContext());
-        mainTab.initialize(drawable,checkedDrawable,text);
+        mainTab.initialize(drawable, checkedDrawable, text);
         mainTab.setTextDefaultColor(Color.parseColor("#404040"));
         mainTab.setTextCheckedColor(0xFFFF0000);
         return mainTab;
@@ -211,7 +209,7 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
         start(event.targetFragment, event.launchmode);
     }
 
-   @Override
+    @Override
     public void showMessage(String message) {
         ToastUtils.showLongToast(message);
     }
@@ -235,7 +233,4 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
     public void onEventMain(MainEvent mainEvent) {
         viewPager.setCurrentItem(mainEvent.postion);
     }
-
-
-
 }

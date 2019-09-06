@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.cfcp.a01.CFApplication;
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
@@ -158,6 +159,6 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
         if(Check.isNull(presenter)){
             presenter = Injections.inject(this,null);
         }
-        presenter.postRegisterMember(userName,userPwd,userPwd2);
+        presenter.postRegisterMember(CFApplication.instance().getCommentData(),userName,userPwd,userPwd2);
     }
 }

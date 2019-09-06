@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.hfcp.hf.common.widget.NTitleBar
+        android:id="@+id/dragonBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="长龙助手" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/dragonTab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#c42133"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#c42133"
+        app:tabTextColor="#000" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dragonMyBetRecordList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/dragonBetListFrame"
+        android:background="#eeedf3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dragonBetList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="90dp" />
+
+        <LinearLayout
+            android:id="@+id/dragonBetLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dragonBetLayTop"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#f8f6e8">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="每注金额"
+                    android:textColor="#666"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/dragonBetGold"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:maxEms="5"
+                    android:background="@drawable/editbox_bkg_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="元 请输入要投注的金额"
+                    android:textColor="#666"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#000">
+
+                <TextView
+                    android:id="@+id/dragonBetClear"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="清空"
+                    android:textColor="#ffaf36"
+                    android:textSize="20sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/dragonBetNumberAndMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="共 0注 ,0元"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/dragonBetSubmit"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="#dc3b40"
+                        android:gravity="center"
+                        android:text="马上投注"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+
+</LinearLayout>

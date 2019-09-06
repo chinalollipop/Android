@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b2333a</color>
+    <color name="colorPrimaryDark">#b2333a</color>
+    <color name="colorAccent">#b2333a</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="text_black">#333333</color>
+    <color name="text_exlist">#eeeeee</color>
+    <color name="text_bet_issue">#e13f51</color>
+    <color name="text_bet_sure">#e58b30</color>
+    <color name="text_bet_model">#ababab</color>
+    <color name="text_bet_model_chan">#e33737</color>
+    <color name="text_bet_model_in">#454545</color>
+    <color name="text_bet_model_pro">#3e3e3e</color>
+    <color name="text_bet_model_next">#3b3a3a</color>
+    <color name="text_bet_submit">#e1222a</color>
+    <color name="text_bet_submit_no">#ab6b6d</color>
+    <color name="text_bet_bottom">#010101</color>
+    <color name="text_bet_time_n">#3a3939</color>
+    <color name="text_bet_time">#c42133</color>
+    <color name="text_bet_clicked">#c52133</color>
+    <color name="text_bet_noraml">#c52133</color>
+    <color name="text_line">#c2bfbf</color>
+    <color name="text_line_other">#f0f1f2</color>
+    <color name="text_next">#888888</color>
+    <color name="color_bg_dialog">#e0000000</color>
+    <color name="color_translucent">#e0000000</color>
+    <color name="color_game_title">#b2333a</color>
+    <color name="bg_login_text">#da8059</color>
+    <color name="register_left">#a23d12</color>
+    <color name="bg_logout_text">#4f1b83</color>
+    <color name="bg_login_txt">#2b2525</color>
+    <color name="bg_app">#fefefe</color>
+    <color name="lgout_text">#efda33</color>
+    <color name="text_main_line">#f1f1f1</color>
+    <color name="text_main_bg">#fefefe</color>
+    <color name="text_main">#484747</color>
+    <color name="text_main_down">#717070</color>
+
+    <color name="home_method_line">#d81e07</color>
+    <color name="text_lottery_result">#878787</color>
+    <color name="gray_dft">#888888</color>
+    <color name="black_dft">#2b2b2b</color>
+    <color name="transparent">#00000000</color>
+
+    <!--Textview跑马灯的默认颜色值-->
+    <color name="textview_marque">#333</color>
+    <color name="textview_marque_bg">#fefefe</color>
+
+    <color name="text_deposit">#3b3b3b</color>
+    <color name="text_deposit_copy">#F00</color>
+    <!--彩票的走势图颜色值-->
+    <color name="lottery_title_color">#ff222222</color>
+    <color name="trend_list_odd">#ffededed</color>
+    <color name="trend_list_even">#fffefefe</color>
+    <color name="trend_line_odd_bg">#bff6f5f4</color>
+    <color name="trend_ball_blue">#ffc523af</color>
+    <color name="trend_ball_red">#ffdc6161</color>
+    <color name="trend_x_ball_blue">#ff6daced</color>
+    <color name="trend_x_ball_red">#ffdc6161</color>
+    <color name="trend_x_ball_stroke">#ffe8e8e8</color>
+    <color name="trend_x_blue_text">#ff177ffc</color>
+    <color name="trend_x_red_text">#fff03d3d</color>
+    <color name="trend_xtitle_bg">#fffefefe</color>
+    <color name="trend_max_count_color">#ffc523af</color>
+    <color name="trend_max_lianchu_bg">#fffef8e3</color>
+    <color name="trend_max_lianchu_color">#ff658e9c</color>
+    <color name="trend_max_yilou_color">#ff864415</color>
+    <color name="trend_avg_yilou_color">#ff475930</color>
+    <color name="trend_avg_yilou_bg">#ffe9f1dc</color>
+    <color name="trend_divider">#ffd0d0d0</color>
+    <color name="trend_qihao_text">#ff878787</color>
+    <color name="trend_content_yilou">#ff9e9e9e</color>
+
+
+    <color name="cp_status_bar">#2d4eb9</color>
+    <color name="cp_hall_tv">#191919</color>
+    <color name="login_tv">#146dcd</color>
+    <color name="event_line_title">#fdb22b</color>
+    <color name="event_tab_bg">#f6e8bb</color>
+    <color name="event_line">#ff0000</color>
+    <color name="cp_order_bg">#4f7ecc</color>
+    <color name="cp_order_tv">#acc6d3</color>
+    <color name="cp_order_hk_nor">#F9F9F9</color>
+    <color name="cp_order_hk_click">#D6E5EF</color>
+    <color name="cp_order_tv_clicked">#93b1de</color>
+    <color name="cp_order_submit">#ff1010</color>
+    <color name="cp_order_reset">#181eaf</color>
+    <color name="cp_order_fast_submit">#0968c1</color>
+    <color name="title_bg">#4d8eb9</color>
+    <color name="title_bg_black">#4B4339</color>
+    <color name="login_left">#4d8eb9</color>
+    <color name="n_editText_hint">#9B9B9B</color>
+    <color name="n_edittext_stroke">#979797</color>
+    <color name="n_edittext">#606060</color>
+    <color name="cp_hall_line">#DCDCDC</color>
+    <color name="n_edittext_cursor">#606060</color>
+    <color name="cp_hall_cline">#f2f2f2</color>
+    <color name="intputEditText">#FF4081</color>
+</resources>

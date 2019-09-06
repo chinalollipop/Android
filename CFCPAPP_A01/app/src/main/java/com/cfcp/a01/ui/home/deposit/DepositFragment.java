@@ -3,6 +3,7 @@ package com.cfcp.a01.ui.home.deposit;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -30,7 +31,7 @@ import com.cfcp.a01.data.DepositTypeResult;
 import com.cfcp.a01.data.LoginResult;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -121,6 +122,9 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         //请求出存款方式
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.getDepositMethod("");
         depositBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -558,7 +562,7 @@ public class DepositFragment extends BaseFragment implements DepositContract.Vie
                 EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(linkUrl,"","","",""), SupportFragment.SINGLETASK));
                 return;
             }
-            WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
+            WaitDialog.show((AppCompatActivity)getActivity(), "提交中...");
             presenter.getDepositVerify(amount,deposit_mode,payment_platform_id);
         }
     }

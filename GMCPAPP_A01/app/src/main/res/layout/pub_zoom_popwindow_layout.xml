@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/image_scale_rll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66000000"
+    android:clickable="true">
+
+    <com.gmcp.gm.ui.home.texthtml.html.ZoomImageView
+        android:id="@+id/image_scale_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
+        android:layout_centerInParent="true" />
+    <ImageView
+        android:id="@+id/image_scale_cancel"
+        android:background="@mipmap/bet_dialog_close"
+        android:layout_gravity="right|center"
+        android:layout_marginRight="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+
+</FrameLayout>

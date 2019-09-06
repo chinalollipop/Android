@@ -4,6 +4,7 @@ package com.cfcp.a01.ui.home.bet;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.just.agentweb.AgentWeb;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -117,7 +118,7 @@ public class ExplainWebFragment extends BaseFragment {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            WaitDialog.show(_mActivity, "加载中...").setCanCancel(true);
+            WaitDialog.show((AppCompatActivity) _mActivity, "加载中...");
         }
 
         @Override

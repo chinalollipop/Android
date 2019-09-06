@@ -307,7 +307,7 @@ public class BetRecordFragment extends BaseFragment implements BetRecordContract
             @Override
             public void onTimeSelect(Date date, View v) {
                 startTime = getTime(date);
-                page =1;
+                page = 1;
                 isNew = true;
                 projectsBeansData.clear();
                 recordBetAdapter = new RecordBetAdapter(R.layout.item_bet_record, projectsBeansData);
@@ -324,7 +324,7 @@ public class BetRecordFragment extends BaseFragment implements BetRecordContract
             @Override
             public void onTimeSelect(Date date, View v) {
                 endTime = getTime(date);
-                page =1;
+                page = 1;
                 isNew = true;
                 projectsBeansData.clear();
                 recordBetAdapter = new RecordBetAdapter(R.layout.item_bet_record, projectsBeansData);
@@ -337,7 +337,7 @@ public class BetRecordFragment extends BaseFragment implements BetRecordContract
                 //  .setLabel("年","月","日","时","分","秒")//默认设置为年月日时分秒
                 .build();
 
-        OptionsType= new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        OptionsType = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -345,30 +345,30 @@ public class BetRecordFragment extends BaseFragment implements BetRecordContract
                 lottery_id = "";
                 recordBetType.setText(projectsBeansType.get(options1));
                 cpLotteryName.setText("全部游戏");
-                if(pageType==0){
+                if (pageType == 0) {
                     isNew = true;
                     projectsBeansData.clear();
                     recordBetAdapter = new RecordBetAdapter(R.layout.item_bet_record, projectsBeansData);
                     recordBetRView.setAdapter(recordBetAdapter);
-                }else{
+                } else {
                     isNew = true;
                     projectsBeansDataXY.clear();
                     recordBetAdapterXY = new RecordBetAdapterXY(R.layout.item_bet_record, projectsBeansDataXY);
                     recordBetRView.setAdapter(recordBetAdapterXY);
                 }
                 onDataRequest();
-                GameLog.log("目前的位置是 "+pageType);
+                GameLog.log("目前的位置是 " + pageType);
             }
         }).build();
         OptionsType.setPicker(projectsBeansType);
 
         GFLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
         XYLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_XINYONG), AllGamesResult.DataBean.LotteriesBean.class);
-        OptionsPickerGF = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        OptionsPickerGF = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                lottery_id = GFLottery.get(options1).getLottery_id()+"";
+                lottery_id = GFLottery.get(options1).getLottery_id() + "";
                 isNew = true;
                 projectsBeansData.clear();
                 recordBetAdapter = new RecordBetAdapter(R.layout.item_bet_record, projectsBeansData);
@@ -377,7 +377,9 @@ public class BetRecordFragment extends BaseFragment implements BetRecordContract
                 cpLotteryName.setText(GFLottery.get(options1).getName());
             }
         }).build();
-        OptionsPickerGF.setPicker(GFLottery);
+        if (GFLottery.size() > 0){
+            OptionsPickerGF.setPicker(GFLottery);
+        }
 
         OptionsPickerXY = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
 
@@ -392,7 +394,9 @@ public class BetRecordFragment extends BaseFragment implements BetRecordContract
                 cpLotteryName.setText(XYLottery.get(options1).getName());
             }
         }).build();
-        OptionsPickerXY.setPicker(XYLottery);
+        if (XYLottery.size() > 0) {
+            OptionsPickerXY.setPicker(XYLottery);
+        }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         recordBetRView.setLayoutManager(linearLayoutManager);

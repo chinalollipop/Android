@@ -3,13 +3,13 @@ package com.cfcp.a01.ui.me.link;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -24,17 +24,14 @@ import com.cfcp.a01.common.utils.CLipHelper;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
-import com.cfcp.a01.data.BankCardListResult;
 import com.cfcp.a01.data.RegisterLinkListResult;
 import com.cfcp.a01.data.RegisterMeResult;
 import com.cfcp.a01.ui.me.register.CancelRegisterEvent;
-import com.cfcp.a01.ui.me.register.RegisterNameEvent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,16 +74,17 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
     OptionsPickerView typeOptionsPickerChannel;
     OptionsPickerView typeOptionsPickerTime;
     OptionsPickerView typeOptionsPickerFund;
-    String is_agent="1",prize_group_id,Channel,valid_days,series_prize_group_json;
-    String type,classic_prize;
+    String is_agent = "1", prize_group_id, Channel, valid_days, series_prize_group_json;
+    String type, classic_prize;
     List<RegisterMeResult.AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroupsBeans = new ArrayList<>();
     List<RegisterMeResult.AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroupsBeans0 = new ArrayList<>();
     List<RegisterMeResult.AAllPossibleAgentPrizeGroupsBean> aAllPossiblePrizeGroupsBeans1 = new ArrayList<>();
 
 
-    static List<String> typeOptionsListType  = new ArrayList<>();
-    static List<String> typeOptionsListChannel  = new ArrayList<>();
-    static List<String> typeOptionsListTime  = new ArrayList<>();
+    static List<String> typeOptionsListType = new ArrayList<>();
+    static List<String> typeOptionsListChannel = new ArrayList<>();
+    static List<String> typeOptionsListTime = new ArrayList<>();
+
     static {
         typeOptionsListType.add("会员");
         typeOptionsListType.add("代理");
@@ -101,6 +99,7 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
         typeOptionsListTime.add("永久有效");
 
     }
+
     public static RegisterLinkFragment newInstance(String deposit_mode, String money) {
         RegisterLinkFragment betFragment = new RegisterLinkFragment();
         Bundle args = new Bundle();
@@ -151,13 +150,13 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 hideKeyboard();
-                switch (tab.getPosition()){
+                switch (tab.getPosition()) {
                     case 0:
                         registerLink1.setVisibility(View.VISIBLE);
                         registerLinkRView.setVisibility(View.GONE);
                         break;
                     case 1:
-                        WaitDialog.show(getActivity(), "加载中...").setCanCancel(true);
+                        WaitDialog.show((AppCompatActivity) _mActivity, "加载中...");
                         registerLink1.setVisibility(View.GONE);
                         registerLinkRView.setVisibility(View.VISIBLE);
                         presenter.getFundList();
@@ -177,39 +176,39 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
             }
         });
 
-        typeOptionsPickerType = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        typeOptionsPickerType = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //1、tab做相应的切换
                 // 2、下面做查询数据的请求和展示
                 String text = typeOptionsListType.get(options1);
-                if(options1==0){
+                if (options1 == 0) {
                     is_agent = "0";
-                }else{
+                } else {
                     is_agent = "1";
                 }
-                if(is_agent.equals("1")){
+                if (is_agent.equals("1")) {
                     aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans1;
-                }else{
+                } else {
                     aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans0;
                 }
-                assert aAllPossiblePrizeGroupsBeans !=null;
-                type = aAllPossiblePrizeGroupsBeans.get(0).getType()+"";
-                classic_prize = aAllPossiblePrizeGroupsBeans.get(0).getClassic_prize()+"";
-                prize_group_id =aAllPossiblePrizeGroupsBeans.get(0).getId()+"";
+                assert aAllPossiblePrizeGroupsBeans != null;
+                type = aAllPossiblePrizeGroupsBeans.get(0).getType() + "";
+                classic_prize = aAllPossiblePrizeGroupsBeans.get(0).getClassic_prize() + "";
+                prize_group_id = aAllPossiblePrizeGroupsBeans.get(0).getId() + "";
                 registerLinkFund.setText(aAllPossiblePrizeGroupsBeans.get(0).getPickerViewText());
-                typeOptionsPickerFund = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+                typeOptionsPickerFund = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         //1、tab做相应的切换
                         // 2、下面做查询数据的请求和展示
                         String text = aAllPossiblePrizeGroupsBeans.get(options1).getPickerViewText();
-                        type = aAllPossiblePrizeGroupsBeans.get(options1).getType()+"";
-                        classic_prize = aAllPossiblePrizeGroupsBeans.get(options1).getClassic_prize()+"";
-                        prize_group_id = aAllPossiblePrizeGroupsBeans.get(options1).getId()+"";
-                        series_prize_group_json = "{"+text.replace("--",":")+"}";
+                        type = aAllPossiblePrizeGroupsBeans.get(options1).getType() + "";
+                        classic_prize = aAllPossiblePrizeGroupsBeans.get(options1).getClassic_prize() + "";
+                        prize_group_id = aAllPossiblePrizeGroupsBeans.get(options1).getId() + "";
+                        series_prize_group_json = "{" + text.replace("--", ":") + "}";
                         registerLinkFund.setText(text);
                     }
                 }).build();
@@ -219,7 +218,7 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
         }).build();
         typeOptionsPickerType.setPicker(typeOptionsListType);
 
-        typeOptionsPickerChannel= new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        typeOptionsPickerChannel = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -232,14 +231,14 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
         }).build();
         typeOptionsPickerChannel.setPicker(typeOptionsListChannel);
 
-        typeOptionsPickerTime= new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        typeOptionsPickerTime = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //1、tab做相应的切换
                 // 2、下面做查询数据的请求和展示
                 String text = typeOptionsListTime.get(options1);
-                switch (options1){
+                switch (options1) {
                     case 0:
                         valid_days = "1";
                         break;
@@ -271,22 +270,22 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
             return;
         }
 
-        if("请选择".equals(registerLinkFund.getText().toString())){
+        if ("请选择".equals(registerLinkFund.getText().toString())) {
             showMessage("请选择奖金组");
             return;
         }
-        if("请选择".equals(registerLinkChannel.getText().toString())){
+        if ("请选择".equals(registerLinkChannel.getText().toString())) {
             showMessage("请选择推广渠道");
             return;
         }
-        if("请选择".equals(registerLinkTime.getText().toString())){
+        if ("请选择".equals(registerLinkTime.getText().toString())) {
             showMessage("请选择链接有效期");
             return;
         }
         Map<String, String> map = new HashMap<String, String>();
-        map.put(type,classic_prize);
+        map.put(type, classic_prize);
         series_prize_group_json = JSON.toJSONString(map);
-        presenter.getRegisterFundGroup(is_agent,prize_group_id,type,Channel,liankQQ,valid_days,series_prize_group_json);
+        presenter.getRegisterFundGroup(is_agent, prize_group_id, type, Channel, liankQQ, valid_days, series_prize_group_json);
         //RegisterShowDialog.newInstance(new RegisterNameEvent(pwd2,is_agent,liankQQ,account,classic_prize),"").show(getFragmentManager());
         //
 
@@ -299,22 +298,22 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
         GameLog.log("设置真实姓名 成功");
         aAllPossiblePrizeGroupsBeans0 = registerLinkResult.getAAllPossiblePrizeGroups();
         aAllPossiblePrizeGroupsBeans1 = registerLinkResult.getAAllPossibleAgentPrizeGroups();
-        if(is_agent.equals("1")){
-            aAllPossiblePrizeGroupsBeans =  aAllPossiblePrizeGroupsBeans1;
-        }else{
-            aAllPossiblePrizeGroupsBeans =  aAllPossiblePrizeGroupsBeans0;
+        if (is_agent.equals("1")) {
+            aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans1;
+        } else {
+            aAllPossiblePrizeGroupsBeans = aAllPossiblePrizeGroupsBeans0;
         }
-        typeOptionsPickerFund = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        typeOptionsPickerFund = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //1、tab做相应的切换
                 // 2、下面做查询数据的请求和展示
                 String text = aAllPossiblePrizeGroupsBeans.get(options1).getPickerViewText();
-                type = aAllPossiblePrizeGroupsBeans.get(options1).getType()+"";
-                classic_prize = aAllPossiblePrizeGroupsBeans.get(options1).getClassic_prize()+"";
-                prize_group_id = aAllPossiblePrizeGroupsBeans.get(options1).getId()+"";
-                series_prize_group_json = "{"+text.replace("--",":")+"}";
+                type = aAllPossiblePrizeGroupsBeans.get(options1).getType() + "";
+                classic_prize = aAllPossiblePrizeGroupsBeans.get(options1).getClassic_prize() + "";
+                prize_group_id = aAllPossiblePrizeGroupsBeans.get(options1).getId() + "";
+                series_prize_group_json = "{" + text.replace("--", ":") + "}";
                 registerLinkFund.setText(text);
             }
         }).build();
@@ -325,21 +324,21 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
     public void getFundListResult(RegisterLinkListResult registerLinkListResult) {
         WaitDialog.dismiss();
         GameLog.log("获取链接地址 成功");
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         registerLinkRView.setLayoutManager(linearLayoutManager);
-        final List<RegisterLinkListResult.ARegisterLinksBean> aRegisterLinksBeans =  registerLinkListResult.getARegisterLinks();
-        RegisterListAdapter registerListAdapter = new RegisterListAdapter(R.layout.item_register_cl,aRegisterLinksBeans);
+        final List<RegisterLinkListResult.ARegisterLinksBean> aRegisterLinksBeans = registerLinkListResult.getARegisterLinks();
+        RegisterListAdapter registerListAdapter = new RegisterListAdapter(R.layout.item_register_cl, aRegisterLinksBeans);
         registerListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                switch(view.getId()){
+                switch (view.getId()) {
                     case R.id.itemRegisterCopy:
-                        CLipHelper.copy(getContext(),aRegisterLinksBeans.get(position).getUrl());
+                        CLipHelper.copy(getContext(), aRegisterLinksBeans.get(position).getUrl());
                         showMessage("复制成功！");
                         break;
                     case R.id.itemRegisterDelete:
-                        WaitDialog.show(getActivity(), "删除中...").setCanCancel(true);
-                        presenter.getFundDelete(aRegisterLinksBeans.get(position).getId()+"");
+                        WaitDialog.show((AppCompatActivity) _mActivity, "删除中...");
+                        presenter.getFundDelete(aRegisterLinksBeans.get(position).getId() + "");
                         break;
                 }
             }
@@ -356,14 +355,14 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
 
         @Override
         protected void convert(BaseViewHolder holder, RegisterLinkListResult.ARegisterLinksBean data) {
-            if("已关闭".equals(data.getStatus())){
-                holder.setGone(R.id.itemRegisterCopy,false).setGone(R.id.itemRegisterDelete,false);
+            if ("已关闭".equals(data.getStatus())) {
+                holder.setGone(R.id.itemRegisterCopy, false).setGone(R.id.itemRegisterDelete, false);
             }
-            holder.setText(R.id.itemRegisterTimeFormatted,data.getSExpireTimeFormatted()).
-                    setText(R.id.itemRegisterChannel,data.getIs_agent()).
-                    setText(R.id.itemRegisterStatus,data.getStatus()).
-                    setText(R.id.itemRegisterUrl,data.getUrl()).
-                    setText(R.id.itemRegisterCreated_at,data.getCreated_at()).
+            holder.setText(R.id.itemRegisterTimeFormatted, data.getSExpireTimeFormatted()).
+                    setText(R.id.itemRegisterChannel, data.getIs_agent()).
+                    setText(R.id.itemRegisterStatus, data.getStatus()).
+                    setText(R.id.itemRegisterUrl, data.getUrl()).
+                    setText(R.id.itemRegisterCreated_at, data.getCreated_at()).
                     addOnClickListener(R.id.itemRegisterCopy).
                     addOnClickListener(R.id.itemRegisterDelete);
         }
@@ -376,6 +375,7 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
         registerLinkStyle.getTabAt(1).select();
 //        finish();
     }
+
     @Override
     public void getFundDeleteResult() {
         WaitDialog.dismiss();
@@ -400,25 +400,25 @@ public class RegisterLinkFragment extends BaseFragment implements RegisterLinkCo
     }
 
 
-    @OnClick({R.id.registerLinkType,R.id.registerLinkChannel,R.id.registerLinkTime, R.id.registerLinkFund, R.id.registerLinkSubmit})
+    @OnClick({R.id.registerLinkType, R.id.registerLinkChannel, R.id.registerLinkTime, R.id.registerLinkFund, R.id.registerLinkSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.registerLinkType:
-                if(!Check.isNull(typeOptionsPickerType))
-                typeOptionsPickerType.show();
+                if (!Check.isNull(typeOptionsPickerType))
+                    typeOptionsPickerType.show();
                 break;
             case R.id.registerLinkChannel:
-                if(!Check.isNull(typeOptionsPickerChannel))
-                typeOptionsPickerChannel.show();
+                if (!Check.isNull(typeOptionsPickerChannel))
+                    typeOptionsPickerChannel.show();
                 break;
             case R.id.registerLinkTime:
-                if(!Check.isNull(typeOptionsPickerTime))
-                typeOptionsPickerTime.show();
+                if (!Check.isNull(typeOptionsPickerTime))
+                    typeOptionsPickerTime.show();
                 break;
             case R.id.registerLinkFund:
                 hideKeyboard();
-                if(!Check.isNull(typeOptionsPickerFund))
-                typeOptionsPickerFund.show();
+                if (!Check.isNull(typeOptionsPickerFund))
+                    typeOptionsPickerFund.show();
                 break;
             case R.id.registerLinkSubmit:
                 onRequsetData();

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,22 +42,23 @@ import com.cfcp.a01.common.adapters.LotteryAdapter;
 import com.cfcp.a01.common.adapters.LotteryNumDetailsAdapter;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
-import com.cfcp.a01.common.http.MyHttpClient;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.CPIWebSetting;
 import com.cfcp.a01.common.utils.Check;
-import com.cfcp.a01.common.utils.GameLog;
+import com.cfcp.a01.common.utils.SingleClick;
 import com.cfcp.a01.common.utils.TimeTools;
 import com.cfcp.a01.common.utils.ToastUtils;
 import com.cfcp.a01.common.widget.AnKeyboardUtils;
 import com.cfcp.a01.common.widget.LotteryNumPop;
 import com.cfcp.a01.common.widget.LotteryPlayMethodPop;
+import com.cfcp.a01.common.widget.LotteryTipsPop;
 import com.cfcp.a01.common.widget.LotteryTypePop;
 import com.cfcp.a01.common.widget.PeriodsTipsPop;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BetData;
 import com.cfcp.a01.data.BetDataResult;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
+import com.cfcp.a01.data.GamesTipsResult;
 import com.cfcp.a01.data.JSLoginParam;
 import com.cfcp.a01.data.LogoutResult;
 import com.cfcp.a01.data.UpBetData;
@@ -72,8 +74,8 @@ import com.cfcp.a01.ui.me.report.PersonFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.coolindicator.sdk.CoolIndicator;
 import com.google.gson.Gson;
-import com.kongzue.dialog.v2.CustomDialog;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.CustomDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -86,7 +88,6 @@ import com.xw.repo.BubbleSeekBar;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -99,9 +100,6 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 import razerdp.basepopup.BasePopupWindow;
 import razerdp.basepopup.QuickPopupBuilder;
 import razerdp.basepopup.QuickPopupConfig;
@@ -196,6 +194,8 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     FrameLayout flayoutXpay;
     @BindView(R.id.tv_tips)
     TextView tvTips;
+    @BindView(R.id.rl_tips)
+    RelativeLayout rlTips;
 
     private LotteryTypePop mLotteryTypePop;//彩种选择弹窗
     private LotteryNumPop mLotteryNumPop;//开奖号码弹窗
@@ -221,6 +221,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     private double onePrice;
     private PeriodsTipsPop periodsTipsPop;
     private CountDownTimer mCountDownTimer;
+    private CountDownTimer gameTips;
     //赔率的进度条
     private int mProgressMin;
     private int mProgressMax;
@@ -276,7 +277,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         isFirstVie = true;
         Injections.inject(this, null);
         assert presenter != null;
-        presenter.getAllGames("");//获取所有彩种
+        presenter.getAllGames();//获取所有彩种
         periodsTipsPop = new PeriodsTipsPop(_mActivity);
         betModel.setText("元");
         //倍数输入的监听
@@ -321,9 +322,10 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     public void refresh(boolean isRefresh) {
         //当前彩种配置信息
         if (isRefresh) {
-            WaitDialog.show(_mActivity, "加载中...").setCanCancel(true);
+            WaitDialog.show((AppCompatActivity) _mActivity, "加载中...").setCancelable(true);
         }
         presenter.getGameSettingsForRefresh(lottery_id, isRefresh);
+        gameTips();
     }
 
     /**
@@ -471,6 +473,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                         }
                     }
                 }
+                //投注号码
                 rvLottery.setVisibility(View.VISIBLE);
                 llLotteryInput.setVisibility(View.GONE);
                 rvLottery.setLayoutManager(new LinearLayoutManager(_mActivity));
@@ -528,7 +531,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     }
 
     @Override
-    public void getAllGamesResult(AllGamesResult allGamesResult) {
+    public void setAllGamesResult(AllGamesResult allGamesResult) {
         if (allGamesResult.getErrno() == 0) {
             lotteriesBeanList = allGamesResult.getData().getAvailableLottery();
             //彩种选择弹窗
@@ -547,10 +550,10 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             lotteryAdapter.clearList();
             etLottery.getText().clear();
             bsBetBar.setProgress(bsBetBar.getMax());
-            betSuccessTips = CustomDialog.show(_mActivity, R.layout.layout_bet_success_tips, new CustomDialog.BindView() {
+            betSuccessTips = CustomDialog.show((AppCompatActivity) _mActivity, R.layout.layout_bet_success_tips, new CustomDialog.OnBindView() {
                 @Override
-                public void onBind(CustomDialog dialog, View rootView) {
-                    rootView.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
+                public void onBind(CustomDialog dialog, View v) {
+                    v.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             betSuccessTips.doDismiss();
@@ -561,21 +564,35 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         } else {
             betSubmit.setClickable(true);
             betSubmit.setBackgroundResource(R.drawable.btn_bet_submit);
-            betSuccessTips = CustomDialog.show(_mActivity, R.layout.layout_bet_success_tips, new CustomDialog.BindView() {
+            betSuccessTips = CustomDialog.show((AppCompatActivity) _mActivity, R.layout.layout_bet_success_tips, new CustomDialog.OnBindView() {
                 @Override
-                public void onBind(CustomDialog dialog, View rootView) {
-                    rootView.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
+                public void onBind(CustomDialog dialog, View v) {
+                    v.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             betSuccessTips.doDismiss();
                         }
                     });
-                    TextView tvTips = rootView.findViewById(R.id.tv_tips);
-                    ImageView ivTips = rootView.findViewById(R.id.iv_tips);
+                    TextView tvTips = v.findViewById(R.id.tv_tips);
+                    ImageView ivTips = v.findViewById(R.id.iv_tips);
                     tvTips.setText(betDataResult.getError());
                     ivTips.setImageResource(R.mipmap.ic_bet_failure_tips);
                 }
             });
+        }
+    }
+
+    @Override
+    public void setGamesTipsResult(GamesTipsResult gamesTipsResult) {
+        if (gamesTipsResult.getErrno() == 0) {
+            if (gamesTipsResult.getData().size() != 0) {
+                //是否中奖提示弹窗
+                LotteryTipsPop mLotteryTipsPop = new LotteryTipsPop(_mActivity, gamesTipsResult.getData());
+                Animation enterAnimation = createVerticalAnimation(1f, 0);
+                Animation dismissAnimation = createVerticalAnimation(0, 1f);
+                int gravity = Gravity.TOP;
+                mLotteryTipsPop.setShowAnimation(enterAnimation).setDismissAnimation(dismissAnimation).setPopupGravity(gravity).showPopupWindow(rlTips);
+            }
         }
     }
 
@@ -607,6 +624,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             mCountDownTimer.cancel();
             mCountDownTimer = null;
         }
+        gameTips.cancel();
     }
 
     @Subscribe
@@ -651,12 +669,31 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        refresh(false);
+        tipsPop = true;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+            mCountDownTimer = null;
+        }
+        gameTips.cancel();
+        tipsPop = false;
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         if (mCountDownTimer != null) {
             mCountDownTimer.cancel();
             mCountDownTimer = null;
         }
+        gameTips.cancel();
         EventBus.getDefault().unregister(this);
         try {
             if (!Check.isNull(wvServiceOnline)) {
@@ -675,6 +712,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         }
     }
 
+    @SingleClick//防止快速点击
     @SuppressLint({"SetTextI18n"})
     @OnClick({R.id.betTitleBack, R.id.betTitleLay, R.id.betTitleSet, R.id.betDaysProfit, R.id.betTitleMenu, R.id.betArea, R.id.betChat, R.id.betMethodNameLay, R.id.betModel, R.id.betMinus, R.id.betPlus, R.id.betClear, R.id.betSubmit, R.id.betSure, R.id.tv_delete, R.id.tv_clear})
     public void onViewClicked(View view) {
@@ -685,7 +723,9 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             case R.id.betTitleLay:
                 showArrowAnim(betTitleArrows);
                 assert mLotteryTypePop != null;
-                mLotteryTypePop.showPopupWindow(rlTitle);
+                if (rlTitle != null) {
+                    mLotteryTypePop.showPopupWindow(rlTitle);
+                }
                 break;
             case R.id.betTitleSet:
                 Animation enterAnimation = createVerticalAnimation(-1f, 0);
@@ -736,19 +776,19 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 break;
             case R.id.betChat:
                 tipsPop = false;
-                if(Check.isEmpty(chartUrl)){
+                if (Check.isEmpty(chartUrl)) {
                     chartUrl = "http://58.84.55.207/room/test22.php";
                 }
                 if (chartUrl != null && isFirst) {
                     wvServiceOnline.loadUrl(chartUrl);
                     wvServiceOnline.loadUrl("javascript:callJS()");
-                    //loadGameData(chartUrl);
                     isFirst = false;
                 }
                 if (mCountDownTimer != null) {
                     mCountDownTimer.cancel();
                     mCountDownTimer = null;
                 }
+                gameTips.cancel();
                 periodsTipsPop.dismiss();
                 llBet.setVisibility(View.GONE);
                 llChart.setVisibility(View.VISIBLE);
@@ -814,7 +854,7 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
                 break;
             case R.id.betSubmit:
                 if (mUpdateBet != null && wayGroups != null && position != null) {
-                    WaitDialog.show(_mActivity, "提交中...").setCanCancel(false);
+                    WaitDialog.show((AppCompatActivity) _mActivity, "提交中...");
                     betSubmit.setClickable(false);
                     betSubmit.setBackgroundResource(R.drawable.btn_bet_submit_no);
                     BetData betData = new BetData();
@@ -997,6 +1037,23 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
         }.start();
     }
 
+    //查询是否中奖
+    private void gameTips() {
+        if (gameTips != null) {
+            gameTips.cancel();
+            gameTips = null;
+        }
+        gameTips = new CountDownTimer(24 * 60 * 60 * 1000, 3 * 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                presenter.getGamesTips();
+            }
+
+            public void onFinish() {
+            }
+        }.start();
+    }
+
     //计算注数以及投注金额
     @SuppressLint("SetTextI18n")
     private void generateMoney() {
@@ -1171,54 +1228,4 @@ public class BetFragment extends BaseFragment implements BetFragmentContract.Vie
             }
         }
     }
-
-    private void loadGameData(String gameUrl) {
-        MyHttpClient myHttpClient = new MyHttpClient();
-        myHttpClient.executeGet(gameUrl, new Callback() {
-            @Override
-            public void onFailure(Call call, final IOException e) {
-                //网络异常或者超时的时候调用此处
-                wvServiceOnline.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        GameLog.log("无网络的情况下调用了");
-                        wvServiceOnline.loadUrl("javascript:chatRoomError()");
-                    }
-                });
-            }
-
-            @Override
-            public void onResponse(Call call, final Response response) throws IOException {
-                final String responseText = response.body().string();
-                try {
-                    wvServiceOnline.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            GameLog.log("在线聊天 code是 "+ response.code());
-                            GameLog.log("在线聊天Json"+responseText);
-                            //wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
-                        }
-                    });
-                } catch (Exception exception) {
-                    wvServiceOnline.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //wvServiceOnlineContent.loadUrl("javascript:chatRoomError()");
-                            wvServiceOnline.loadUrl("javascript:chatRoomError()");
-                        }
-                    });
-                }
-                if(!response.isSuccessful()){
-                    GameLog.log("我去 ，既然白屏了  "+responseText);
-                    wvServiceOnline.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            wvServiceOnline.loadUrl("javascript:chatRoomError()");
-                        }
-                    });
-                }
-            }
-        });
-    }
-
 }

@@ -8,3 +8,4 @@
 !/app/proguard-rules.pro
 Cfcp.iml
 .idea/
+app/build.gradle

@@ -225,6 +225,9 @@ public class MyReportFragment extends BaseFragment implements MyReportContract.V
 
     //请求数据接口
     private void onRequsetData() {
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.getPersonReport(typeArgs3,type_id,startTime, endTime,page+"","20");
     }
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <com.gmcp.gm.common.widget.NTitleBar
+        android:id="@+id/eventListBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="彩种信息" />
+    <TextView
+        android:id="@+id/caiInfoLotteryId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:drawableRight="@mipmap/icon_ex_down"
+        android:paddingRight="20dp"
+        android:text="重新时时彩"
+        />
+    <LinearLayout
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:text="玩法群"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:text="玩法组"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="玩法"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="奖金"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/flayout_xpay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/wv_service_online"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.coolindicator.sdk.CoolIndicator
+        android:id="@+id/indicator"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/default_drawable_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

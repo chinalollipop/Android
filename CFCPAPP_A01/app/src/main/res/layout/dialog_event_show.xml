@@ -14,13 +14,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/home_dialog_top"
-            >
+            android:background="@drawable/home_dialog_top">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_centerVertical="true"
                 android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="16dp"
                 android:gravity="center"
                 android:text="公告列表"
@@ -34,8 +34,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="16dp"
-                android:background="@mipmap/home_cancel"
-                />
+                android:background="@mipmap/home_cancel" />
         </RelativeLayout>
 
         <!--<com.tencent.smtt.sdk.WebView
@@ -44,14 +43,14 @@
             android:layout_height="match_parent"
             />-->
         <android.support.v7.widget.RecyclerView
-            android:background="@color/white"
             android:id="@+id/eventShowRView"
             android:layout_width="match_parent"
-            android:layout_height="320dp"/>
+            android:layout_height="320dp"
+            android:background="@color/white" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:background="@drawable/home_dialog_buttom"
-            />
+            android:background="@drawable/home_dialog_buttom" />
     </LinearLayout>
 </FrameLayout>

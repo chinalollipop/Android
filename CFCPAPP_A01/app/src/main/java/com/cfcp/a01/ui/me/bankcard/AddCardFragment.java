@@ -93,6 +93,9 @@ public class AddCardFragment extends BaseFragment implements AddCardContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.getBankList();
         addCardBack.setBackListener(new View.OnClickListener() {
             @Override

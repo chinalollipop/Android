@@ -14,6 +14,7 @@ import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.utils.ACache;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.BetDetailResult;
 import com.cfcp.a01.ui.me.record.BetDropEvent;
@@ -113,6 +114,9 @@ public class BetDetailFragment extends BaseFragment implements BetDetailContract
     }
 
     private void onDataRequest() {
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.getProjectDetail(typeArgs1);
     }
 

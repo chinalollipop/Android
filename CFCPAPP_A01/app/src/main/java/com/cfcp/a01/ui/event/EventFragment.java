@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
@@ -98,11 +99,19 @@ public class EventFragment extends BaseFragment implements EventContract.View{
         @Override
         protected void convert(BaseViewHolder holder, final CouponResult.DataBean data) {
             //holder.setText(R.id.itemEventText,data.getContent());
-            String url = Client.baseUrl().replace("api.","");
-            GameLog.log("图片地址Pic_url 是："+url+data.getPic_url().substring(1));
-            GameLog.log("图片地址Redirect是："+url+data.getRedirect_url().substring(1));
-            Glide.with(EventFragment.this).load(url+data.getPic_url().substring(1)).into((ImageView) holder.getView(R.id.itemEventId));
-            Glide.with(EventFragment.this).load(url+data.getRedirect_url().substring(1)).into((ImageView) holder.getView(R.id.itemEventText));
+            if(data.getPic_url().contains("http")){
+                GameLog.log("图片地址Pic_url 是："+data.getPic_url());
+                GameLog.log("图片地址Redirect是："+data.getRedirect_url());
+                Glide.with(EventFragment.this).load(data.getPic_url()).apply(new RequestOptions().fitCenter()).into((ImageView) holder.getView(R.id.itemEventId));
+                Glide.with(EventFragment.this).load(data.getRedirect_url()).apply(new RequestOptions().fitCenter()).into((ImageView) holder.getView(R.id.itemEventText));
+            }else{
+                String url = Client.baseUrl().replace("api.","");
+                GameLog.log("图片地址Pic_url 是："+url+data.getPic_url().substring(1));
+                GameLog.log("图片地址Redirect是："+url+data.getRedirect_url().substring(1));
+                Glide.with(EventFragment.this).load(url+data.getPic_url().substring(1)).apply(new RequestOptions().fitCenter()).into((ImageView) holder.getView(R.id.itemEventId));
+                Glide.with(EventFragment.this).load(url+data.getRedirect_url().substring(1)).apply(new RequestOptions().fitCenter()).into((ImageView) holder.getView(R.id.itemEventText));
+            }
+
             if(data.isShow()){
                 holder.setVisible(R.id.itemEventText,true);
             }else{

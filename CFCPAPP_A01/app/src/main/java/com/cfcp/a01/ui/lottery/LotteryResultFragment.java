@@ -3,6 +3,7 @@ package com.cfcp.a01.ui.lottery;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -14,24 +15,31 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
+import com.cfcp.a01.common.utils.DateHelper;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.TimeHelper;
 import com.cfcp.a01.data.AllGamesResult;
+import com.cfcp.a01.data.CPLotteryListResult;
 import com.cfcp.a01.data.LotteryListResult;
+import com.cfcp.a01.ui.home.cplist.lottery.CPLotteryListFragment;
 import com.cfcp.a01.ui.lottery.trendview.CQTrendChart;
 import com.cfcp.a01.ui.lottery.trendview.IIX5TrendChart;
 import com.cfcp.a01.ui.lottery.trendview.K3TrendChart;
 import com.cfcp.a01.ui.lottery.trendview.PK10TrendChart;
 import com.cfcp.a01.ui.lottery.trendview.LotteryTrendView;
 import com.cfcp.a01.ui.lottery.trendview.TrendData;
+import com.cfcp.a01.ui.me.record.BetRecordFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
@@ -41,9 +49,11 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -57,6 +67,12 @@ import okhttp3.Response;
 //开奖结果
 public class LotteryResultFragment extends BaseFragment implements LotteryResultContract.View{
 
+    @BindView(R.id.lotteryResultLay1)
+    LinearLayout lotteryResultLay1;
+    @BindView(R.id.lotteryResultLay2)
+    LinearLayout lotteryResultLay2;
+    @BindView(R.id.lotteryResultRType)
+    TextView lotteryResultRType;
     @BindView(R.id.lotteryResultType)
     TextView lotteryResultType;
     @BindView(R.id.lotteryResultTab)
@@ -71,6 +87,28 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
     LotteryTrendView m11X5TrendView;
     @BindView(R.id.lotteryResultK3TrendView)
     LotteryTrendView mK3TrendView;
+
+    @BindView(R.id.cpLotteryName)
+    TextView cpLotteryName;
+    @BindView(R.id.cpLotteryTime)
+    TextView cpLotteryTime;
+    @BindView(R.id.cpLotteryList)
+    RecyclerView cpLotteryList;
+
+    //官方盘 0 和 信用盘  1
+    OptionsPickerView OptionsType;
+    TimePickerView pvStartTime;
+    OptionsPickerView optionsPickerViewState;
+    int pageType =0 ;
+    boolean isNew;
+    String gameId = "",gameTime = "";
+    private static List<String> cpLeftEventList1 = new ArrayList<String>();
+    private static List<String> cpLeftEventList2 = new ArrayList<String>();
+    static List<String> projectsBeansType = new ArrayList<>();
+    static {
+        projectsBeansType.add("官方盘");
+        projectsBeansType.add("信用盘");
+    }
     //PK10走势图的初始化
     private PK10TrendChart pk10TrendChart;
     //IIX5走势图的初始化
@@ -108,6 +146,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
     private String  lotteryId = "1";
     //信用盘的列表
     private List<AllGamesResult.DataBean.LotteriesBean> AvailableLottery  = new ArrayList<>();
+    private List<AllGamesResult.DataBean.LotteriesBean> AvailableLotteryXY  = new ArrayList<>();
     LotteryResultContract.Presenter presenter;
     /*static List<String> typeOptionsList  = new ArrayList<>();
     static List<String> typeOptionsLotreryIdList  = new ArrayList<>();
@@ -547,15 +586,52 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
     public void setEvents(@Nullable Bundle savedInstanceState) {
         //EventBus.getDefault().register(this);
         AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
+        AvailableLotteryXY = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_XINYONG), AllGamesResult.DataBean.LotteriesBean.class);
         if(!Check.isNull(AvailableLottery)) {
             lotteryResultType.setText(AvailableLottery.get(0).getName());
             initZTTablayout(AvailableLottery.get(0).getLottery_id() + "");
         }
+
+        //官方盘和信用盘的选择
+        OptionsType = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                pageType = options1;
+                lotteryResultRType.setText(projectsBeansType.get(options1));
+                cpLotteryName.setText("全部游戏");
+                if (pageType == 0) {
+                    isNew = true;
+                    lotteryResultLay1.setVisibility(View.VISIBLE);
+                    lotteryResultLay2.setVisibility(View.GONE);
+                    lotteryResultType.setText(AvailableLottery.get(0).getName());
+                    gameId = AvailableLottery.get(0).getLottery_id()+"";
+                    /*projectsBeansData.clear();
+                    lotteryResultAdapter = new LotteryResultAdapter(R.layout.item_lottery_result, projectsBeansData);
+                    lotteryResultAdapter =   new LotteryResultAdapter(R.layout.item_lottery_result,lotteryListResult);
+                    recordBetRView.setAdapter(recordBetAdapter);*/
+                } else {
+                    isNew = true;
+                    lotteryResultLay1.setVisibility(View.GONE);
+                    lotteryResultLay2.setVisibility(View.VISIBLE);
+                    cpLotteryName.setText(AvailableLotteryXY.get(0).getName());
+                    gameId = AvailableLotteryXY.get(0).getId()+"";
+                    cpLotteryTime.setText(DateHelper.getToday());
+                    /*projectsBeansDataXY.clear();
+                    lotteryListGameAdapter = new LotteryListGameAdapter(R.layout.item_cp_lottery, projectsBeansDataXY);
+                    recordBetRView.setAdapter(recordBetAdapterXY);*/
+                }
+                onDataRequest();
+                GameLog.log("目前的位置是 " + pageType);
+            }
+        }).build();
+        OptionsType.setPicker(projectsBeansType);
+
         initPK10TrendView();
         initCQTrendView();
         init11X5TrendView();
         initK3TrendView();
-
+        initDataView();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
         lotteryResultRView.setLayoutManager(linearLayoutManager);
         lotteryResultRView.setHasFixedSize(true);
@@ -568,7 +644,9 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 //1、tab做相应的切换
                 // 2、下面做查询数据的请求和展示
                 String text = AvailableLottery.get(options1).getName();
-                lotteryResultType.setText(text);
+                if(!Check.isNull(lotteryResultType)) {
+                    lotteryResultType.setText(text);
+                }
                 lotteryId = AvailableLottery.get(options1).getLottery_id()+"";
                 initZTTablayout(lotteryId);
             }
@@ -582,6 +660,191 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             e.printStackTrace();
         }
     }
+
+
+    class LotteryListCPGameAdapter extends BaseQuickAdapter<CPLotteryListResult.DataBean, BaseViewHolder> {
+
+        public LotteryListCPGameAdapter(int layoutId, List datas) {
+            super(layoutId, datas);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder holder, final CPLotteryListResult.DataBean data) {
+            cpLeftEventList1.clear();
+            cpLeftEventList2.clear();
+            holder.setText(R.id.cpLotteryItemTime, data.getTurnNum()+"\n"+data.getOpenTime());
+            RecyclerView cpOrderLotteryOpen1 = holder.getView(R.id.cpOrderLotteryOpen1);
+            RecyclerView cpOrderLotteryOpen2 = holder.getView(R.id.cpOrderLotteryOpen2);
+            LinearLayoutManager cpOrderLotteryOpen11 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+            cpOrderLotteryOpen1.setLayoutManager(cpOrderLotteryOpen11);
+            cpOrderLotteryOpen1.setHasFixedSize(true);
+            cpOrderLotteryOpen1.setNestedScrollingEnabled(false);
+            LinearLayoutManager cpOrderLotteryOpen22 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+            cpOrderLotteryOpen2.setLayoutManager(cpOrderLotteryOpen22);
+            cpOrderLotteryOpen2.setHasFixedSize(true);
+            cpOrderLotteryOpen2.setNestedScrollingEnabled(false);
+
+            String [] dataList = data.getOpenNum().split(",");
+            int dataListSize = dataList.length;
+            int total= 0;
+            for(int i=0;i<dataList.length;++i){
+                if(i<10){
+                    cpLeftEventList1.add(dataList[i]);
+                }else{
+                    cpLeftEventList2.add(dataList[i]);
+                }
+                total += Integer.parseInt(dataList[i]);
+            }
+            switch (gameId){
+                case "1":
+                case "2":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                    cpLeftEventList2.add(total+"");
+                    cpLeftEventList2.add((total >= 23)?"大":"小");
+                    cpLeftEventList2.add((total % 2 ==1)?"单":"双");
+                /*if(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])){
+                    cpLeftEventList2.add("龙");
+                }else if(Integer.parseInt(dataList[0])==Integer.parseInt(dataList[4])){
+                    cpLeftEventList2.add("和");
+                }else{
+                    cpLeftEventList2.add("虎");
+                }*/
+                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>=Integer.parseInt(dataList[4])? Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])?"龙":"和":"虎");
+                    cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter( R.layout.item_cp_order_open_2, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    break;
+                case "50":
+                case "51":
+                case "76":
+                case "55":
+                case "168"://幸运飞艇 暂无
+                    try{
+                        cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");
+                        cpLeftEventList2.add((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))>11?"大":"小");
+                        cpLeftEventList2.add(((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))%2 ==1)?"单":"双");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[9])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[1])>Integer.parseInt(dataList[8])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[2])>Integer.parseInt(dataList[7])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[3])>Integer.parseInt(dataList[6])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[4])>Integer.parseInt(dataList[5])?"龙":"虎");
+                        cpOrderLotteryOpen1.setAdapter(new Open1GameAdapter( R.layout.item_cp_order_open_1, cpLeftEventList1));
+                        cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
+                case "60":
+                case "61":
+                    cpLeftEventList2.add(total+"");
+                    cpLeftEventList2.add((total >= 84)?total > 84?"大":"和":"小");
+                    cpLeftEventList2.add((total % 2 == 1) ? "单":"双");
+                    cpLeftEventList2.add((total % 10 >= 5) ? "大":"小");
+                    cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    break;
+                case "21"://广东11选5 暂无
+                    cpLeftEventList2.add(total+"");
+                    cpLeftEventList2.add((total >= 30)?total > 30?"大":"和":"小");
+                    cpLeftEventList2.add((total % 2 == 1) ? "单":"双");
+                    cpLeftEventList2.add((total % 10 >= 5) ? "大":"小");
+                    cpLeftEventList2.add((Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])) ? "龙":"虎");
+                    cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    break;
+                case "65"://"北京快乐8" 暂无
+                    cpOrderLotteryOpen1.setAdapter(new OpenKuaiLe8GameAdapter( R.layout.item_cp_order_open_3, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new OpenKuaiLe8GameAdapter( R.layout.item_cp_order_open_3, cpLeftEventList2));
+                    break;
+                case "159":
+                case "10":
+                case "73":
+                case "74":
+                case "75":
+                    cpLeftEventList2.add(total+"");
+                    cpLeftEventList2.add((total >= 11) ? "大":"小");
+                    cpOrderLotteryOpen1.setAdapter(new OpenK3GameAdapter(R.layout.item_cp_order_open_1, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    break;
+                case "70":
+                case "72":
+                    //香港六合彩的没有二
+                    int dataListSizeHk = cpLeftEventList1.size();
+                    String lastNumsHk = cpLeftEventList1.get(dataListSizeHk-1);
+                    cpLeftEventList1.remove(dataListSizeHk-1);
+                    cpLeftEventList1.add("+");
+                    cpLeftEventList1.add(lastNumsHk);
+                    cpOrderLotteryOpen1.setAdapter(new OpenHKQIUGameAdapter( R.layout.item_cp_order_hk, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter( R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    break;
+                case "66":
+                    cpLeftEventList2.add(total+"");
+                    cpLeftEventList2.add((total > 13) ? "大":"小");
+                    cpLeftEventList2.add((total % 2 == 1) ? "单":"双");
+                    cpLeftEventList1.add("=");
+                    cpLeftEventList1.add(""+total);
+                    cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList1));
+                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter( R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    break;
+            }
+
+        }
+    }
+
+
+    private void onDataRequest(){
+        GameLog.log(pageType+" 官盘id "+gameId+"信用盘id "+gameId);
+        if(pageType==0){
+            presenter.getLotteryList("",gameId,"");
+        }else{
+            onSearchLotteryData();
+        }
+    }
+
+    private void onSearchLotteryData(){
+        presenter.postCPLotteryList(gameTime,gameId);
+    }
+
+
+    public static String getTime(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
+
+    private void initDataView(){
+        gameTime = DateHelper.getToday();
+        cpLotteryTime.setText(gameTime);
+        //时间选择器
+        pvStartTime = new TimePickerBuilder(getContext(), new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                gameTime = getTime(date);
+                cpLotteryTime.setText(gameTime);
+                onSearchLotteryData();
+            }
+        })
+                // .setLabel("年","月","日","时","分","秒")//默认设置为年月日时分秒
+                .setType(new boolean[]{true, true, true, false, false, false})// 默认全部显示
+                .build();
+
+        optionsPickerViewState = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                gameId = AvailableLotteryXY.get(options1).getId()+"";
+                onSearchLotteryData();
+                cpLotteryName.setText(AvailableLotteryXY.get(options1).getName());
+            }
+        }).build();
+        optionsPickerViewState.setPicker(AvailableLotteryXY);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
+        cpLotteryList.setLayoutManager(gridLayoutManager);
+        cpLotteryList.setHasFixedSize(true);
+        cpLotteryList.setNestedScrollingEnabled(false);
+    }
+
 
     //初始化走势图视图
     private void initPK10TrendView() {
@@ -628,9 +891,22 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
         //EventBus.getDefault().post(new MainEvent(0));
     }
 
-    @OnClick(R.id.lotteryResultType)
-    public void onViewClicked() {
-        typeOptionsPicker.show();
+    @OnClick({R.id.lotteryResultType,R.id.lotteryResultRType,R.id.cpLotteryName,R.id.cpLotteryTime})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.lotteryResultType:
+                typeOptionsPicker.show();
+                break;
+            case R.id.lotteryResultRType:
+                OptionsType.show();
+                break;
+            case R.id.cpLotteryTime:
+                pvStartTime.show();
+                break;
+            case R.id.cpLotteryName:
+                optionsPickerViewState.show();
+                break;
+        }
     }
 
     @Override
@@ -649,6 +925,18 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
         onParserLotteryListResult(lotteryListResult);
         Collections.reverse(lotteryListResult);
     }
+
+    @Override
+    public void postCPLotteryListResult(CPLotteryListResult cpLotteryListResult) {
+        if(!Check.isNull(cpLotteryListResult.getData())&&cpLotteryListResult.getData().size()==0){
+            showMessage("暂无数据！");
+            cpLotteryList.setVisibility(View.GONE);
+        }else{
+            cpLotteryList.setVisibility(View.VISIBLE);
+            cpLotteryList.setAdapter(new LotteryListCPGameAdapter(R.layout.item_cp_lottery, cpLotteryListResult.getData()));
+        }
+    }
+
 
 
     private List<TrendData> onShowK3(List<LotteryListResult> lotteryListResult,int index){
@@ -1564,6 +1852,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
             case "28"://Gw5fc
             case "13"://Gwffc
             case "1"://重庆时时彩
+            case "53"://重庆时时彩
                 mTrendListPK1.addAll(onShowCQSSC(lotteryListResult,0));
                 mTrendListPK2.addAll(onShowCQSSC(lotteryListResult,1));
                 mTrendListPK3.addAll(onShowCQSSC(lotteryListResult,2));
@@ -1634,6 +1923,7 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 case "28"://Gw5fc
                 case "13"://Gwffc
                 case "1"://重庆时时彩
+                case "53"://重庆时时彩
                     cpOrderLotteryOpen1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     cpOrderLotteryOpen2.setVisibility(View.GONE);
                     cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(R.layout.item_lottery_result_open_1,cpLeftEventList1));
@@ -1644,23 +1934,27 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
                 case "10"://北京PK拾
                 case "52"://北京PK拾 5分
                 case "19"://Gwpk10
-                    List<String> cpLeftEventList2 = new ArrayList<String>();
-                    cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");
-                    cpLeftEventList2.add(((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))%2 ==1)?"单":"双");
-                    cpLeftEventList2.add((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))>11?"大":"小");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[9])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[1])>Integer.parseInt(dataList[8])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[2])>Integer.parseInt(dataList[7])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[3])>Integer.parseInt(dataList[6])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[4])>Integer.parseInt(dataList[5])?"龙":"虎");
+                    try {
+                        List<String> cpLeftEventList2 = new ArrayList<String>();
+                        cpLeftEventList2.add(Integer.parseInt(dataList[0]) + Integer.parseInt(dataList[1]) + "");
+                        cpLeftEventList2.add(((Integer.parseInt(dataList[0]) + Integer.parseInt(dataList[1])) % 2 == 1) ? "单" : "双");
+                        cpLeftEventList2.add((Integer.parseInt(dataList[0]) + Integer.parseInt(dataList[1])) > 11 ? "大" : "小");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[0]) > Integer.parseInt(dataList[9]) ? "龙" : "虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[1]) > Integer.parseInt(dataList[8]) ? "龙" : "虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[2]) > Integer.parseInt(dataList[7]) ? "龙" : "虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[3]) > Integer.parseInt(dataList[6]) ? "龙" : "虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[4]) > Integer.parseInt(dataList[5]) ? "龙" : "虎");
 
-                    cpOrderLotteryOpen1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                    cpOrderLotteryOpen2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                        cpOrderLotteryOpen1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                        cpOrderLotteryOpen2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-                    cpOrderLotteryOpen2.setVisibility(View.VISIBLE);
-                    cpOrderLotteryOpen1.setAdapter(new OpenPKGameAdapter(R.layout.item_lottery_result_open_1,cpLeftEventList1));
-                    cpOrderLotteryOpen2.setAdapter(new OpenRectangleGameAdapter(R.layout.item_cp_order_open_2,cpLeftEventList2));
-                    holder.setGone(R.id.itemLotteryResultText,false);
+                        cpOrderLotteryOpen2.setVisibility(View.VISIBLE);
+                        cpOrderLotteryOpen1.setAdapter(new OpenPKGameAdapter(R.layout.item_lottery_result_open_1, cpLeftEventList1));
+                        cpOrderLotteryOpen2.setAdapter(new OpenRectangleGameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                        holder.setGone(R.id.itemLotteryResultText, false);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                     break;
                 case "9"://广东11选5
                 case "14"://GW115
@@ -1790,5 +2084,239 @@ public class LotteryResultFragment extends BaseFragment implements LotteryResult
         }
     }
 
+
+    /**
+     * 设置文字+球
+     */
+    class OpenKuaiLe8GameAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
+
+        public OpenKuaiLe8GameAdapter( int layoutId, List datas) {
+            super( layoutId, datas);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder holder, String data) {
+            holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_qiu);
+            if(data.length()==2){
+                if("0".equals(data.substring(0,1))){
+                    holder.setText(R.id.itemOrderOpen2,data.substring(1,2));
+                }else{
+                    holder.setText(R.id.itemOrderOpen2,data);
+                }
+            }else{
+                holder.setText(R.id.itemOrderOpen2,data);
+            }
+        }
+    }
+
+
+    /**
+     * 设置图片
+     */
+    class Open1GameAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
+
+        public Open1GameAdapter(int layoutId, List datas) {
+            super(layoutId, datas);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder holder, String data) {
+            switch (data){
+                case "01":
+                case "1":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_one);
+                    break;
+                case "02":
+                case "2":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_two);
+                    break;
+                case "03":
+                case "3":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_three);
+                    break;
+                case "04":
+                case "4":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_four);
+                    break;
+                case "05":
+                case "5":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_five);
+                    break;
+                case "06":
+                case "6":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_six);
+                    break;
+                case "07":
+                case "7":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_seven);
+                    break;
+                case "08":
+                case "8":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_eight);
+                    break;
+                case "09":
+                case "9":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_nine);
+                    break;
+                case "10":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.cp_order_ten);
+                    break;
+            }
+
+        }
+    }
+
+
+    /**
+     * 设置文字
+     */
+    class Open2GameAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
+
+        public Open2GameAdapter(int layoutId, List datas) {
+            super(layoutId, datas);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder holder, String data) {
+            if(data.length()==3){
+                TextView textView  =  holder.getView(R.id.itemOrderOpen2);
+                textView.setTextSize(10);
+            }
+            holder.setText(R.id.itemOrderOpen2,data);
+        }
+    }
+
+    /**
+     * 设置筛子图片
+     */
+    class OpenK3GameAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
+
+        public OpenK3GameAdapter(int layoutId, List datas) {
+            super( layoutId, datas);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder holder, String data) {
+            switch (data){
+                case "01":
+                case "1":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.s_1);
+                    break;
+                case "02":
+                case "2":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.s_2);
+                    break;
+                case "03":
+                case "3":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.s_3);
+                    break;
+                case "04":
+                case "4":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.s_4);
+                    break;
+                case "05":
+                case "5":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.s_5);
+                    break;
+                case "06":
+                case "6":
+                    holder.setImageResource(R.id.itemOrderOpen1,R.mipmap.s_6);
+                    break;
+            }
+
+        }
+    }
+
+
+    /**
+     * 设置六合彩文字+球
+     */
+    class OpenHKQIUGameAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
+
+        public OpenHKQIUGameAdapter( int layoutId, List datas) {
+            super( layoutId, datas);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder holder, String data) {
+            switch (data){
+                /*
+                 *  香港六合彩波色
+                 *  红波：01,02,07,08,12,13,18,19,23,24,29,30,34,35,40,45,46
+                 *  蓝波：03,04,09,10,14,15,20,25,26,31,36,37,41,42,47,48
+                 *  绿波：05,06,11,16,17,21,22,27,28,32,33,38,39,43,44,49
+                 * */
+                case "01":
+                case "02":
+                case "07":
+                case "08":
+                case "1":
+                case "2":
+                case "7":
+                case "8":
+                case "12":
+                case "13":
+                case "18":
+                case "19":
+                case "23":
+                case "24":
+                case "29":
+                case "30":
+                case "34":
+                case "35":
+                case "40":
+                case "45":
+                case "46":
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_hk_red);
+                    break;
+                case "03":
+                case "04":
+                case "09":
+                case "3":
+                case "4":
+                case "9":
+                case "10":
+                case "14":
+                case "15":
+                case "20":
+                case "25":
+                case "26":
+                case "31":
+                case "36":
+                case "37":
+                case "41":
+                case "42":
+                case "47":
+                case "48":
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_hk_blue);
+                    break;
+                case "05":
+                case "06":
+                case "5":
+                case "6":
+                case "11":
+                case "16":
+                case "17":
+                case "21":
+                case "22":
+                case "27":
+                case "28":
+                case "32":
+                case "33":
+                case "38":
+                case "39":
+                case "43":
+                case "44":
+                case "49":
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,R.mipmap.cp_hk_green);
+                    break;
+                default:
+                    holder.setBackgroundRes(R.id.itemOrderOpen2,0);
+
+            }
+
+            holder.setText(R.id.itemOrderOpen2,data);
+        }
+    }
 
 }

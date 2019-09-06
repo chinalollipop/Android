@@ -1,0 +1,784 @@
+{
+    "data": [
+        {
+            "currIssue": "20190406350",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "腾讯三分彩",
+            "lotteryType": "txsfc",
+            "playId": 1313,
+            "playName": "双",
+            "gameId": 5,
+            "playGroupId": 3,
+            "playCateName": "第二球",
+            "count": 8,
+            "aDXDSPlayed": [
+                {
+                    "id": 1312,
+                    "name": "单",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1313,
+                    "name": "双",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 501802,
+            "playName": "小",
+            "gameId": 50,
+            "playGroupId": 18,
+            "playCateName": "第八名",
+            "count": 6,
+            "aDXDSPlayed": [
+                {
+                    "id": 501801,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501802,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 502003,
+            "playName": "单",
+            "gameId": 50,
+            "playGroupId": 20,
+            "playCateName": "第十名",
+            "count": 6,
+            "aDXDSPlayed": [
+                {
+                    "id": 502003,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 502004,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 501301,
+            "playName": "大",
+            "gameId": 50,
+            "playGroupId": 13,
+            "playCateName": "第三名",
+            "count": 5,
+            "aDXDSPlayed": [
+                {
+                    "id": 501301,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501302,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501603,
+            "playName": "单",
+            "gameId": 51,
+            "playGroupId": 16,
+            "playCateName": "第六名",
+            "count": 5,
+            "aDXDSPlayed": [
+                {
+                    "id": 501603,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501604,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 502004,
+            "playName": "双",
+            "gameId": 51,
+            "playGroupId": 20,
+            "playCateName": "第十名",
+            "count": 5,
+            "aDXDSPlayed": [
+                {
+                    "id": 502003,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 502004,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 10,
+            "endtime": 1554542870,
+            "lotteryTime": 1554542880,
+            "lotteryName": "官方分分彩",
+            "lotteryType": "jsssc",
+            "playId": 1213,
+            "playName": "双",
+            "gameId": 2,
+            "playGroupId": 2,
+            "playCateName": "第一球",
+            "count": 5,
+            "aDXDSPlayed": [
+                {
+                    "id": 1212,
+                    "name": "单",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1213,
+                    "name": "双",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 501601,
+            "playName": "大",
+            "gameId": 50,
+            "playGroupId": 16,
+            "playCateName": "第六名",
+            "count": 4,
+            "aDXDSPlayed": [
+                {
+                    "id": 501601,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501602,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 502002,
+            "playName": "小",
+            "gameId": 50,
+            "playGroupId": 20,
+            "playCateName": "第十名",
+            "count": 4,
+            "aDXDSPlayed": [
+                {
+                    "id": 502001,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 502002,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406210",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "百度五分彩",
+            "lotteryType": "bdwfc",
+            "playId": 1413,
+            "playName": "双",
+            "gameId": 6,
+            "playGroupId": 4,
+            "playCateName": "第三球",
+            "count": 4,
+            "aDXDSPlayed": [
+                {
+                    "id": 1412,
+                    "name": "单",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1413,
+                    "name": "双",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406350",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "腾讯三分彩",
+            "lotteryType": "txsfc",
+            "playId": 1210,
+            "playName": "大",
+            "gameId": 5,
+            "playGroupId": 2,
+            "playCateName": "第一球",
+            "count": 4,
+            "aDXDSPlayed": [
+                {
+                    "id": 1210,
+                    "name": "大",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1211,
+                    "name": "小",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406350",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "腾讯三分彩",
+            "lotteryType": "txsfc",
+            "playId": 1512,
+            "playName": "单",
+            "gameId": 5,
+            "playGroupId": 5,
+            "playCateName": "第四球",
+            "count": 4,
+            "aDXDSPlayed": [
+                {
+                    "id": 1512,
+                    "name": "单",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1513,
+                    "name": "双",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501404,
+            "playName": "双",
+            "gameId": 51,
+            "playGroupId": 14,
+            "playCateName": "第四名",
+            "count": 4,
+            "aDXDSPlayed": [
+                {
+                    "id": 501403,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501404,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 501404,
+            "playName": "双",
+            "gameId": 50,
+            "playGroupId": 14,
+            "playCateName": "第四名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501403,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501404,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 501501,
+            "playName": "大",
+            "gameId": 50,
+            "playGroupId": 15,
+            "playCateName": "第五名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501501,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501502,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "731792",
+            "kjdTime": 60,
+            "endtime": 1554542940,
+            "lotteryTime": 1554543000,
+            "lotteryName": "北京PK拾",
+            "lotteryType": "pk10",
+            "playId": 501504,
+            "playName": "双",
+            "gameId": 50,
+            "playGroupId": 15,
+            "playCateName": "第五名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501503,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501504,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406210",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "百度五分彩",
+            "lotteryType": "bdwfc",
+            "playId": 1313,
+            "playName": "双",
+            "gameId": 6,
+            "playGroupId": 3,
+            "playCateName": "第二球",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 1312,
+                    "name": "单",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1313,
+                    "name": "双",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406350",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "腾讯三分彩",
+            "lotteryType": "txsfc",
+            "playId": 1310,
+            "playName": "大",
+            "gameId": 5,
+            "playGroupId": 3,
+            "playCateName": "第二球",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 1310,
+                    "name": "大",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1311,
+                    "name": "小",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406350",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "腾讯三分彩",
+            "lotteryType": "txsfc",
+            "playId": 1410,
+            "playName": "大",
+            "gameId": 5,
+            "playGroupId": 4,
+            "playCateName": "第三球",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 1410,
+                    "name": "大",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1411,
+                    "name": "小",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "20190406350",
+            "kjdTime": 10,
+            "endtime": 1554542990,
+            "lotteryTime": 1554543000,
+            "lotteryName": "腾讯三分彩",
+            "lotteryType": "txsfc",
+            "playId": 1613,
+            "playName": "双",
+            "gameId": 5,
+            "playGroupId": 6,
+            "playCateName": "第五球",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 1612,
+                    "name": "单",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 1613,
+                    "name": "双",
+                    "type": 1,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501102,
+            "playName": "小",
+            "gameId": 51,
+            "playGroupId": 11,
+            "playCateName": "冠军",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501101,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501102,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501401,
+            "playName": "大",
+            "gameId": 51,
+            "playGroupId": 14,
+            "playCateName": "第四名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501401,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501402,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501502,
+            "playName": "小",
+            "gameId": 51,
+            "playGroupId": 15,
+            "playCateName": "第五名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501501,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501502,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501503,
+            "playName": "单",
+            "gameId": 51,
+            "playGroupId": 15,
+            "playCateName": "第五名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501503,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501504,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501601,
+            "playName": "大",
+            "gameId": 51,
+            "playGroupId": 16,
+            "playCateName": "第六名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501601,
+                    "name": "大",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501602,
+                    "name": "小",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        },
+        {
+            "currIssue": "201904061048",
+            "kjdTime": 5,
+            "endtime": 1554542875,
+            "lotteryTime": 1554542880,
+            "lotteryName": "极速赛车",
+            "lotteryType": "jspk10",
+            "playId": 501904,
+            "playName": "双",
+            "gameId": 51,
+            "playGroupId": 19,
+            "playCateName": "第九名",
+            "count": 3,
+            "aDXDSPlayed": [
+                {
+                    "id": 501903,
+                    "name": "单",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                },
+                {
+                    "id": 501904,
+                    "name": "双",
+                    "type": 50,
+                    "odds": 1.94,
+                    "rebate": 0
+                }
+            ]
+        }
+    ]
+}

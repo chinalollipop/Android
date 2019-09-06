@@ -37,6 +37,7 @@
     <color name="text_main_bg">#fefefe</color>
     <color name="text_main">#484747</color>
     <color name="text_main_down">#717070</color>
+    <color name="transparent">#00000000</color>
 
     <color name="home_method_line">#d81e07</color>
     <color name="text_lottery_result">#878787</color>

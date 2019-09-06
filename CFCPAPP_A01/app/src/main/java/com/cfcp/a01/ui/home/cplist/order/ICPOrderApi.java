@@ -22,6 +22,7 @@ import com.cfcp.a01.data.CQ3FCResult;
 import com.cfcp.a01.data.CQ5FCResult;
 import com.cfcp.a01.data.CQSSCResult;
 import com.cfcp.a01.data.Cp11X5Result;
+import com.cfcp.a01.data.GamesTipsResult;
 import com.cfcp.a01.data.PCDDResult;
 
 import java.util.Map;
@@ -122,5 +123,9 @@ public interface ICPOrderApi {
 
     @GET("service")
     Observable<AppTextMessageResponse<CPHKResult>> postRateInfoHK(@QueryMap Map<String, String> params);
+
+    //开奖提示
+    @GET("service")
+    Observable<GamesTipsResult> getGamesTips(@QueryMap Map<String, String> params);
 
 }

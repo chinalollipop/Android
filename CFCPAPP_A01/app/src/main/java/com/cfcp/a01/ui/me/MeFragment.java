@@ -240,10 +240,11 @@ public class MeFragment extends BaseFragment implements MeContract.View{
                             EventBus.getDefault().post(new StartBrotherEvent(TraceListFragment.newInstance("","")));
                             break;
                         case ME_PERSONAL_TABLE:
-                            EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("","")));
+                            //EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("","")));
+                            EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","person")));
                             break;
                         case ME_TEAM_TABLE:
-                            EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","")));
+                            EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","team")));
                             break;
                         case ME_ACCOUNT_CHANGE:
                             EventBus.getDefault().post(new StartBrotherEvent(MyReportFragment.newInstance("0","")));

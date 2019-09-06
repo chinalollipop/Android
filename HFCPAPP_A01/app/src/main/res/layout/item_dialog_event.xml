@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemDialogLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_app"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/shape_dash_circle"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/itemDialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxWidth="185dp"
+            android:singleLine="true"
+            android:text="公告列表公告列表公告列表公告列表公告列表公告列表列表公告列表"
+            android:textColor="#4c4c4c"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/itemDialogTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="2018-12-18"
+            android:textColor="#7a7a7a"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_dash_line"
+        android:layerType="software" />
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/itemDialogContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5c5c5c"
+        android:layout_marginLeft="10dp"
+        />
+</LinearLayout>

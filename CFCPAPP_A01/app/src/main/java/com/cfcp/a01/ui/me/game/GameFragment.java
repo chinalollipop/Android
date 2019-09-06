@@ -2,30 +2,24 @@ package com.cfcp.a01.ui.me.game;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
-import com.cfcp.a01.common.utils.ACache;
-import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.GameQueueMoneyResult;
-import com.cfcp.a01.data.LoginResult;
-import com.cfcp.a01.data.LowerInfoDataResult;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class GameFragment extends BaseFragment implements GameContract.View {
 
@@ -92,7 +86,7 @@ public class GameFragment extends BaseFragment implements GameContract.View {
 
     //请求数据接口
     private void onRequsetData() {
-        WaitDialog.show(getContext(),"加载中...").setCanCancel(true);
+        WaitDialog.show((AppCompatActivity) _mActivity,"加载中...");
         presenter.getPlayOutWithMoney(typeArgs2);
     }
 

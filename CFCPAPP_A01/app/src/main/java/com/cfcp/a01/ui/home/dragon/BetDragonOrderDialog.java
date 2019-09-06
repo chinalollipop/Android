@@ -1,6 +1,7 @@
 package com.cfcp.a01.ui.home.dragon;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -11,11 +12,10 @@ import com.cfcp.a01.common.base.BaseDialogFragment;
 import com.cfcp.a01.data.CPBetResult;
 import com.cfcp.a01.data.DragonBetCloseEvent;
 import com.cfcp.a01.data.DragonBetEvent;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -89,7 +89,7 @@ public class BetDragonOrderDialog extends BaseDialogFragment {
                 break;
             case R.id.betOrderCpSubmit:
                 EventBus.getDefault().post(new DragonBetEvent("提交中"));
-                WaitDialog.show(getActivity(), "提交中...").setCanCancel(true);
+                WaitDialog.show((AppCompatActivity) getActivity(), "提交中...");
                 break;
         }
     }

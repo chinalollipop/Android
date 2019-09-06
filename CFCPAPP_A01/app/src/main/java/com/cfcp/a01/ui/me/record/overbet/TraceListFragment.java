@@ -172,7 +172,7 @@ public class TraceListFragment extends BaseFragment implements TraceListContract
 
                 String text = AvailableLottery.get(options1).getName();
                 recordBetAddGameStyle.setText(text);
-                lotteryId = AvailableLottery.get(options1).getId()+"";
+                lotteryId = AvailableLottery.get(options1).getLottery_id()+"";
                 page =1;
                 isNew = true;
                 tracesBeanList.clear();

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.gmcp.gm.common.widget.NTitleBar
+        android:id="@+id/gameBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="余额查询" />
+
+    <TextView
+        android:id="@+id/gameName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#333"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:text="查询棋牌余额"
+        android:textColor="#fff" />
+    <!-- <View
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:layout_gravity="center"
+         android:background="#e4e1e1"
+         />
+ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_bet_model"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总余额：" />
+
+            <TextView
+                android:id="@+id/gamefTotalMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="查询中..."
+                android:textColor="#fe8503" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#333"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="查询状态："
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/gamesMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="查询中..."
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可转余额：" />
+
+        <TextView
+            android:id="@+id/gamefFreeMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询中..." />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1" />
+
+    <TextView
+        android:id="@+id/gameWithdraw"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_login_text"
+        android:gravity="center"
+        android:text="确认转换"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

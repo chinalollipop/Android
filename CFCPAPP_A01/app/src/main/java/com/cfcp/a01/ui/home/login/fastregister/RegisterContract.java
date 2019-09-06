@@ -14,7 +14,7 @@ public interface RegisterContract {
     interface Presenter extends IPresenter {
 
 
-        void postRegisterMember(String username, String password, String password2);
+        void postRegisterMember(String agent,String username, String password, String password2);
     }
 
     interface View extends IView<Presenter>, IMessageView {

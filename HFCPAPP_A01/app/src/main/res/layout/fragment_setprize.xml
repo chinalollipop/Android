@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.hfcp.hf.common.widget.NTitleBar
+        android:id="@+id/setPrizeBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="返点设定" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="开户账户："
+            android:gravity="center|start"
+            android:textColor="#000"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/setPrizeName"
+            android:text=""
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户昵称："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/setPrizeNick"
+            android:text=""
+            android:textColor="#000"
+            android:layout_weight="2"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="返点等级："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/setPrizePhone"
+            android:text=""
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="用户返点："
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/setPrizeEmail"
+            android:text=""
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:gravity="center|start"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+    <TextView
+        android:id="@+id/setPrizeAccountText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/holo_red_light"
+        android:text="特别提示：调整用户奖金组时，一旦调高并保存后，将不允许恢复或调低，请谨慎操作！"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#e4e1e1"
+        />
+
+    <TextView
+        android:id="@+id/setPrizeSubmit"
+        android:textColor="@color/white"
+        android:text="保存奖金组设置"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_blue"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+</LinearLayout>

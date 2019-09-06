@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@mipmap/cp_title"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <ImageView
+            android:id="@+id/cpBetRecordsbackHome"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@mipmap/cp_back"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="历史记录"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/recordBetStartTime"
+            android:text="开始时间"
+            android:layout_weight="1"
+            android:gravity="center|start"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1"
+            />
+        <TextView
+            android:id="@+id/recordBetEndTime"
+            android:text="结束时间"
+            android:layout_weight="1"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#e4e1e1"
+            />
+        <TextView
+            android:id="@+id/cpLotteryName"
+            android:text="全部游戏"
+            android:layout_weight="1"
+            android:gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableRight="@mipmap/icon_ex_down"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/recordBetStyle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#000"
+        app:tabIndicatorColor="#c42133"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="#c42133"
+        app:tabTextColor="#fff" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recordBetRView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+</LinearLayout>

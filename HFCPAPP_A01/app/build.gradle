@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.hfcp.hf"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.5"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+    }
+
+    buildTypes {
+        release {
+            zipAlignEnabled true
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories
+        {
+            maven {
+                url "https://jitpack.io"
+            }
+            flatDir {
+                dirs 'libs'
+            }
+        }
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.coolindicator.sdk:coolindicator:1.0.0-beta'
+    implementation files('libs/tbs_sdk_thirdapp_v3.6.0.jar')
+    implementation(name: 'rxandroid-1.1.0', ext: 'aar')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.alibaba:fastjson:1.2.55'
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'me.yokeyword:fragmentation:1.3.6'
+    implementation 'me.yokeyword:fragmentation-swipeback:1.3.6'
+    implementation 'com.flurry.android:analytics:11.6.0@aar'
+    implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0'
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
+//    implementation 'com.contrarywind:Android-PickerView:4.1.7'
+//    implementation 'com.contrarywind:Android-PickerView:4.1.6'
+    implementation('com.contrarywind:Android-PickerView:4.1.6') {
+        exclude group: 'com.android.support'
+    }
+    configurations {
+        all*.exclude group: 'com.squareup.okhttp3'
+    }
+    //pop
+    implementation 'com.github.razerdp:BasePopup:2.2.1'
+    //RecyclerView
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    //对话框
+    implementation 'com.kongzue.dialog_v3:dialog:3.0.8'
+    //进度条
+    implementation 'com.xw.repo:bubbleseekbar:3.20'
+    //WebView
+    implementation 'com.just.agentweb:agentweb:4.0.2'
+    //
+    implementation 'org.aspectj:aspectjrt:1.8.9'
+}

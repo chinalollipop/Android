@@ -20,6 +20,7 @@ import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
+import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.common.utils.DateHelper;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.GameShipHelper;
@@ -159,6 +160,9 @@ public class PersonFragment extends BaseFragment implements PersonContract.View 
 
     //请求数据接口
     private void onRequsetData() {
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
         presenter.getPersonReport(startTime, endTime);
     }
 

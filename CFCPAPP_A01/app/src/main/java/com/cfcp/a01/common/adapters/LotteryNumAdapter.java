@@ -2,6 +2,7 @@ package com.cfcp.a01.common.adapters;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.cfcp.a01.R;
 import com.cfcp.a01.data.BetGameSettingsForRefreshResult;
@@ -25,9 +26,16 @@ public class LotteryNumAdapter extends BaseQuickAdapter<BetGameSettingsForRefres
         LinearLayoutManager betNum = new LinearLayoutManager(mContext);
         betNum.setOrientation(LinearLayoutManager.HORIZONTAL);//设置 RecyclerView 布局方式为横向布局
         recyclerView.setLayoutManager(betNum);
-        String[] num = item.getWn_number().split(",");
-        List<String> numList = new ArrayList<>(Arrays.asList(num));
-        LotteryNumDetailsAdapter lotteryNumAdapter = new LotteryNumDetailsAdapter(R.layout.item_lottery_num_details, numList);
+        LotteryNumDetailsAdapter lotteryNumAdapter;
+        List<String> numList = new ArrayList<>();
+        if (TextUtils.isEmpty(item.getWn_number())) {
+            numList.add("开奖中...");
+            lotteryNumAdapter = new LotteryNumDetailsAdapter(R.layout.item_lottery_details_txt, numList);
+        } else {
+            String[] num = item.getWn_number().split(",");
+            numList.addAll(Arrays.asList(num));
+            lotteryNumAdapter = new LotteryNumDetailsAdapter(R.layout.item_lottery_num_details, numList);
+        }
         recyclerView.setAdapter(lotteryNumAdapter);
     }
 }

@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.hfcp.hf.common.widget.NTitleBar
+        android:id="@+id/betDetailBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="游戏记录" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="用户名："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="注单编号："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailSerialNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="游戏："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetaillottery_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="倍彩模式："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailmultiple_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="奖期："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailissue"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="投单时间："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailbought_at"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="注单奖金："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailprize"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="开奖内容："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailwinning_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="玩法："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="总金额："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailamount"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#c52133" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="动态返点："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="订单状态："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailstatus"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#c52133" />
+
+                <TextView
+                    android:id="@+id/betDetailrepeal"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="撤单"
+                    android:textColor="#c52133"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="投注内容："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailbet_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center|left"
+                android:gravity="center"
+                android:text="可能中奖情况"
+                android:textColor="#c52133" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="奖级名称："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="号码："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailbet_number2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="倍数："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailmultiple"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="奖级："
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailprize_set_formatted"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="奖金"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/betDetailprize_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e1e1" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

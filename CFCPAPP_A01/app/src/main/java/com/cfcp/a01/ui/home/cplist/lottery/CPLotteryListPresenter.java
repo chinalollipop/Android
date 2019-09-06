@@ -41,11 +41,12 @@ public class CPLotteryListPresenter implements CPLotteryListContract.Presenter {
 
 
     @Override
-    public void postCPLotteryList(String dataId) {
+    public void postCPLotteryList(String dataStr,String dataId) {
         Map<String, String> params = new HashMap<>();
         params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
         params.put("packet", "Credit");
         params.put("action", "HistoryData");
+        params.put("data", dataStr);
         params.put("lottery_id", dataId);
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.get(params))

@@ -24,6 +24,7 @@ import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.utils.GameShipHelper;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.PersonReportResult;
 import com.cfcp.a01.data.TeamReportResult;
 
 import java.text.SimpleDateFormat;
@@ -47,6 +48,10 @@ public class TeamFragment extends BaseFragment implements TeamContract.View {
     TextView reportTeamStartTime;
     @BindView(R.id.reportTeamEndTime)
     TextView reportTeamEndTime;
+    @BindView(R.id.reportType)
+    TextView reportType;
+    @BindView(R.id.reportMethod)
+    TextView reportMethod;
     @BindView(R.id.reportTeamBalance)
     TextView reportTeamBalance;
     @BindView(R.id.reportTeamRecharge)
@@ -59,6 +64,52 @@ public class TeamFragment extends BaseFragment implements TeamContract.View {
     TextView reportTeamWin;
     @BindView(R.id.reportTeamWinBalance)
     TextView reportTeamWinBalance;
+    @BindView(R.id.reportTeamBetBalanceCp)
+    TextView reportTeamBetBalanceCp;
+    @BindView(R.id.reportTeamWinCp)
+    TextView reportTeamWinCp;
+    @BindView(R.id.reportTeamWinBalanceCp)
+    TextView reportTeamWinBalanceCp;
+    @BindView(R.id.reportTeamBetBalanceXyCp)
+    TextView reportTeamBetBalanceXyCp;
+    @BindView(R.id.reportTeamWinXyCp)
+    TextView reportTeamWinXyCp;
+    @BindView(R.id.reportTeamWinBalanceXyCp)
+    TextView reportTeamWinBalanceXyCp;
+    @BindView(R.id.reportTeamBetBalanceKy)
+    TextView reportTeamBetBalanceKy;
+    @BindView(R.id.reportTeamWinKy)
+    TextView reportTeamWinKy;
+    @BindView(R.id.reportTeamWinBalanceKy)
+    TextView reportTeamWinBalanceKy;
+    @BindView(R.id.reportTeamKyWater)
+    TextView reportTeamKyWater;
+    @BindView(R.id.reportTeamBetBalanceLy)
+    TextView reportTeamBetBalanceLy;
+    @BindView(R.id.reportTeamWinLy)
+    TextView reportTeamWinLy;
+    @BindView(R.id.reportTeamWinBalanceLy)
+    TextView reportTeamWinBalanceLy;
+    @BindView(R.id.reportTeamLyWater)
+    TextView reportTeamLyWater;
+    @BindView(R.id.reportTeamBetBalanceDz)
+    TextView reportTeamBetBalanceDz;
+    @BindView(R.id.reportTeamWinDz)
+    TextView reportTeamWinDz;
+    @BindView(R.id.reportTeamWinBalanceDz)
+    TextView reportTeamWinBalanceDz;
+    @BindView(R.id.reportTeamBetBalanceZr)
+    TextView reportTeamBetBalanceZr;
+    @BindView(R.id.reportTeamWinZr)
+    TextView reportTeamWinZr;
+    @BindView(R.id.reportTeamWinBalanceZr)
+    TextView reportTeamWinBalanceZr;
+    @BindView(R.id.reportTeamBetBalanceBy)
+    TextView reportTeamBetBalanceBy;
+    @BindView(R.id.reportTeamWinBy)
+    TextView reportTeamWinBy;
+    @BindView(R.id.reportTeamWinBalanceBy)
+    TextView reportTeamWinBalanceBy;
     @BindView(R.id.reportTeamCookerRefund)
     TextView reportTeamCookerRefund;
     @BindView(R.id.reportTeamAgencyRefund)
@@ -77,11 +128,11 @@ public class TeamFragment extends BaseFragment implements TeamContract.View {
     OptionsPickerView gtypeOptionsPicker;
     String startTime, endTime;
 
-    public static TeamFragment newInstance(String deposit_mode, String money) {
+    public static TeamFragment newInstance(String deposit_mode, String type) {
         TeamFragment betFragment = new TeamFragment();
         Bundle args = new Bundle();
         args.putString(TYPE2, deposit_mode);
-        args.putString(TYPE3, money);
+        args.putString(TYPE3, type);
         betFragment.setArguments(args);
         Injections.inject(betFragment, null);
         return betFragment;
@@ -116,6 +167,11 @@ public class TeamFragment extends BaseFragment implements TeamContract.View {
         startTime = DateHelper.getToday();
         endTime = DateHelper.getTom();
         onRequsetData();
+        if(typeArgs3.equals("person")){
+            reportTeamBack.setTitle("个人报表");
+            reportType.setText("个人详情");
+            reportMethod.setText("净盈利=中奖金额+活动奖励-投注金额");
+        }
         reportTeamStartTime.setText(startTime);
         reportTeamEndTime.setText(endTime);
         reportTeamBack.setBackListener(new View.OnClickListener() {
@@ -153,7 +209,14 @@ public class TeamFragment extends BaseFragment implements TeamContract.View {
 
     //请求数据接口
     private void onRequsetData() {
-        presenter.getTeamReport(typeArgs2,startTime,endTime);
+        if(Check.isNull(presenter)){
+            presenter = Injections.inject(this, null);
+        }
+        if(typeArgs3.equals("person")){
+            presenter.getPersonReport(startTime,endTime);
+        }else{
+            presenter.getTeamReport(typeArgs2,startTime,endTime);
+        }
     }
 
     @Override
@@ -163,17 +226,55 @@ public class TeamFragment extends BaseFragment implements TeamContract.View {
         reportTeamBalance.setText(teamReportResult.getAvailable());
         reportTeamRecharge.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_deposit()));
         reportTeamWithdraw.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_withdrawal()));
-        reportTeamBetBalance.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_turnover()));
+        reportTeamBetBalance.setText(GameShipHelper.formatMoney(teamReportResult.getBet_total_turnover()));
         //净盈利=中奖金额+打和返款+投注返点+代理返点+活动奖励-投注金额
         /*Double dataMoney = CalcHelper.sub(String.valueOf(CalcHelper.add(String.valueOf(CalcHelper.add(String.valueOf(CalcHelper.add(teamReportResult.getTotal_commission(),teamReportResult.getTotal_profit())),
                 String.valueOf(CalcHelper.add(teamReportResult.getTotal_lose_commission(),teamReportResult.getTotal_prize())))),teamReportResult.getTotal_bonus())),teamReportResult.getTotal_turnover());
         */
-        reportTeamWin.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_profit()));
-        reportTeamWinBalance.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_prize()));
+        reportTeamWin.setText(GameShipHelper.formatMoney(teamReportResult.getBet_total_profit()));
+        reportTeamWinBalance.setText(GameShipHelper.formatMoney(teamReportResult.getBet_total_prize()));
         reportTeamCookerRefund.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_commission()));
         reportTeamAgencyRefund.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_commission()));
         reportTeamBetRefund.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_lose_commission()));
         reportTeamActivityAward.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_bonus()));
+
+        //官方彩票
+        reportTeamBetBalanceCp.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_turnover()));
+        reportTeamWinBalanceCp.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_prize()));
+        reportTeamWinCp.setText(GameShipHelper.formatMoney(teamReportResult.getTotal_profit()));
+
+        //信用彩票
+        reportTeamBetBalanceXyCp.setText(GameShipHelper.formatMoney(teamReportResult.getXy_total_turnover()));
+        reportTeamWinBalanceXyCp.setText(GameShipHelper.formatMoney(teamReportResult.getXy_total_prize()));
+        reportTeamWinXyCp.setText(GameShipHelper.formatMoney(teamReportResult.getXy_total_profit()));
+
+        //开元
+        reportTeamBetBalanceKy.setText(GameShipHelper.formatMoney(teamReportResult.getKy_total_turnover()));
+        reportTeamWinBalanceKy.setText(GameShipHelper.formatMoney(teamReportResult.getKy_total_prize()));
+        reportTeamWinKy.setText(GameShipHelper.formatMoney(teamReportResult.getKy_total_profit()));
+        reportTeamKyWater.setText(GameShipHelper.formatMoney(teamReportResult.getKy_total_revenue()));
+
+        //乐游
+        reportTeamBetBalanceLy.setText(GameShipHelper.formatMoney(teamReportResult.getLy_total_turnover()));
+        reportTeamWinBalanceLy.setText(GameShipHelper.formatMoney(teamReportResult.getLy_total_prize()));
+        reportTeamWinLy.setText(GameShipHelper.formatMoney(teamReportResult.getLy_total_profit()));
+        reportTeamLyWater.setText(GameShipHelper.formatMoney(teamReportResult.getLy_total_revenue()));
+
+        //电子
+        reportTeamBetBalanceDz.setText(GameShipHelper.formatMoney(teamReportResult.getAggame_total_turnover()));
+        reportTeamWinBalanceDz.setText(GameShipHelper.formatMoney(teamReportResult.getAggame_total_profit()));
+        reportTeamWinDz.setText(GameShipHelper.formatMoney(teamReportResult.getAglive_total_profit()));
+
+        //真人
+        reportTeamBetBalanceZr.setText(GameShipHelper.formatMoney(teamReportResult.getAglive_total_turnover()));
+        reportTeamWinBalanceZr.setText(GameShipHelper.formatMoney(teamReportResult.getAglive_total_profit()));
+        reportTeamWinZr.setText(GameShipHelper.formatMoney(teamReportResult.getAglive_total_profit()));
+
+        //捕鱼
+        reportTeamBetBalanceBy.setText(GameShipHelper.formatMoney(teamReportResult.getAgby_total_turnover()));
+        reportTeamWinBalanceBy.setText(GameShipHelper.formatMoney(teamReportResult.getAgby_total_prize()));
+        reportTeamWinBy.setText(GameShipHelper.formatMoney(teamReportResult.getAgby_total_profit()));
+
     }
 
     @Override

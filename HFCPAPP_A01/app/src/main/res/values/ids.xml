@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="viewpager_inner" type="id"/>
+
+    <item type="id" name="hierarchy" />
+    <item type="id" name="isexpand" />
+
+    <item name="recycler_view_tag" type="id"/>
+
+</resources>

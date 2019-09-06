@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_dialog_top"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:text="公告列表"
+                android:textColor="@color/bg_app"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/eventShowCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:background="@mipmap/home_cancel"
+                />
+        </RelativeLayout>
+
+        <!--<com.tencent.smtt.sdk.WebView
+            android:id="@+id/RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />-->
+        <android.support.v7.widget.RecyclerView
+            android:background="@color/white"
+            android:id="@+id/eventShowRView"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@drawable/home_dialog_buttom"
+            />
+    </LinearLayout>
+</FrameLayout>

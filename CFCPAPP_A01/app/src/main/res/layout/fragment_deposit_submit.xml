@@ -76,7 +76,7 @@
                             android:layout_height="match_parent"
                             android:layout_alignParentLeft="true"
                             android:gravity="center"
-                            android:text="姓名："
+                            android:text="支付方式："
                             android:textColor="@color/text_deposit" />
 
                         <TextView

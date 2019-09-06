@@ -36,6 +36,7 @@ public class EventShowDialog extends BaseDialogFragment {
     RecyclerView eventShowRView;
 
     List<LoginResult.NoticeListBean> data = new ArrayList<>();
+
     public static EventShowDialog newInstance(ArrayList<LoginResult.NoticeListBean> data, String param1) {
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(PARAM0, data);
@@ -54,19 +55,19 @@ public class EventShowDialog extends BaseDialogFragment {
 
         data = getArguments().getParcelableArrayList(PARAM0);
         data.get(0).setChecked(1);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         eventShowRView.setLayoutManager(linearLayoutManager);
-        EventShowAdapter eventShowAdapter = new EventShowAdapter(R.layout.item_dialog_event,data);
+        EventShowAdapter eventShowAdapter = new EventShowAdapter(R.layout.item_dialog_event, data);
         eventShowRView.setAdapter(eventShowAdapter);
         eventShowAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
 //                LinearLayout linearLayout =  view.findViewById(R.id.itemDialogLayout);
-                TextView webView =  view.findViewById(R.id.itemDialogContent);
-                GameLog.log("您点击了子项目是否展示 "+webView.isShown());
-                if(webView.isShown()){
+                TextView webView = view.findViewById(R.id.itemDialogContent);
+                GameLog.log("您点击了子项目是否展示 " + webView.isShown());
+                if (webView.isShown()) {
                     webView.setVisibility(View.GONE);
-                }else{
+                } else {
                     webView.setVisibility(View.VISIBLE);
                 }
                 /*data.get(position).setChecked(1);
@@ -76,7 +77,7 @@ public class EventShowDialog extends BaseDialogFragment {
     }
 
     //联合一起使用新的适配器 https://github.com/CymChad/BaseRecyclerViewAdapterHelper
-    class EventShowAdapter extends BaseQuickAdapter<LoginResult.NoticeListBean, BaseViewHolder>{
+    class EventShowAdapter extends BaseQuickAdapter<LoginResult.NoticeListBean, BaseViewHolder> {
 
         public EventShowAdapter(int layoutResId, @Nullable List<LoginResult.NoticeListBean> datas) {
             super(layoutResId, datas);
@@ -84,15 +85,15 @@ public class EventShowDialog extends BaseDialogFragment {
 
         @Override
         protected void convert(BaseViewHolder helper, LoginResult.NoticeListBean item) {
-            if(item.getChecked()==1){
-                helper.setVisible(R.id.itemDialogContent,true);
-            }else{
-                helper.setGone(R.id.itemDialogContent,false);
+            if (item.getChecked() == 1) {
+                helper.setVisible(R.id.itemDialogContent, true);
+            } else {
+                helper.setGone(R.id.itemDialogContent, false);
             }
-            helper.setText(R.id.itemDialogTitle,item.getTitle()).
+            helper.setText(R.id.itemDialogTitle, item.getTitle()).
                     addOnClickListener(R.id.itemDialogLayout).
-                    setText(R.id.itemDialogContent, HtmlUtils.getHtml(getContext(),(TextView)helper.getView(R.id.itemDialogContent),item.getContent())).
-                    setText(R.id.itemDialogTime,item.getUpdated_at().split(" ")[0]);
+                    setText(R.id.itemDialogContent, HtmlUtils.getHtml(getContext(), (TextView) helper.getView(R.id.itemDialogContent), item.getContent())).
+                    setText(R.id.itemDialogTime, item.getUpdated_at().split(" ")[0]);
         }
     }
 

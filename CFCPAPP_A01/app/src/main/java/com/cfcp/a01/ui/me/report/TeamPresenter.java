@@ -8,6 +8,7 @@ import com.cfcp.a01.common.http.request.AppTextMessageResponse;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
 import com.cfcp.a01.data.LoginResult;
+import com.cfcp.a01.data.PersonReportResult;
 import com.cfcp.a01.data.TeamReportResult;
 
 import java.util.HashMap;
@@ -43,6 +44,37 @@ public class TeamPresenter implements TeamContract.Presenter {
         params.put("end_date",end_date);
         params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
         subscriptionHelper.add(RxHelper.addSugar(api.getTeamReport(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<TeamReportResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<TeamReportResult> response) {
+                        if (response.isSuccess()) {//目前返回的errno为0需要改成200 代表正确的
+                            view.getTeamReportResult(response.getData());
+                        } else {
+                            view.showMessage(response.getDescribe());
+                        }
+                        //view.postLoginResult(response.getData());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if (null != view) {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getPersonReport(String begin_date, String end_date) {
+        Map<String,String> params = new HashMap<>();
+        params.put("terminal_id",CFConstant.PRODUCT_PLATFORM);
+        params.put("packet","Report");
+        params.put("action","GetMyselfProfit");
+        params.put("begin_date",begin_date);
+        params.put("end_date",end_date);
+        params.put("myself_new","app_initial");
+        params.put("token", ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN));
+        subscriptionHelper.add(RxHelper.addSugar(api.getPersonReport(params))//CFConstant.PRODUCT_PLATFORM, "User", "Login", username, password, "1"
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<TeamReportResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<TeamReportResult> response) {

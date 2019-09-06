@@ -1,11 +1,11 @@
 package com.cfcp.a01.ui.home;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -51,14 +51,11 @@ import com.cfcp.a01.ui.home.playgame.XPlayGameActivity;
 import com.cfcp.a01.ui.home.service.ServiceFragment;
 import com.cfcp.a01.ui.home.sidebar.SideBarFragment;
 import com.cfcp.a01.ui.home.withdraw.WithDrawFragment;
-import com.cfcp.a01.ui.me.bankcard.CardFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jude.rollviewpager.RollPagerView;
-import com.kongzue.dialog.listener.OnMenuItemClickListener;
-import com.kongzue.dialog.v2.BottomMenu;
-import com.kongzue.dialog.v2.DialogSettings;
-import com.kongzue.dialog.v2.MessageDialog;
+import com.kongzue.dialog.util.DialogSettings;
+import com.kongzue.dialog.v3.MessageDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -76,6 +73,8 @@ import me.yokeyword.fragmentation.SupportFragment;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import static com.kongzue.dialog.util.DialogSettings.STYLE.STYLE_IOS;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View {
 
@@ -121,12 +120,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     private ScheduledExecutorService executorService;
     private CustomPopWindow mCustomPopWindowIn;
     private List<AllGamesResult.DataBean.LotteriesBean> AvailableLottery = new ArrayList<>();
-    private List<AllGamesResult.DataBean.LotteriesBean> OfficialShowSsc = new ArrayList<>();
     private List<AllGamesResult.DataBean.LotteriesBean> XinYongLotteries = new ArrayList<>();
-    private static List<AllGamesResult.DataBean.LotteriesBean> GameVideos = new ArrayList<>();
+
+    private List<AllGamesResult.DataBean.LotteriesBean> AvailableLotteryNew = new ArrayList<>();
+    private List<AllGamesResult.DataBean.LotteriesBean> ThirdGames = new ArrayList<>();
+    private List<AllGamesResult.DataBean.LotteriesBean> XinYongLotteriesNew = new ArrayList<>();
+
+
     HomeContract.Presenter presenter;
 
-    String blocked="0";
+    String blocked = "0";
     //通过用户名是否为空来判断是否登录成功
     private String accountName = "";
     LoginResult loginResult;
@@ -136,30 +139,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     String action = "AgGame";
     //公告数据
     ArrayList<LoginResult.NoticeListBean> noticeListBeanList;
-
-    //private static List<HomeIconEvent> homeGameList = new ArrayList<HomeIconEvent>();
-
-    static {
-
-        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(1, "开元棋牌", "KYQP", "更多精彩游戏"));
-        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(2, "乐游棋牌", "LYQP", "更多精彩游戏"));
-        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(3, "电子游戏", "DZYX", "更多精彩游戏"));
-        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(4, "真人视讯", "ZRSX", "更多精彩游戏"));
-        GameVideos.add(new AllGamesResult.DataBean.LotteriesBean(5, "AG捕鱼", "AGBY", "更多精彩游戏"));
-       /* homeGameList.add(new HomeIconEvent("五分彩", "每分钟一期", R.mipmap.home_wfc, LotteryType.TYPE_5FC, 1));
-        homeGameList.add(new HomeIconEvent("极速赛车", "每分钟一期", R.mipmap.home_jssc, LotteryType.TYPE_JSSC, 2));
-        homeGameList.add(new HomeIconEvent("重庆时时彩", "每分钟一期", R.mipmap.home_cqssc, LotteryType.TYPE_CQSSC, 3));
-        homeGameList.add(new HomeIconEvent("北京PK10", "每分钟一期", R.mipmap.home_pk10, LotteryType.TYPE_BJPK10, 4));
-        homeGameList.add(new HomeIconEvent("三分彩", "每分钟一期", R.mipmap.home_sfc, LotteryType.TYPE_3FC, 5));
-        homeGameList.add(new HomeIconEvent("分分彩", "每分钟一期", R.mipmap.home_ffc, LotteryType.TYPE_1FC, 6));
-        homeGameList.add(new HomeIconEvent("11选5", "每分钟一期", R.mipmap.home_11ffc, LotteryType.TYPE_11X5, 7));
-        homeGameList.add(new HomeIconEvent("极速快3", "每分钟一期", R.mipmap.home_jsk3, LotteryType.TYPE_JSK3, 8));
-        homeGameList.add(new HomeIconEvent("广东11选5", "每分钟一期", R.mipmap.home_11ffc_gd, LotteryType.TYPE_11X5_GD, 9));
-        homeGameList.add(new HomeIconEvent("快3分分彩", "每分钟一期", R.mipmap.home_k3ff, LotteryType.TYPE_K3FFC, 10));
-        homeGameList.add(new HomeIconEvent("极速3D", "每分钟一期", R.mipmap.home_js3d, LotteryType.TYPE_JS3D, 11));
-        homeGameList.add(new HomeIconEvent("北京快乐8", "每分钟一期", R.mipmap.home_bjkl8, LotteryType.TYPE_BJKL8, 12));
-        homeGameList.add(new HomeIconEvent("11选5三分彩", "每分钟一期", R.mipmap.home_11sfc, LotteryType.TYPE_11X5_3FC, 13));*/
-    }
 
     public static HomeFragment newInstance() {
         HomeFragment homeFragment = new HomeFragment();
@@ -209,11 +188,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
-        if(!Check.isNull(domainUrl)){
+        if (!Check.isNull(domainUrl)) {
             int sizeq = domainUrl.getList().size();
-            for(int k=0;k<sizeq;++k){
-                if(domainUrl.getList().get(k).isChecked()){
-                    tvHomePageLine.setText("线路"+domainUrl.getList().get(k).getPid());
+            for (int k = 0; k < sizeq; ++k) {
+                if (domainUrl.getList().get(k).isChecked()) {
+                    tvHomePageLine.setText("线路" + domainUrl.getList().get(k).getPid());
                 }
             }
         }
@@ -281,31 +260,20 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         homeRecView.setNestedScrollingEnabled(false);
         homeRecView.addItemDecoration(new GridRvItemDecoration(getContext()));
         //读取本地官网和信用盘数据并展示
-        AvailableLottery = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG), AllGamesResult.DataBean.LotteriesBean.class);
-        OfficialShowSsc = JSON.parseArray(ACache.get(getContext()).getAsString("OfficialShowSsc"), AllGamesResult.DataBean.LotteriesBean.class);
+        AvailableLotteryNew = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_GUANWANG+"_new"), AllGamesResult.DataBean.LotteriesBean.class);
 
-        XinYongLotteries = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_XINYONG), AllGamesResult.DataBean.LotteriesBean.class);
-        if (!Check.isNull(OfficialShowSsc)) {
-            AvailableLottery.addAll(OfficialShowSsc);
-        }
+        XinYongLotteriesNew = JSON.parseArray(ACache.get(getContext()).getAsString(CFConstant.USERNAME_HOME_XINYONG+"_new"), AllGamesResult.DataBean.LotteriesBean.class);
 
-        if(!Check.isNull(XinYongLotteries)){
-            XinYongLotteries.add(0,new AllGamesResult.DataBean.LotteriesBean(2, "乐游棋牌", "LYQP", "更多精彩游戏"));
-            XinYongLotteries.add(0,new AllGamesResult.DataBean.LotteriesBean(1, "开元棋牌", "KYQP", "更多精彩游戏"));
-        }
-        if(!Check.isNull(AvailableLottery)){
-            AvailableLottery.add(0,new AllGamesResult.DataBean.LotteriesBean(2, "乐游棋牌", "LYQP", "更多精彩游戏"));
-            AvailableLottery.add(0,new AllGamesResult.DataBean.LotteriesBean(1, "开元棋牌", "KYQP", "更多精彩游戏"));
-        }
+        ThirdGames = JSON.parseArray(ACache.get(getContext()).getAsString("ThirdGames"), AllGamesResult.DataBean.LotteriesBean.class);
 
-        if (!Check.isNull(AvailableLottery)) {
+        if (!Check.isNull(AvailableLotteryNew)) {
             GameLog.log("加载本地的官网数据。。。。");
-            homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, AvailableLottery);
+            homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, AvailableLotteryNew);
             homeRecView.setAdapter(homeGameAdapter);
             homeGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                 @Override
                 public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                    onHomeGameItemClick(AvailableLottery.get(position));
+                    onHomeGameItemClick(AvailableLotteryNew.get(position));
                 }
             });
         }
@@ -330,10 +298,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         }
         postion = 0;
         //请求数据接口
-        if(!Check.isNull(presenter)) {
+        if (!Check.isNull(presenter)) {
             presenter.getBanner("");
             presenter.getNotice("");
             presenter.getAllGames("");
+            presenter.getAllGamesNew("");
         }
        /*  presenter.postWinNews("",System.currentTimeMillis()+"");
         executorService = Executors.newScheduledThreadPool(1);
@@ -458,19 +427,19 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 case "BDSSC":
                     ids = R.mipmap.xy_baidu5fc;
                     break;
-                case "LYQP":
+                case "lyqp":
                     ids = R.mipmap.other_ly;
                     break;
-                case "DZYX":
+                case "dzyx":
                     ids = R.mipmap.other_dz;
                     break;
-                case "ZRSX":
+                case "zrsx":
                     ids = R.mipmap.other_zr;
                     break;
-                case "AGBY":
+                case "agby":
                     ids = R.mipmap.other_ag;
                     break;
-                case "KYQP":
+                case "kyqp":
                     ids = R.mipmap.other_qp;
                     break;
                 case "AHK3":
@@ -571,174 +540,123 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
             return;
         }
-        GameLog.log("用时是否锁住了 "+blocked);
+        GameLog.log("用时是否锁住了 " + blocked);
         String blocked = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_BLOCKED);
-        if(!Check.isNull(blocked)&&blocked.equals("2")){
+        if (!Check.isNull(blocked) && blocked.equals("2")) {
             //showMessage("禁止投注,请联系客服");
-            DialogSettings.style = DialogSettings.STYLE_IOS;
-            MessageDialog.show(getContext(), "提示", "禁止投注,请联系客服", "知道了", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
+            DialogSettings.style = STYLE_IOS;
+            MessageDialog.show((AppCompatActivity) _mActivity, "提示", "禁止投注,请联系客服", "知道了");
             return;
         }
-        if (postion == 1) {
-            if(lotteriesBean.getIdentifier().equals("LYQP")){
-                if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                action = "LeyouGame";
-                gameName = "乐游棋牌";
-                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=LeyouGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                //loadGameData();
-                Intent intent2 = new Intent(getContext(), XPlayGameActivity.class);
-                intent2.putExtra("url", gameUrl);
-                intent2.putExtra("gameCnName", "乐游棋牌");
-                intent2.putExtra("hidetitlebar", false);
-                getActivity().startActivity(intent2);
+        String type = lotteriesBean.getType();
 
-            }else if(lotteriesBean.getIdentifier().equals("KYQP")){
+        //type: 官方：1  信用：2 棋牌：3 捕鱼 : 4 真人：5 电子：6
+        switch (type){
+            case "1":
+                    EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(lotteriesBean, (ArrayList<AllGamesResult.DataBean.LotteriesBean>) AvailableLottery), SupportFragment.SINGLETASK));
+                break;
+            case "2":
+                    Intent intent = new Intent(getContext(), CPOrderFragment.class);
+                    intent.putExtra("gameId", lotteriesBean.getId() + "");
+                    intent.putExtra("gameName", lotteriesBean.getName());
+                    startActivity(intent);
+                break;
+            case "3":
                 if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                action = "KaiyuanGame";
-                gameName = "开元棋牌";
-                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=KaiyuanGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                //loadGameData();
-                Intent intent1 = new Intent(getContext(), XPlayGameActivity.class);
-                intent1.putExtra("url", gameUrl);
-                intent1.putExtra("gameCnName", gameName);
-                intent1.putExtra("hidetitlebar", false);
-                getActivity().startActivity(intent1);
+                if (lotteriesBean.getIdentifier().equals("lyqp")) {
+                    if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
+                        showMessage("非常抱歉，请您注册真实会员！");
+                        return;
+                    }
+                    action = "LeyouGame";
+                    gameName = "乐游棋牌";
+                    gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=LeyouGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+                    //loadGameData();
+                    Intent intent2 = new Intent(getContext(), XPlayGameActivity.class);
+                    intent2.putExtra("url", gameUrl);
+                    intent2.putExtra("gameCnName", "乐游棋牌");
+                    intent2.putExtra("hidetitlebar", false);
+                    getActivity().startActivity(intent2);
 
-            }else {
-                Intent intent = new Intent(getContext(), CPOrderFragment.class);
-                intent.putExtra("gameId", lotteriesBean.getId() + "");
-                intent.putExtra("gameName", lotteriesBean.getName());
-                startActivity(intent);
-            }
-        } else if (postion == 0) {
-            if (lotteriesBean.getIdentifier().equals("JSQk3") || lotteriesBean.getIdentifier().equals("JSQk3ffc") ||lotteriesBean.getIdentifier().equals("JSQk35fc") || lotteriesBean.getIdentifier().equals("JSQk33fc")) {
-                Intent intent = new Intent(getContext(), CPOrderFragment.class);
-                intent.putExtra("gameId", lotteriesBean.getId() + "");
-                intent.putExtra("gameName", lotteriesBean.getName());
-                startActivity(intent);
-                return;
-            }
-            if(lotteriesBean.getIdentifier().equals("LYQP")){
-                if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                action = "LeyouGame";
-                gameName = "乐游棋牌";
-                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=LeyouGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                //loadGameData();
-                Intent intent2 = new Intent(getContext(), XPlayGameActivity.class);
-                intent2.putExtra("url", gameUrl);
-                intent2.putExtra("gameCnName", "乐游棋牌");
-                intent2.putExtra("hidetitlebar", false);
-                getActivity().startActivity(intent2);
-            }else if(lotteriesBean.getIdentifier().equals("KYQP")){
-                if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                action = "KaiyuanGame";
-                gameName = "开元棋牌";
-                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=KaiyuanGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                //loadGameData();
-                Intent intent1 = new Intent(getContext(), XPlayGameActivity.class);
-                intent1.putExtra("url", gameUrl);
-                intent1.putExtra("gameCnName", gameName);
-                intent1.putExtra("hidetitlebar", false);
-                getActivity().startActivity(intent1);
-            }else {
-                EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(lotteriesBean, (ArrayList<AllGamesResult.DataBean.LotteriesBean>) AvailableLottery), SupportFragment.SINGLETASK));
-            }
-        } else {
-            if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
-                showMessage("非常抱歉，请您注册真实会员！");
-                return;
-            }
-            action = "AgGame";
-            //presenter.getKaiYuanGame("");
-            if (postion == 2) {
-                switch (lotteriesBean.getLottery_id()) {
-                    case 1:
-                        action = "KaiyuanGame";
-                        gameName = "开元棋牌";
-                        gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=KaiyuanGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                        //loadGameData();
-                        Intent intent1 = new Intent(getContext(), XPlayGameActivity.class);
-                        intent1.putExtra("url", gameUrl);
-                        intent1.putExtra("gameCnName", gameName);
-                        intent1.putExtra("hidetitlebar", false);
-                        getActivity().startActivity(intent1);
-                        break;
-                    case 2:
-                        action = "LeyouGame";
-                        gameName = "乐游棋牌";
-                        gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=LeyouGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                        //loadGameData();
-                        Intent intent2 = new Intent(getContext(), XPlayGameActivity.class);
-                        intent2.putExtra("url", gameUrl);
-                        intent2.putExtra("gameCnName", "乐游棋牌");
-                        intent2.putExtra("hidetitlebar", false);
-                        getActivity().startActivity(intent2);
-                        break;
-                    case 3:
-                        //presenter.getAGGames("");
-                        gameName = "电子游戏";
-                        gameUrl = Client.baseUrl() + "service?packet=ThirdGame&gameid=101&gameType=electronic&isTest=0&action=AgGame&way=login&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                        if ("1".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))) {
-                            showMessage("代理禁止游戏！");
-                            return;
-                        }
-                        //loadGameData();
-                        Intent intent3 = new Intent(getContext(), XPlayGameActivity.class);
-                        intent3.putExtra("url", gameUrl);
-                        intent3.putExtra("gameCnName", "电子游戏");
-                        intent3.putExtra("hidetitlebar", false);
-                        getActivity().startActivity(intent3);
-                        break;
-                    case 4:
-                        //presenter.getAGVideoGames("");
-                        gameName = "真人视讯";
-                        gameUrl = Client.baseUrl() + "service?packet=ThirdGame&gameid=8776&gameType=immortal&isTest=0&action=AgGame&way=login&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                        if ("1".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))) {
-                            showMessage("代理禁止游戏！");
-                            return;
-                        }
-                        //loadGameData();
-                        Intent intent4 = new Intent(getContext(), XPlayGameActivity.class);
-                        intent4.putExtra("url", gameUrl);
-                        intent4.putExtra("gameCnName", "真人视讯");
-                        intent4.putExtra("hidetitlebar", false);
-                        getActivity().startActivity(intent4);
-                        break;
-                    case 5:
-                        //presenter.getAGFishGames("");
-                        gameName = "AG扑鱼";
-                        gameUrl = Client.baseUrl() + "service?packet=ThirdGame&gameid=6&gameType=fishes&isTest=0&action=AgGame&way=login&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
-                        if ("1".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))) {
-                            showMessage("代理禁止游戏！");
-                            return;
-                        }
-                        //loadGameData();
-                        Intent intent5 = new Intent(getContext(), XPlayGameActivity.class);
-                        intent5.putExtra("url", gameUrl);
-                        intent5.putExtra("gameCnName", "AG扑鱼");
-                        intent5.putExtra("hidetitlebar", false);
-                        getActivity().startActivity(intent5);
-                        break;
-                }
-            }
+                } else if (lotteriesBean.getIdentifier().equals("kyqp")) {
+                    if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
+                        showMessage("非常抱歉，请您注册真实会员！");
+                        return;
+                    }
+                    action = "KaiyuanGame";
+                    gameName = "开元棋牌";
+                    gameUrl = Client.baseUrl() + "service?packet=ThirdGame&action=KaiyuanGame&way=index&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+                    //loadGameData();
+                    Intent intent1 = new Intent(getContext(), XPlayGameActivity.class);
+                    intent1.putExtra("url", gameUrl);
+                    intent1.putExtra("gameCnName", gameName);
+                    intent1.putExtra("hidetitlebar", false);
+                    getActivity().startActivity(intent1);
 
+                }
+                break;
+            case "4":
+                if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                action = "AgGame";
+                gameName = "AG扑鱼";
+                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&gameid=6&gameType=fishes&isTest=0&action=AgGame&way=login&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+                if ("1".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))) {
+                    showMessage("代理禁止游戏！");
+                    return;
+                }
+                //loadGameData();
+                Intent intent5 = new Intent(getContext(), XPlayGameActivity.class);
+                intent5.putExtra("url", gameUrl);
+                intent5.putExtra("gameCnName", "AG扑鱼");
+                intent5.putExtra("hidetitlebar", false);
+                getActivity().startActivity(intent5);
+                break;
+            case "5":
+                if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                action = "AgGame";
+                gameName = "真人视讯";
+                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&gameid=8776&gameType=immortal&isTest=0&action=AgGame&way=login&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+                if ("1".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))) {
+                    showMessage("代理禁止游戏！");
+                    return;
+                }
+                //loadGameData();
+                Intent intent4 = new Intent(getContext(), XPlayGameActivity.class);
+                intent4.putExtra("url", gameUrl);
+                intent4.putExtra("gameCnName", "真人视讯");
+                intent4.putExtra("hidetitlebar", false);
+                getActivity().startActivity(intent4);
+                break;
+            case "6":
+                if ("true".equals(ACache.get(Utils.getContext()).getAsString(CFConstant.USERNAME_LOGIN_DEMO))) {
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                action = "AgGame";
+                gameName = "电子游戏";
+                gameUrl = Client.baseUrl() + "service?packet=ThirdGame&gameid=101&gameType=electronic&isTest=0&action=AgGame&way=login&token=" + ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_TOKEN);
+                if ("1".equals(ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_IS_AGENT))) {
+                    showMessage("代理禁止游戏！");
+                    return;
+                }
+                //loadGameData();
+                Intent intent3 = new Intent(getContext(), XPlayGameActivity.class);
+                intent3.putExtra("url", gameUrl);
+                intent3.putExtra("gameCnName", "电子游戏");
+                intent3.putExtra("hidetitlebar", false);
+                getActivity().startActivity(intent3);
+                break;
         }
+
     }
 
 
@@ -774,36 +692,37 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
-    public void getAllGamesResult(AllGamesResult allGamesResult) {
+    public void getAllGamesNewResult(AllGamesResult allGamesResult) {
         isLoadAlread = true;
+        GameLog.log("获取新的的数据");
         //保存本地数据 用于没有网络时候的展示
-        XinYongLotteries = allGamesResult.getData().getXinYongLotteries();
-        OfficialShowSsc = allGamesResult.getData().getOfficialShowSsc();
-        AvailableLottery = allGamesResult.getData().getAvailableLottery();
-        ACache.get(getContext()).put(CFConstant.USERNAME_HOME_GUANWANG, JSON.toJSONString(AvailableLottery));
-        ACache.get(getContext()).put("OfficialShowSsc", JSON.toJSONString(OfficialShowSsc));
-        ACache.get(getContext()).put(CFConstant.USERNAME_HOME_XINYONG, JSON.toJSONString(XinYongLotteries));
-        if (!Check.isNull(OfficialShowSsc)) {
-            AvailableLottery.addAll(OfficialShowSsc);
-        }
+        XinYongLotteriesNew = allGamesResult.getData().getXinYongLotteries();
+        AvailableLotteryNew = allGamesResult.getData().getAvailableLottery();
+        ThirdGames = allGamesResult.getData().getThirdGames();
+        ACache.get(getContext()).put(CFConstant.USERNAME_HOME_GUANWANG+"_new", JSON.toJSONString(AvailableLotteryNew));
+        ACache.get(getContext()).put("ThirdGames", JSON.toJSONString(ThirdGames));
+        ACache.get(getContext()).put(CFConstant.USERNAME_HOME_XINYONG+"_new", JSON.toJSONString(XinYongLotteriesNew));
 
-        XinYongLotteries.add(0,new AllGamesResult.DataBean.LotteriesBean(2, "乐游棋牌", "LYQP", "更多精彩游戏"));
-        XinYongLotteries.add(0,new AllGamesResult.DataBean.LotteriesBean(1, "开元棋牌", "KYQP", "更多精彩游戏"));
-
-        AvailableLottery.add(0,new AllGamesResult.DataBean.LotteriesBean(2, "乐游棋牌", "LYQP", "更多精彩游戏"));
-        AvailableLottery.add(0,new AllGamesResult.DataBean.LotteriesBean(1, "开元棋牌", "KYQP", "更多精彩游戏"));
-
-        homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, AvailableLottery);
+        homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, AvailableLotteryNew);
         homeGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                onHomeGameItemClick(AvailableLottery.get(position));
+                onHomeGameItemClick(AvailableLotteryNew.get(position));
             }
         });
         homeRecView.setAdapter(homeGameAdapter);
-        GameLog.log("信用盘口：" + XinYongLotteries.size());
-        GameLog.log("官方盘口：" + AvailableLottery.size());
-        GameLog.log("官方新增盘口：" + OfficialShowSsc.size());
+        GameLog.log("信用盘口：" + XinYongLotteriesNew.size());
+        GameLog.log("官方盘口：" + AvailableLotteryNew.size());
+    }
+
+    @Override
+    public void getAllGamesResult(AllGamesResult allGamesResult) {
+        GameLog.log("获取以前的数据");
+        XinYongLotteries = allGamesResult.getData().getXinYongLotteries();
+        AvailableLottery = allGamesResult.getData().getAvailableLottery();
+        ACache.get(getContext()).put(CFConstant.USERNAME_HOME_GUANWANG, JSON.toJSONString(AvailableLottery));
+        ACache.get(getContext()).put(CFConstant.USERNAME_HOME_XINYONG, JSON.toJSONString(XinYongLotteries));
+
     }
 
     @Override
@@ -900,7 +819,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
-        blocked = loginResult.getBlocked()+"";
+        blocked = loginResult.getBlocked() + "";
         presenter.getPlayOutWithMoney("AgGame");
         presenter.getPlayOutWithMoney("KaiyuanGame");
         presenter.getPlayOutWithMoney("LeyouGame");
@@ -913,7 +832,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         }
 
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_TOKEN, loginResult.getToken());
-        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BLOCKED, loginResult.getBlocked()+"");
+        ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_BLOCKED, loginResult.getBlocked() + "");
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_IS_AGENT, loginResult.getIs_agent() + "");
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_NAME, loginResult.getName());
         ACache.get(getContext()).put(CFConstant.USERNAME_LOGIN_CHAT_ROOM, loginResult.getChat_domain() + "/room/test22.php");
@@ -954,53 +873,54 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         homeMenu.setVisibility(View.GONE);
     }
 
-    private void showPopMenuIn(){
-        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_line_choice,null);
+    private void showPopMenuIn() {
+        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.pop_line_choice, null);
         //处理popWindow 显示内容
-        DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
-        if(Check.isNull(domainUrl)){
+        DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
+        if (Check.isNull(domainUrl)) {
             showMessage("目前已是最优线路");
             return;
         }
         RecyclerView recyclerView = contentView.findViewById(R.id.popLineChoice);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1, OrientationHelper.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new LineChoiceAdapter(R.layout.pop_line_choice_item,domainUrl.getList()));
+        recyclerView.setAdapter(new LineChoiceAdapter(R.layout.pop_line_choice_item, domainUrl.getList()));
 
-        mCustomPopWindowIn= new CustomPopWindow.PopupWindowBuilder(getContext())
+        mCustomPopWindowIn = new CustomPopWindow.PopupWindowBuilder(getContext())
                 .setView(contentView)
                 .enableBackgroundDark(true)
                 .create()
-                .showAsDropDown(tvHomePageLine,0,0);
+                .showAsDropDown(tvHomePageLine, 0, 0);
         //}
     }
 
 
-    class LineChoiceAdapter extends BaseQuickAdapter<DomainUrl.ListBean, BaseViewHolder>  {
+    class LineChoiceAdapter extends BaseQuickAdapter<DomainUrl.ListBean, BaseViewHolder> {
         private Context context;
+
         public LineChoiceAdapter(int layoutId, @Nullable List datas) {
-            super( layoutId, datas);
+            super(layoutId, datas);
             context = context;
         }
 
         @Override
         protected void convert(BaseViewHolder holder, final DomainUrl.ListBean data) {
-            holder.setText(R.id.popLineName,"线路"+data.getPid());
-            if(data.isChecked()){
-                holder.setBackgroundRes(R.id.popLineImg,R.mipmap.line_choice_cheack1);
-            }else{
-                holder.setBackgroundRes(R.id.popLineImg,R.mipmap.line_choice_cheack2);
+            holder.setText(R.id.popLineName, "线路" + data.getPid());
+            if (data.isChecked()) {
+                holder.setBackgroundRes(R.id.popLineImg, R.mipmap.line_choice_cheack1);
+            } else {
+                holder.setBackgroundRes(R.id.popLineImg, R.mipmap.line_choice_cheack2);
             }
             holder.setOnClickListener(R.id.popLineName, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
+                    DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
                     int size = domainUrl.getList().size();
-                    for(int k=0;k<size;++k){
-                        if(domainUrl.getList().get(k).getUrl().equals(data.getUrl())){
+                    for (int k = 0; k < size; ++k) {
+                        if (domainUrl.getList().get(k).getUrl().equals(data.getUrl())) {
                             domainUrl.getList().get(k).setChecked(true);
-                        }else{
+                        } else {
                             domainUrl.getList().get(k).setChecked(false);
                         }
                     }
@@ -1013,7 +933,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                     HGApplication.instance().configClient();*/
                     /*CPClient.setClientDomain(data.getUrl().replace("m.","mc."));
                     HGApplication.instance().configCPClient();*/
-                    tvHomePageLine.setText("线路"+data.getPid());
+                    tvHomePageLine.setText("线路" + data.getPid());
                     mCustomPopWindowIn.dissmiss();
                     //onHomeGameItemClick(data.getId());
                 }
@@ -1022,7 +942,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
 
-    @OnClick({R.id.homeNotice,R.id.tvHomePageLine, R.id.homeMenu, R.id.homeName, R.id.homeDeposit, R.id.homeDraw, R.id.homeDown, R.id.homeService, R.id.homeOfficial, R.id.homeCredit, R.id.homeQiPai})
+    @OnClick({R.id.homeNotice, R.id.tvHomePageLine, R.id.homeMenu, R.id.homeName, R.id.homeDeposit, R.id.homeDraw, R.id.homeDown, R.id.homeService, R.id.homeOfficial, R.id.homeCredit, R.id.homeQiPai})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvHomePageLine:
@@ -1078,14 +998,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance()));
                 } else {
                     String blocked = ACache.get(getContext()).getAsString(CFConstant.USERNAME_LOGIN_BLOCKED);
-                    if(!Check.isNull(blocked)&&blocked.equals("2")){
+                    if (!Check.isNull(blocked) && blocked.equals("2")) {
                         //showMessage("禁止投注,请联系客服");
-                        DialogSettings.style = DialogSettings.STYLE_IOS;
-                        MessageDialog.show(getContext(), "提示", "禁止投注,请联系客服", "知道了", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        });
+                        DialogSettings.style = STYLE_IOS;
+                        MessageDialog.show((AppCompatActivity) _mActivity, "提示", "禁止投注,请联系客服", "知道了");
                         return;
                     }
                     EventBus.getDefault().post(new StartBrotherEvent(DragonFragment.newInstance("", "")));
@@ -1100,11 +1016,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 homeOfficialImg.setBackgroundColor(getResources().getColor(R.color.home_method_line));
                 homeCreditImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
                 homeQiPaiImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
-                homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, AvailableLottery);
+                homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, AvailableLotteryNew);
                 homeGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                     @Override
                     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                        onHomeGameItemClick(AvailableLottery.get(position));
+                        onHomeGameItemClick(AvailableLotteryNew.get(position));
                     }
                 });
                 homeRecView.setAdapter(homeGameAdapter);
@@ -1114,11 +1030,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 homeOfficialImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
                 homeCreditImg.setBackgroundColor(getResources().getColor(R.color.home_method_line));
                 homeQiPaiImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
-                homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, XinYongLotteries);
+                homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, XinYongLotteriesNew);
                 homeGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                     @Override
                     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                        onHomeGameItemClick(XinYongLotteries.get(position));
+                        onHomeGameItemClick(XinYongLotteriesNew.get(position));
                     }
                 });
                 homeRecView.setAdapter(homeGameAdapter);
@@ -1129,20 +1045,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 homeCreditImg.setBackgroundColor(getResources().getColor(R.color.bg_app));
                 homeQiPaiImg.setBackgroundColor(getResources().getColor(R.color.home_method_line));
 
-                homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, GameVideos);
+                homeGameAdapter = new HomeGameAdapter(R.layout.item_game_home, ThirdGames);
                 homeGameAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                     @Override
                     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                        /*if(position==0){
-                            postion = 2;
-                            onHomeGameItemClick(GameVideos.get(position));
-                        }else if(position==1){
-                            postion = 3;
-                            onHomeGameItemClick(GameVideos.get(position));
-                        }else{
-                            showMessage(GameVideos.get(position).getName()+"敬请期待");
-                        }*/
-                        onHomeGameItemClick(GameVideos.get(position));
+                        onHomeGameItemClick(ThirdGames.get(position));
                     }
                 });
                 homeRecView.setAdapter(homeGameAdapter);

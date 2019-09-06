@@ -32,12 +32,13 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
 
     @Override
-    public void postRegisterMember(String username, String password, String password2) {
+    public void postRegisterMember(String agent,String username, String password, String password2) {
         Map<String, String> params = new HashMap<>();
         params.put("terminal_id", CFConstant.PRODUCT_PLATFORM);
         params.put("packet", "User");
         params.put("action", "AuthRegister");
         params.put("step", "2");
+        params.put("code", agent);
         params.put("username", username);
         params.put("password", password);
         params.put("password_confirmation", password2);

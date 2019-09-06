@@ -173,12 +173,13 @@ public class SideBarFragment extends BaseDialogFragment implements MeContract.Vi
                             case 1:
                                 //showMessage("个人报表");
                                 hide();
-                                EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("","")));
+                                //EventBus.getDefault().post(new StartBrotherEvent(PersonFragment.newInstance("","")));
+                                EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","person")));
                                 break;
                             case 2:
                                 //showMessage("团队报表");
                                 hide();
-                                EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","")));
+                                EventBus.getDefault().post(new StartBrotherEvent(TeamFragment.newInstance("","team")));
                                 break;
                             case 3:
                                 hide();

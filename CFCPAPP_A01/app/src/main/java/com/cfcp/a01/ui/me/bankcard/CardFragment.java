@@ -2,43 +2,31 @@ package com.cfcp.a01.ui.me.bankcard;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.bigkoo.pickerview.builder.TimePickerBuilder;
-import com.bigkoo.pickerview.listener.OnTimeSelectListener;
-import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.bigkoo.pickerview.view.TimePickerView;
-import com.bumptech.glide.Glide;
 import com.cfcp.a01.CFConstant;
 import com.cfcp.a01.Injections;
 import com.cfcp.a01.R;
 import com.cfcp.a01.common.base.BaseFragment;
 import com.cfcp.a01.common.base.IPresenter;
 import com.cfcp.a01.common.base.event.StartBrotherEvent;
-import com.cfcp.a01.common.http.Client;
 import com.cfcp.a01.common.utils.ACache;
 import com.cfcp.a01.common.utils.Check;
-import com.cfcp.a01.common.utils.DateHelper;
 import com.cfcp.a01.common.utils.GameLog;
 import com.cfcp.a01.common.widget.NTitleBar;
 import com.cfcp.a01.data.AllGamesResult;
 import com.cfcp.a01.data.BankCardListResult;
-import com.cfcp.a01.data.CouponResult;
-import com.cfcp.a01.data.LoginResult;
-import com.cfcp.a01.ui.event.EventFragment;
 import com.cfcp.a01.ui.me.info.InfoFragment;
 import com.cfcp.a01.ui.me.pwd.PwdFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kongzue.dialog.v2.WaitDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -50,8 +38,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.cfcp.a01.common.utils.ACache.get;
 
 public class CardFragment extends BaseFragment implements CardContract.View {
 
@@ -122,7 +108,7 @@ public class CardFragment extends BaseFragment implements CardContract.View {
                 finish();
             }
         });
-        WaitDialog.show(getActivity(),"加载中...");
+        WaitDialog.show((AppCompatActivity) _mActivity,"加载中...");
     }
 
     //请求数据接口

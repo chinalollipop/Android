@@ -56,7 +56,7 @@ public class AllGamesResult {
 
     public static class DataBean implements Parcelable {
         private List<LotteriesBean> XinYongLotteries;
-        private List<LotteriesBean> OfficialShowSsc;
+        private List<LotteriesBean> ThirdGames;
         private List<LotteriesBean> AvailableLottery;
 
         public List<LotteriesBean> getXinYongLotteries() {
@@ -67,12 +67,12 @@ public class AllGamesResult {
             this.XinYongLotteries = XinYongLotteries;
         }
 
-        public List<LotteriesBean> getOfficialShowSsc() {
-            return OfficialShowSsc;
+        public List<LotteriesBean> getThirdGames() {
+            return ThirdGames;
         }
 
-        public void setOfficialShowSsc(List<LotteriesBean> officialShowSsc) {
-            OfficialShowSsc = officialShowSsc;
+        public void setThirdGames(List<LotteriesBean> ThirdGames) {
+            this.ThirdGames = ThirdGames;
         }
 
         public List<LotteriesBean> getAvailableLottery() {
@@ -90,11 +90,12 @@ public class AllGamesResult {
              * identifier : BJPK10
              * sub_title : 20分钟1期
              */
-            private int id;
-            private int lottery_id;
+            private int id;//信用
+            private int lottery_id;//官方
             private String name;
             private String identifier;
             private String sub_title;
+            private String type;
 
             public int getId() {
                 return id;
@@ -136,6 +137,14 @@ public class AllGamesResult {
                 this.sub_title = sub_title;
             }
 
+            public String getType() {
+                return type;
+            }
+
+            public void setType(String type) {
+                this.type = type;
+            }
+
             @Override
             public int describeContents() {
                 return 0;
@@ -147,16 +156,18 @@ public class AllGamesResult {
                 dest.writeString(this.name);
                 dest.writeString(this.identifier);
                 dest.writeString(this.sub_title);
+                dest.writeString(this.type);
             }
 
             public LotteriesBean() {
             }
 
-            public LotteriesBean(int lottery_id,String name,String identifier,String sub_title) {
+            public LotteriesBean(int lottery_id,String name,String identifier,String sub_title,String type) {
                 this.lottery_id = lottery_id;
                 this.name = name;
                 this.identifier = identifier;
                 this.sub_title =  sub_title;
+                this.type =  type;
             }
 
             protected LotteriesBean(Parcel in) {
@@ -164,6 +175,7 @@ public class AllGamesResult {
                 this.name = in.readString();
                 this.identifier = in.readString();
                 this.sub_title = in.readString();
+                this.type = in.readString();
             }
 
             public static final Parcelable.Creator<LotteriesBean> CREATOR = new Parcelable.Creator<LotteriesBean>() {
@@ -193,7 +205,7 @@ public class AllGamesResult {
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeTypedList(this.XinYongLotteries);
-            dest.writeTypedList(this.OfficialShowSsc);
+            dest.writeTypedList(this.ThirdGames);
             dest.writeTypedList(this.AvailableLottery);
         }
 
@@ -202,7 +214,7 @@ public class AllGamesResult {
 
         protected DataBean(Parcel in) {
             this.XinYongLotteries = in.createTypedArrayList(LotteriesBean.CREATOR);
-            this.OfficialShowSsc = in.createTypedArrayList(LotteriesBean.CREATOR);
+            this.ThirdGames = in.createTypedArrayList(LotteriesBean.CREATOR);
             this.AvailableLottery = in.createTypedArrayList(LotteriesBean.CREATOR);
         }
 

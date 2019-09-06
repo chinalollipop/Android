@@ -108,7 +108,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
     }
 
     private void onSearchLotteryData(){
-        presenter.postCPLotteryList(gameId);
+        presenter.postCPLotteryList(gameTime,gameId);
     }
 
     private void initDataView(){
@@ -233,16 +233,20 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                 case "76":
                 case "55":
                 case "168"://幸运飞艇 暂无
-                    cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");
-                    cpLeftEventList2.add((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))>11?"大":"小");
-                    cpLeftEventList2.add(((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))%2 ==1)?"单":"双");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[9])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[1])>Integer.parseInt(dataList[8])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[2])>Integer.parseInt(dataList[7])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[3])>Integer.parseInt(dataList[6])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[4])>Integer.parseInt(dataList[5])?"龙":"虎");
-                    cpOrderLotteryOpen1.setAdapter(new Open1GameAdapter( R.layout.item_cp_order_open_1, cpLeftEventList1));
-                    cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    try{
+                        cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");
+                        cpLeftEventList2.add((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))>11?"大":"小");
+                        cpLeftEventList2.add(((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))%2 ==1)?"单":"双");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[9])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[1])>Integer.parseInt(dataList[8])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[2])>Integer.parseInt(dataList[7])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[3])>Integer.parseInt(dataList[6])?"龙":"虎");
+                        cpLeftEventList2.add(Integer.parseInt(dataList[4])>Integer.parseInt(dataList[5])?"龙":"虎");
+                        cpOrderLotteryOpen1.setAdapter(new Open1GameAdapter( R.layout.item_cp_order_open_1, cpLeftEventList1));
+                        cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(R.layout.item_cp_order_open_2, cpLeftEventList2));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                     break;
                 case "60":
                 case "61":

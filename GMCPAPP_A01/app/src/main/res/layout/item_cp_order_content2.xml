@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cpOrderContentItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/cpOrderContentKS"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cpOrderContentIm01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/s_1" />
+
+                    <ImageView
+                        android:id="@+id/cpOrderContentIm02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/s_1" />
+
+                    <ImageView
+                        android:id="@+id/cpOrderContentIm03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/s_1" />
+
+                    <TextView
+                        android:id="@+id/cpOrderContentState04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/event_line"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/cp_hall_cline" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/cpOrderContentNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cpOrderContentIm2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/cpOrderContentName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="冠亚和"
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cpOrderContentState"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="冠亚和"
+                        android:textColor="@color/event_line"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/cp_hall_cline" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/cpOrderContentSX"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    >
+                    <TextView
+                        android:id="@+id/cpOrderContentSXName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:text="冠亚和"
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cpOrderContentSXRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="冠亚和"
+                        android:textColor="@color/event_line"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    >
+                    <TextView
+                        android:id="@+id/cpOrderContentSXRate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cpOrderContentSXRate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/cpOrderContentSXRate3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cpOrderContentSXRate4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/cpOrderContentSXRate5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />
+
+                    <!--<TextView
+                        android:id="@+id/cpOrderContentSXRate6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="和"
+                        android:textColor="@color/color_bg_dialog"
+                        android:textSize="16sp" />-->
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cp_hall_cline" />
+</LinearLayout>

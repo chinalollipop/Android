@@ -126,11 +126,12 @@ public class WithDrawFragment extends BaseFragment implements WithDrawContract.V
             presenter.getWithDraw();
             return;
         }
-        if(Integer.parseInt(money)>=Integer.parseInt(min)&&Integer.parseInt(max)>=Integer.parseInt(money)){
+        presenter.getWithDrawNext(id,money);
+        /*if(Integer.parseInt(money)>=Integer.parseInt(min)&&Integer.parseInt(max)>=Integer.parseInt(money)){
             presenter.getWithDrawNext(id,money);
         }else{
             showMessage("取款金额必须在"+min+"~"+max+"之间");
-        }
+        }*/
     }
 
 

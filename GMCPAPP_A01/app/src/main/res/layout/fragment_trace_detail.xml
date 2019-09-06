@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.gmcp.gm.common.widget.NTitleBar
+        android:id="@+id/traceDetailAddBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreTextOnly="true"
+        app:titleText="追号记录" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="追号编号"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceRecordserial_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:id="@+id/itemTraceDetailbought_at"
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
+                    android:text="游戏用户"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text="游戏彩种"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailtype"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="游戏玩法"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailway"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text="游戏模式"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailformatted_coefficient"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="开始期号"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailstart_issue"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text="追号期数"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailtotal_issues"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="完成期数"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailfinished_issues"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text="取消期数"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailcanceled_issues"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="完成金额"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailsingle_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text="追号金额"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailamount"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="取消金额"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailcanceled_amount_formatted"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center"
+                    android:text="追号状态"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailstatus"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="官方跳开即停"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailopen_then_stop"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textColor="#3b3b3b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="中后即停追号"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailformatted_stop_on_won"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="追号内容"
+                    android:textColor="#3b3b3b" />
+
+                <TextView
+                    android:id="@+id/itemTraceDetailbet_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:text="0"
+                    android:textColor="#3b3b3b" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="3dp"
+                android:layout_gravity="center"
+                android:background="#e4e1e1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="追号中奖情况"
+                android:textColor="#3b3b3b" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#474646"
+                    android:gravity="center"
+                    android:text="奖期"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="#474646"
+                    android:gravity="center"
+                    android:text="追号倍数"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#474646"
+                    android:gravity="center"
+                    android:text="追号状态"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:background="#474646"
+                    android:gravity="center"
+                    android:text="详情"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/traceDetailRView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

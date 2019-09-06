@@ -51,9 +51,10 @@ public class Client {
         if(Check.isNull(domainUrl)){
             domainUrl = "http://cf5501.com/";
         }
+//        domainUrl = "http://appcf001.com/";//测试
 //        domainUrl = "http://api.dh5588.com/";//测试
 // 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
-        GameLog.log("get domainUrl:" + domainUrl);
+//        GameLog.log("get domainUrl:" + domainUrl);
         return domainUrl;
     }
 
