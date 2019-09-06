@@ -1,18 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:support-media-compat:25.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/17717be92bdb73972233b3ab646baccd/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/5e8ce1a07c245530d82424d79d3e35ee/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/17717be92bdb73972233b3ab646baccd/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/17717be92bdb73972233b3ab646baccd/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/17717be92bdb73972233b3ab646baccd/jars/libs/internal_impl-25.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/5e8ce1a07c245530d82424d79d3e35ee/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/5e8ce1a07c245530d82424d79d3e35ee/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/5e8ce1a07c245530d82424d79d3e35ee/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://D:/Program Files/Android/AppData/AndroidSdk/extras/android/m2repository/com/android/support/support-media-compat/25.0.1/support-media-compat-25.0.1-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
-      <root url="jar://D:/Program Files/Android/AppData/AndroidSdk/extras/android/m2repository/com/android/support/support-media-compat/25.0.1/support-media-compat-25.0.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-media-compat/25.0.1/8208dfb0e40f96ed487d5b710678cf5248f1468e/support-media-compat-25.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

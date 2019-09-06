@@ -1,113 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <com.hg3366.a3366.common.widgets.NTitleBar
         android:id="@+id/tvPersonBack"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backImageShow="false"
-        app:moreText="0.0"
-        />
+        app:moreText="0.0" />
 
-    <LinearLayout
-        android:background="@mipmap/icon_my_bg"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_marginTop="10dp"
-            android:background="@mipmap/icon_my_persion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/tvPersonUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daniel"
-            android:textSize="15sp"
-            android:textColor="@color/title_text"
-            />
-        <RelativeLayout
-            android:gravity="center|right"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tvPersonHg"
-                android:gravity="center"
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0.00"
-                android:textColor="@color/title_text"
-                android:textSize="22sp"
-                />
-            <ImageView
-                android:id="@+id/personRefresh"
-                android:layout_width="60dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:background="@mipmap/person_refresh"
-                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@mipmap/bind_card_bottom"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp">
+
+                    <ImageView
+                        android:id="@+id/personInfo"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/account_bg_im" />
+
+                    <TextView
+                        android:id="@+id/tvPersonUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:text="Daniel"
+                        android:textColor="@color/cp_hall_tv"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/personRefresh"
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="120dp"
+                        android:background="@mipmap/person_refresh"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+
+                        android:gravity="top">
+
+                        <TextView
+                            android:id="@+id/personCZ"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@mipmap/icon_my_deposit"
+                            android:drawablePadding="10dp"
+                            android:textColor="#2d3134"
+                            android:gravity="center"
+                            android:text="充值" />
+
+                        <TextView
+                            android:layout_width="1px"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:background="@color/l_view_color" />
+
+                        <TextView
+                            android:id="@+id/personZH"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@mipmap/icon_my_transfer"
+                            android:drawablePadding="10dp"
+                            android:textColor="#2d3134"
+                            android:gravity="center"
+                            android:text="额度转换" />
+
+                        <TextView
+                            android:layout_width="1px"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:background="@color/l_view_color" />
+
+                        <TextView
+                            android:id="@+id/personYHK"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@mipmap/icon_my_bank_card"
+                            android:drawablePadding="10dp"
+                            android:textColor="#2d3134"
+                            android:gravity="center"
+                            android:text="银行卡" />
+
+                        <TextView
+                            android:layout_width="1px"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:background="@color/l_view_color" />
+
+                        <TextView
+                            android:id="@+id/personTX"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@mipmap/icon_my_withdraw_deposit"
+                            android:drawablePadding="10dp"
+                            android:textColor="#2d3134"
+                            android:gravity="center"
+                            android:text="提现" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvPersonHg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="￥0.00"
+                            android:textColor="@color/cp_hall_tv"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="钱包中心"
+                            android:textColor="@color/cp_hall_tv"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/personVersion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/bet_sw_padding_right"
+                            android:text="1.0.0"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvMyList"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@mipmap/person_bottom2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 />
 
+            <LinearLayout
+                android:id="@+id/personLogout"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="20dp"
+                android:background="@mipmap/person_bottom"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_my_logout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:textColor="#2d3134"
+                    android:text="安全登出" />
+            </LinearLayout>
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/l_view_color" />-->
         </LinearLayout>
-            <TextView
-                android:id="@+id/personVersion"
-                android:text="1.0.0"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_marginRight="@dimen/bet_sw_padding_right"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvMyList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="true" />
-
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="30dp"
-        android:background="@color/l_view_color" />
-
-    <TextView
-        android:id="@+id/personLogout"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="5dp"
-        android:gravity="center"
-        android:drawableTop="@mipmap/icon_my_logout"
-        android:text="登出"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/l_view_color" />-->
-
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

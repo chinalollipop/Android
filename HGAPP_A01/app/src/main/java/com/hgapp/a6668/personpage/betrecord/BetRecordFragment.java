@@ -542,6 +542,10 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 }else{
                     betRecordItemWin.setText(Html.fromHtml(onMarkRed("赢<br>"+money)));
                 }
+                if(!Check.isEmpty(rowsBean.getZt())){
+                    betRecordItemWin.setText(Html.fromHtml(onMarkRed(rowsBean.getZt())));
+                    return;
+                }
                 if(money.equals("0.00")){
                     betRecordItemWin.setText(Html.fromHtml(onMarkRed("和局")));
                 }

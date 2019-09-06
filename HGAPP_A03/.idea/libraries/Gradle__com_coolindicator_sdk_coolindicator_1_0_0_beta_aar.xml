@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.coolindicator.sdk:coolindicator:1.0.0-beta@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ac23a21903d3ac24f6b07e0d0a44665/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ac23a21903d3ac24f6b07e0d0a44665/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0d107afce5e79b17d6697c04b7cf163/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0d107afce5e79b17d6697c04b7cf163/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

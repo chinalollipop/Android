@@ -209,7 +209,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:padding="5dp"
-            android:background="@mipmap/icon_textview_transfer2"
+            android:background="@mipmap/person_bottom"
             android:gravity="center|left"
             android:orientation="horizontal">
 

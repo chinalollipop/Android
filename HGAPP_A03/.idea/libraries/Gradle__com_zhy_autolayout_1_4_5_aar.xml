@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.zhy:autolayout:1.4.5@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ecdd3587f815fdcba9ba29f223ccdb51/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ecdd3587f815fdcba9ba29f223ccdb51/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd759f8d6b09ab839d515c818ca648de/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd759f8d6b09ab839d515c818ca648de/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -1,18 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:support-compat:25.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/dbd0b550634f0185ef06243339637346/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/c7216841eafd58e2cb74afdd7a5efac0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/dbd0b550634f0185ef06243339637346/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/dbd0b550634f0185ef06243339637346/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/dbd0b550634f0185ef06243339637346/jars/libs/internal_impl-25.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/c7216841eafd58e2cb74afdd7a5efac0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/c7216841eafd58e2cb74afdd7a5efac0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/c7216841eafd58e2cb74afdd7a5efac0/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://D:/Program Files/Android/AppData/AndroidSdk/extras/android/m2repository/com/android/support/support-compat/25.0.1/support-compat-25.0.1-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
-      <root url="jar://D:/Program Files/Android/AppData/AndroidSdk/extras/android/m2repository/com/android/support/support-compat/25.0.1/support-compat-25.0.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-compat/25.0.1/8bd0739517b986365440ec036dc65c01c23106d/support-compat-25.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

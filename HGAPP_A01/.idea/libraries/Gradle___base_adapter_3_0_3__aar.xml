@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: :base-adapter-3.0.3:@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/base-adapter-3.0.3.aar/e2ad514d73a0bad146ecc53030db14ff/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/base-adapter-3.0.3.aar/e2ad514d73a0bad146ecc53030db14ff/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/base-adapter-3.0.3.aar/493a9d60e02a6fe28fa9e14339d5425a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/base-adapter-3.0.3.aar/493a9d60e02a6fe28fa9e14339d5425a/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

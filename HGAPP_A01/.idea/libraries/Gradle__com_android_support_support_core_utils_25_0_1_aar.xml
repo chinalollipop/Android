@@ -1,18 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:support-core-utils:25.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/fafc59899d48ec378f927c0df5564cef/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/64956b417e83f6306edd18208fed4537/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/fafc59899d48ec378f927c0df5564cef/jars/libs/internal_impl-25.0.1.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/fafc59899d48ec378f927c0df5564cef/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/fafc59899d48ec378f927c0df5564cef/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/64956b417e83f6306edd18208fed4537/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/64956b417e83f6306edd18208fed4537/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.0.1.aar/64956b417e83f6306edd18208fed4537/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://D:/Program Files/Android/AppData/AndroidSdk/extras/android/m2repository/com/android/support/support-core-utils/25.0.1/support-core-utils-25.0.1-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
-      <root url="jar://D:/Program Files/Android/AppData/AndroidSdk/extras/android/m2repository/com/android/support/support-core-utils/25.0.1/support-core-utils-25.0.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-core-utils/25.0.1/56f1efb14e4dab6189bb9d012dcfa8836d77925/support-core-utils-25.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

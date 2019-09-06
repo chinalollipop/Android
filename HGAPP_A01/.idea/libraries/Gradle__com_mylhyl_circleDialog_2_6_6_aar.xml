@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.mylhyl:circleDialog:2.6.6@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/circleDialog-2.6.6.aar/0a97ca6f4c89a565160baf2c509220b4/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/circleDialog-2.6.6.aar/0a97ca6f4c89a565160baf2c509220b4/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/circleDialog-2.6.6.aar/8959dd582de49be36d46956b188168ef/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/circleDialog-2.6.6.aar/8959dd582de49be36d46956b188168ef/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

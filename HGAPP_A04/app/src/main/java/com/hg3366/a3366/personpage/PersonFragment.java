@@ -83,10 +83,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     private PersonContract.Presenter presenter;
     private static List<String> myList = new ArrayList<String>();
     static {
-        myList.add("充值");
+        /*myList.add("充值");
         myList.add("额度转换");
         myList.add("银行卡");
-        myList.add("提现");
+        myList.add("提现");*/
         myList.add("平台余额");
         myList.add("消息公告");
         myList.add("站内信");
@@ -94,10 +94,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("投注记录");
         myList.add("流水记录");
         myList.add("新手教学");
-        myList.add("关于太阳城");
+        //myList.add("关于太阳城");
         myList.add("代理加盟");
         myList.add("联系我们");
-        myList.add("安全退出");
+       // myList.add("安全退出");
 
     }
 
@@ -144,7 +144,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 @Override
                 public void onClick(View view) {
                     GameLog.log("用户的金额："+personMoney);
-                    switch (position){
+                    switch (position+4){
                         case 0:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
@@ -219,16 +219,16 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 11://关于太阳城
+                        /*case 11://关于太阳城
                             //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"/template/help.php?tip=app")));
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"template/aboutus.php?tip=app")));
-                            break;
-                        case 12://代理加盟
+                            break;*/
+                        case 11://代理加盟
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"agents_reg.php?tip=app")));
                             //交易记录
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 13://联系我们
+                        case 12://联系我们
                             EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
@@ -240,7 +240,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 }
             });
             holder.setText(R.id.tvItemMyName,string);
-            switch (position){
+            switch (position+4){
                 case 0:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deposit);
                     break;
@@ -276,13 +276,13 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 case 10:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_new);
                     break;
-                case 11:
+                /*case 11:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_about);
-                    break;
-                case 12:
+                    break;*/
+                case 11:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_accent);
                     break;
-                case 13:
+                case 12:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_contact);
                     break;
                 case 14:
@@ -403,16 +403,67 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         }*/
     }
-    /*@OnClick(R.id.personLogout)
+    @OnClick(R.id.personLogout)
     public void onLogout(){
         if(Check.isNull(presenter)){
             presenter = Injections.inject(null, this);
         }
         presenter.logOut();
-    }*/
+    }
 
     @OnClick(R.id.personRefresh)
     public void onPersonRefresh(){
         presenter.getPersonBalance("","");
+    }
+
+    @OnClick({R.id.personInfo,R.id.personCZ,R.id.personZH,R.id.personYHK,R.id.personTX})
+    public void onClickView(View view){
+        switch (view.getId()){
+            case R.id.personInfo:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney)));
+                break;
+            case R.id.personCZ:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new ShowMainEvent(1));
+                break;
+            case R.id.personZH:
+                EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
+                break;
+            case R.id.personYHK:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                break;
+            case R.id.personTX:
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                if(Check.isEmpty(alias)){
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                    return;
+                }
+                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+, loginResult.getBindCard_Flag());
+                GameLog.log("用户是否已经绑定过银行卡："+userStatus);
+                if("0".equals(userStatus)){
+                    showMessage("请先绑定银行卡！");
+                    EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                }
+                break;
+        }
     }
 }

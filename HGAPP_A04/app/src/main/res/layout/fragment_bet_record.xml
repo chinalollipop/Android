@@ -222,7 +222,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:background="@mipmap/icon_textview_transfer2"
+        android:background="@mipmap/person_bottom"
         android:gravity="center"
         android:padding="5dp">
 

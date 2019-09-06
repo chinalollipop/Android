@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cad329e0f41755eb72d30dc3f07ea22d/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cad329e0f41755eb72d30dc3f07ea22d/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed1c85a41daddfe933117161331b49ae/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed1c85a41daddfe933117161331b49ae/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
