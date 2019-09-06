@@ -3,14 +3,14 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/title_text"
+        android:background="#f1f1f1"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:background="@mipmap/home_title_bg"
+            android:background="#ffffff"
             android:gravity="center">
 
             <ImageView
@@ -37,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="滚球"
-                android:textColor="#C0BAB4"
+                android:textColor="@color/bet_title_tv_clicked"
                 android:textSize="20sp" />
             </LinearLayout>
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="今日"
-                android:textColor="#C0BAB4"
+                android:textColor="#000000"
                 android:textSize="20sp" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="早盘"
-                android:textColor="#C0BAB4"
+                android:textColor="#000000"
                 android:textSize="20sp" />
 
             <ImageView
@@ -127,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#dbdbdb"
+            android:background="#f1f1f1"
             android:gravity="center"
             android:paddingBottom="10dp"
             android:paddingTop="10dp">
@@ -140,7 +140,7 @@
                 android:drawableTop="@mipmap/bet_soccer_off"
                 android:gravity="center"
                 android:text="足球"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -151,7 +151,7 @@
                 android:drawableTop="@mipmap/bet_basketball_off"
                 android:gravity="center"
                 android:text="篮球"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
             <TextView
                 android:id="@+id/tvBetNewSaiGuo"
@@ -161,7 +161,7 @@
                 android:drawableTop="@mipmap/home_three"
                 android:gravity="center"
                 android:text="赛果"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -173,7 +173,7 @@
                 android:gravity="center"
                 android:text="网球"
                 android:visibility="gone"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -185,7 +185,7 @@
                 android:gravity="center"
                 android:text="棒球"
                 android:visibility="gone"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -196,7 +196,7 @@
                 android:drawableTop="@mipmap/bet_poker_off"
                 android:gravity="center"
                 android:text="真人"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -207,7 +207,7 @@
                 android:drawableTop="@mipmap/bet_slot_off"
                 android:gravity="center"
                 android:text="老虎机"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
@@ -218,7 +218,7 @@
                 android:drawableTop="@mipmap/bet_lottery_off"
                 android:gravity="center"
                 android:text="彩票"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
             <TextView
                 android:id="@+id/tvBetNewHgQipai"
@@ -228,7 +228,7 @@
                 android:drawableTop="@mipmap/bet_hg"
                 android:gravity="center"
                 android:text="皇冠"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
             <TextView
                 android:id="@+id/tvBetNewQipai"
@@ -238,7 +238,7 @@
                 android:drawableTop="@mipmap/bet_qipai"
                 android:gravity="center"
                 android:text="开元"
-                android:textColor="#7E7E7E"
+                android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
         <TextView

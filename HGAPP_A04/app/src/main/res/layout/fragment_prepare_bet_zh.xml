@@ -15,7 +15,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="#837D89">
+                android:background="#f8ad16">
 
                 <!--<ImageView
                     android:id="@+id/ivBetEventBack"

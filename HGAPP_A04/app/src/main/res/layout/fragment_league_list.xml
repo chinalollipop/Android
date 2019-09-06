@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/tvLeagueName"
         android:textColor="#ffffff"
-        android:background="#837f89"
+        android:background="#f8ad16"
         android:paddingLeft="16dp"
         android:textSize="18sp"
         android:text="滚球赛事"

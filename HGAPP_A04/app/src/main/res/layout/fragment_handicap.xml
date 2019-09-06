@@ -3,13 +3,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/title_text"
+    android:background="#f1f1f1"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@mipmap/home_title_bg"
+        android:background="@color/title_text"
         android:gravity="center">
 
         <ImageView
@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="您好"
-                    android:textColor="#DAA041"
+                    android:textColor="#f8ad16"
                     android:textSize="20sp" />
 
                 <TextView
@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="#FFFFFF"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -56,7 +56,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RMB"
-                    android:textColor="#AEA49D"
                     android:textSize="20sp" />
 
                 <TextView
@@ -66,7 +65,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:text="10000"
-                    android:textColor="#dfc390"
+                    android:textColor="#f8ad16"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -79,7 +78,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/title_text"
+        android:background="#f1f1f1"
         android:fillViewport="true">
 
         <LinearLayout
@@ -100,8 +99,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="#837f89">
+                android:layout_marginTop="5dp"
+                android:background="#dbdbdb">
 
                     <TextView
                         android:layout_weight="1"
@@ -111,14 +110,14 @@
                         android:layout_height="match_parent"
                         android:gravity="center|left"
                         android:text="赛果"
-                        android:textColor="@color/title_text"
+                        android:textColor="#000000"
                         android:textSize="20sp" />
 
 
                 <TextView
                     android:layout_width="2px"
                     android:layout_height="match_parent"
-                    android:background="@color/n_edittext_stroke" />
+                    android:background="#f1f1f1" />
 
                 <TextView
                     android:id="@+id/tvHandicapRule"
@@ -127,7 +126,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="体育规则"
-                    android:textColor="@color/title_text"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
             </LinearLayout>

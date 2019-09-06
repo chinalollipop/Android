@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="#f1f1f1"
     tools:context=".MainActivity" >
 
     <RelativeLayout
@@ -32,7 +33,7 @@
         android:layout_marginLeft="35dip"
         android:layout_marginRight="5dp"
         android:layout_toRightOf="@+id/child_img"
-        android:textColor="#837D78"
+        android:textColor="#f8ad16"
         android:textSize="22sp"
         />
     </RelativeLayout>

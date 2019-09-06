@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:background="#837D89"
+            android:background="#f8ad16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
