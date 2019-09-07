@@ -232,7 +232,7 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
                GameLog.log(" 购买金额："+god);
 
                 if(Double.valueOf(god) < Double.valueOf(prepareBetResult.getMinBet())){
-                    showMessage("下注金额需大于20元！");
+                    showMessage("下注金额需大于"+prepareBetResult.getMinBet()+"元！");
                     return;
                 }
                 if(Double.valueOf(godWin.replace(",","")) > Double.valueOf("1000000")){
