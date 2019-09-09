@@ -10,7 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
@@ -40,12 +42,8 @@ import butterknife.OnClick;
 public class RegisterFragment extends HGBaseFragment implements RegisterContract.View {
 
     RegisterContract.Presenter presenter;
-    @BindView(R.id.tvRegisterBack)
-    LinearLayout tvRegisterBack;
-    /*@BindView(R.id.etRegisterIntro)
-    EditText etRegisterIntro;*/
-    @BindView(R.id.tvRegisterType)
-    TextView tvRegisterType;
+    @BindView(R.id.etRegisterIntro)
+    EditText etRegisterIntro;
     @BindView(R.id.etRegisterUserName)
     EditText etRegisterUserName;
     @BindView(R.id.etRegisterPwd)
@@ -84,9 +82,8 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
     TextView tvRegisterPhoneVerificationCode;
     @BindView(R.id.etRegisterPhoneVerificationCode)
     EditText etRegisterPhoneVerificationCode;
-
-    /*@BindView(R.id.etRegisterResource)
-    EditText etRegisterResource;*/
+    @BindView(R.id.etRegisterResource)
+    EditText etRegisterResource;
     @BindView(R.id.btnRegisterGetVerificationCode)
     Button btnRegisterGetVerificationCode;
     @BindView(R.id.llRegisterPhone)
@@ -138,7 +135,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         })
                 .build();
 
-        /*optionsPickerViewState = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+        optionsPickerViewState = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -148,7 +145,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         }).build();
         optionsPickerViewState.setPicker(stateList);
         etRegisterResource.setText("网络广告");
-        registerVerificationCodeView.refreshCode();*/
+        registerVerificationCodeView.refreshCode();
         /*String s = String.valueOf(mRandom.nextInt(10)) +
                 String.valueOf(mRandom.nextInt(10)) +
                 String.valueOf(mRandom.nextInt(10)) +
@@ -201,11 +198,11 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
     }
 
 
-    @OnClick({R.id.tvRegisterBack,R.id.etRegisterBrithday,R.id.registerVerificationCodeView, R.id.btnRegisterGetVerificationCode, R.id.cbRegisterProtocol, R.id.btnRegisterSubmit})
+    @OnClick({R.id.etRegisterResource,R.id.etRegisterBrithday,R.id.registerVerificationCodeView, R.id.btnRegisterGetVerificationCode, R.id.cbRegisterProtocol, R.id.btnRegisterSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.tvRegisterBack:
-                finish();
+            case R.id.etRegisterResource:
+                optionsPickerViewState.show();
                 break;
             case R.id.etRegisterBrithday:
                 tpRegisterBrithday.show();
@@ -224,6 +221,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
     }
 
     private void onCheckRegisterMember(){
+        String introducer = etRegisterIntro.getText().toString().trim();
         String userName = etRegisterUserName.getText().toString().trim();
         String userPwd = etRegisterPwd.getText().toString().trim();
         String userBrithday = etRegisterBrithday.getText().toString().trim();
@@ -233,6 +231,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         String userPhone = etRegisterAccountPhone.getText().toString().trim();
         String userWechat = etRegisterWechat.getText().toString().trim();
         String userVerificationCode = etRegisterVerificationCode.getText().toString().trim();
+        String userResource = etRegisterResource.getText().toString().trim();
         if(Check.isEmpty(userName)){
             showMessage("请输入账号！");
             return;
@@ -285,7 +284,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
 
-        presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithday,"");
+        presenter.postRegisterMember("",introducer,"add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithday,userResource);
 
     }
 

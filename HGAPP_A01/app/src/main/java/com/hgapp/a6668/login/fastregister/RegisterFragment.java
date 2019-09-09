@@ -227,7 +227,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
                 optionsPickerViewState.show();
                 break;
             case R.id.etRegisterBrithday:
-                tpRegisterBrithday.show();;
+                tpRegisterBrithday.show();
                 break;
 
             case R.id.registerVerificationCodeView:

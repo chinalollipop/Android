@@ -22,6 +22,8 @@ public interface LoginContract {
         public void getFullPayGameList();
         public void postFullPayGameList();//String appRefer,String type, String more
         public void addMember();
+        public void postRegisterMember(String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
+                                       String paypassword,String phone,String wechat,String birthday,String know_site);
     }
 
     public interface View extends IView<Presenter> ,IMessageView,IProgressView
@@ -30,5 +32,6 @@ public interface LoginContract {
         public void postLoginResult(LoginResult loginResult);
         public void postLoginResultError(String message);
         public void success(SportsPlayMethodRBResult fullPayGameResult);
+        public void postRegisterMemberResult(LoginResult loginResult);
     }
 }
