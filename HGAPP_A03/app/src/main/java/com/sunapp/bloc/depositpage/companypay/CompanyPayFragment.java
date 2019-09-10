@@ -16,6 +16,7 @@ import com.bigkoo.pickerview.view.TimePickerView;
 import com.sunapp.bloc.Injections;
 import com.sunapp.bloc.R;
 import com.sunapp.bloc.base.HGBaseFragment;
+import com.sunapp.bloc.common.util.CLipHelper;
 import com.sunapp.bloc.common.util.DoubleClickHelper;
 import com.sunapp.bloc.common.widgets.NTitleBar;
 import com.sunapp.bloc.data.DepositBankCordListResult;
@@ -95,6 +96,22 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        tvDepositCompanyPayBank.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                CLipHelper.copy(getContext(),tvDepositCompanyPayBank.getText().toString());
+                showMessage("复制成功！");
+                return true;
+            }
+        });
+        tvDepositCompanyPayBankNumber.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                CLipHelper.copy(getContext(),tvDepositCompanyPayBankNumber.getText().toString());
+                showMessage("复制成功！");
+                return true;
+            }
+        });
         tvCompanyPayBack.setMoreText(getArgParam1);
         tvCompanyPayBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -210,7 +227,6 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        pop();
     }
 
     @Override
