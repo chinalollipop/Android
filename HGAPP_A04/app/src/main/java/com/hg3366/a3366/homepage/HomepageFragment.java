@@ -11,6 +11,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.jude.rollviewpager.RollPagerView;
 import com.hg3366.a3366.HGApplication;
 import com.hg3366.a3366.Injections;
 import com.hg3366.a3366.R;
@@ -63,6 +63,7 @@ import com.hg3366.a3366.withdrawPage.WithdrawFragment;
 import com.hg3366.common.util.Check;
 import com.hg3366.common.util.GameLog;
 import com.hg3366.common.util.NetworkUtils;
+import com.lzj.gallery.library.views.BannerViewPager;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieManager;
@@ -87,6 +88,8 @@ import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
+import static com.hg3366.common.util.Utils.getContext;
+
 /**
  * AG真人，老虎机，皇冠体育，彩票，优惠活动，联系我们，公告，代理加盟，新手教学（暂时先不做）
  * <p>
@@ -106,8 +109,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     TextView homeUserName;
     @BindView(R.id.homeMoney)
     TextView homeMoney;
-    @BindView(R.id.rollpageview)
-    RollPagerView rollpageview;
+   /* @BindView(R.id.rollpageview)
+    RollPagerView rollpageview;*/
+    @BindView(R.id.banner_3d)
+    BannerViewPager banner_3d;
     @BindView(R.id.tv_homapage_bulletin)
     MarqueeTextView tvHomapageBulletin;
     @BindView(R.id.rv_homepage_game_hall)
@@ -163,7 +168,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @BindView(R.id.homeItem21)
     LinearLayout homeItem21;
 
-    private RollPagerViewManager rollPagerViewManager;
+    //private RollPagerViewManager rollPagerViewManager;
 
     private NoticeResult noticeResultList;
     private CPResult cpResult;
@@ -222,6 +227,36 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         return R.layout.fragment_home;
     }
 
+    private void initBanner(final BannerResult bannerResult){
+        if (!Check.isNull(bannerResult)) {
+            ArrayList<String> urlList = new ArrayList<String>();
+            for(int k=0;k<bannerResult.getData().size();++k){
+                urlList.add(bannerResult.getData().get(k).getImg_path());
+            }
+            banner_3d.initBanner(urlList, true)//开启3D画廊效果
+                    .addPageMargin(10, 60)//参数1page之间的间距,参数2中间item距离边界的间距
+                    .addPoint(6)//添加指示器
+                    .addStartTimer(5)//自动轮播5秒间隔
+                    //.addPointBottom(7)
+                    .addRoundCorners(8)//圆角
+                    .finishConfig()//这句必须加
+                    .addBannerListener(new BannerViewPager.OnClickBannerListener() {
+                        @Override
+                        public void onBannerClick(int position) {
+                            //点击item
+                            if(bannerResult.getData().get(position).getName().equals("promo")){
+                                String userMoney = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_MONEY);
+                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                            }
+                            //showMessage("效果1点击"+position);
+                        }
+                    });
+
+            //rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
+            //rollPagerViewManager.testImagesLocal(null);
+            //rollPagerViewManager.testImagesNet(null, null);
+        }
+    }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -241,12 +276,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         //rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
         rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new, homeGameNewList));
-        BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
-        if (!Check.isNull(bannerResult)) {
-            rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
-            //rollPagerViewManager.testImagesLocal(null);
-            rollPagerViewManager.testImagesNet(null, null);
-        }
+
         NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
         if (!Check.isNull(noticeResult)) {
             List<String> stringList = new ArrayList<String>();
@@ -257,6 +287,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tvHomapageBulletin.setContentList(stringList);
         }
         if (!NetworkUtils.isConnected()) {
+            BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
+            initBanner(bannerResult);
             GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
         } else {
             //presenter.postOnlineService("");
@@ -1012,12 +1044,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
-    public void postBannerResult(BannerResult bannerResult) {
+    public void postBannerResult(final BannerResult bannerResult) {
         GameLog.log("。。。。。Banner的数据返回。。。。。");
         ACache.get(getContext()).put(HGConstant.USERNAME_HOME_BANNER, JSON.toJSONString(bannerResult));
-        rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
+        initBanner(bannerResult);
+        //rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
         //rollPagerViewManager.testImagesLocal(null);
-        rollPagerViewManager.testImagesNet(null, null);
+        //rollPagerViewManager.testImagesNet(null, null);
     }
 
     @Override
