@@ -133,7 +133,7 @@
                     android:id="@+id/homeUserName"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_marginTop="5dp"
                     android:ellipsize="end"
                     android:text="未登录"
@@ -147,17 +147,17 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="中心钱包"
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:textColor="@color/title_bg_black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/homeMoney"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="￥0.00"
-                    android:textSize="12sp"
-                    android:textColor="@color/event_line_title" />
+                    <TextView
+                        android:id="@+id/homeMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="￥0.00"
+                        android:textSize="11sp"
+                        android:textColor="@color/event_line_title" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -291,7 +291,11 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fbfbf1"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -401,9 +401,9 @@
 #----------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
--keep class com.sunapp.bloc.data.** { *; }
--keep class com.sunapp.bloc.homepage.cplist.events.** { *; }
--keep class com.sunapp.bloc.common.widgets.** { *; }
+-keep class com.hg3366.a3366.data.** { *; }
+-keep class com.hg3366.a3366.homepage.cplist.events.** { *; }
+-keep class com.hg3366.a3366.common.widgets.** { *; }
 #-keep class com.xxx.app.deposit.model.** { *; }
 #-keep class com.xxx.app.repository.data.** { *; }
 #-keep class com.xxx.app.common.http.**{*;}
