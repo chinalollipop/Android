@@ -349,8 +349,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postBYGame("","");
                 }
                 break;
-            case R.id.homeItem15_2://AG国际厅
-                if (Check.isEmpty(userName)) {
+            case R.id.homeItem15_2://OG视讯
+                showMessage("敬请期待！");
+                /*if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
@@ -365,7 +366,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     presenter.postBYGame("","");
-                }
+                }*/
                 break;
             case R.id.homeItem15_3://AG赌场厅
                 if (Check.isEmpty(userName)) {

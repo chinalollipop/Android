@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.vene.tian.common.widgets.NTitleBar
+    <com.venen.tian.common.widgets.NTitleBar
         android:id="@+id/titleRealNameBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -417,7 +417,7 @@
                     android:hint="输入验证码"
                     android:maxLength="4" />
 
-                <com.vene.tian.common.widgets.verifycodeview.VerificationCodeView
+                <com.venen.tian.common.widgets.verifycodeview.VerificationCodeView
                     android:id="@+id/registerVerificationCodeView"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/h_text_height"

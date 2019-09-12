@@ -19,7 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.commonliberary.R;
-import com.vene.common.util.Timber;
+import com.venen.common.util.Timber;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;

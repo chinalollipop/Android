@@ -9,15 +9,15 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
-    <com.vene.tian.common.widgets.LoadingViewGroup
+    <com.venen.tian.common.widgets.LoadingViewGroup
         android:id="@+id/layout_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.vene.tian.common.widgets.GifView
+        <com.venen.tian.common.widgets.GifView
             android:id="@+id/iv_loading"
             android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.vene.tian.common.widgets.LoadingViewGroup>
+    </com.venen.tian.common.widgets.LoadingViewGroup>
 </FrameLayout>

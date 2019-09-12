@@ -63,7 +63,7 @@
         android:gravity="center|left"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
-    <com.vene.tian.common.widgets.NExpandableListView
+    <com.venen.tian.common.widgets.NExpandableListView
         android:id="@+id/exChampionListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

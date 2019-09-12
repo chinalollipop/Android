@@ -58,7 +58,7 @@
                     android:textColor="@color/title_text"
                     android:textSize="16sp" />
             </RelativeLayout>
-            <com.vene.tian.common.widgets.redpacket.RedPacketsLayout
+            <com.venen.tian.common.widgets.redpacket.RedPacketsLayout
                 android:id="@+id/packets_layout"
                 android:visibility="gone"
                 android:layout_width="match_parent"

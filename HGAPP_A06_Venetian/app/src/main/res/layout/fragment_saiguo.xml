@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.vene.tian.common.widgets.NTitleBar
+        <com.venen.tian.common.widgets.NTitleBar
             android:id="@+id/tvBetRecordBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -343,7 +343,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-    <com.vene.tian.common.widgets.NExpandableListView
+    <com.venen.tian.common.widgets.NExpandableListView
         android:id="@+id/exSaiGuoListView"
         android:childDivider="@android:color/transparent"
         android:divider="@color/n_edittext_stroke"

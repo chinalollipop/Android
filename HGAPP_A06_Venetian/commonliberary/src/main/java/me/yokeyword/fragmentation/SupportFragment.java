@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 
-import com.vene.common.util.Timber;
+import com.venen.common.util.Timber;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

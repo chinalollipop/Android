@@ -189,7 +189,7 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <com.vene.tian.common.widgets.NListView
+        <com.venen.tian.common.widgets.NListView
             android:id="@+id/lvLeagueSearchList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

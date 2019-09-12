@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bg_app"
     android:orientation="vertical">
-    <com.vene.tian.common.widgets.NTitleBar
+    <com.venen.tian.common.widgets.NTitleBar
         android:id="@+id/backOnline"
         android:layout_width="match_parent"
         android:layout_height="55dp"

@@ -12,8 +12,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 
-import com.vene.common.util.Check;
-import com.vene.common.util.GameLog;
+import com.venen.common.util.Check;
+import com.venen.common.util.GameLog;
 
 /**
  * Created by Nereus on 2017/5/4.

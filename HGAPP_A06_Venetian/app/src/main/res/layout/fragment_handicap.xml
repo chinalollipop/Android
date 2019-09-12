@@ -87,7 +87,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.vene.tian.common.widgets.NExpandableListView
+            <com.venen.tian.common.widgets.NExpandableListView
                 android:id="@+id/exListView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

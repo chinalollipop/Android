@@ -93,7 +93,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
-            <com.vene.tian.common.widgets.MarqueeTextView
+            <com.venen.tian.common.widgets.MarqueeTextView
                 android:id="@+id/tv_homapage_bulletin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

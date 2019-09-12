@@ -562,7 +562,7 @@
 
         </RelativeLayout>
 
-        <com.vene.tian.common.widgets.redpacket.RedPacketsLayout
+        <com.venen.tian.common.widgets.redpacket.RedPacketsLayout
             android:id="@+id/packets_layout"
             android:visibility="gone"
             android:layout_width="match_parent"

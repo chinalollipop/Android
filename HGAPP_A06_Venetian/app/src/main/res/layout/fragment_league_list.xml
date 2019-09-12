@@ -17,7 +17,7 @@
         android:gravity="center|left"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
-    <com.vene.tian.common.widgets.NListView
+    <com.venen.tian.common.widgets.NListView
         android:id="@+id/lvLeagueList"
         android:divider="@null"
         android:dividerHeight="0dp"
