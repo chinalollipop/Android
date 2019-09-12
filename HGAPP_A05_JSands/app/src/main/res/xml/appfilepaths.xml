@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path  path="" name="com.sands.corp" />
+    <cache-path  path="" name="com.hgappa.a02" />
+    <cache-path  path="" name="com.hgappa.a03" />
+    <!--<cache-path  path="" name="com.sunapp.bloc.fileprovider" />
+    &lt;!&ndash;这里的path AppUpdate 要与你设置的下载目录一致&ndash;&gt;
+    <external-path name="app-release" path="com.sunapp.bloc.fileprovider" />-->
+</paths>

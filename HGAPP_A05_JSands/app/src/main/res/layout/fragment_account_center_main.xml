@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:gravity="center|left"
+            android:id="@+id/accountName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:hint="请输入"
+            android:background="@null"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名    "
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:id="@+id/accountAlias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:hint="请前往提现处完善信息"
+            android:background="@null"
+            android:paddingLeft="10dp"
+            android:gravity="center|left"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />-->
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别    "
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:paddingLeft="10dp"
+            android:text="请选择"
+            android:layout_marginRight="40dp"
+            android:background="@mipmap/icon_textview_transfer"
+            android:gravity="center|left"
+            android:textColor="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="手机号"
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:id="@+id/accountPhone"
+            android:gravity="center|left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:text="111"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+
+       <!-- <Button
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_normal"
+            android:text="发送"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#298FBD"
+            />-->
+    </LinearLayout>
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />-->
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码"
+            android:textSize="15sp" />
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:hint="请输入"
+            android:background="@null"
+            android:textColorHint="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />-->
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮箱    "
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:hint="请输入"
+            android:background="@null"
+            android:textColorHint="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生日    "
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:gravity="center|left"
+            android:id="@+id/accountBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:hint="请前往提现处完善信息"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:textColorHint="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信    "
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:gravity="center|left"
+            android:id="@+id/accountWechat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:hint="请前往提现处完善信息"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:textColorHint="@color/n_edittext_pwd"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:text="确认修改"
+        android:textSize="16sp"
+        android:layout_margin="20dp"
+        />-->
+</LinearLayout>
