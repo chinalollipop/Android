@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <translate
+        android:duration="500"
+        android:toYDelta="-100%p" />
+</set>
+<!--<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator">
+   &lt;!&ndash; <translate
+        android:fromXDelta="0"
+        android:toXDelta="2000"
+        android:fromYDelta="0"
+        android:toYDelta="-2000"
+        android:duration="1000"
+        />&ndash;&gt;
+    <scale
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:toXScale="0.0"
+        android:toYScale="0.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="800"
+        android:fillAfter="false" />
+
+</set>-->
+<!--移位动画效果
+    android:fromXDelta="0" 自身
+    android:toXDelta="200" 向右
+    android:fromYDelta="0" 自身
+    android:toYDelta="200" 向下
+    android:duration="1000" 持续时间
+-->
+<!--<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0"
+    android:toXDelta="2000"
+    android:fromYDelta="0"
+    android:toYDelta="-2000"
+    android:duration="1000"
+    >
+</translate>-->
+<!--<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/overshoot_interpolator"
+    >
+    <translate
+        android:fromYDelta="-100%p"
+        android:toYDelta="0%p"
+        />
+</set>-->
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+        android:interpolator="@android:interpolator/decelerate_quad"
+        android:fromAlpha="0.0" android:toAlpha="1.0"
+        android:duration="@android:integer/config_shortAnimTime" />
+</set>-->
