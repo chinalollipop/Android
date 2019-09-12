@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.promeg:tinypinyin-android-asset-lexicons:2.0.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ee4d531f304dc1a7b2468e8a5cf0ca2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ee4d531f304dc1a7b2468e8a5cf0ca2/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin-android-asset-lexicons/2.0.3/fda8d281d2043a858f97f32268a23c963f8afe4c/tinypinyin-android-asset-lexicons-2.0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin-android-asset-lexicons/2.0.3/c6ff2923262882ad64a9169a919a63055fc447c3/tinypinyin-android-asset-lexicons-2.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

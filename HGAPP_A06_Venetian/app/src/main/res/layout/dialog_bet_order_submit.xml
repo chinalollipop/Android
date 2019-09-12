@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/frame_roundcorner_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="交易单"
+            android:textColor="#78726e"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:text="当前余额："
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvBetOrderMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:text="20002"
+                android:textStyle="bold"
+                android:textColor="#e90504"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:text=" 元"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/bet_bug_line" />
+
+
+        <TextView
+            android:id="@+id/etBetSubmitsInfor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:gravity="center|left"
+            android:text="足球 单场独赢\n\n中国甲级超级联赛\n\n恒大足球俱乐部 VS 广州恒大 \n\n广州恒大 @3.16 \n\n120.00元"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvBetSubmitTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#36333b"
+                android:text="篮球（滚球）总分：大/小" />
+
+            <TextView
+                android:id="@+id/tvBetSubmitmLeague"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#36333b"
+                android:text="蓝网球-Suncorp超级蓝网球" />
+
+            <TextView
+                android:id="@+id/tvBetSubmitmLeagueName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#36333b"
+                android:text="阿德莱德雷鸟 VS 新南威尔士雨燕" />
+
+            <TextView
+                android:id="@+id/tvBetSubmitmLeagueRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#36333b"
+                android:text="大 105.5 @ 0.81" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/betAutoOdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:button="@drawable/btn_check_bet_style"
+            android:text="自动接收较佳赔率"
+            android:textColor="#36333b" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp">
+
+                <EditText
+                    android:id="@+id/etBetSubmitGod"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bet_dialog_edit"
+                    android:hint="投注额"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textColorHint="#aeadad" />
+
+                <ImageView
+                    android:id="@+id/ivBetSubmitGodClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/bet_dialog_close" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="单注最低："
+                        android:textColor="#aeadad"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tvBetSubmitGodMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="50"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="单注最高："
+                        android:textColor="#aeadad"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tvBetSubmitGodMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="5000"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center|left"
+                android:text="可赢金额"
+                android:textColor="#aeadad" />
+
+            <TextView
+                android:id="@+id/tvetBetSubmitWinGod"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center|left"
+                android:text="0.00"
+                android:textColor="#32934e"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBetSubmitCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_cancel_dialog"
+                android:gravity="center"
+                android:paddingTop="39px"
+                android:paddingBottom="39px"
+                android:text="取消"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnBetSubmitSuccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bet_submit_dialog"
+                android:gravity="center"
+                android:paddingTop="39px"
+                android:paddingBottom="39px"
+                android:text="确认交易"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

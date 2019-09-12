@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :base-adapter-3.0.3:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/98bc000759b23bd185e099e8cbf129b9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/98bc000759b23bd185e099e8cbf129b9/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

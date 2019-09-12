@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/title_text"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvLeagueName"
+        android:textColor="#ffffff"
+        android:background="#837f89"
+        android:paddingLeft="16dp"
+        android:textSize="18sp"
+        android:text="滚球赛事"
+        android:gravity="center|left"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+    <com.sands.corp.common.widgets.NListView
+        android:id="@+id/lvLeagueList"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
+
+

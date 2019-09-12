@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvContentCount"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/btn_text"
+        android:background="@drawable/notice_item_default"
+        />
+    <TextView
+        android:gravity="center|left"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvContent"
+        android:text="巴西乙组联赛"
+        />
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#C8C7CC" />-->
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/n_app_bg" />-->
+</LinearLayout>
