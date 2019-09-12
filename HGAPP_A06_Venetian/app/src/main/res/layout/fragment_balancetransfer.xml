@@ -6,7 +6,7 @@
     android:background="@color/all_bg"
     android:orientation="vertical">
 
-    <com.sands.corp.common.widgets.NTitleBar
+    <com.vene.tian.common.widgets.NTitleBar
         android:id="@+id/backTitleBalanceTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

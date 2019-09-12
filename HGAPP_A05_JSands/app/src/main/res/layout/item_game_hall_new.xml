@@ -7,9 +7,9 @@
 
     <LinearLayout
         android:id="@+id/ll_home_main_show"
-        android:layout_width="120dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="100dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="3dp"
         android:background="@drawable/btn_home_item_nor"
         android:gravity="center">
 
@@ -26,13 +26,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="AG真人"
             android:textColor="@color/home_item_normal"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <!--<View

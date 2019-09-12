@@ -35,7 +35,7 @@
             android:layout_centerInParent="true"
             android:textColor="@color/title_text"
             android:drawableLeft="@mipmap/home_logo"
-            android:layout_margin="10dp"
+            android:layout_margin="8dp"
             android:textSize="18sp" />
 
         <TextView

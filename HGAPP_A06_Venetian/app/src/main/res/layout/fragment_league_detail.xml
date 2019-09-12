@@ -64,7 +64,7 @@
         android:gravity="center|left"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
-    <com.sands.corp.common.widgets.NListView
+    <com.vene.tian.common.widgets.NListView
         android:id="@+id/lvLeagueSearchList"
         android:divider="@null"
         android:dividerHeight="0dp"

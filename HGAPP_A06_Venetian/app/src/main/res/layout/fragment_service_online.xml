@@ -8,8 +8,8 @@
     <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@color/title_bg">
+        android:layout_height="55dp"
+        android:background="@mipmap/home_title_bg">
 
         <ImageView
             android:id="@+id/servicePageRefresh"

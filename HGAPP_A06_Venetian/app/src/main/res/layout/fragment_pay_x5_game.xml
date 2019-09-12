@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.sands.corp.common.widgets.NTitleBar
+    <com.vene.tian.common.widgets.NTitleBar
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/pay_x5_game_title"
         android:layout_width="match_parent"

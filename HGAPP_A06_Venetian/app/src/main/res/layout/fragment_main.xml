@@ -23,10 +23,10 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/bottombar_wechat_height"
         android:layout_height="wrap_content"/>-->
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/bottombar_wechat_height"
-        android:background="#C8C7CC" />
+        android:background="#C8C7CC" />-->
 </FrameLayout>

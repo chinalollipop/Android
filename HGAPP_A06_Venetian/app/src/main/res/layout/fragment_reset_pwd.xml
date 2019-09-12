@@ -7,7 +7,7 @@
     android:background="@color/title_text"
     android:orientation="vertical">
 
-    <com.sands.corp.common.widgets.NTitleBar
+    <com.vene.tian.common.widgets.NTitleBar
         android:id="@+id/tvLoginBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

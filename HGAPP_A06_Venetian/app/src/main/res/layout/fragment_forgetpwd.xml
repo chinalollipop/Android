@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.sands.corp.common.widgets.NTitleBar
+    <com.vene.tian.common.widgets.NTitleBar
         android:id="@+id/tvRegisterBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

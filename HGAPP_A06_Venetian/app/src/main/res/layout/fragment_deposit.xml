@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.sands.corp.common.widgets.NTitleBar
+    <com.vene.tian.common.widgets.NTitleBar
         android:id="@+id/tvDepositUserMoney"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backImageShow="false"
         />

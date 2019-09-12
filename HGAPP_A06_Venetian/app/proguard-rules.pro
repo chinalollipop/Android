@@ -401,9 +401,9 @@
 #----------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
--keep class com.sands.corp.data.** { *; }
--keep class com.sands.corp.homepage.cplist.events.** { *; }
--keep class com.sands.corp.common.widgets.** { *; }
+-keep class com.vene.tian.data.** { *; }
+-keep class com.vene.tian.homepage.cplist.events.** { *; }
+-keep class com.vene.tian.common.widgets.** { *; }
 #-keep class com.xxx.app.deposit.model.** { *; }
 #-keep class com.xxx.app.repository.data.** { *; }
 #-keep class com.xxx.app.common.http.**{*;}

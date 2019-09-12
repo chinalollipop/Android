@@ -144,7 +144,7 @@
 
             </LinearLayout>
         </LinearLayout>
-            <com.sands.corp.common.widgets.NExpandableListView
+            <com.vene.tian.common.widgets.NExpandableListView
                 android:id="@+id/exZHListView"
                 android:childDivider="@android:color/transparent"
                 android:divider="@color/title_text"

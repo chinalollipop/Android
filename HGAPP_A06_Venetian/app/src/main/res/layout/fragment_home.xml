@@ -76,25 +76,24 @@
             android:id="@+id/rollpageview"
             android:layout_width="match_parent"
             android:layout_height="144dp"
-            android:layout_margin="10dp" />
+            android:layout_margin="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:text="公告"
-                android:textColor="#47444c"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
-            <com.sands.corp.common.widgets.MarqueeTextView
+            <com.vene.tian.common.widgets.MarqueeTextView
                 android:id="@+id/tv_homapage_bulletin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -110,9 +109,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
         android:background="@mipmap/home_center"
         android:orientation="vertical">
 
@@ -180,12 +180,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_margin="8dp">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_homepage_game_hall"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fadeScrollbars="true" />
 
         <LinearLayout

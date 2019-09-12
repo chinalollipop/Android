@@ -6,5 +6,5 @@
     <color name="bg_app">#F1F1F1</color>
     <color name="bg_btn">#dadada</color>"
     <color name="tab_unselect">#9c9c9c</color>
-    <color name="tab_select">#2e2b33</color>
+    <color name="tab_select">#eed34f</color>
 </resources>

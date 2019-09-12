@@ -11,7 +11,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.sands.corp.common.widgets.RoundCornerImageView
+            <com.vene.tian.common.widgets.RoundCornerImageView
                 android:id="@+id/iv_item_game_icon"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
