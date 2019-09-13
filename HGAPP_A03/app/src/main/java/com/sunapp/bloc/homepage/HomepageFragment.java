@@ -11,8 +11,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,6 +66,7 @@ import com.sunapp.bloc.withdrawPage.WithdrawFragment;
 import com.sunapp.common.util.Check;
 import com.sunapp.common.util.GameLog;
 import com.sunapp.common.util.NetworkUtils;
+import com.sunapp.common.util.Utils;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieManager;
@@ -183,7 +186,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String userMoney = "";
     private int itemClick = R.mipmap.home_item_click, itemNorm = R.mipmap.home_item_nor;
     private String userState = "9";
-
+    private int height;
     //private CheckUpgradeResult checkUpgradeResult;
     static {
         homeGameList.add(new HomePageIcon("体育投注", R.mipmap.home_hgty, 0));
@@ -230,8 +233,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         return R.layout.fragment_home;
     }
 
+    private void initPX(Context context){
+        WindowManager mWindowManager  = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics metrics = new DisplayMetrics();
+        mWindowManager.getDefaultDisplay().getMetrics(metrics);
+        //int width = metrics.widthPixels;//获取到的是px，像素，绝对像素，需要转化为dpi
+        height = metrics.heightPixels;
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initPX(Utils.getContext());
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
         if (!Check.isNull(domainUrl) && domainUrl.getList().size() > 0) {
@@ -248,7 +260,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         //rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
-        rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new, homeGameNewList));
+        if(height>1920){
+            rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new_2, homeGameNewList));
+        }else {
+            rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new, homeGameNewList));
+        }
         BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
         if (!Check.isNull(bannerResult)) {
             rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());

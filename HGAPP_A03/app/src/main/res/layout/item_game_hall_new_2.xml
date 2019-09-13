@@ -8,8 +8,8 @@
     <LinearLayout
         android:id="@+id/ll_home_main_show"
         android:layout_width="100dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="3dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/btn_home_item_nor"
         android:gravity="center">
 
