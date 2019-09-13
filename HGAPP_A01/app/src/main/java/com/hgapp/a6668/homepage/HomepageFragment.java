@@ -125,10 +125,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16));
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
+        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
         homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai,3));
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
         homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
         homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
@@ -821,7 +821,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                    if(userState.equals("9")){
                        showMessage(maintainResult1.getContent());
                    }
-                   GameLog.log("avia "+maintainResult1.getState());
+                   GameLog.log("og "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                    break;
            }

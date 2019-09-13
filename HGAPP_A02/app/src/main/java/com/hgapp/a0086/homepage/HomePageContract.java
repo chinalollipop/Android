@@ -37,6 +37,7 @@ public interface HomePageContract {
         public void postValidGift2(String appRefer,String action);
         public void postMaintain();
         public void postBYGame(String appRefer, String gameid);
+        public void postOGGame(String appRefer, String gameid);
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
@@ -51,6 +52,7 @@ public interface HomePageContract {
         public void postVGQipaiResult(QipaiResult qipaiResult);
         public void postLYQipaiResult(QipaiResult qipaiResult);
         public void postAviaQiPaiResult(QipaiResult qipaiResult);
+        public void postOGResult(AGGameLoginResult qipaiResult);
         public void postCPResult(CPResult cpResult);
         public void postValidGiftResult(ValidResult validResult);
         public void postValidGift2Result(ValidResult validResult);
