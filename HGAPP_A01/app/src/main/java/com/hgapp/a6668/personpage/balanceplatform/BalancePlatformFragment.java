@@ -96,6 +96,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
         balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         lvBalancePlatform.setLayoutManager(mLayoutManager1);
@@ -109,6 +110,8 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         presenter.postPersonBalanceLY("","");
         presenter.postPersonBalanceMG("","");
         presenter.postPersonBalanceAG("","");
+        presenter.postPersonBalanceAG("","");
+        presenter.postPersonBalanceOG("","");
         backTitleBalancePlatform.setMoreText(GameShipHelper.formatMoney(typeArgsHG));
         backTitleBalancePlatform.setBackListener(new View.OnClickListener() {
             @Override
@@ -142,8 +145,10 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                 viewHolder.setText(R.id.itemBalancePlatformName,"乐游棋牌");
             }else if(postion==6){
                 viewHolder.setText(R.id.itemBalancePlatformName,"MG电子");
-            }else {
+            }else if(postion==7){
                 viewHolder.setText(R.id.itemBalancePlatformName,"泛亚电竞");
+            }else {
+                viewHolder.setText(R.id.itemBalancePlatformName,"OG视讯");
             }
             viewHolder.setText(R.id.itemBalancePlatformMoney,sdata);
             viewHolder.setOnClickListener(R.id.itemBalancePlatformIn,new View.OnClickListener(){
@@ -210,12 +215,18 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             return;
                                         }
                                         presenter.postBanalceTransferMG("", "hg", "mg", GameShipHelper.getIntegerString(text));
-                                    }else{
+                                    }else if(postion == 7){
                                         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                             showMessage("非常抱歉，请您注册真实会员！");
                                             return;
                                         }
                                         presenter.postBanalceTransferAG("", "hg", "avia", GameShipHelper.getIntegerString(text));
+                                    }else{
+                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                            showMessage("非常抱歉，请您注册真实会员！");
+                                            return;
+                                        }
+                                        presenter.postBanalceTransferOG("", "hg", "og", GameShipHelper.getIntegerString(text));
                                     }
 
                                 }
@@ -289,12 +300,18 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             return;
                                         }
                                         presenter.postBanalceTransferMG("", "mg", "hg", GameShipHelper.getIntegerString(text));
-                                    }else{
+                                    }else  if(postion==7){
                                         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                             showMessage("非常抱歉，请您注册真实会员！");
                                             return;
                                         }
                                         presenter.postBanalceTransferAG("", "avia", "hg", GameShipHelper.getIntegerString(text));
+                                    }else  {
+                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                            showMessage("非常抱歉，请您注册真实会员！");
+                                            return;
+                                        }
+                                        presenter.postBanalceTransferOG("", "og", "hg", GameShipHelper.getIntegerString(text));
                                     }
                                 }
                             })
@@ -364,6 +381,11 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     @Override
     public void postPersonBalanceAGResult(KYBalanceResult personBalance) {
         balancePlatformList.set(7,personBalance.getAvia_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+    }
+    @Override
+    public void postPersonBalanceOGResult(KYBalanceResult personBalance) {
+        balancePlatformList.set(8,personBalance.getOg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
     }
 
