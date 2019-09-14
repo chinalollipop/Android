@@ -256,7 +256,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         //rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
-        if(height>1920){
+        if(height>2076){
             rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new_2, homeGameNewList));
         }else {
             rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new, homeGameNewList));

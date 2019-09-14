@@ -377,7 +377,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "1";
+                userState = "9";
                 playName = "OG视讯";
                 presenter.postOGGame("","");
                 break;

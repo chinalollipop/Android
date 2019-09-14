@@ -181,7 +181,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String pro = "";
     private String userMoney = "";
     private int itemClick = R.mipmap.home_item_click, itemNorm = R.mipmap.home_item_nor;
-    private String userState = "9";
+    private String userState = "19";
     private int height;
     //private CheckUpgradeResult checkUpgradeResult;
     static {
@@ -255,7 +255,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         //rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
-        if(height>1920){
+        if(height>2076){
             rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new_2, homeGameNewList));
         }else {
             rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new, homeGameNewList));
@@ -364,7 +364,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postBYGame("","");
                 }
                 break;
-            case R.id.homeItem15_2://AG国际厅
+            case R.id.homeItem15_2://OG视讯
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
@@ -373,14 +373,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "1";
-                playName = "AG国际厅";
-                String video_url2 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
-                if ("1".equals(video_url2)) {
-                    presenter.postMaintain();
-                } else {
-                    presenter.postBYGame("","");
-                }
+                userState = "9";
+                playName = "OG视讯";
+                presenter.postOGGame("","");
                 break;
             case R.id.homeItem15_3://AG赌场厅
                 if (Check.isEmpty(userName)) {
@@ -1190,6 +1185,22 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postOGResult(AGGameLoginResult qipaiResult) {
+        GameLog.log("OG的返回数据："+qipaiResult.getUrl());
+        //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
+        /*Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","OG视讯");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);*/
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(qipaiResult.getUrl()));
+        startActivity(intent);
+        //ACache.get(getContext()).put(HGConstant.USERNAME_OG_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============OG的地址=============");
+    }
+
+    @Override
     public void postCPResult(CPResult cpResult) {
         GameLog.log("返回的数据结构："+cpResult.toString());
         this.cpResult = cpResult;
@@ -1322,6 +1333,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                     GameLog.log("ly " + maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN, maintainResult1.getState());
+                    break;
+                case "og":
+                    if(userState.equals("9")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("og "+maintainResult1.getState());
+                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                     break;
             }
         }
@@ -1566,7 +1584,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         userName = "";
         homeUserName.setText("未登录");
         userMoney = "";
-        userState = "9";
+        userState = "19";
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
     }
