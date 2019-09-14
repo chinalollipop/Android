@@ -320,71 +320,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/homeItem15_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/home_video1" />
+
+                <ImageView
+                    android:id="@+id/homeItem15_2"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/homeItem15_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@mipmap/home_video1" />
-
-                    <ImageView
-                        android:id="@+id/homeItem15_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:background="@mipmap/home_video2" />
-                </LinearLayout>
-                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/home_video2" />
+                <ImageView
+                    android:id="@+id/homeItem15_3"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/homeItem15_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@mipmap/home_video3" />
-
-                    <ImageView
-                        android:id="@+id/homeItem15_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:background="@mipmap/home_video4" />
-                </LinearLayout>
-                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/home_video3" />
 
-                    <ImageView
-                        android:id="@+id/homeItem15_5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@mipmap/home_video5" />
-
-                    <ImageView
-                        android:id="@+id/homeItem15_6"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:background="@mipmap/home_video6" />
-                </LinearLayout>
             </LinearLayout>
             <!--彩票-->
             <LinearLayout
@@ -403,6 +360,7 @@
                     android:background="@mipmap/home_item_16_2" />
                 <ImageView
                     android:id="@+id/homeItem16_1"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

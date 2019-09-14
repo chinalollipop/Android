@@ -18,6 +18,7 @@ public interface BalanceTransferContract {
         public void postBanalceTransferLY(String appRefer, String f, String t, String b);
         public void postBanalceTransferMG(String appRefer, String f, String t, String b);
         public void postBanalceTransferAG(String appRefer, String f, String t, String b);
+        public void postBanalceTransferOG(String appRefer, String f, String t, String b);
         public void postBanalceTransferCP(String appRefer,String action, String from,String to, String fund);
         public void postPersonBalance(String appRefer,String action);
         public void postPersonBalanceCP(String appRefer,String action);
@@ -39,5 +40,6 @@ public interface BalanceTransferContract {
         public void postPersonBalanceLYResult(KYBalanceResult personBalance);
         public void postPersonBalanceMGResult(KYBalanceResult personBalance);
         public void postPersonBalanceAGResult(KYBalanceResult personBalance);
+        public void postPersonBalanceOGResult(KYBalanceResult personBalance);
     }
 }

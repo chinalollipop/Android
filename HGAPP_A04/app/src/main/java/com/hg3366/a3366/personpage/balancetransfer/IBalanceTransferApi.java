@@ -49,6 +49,10 @@ public interface IBalanceTransferApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferAG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
+    @POST("og/og_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferOG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
 
 
     //获取余额
