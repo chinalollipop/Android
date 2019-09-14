@@ -236,5 +236,29 @@
             android:layout_marginLeft="10dp"
             />
     </LinearLayout>
-
+    <LinearLayout
+        android:id="@+id/popMenuOG"
+        android:background="#979797"
+        android:layout_width="250dp"
+        android:paddingLeft="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/popMenuOGiv"
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:gravity="center|left"
+            />
+        <TextView
+            android:id="@+id/popMenuOGtv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#3D3D3D"
+            android:text="OG视讯"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
 </LinearLayout>
