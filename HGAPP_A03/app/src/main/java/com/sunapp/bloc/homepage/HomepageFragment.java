@@ -133,10 +133,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem151;
     @BindView(R.id.homeItem15_2)
     ImageView homeItem152;
-    @BindView(R.id.homeItem15_3)
-    ImageView homeItem153;
-    @BindView(R.id.homeItem15_4)
-    ImageView homeItem154;
     @BindView(R.id.homeItem15)
     LinearLayout homeItem15;
     @BindView(R.id.homeItem16_1)
@@ -185,11 +181,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String pro = "";
     private String userMoney = "";
     private int itemClick = R.mipmap.home_item_click, itemNorm = R.mipmap.home_item_nor;
-    private String userState = "9";
+    private String userState = "19";
     private int height;
     //private CheckUpgradeResult checkUpgradeResult;
     static {
-        homeGameList.add(new HomePageIcon("体育投注", R.mipmap.home_hgty, 0));
+        /*homeGameList.add(new HomePageIcon("体育投注", R.mipmap.home_hgty, 0));
         homeGameList.add(new HomePageIcon("真人视讯", R.mipmap.home_ag, 1));
         homeGameList.add(new HomePageIcon("彩票游戏", R.mipmap.home_vrcp, 2));
         homeGameList.add(new HomePageIcon("开元棋牌", R.mipmap.home_qipai, 4));
@@ -203,7 +199,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("优惠活动", R.mipmap.home_pro, 9));
         homeGameList.add(new HomePageIcon("联系我们", R.mipmap.home_contact, 10));
         homeGameList.add(new HomePageIcon("新手教学", R.mipmap.home_new, 11));
-        homeGameList.add(new HomePageIcon("皇冠公告", R.mipmap.home_remind, 12));
+        homeGameList.add(new HomePageIcon("皇冠公告", R.mipmap.home_remind, 12));*/
 //        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
 //        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
 //        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
@@ -293,7 +289,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+    @OnClick({R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvHomePageLogin:
@@ -369,7 +365,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postBYGame("","");
                 }
                 break;
-            case R.id.homeItem15_2://AG国际厅
+            case R.id.homeItem15_2://OG视讯
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
@@ -378,50 +374,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "1";
+                userState = "9";
                 playName = "AG国际厅";
-                String video_url2 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
+                presenter.postOGGame("","");
+                /*String video_url2 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
                 if ("1".equals(video_url2)) {
                     presenter.postMaintain();
                 } else {
                     presenter.postBYGame("","");
-                }
-                break;
-            case R.id.homeItem15_3://AG赌场厅
-                if (Check.isEmpty(userName)) {
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                userState = "1";
-                playName = "AG赌场厅";
-                String video_url3 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
-                if ("1".equals(video_url3)) {
-                    presenter.postMaintain();
-                } else {
-                    presenter.postBYGame("","");
-                }
-                break;
-            case R.id.homeItem15_4://AG竞咪厅
-                if (Check.isEmpty(userName)) {
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                playName = "AG竞咪厅";
-                userState = "1";
-                String video_url4 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
-                if ("1".equals(video_url4)) {
-                    presenter.postMaintain();
-                } else {
-                    presenter.postBYGame("","");
-                }
+                }*/
                 break;
             case R.id.homeItem15:
                 break;
@@ -1195,6 +1156,22 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postOGResult(AGGameLoginResult qipaiResult) {
+        GameLog.log("OG的返回数据："+qipaiResult.getUrl());
+        //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
+        /*Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","OG视讯");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);*/
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(qipaiResult.getUrl()));
+        startActivity(intent);
+        //ACache.get(getContext()).put(HGConstant.USERNAME_OG_QIPAI_URL,qipaiResult.getUrl());
+        GameLog.log("=============OG的地址=============");
+    }
+
+    @Override
     public void postCPResult(CPResult cpResult) {
         GameLog.log("返回的数据结构："+cpResult.toString());
         this.cpResult = cpResult;
@@ -1327,6 +1304,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                     GameLog.log("ly " + maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN, maintainResult1.getState());
+                    break;
+                case "og":
+                    if(userState.equals("9")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("og "+maintainResult1.getState());
+                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                     break;
             }
         }

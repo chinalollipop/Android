@@ -1020,7 +1020,6 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuMGiv.setBackgroundResource(0);
                 popMenuAviaGiv.setBackgroundResource(0);
                 popMenuOGiv.setBackgroundResource(0);
-                popMenuOGiv.setBackgroundResource(0);
                 popMenuHGtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuCPtv.setTextColor(getResources().getColor(R.color.pop_normal));
                 popMenuAGtv.setTextColor(getResources().getColor(R.color.pop_hight));
