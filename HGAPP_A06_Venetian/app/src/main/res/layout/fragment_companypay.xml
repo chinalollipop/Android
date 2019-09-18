@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/h_edit_height"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="40dp">
+        >
 
         <TextView
             android:layout_width="90dp"
@@ -100,12 +100,24 @@
         <TextView
             android:id="@+id/tvDepositCompanyPayBank"
             android:background="@mipmap/icon_textview_transfer"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:paddingLeft="10dp"
             android:gravity="left|center"
-            android:inputType="number"
+            android:maxEms="2"
             android:text="请选择输入银行" />
+
+        <TextView
+            android:id="@+id/tvDepositBankName"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="复制"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_normal"
+            android:gravity="center"
+            />
     </LinearLayout>
 
     <TextView
@@ -123,7 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/h_edit_height"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="40dp">
+        >
 
         <TextView
             android:layout_width="90dp"
@@ -134,12 +146,23 @@
 
         <TextView
             android:id="@+id/tvDepositCompanyPayBankNumber"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:paddingLeft="10dp"
             android:gravity="left|center"
             android:inputType="number"
             android:text="银行账号" />
+        <TextView
+            android:id="@+id/tvDepositBankNumber"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="复制"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_normal"
+            android:gravity="center"
+            />
     </LinearLayout>
 
     <TextView

@@ -42,6 +42,10 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
     EditText etDepositCompanyPayName;
     @BindView(R.id.tvDepositCompanyPayBank)
     TextView tvDepositCompanyPayBank;
+    @BindView(R.id.tvDepositBankName)
+    TextView tvDepositBankName;
+    @BindView(R.id.tvDepositBankNumber)
+    TextView tvDepositBankNumber;
     @BindView(R.id.tvDepositCompanyPayBankNumber)
     TextView tvDepositCompanyPayBankNumber;
     @BindView(R.id.tvDepositCompanyPayBankAddress)
@@ -201,9 +205,17 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
         //EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(dataBean.getUrl(), thirdBankMoney, dataBean.getUserid(), dataBean.getId(), bankCode), SupportFragment.SINGLETASK));
     }
 
-    @OnClick({R.id.btnDepositCompanyPaySubmit,R.id.tvDepositCompanyPayBank,R.id.tvDepositCompanyPayChannel,R.id.tvDepositCompanyPayTime})
+    @OnClick({R.id.tvDepositBankName,R.id.tvDepositBankNumber,R.id.btnDepositCompanyPaySubmit,R.id.tvDepositCompanyPayBank,R.id.tvDepositCompanyPayChannel,R.id.tvDepositCompanyPayTime})
     public void onViewClicked(View view ) {
         switch (view.getId()){
+            case R.id.tvDepositBankName:
+                CLipHelper.copy(getContext(),tvDepositCompanyPayBank.getText().toString());
+                showMessage("复制成功！");
+                break;
+            case R.id.tvDepositBankNumber:
+                CLipHelper.copy(getContext(),tvDepositCompanyPayBankNumber.getText().toString());
+                showMessage("复制成功！");
+                break;
             case R.id.btnDepositCompanyPaySubmit:
                 DoubleClickHelper.getNewInstance().disabledView(btnDepositCompanyPaySubmit);
                 onCheckThirdMobilePay();

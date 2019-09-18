@@ -1206,7 +1206,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         } catch (Exception e) {
             e.printStackTrace();
         }
-        intent.putExtra("gameCnName", "国民彩票");
+        intent.putExtra("gameCnName", "彩票");
         intent.putExtra("hidetitlebar", false);
         getActivity().startActivity(intent);
     }
