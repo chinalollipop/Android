@@ -120,7 +120,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         rvMyList.setLayoutManager(gridLayoutManager);
         //rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
         rvMyList.setAdapter(new RvMylistAdapter(getContext(),R.layout.item_person,myList));
-        PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
+        /*PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
         if(null == packageInfo)
         {
             Timber.e("检查更新失败，获取不到app版本号");
@@ -128,7 +128,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         }
         String localver = packageInfo.versionName;
         GameLog.log("当前APP的版本号是："+localver);
-        personVersion.setText("V:"+localver);
+        personVersion.setText("V:"+localver);*/
     }
 
     class RvMylistAdapter extends com.hg3366.a3366.common.adapters.AutoSizeRVAdapter<String>{

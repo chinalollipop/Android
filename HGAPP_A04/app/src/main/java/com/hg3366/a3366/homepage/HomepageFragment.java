@@ -206,7 +206,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameNewList.add(new HomePageIcon("体育投注=Sports event", R.mipmap.home_item_1, R.mipmap.home_item_11, 17, true));
         homeGameNewList.add(new HomePageIcon("真人娱乐=Live Casino", R.mipmap.home_item_3, R.mipmap.home_item_33, 15, false));
         homeGameNewList.add(new HomePageIcon("彩票游戏=Lottery game", R.mipmap.home_item_2, R.mipmap.home_item_22, 16, false));
-        homeGameNewList.add(new HomePageIcon("电子游戏=Electronic games", R.mipmap.home_item_4, R.mipmap.home_item_44, 18, false));
+        homeGameNewList.add(new HomePageIcon("电子游戏=Electronic\ngames", R.mipmap.home_item_4, R.mipmap.home_item_44, 18, false));
         homeGameNewList.add(new HomePageIcon("棋牌游戏=Chess game", R.mipmap.home_item_5, R.mipmap.home_item_55, 19, false));
         homeGameNewList.add(new HomePageIcon("电子竞技=E-sports", R.mipmap.home_item_6, R.mipmap.home_item_66, 20, false));
         homeGameNewList.add(new HomePageIcon("捕鱼游戏=Fishing game", R.mipmap.home_item_7, R.mipmap.home_item_77, 21, false));

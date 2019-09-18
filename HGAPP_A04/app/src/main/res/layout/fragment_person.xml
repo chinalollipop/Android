@@ -66,22 +66,21 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="10dp"
-
                         android:gravity="top">
 
                         <TextView
                             android:id="@+id/personCZ"
-                            android:layout_width="50dp"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:drawableTop="@mipmap/icon_my_deposit"
-                            android:drawablePadding="10dp"
                             android:textColor="#2d3134"
                             android:gravity="center"
                             android:text="充值" />
@@ -94,10 +93,9 @@
 
                         <TextView
                             android:id="@+id/personZH"
-                            android:layout_width="60dp"
+                            android:layout_width="70dp"
                             android:layout_height="match_parent"
                             android:drawableTop="@mipmap/icon_my_transfer"
-                            android:drawablePadding="10dp"
                             android:textColor="#2d3134"
                             android:gravity="center"
                             android:text="额度转换" />
@@ -110,10 +108,9 @@
 
                         <TextView
                             android:id="@+id/personYHK"
-                            android:layout_width="50dp"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:drawableTop="@mipmap/icon_my_bank_card"
-                            android:drawablePadding="10dp"
                             android:textColor="#2d3134"
                             android:gravity="center"
                             android:text="银行卡" />
@@ -126,10 +123,9 @@
 
                         <TextView
                             android:id="@+id/personTX"
-                            android:layout_width="50dp"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:drawableTop="@mipmap/icon_my_withdraw_deposit"
-                            android:drawablePadding="10dp"
                             android:textColor="#2d3134"
                             android:gravity="center"
                             android:text="提现" />
@@ -140,22 +136,24 @@
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="4dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tvPersonHg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
                             android:text="￥0.00"
                             android:textColor="@color/cp_hall_tv"
-                            android:textSize="22sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="1"
                             android:text="钱包中心"
                             android:textColor="@color/cp_hall_tv"
                             android:textSize="18sp" />
