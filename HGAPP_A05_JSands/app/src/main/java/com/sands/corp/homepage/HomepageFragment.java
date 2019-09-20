@@ -123,11 +123,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     HomePageContract.Presenter presenter;
     @BindView(R.id.homeDeposite1)
-    ImageView homeDeposite1;
+    TextView homeDeposite1;
     @BindView(R.id.homeDeposite2)
-    ImageView homeDeposite2;
+    TextView homeDeposite2;
     @BindView(R.id.homeDeposite3)
-    ImageView homeDeposite3;
+    TextView homeDeposite3;
     @BindView(R.id.homeItem15_1)
     ImageView homeItem151;
     @BindView(R.id.homeItem15_2)
