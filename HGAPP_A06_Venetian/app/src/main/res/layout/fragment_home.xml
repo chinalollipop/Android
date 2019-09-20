@@ -221,8 +221,197 @@
             android:id="@+id/rv_homepage_game_hall"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:visibility="gone"
             android:fadeScrollbars="true" />
 
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/homeLeft1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_click"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_11" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="真人视讯"
+                    android:textSize="13sp"
+                    android:textColor="@color/home_item_click" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLeft3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_nor"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_3" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="体育竞技"
+                    android:textSize="13sp"
+                    android:textColor="@color/register_left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLeft5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_nor"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_4" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="棋牌游戏"
+                    android:textSize="13sp"
+                    android:textColor="@color/register_left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLeft6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_nor"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_6" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="电子竞技"
+                    android:textSize="13sp"
+                    android:textColor="@color/register_left" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/homeLeft4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_nor"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_4" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="电子游戏"
+                    android:textSize="13sp"
+                    android:textColor="@color/register_left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLeft7"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_nor"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_7" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="捕鱼游戏"
+                    android:textSize="13sp"
+                    android:textColor="@color/register_left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLeft2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/home_item_nor"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/homeLeftIV2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/home_item_2" />
+
+                <TextView
+                    android:id="@+id/homeLeftTV2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="彩票游戏"
+                    android:textSize="13sp"
+                    android:textColor="@color/register_left" />
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -61,12 +60,10 @@ import com.sunapp.bloc.homepage.online.OnlineFragment;
 import com.sunapp.bloc.login.fastlogin.LoginFragment;
 import com.sunapp.bloc.personpage.accountcenter.AccountCenterFragment;
 import com.sunapp.bloc.personpage.balancetransfer.BalanceTransferFragment;
-import com.sunapp.bloc.personpage.bindingcard.BindingCardFragment;
 import com.sunapp.bloc.withdrawPage.WithdrawFragment;
 import com.sunapp.common.util.Check;
 import com.sunapp.common.util.GameLog;
 import com.sunapp.common.util.NetworkUtils;
-import com.sunapp.common.util.Utils;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieManager;
@@ -80,7 +77,6 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -115,9 +111,50 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     RollPagerView rollpageview;
     @BindView(R.id.tv_homapage_bulletin)
     MarqueeTextView tvHomapageBulletin;
-    @BindView(R.id.rv_homepage_game_hall)
-    RecyclerView rvHomapageGameHall;
-
+    /*@BindView(R.id.rv_homepage_game_hall)
+    RecyclerView rvHomapageGameHall;*/
+    @BindView(R.id.homeLeft1)
+    LinearLayout homeLeft1;
+    @BindView(R.id.homeLeftIV1)
+    ImageView homeLeftIV1;
+    @BindView(R.id.homeLeftTV1)
+    TextView homeLeftTV1;
+    @BindView(R.id.homeLeft2)
+    LinearLayout homeLeft2;
+    @BindView(R.id.homeLeftIV2)
+    ImageView homeLeftIV2;
+    @BindView(R.id.homeLeftTV2)
+    TextView homeLeftTV2;
+    @BindView(R.id.homeLeft3)
+    LinearLayout homeLeft3;
+    @BindView(R.id.homeLeftIV3)
+    ImageView homeLeftIV3;
+    @BindView(R.id.homeLeftTV3)
+    TextView homeLeftTV3;
+    @BindView(R.id.homeLeft4)
+    LinearLayout homeLeft4;
+    @BindView(R.id.homeLeftIV4)
+    ImageView homeLeftIV4;
+    @BindView(R.id.homeLeftTV4)
+    TextView homeLeftTV4;
+    @BindView(R.id.homeLeft5)
+    LinearLayout homeLeft5;
+    @BindView(R.id.homeLeftIV5)
+    ImageView homeLeftIV5;
+    @BindView(R.id.homeLeftTV5)
+    TextView homeLeftTV5;
+    @BindView(R.id.homeLeft6)
+    LinearLayout homeLeft6;
+    @BindView(R.id.homeLeftIV6)
+    ImageView homeLeftIV6;
+    @BindView(R.id.homeLeftTV6)
+    TextView homeLeftTV6;
+    @BindView(R.id.homeLeft7)
+    LinearLayout homeLeft7;
+    @BindView(R.id.homeLeftIV7)
+    ImageView homeLeftIV7;
+    @BindView(R.id.homeLeftTV7)
+    TextView homeLeftTV7;
 
     private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
     private static List<HomePageIcon> homeGameNewList = new ArrayList<HomePageIcon>();
@@ -204,14 +241,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 //        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
 //        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
         //新游戏列表
-        homeGameNewList.add(new HomePageIcon("真人视讯", R.mipmap.home_item_1, R.mipmap.home_item_11, 15, true));
+       /* homeGameNewList.add(new HomePageIcon("真人视讯", R.mipmap.home_item_1, R.mipmap.home_item_11, 15, true));
         homeGameNewList.add(new HomePageIcon("彩票游戏", R.mipmap.home_item_2, R.mipmap.home_item_22, 16, false));
         homeGameNewList.add(new HomePageIcon("体育竞技", R.mipmap.home_item_3, R.mipmap.home_item_33, 17, false));
         homeGameNewList.add(new HomePageIcon("电子游戏", R.mipmap.home_item_4, R.mipmap.home_item_44, 18, false));
         homeGameNewList.add(new HomePageIcon("棋牌游戏", R.mipmap.home_item_5, R.mipmap.home_item_55, 19, false));
         homeGameNewList.add(new HomePageIcon("电子竞技", R.mipmap.home_item_6, R.mipmap.home_item_66, 20, false));
         homeGameNewList.add(new HomePageIcon("捕鱼游戏", R.mipmap.home_item_7, R.mipmap.home_item_77, 21, false));
-
+*/
     }
 
     public static HomepageFragment newInstance() {
@@ -239,7 +276,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        initPX(Utils.getContext());
+        //initPX(Utils.getContext());
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
         if (!Check.isNull(domainUrl) && domainUrl.getList().size() > 0) {
@@ -250,8 +287,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
             }
         }
-
-        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
+        /*LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         rvHomapageGameHall.setLayoutManager(gridLayoutManager);
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
@@ -261,7 +297,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new_2, homeGameNewList));
         }else {
             rvHomapageGameHall.setAdapter(new HomaPageGameNewAdapter(getContext(), R.layout.item_game_hall_new, homeGameNewList));
-        }
+        }*/
         BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
         if (!Check.isNull(bannerResult)) {
             rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
@@ -289,10 +325,158 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     }
 
+    private void setLayClick(LinearLayout linearLayout, TextView textView){
+        linearLayout.setBackgroundResource(itemClick);
+        textView.setTextColor(getResources().getColor(R.color.register_left));
+    }
+    private void setLayNorm(LinearLayout linearLayout,TextView textView){
+        linearLayout.setBackgroundResource(itemNorm);
+        textView.setTextColor(getResources().getColor(R.color.home_item_normal));
+    }
 
-    @OnClick({R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+    private void initLeftInfo(int postion) {
+        switch (postion){
+            case 1:
+                setLayClick(homeLeft1,homeLeftTV1);
+                setLayNorm(homeLeft2,homeLeftTV2);
+                setLayNorm(homeLeft3,homeLeftTV3);
+                setLayNorm(homeLeft4,homeLeftTV4);
+                setLayNorm(homeLeft5,homeLeftTV5);
+                setLayNorm(homeLeft6,homeLeftTV6);
+                setLayNorm(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_11));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_2));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_3));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_4));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_5));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_6));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_7));
+                break;
+            case 2:
+                setLayNorm(homeLeft1,homeLeftTV1);
+                setLayClick(homeLeft2,homeLeftTV2);
+                setLayNorm(homeLeft3,homeLeftTV3);
+                setLayNorm(homeLeft4,homeLeftTV4);
+                setLayNorm(homeLeft5,homeLeftTV5);
+                setLayNorm(homeLeft6,homeLeftTV6);
+                setLayNorm(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_1));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_22));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_3));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_4));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_5));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_6));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_7));
+                break;
+            case 3:
+                setLayNorm(homeLeft1,homeLeftTV1);
+                setLayNorm(homeLeft2,homeLeftTV2);
+                setLayClick(homeLeft3,homeLeftTV3);
+                setLayNorm(homeLeft4,homeLeftTV4);
+                setLayNorm(homeLeft5,homeLeftTV5);
+                setLayNorm(homeLeft6,homeLeftTV6);
+                setLayNorm(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_1));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_2));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_33));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_4));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_5));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_6));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_7));
+                break;
+            case 4:
+                setLayNorm(homeLeft1,homeLeftTV1);
+                setLayNorm(homeLeft2,homeLeftTV2);
+                setLayNorm(homeLeft3,homeLeftTV3);
+                setLayClick(homeLeft4,homeLeftTV4);
+                setLayNorm(homeLeft5,homeLeftTV5);
+                setLayNorm(homeLeft6,homeLeftTV6);
+                setLayNorm(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_1));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_2));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_3));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_44));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_5));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_6));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_7));
+                break;
+            case 5:
+                setLayNorm(homeLeft1,homeLeftTV1);
+                setLayNorm(homeLeft2,homeLeftTV2);
+                setLayNorm(homeLeft3,homeLeftTV3);
+                setLayNorm(homeLeft4,homeLeftTV4);
+                setLayClick(homeLeft5,homeLeftTV5);
+                setLayNorm(homeLeft6,homeLeftTV6);
+                setLayNorm(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_1));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_2));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_3));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_4));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_55));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_6));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_7));
+                break;
+            case 6:
+                setLayNorm(homeLeft1,homeLeftTV1);
+                setLayNorm(homeLeft2,homeLeftTV2);
+                setLayNorm(homeLeft3,homeLeftTV3);
+                setLayNorm(homeLeft4,homeLeftTV4);
+                setLayNorm(homeLeft5,homeLeftTV5);
+                setLayClick(homeLeft6,homeLeftTV6);
+                setLayNorm(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_1));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_2));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_3));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_4));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_5));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_66));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_7));
+                break;
+            case 7:
+                setLayNorm(homeLeft1,homeLeftTV1);
+                setLayNorm(homeLeft2,homeLeftTV2);
+                setLayNorm(homeLeft3,homeLeftTV3);
+                setLayNorm(homeLeft4,homeLeftTV4);
+                setLayNorm(homeLeft5,homeLeftTV5);
+                setLayNorm(homeLeft6,homeLeftTV6);
+                setLayClick(homeLeft7,homeLeftTV7);
+                homeLeftIV1.setBackground(getResources().getDrawable(R.mipmap.home_item_1));
+                homeLeftIV2.setBackground(getResources().getDrawable(R.mipmap.home_item_2));
+                homeLeftIV3.setBackground(getResources().getDrawable(R.mipmap.home_item_3));
+                homeLeftIV4.setBackground(getResources().getDrawable(R.mipmap.home_item_4));
+                homeLeftIV5.setBackground(getResources().getDrawable(R.mipmap.home_item_5));
+                homeLeftIV6.setBackground(getResources().getDrawable(R.mipmap.home_item_6));
+                homeLeftIV7.setBackground(getResources().getDrawable(R.mipmap.home_item_77));
+                break;
+        }
+        onHomeGameItemNewClick(14+postion);
+    }
+
+
+    @OnClick({R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.homeLeft1:
+                initLeftInfo(1);
+                break;
+            case R.id.homeLeft2:
+                initLeftInfo(2);
+                break;
+            case R.id.homeLeft3:
+                initLeftInfo(3);
+                break;
+            case R.id.homeLeft4:
+                initLeftInfo(4);
+                break;
+            case R.id.homeLeft5:
+                initLeftInfo(5);
+                break;
+            case R.id.homeLeft6:
+                initLeftInfo(6);
+                break;
+            case R.id.homeLeft7:
+                initLeftInfo(7);
+                break;
             case R.id.tvHomePageLogin:
                 //start(LoginFragment.newInstance());  启动一个新的Fragment 但是还是覆盖在以前的Fragemnet的基础上
                 EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -921,7 +1105,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
-        rvHomapageGameHall.setNestedScrollingEnabled(false);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(new LineChoiceAdapter(getContext(), R.layout.pop_line_choice_item, domainUrl.getList()));
         mCustomPopWindowIn = new CustomPopWindow.PopupWindowBuilder(getContext())
                 .setView(contentView)
