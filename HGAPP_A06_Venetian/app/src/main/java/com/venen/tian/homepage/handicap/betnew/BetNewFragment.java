@@ -606,7 +606,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
 
     private void postCPGo(){
-        showMessage("正在加载中，请稍后再试!");
+        showMessage("正在加载中...");
         presenter.postCP();
 
     }

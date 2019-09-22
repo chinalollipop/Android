@@ -606,7 +606,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
 
     private void postCPGo(){
-        showMessage("正在加载中，请稍后再试!");
+        showMessage("正在加载中...");
         presenter.postCP();
 
     }
@@ -896,7 +896,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
         } catch (Exception e) {
             e.printStackTrace();
         }
-        intent.putExtra("gameCnName", "彩票");
+        intent.putExtra("gameCnName", "宏发彩票");
         intent.putExtra("hidetitlebar", false);
         getActivity().startActivity(intent);
         /*ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());

@@ -164,6 +164,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
+                            String alias2 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                            if(Check.isEmpty(alias2)){
+                                showMessage("未绑定真实姓名");
+                                EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                                return;
+                            }
                             EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             break;
                         case 3:
