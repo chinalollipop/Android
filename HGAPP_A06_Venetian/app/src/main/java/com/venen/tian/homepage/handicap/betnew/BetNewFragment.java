@@ -896,7 +896,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
         } catch (Exception e) {
             e.printStackTrace();
         }
-        intent.putExtra("gameCnName", "国民彩票");
+        intent.putExtra("gameCnName", "彩票");
         intent.putExtra("hidetitlebar", false);
         getActivity().startActivity(intent);
         /*ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());
