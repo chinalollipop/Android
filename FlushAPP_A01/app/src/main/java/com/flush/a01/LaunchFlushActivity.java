@@ -65,7 +65,10 @@ public class LaunchFlushActivity extends AppCompatActivity {
     @BindView(R.id.clearCookie)
     TextView clearCookie;
     private boolean ifStop = false;
-    String domainUrl = "http://admin.hgw888.co/";
+    //String domainUrl = "http://admin.hgw888.co/";//6668 0086
+    //String domainUrl = "http://admin.js33377.com/";//金沙
+    String domainUrl = "http://admin.100372.com/";//3366
+
     List<DomainAllResult.DataBean> domainListResults = new ArrayList<>();
     DomainAllResult domainUrlList;
     MyHttpClient myHttpClient = new MyHttpClient();
@@ -97,7 +100,7 @@ public class LaunchFlushActivity extends AppCompatActivity {
 
     private void initDemon() {
         InputDialog.show(LaunchFlushActivity.this, "提示", "请输入刷水域名地址", "确定", "取消")
-                .setInputText("http://admin.hgw777.co/")
+                .setInputText(domainUrl)//"http://admin.hgw777.co/"
                 .setOnOkButtonClickListener(new OnInputDialogButtonClickListener() {
                     @Override
                     public boolean onClick(BaseDialog baseDialog, View v, String inputStr) {
