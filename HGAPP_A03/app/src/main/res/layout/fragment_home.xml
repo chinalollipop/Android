@@ -89,9 +89,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:text="公告"
-                android:textColor="#47444c"
+                android:textColor="@color/btn_text"
                 android:textStyle="bold" />
 
             <com.sunapp.bloc.common.widgets.MarqueeTextView
@@ -110,7 +109,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@mipmap/home_center"
@@ -124,6 +123,7 @@
 
             <TextView
                 android:id="@+id/homeUserName"
+                android:layout_marginTop="2dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -144,31 +144,33 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="38dp"
                 android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
                 >
                 <TextView
                     android:id="@+id/homeMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
                     android:text="￥0.00"
                     android:textSize="12sp"
                     android:textColor="@color/event_line_title" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
                     android:text="中心钱包"
-                    android:textSize="11sp"
+                    android:textSize="12sp"
                     android:textColor="#5c5c5c" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="50dp">
                 <TextView
                     android:background="#5c5c5c"
@@ -180,8 +182,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:drawableTop="@mipmap/home_center1"
-                    android:textColor="#5c5c5c"
-                    android:textSize="11sp"
+                    android:textColor="@color/event_line_title"
+                    android:textSize="12sp"
                     android:gravity="center"
                     android:text="存款"
                     android:layout_weight="1" />
@@ -190,8 +192,8 @@
                     android:id="@+id/homeDeposite2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="#5c5c5c"
-                    android:textSize="11sp"
+                    android:textColor="@color/event_line_title"
+                    android:textSize="12sp"
                     android:drawableTop="@mipmap/home_center2"
                     android:text="转账"
                     android:layout_gravity="center"
@@ -202,8 +204,8 @@
                     android:id="@+id/homeDeposite3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="#5c5c5c"
-                    android:textSize="11sp"
+                    android:textColor="@color/event_line_title"
+                    android:textSize="12sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:drawableTop="@mipmap/home_center3"
