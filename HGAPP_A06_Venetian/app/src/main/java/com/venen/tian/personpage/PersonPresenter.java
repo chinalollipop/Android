@@ -8,6 +8,7 @@ import com.venen.tian.common.util.ACache;
 import com.venen.tian.common.util.HGConstant;
 import com.venen.tian.common.util.RxHelper;
 import com.venen.tian.common.util.SubscriptionHelper;
+import com.venen.tian.data.AGGameLoginResult;
 import com.venen.tian.data.CPResult;
 import com.venen.tian.data.NoticeResult;
 import com.venen.tian.data.PersonBalanceResult;
@@ -222,6 +223,33 @@ public class PersonPresenter implements PersonContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postBYGame(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postBYGame(HGConstant.PRODUCT_PLATFORM,gameid))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<AGGameLoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<AGGameLoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postGoPlayGameResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

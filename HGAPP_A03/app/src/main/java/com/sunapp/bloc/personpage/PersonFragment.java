@@ -23,6 +23,7 @@ import com.sunapp.bloc.common.util.GameShipHelper;
 import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.common.widgets.GridRvItemDecoration;
 import com.sunapp.bloc.common.widgets.NTitleBar;
+import com.sunapp.bloc.data.AGGameLoginResult;
 import com.sunapp.bloc.data.CPResult;
 import com.sunapp.bloc.data.LoginResult;
 import com.sunapp.bloc.data.NoticeResult;
@@ -385,6 +386,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postCPResult(CPResult cpResult) {
+
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
     }
 

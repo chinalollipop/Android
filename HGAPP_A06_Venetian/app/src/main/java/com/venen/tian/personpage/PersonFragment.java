@@ -23,6 +23,7 @@ import com.venen.tian.common.util.GameShipHelper;
 import com.venen.tian.common.util.HGConstant;
 import com.venen.tian.common.widgets.GridRvItemDecoration;
 import com.venen.tian.common.widgets.NTitleBar;
+import com.venen.tian.data.AGGameLoginResult;
 import com.venen.tian.data.CPResult;
 import com.venen.tian.data.LoginResult;
 import com.venen.tian.data.NoticeResult;
@@ -385,6 +386,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postCPResult(CPResult cpResult) {
+
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
     }
 

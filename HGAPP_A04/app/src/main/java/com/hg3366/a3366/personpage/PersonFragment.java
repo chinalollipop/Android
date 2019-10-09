@@ -24,6 +24,7 @@ import com.hg3366.a3366.common.util.GameShipHelper;
 import com.hg3366.a3366.common.util.HGConstant;
 import com.hg3366.a3366.common.widgets.GridRvItemDecoration;
 import com.hg3366.a3366.common.widgets.NTitleBar;
+import com.hg3366.a3366.data.AGGameLoginResult;
 import com.hg3366.a3366.data.CPResult;
 import com.hg3366.a3366.data.LoginResult;
 import com.hg3366.a3366.data.NoticeResult;
@@ -385,6 +386,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postCPResult(CPResult cpResult) {
+
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
     }
 

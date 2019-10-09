@@ -4,6 +4,7 @@ import com.venen.tian.base.IMessageView;
 import com.venen.tian.base.IPresenter;
 import com.venen.tian.base.IProgressView;
 import com.venen.tian.base.IView;
+import com.venen.tian.data.AGGameLoginResult;
 import com.venen.tian.data.CPResult;
 import com.venen.tian.data.NoticeResult;
 import com.venen.tian.data.PersonBalanceResult;
@@ -20,7 +21,7 @@ public interface PersonContract {
         public void postNoticeList(String appRefer);
         public void postCP();
         public void logOut();
-
+        public void postBYGame(String appRefer, String gameid);
     }
     public interface View extends IView<Presenter>,IMessageView,IProgressView
     {
@@ -31,6 +32,7 @@ public interface PersonContract {
         public void postNoticeListResult(NoticeResult noticeResult);
         public void postPersonLogoutResult(String message);
         public void postCPResult(CPResult cpResult);
+        public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult);
     }
 
 }

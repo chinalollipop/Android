@@ -2,6 +2,7 @@ package com.sunapp.bloc.personpage;
 
 import com.sunapp.bloc.common.http.request.AppTextMessageResponse;
 import com.sunapp.bloc.common.http.request.AppTextMessageResponseList;
+import com.sunapp.bloc.data.AGGameLoginResult;
 import com.sunapp.bloc.data.CPResult;
 import com.sunapp.bloc.data.NoticeResult;
 import com.sunapp.bloc.data.PersonBalanceResult;
@@ -58,5 +59,10 @@ public interface IPersonApi {
     @Headers({"Domain-Name: CpUrl"})
     @GET()
     public Observable<AppTextMessageResponse<Object>> getLogOutCP(@Url String path);
+
+    //AG游戏
+    @POST("zrsx_login.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postBYGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid);
 
 }

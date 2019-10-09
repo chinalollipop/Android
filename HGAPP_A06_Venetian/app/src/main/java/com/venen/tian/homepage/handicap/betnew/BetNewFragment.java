@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
@@ -28,6 +29,7 @@ import com.venen.tian.common.util.ACache;
 import com.venen.tian.common.util.ArrayListHelper;
 import com.venen.tian.common.util.GameShipHelper;
 import com.venen.tian.common.util.HGConstant;
+import com.venen.tian.data.AGGameLoginResult;
 import com.venen.tian.data.CPResult;
 import com.venen.tian.data.LoginResult;
 import com.venen.tian.data.NoticeResult;
@@ -571,11 +573,11 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
                 showMessage("暂无赛事");
                 break;
             case R.id.tvBetNewVideoGame:
-                onHideDeatail();
-                //pop();
+                presenter.postBYGame("","");
+                /*onHideDeatail();
                 popTo(HandicapFragment.class,true);
                 BottombarViewManager.getSingleton().onCloseView();
-                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(getArgParam1,getArgParam2,"live")), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(getArgParam1,getArgParam2,"live")), SupportFragment.SINGLETASK));*/
                 break;
             case R.id.tvBetNewSlotsGame:
                 onHideDeatail();
@@ -604,6 +606,15 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
         }
     }
 
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
+        onHideDeatail();
+        popTo(HandicapFragment.class,true);
+        BottombarViewManager.getSingleton().onCloseView();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(agGameLoginResult.getUrl()));
+        startActivity(intent);
+    }
 
     private void postCPGo(){
         showMessage("正在加载中...");

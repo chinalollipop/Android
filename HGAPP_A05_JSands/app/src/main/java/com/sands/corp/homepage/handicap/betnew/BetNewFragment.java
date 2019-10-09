@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
@@ -28,6 +29,7 @@ import com.sands.corp.common.util.ACache;
 import com.sands.corp.common.util.ArrayListHelper;
 import com.sands.corp.common.util.GameShipHelper;
 import com.sands.corp.common.util.HGConstant;
+import com.sands.corp.data.AGGameLoginResult;
 import com.sands.corp.data.CPResult;
 import com.sands.corp.data.LoginResult;
 import com.sands.corp.data.NoticeResult;
@@ -571,11 +573,11 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
                 showMessage("暂无赛事");
                 break;
             case R.id.tvBetNewVideoGame:
-                onHideDeatail();
-                //pop();
+                /*onHideDeatail();
                 popTo(HandicapFragment.class,true);
                 BottombarViewManager.getSingleton().onCloseView();
-                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(getArgParam1,getArgParam2,"live")), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(getArgParam1,getArgParam2,"live")), SupportFragment.SINGLETASK));*/
+                presenter.postBYGame("","");
                 break;
             case R.id.tvBetNewSlotsGame:
                 onHideDeatail();
@@ -915,6 +917,16 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
             }
         });
         pop();*/
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
+        onHideDeatail();
+        popTo(HandicapFragment.class,true);
+        BottombarViewManager.getSingleton().onCloseView();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(agGameLoginResult.getUrl()));
+        startActivity(intent);
     }
 
     @Override

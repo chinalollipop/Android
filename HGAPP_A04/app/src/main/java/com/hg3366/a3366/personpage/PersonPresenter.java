@@ -9,6 +9,7 @@ import com.hg3366.a3366.common.util.ACache;
 import com.hg3366.a3366.common.util.HGConstant;
 import com.hg3366.a3366.common.util.RxHelper;
 import com.hg3366.a3366.common.util.SubscriptionHelper;
+import com.hg3366.a3366.data.AGGameLoginResult;
 import com.hg3366.a3366.data.CPResult;
 import com.hg3366.a3366.data.NoticeResult;
 import com.hg3366.a3366.data.PersonBalanceResult;
@@ -226,6 +227,33 @@ public class PersonPresenter implements PersonContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postBYGame(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postBYGame(HGConstant.PRODUCT_PLATFORM,gameid))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<AGGameLoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<AGGameLoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postGoPlayGameResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

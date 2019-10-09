@@ -8,6 +8,7 @@ import com.sands.corp.common.util.ACache;
 import com.sands.corp.common.util.HGConstant;
 import com.sands.corp.common.util.RxHelper;
 import com.sands.corp.common.util.SubscriptionHelper;
+import com.sands.corp.data.AGGameLoginResult;
 import com.sands.corp.data.CPResult;
 import com.sands.corp.data.NoticeResult;
 import com.sands.corp.data.PersonBalanceResult;
@@ -224,6 +225,33 @@ public class PersonPresenter implements PersonContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postBYGame(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postBYGame(HGConstant.PRODUCT_PLATFORM,gameid))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<AGGameLoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<AGGameLoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postGoPlayGameResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.sunapp.bloc.base.IMessageView;
 import com.sunapp.bloc.base.IPresenter;
 import com.sunapp.bloc.base.IProgressView;
 import com.sunapp.bloc.base.IView;
+import com.sunapp.bloc.data.AGGameLoginResult;
 import com.sunapp.bloc.data.CPResult;
 import com.sunapp.bloc.data.NoticeResult;
 import com.sunapp.bloc.data.PersonBalanceResult;
@@ -20,7 +21,7 @@ public interface PersonContract {
         public void postNoticeList(String appRefer);
         public void postCP();
         public void logOut();
-
+        public void postBYGame(String appRefer, String gameid);
     }
     public interface View extends IView<Presenter>,IMessageView,IProgressView
     {
@@ -31,6 +32,7 @@ public interface PersonContract {
         public void postNoticeListResult(NoticeResult noticeResult);
         public void postPersonLogoutResult(String message);
         public void postCPResult(CPResult cpResult);
+        public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult);
     }
 
 }

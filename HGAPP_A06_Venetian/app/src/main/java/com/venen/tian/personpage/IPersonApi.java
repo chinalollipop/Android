@@ -2,6 +2,7 @@ package com.venen.tian.personpage;
 
 import com.venen.tian.common.http.request.AppTextMessageResponse;
 import com.venen.tian.common.http.request.AppTextMessageResponseList;
+import com.venen.tian.data.AGGameLoginResult;
 import com.venen.tian.data.CPResult;
 import com.venen.tian.data.NoticeResult;
 import com.venen.tian.data.PersonBalanceResult;
@@ -58,5 +59,10 @@ public interface IPersonApi {
     @Headers({"Domain-Name: CpUrl"})
     @GET()
     public Observable<AppTextMessageResponse<Object>> getLogOutCP(@Url String path);
+
+    //AG游戏
+    @POST("zrsx_login.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postBYGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid);
 
 }

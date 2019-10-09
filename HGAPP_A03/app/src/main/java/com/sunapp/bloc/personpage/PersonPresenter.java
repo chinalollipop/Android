@@ -9,6 +9,7 @@ import com.sunapp.bloc.common.util.ACache;
 import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.common.util.RxHelper;
 import com.sunapp.bloc.common.util.SubscriptionHelper;
+import com.sunapp.bloc.data.AGGameLoginResult;
 import com.sunapp.bloc.data.CPResult;
 import com.sunapp.bloc.data.NoticeResult;
 import com.sunapp.bloc.data.PersonBalanceResult;
@@ -226,6 +227,33 @@ public class PersonPresenter implements PersonContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postBYGame(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postBYGame(HGConstant.PRODUCT_PLATFORM,gameid))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<AGGameLoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<AGGameLoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postGoPlayGameResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

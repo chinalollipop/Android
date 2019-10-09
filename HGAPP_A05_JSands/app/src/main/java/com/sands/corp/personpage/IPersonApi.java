@@ -2,6 +2,7 @@ package com.sands.corp.personpage;
 
 import com.sands.corp.common.http.request.AppTextMessageResponse;
 import com.sands.corp.common.http.request.AppTextMessageResponseList;
+import com.sands.corp.data.AGGameLoginResult;
 import com.sands.corp.data.CPResult;
 import com.sands.corp.data.NoticeResult;
 import com.sands.corp.data.PersonBalanceResult;
@@ -58,5 +59,11 @@ public interface IPersonApi {
     @Headers({"Domain-Name: CpUrl"})
     @GET()
     public Observable<AppTextMessageResponse<Object>> getLogOutCP(@Url String path);
+
+    //AG游戏
+    @POST("zrsx_login.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postBYGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid);
+
 
 }

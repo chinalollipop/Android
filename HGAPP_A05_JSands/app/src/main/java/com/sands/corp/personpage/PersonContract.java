@@ -4,6 +4,7 @@ import com.sands.corp.base.IMessageView;
 import com.sands.corp.base.IPresenter;
 import com.sands.corp.base.IProgressView;
 import com.sands.corp.base.IView;
+import com.sands.corp.data.AGGameLoginResult;
 import com.sands.corp.data.CPResult;
 import com.sands.corp.data.NoticeResult;
 import com.sands.corp.data.PersonBalanceResult;
@@ -20,7 +21,7 @@ public interface PersonContract {
         public void postNoticeList(String appRefer);
         public void postCP();
         public void logOut();
-
+        public void postBYGame(String appRefer, String gameid);
     }
     public interface View extends IView<Presenter>,IMessageView,IProgressView
     {
@@ -31,6 +32,7 @@ public interface PersonContract {
         public void postNoticeListResult(NoticeResult noticeResult);
         public void postPersonLogoutResult(String message);
         public void postCPResult(CPResult cpResult);
+        public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult);
     }
 
 }

@@ -2,6 +2,7 @@ package com.hg3366.a3366.personpage;
 
 import com.hg3366.a3366.common.http.request.AppTextMessageResponse;
 import com.hg3366.a3366.common.http.request.AppTextMessageResponseList;
+import com.hg3366.a3366.data.AGGameLoginResult;
 import com.hg3366.a3366.data.CPResult;
 import com.hg3366.a3366.data.NoticeResult;
 import com.hg3366.a3366.data.PersonBalanceResult;
@@ -58,5 +59,10 @@ public interface IPersonApi {
     @Headers({"Domain-Name: CpUrl"})
     @GET()
     public Observable<AppTextMessageResponse<Object>> getLogOutCP(@Url String path);
+
+    //AG游戏
+    @POST("zrsx_login.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postBYGame(@Field("appRefer") String appRefer, @Field("gameid") String gameid);
 
 }

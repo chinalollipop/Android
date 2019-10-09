@@ -23,6 +23,7 @@ import com.sands.corp.common.util.GameShipHelper;
 import com.sands.corp.common.util.HGConstant;
 import com.sands.corp.common.widgets.GridRvItemDecoration;
 import com.sands.corp.common.widgets.NTitleBar;
+import com.sands.corp.data.AGGameLoginResult;
 import com.sands.corp.data.CPResult;
 import com.sands.corp.data.LoginResult;
 import com.sands.corp.data.NoticeResult;
@@ -385,6 +386,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postCPResult(CPResult cpResult) {
+
+    }
+
+    @Override
+    public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
     }
 
