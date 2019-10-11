@@ -27,9 +27,9 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
     @Override
     public void postRegisterMember(String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
-                               String paypassword,String phone,String wechat,String birthday,String know_site) {
+                               String paypassword,String phone,String wechat,String birthday,String know_site,String code) {
         subscriptionHelper.add(RxHelper.addSugar(api.registerMember(HGConstant.PRODUCT_PLATFORM,introducer,keys,username,password,password2,
-                alias,paypassword,phone,wechat,birthday,know_site))//loginGet() login(appRefer,username,pwd) appRefer=13&type=FU&more=s
+                alias,paypassword,phone,wechat,birthday,know_site,code))//loginGet() login(appRefer,username,pwd) appRefer=13&type=FU&more=s
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<LoginResult> response) {

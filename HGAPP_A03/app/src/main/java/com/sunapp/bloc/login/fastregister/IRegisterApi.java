@@ -22,7 +22,7 @@ public interface IRegisterApi {
             @Field("appRefer") String appRefer, @Field("introducer") String introducer, @Field("keys") String keys,
             @Field("username") String username, @Field("password") String password, @Field("password2") String password2,
             @Field("alias") String alias, @Field("paypassword") String paypassword, @Field("phone") String phone,
-            @Field("wechat") String wechat, @Field("birthday") String birthday, @Field("know_site") String know_site);
+            @Field("wechat") String wechat, @Field("birthday") String birthday, @Field("know_site") String know_site, @Field("code") String code);
 
 
 
