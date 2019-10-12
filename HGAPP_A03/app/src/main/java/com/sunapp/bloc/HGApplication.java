@@ -27,6 +27,7 @@ import com.sunapp.common.util.Utils;
 import com.instacart.library.truetime.TrueTime;
 import com.lzy.okgo.OkGo;
 import com.tencent.smtt.sdk.QbSdk;
+import com.umeng.commonsdk.UMConfigure;
 
 import java.io.File;
 import java.io.IOException;
@@ -110,6 +111,7 @@ public class HGApplication extends MultiDexApplication {
         }
         deviceId+="_"+DeviceUtils.getDeviceBrand()+"_"+DeviceUtils.getDeviceModel()+"_"+DeviceUtils.getDeviceVersion();
         FlurryAgent.setUserId(deviceId);*/
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE,"");
     }
 
     private void initJPush(){

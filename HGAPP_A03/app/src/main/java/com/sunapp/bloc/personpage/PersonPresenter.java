@@ -212,7 +212,7 @@ public class PersonPresenter implements PersonContract.Presenter {
                         }
                     }
                 }));
-        RetrofitUrlManager.getInstance().putDomain("CpUrl", CPClient.baseUrl());
+        /*RetrofitUrlManager.getInstance().putDomain("CpUrl", CPClient.baseUrl());
         String token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         subscriptionHelper.add(RxHelper.addSugar(iPersonApi.getLogOutCP("login/out/?token="+token+"&x-session-token="+token))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
@@ -225,7 +225,7 @@ public class PersonPresenter implements PersonContract.Presenter {
                     public void fail(String msg) {
                         GameLog.log("日志"+msg);
                     }
-                }));
+                }));*/
 
     }
 

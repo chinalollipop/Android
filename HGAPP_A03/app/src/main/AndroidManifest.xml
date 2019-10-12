@@ -303,6 +303,9 @@
             android:name="JPUSH_APPKEY"
             android:value="082983d19500c786306313ea" /> <!--  </>值来自开发者平台取得的AppKey-->
 
+        <!--友盟统计appkey配置-->
+        <meta-data android:value="5cac9da40cafb2a2bd00148e" android:name="UMENG_APPKEY"/>
+        <!--<meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>-->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"

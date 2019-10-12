@@ -673,3 +673,15 @@
 
 -dontwarn cn.jpush.**
 -keep class cn.jpush.** { *; }
+
+#友盟统计的混淆
+-keep class com.umeng.** {*;}
+
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}

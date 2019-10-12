@@ -21,6 +21,8 @@ import com.sunapp.common.util.InputMethodUtils;
 import com.sunapp.common.util.SoftKeyBoardListener;
 import com.sunapp.common.util.Timber;
 import com.sunapp.common.util.ToastUtils;
+import com.sunapp.common.util.Utils;
+import com.umeng.analytics.MobclickAgent;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
@@ -153,6 +155,7 @@ public abstract  class HGBaseFragment extends BaseMainFragment implements IMessa
         {
             Timber.d("onResume  "+ this.getClass().getSimpleName());
         }
+        MobclickAgent.onResume(Utils.getContext());
     }
     @Override
     public void onPause()
@@ -163,6 +166,7 @@ public abstract  class HGBaseFragment extends BaseMainFragment implements IMessa
         {
             Timber.d("onPause  "+ this.getClass().getSimpleName());
         }
+        MobclickAgent.onPause(Utils.getContext());
     }
     @Override
     public void onStop()
