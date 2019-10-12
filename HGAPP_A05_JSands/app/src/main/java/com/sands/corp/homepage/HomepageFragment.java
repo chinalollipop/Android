@@ -1767,7 +1767,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         tvHomePageLogin.setVisibility(View.VISIBLE);
         ivHomePageLogin.setVisibility(View.VISIBLE);
         tvHomePageUserMoney.setVisibility(View.GONE);
-        homeMoney.setVisibility(View.GONE);
+        homeMoney.setText("￥0.00");
         userName = "";
         homeUserName.setText("未登录");
         userMoney = "";
