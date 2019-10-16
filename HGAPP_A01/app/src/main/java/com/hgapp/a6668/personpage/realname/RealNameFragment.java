@@ -263,7 +263,7 @@ public class RealNameFragment extends HGBaseFragment implements RealNameContract
             return;
         }*/
 
-        if(Check.isEmpty(userWechat)){
+        /*if(Check.isEmpty(userWechat)){
             showMessage("请输入微信号码！");
             return;
         }
@@ -271,7 +271,7 @@ public class RealNameFragment extends HGBaseFragment implements RealNameContract
         if(Check.isEmpty(userBrithday)){
             showMessage("请输入出生日期！");
             return;
-        }
+        }*/
 
         /*if(Check.isEmpty(userVerificationCode)){
             showMessage("请输入正确的验证码");
