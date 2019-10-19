@@ -2,6 +2,15 @@ package com.hgapp.a6668.data;
 
 public class AGGameLoginResult {
     private String url;
+    private String toUrl;
+
+    public String getToUrl() {
+        return toUrl;
+    }
+
+    public void setToUrl(String toUrl) {
+        this.toUrl = toUrl;
+    }
 
     public String getUrl() {
         return url;
