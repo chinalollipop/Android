@@ -111,7 +111,6 @@ public class HGApplication extends MultiDexApplication {
         }
         deviceId+="_"+DeviceUtils.getDeviceBrand()+"_"+DeviceUtils.getDeviceModel()+"_"+DeviceUtils.getDeviceVersion();
         FlurryAgent.setUserId(deviceId);*/
-        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE,"");
     }
 
     private void initJPush(){
@@ -187,6 +186,8 @@ public class HGApplication extends MultiDexApplication {
         }else{
             FileIOUtils.writeFileFromString(filePath,comment);
         }
+        UMConfigure.init(this, "5da13d9a4ca3570d6900065f", comment, UMConfigure.DEVICE_TYPE_PHONE, "");
+        //UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE,"100000");
         clientConfig =new ClientConfig(HGConstant.PRODUCT_ID,comment, HGConstant.PRODUCT_PLATFORM,versionName,locale,deviceId);
         //Client.config(new ClientConfig("e04","android",versionName,locale,deviceId));
         Client.config(clientConfig);
