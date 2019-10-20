@@ -77,13 +77,33 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
         agMoney.setText(GameShipHelper.formatMoney(fagMoney));
         hgMoney.setText(GameShipHelper.formatMoney(fhgMoney));
         GameLog.log("当把钱  "+fshowtype);
-        if("mg".equals(fshowtype)){
+        switch (fshowtype){
+            case "mw":
+                agOut.setText("MW电子转出");
+                agInt.setText("MW电子转入");
+                presenter.postMWPersonBalance("","");
+                break;
+            case "cq":
+                agOut.setText("CQ电子转出");
+                agInt.setText("CQ电子转入");
+                presenter.postCQPersonBalance("","");
+                break;
+            case "mg":
+                agOut.setText("MG电子转出");
+                agInt.setText("MG电子转入");
+                presenter.postMGPersonBalance("","");
+                break;
+            default:
+                presenter.postPersonBalance("","");
+                break;
+        }
+        /*if("mg".equals(fshowtype)){
             agOut.setText("MG电子转出");
             agInt.setText("MG电子转入");
             presenter.postMGPersonBalance("","");
         }else{
             presenter.postPersonBalance("","");
-        }
+        }*/
         //param2 = getArguments().getParcelable(PARAM2);
     }
 
@@ -95,32 +115,74 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
                 if(Check.isEmpty(text)){
                     return;
                 }
-                if(fshowtype.equals("mg")){
+                switch (fshowtype){
+                    case "mw":
+                        presenter.postMWBanalceTransfer("","mw","hg",GameShipHelper.getIntegerString(text));
+                        break;
+                    case "cq":
+                        presenter.postCQBanalceTransfer("","cq","hg",GameShipHelper.getIntegerString(text));
+                        break;
+                    case "mg":
+                        presenter.postMGBanalceTransfer("","mg","hg",GameShipHelper.getIntegerString(text));
+                        break;
+                    default:
+                        presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
+                        break;
+                }
+                /*if(fshowtype.equals("mg")){
                     presenter.postMGBanalceTransfer("","mg","hg",GameShipHelper.getIntegerString(text));
                 }else{
                     presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
-                }
+                }*/
                 break;
             case R.id.agInt:
                 String text2 = etAgGoldInput.getText().toString();
                 if(Check.isEmpty(text2)){
                     return;
                 }
-                if(fshowtype.equals("mg")){
+                switch (fshowtype){
+                    case "mw":
+                        presenter.postMWBanalceTransfer("","hg","mw",GameShipHelper.getIntegerString(text2));
+                        break;
+                    case "cq":
+                        presenter.postCQBanalceTransfer("","hg","cq",GameShipHelper.getIntegerString(text2));
+                        break;
+                    case "mg":
+                        presenter.postMGBanalceTransfer("","hg","mg",GameShipHelper.getIntegerString(text2));
+                        break;
+                    default:
+                        presenter.postBanalceTransfer("","hg","ag",GameShipHelper.getIntegerString(text2));
+                        break;
+                }
+                /*if(fshowtype.equals("mg")){
                     presenter.postMGBanalceTransfer("","hg","mg",GameShipHelper.getIntegerString(text2));
                 }else{
                     presenter.postBanalceTransfer("","hg","ag", GameShipHelper.getIntegerString(text2));
-                }
+                }*/
                 break;
         }
     }
 
     @Override
     public void postBanalceTransferSuccess() {
-        if("mg".equals(fshowtype)){
+        /*if("mg".equals(fshowtype)){
             presenter.postMGPersonBalance("","");
         }else{
             presenter.postPersonBalance("","");
+        }*/
+        switch (fshowtype){
+            case "mw":
+                presenter.postMWPersonBalance("","");
+                break;
+            case "cq":
+                presenter.postCQPersonBalance("","");
+                break;
+            case "mg":
+                presenter.postMGPersonBalance("","");
+                break;
+            default:
+                presenter.postPersonBalance("","");
+                break;
         }
         dismiss();
     }
@@ -133,11 +195,32 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("转账对话框的展示 "+personBalance.getBalance_ag());
-        if(!Check.isNull(hgMoney)&&!Check.isNull(agMoney)){
+        /*if(!Check.isNull(hgMoney)&&!Check.isNull(agMoney)){
             hgMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_hg()));
             agMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_ag()));
-        }
+        }*/
         EventBus.getDefault().post(personBalance);
+        if(Check.isNull(hgMoney)||Check.isNull(agMoney)){
+            return;
+        }
+        switch (fshowtype){
+            case "mw":
+                hgMoney.setText(GameShipHelper.formatMoney(personBalance.getHg_balance()));
+                agMoney.setText(GameShipHelper.formatMoney(personBalance.getMw_balance()));
+                break;
+            case "cq":
+                hgMoney.setText(GameShipHelper.formatMoney(personBalance.getHg_balance()));
+                agMoney.setText(GameShipHelper.formatMoney(personBalance.getCq_balance()));
+                break;
+            case "mg":
+                hgMoney.setText(GameShipHelper.formatMoney(personBalance.getHg_balance()));
+                agMoney.setText(GameShipHelper.formatMoney(personBalance.getMg_balance()));
+                break;
+            default:
+                hgMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_hg()));
+                agMoney.setText(GameShipHelper.formatMoney(personBalance.getBalance_ag()));
+                break;
+        }
     }
 
     @Override

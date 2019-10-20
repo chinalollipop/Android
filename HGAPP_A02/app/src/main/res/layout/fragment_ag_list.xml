@@ -74,6 +74,13 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/mwDz"
+        android:background="@mipmap/mw"
+        android:layout_margin="20dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"/>
     <FrameLayout
         android:id="@+id/agVideoLayout"
         android:background="@mipmap/cp_bg"

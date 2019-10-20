@@ -11,6 +11,7 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -64,6 +65,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     RelativeLayout agUserMoneyShow;
     @BindView(R.id.agUserMoney)
     TextView agUserMoney;
+    @BindView(R.id.mwDz)
+    ImageView mwDz;
     @BindView(R.id.agUserMoneyChange)
     TextView agUserMoneyChange;
     @BindView(R.id.agLiveList)
@@ -150,19 +153,38 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         //presenter.getDepositSubmit(typeArgs2,"","","");
         gameTab.addTab(gameTab.newTab().setText("AG电子"));
         gameTab.addTab(gameTab.newTab().setText("MG电子"));
+        gameTab.addTab(gameTab.newTab().setText("CQ电子"));
+        gameTab.addTab(gameTab.newTab().setText("MW电子"));//大满贯
         gameTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 0:
                         fshowtype ="game";
+                        agLiveList.setVisibility(View.VISIBLE);
+                        mwDz.setVisibility(View.GONE);
                         presenter.postPersonBalance("","");
                         presenter.postAGGameList("","","gamelist_dianzi");
                         break;
                     case 1:
                         fshowtype ="mg";
+                        agLiveList.setVisibility(View.VISIBLE);
+                        mwDz.setVisibility(View.GONE);
                         presenter.postMGPersonBalance("","");
                         presenter.postMGGameList("","","");
+                        break;
+                    case 2:
+                        fshowtype ="cq";
+                        agLiveList.setVisibility(View.VISIBLE);
+                        mwDz.setVisibility(View.GONE);
+                        presenter.postCQPersonBalance("","");
+                        presenter.postCQGameList("","","");
+                        break;
+                    case 3:
+                        fshowtype ="mw";
+                        agLiveList.setVisibility(View.GONE);
+                        mwDz.setVisibility(View.VISIBLE);
+                        presenter.postMWPersonBalance("","");
                         break;
                 }
             }
@@ -204,6 +226,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             startActivity(intent);
             return;
         }
+        if("mw".equals(fshowtype)){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(agGameLoginResult.getToUrl()));
+            startActivity(intent);
+            return;
+        }
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());
@@ -238,6 +266,24 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         GameLog.log("用户的真人账户："+personBalance.getMg_balance());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMg_balance()));
 
+    }
+
+    @Override
+    public void postCQPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("postCQPersonBalanceResult："+personBalance.getCq_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getCq_balance()));
+    }
+
+    @OnClick({R.id.mwDz})
+    public void onViewMWClicked(View view ) {
+        //AGPlatformDialog.newInstance(agMoney,hgMoney,fshowtype).show(getFragmentManager());
+        presenter.postMWGameList("","","");
+    }
+
+    @Override
+    public void postMWPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("postMWPersonBalanceResult："+personBalance.getMw_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMw_balance()));
     }
 
     @Override
@@ -333,6 +379,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                     dzTitileName = data.getName();
                     if(fshowtype.equals("mg")){
                         presenter.postGoPlayGameMG("",data.getItem_id());
+                    }if(fshowtype.equals("cq")){
+                        presenter.postGoPlayGameCQ("",data.getGameid());
                     }else{
                         presenter.postGoPlayGame("",data.getGameid());
                     }
@@ -343,13 +391,31 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Subscribe
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult){
         GameLog.log("通过发送消息得的的数据"+personBalanceResult.getBalance_ag());
-        if("mg".equals(fshowtype)){
+        switch (fshowtype){
+            case "mw":
+                agMoney = personBalanceResult.getMw_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            case "cq":
+                agMoney = personBalanceResult.getCq_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            case "mg":
+                agMoney = personBalanceResult.getMg_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            default:
+                agMoney = personBalanceResult.getBalance_ag();
+                hgMoney = personBalanceResult.getBalance_hg();
+                break;
+        }
+        /*if("mg".equals(fshowtype)){
             agMoney = personBalanceResult.getMg_balance();
             hgMoney = personBalanceResult.getHg_balance();
         }else{
             agMoney = personBalanceResult.getBalance_ag();
             hgMoney = personBalanceResult.getBalance_hg();
-        }
+        }*/
         EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(hgMoney)));
         agUserMoney.setText(titleName+GameShipHelper.formatMoney(agMoney));
     }

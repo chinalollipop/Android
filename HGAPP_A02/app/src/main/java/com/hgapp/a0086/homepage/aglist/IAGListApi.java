@@ -24,6 +24,26 @@ public interface IAGListApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<PersonBalanceResult>> postMGPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //获取CQ余额
+    @POST("cq9/cq9_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postCQPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //获取MW余额
+    @POST("mw/mw_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postMWPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
+
+    //检查CQ电子列表
+    @POST("cq9/cq9_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<AGLiveResult>> postCQGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
+
+    //检查MW电子列表
+    @POST("mw/mw_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<AGGameLoginResult>> postMWGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
 
     //检查AG真人 或者 电子列表
     @POST("ag_api.php")
@@ -35,6 +55,10 @@ public interface IAGListApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<AGLiveResult>> postMGGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
 
+    //进入CQ游戏
+    @POST("cq9/cq9_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postCQLoginGame(@Field("appRefer") String appRefer, @Field("game_id") String game_id, @Field("action") String action);
 
     //检查AG视讯账号是否注册
     @POST("live.php")
