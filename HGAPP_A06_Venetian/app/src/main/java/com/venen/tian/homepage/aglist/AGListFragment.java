@@ -364,6 +364,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 hgMoney = personBalanceResult.getBalance_hg();
                 break;
         }
+        agTitleBack.setMoreText(GameShipHelper.formatMoney(hgMoney));
         EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(hgMoney)));
         agUserMoney.setText(titleName+GameShipHelper.formatMoney(agMoney));
     }
