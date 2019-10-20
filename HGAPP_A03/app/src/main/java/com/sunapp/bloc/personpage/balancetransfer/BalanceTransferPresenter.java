@@ -227,6 +227,45 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 }));
     }
 
+    @Override
+    public void postBanalceTransferCQ(String appRefer, String f, String t, String b) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCQ(HGConstant.PRODUCT_PLATFORM,f,t,b))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postBanalceTransferMW(String appRefer, String f, String t, String b) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferMW(HGConstant.PRODUCT_PLATFORM,f,t,b))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 
     @Override
     public void postPersonBalance(String appRefer, String action) {

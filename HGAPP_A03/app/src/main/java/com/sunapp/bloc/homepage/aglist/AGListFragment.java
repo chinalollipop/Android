@@ -2,6 +2,7 @@ package com.sunapp.bloc.homepage.aglist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,6 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -58,8 +60,14 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     TextView agListAg;
     @BindView(R.id.agListMg)
     TextView agListMg;
+    @BindView(R.id.agListCQ)
+    TextView agListCQ;
+    @BindView(R.id.agListMW)
+    TextView agListMW;
     @BindView(R.id.agUserMoney)
     TextView agUserMoney;
+    @BindView(R.id.mwDz)
+    ImageView mwDz;
     @BindView(R.id.agUserMoneyChange)
     TextView agUserMoneyChange;
     @BindView(R.id.agLiveList)
@@ -153,7 +161,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
         GameLog.log("游戏弟弟值："+agGameLoginResult.getUrl());
-
+        if("mw".equals(fshowtype)){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(agGameLoginResult.getToUrl()));
+            startActivity(intent);
+            return;
+        }
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());
@@ -190,6 +203,24 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     }
 
     @Override
+    public void postCQPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("postCQPersonBalanceResult："+personBalance.getCq_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getCq_balance()));
+    }
+
+    @Override
+    public void postMWPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("postMWPersonBalanceResult："+personBalance.getMw_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMw_balance()));
+    }
+
+    /*@OnClick({R.id.mwDz})
+    public void onViewMWClicked(View view ) {
+        //AGPlatformDialog.newInstance(agMoney,hgMoney,fshowtype).show(getFragmentManager());
+        presenter.postMWGameList("","","");
+    }*/
+
+    @Override
     public void postAGGameResult(List<AGLiveResult> agLiveResult) {
         GameLog.log("游戏列表："+agLiveResult);
 
@@ -208,29 +239,73 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
     }
 
-    @OnClick({R.id.agUserMoneyChange,R.id.agListAg,R.id.agListMg})
+    @OnClick({R.id.agUserMoneyChange,R.id.agListAg,R.id.agListMg,R.id.agListCQ,R.id.agListMW,R.id.mwDz})
     public void onViewClicked(View view ) {
         switch (view.getId()){
             case R.id.agUserMoneyChange:
                 AGPlatformDialog.newInstance(agMoney,hgMoney,fshowtype).show(getFragmentManager());
                 break;
             case R.id.agListAg:
+                agLiveList.setVisibility(View.VISIBLE);
+                mwDz.setVisibility(View.GONE);
                 agListAg.setTextColor(getResources().getColor(R.color.register_left));
                 agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
                 agListMg.setTextColor(getResources().getColor(R.color.home_item_normal));
                 agListMg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListCQ.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 fshowtype ="game";
                 presenter.postPersonBalance("","");
                 presenter.postAGGameList("","","gamelist_dianzi");
                 break;
             case R.id.agListMg:
+                agLiveList.setVisibility(View.VISIBLE);
+                mwDz.setVisibility(View.GONE);
                 agListMg.setTextColor(getResources().getColor(R.color.register_left));
                 agListMg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
                 agListAg.setTextColor(getResources().getColor(R.color.home_item_normal));
                 agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListCQ.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 fshowtype ="mg";
                 presenter.postMGPersonBalance("","");
                 presenter.postMGGameList("","","");
+                break;
+            case R.id.agListCQ:
+                agLiveList.setVisibility(View.VISIBLE);
+                mwDz.setVisibility(View.GONE);
+                agListAg.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMg.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListCQ.setTextColor(getResources().getColor(R.color.register_left));
+                agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
+                agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                fshowtype ="cq";
+                presenter.postCQPersonBalance("","");
+                presenter.postCQGameList("","","");
+                break;
+            case R.id.agListMW:
+                agListAg.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMg.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListCQ.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMW.setTextColor(getResources().getColor(R.color.register_left));
+                agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
+                fshowtype ="mw";
+                presenter.postMWPersonBalance("","");
+                agLiveList.setVisibility(View.GONE);
+                mwDz.setVisibility(View.VISIBLE);
+                break;
+            case R.id.mwDz:
+                presenter.postMWGameList("","","");
                 break;
         }
     }
@@ -295,6 +370,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                     dzTitileName = data.getName();
                     if(fshowtype.equals("mg")){
                         presenter.postGoPlayGameMG("",data.getItem_id());
+                    }if(fshowtype.equals("cq")){
+                        presenter.postGoPlayGameCQ("",data.getGameid());
                     }else{
                         presenter.postGoPlayGame("",data.getGameid());
                     }
@@ -305,12 +382,31 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Subscribe
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult){
         GameLog.log("通过发送消息得的的数据"+personBalanceResult.getBalance_ag());
-        if("mg".equals(fshowtype)){
+        /*if("mg".equals(fshowtype)){
             agMoney = personBalanceResult.getMg_balance();
             hgMoney = personBalanceResult.getHg_balance();
         }else{
             agMoney = personBalanceResult.getBalance_ag();
             hgMoney = personBalanceResult.getBalance_hg();
+        }*/
+
+        switch (fshowtype){
+            case "mw":
+                agMoney = personBalanceResult.getMw_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            case "cq":
+                agMoney = personBalanceResult.getCq_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            case "mg":
+                agMoney = personBalanceResult.getMg_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            default:
+                agMoney = personBalanceResult.getBalance_ag();
+                hgMoney = personBalanceResult.getBalance_hg();
+                break;
         }
         EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(hgMoney)));
         agUserMoney.setText(titleName+GameShipHelper.formatMoney(agMoney));
