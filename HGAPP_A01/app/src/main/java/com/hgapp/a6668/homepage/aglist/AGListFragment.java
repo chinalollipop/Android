@@ -390,13 +390,31 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Subscribe
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult){
         GameLog.log("通过发送消息得的的数据"+personBalanceResult.getBalance_ag());
-        if("mg".equals(fshowtype)){
+        switch (fshowtype){
+            case "mw":
+                agMoney = personBalanceResult.getMw_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            case "cq":
+                agMoney = personBalanceResult.getCq_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            case "mg":
+                agMoney = personBalanceResult.getMg_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
+            default:
+                agMoney = personBalanceResult.getBalance_ag();
+                hgMoney = personBalanceResult.getBalance_hg();
+                break;
+        }
+        /*if("mg".equals(fshowtype)){
             agMoney = personBalanceResult.getMg_balance();
             hgMoney = personBalanceResult.getHg_balance();
         }else{
             agMoney = personBalanceResult.getBalance_ag();
             hgMoney = personBalanceResult.getBalance_hg();
-        }
+        }*/
         EventBus.getDefault().post(new UserMoneyEvent(GameShipHelper.formatMoney(hgMoney)));
         agUserMoney.setText(titleName+GameShipHelper.formatMoney(agMoney));
     }
