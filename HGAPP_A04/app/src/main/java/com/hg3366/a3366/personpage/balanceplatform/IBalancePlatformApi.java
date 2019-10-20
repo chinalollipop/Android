@@ -56,6 +56,14 @@ public interface IBalancePlatformApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferOG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
+    @POST("cq9/cq9_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferCQ(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
+    @POST("mw/mw_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferMW(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
 
     //获取余额
     @POST("ag_api.php")
@@ -99,5 +107,13 @@ public interface IBalancePlatformApi {
     @POST("og/og_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceOG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("cq9/cq9_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceCQ(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("mw/mw_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceMW(@Field("appRefer") String appRefer, @Field("action") String action);
 
 }

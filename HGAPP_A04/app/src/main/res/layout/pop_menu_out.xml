@@ -261,4 +261,56 @@
             android:layout_marginLeft="10dp"
             />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/popMenuCQ"
+        android:background="#979797"
+        android:layout_width="250dp"
+        android:paddingLeft="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/popMenuCQiv"
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:gravity="center|left"
+            />
+        <TextView
+            android:id="@+id/popMenuCQtv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#3D3D3D"
+            android:text="CQ电子"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/popMenuMW"
+        android:background="#979797"
+        android:layout_width="250dp"
+        android:paddingLeft="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/popMenuMWiv"
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:gravity="center|left"
+            />
+        <TextView
+            android:id="@+id/popMenuMWtv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#3D3D3D"
+            android:text="MW电子"
+            android:gravity="center|left"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
 </LinearLayout>
