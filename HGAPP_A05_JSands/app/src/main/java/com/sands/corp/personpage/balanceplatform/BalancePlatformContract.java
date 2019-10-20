@@ -19,6 +19,8 @@ public interface BalancePlatformContract {
         public void postBanalceTransferMG(String appRefer, String f, String t, String b);
         public void postBanalceTransferAG(String appRefer, String f, String t, String b);
         public void postBanalceTransferOG(String appRefer, String f, String t, String b);
+        public void postBanalceTransferCQ(String appRefer, String f, String t, String b);
+        public void postBanalceTransferMW(String appRefer, String f, String t, String b);
         public void postBanalceTransferCP(String appRefer, String action, String from, String to, String fund);
         public void postPersonBalance(String appRefer,String action);
         public void postPersonBalanceCP(String appRefer,String action);
@@ -29,6 +31,8 @@ public interface BalancePlatformContract {
         public void postPersonBalanceMG(String appRefer,String action);
         public void postPersonBalanceAG(String appRefer,String action);
         public void postPersonBalanceOG(String appRefer,String action);
+        public void postPersonBalanceCQ(String appRefer,String action);
+        public void postPersonBalanceMW(String appRefer,String action);
     }
     public interface View extends IView<BalancePlatformContract.Presenter>,IMessageView,IProgressView
     {
@@ -42,5 +46,7 @@ public interface BalancePlatformContract {
         public void postPersonBalanceMGResult(KYBalanceResult personBalance);
         public void postPersonBalanceAGResult(KYBalanceResult personBalance);
         public void postPersonBalanceOGResult(KYBalanceResult personBalance);
+        public void postPersonBalanceCQResult(KYBalanceResult personBalance);
+        public void postPersonBalanceMWResult(KYBalanceResult personBalance);
     }
 }

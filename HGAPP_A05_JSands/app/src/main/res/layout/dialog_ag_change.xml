@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="真人余额："
+                android:text="电子余额："
                 android:textColor="#030303"
                 android:textSize="14sp" />
 

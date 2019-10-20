@@ -15,6 +15,10 @@ public interface AGPlatformContract {
 
         public void postPersonBalance(String appRefer, String action);
         public void postMGPersonBalance(String appRefer, String action);
+        public void postCQPersonBalance(String appRefer, String action);
+        public void postMWPersonBalance(String appRefer, String action);
+        public void postCQBanalceTransfer(String appRefer, String f, String t, String b);
+        public void postMWBanalceTransfer(String appRefer, String f, String t, String b);
     }
     public interface View extends IView<AGPlatformContract.Presenter>,IMessageView,IProgressView
     {
