@@ -21,6 +21,7 @@ import com.hg3366.a3366.R;
 import com.hg3366.a3366.base.HGBaseFragment;
 import com.hg3366.a3366.base.IPresenter;
 import com.hg3366.a3366.common.util.ACache;
+import com.hg3366.a3366.common.util.DoubleClickHelper;
 import com.hg3366.a3366.common.util.HGConstant;
 import com.hg3366.a3366.common.widgets.verifycodeview.VerificationCodeView;
 import com.hg3366.a3366.data.LoginResult;
@@ -215,6 +216,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             case R.id.cbRegisterProtocol:
                 break;
             case R.id.btnRegisterSubmit:
+                DoubleClickHelper.getNewInstance().disabledView(btnRegisterSubmit);
                 onCheckRegisterMember();
                 break;
         }

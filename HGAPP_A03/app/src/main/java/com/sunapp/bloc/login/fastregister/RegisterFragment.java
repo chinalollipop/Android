@@ -22,6 +22,7 @@ import com.sunapp.bloc.R;
 import com.sunapp.bloc.base.HGBaseFragment;
 import com.sunapp.bloc.base.IPresenter;
 import com.sunapp.bloc.common.util.ACache;
+import com.sunapp.bloc.common.util.DoubleClickHelper;
 import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.common.widgets.NTitleBar;
 import com.sunapp.bloc.common.widgets.verifycodeview.VerificationCodeView;
@@ -222,6 +223,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             case R.id.cbRegisterProtocol:
                 break;
             case R.id.btnRegisterSubmit:
+                DoubleClickHelper.getNewInstance().disabledView(btnRegisterSubmit);
                 onCheckRegisterMember();
                 break;
         }

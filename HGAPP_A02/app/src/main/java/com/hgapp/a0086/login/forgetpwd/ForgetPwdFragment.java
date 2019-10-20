@@ -15,6 +15,7 @@ import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
+import com.hgapp.a0086.common.util.DoubleClickHelper;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.a0086.data.LoginResult;
 import com.hgapp.a0086.login.fastlogin.LoginFragment;
@@ -199,6 +200,7 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
             case R.id.btnRegisterGetVerificationCode:
                 break;
             case R.id.btnRegisterSubmit:
+                DoubleClickHelper.getNewInstance().disabledView(btnRegisterSubmit);
                 onCheckRegisterMember();
                 break;
         }
