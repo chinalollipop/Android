@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
 import com.venen.tian.common.event.LogoutEvent;
 import com.venen.tian.common.event.StartBrotherWithPopEvent;
 import com.venen.tian.common.service.ServiceOnlineFragment;
@@ -20,6 +21,7 @@ import com.venen.tian.homepage.HomepageFragment;
 import com.venen.tian.homepage.handicap.ShowMainEvent;
 import com.venen.tian.homepage.online.DiscountsFragment;
 import com.venen.tian.interfaces.IBackPressedSupport;
+import com.venen.tian.launcher.MyHttpClient;
 import com.venen.tian.login.fastlogin.LoginFragment;
 import com.venen.tian.personpage.PersonFragment;
 import com.venen.tian.upgrade.CheckUpdateContract;
@@ -39,12 +41,16 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.io.File;
+import java.io.IOException;
 
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.base.BaseFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 import me.yokeyword.sample.demo_wechat.ui.view.BottomBar;
 import me.yokeyword.sample.demo_wechat.ui.view.BottomBarTab;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by Daniel on 18/7/30.
@@ -68,6 +74,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
     private boolean checkUpgradeDone = false;
     private CheckUpdateContract.Presenter presenter;
     private DownloadIntent intent;
+    MyHttpClient myHttpClient = new MyHttpClient();
     public static MainFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -98,6 +105,20 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         {
             presenter.checkupdate();
         }
+        myHttpClient.executeGet("https://hg-venetain.gz.bcebos.com/vens_version.txt", new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseText =  response.body().string();
+                if(response.isSuccessful()){
+                    dataVersion(new Gson().fromJson(responseText, CheckUpgradeResult.class));
+                }
+            }
+        });
     }
 
 
@@ -305,21 +326,25 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL_QQ,checkUpgradeResult.getService_qq() );
             ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL_WECHAT,checkUpgradeResult.getService_wechat() );
             //EventBus.getDefault().post(checkUpgradeResult);
-            checkUpgradeDone = true;
-            PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
-            if(null == packageInfo)
-            {
-                Timber.e("检查更新失败，获取不到app版本号");
-                throw new RuntimeException("检查更新失败，获取不到app版本号");
-            }
-            String localver = packageInfo.versionName;
-            GameLog.log("当前APP的版本号是："+localver);
-            if(!localver.equals(checkUpgradeResult.getVersion())){
-                //onDownLoadAPP(checkUpgradeResult);
-                UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
-            }
-            GameLog.log(""+checkUpgradeResult.getDescription());
+
         }
+    }
+
+    private void dataVersion(CheckUpgradeResult checkUpgradeResult){
+        checkUpgradeDone = true;
+        PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
+        if(null == packageInfo)
+        {
+            Timber.e("检查更新失败，获取不到app版本号");
+            throw new RuntimeException("检查更新失败，获取不到app版本号");
+        }
+        String localver = packageInfo.versionName;
+        GameLog.log("当前APP的版本号是："+localver);
+        if(!localver.equals(checkUpgradeResult.getVersion())){
+            //onDownLoadAPP(checkUpgradeResult);
+            UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
+        }
+        GameLog.log(""+checkUpgradeResult.getDescription());
     }
 
     private void onDownLoadAPP(CheckUpgradeResult checkUpgradeResult){
