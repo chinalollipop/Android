@@ -502,6 +502,27 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:background="@mipmap/home_item_18_2" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/homeItem18_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@mipmap/home_item_18_3" />
+
+                    <ImageView
+                        android:id="@+id/homeItem18_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@mipmap/home_item_18_4" />
+                </LinearLayout>
             </LinearLayout>
 
             <!--棋牌-->

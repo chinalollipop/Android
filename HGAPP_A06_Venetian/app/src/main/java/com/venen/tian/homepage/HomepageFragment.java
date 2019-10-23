@@ -188,6 +188,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem181;
     @BindView(R.id.homeItem18_2)
     ImageView homeItem182;
+    @BindView(R.id.homeItem18_3)
+    ImageView homeItem183;
+    @BindView(R.id.homeItem18_4)
+    ImageView homeItem184;
     @BindView(R.id.homeItem18)
     LinearLayout homeItem18;
     @BindView(R.id.homeItem19_1)
@@ -453,7 +457,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         onHomeGameItemNewClick(14+postion);
     }
 
-    @OnClick({R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+    @OnClick({R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.homeLeft1:
@@ -689,6 +693,32 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "MGgame")), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.homeItem18_3://CQ电子
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                userState = "10";
+                String game_url3 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                if ("1".equals(game_url3)) {
+                    presenter.postMaintain();
+                } else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "cq")), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.homeItem18_4://MW电子
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                userState = "11";
+                String game_url4 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                if ("1".equals(game_url4)) {
+                    presenter.postMaintain();
+                } else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "mw")), SupportFragment.SINGLETASK));
                 }
                 break;
             case R.id.homeItem18:
@@ -1525,6 +1555,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("og "+maintainResult1.getState());
+                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "cq":
+                    if(userState.equals("10")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("cq "+maintainResult1.getState());
+                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "mw":
+                    if(userState.equals("11")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("mw "+maintainResult1.getState());
                     //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                     break;
             }
