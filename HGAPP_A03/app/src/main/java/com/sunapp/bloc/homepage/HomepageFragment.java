@@ -658,7 +658,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "5";
-                String game_url2 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                String game_url2 = ACache.get(getContext()).getAsString("username_dd_maintain_mg");
                 if ("1".equals(game_url2)) {
                     presenter.postMaintain();
                 } else {
@@ -671,7 +671,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "10";
-                String game_url3 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                String game_url3 = ACache.get(getContext()).getAsString("username_dd_maintain_cq");
                 if ("1".equals(game_url3)) {
                     presenter.postMaintain();
                 } else {
@@ -684,7 +684,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "11";
-                String game_url4 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                String game_url4 = ACache.get(getContext()).getAsString("username_dd_maintain_mw");
                 if ("1".equals(game_url4)) {
                     presenter.postMaintain();
                 } else {
@@ -1513,7 +1513,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     GameLog.log("ly " + maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_LY_MAINTAIN, maintainResult1.getState());
                     break;
-                case "avia":
+                case "avia"://泛亚电竞
                     if (userState.equals("8")) {
                         showMessage(maintainResult1.getContent());
                     }
@@ -1525,21 +1525,21 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("og "+maintainResult1.getState());
-                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_og",maintainResult1.getState());
                     break;
                 case "cq":
                     if(userState.equals("10")){
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("cq "+maintainResult1.getState());
-                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_cq",maintainResult1.getState());
                     break;
                 case "mw":
                     if(userState.equals("11")){
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("mw "+maintainResult1.getState());
-                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_mw",maintainResult1.getState());
                     break;
             }
         }
