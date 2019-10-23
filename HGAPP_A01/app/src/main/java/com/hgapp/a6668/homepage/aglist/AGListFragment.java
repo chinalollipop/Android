@@ -198,6 +198,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
+        agLiveList.setVisibility(View.GONE);
     }
 
     @Override
