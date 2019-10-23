@@ -106,7 +106,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         //presenter.getDepositSubmit(typeArgs2,"","","");
         gameTab.addTab(gameTab.newTab().setText("AG电子"));
         gameTab.addTab(gameTab.newTab().setText("MG电子"));
-        gameTab.addTab(gameTab.newTab().setText("CQ电子"));
+        gameTab.addTab(gameTab.newTab().setText("CQ9电子"));
         gameTab.addTab(gameTab.newTab().setText("MW电子"));//大满贯
         gameTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

@@ -282,7 +282,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:textColor="#3D3D3D"
-            android:text="CQ电子"
+            android:text="CQ9电子"
             android:gravity="center|left"
             android:layout_marginLeft="10dp"
             />

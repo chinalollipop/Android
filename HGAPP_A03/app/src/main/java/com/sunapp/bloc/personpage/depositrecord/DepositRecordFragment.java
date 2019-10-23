@@ -758,7 +758,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     from = "OG视讯";
                     break;
                 case "cq":
-                    from = "CQ电子";
+                    from = "CQ9电子";
                     break;
                 case "mw":
                     from = "MW电子";
@@ -799,7 +799,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     to = "OG视讯";
                     break;
                 case "cq":
-                    to = "CQ电子";
+                    to = "CQ9电子";
                     break;
                 case "mw":
                     to = "MW电子";

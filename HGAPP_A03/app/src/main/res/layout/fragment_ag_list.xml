@@ -73,7 +73,7 @@
             android:layout_height="match_parent" />
         <TextView
             android:id="@+id/agListCQ"
-            android:text="CQ电子"
+            android:text="CQ9电子"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:gravity="center"

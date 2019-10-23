@@ -476,7 +476,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         break;
                     case R.id.popMenuCQ:
                         to = "cq";
-                        tvBalanceTransferIn.setText("CQ电子");
+                        tvBalanceTransferIn.setText("CQ9电子");
                         showContent = "In 点击 Item菜单8";
                         break;
                     case R.id.popMenuMW:
@@ -1097,7 +1097,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         break;
                     case R.id.popMenuCQ:
                         from = "cq";
-                        tvBalanceTransferOut.setText("CQ电子");
+                        tvBalanceTransferOut.setText("CQ9电子");
                         showContent = "Out 点击 Item菜单10";
                         break;
                     case R.id.popMenuMW:

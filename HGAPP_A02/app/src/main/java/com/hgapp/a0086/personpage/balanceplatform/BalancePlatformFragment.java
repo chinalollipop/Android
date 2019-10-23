@@ -153,7 +153,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
             }else if(postion==8){
                 viewHolder.setText(R.id.itemBalancePlatformName,"OG视讯");
             }else if(postion==9){
-                viewHolder.setText(R.id.itemBalancePlatformName,"CQ电子");
+                viewHolder.setText(R.id.itemBalancePlatformName,"CQ9电子");
             }else {
                 viewHolder.setText(R.id.itemBalancePlatformName,"MW电子");
             }
