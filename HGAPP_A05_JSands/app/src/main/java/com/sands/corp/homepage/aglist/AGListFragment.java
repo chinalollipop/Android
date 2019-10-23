@@ -121,7 +121,16 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }else{
             agUserMoneyShow.setVisibility(View.GONE);
         }
-        if("live".equals(fshowtype)){
+        if("cq".equals(fshowtype)){
+            agListCQ.performClick();
+            presenter.postCQGameList("","","");
+            presenter.postCQPersonBalance("","");
+            titleName = "电子额度：";
+        }else if("mw".equals(fshowtype)){
+            agListMW.performClick();
+            presenter.postMWPersonBalance("","");
+            titleName = "电子额度：";
+        }else if("live".equals(fshowtype)){
             presenter.postAGGameList("","","gamelist_zhenren");
             titleName = "真人额度：";
         }else if("game".equals(fshowtype)){
