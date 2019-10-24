@@ -19345,7 +19345,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResult37.setOrderName("7");
             cpOrderContentResult37.setFullName("第八名");
             cpOrderContentResult37.setOrderState(cpbjscResult.getdata_33037());
-            cpOrderContentResult37.setOrderId("3103-7");
+            cpOrderContentResult37.setOrderId("3108-7");
             cpOrderContentResultList3.add(cpOrderContentResult37);
 
             CPOrderContentResult cpOrderContentResult38 = new CPOrderContentResult();
