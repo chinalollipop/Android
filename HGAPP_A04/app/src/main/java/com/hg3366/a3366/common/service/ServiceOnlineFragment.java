@@ -305,4 +305,11 @@ public class ServiceOnlineFragment extends HGBaseFragment {
         }
 
     }
+
+    @Override
+    public void onVisible() {
+        super.onVisible();
+        onViewRefreshClicked();
+    }
+
 }
