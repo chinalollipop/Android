@@ -121,7 +121,7 @@ public abstract class HGConstant {
     public static final String USERNAME_SERVICE_URL_WECHAT = "username_service_url_wechat";
 
     //用户的默认客服地址
-    public static final String USERNAME_SERVICE_DEFAULT_URL = "https://static.meiqia.com/dist/standalone.html?_=t&eid=61033";
+    public static final String USERNAME_SERVICE_DEFAULT_URL = "https://chat.meiqiapaas.com/dist/standalone.html?eid=107794";
 
     //用户的是否绑卡
     public static final String USERNAME_BIND_CARD = "username_bind_card";

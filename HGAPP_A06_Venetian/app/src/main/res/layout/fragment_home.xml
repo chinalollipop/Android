@@ -562,7 +562,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@mipmap/home_qp_vg" />
+                    android:background="@mipmap/home_qp_ky" />
 
                 <ImageView
                     android:id="@+id/homeItem19_2"
@@ -591,7 +591,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:background="@mipmap/home_qp_ky" />
+                        android:background="@mipmap/home_qp_vg" />
                 </LinearLayout>
             </LinearLayout>
 

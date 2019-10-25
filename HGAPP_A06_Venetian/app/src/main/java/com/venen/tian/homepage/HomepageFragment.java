@@ -723,21 +723,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case R.id.homeItem18:
                 break;
-            case R.id.homeItem19_1://VG棋牌
+            case R.id.homeItem19_1://KY棋牌
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
-                if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                userState = "6";
-                String game_url1 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
-                if ("1".equals(game_url1)) {
+                userState = "4";
+                String hg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
+                if ("1".equals(hg_url)) {
                     presenter.postMaintain();
                 } else {
-                    postVGQiPaiGo();
+                    postQiPaiGo();
                 }
                 break;
             case R.id.homeItem19_2://乐游棋牌
@@ -774,18 +770,23 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     postHGQiPaiGo();
                 }
                 break;
-            case R.id.homeItem19_4://开元棋牌
+            case R.id.homeItem19_4://VG棋牌
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
-                userState = "4";
-                String hg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
-                if ("1".equals(hg_url)) {
+                if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "6";
+                String game_url1 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
+                if ("1".equals(game_url1)) {
                     presenter.postMaintain();
                 } else {
-                    postQiPaiGo();
+                    postVGQiPaiGo();
                 }
+
                 break;
             case R.id.homeItem19:
                 break;

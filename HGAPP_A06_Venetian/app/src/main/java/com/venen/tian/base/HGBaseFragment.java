@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.flurry.android.FlurryAgent;
+import com.umeng.analytics.MobclickAgent;
+import com.venen.common.util.Utils;
 import com.venen.tian.R;
 import com.venen.tian.common.service.ServiceOnlineActivity;
 import com.venen.tian.common.useraction.UserActionHandler;
@@ -153,6 +155,7 @@ public abstract  class HGBaseFragment extends BaseMainFragment implements IMessa
         {
             Timber.d("onResume  "+ this.getClass().getSimpleName());
         }
+        MobclickAgent.onResume(Utils.getContext());
     }
     @Override
     public void onPause()
@@ -163,6 +166,7 @@ public abstract  class HGBaseFragment extends BaseMainFragment implements IMessa
         {
             Timber.d("onPause  "+ this.getClass().getSimpleName());
         }
+        MobclickAgent.onPause(Utils.getContext());
     }
     @Override
     public void onStop()
