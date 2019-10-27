@@ -92,7 +92,7 @@ public class BetRecordResult {
         private String LineType;
         private String BetTime;
         private String orderNo;
-        private int BetScore;
+        private String BetScore;
         private String M_Result;
         private String Title;
         private String first_half;
@@ -144,11 +144,11 @@ public class BetRecordResult {
             this.orderNo = orderNo;
         }
 
-        public int getBetScore() {
+        public String getBetScore() {
             return BetScore;
         }
 
-        public void setBetScore(int BetScore) {
+        public void setBetScore(String BetScore) {
             this.BetScore = BetScore;
         }
 
