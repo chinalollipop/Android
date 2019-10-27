@@ -94,7 +94,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("投注记录");
         myList.add("流水记录");
         myList.add("新手教学");
-        myList.add("关于威尼斯人");
+        //myList.add("关于威尼斯人");
         myList.add("代理加盟");
         myList.add("联系我们");
         myList.add("安全退出");
@@ -225,22 +225,22 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 11://关于太阳城
+                        /*case 11://关于太阳城
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"template/aboutus.php?tip=app")));
 
                             //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-                            break;
-                        case 12://代理加盟
+                            break;*/
+                        case 11://代理加盟
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"agents_reg.php?tip=app")));
                             //交易记录
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 13://联系我们
+                        case 12://联系我们
                             EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             break;
-                        case 14:
+                        case 13:
                             presenter.logOut();
                             break;
                     }
@@ -283,16 +283,16 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 case 10:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_new);
                     break;
-                case 11:
+                /*case 11:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_about);
-                    break;
-                case 12:
+                    break;*/
+                case 11:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_accent);
                     break;
-                case 13:
+                case 12:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_contact);
                     break;
-                case 14:
+                case 13:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
                     break;
 

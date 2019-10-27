@@ -88,8 +88,6 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     TextView btnLoginUser;
     @BindView(R.id.btnLoginRegister)
     TextView btnLoginRegister;
-    @BindView(R.id.btnLoginDemo)
-    Button btnLoginDemo;
     private Random mRandom = new Random();
 
     @BindView(R.id.etRegisterIntro)
@@ -110,8 +108,16 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     EditText etRegisterAccountPhone;
     @BindView(R.id.etRegisterResource)
     EditText etRegisterResource;
+    @BindView(R.id.btnLoginDemo)
+    Button btnLoginDemo;
+    @BindView(R.id.btnLoginLayDemo)
+    LinearLayout btnLoginLayDemo;
+    @BindView(R.id.etRegisterAccountPhoneDemo)
+    EditText etRegisterAccountPhoneDemo;
     @BindView(R.id.btnRegisterSubmit)
     Button btnRegisterSubmit;
+    @BindView(R.id.btnRegisterSubmitDemo)
+    Button btnRegisterSubmitDemo;
     OptionsPickerView optionsPickerViewState;
     private int resource = 1;
     static  List<String> stateList  = new ArrayList<String>();
@@ -274,7 +280,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
+    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -297,6 +303,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 btnLoginSubmit();
                 break;
             case R.id.btnLoginUser:
+                btnLoginLayDemo.setVisibility(View.GONE);
                 fgtLogin.setVisibility(View.VISIBLE);
                 fgtResgiter.setVisibility(View.GONE);
                 RegisterFragment registerFragment =  RegisterFragment.newInstance();
@@ -307,6 +314,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 btnLoginRegister.setBackground(null);
                 break;
             case R.id.btnLoginRegister:
+                btnLoginLayDemo.setVisibility(View.GONE);
                 fgtLogin.setVisibility(View.GONE);
                 fgtResgiter.setVisibility(View.VISIBLE);
                 btnLoginUser.setBackground(null);
@@ -315,6 +323,12 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 //start(RegisterFragment.newInstance());
                 break;
             case R.id.btnLoginDemo:
+                btnLoginLayDemo.setVisibility(View.VISIBLE);
+                fgtLogin.setVisibility(View.GONE);
+                fgtResgiter.setVisibility(View.GONE);
+                //presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
+                break;
+            case R.id.btnRegisterSubmitDemo:
                 presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
                 break;
             case R.id.etRegisterResource:
