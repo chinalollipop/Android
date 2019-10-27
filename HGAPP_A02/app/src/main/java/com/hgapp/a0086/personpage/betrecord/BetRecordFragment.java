@@ -101,6 +101,19 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
         gtypeList.add("足球");
         gtypeList.add("篮球");
         gtypeList.add("冠军");
+        gtypeList.add("彩票");
+        gtypeList.add("AG视讯");
+        gtypeList.add("AG电子");
+        gtypeList.add("AG捕鱼");
+        gtypeList.add("开元棋牌");
+        gtypeList.add("乐游棋牌");
+        gtypeList.add("VG棋牌");
+        gtypeList.add("皇冠棋牌");
+        gtypeList.add("MG电子");
+        gtypeList.add("泛亚电竞");
+        gtypeList.add("OG视讯");
+        gtypeList.add("CQ9电子");
+        gtypeList.add("MW电子");
 
         checkedList.add("全部");
         checkedList.add("未结注单");
@@ -203,13 +216,63 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 String text = gtypeList.get(options1);
                 betRrcordGtype.setText(text);
-                if(text.equals("足球")){
+                switch (options1){
+                    case 0:
+                        gtype = "FT";
+                        break;
+                    case 1:
+                        gtype = "BK";
+                        break;
+                    case 2:
+                        gtype = "FS";
+                        break;
+                    case 3:
+                        gtype = "lottery";
+                        break;
+                    case 4:
+                        gtype = "aggame";
+                        break;
+                    case 5:
+                        gtype = "aglive";
+                        break;
+                    case 6:
+                        gtype = "agby";
+                        break;
+                    case 7:
+                        gtype = "kyqp";
+                        break;
+                    case 8:
+                        gtype = "lyqp";
+                        break;
+                    case 9:
+                        gtype = "vgqp";
+                        break;
+                    case 10:
+                        gtype = "hgqp";
+                        break;
+                    case 11:
+                        gtype = "mgdz";
+                        break;
+                    case 12:
+                        gtype = "avia";
+                        break;
+                    case 13:
+                        gtype = "oglive";
+                        break;
+                    case 14:
+                        gtype = "cq9dz";
+                        break;
+                    case 15:
+                        gtype = "mwdz";
+                        break;
+                }
+                /*if(text.equals("足球")){
                     gtype = "FT";
                 }else if(text.equals("篮球")){
                     gtype = "BK";
                 }else{
                     gtype = "FS";
-                }
+                }*/
 
             }
         }).build();
@@ -300,7 +363,25 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
     private void onSearchBetList(){
         data_start = tvBetRecordStartTime.getText().toString();
         data_end = tvBetRecordEndTime.getText().toString();
-        presenter.postBetRecordList("",gtype,checked,cancel,data_start,data_end,page+"");
+        switch (gtype){
+            case "FT":
+            case "BK":
+            case "FS":
+                presenter.postBetRecordList("",gtype,checked,cancel,data_start,data_end,page+"");
+                break;
+            case "lottery":
+                presenter.postBetCPRecordList("",gtype,checked,cancel,data_start,data_end,page+"");
+                break;
+            case "aglive":
+            case "aggame":
+            case "agby":
+                presenter.postBetAGDZRecordList("",gtype,checked,cancel,data_start,data_end,page+"");
+                break;
+            default:
+                presenter.postBetODZRecordList("",gtype,checked,cancel,data_start,data_end,page+"");
+                break;
+
+        }
     }
 
     public static String getTime(Date date) {
@@ -528,11 +609,14 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 holder.setVisible(R.id.betRecordItem3,false);
                 holder.setVisible(R.id.betRecordItem4,false);
             }
-            holder.setText(R.id.betRecordItemMoney, GameShipHelper.formatNumber(rowsBean.getBetScore()+""));
+            if(Check.isEmpty(rowsBean.getM_League())){
+                holder.setText(R.id.betRecordItem1,rowsBean.getTitle());
+            }
+            holder.setText(R.id.betRecordItemMoney, rowsBean.getBetScore());
             String money = GameShipHelper.formatNumber(rowsBean.getM_Result());
             TextView betRecordItemWin =  holder.getView(R.id.betRecordItemWin);
             if(money.compareTo("0")>=0){
-                if(rowsBean.getChecked().equals("1")){          //如果checked为1 且first_half为上半场  比分用 corner_num 否则 比分用 font_a
+                if(!Check.isEmpty(rowsBean.getChecked())&&rowsBean.getChecked().equals("1")){          //如果checked为1 且first_half为上半场  比分用 corner_num 否则 比分用 font_a
                     /*if(!Check.isEmpty(rowsBean.getFirst_half())){
                         betRecordItemWin.setText(Html.fromHtml(onMarkRed(rowsBean.getInball_mb_tg()+"<br>赢<br>"+money)));
                     }else{
@@ -553,7 +637,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 if(Check.isNumericNull(money)){
                     betRecordItemWin.setText("");
                 }else{
-                    if(rowsBean.getChecked().equals("1")){      //如果checked为1 且first_half为上半场  比分用 corner_num 否则 比分用 font_a
+                    if(!Check.isEmpty(rowsBean.getChecked())&&rowsBean.getChecked().equals("1")){      //如果checked为1 且first_half为上半场  比分用 corner_num 否则 比分用 font_a
                         /*if(!Check.isEmpty(rowsBean.getFirst_half())){
                             betRecordItemWin.setText(Html.fromHtml(onMarkGreen(rowsBean.getInball_mb_tg()+"<br>输<br>"+money)));
                         }else{
