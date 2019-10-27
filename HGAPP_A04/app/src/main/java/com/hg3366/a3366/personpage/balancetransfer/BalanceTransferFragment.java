@@ -64,6 +64,12 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView BalanceTransferMG;
     @BindView(R.id.BalanceTransferFY)
     TextView BalanceTransferFY;
+    @BindView(R.id.BalanceTransferOG)
+    TextView BalanceTransferOG;
+    @BindView(R.id.BalanceTransferCQ)
+    TextView BalanceTransferCQ;
+    @BindView(R.id.BalanceTransferMW)
+    TextView BalanceTransferMW;
     @BindView(R.id.etBalanceTransferMoney)
     EditText etBalanceTransferMoney;
     private BalanceTransferContract.Presenter presenter;
@@ -157,6 +163,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         presenter.postPersonBalanceLY("","");
         presenter.postPersonBalanceMG("","");
         presenter.postPersonBalanceAG("","");
+        presenter.postPersonBalanceOG("","");
+        presenter.postPersonBalanceCQ("","");
+        presenter.postPersonBalanceMW("","");
     }
 
 
@@ -234,13 +243,24 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @Override
     public void postPersonBalanceOGResult(KYBalanceResult personBalance) {
+        BalanceTransferOG.setText(personBalance.getOg_balance());
+    }
 
+    @Override
+    public void postPersonBalanceCQResult(KYBalanceResult personBalance) {
+        BalanceTransferCQ.setText(personBalance.getCq_balance());
+    }
+
+    @Override
+    public void postPersonBalanceMWResult(KYBalanceResult personBalance) {
+        BalanceTransferMW.setText(personBalance.getMw_balance());
     }
 
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
         //pop();
+        initBalance();
     }
 
     @Override

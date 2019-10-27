@@ -100,8 +100,17 @@ public interface IBalanceTransferApi {
     @POST("avia/avia_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceAG(@Field("appRefer") String appRefer, @Field("action") String action);
+
     @POST("og/og_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceOG(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("cq9/cq9_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceCQ(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("mw/mw_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceMW(@Field("appRefer") String appRefer, @Field("action") String action);
 
 }
