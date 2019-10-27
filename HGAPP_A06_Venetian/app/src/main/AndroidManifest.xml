@@ -290,7 +290,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="082983d19500c786306313ea" /> <!--  </>值来自开发者平台取得的AppKey-->
+            android:value="3b52adf52da226aca201c329" /> <!--  </>值来自开发者平台取得的AppKey-->
 
         <provider
             android:name="android.support.v4.content.FileProvider"
