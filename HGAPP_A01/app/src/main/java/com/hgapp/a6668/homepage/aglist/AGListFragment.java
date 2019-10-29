@@ -115,30 +115,31 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 switch (positionl) {
                     case 0:
                         fshowtype ="game";
-                        agLiveList.setVisibility(View.VISIBLE);
-                        mwDz.setVisibility(View.GONE);
+                        /*agLiveList.setVisibility(View.VISIBLE);
+                        mwDz.setVisibility(View.GONE);*/
                         presenter.postPersonBalance("","");
                         presenter.postAGGameList("","","gamelist_dianzi");
                         break;
                     case 1:
                         fshowtype ="mg";
-                        agLiveList.setVisibility(View.VISIBLE);
-                        mwDz.setVisibility(View.GONE);
+                        /*agLiveList.setVisibility(View.VISIBLE);
+                        mwDz.setVisibility(View.GONE);*/
                         presenter.postMGPersonBalance("","");
                         presenter.postMGGameList("","","");
                         break;
                     case 2:
                         fshowtype ="cq";
-                        agLiveList.setVisibility(View.VISIBLE);
-                        mwDz.setVisibility(View.GONE);
+                       /* agLiveList.setVisibility(View.VISIBLE);
+                        mwDz.setVisibility(View.GONE);*/
                         presenter.postCQPersonBalance("","");
                         presenter.postCQGameList("","","");
                         break;
                     case 3:
                         fshowtype ="mw";
-                        agLiveList.setVisibility(View.GONE);
-                        mwDz.setVisibility(View.VISIBLE);
+                        /*agLiveList.setVisibility(View.GONE);
+                        mwDz.setVisibility(View.VISIBLE);*/
                         presenter.postMWPersonBalance("","");
+                        presenter.postMWGameList("","","");
                         break;
                 }
             }
@@ -198,7 +199,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        agLiveList.setVisibility(View.GONE);
+        //agLiveList.setVisibility(View.GONE);
     }
 
     @Override
@@ -222,15 +223,13 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             startActivity(intent);
             return;
         }
-        if("mw".equals(fshowtype)){
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(agGameLoginResult.getToUrl()));
-            startActivity(intent);
-            return;
-        }
+
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());
+        if("mw".equals(fshowtype)){
+            intent.putExtra("url",agGameLoginResult.getToUrl());
+        }
         intent.putExtra("gameCnName",dzTitileName);
         intent.putExtra("hidetitlebar",false);
         getActivity().startActivity(intent);
@@ -381,6 +380,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                         presenter.postGoPlayGameMG("",data.getItem_id());
                     }if(fshowtype.equals("cq")){
                         presenter.postGoPlayGameCQ("",data.getGameid());
+                    }else if(fshowtype.equals("mw")){
+                        presenter.postGoPlayGameMW("",data.getGameid());
                     }else{
                         presenter.postGoPlayGame("",data.getGameid());
                     }
