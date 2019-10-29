@@ -137,6 +137,7 @@ public class ServiceOnlineFragment extends HGBaseFragment {
             webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
         }
         GameLog.log("请求地址是："+webUrl);
+        ACache.get(getContext()).put("servicePageRefresh","1");
         wvServiceOnlineContent.loadUrl(webUrl);
     }
 
@@ -309,6 +310,10 @@ public class ServiceOnlineFragment extends HGBaseFragment {
     @Override
     public void onVisible() {
         super.onVisible();
+        String isResf = ACache.get(getContext()).getAsString("servicePageRefresh");
+        if(!Check.isEmpty(isResf)&&isResf.equals("1")){
+            return;
+        }
         onViewRefreshClicked();
     }
 }
