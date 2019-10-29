@@ -16,7 +16,7 @@ public interface LoginContract {
     public interface Presenter extends IPresenter
     {
         public void postLogin(String appRefer,String username, String passwd);
-        public void postLoginDemo(String appRefer,String username, String passwd);
+        public void postLoginDemo(String appRefer,String phone,String username, String passwd);
         public void loginGet();
         public void logOut();
         public void getFullPayGameList();

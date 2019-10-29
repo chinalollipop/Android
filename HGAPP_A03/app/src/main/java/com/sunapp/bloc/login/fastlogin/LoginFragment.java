@@ -79,6 +79,14 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     Button btnLoginRegister;
     @BindView(R.id.btnLoginDemo)
     Button btnLoginDemo;
+    @BindView(R.id.fgtLogin)
+    LinearLayout fgtLogin;
+    @BindView(R.id.btnLoginLayDemo)
+    LinearLayout btnLoginLayDemo;
+    @BindView(R.id.etRegisterAccountPhoneDemo)
+    EditText etRegisterAccountPhoneDemo;
+    @BindView(R.id.btnRegisterSubmitDemo)
+    Button btnRegisterSubmitDemo;
     Unbinder unbinder1;
     private Random mRandom = new Random();
 
@@ -253,7 +261,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginRegister,R.id.btnLoginDemo})
+    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit,R.id.btnRegisterSubmitDemo, R.id.btnLoginRegister,R.id.btnLoginDemo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -281,7 +289,21 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 //start(RegisterFragment.newInstance());
                 break;
             case R.id.btnLoginDemo:
-                presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
+                String havePhone = ACache.get(getContext()).getAsString("guest_login_must_input_phone");
+                if(!Check.isEmpty(havePhone)&&havePhone.equals("true")){
+                    btnLoginLayDemo.setVisibility(View.VISIBLE);
+                    fgtLogin.setVisibility(View.GONE);
+                }else{
+                    presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","demoguest","nicainicainicaicaicaicai");
+                }
+                break;
+            case R.id.btnRegisterSubmitDemo:
+                String phone = etRegisterAccountPhoneDemo.getText().toString().trim();
+                if(Check.isEmpty(phone)||phone.length()<11){
+                    showMessage("请输入正确的手机号码");
+                    return;
+                }
+                presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,phone,"demoguest","nicainicainicaicaicaicai");
                 break;
         }
     }
