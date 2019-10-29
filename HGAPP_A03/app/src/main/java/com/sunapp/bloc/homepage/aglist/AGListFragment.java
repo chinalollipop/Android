@@ -153,7 +153,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        agLiveList.setVisibility(View.GONE);
     }
 
     @Override
@@ -171,15 +170,13 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
         GameLog.log("游戏弟弟值："+agGameLoginResult.getUrl());
-        if("mw".equals(fshowtype)){
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(agGameLoginResult.getToUrl()));
-            startActivity(intent);
-            return;
-        }
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
-        intent.putExtra("url",agGameLoginResult.getUrl());
+        if("mw".equals(fshowtype)){
+            intent.putExtra("url",agGameLoginResult.getToUrl());
+        }else{
+            intent.putExtra("url",agGameLoginResult.getUrl());
+        }
         intent.putExtra("gameCnName",dzTitileName);
         intent.putExtra("hidetitlebar",false);
         getActivity().startActivity(intent);
@@ -256,8 +253,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 AGPlatformDialog.newInstance(agMoney,hgMoney,fshowtype).show(getFragmentManager());
                 break;
             case R.id.agListAg:
-                agLiveList.setVisibility(View.VISIBLE);
-                mwDz.setVisibility(View.GONE);
                 agListAg.setTextColor(getResources().getColor(R.color.register_left));
                 agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
                 agListMg.setTextColor(getResources().getColor(R.color.home_item_normal));
@@ -271,8 +266,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 presenter.postAGGameList("","","gamelist_dianzi");
                 break;
             case R.id.agListMg:
-                agLiveList.setVisibility(View.VISIBLE);
-                mwDz.setVisibility(View.GONE);
                 agListMg.setTextColor(getResources().getColor(R.color.register_left));
                 agListMg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
                 agListAg.setTextColor(getResources().getColor(R.color.home_item_normal));
@@ -286,8 +279,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 presenter.postMGGameList("","","");
                 break;
             case R.id.agListCQ:
-                agLiveList.setVisibility(View.VISIBLE);
-                mwDz.setVisibility(View.GONE);
                 agListAg.setTextColor(getResources().getColor(R.color.home_item_normal));
                 agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 agListMg.setTextColor(getResources().getColor(R.color.home_item_normal));
@@ -311,10 +302,10 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
                 fshowtype ="mw";
                 presenter.postMWPersonBalance("","");
-                agLiveList.setVisibility(View.GONE);
-                mwDz.setVisibility(View.VISIBLE);
+                presenter.postMWGameList("","","");
                 break;
             case R.id.mwDz:
+                presenter.postMGPersonBalance("","");
                 presenter.postMWGameList("","","");
                 break;
         }
@@ -382,6 +373,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                         presenter.postGoPlayGameMG("",data.getItem_id());
                     }if(fshowtype.equals("cq")){
                         presenter.postGoPlayGameCQ("",data.getGameid());
+                    }else if(fshowtype.equals("mw")){
+                        presenter.postGoPlayGameMW("",data.getGameid());
                     }else{
                         presenter.postGoPlayGame("",data.getGameid());
                     }

@@ -28,6 +28,7 @@ public interface AGListContract {
         public void postGoPlayGame(String appRefer, String gameid);
         public void postGoPlayGameMG(String appRefer, String gameid);
         public void postGoPlayGameCQ(String appRefer, String gameid);
+        public void postGoPlayGameMW(String appRefer, String gameid);
         public void postCheckAgAccount(String appRefer, String uid, String action);
         public void postCreateAgAccount(String appRefer, String uid, String action);
     }

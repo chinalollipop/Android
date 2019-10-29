@@ -177,7 +177,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                     case 3:
                         fshowtype ="mw";
                         presenter.postMWPersonBalance("","");
-                        presenter.postMWPersonBalance("","");
+                        presenter.postMWGameList("","","");
                         break;
                 }
             }
