@@ -214,13 +214,13 @@ public class AGListPresenter implements AGListContract.Presenter {
 
     @Override
     public void postMWGameList(String appRefer, String uid, String action) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postMWGameList(HGConstant.PRODUCT_PLATFORM,"appGameLobby"))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<AGGameLoginResult>>() {
+        subscriptionHelper.add(RxHelper.addSugar(api.postMWGameList(HGConstant.PRODUCT_PLATFORM,"mwGames"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<AGLiveResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<AGGameLoginResult> response) {
+                    public void success(AppTextMessageResponseList<AGLiveResult> response) {
                         if(response.isSuccess()){
                             if(null!=response.getData()){
-                                view.postGoPlayGameResult(response.getData().get(0));
+                                view.postAGGameResult(response.getData());
                             }
                         }else{
                             view.showMessage(response.getDescribe());
@@ -355,6 +355,33 @@ public class AGListPresenter implements AGListContract.Presenter {
                         if(response.isSuccess())
                         {
                             view.postGoPlayGameResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postGoPlayGameMW(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postMWLoginGame(HGConstant.PRODUCT_PLATFORM,gameid,"appGameLobby"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<AGGameLoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<AGGameLoginResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postGoPlayGameResult(response.getData().get(0));
                         }
                         else
                         {
