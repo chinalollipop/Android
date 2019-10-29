@@ -33,6 +33,7 @@ public class CheckUpgradeResult implements Parcelable {
     private String business_agent;
     private String lottery_link;
     private String discount_activity;
+    private String guest_login_must_input_phone;
 
     public String getVersion() {
         return version;
@@ -138,6 +139,14 @@ public class CheckUpgradeResult implements Parcelable {
         this.discount_activity = discount_activity;
     }
 
+    public String getGuest_login_must_input_phone() {
+        return guest_login_must_input_phone;
+    }
+
+    public void setGuest_login_must_input_phone(String guest_login_must_input_phone) {
+        this.guest_login_must_input_phone = guest_login_must_input_phone;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -158,6 +167,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.business_agent);
         dest.writeString(this.lottery_link);
         dest.writeString(this.discount_activity);
+        dest.writeString(this.guest_login_must_input_phone);
     }
 
     public CheckUpgradeResult() {
@@ -177,6 +187,7 @@ public class CheckUpgradeResult implements Parcelable {
         this.business_agent = in.readString();
         this.lottery_link = in.readString();
         this.discount_activity = in.readString();
+        this.guest_login_must_input_phone = in.readString();
     }
 
     public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {
