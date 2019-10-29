@@ -1,6 +1,7 @@
 package com.venen.tian.login.fastlogin;
 
 import com.venen.tian.common.http.request.AppTextMessageResponse;
+import com.venen.tian.common.http.request.AppTextMessageResponseList;
 import com.venen.tian.data.LoginResult;
 import com.venen.tian.data.SportsPlayMethodRBResult;
 
@@ -46,6 +47,11 @@ public interface ILoginApi {
     @GET("var_api.php?appRefer=13&type=FU&more=s")
     public Observable<AppTextMessageResponse<SportsPlayMethodRBResult>> getFullPayGameList();
 
+
+    //输入手机号码校验
+    @POST("guest_login_save_phone_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<LoginResult>> loginPhone(@Field("appRefer") String appRefer, @Field("phone") String phone);
 
 
 
