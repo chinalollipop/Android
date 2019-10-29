@@ -305,7 +305,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 presenter.postMWGameList("","","");
                 break;
             case R.id.mwDz:
-                presenter.postMGPersonBalance("","");
                 presenter.postMWGameList("","","");
                 break;
         }

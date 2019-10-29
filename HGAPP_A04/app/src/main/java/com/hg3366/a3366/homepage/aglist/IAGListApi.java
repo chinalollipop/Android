@@ -53,7 +53,7 @@ public interface IAGListApi {
     //检查MW电子列表
     @POST("mw/mw_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<AGGameLoginResult>> postMWGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
+    public Observable<AppTextMessageResponseList<AGLiveResult>> postMWGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
 
     //检查AG视讯账号是否注册
     @POST("live.php")
@@ -80,6 +80,11 @@ public interface IAGListApi {
     @POST("cq9/cq9_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<AGGameLoginResult>> postCQLoginGame(@Field("appRefer") String appRefer, @Field("game_id") String game_id, @Field("action") String action);
+
+    //进入MW游戏
+    @POST("mw/mw_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<AGGameLoginResult>> postMWLoginGame(@Field("appRefer") String appRefer, @Field("gameId") String gameId, @Field("action") String action);
 
 
     //检查AG账号
