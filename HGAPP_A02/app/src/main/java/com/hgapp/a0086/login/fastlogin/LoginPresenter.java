@@ -3,6 +3,7 @@ package com.hgapp.a0086.login.fastlogin;
 import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.common.http.ResponseSubscriber;
 import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
+import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.util.RxHelper;
@@ -69,24 +70,80 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void postLoginDemo(String appRefer, String username, String passwd) {
-        subscriptionHelper.add(RxHelper.addSugar(api.loginDemo(appRefer,"Yes",username,passwd))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
-                    @Override
-                    public void success(AppTextMessageResponse<LoginResult> response) {
-                        if(response.isSuccess())
-                        {
-                            ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.USERNAME_LOGIN_DEMO, "true");
-                            LoginResult loginResult = (LoginResult)response.getData();
-                            Timber.d("快速登陆成功:%s",loginResult);
-                            //view.success(response);
-                            //EventBus.getDefault().post(loginResult);
-                            if(null != view )
+    public void postLoginDemo(final String appRefer, String phone,final String username, final String passwd) {
+        if("demoguest".equals(phone)){
+            subscriptionHelper.add(RxHelper.addSugar(api.loginDemo(appRefer,"Yes",username,passwd))//loginGet() login(appRefer,username,pwd)
+                    .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
+                        @Override
+                        public void success(AppTextMessageResponse<LoginResult> response) {
+                            if(response.isSuccess())
                             {
-                                view.postLoginResult(loginResult);
+                                ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.USERNAME_LOGIN_DEMO, "true");
+                                LoginResult loginResult = (LoginResult)response.getData();
+                                Timber.d("快速登陆成功:%s",loginResult);
+                                //view.success(response);
+                                //EventBus.getDefault().post(loginResult);
+                                if(null != view )
+                                {
+                                    view.postLoginResult(loginResult);
+                                }
+                            }
+                            else
+                            {
+                                view.showMessage(response.getDescribe());
+                                Timber.d("快速登陆失败:%s",response);
                             }
                         }
-                        else
+
+                        @Override
+                        public void fail(String msg) {
+                            if(null != view)
+                            {
+                                view.setError(0,0);
+                                view.showMessage(msg);
+                            }
+                        }
+                    }));
+            return;
+        }
+        subscriptionHelper.add(RxHelper.addSugar(api.loginPhone(appRefer,phone))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LoginResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LoginResult> response) {
+                        if(response.isSuccess()) {
+                            subscriptionHelper.add(RxHelper.addSugar(api.loginDemo(appRefer,"Yes",username,passwd))//loginGet() login(appRefer,username,pwd)
+                                    .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
+                                        @Override
+                                        public void success(AppTextMessageResponse<LoginResult> response) {
+                                            if(response.isSuccess())
+                                            {
+                                                ACache.get(HGApplication.instance().getApplicationContext()).put(HGConstant.USERNAME_LOGIN_DEMO, "true");
+                                                LoginResult loginResult = (LoginResult)response.getData();
+                                                Timber.d("快速登陆成功:%s",loginResult);
+                                                //view.success(response);
+                                                //EventBus.getDefault().post(loginResult);
+                                                if(null != view )
+                                                {
+                                                    view.postLoginResult(loginResult);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                view.showMessage(response.getDescribe());
+                                                Timber.d("快速登陆失败:%s",response);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void fail(String msg) {
+                                            if(null != view)
+                                            {
+                                                view.setError(0,0);
+                                                view.showMessage(msg);
+                                            }
+                                        }
+                                    }));
+                        } else
                         {
                             view.showMessage(response.getDescribe());
                             Timber.d("快速登陆失败:%s",response);

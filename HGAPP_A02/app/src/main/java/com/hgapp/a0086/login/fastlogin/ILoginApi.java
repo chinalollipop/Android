@@ -1,6 +1,7 @@
 package com.hgapp.a0086.login.fastlogin;
 
 import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
+import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a0086.data.LoginResult;
 import com.hgapp.a0086.data.SportsPlayMethodRBResult;
 
@@ -46,6 +47,10 @@ public interface ILoginApi {
     public Observable<AppTextMessageResponse<SportsPlayMethodRBResult>> getFullPayGameList();
 
 
+    //输入手机号码校验
+    @POST("guest_login_save_phone_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<LoginResult>> loginPhone(@Field("appRefer") String appRefer, @Field("phone") String phone);
 
 
 }
