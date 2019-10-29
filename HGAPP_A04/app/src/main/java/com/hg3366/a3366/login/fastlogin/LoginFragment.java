@@ -323,13 +323,23 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 //start(RegisterFragment.newInstance());
                 break;
             case R.id.btnLoginDemo:
-                btnLoginLayDemo.setVisibility(View.VISIBLE);
-                fgtLogin.setVisibility(View.GONE);
-                fgtResgiter.setVisibility(View.GONE);
+                String havePhone = ACache.get(getContext()).getAsString("guest_login_must_input_phone");
+                if(!Check.isEmpty(havePhone)&&havePhone.equals("true")){
+                    btnLoginLayDemo.setVisibility(View.VISIBLE);
+                    fgtLogin.setVisibility(View.GONE);
+                    fgtResgiter.setVisibility(View.GONE);
+                }else{
+                    presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","demoguest","nicainicainicaicaicaicai");
+                }
                 //presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
                 break;
             case R.id.btnRegisterSubmitDemo:
-                presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
+                String phone = etRegisterAccountPhoneDemo.getText().toString().trim();
+                if(Check.isEmpty(phone)||phone.length()<11){
+                    showMessage("请输入正确的手机号码");
+                    return;
+                }
+                presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,phone,"demoguest","nicainicainicaicaicaicai");
                 break;
             case R.id.etRegisterResource:
                 optionsPickerViewState.show();
