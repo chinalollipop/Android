@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.hgapp.a0086" //线上环境
-        versionName "5.2" //线上环境
+        versionName "5.3" //线上环境
 //        applicationId "com.shanghai556.meichel"//测试环境
 //        versionName "1.5" //测试环境环境
         minSdkVersion 19

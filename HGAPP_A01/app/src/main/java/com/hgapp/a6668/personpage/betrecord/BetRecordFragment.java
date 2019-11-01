@@ -609,8 +609,11 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 holder.setVisible(R.id.betRecordItem3,false);
                 holder.setVisible(R.id.betRecordItem4,false);
             };
-            if(Check.isEmpty(rowsBean.getM_League())){
-                holder.setText(R.id.betRecordItem1,rowsBean.getTitle());
+            if(gtype.equals("FT")||gtype.equals("BK")||gtype.equals("FS")){
+            }else {
+                if (Check.isEmpty(rowsBean.getM_League())) {
+                    holder.setText(R.id.betRecordItem1, rowsBean.getTitle());
+                }
             }
             holder.setText(R.id.betRecordItemMoney, rowsBean.getBetScore());
             String money = GameShipHelper.formatNumber(rowsBean.getM_Result());
