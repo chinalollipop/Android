@@ -417,6 +417,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onloadedOtherUrl(String urls){
+        GameLog.log("成功之后的往事："+urls);
         MyHttpClient myHttpClient = new MyHttpClient();
         myHttpClient.execute(urls ,null, new Callback() {
             @Override
@@ -431,6 +432,10 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             GameLog.log("返回的数据：" + responseText);
+                            if(responseText.contains("403 Forbidden")){
+                                showMessage("请使用加白过的IP刷水！！！");
+                                return;
+                            }
                             DomainAddResult domainUrlList = new Gson().fromJson(responseText, DomainAddResult.class);
                             if (domainUrlList.getStatus() == 200) {
                                 EventBus.getDefault().post(new FlushDomainEvent());

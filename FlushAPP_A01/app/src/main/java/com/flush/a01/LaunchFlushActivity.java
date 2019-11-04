@@ -67,7 +67,8 @@ public class LaunchFlushActivity extends AppCompatActivity {
     private boolean ifStop = false;
     //String domainUrl = "http://admin.hgw888.co/";//6668 0086
     //String domainUrl = "http://admin.js33377.com/";//金沙
-    String domainUrl = "http://admin.100372.com/";//3366
+//    String domainUrl = "http://admin.100372.com/";//3366
+    String domainUrl = "http://admin.77000111.com/";//太阳城
 
     List<DomainAllResult.DataBean> domainListResults = new ArrayList<>();
     DomainAllResult domainUrlList;
@@ -148,6 +149,10 @@ public class LaunchFlushActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         GameLog.log("返回的数据：" + responseText);
+                        if(responseText.contains("403 Forbidden")){
+                            showMessage("请检查你的网络是否正常，此处不要连接VPN！！！");
+                            return;
+                        }
                         domainUrlList = new Gson().fromJson(responseText, DomainAllResult.class);
                         if(!Check.isNull(domainUrlList.getData())){
                             domainListResults.clear();
@@ -335,6 +340,7 @@ public class LaunchFlushActivity extends AppCompatActivity {
                     }else{
                         editurl =  domainUrl + "app/agents/downdata_receive/wateraccount.php?appRefer=14&action=edtAcc&id="+item.getID()+"&urlEx="+data;
                     }
+                    ACache.get(getApplicationContext()).put("app_demain_url",itemDomain.getText().toString());
                     ACache.get(getApplicationContext()).put("app_demain_url_s",editurl);
                     enterMain();
                     //showMessage("我时间紧");
