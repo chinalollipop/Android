@@ -282,7 +282,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Override
     public void postAGGameResult(List<AGLiveResult> agLiveResult) {
         GameLog.log("游戏列表："+agLiveResult);
-
+        agLiveList.setVisibility(View.VISIBLE);
         if("live".equals(fshowtype)){
             /*GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2, OrientationHelper.VERTICAL,false);
             agLiveList.setLayoutManager(gridLayoutManager);
@@ -294,6 +294,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             agLiveList.setLayoutManager(gridLayoutManager);
             agLiveList.setAdapter(new AGGameAdapter(getContext(),R.layout.item_ag_game,agLiveResult));
         }
+    }
+
+    @Override
+    public void postsMessageGameResult(String message) {
+        agLiveList.setVisibility(View.GONE);
+        showMessage(message);
     }
 
     @Override

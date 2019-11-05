@@ -42,6 +42,7 @@ public interface AGListContract {
         public void postCQPersonBalanceResult(PersonBalanceResult personBalance);
         public void postMWPersonBalanceResult(PersonBalanceResult personBalance);
         public void postAGGameResult(List<AGLiveResult> agLiveResult);
+        public void postsMessageGameResult(String message);
         public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult);
         public void postCreateAgAccountResult(CheckAgLiveResult checkAgLiveResult);
     }
