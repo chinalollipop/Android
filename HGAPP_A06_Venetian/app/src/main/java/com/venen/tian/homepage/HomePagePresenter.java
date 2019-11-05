@@ -1,8 +1,10 @@
 package com.venen.tian.homepage;
 
+import com.venen.common.util.Utils;
 import com.venen.tian.common.http.ResponseSubscriber;
 import com.venen.tian.common.http.request.AppTextMessageResponse;
 import com.venen.tian.common.http.request.AppTextMessageResponseList;
+import com.venen.tian.common.util.ACache;
 import com.venen.tian.common.util.HGConstant;
 import com.venen.tian.common.util.RxHelper;
 import com.venen.tian.common.util.SubscriptionHelper;
@@ -192,6 +194,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -218,6 +221,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postHGQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_HG_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -244,6 +248,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postVGQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_VG_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -270,6 +275,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postLYQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_LY_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }

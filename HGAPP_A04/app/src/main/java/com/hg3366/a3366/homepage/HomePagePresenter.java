@@ -3,6 +3,7 @@ package com.hg3366.a3366.homepage;
 import com.hg3366.a3366.common.http.ResponseSubscriber;
 import com.hg3366.a3366.common.http.request.AppTextMessageResponse;
 import com.hg3366.a3366.common.http.request.AppTextMessageResponseList;
+import com.hg3366.a3366.common.util.ACache;
 import com.hg3366.a3366.common.util.HGConstant;
 import com.hg3366.a3366.common.util.RxHelper;
 import com.hg3366.a3366.common.util.SubscriptionHelper;
@@ -17,6 +18,7 @@ import com.hg3366.a3366.data.OnlineServiceResult;
 import com.hg3366.a3366.data.QipaiResult;
 import com.hg3366.a3366.data.ValidResult;
 import com.hg3366.common.util.Check;
+import com.hg3366.common.util.Utils;
 
 
 public class HomePagePresenter implements HomePageContract.Presenter {
@@ -192,6 +194,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -218,6 +221,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postHGQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_HG_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -244,6 +248,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postVGQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_VG_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -270,6 +275,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postLYQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_LY_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }

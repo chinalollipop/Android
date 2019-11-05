@@ -19,6 +19,7 @@ import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
 import com.hgapp.a6668.data.ValidResult;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.Utils;
 
 
 public class HomePagePresenter implements HomePageContract.Presenter {
@@ -194,6 +195,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -220,6 +222,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postHGQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_HG_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -246,6 +249,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postVGQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_VG_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -272,6 +276,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postLYQipaiResult(response.getData());
                             }
                         }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_LY_QIPAI_URL, "");
                             view.showMessage(response.getDescribe());
                         }
                     }
