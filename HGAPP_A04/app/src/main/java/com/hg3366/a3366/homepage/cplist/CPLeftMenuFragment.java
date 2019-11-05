@@ -206,6 +206,11 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
     }
 
     @Override
+    public void postsMessageGameResult(String message) {
+
+    }
+
+    @Override
     public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult) {
 
     }

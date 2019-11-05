@@ -145,7 +145,7 @@ public class AGListPresenter implements AGListContract.Presenter {
                                 view.postAGGameResult(response.getData());
                             }
                         }else{
-                            view.showMessage(response.getDescribe());
+                            view.postsMessageGameResult(response.getDescribe());
                         }
                     }
 
@@ -171,7 +171,7 @@ public class AGListPresenter implements AGListContract.Presenter {
                                 view.postAGGameResult(response.getData());
                             }
                         }else{
-                            view.showMessage(response.getDescribe());
+                            view.postsMessageGameResult(response.getDescribe());
                         }
                     }
 
@@ -197,7 +197,7 @@ public class AGListPresenter implements AGListContract.Presenter {
                                 view.postAGGameResult(response.getData());
                             }
                         }else{
-                            view.showMessage(response.getDescribe());
+                            view.postsMessageGameResult(response.getDescribe());
                         }
                     }
 
@@ -223,7 +223,7 @@ public class AGListPresenter implements AGListContract.Presenter {
                                 view.postAGGameResult(response.getData());
                             }
                         }else{
-                            view.showMessage(response.getDescribe());
+                            view.postsMessageGameResult(response.getDescribe());
                         }
                     }
 
