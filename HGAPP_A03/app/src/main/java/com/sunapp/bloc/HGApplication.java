@@ -1,12 +1,15 @@
 package com.sunapp.bloc;
 
+import android.app.ActivityManager;
 import android.app.Application;
+import android.content.Context;
 import android.os.Build;
 import android.support.annotation.CallSuper;
 import android.support.annotation.StringRes;
 import android.support.multidex.MultiDexApplication;
 
 import com.flurry.android.FlurryAgent;
+import com.fm.openinstall.OpenInstall;
 import com.sunapp.bloc.common.MemoryManager;
 import com.sunapp.bloc.common.comment.CommentUtils;
 import com.sunapp.bloc.common.http.Client;
@@ -46,6 +49,9 @@ public class HGApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         //AutoLayoutConifg.getInstance().useDeviceSize();
+        if (isMainProcess()) {
+            OpenInstall.init(this);
+        }
         hgApplicationInstance = this;
         //LauncherApp.initSingleton(this);
         Utils.init(getApplicationContext());
@@ -70,6 +76,18 @@ public class HGApplication extends MultiDexApplication {
         UserActionHandler.getInstance().onAppStart();
 
         configClient();
+    }
+
+
+    public boolean isMainProcess() {
+        int pid = android.os.Process.myPid();
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningAppProcessInfo appProcess : activityManager.getRunningAppProcesses()) {
+            if (appProcess.pid == pid) {
+                return getApplicationInfo().packageName.equals(appProcess.processName);
+            }
+        }
+        return false;
     }
 
 

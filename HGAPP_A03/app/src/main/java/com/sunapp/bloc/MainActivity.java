@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.fm.openinstall.OpenInstall;
+import com.fm.openinstall.listener.AppInstallAdapter;
+import com.fm.openinstall.listener.AppWakeUpAdapter;
+import com.fm.openinstall.model.AppData;
 import com.sunapp.bloc.common.useraction.UserActionHandler;
 import com.sunapp.bloc.common.util.ACache;
 import com.sunapp.bloc.common.util.EntranceUtils;
@@ -16,6 +20,7 @@ import com.sunapp.bloc.homepage.push.ExampleUtil;
 import com.sunapp.common.util.Check;
 import com.sunapp.common.util.GameLog;
 import com.sunapp.common.util.ToastUtils;
+import com.sunapp.common.util.Utils;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -62,6 +67,43 @@ public class MainActivity extends SupportActivity {
         });
         UserActionHandler.getInstance().onActivityStart(this);
         registerMessageReceiver();
+
+        //获取唤醒参数
+        OpenInstall.getWakeUp(getIntent(), wakeUpAdapter);
+        String needInstall = ACache.get(Utils.getContext()).getAsString("needInstall");
+        if(Check.isEmpty(needInstall)){
+            OpenInstall.getInstall(new AppInstallAdapter() {
+                @Override
+                public void onInstall(AppData appData) {
+                    //获取渠道数据
+                    String channelCode = appData.getChannel();
+                    //获取个性化安装数据
+                    String bindData = appData.getData();
+                    if (!appData.isEmpty()) {
+
+                    }
+                    ACache.get(Utils.getContext()).put("needInstall","true");
+                }
+            });
+        }
+    }
+
+    AppWakeUpAdapter wakeUpAdapter = new AppWakeUpAdapter() {
+        @Override
+        public void onWakeUp(AppData appData) {
+            //获取渠道数据
+            String channelCode = appData.getChannel();
+            //获取绑定数据
+            String bindData = appData.getData();
+            GameLog.log("OpenInstall getWakeUp : wakeupData = " + appData.toString());
+        }
+    };
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        // 此处要调用，否则App在后台运行时，会无法截获
+        OpenInstall.getWakeUp(intent, wakeUpAdapter);
     }
 
     public void registerMessageReceiver() {
@@ -79,6 +121,7 @@ public class MainActivity extends SupportActivity {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
         super.onDestroy();
         UserActionHandler.getInstance().onActivityStop(this);
+        wakeUpAdapter = null;
     }
 
 

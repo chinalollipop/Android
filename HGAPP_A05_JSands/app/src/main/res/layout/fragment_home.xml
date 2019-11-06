@@ -419,6 +419,9 @@
             android:layout_marginLeft="5dp"
             android:orientation="vertical">
             <!--真人视讯-->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <LinearLayout
                 android:id="@+id/homeItem15"
                 android:layout_width="match_parent"
@@ -429,7 +432,6 @@
                     android:id="@+id/homeItem15_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:background="@mipmap/home_video1" />
 
                 <ImageView
@@ -437,10 +439,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"
                     android:background="@mipmap/home_video2" />
-
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/homeItem15_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@mipmap/home_video3" />
+                <ImageView
+                    android:id="@+id/homeItem15_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@mipmap/home_video4" />
+                <!--<LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -461,8 +473,9 @@
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@mipmap/home_video4" />
-                </LinearLayout>
+                </LinearLayout>-->
             </LinearLayout>
+            </ScrollView>
             <!--彩票-->
             <LinearLayout
                 android:id="@+id/homeItem16"
@@ -503,6 +516,9 @@
                     android:background="@mipmap/home_item_17_1" />
             </LinearLayout>
             <!--电子游戏-->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <LinearLayout
                 android:id="@+id/homeItem18"
                 android:layout_width="match_parent"
@@ -525,6 +541,7 @@
                     android:layout_weight="1"
                     android:background="@mipmap/home_item_18_2" />
                 <LinearLayout
+                    android:id="@+id/homeItem18_33"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -545,8 +562,14 @@
                         android:layout_weight="1"
                         android:background="@mipmap/home_item_18_4" />
                 </LinearLayout>
+                <ImageView
+                    android:id="@+id/homeItem18_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@mipmap/home_item_18_5" />
             </LinearLayout>
-
+            </ScrollView>
             <!--棋牌-->
             <LinearLayout
                 android:id="@+id/homeItem19"

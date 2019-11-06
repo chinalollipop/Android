@@ -61,6 +61,9 @@
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <meta-data
+            android:name="com.openinstall.APP_KEY"
+            android:value="zhz0bs"/>
+        <meta-data
             android:name="design_width"
             android:value="1080" />
         <meta-data
@@ -141,10 +144,13 @@
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-            >
+            android:launchMode="singleTask"
+            tools:ignore="AppLinkUrlError">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"></category>
                 <category android:name="android.intent.category.BROWSABLE"></category>
+                <data android:scheme="zhz0bs"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="jpush.testAction" />
