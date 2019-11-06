@@ -333,7 +333,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                     dzTitileName = data.getName();
                     if(fshowtype.equals("mg")){
                         presenter.postGoPlayGameMG("",data.getItem_id());
-                    }if(fshowtype.equals("cq")){
+                    }else if(fshowtype.equals("cq")){
                         presenter.postGoPlayGameCQ("",data.getGameid());
                     }else if(fshowtype.equals("mw")){
                         presenter.postGoPlayGameMW("",data.getGameid());

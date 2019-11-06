@@ -6,6 +6,7 @@
 
     <dimen name="h_text_height">35dp</dimen>
     <dimen name="h_text_width">112dp</dimen>
+    <dimen name="h_imge_height">100dp</dimen>
 
     <dimen name="slidingmenu_offset">220dp</dimen>
     <dimen name="shadow_width">1dp</dimen>

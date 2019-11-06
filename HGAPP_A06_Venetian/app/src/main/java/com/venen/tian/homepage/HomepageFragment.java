@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.jude.rollviewpager.RollPagerView;
+import com.venen.common.util.Utils;
 import com.venen.tian.HGApplication;
 import com.venen.tian.Injections;
 import com.venen.tian.R;
@@ -184,6 +185,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem171;
     @BindView(R.id.homeItem17)
     LinearLayout homeItem17;
+    @BindView(R.id.homeItem18_33)
+    LinearLayout homeItem1833;
     @BindView(R.id.homeItem18_1)
     ImageView homeItem181;
     @BindView(R.id.homeItem18_2)
@@ -192,6 +195,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem183;
     @BindView(R.id.homeItem18_4)
     ImageView homeItem184;
+    @BindView(R.id.homeItem18_5)
+    ImageView homeItem185;
     @BindView(R.id.homeItem18)
     LinearLayout homeItem18;
     @BindView(R.id.homeItem19_1)
@@ -278,10 +283,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         mWindowManager.getDefaultDisplay().getMetrics(metrics);
         //int width = metrics.widthPixels;//获取到的是px，像素，绝对像素，需要转化为dpi
         height = metrics.heightPixels;
+        GameLog.log("手机像素的高度："+height);
     }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        //initPX(Utils.getContext());
+        initPX(Utils.getContext());
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
         if (!Check.isNull(domainUrl) && domainUrl.getList().size() > 0) {
@@ -291,6 +297,51 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     tvHomePageLine.setText("线路" + domainUrl.getList().get(k).getPid());
                 }
             }
+        }
+        if(height>=2100){
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,428);
+            p.setMargins(0,0,0,15);
+            homeItem151.setLayoutParams(p);
+            homeItem152.setLayoutParams(p);
+            homeItem153.setLayoutParams(p);
+            homeItem154.setLayoutParams(p);
+            homeItem181.setLayoutParams(p);
+            homeItem182.setLayoutParams(p);
+            homeItem1833.setLayoutParams(p);
+            homeItem185.setLayoutParams(p);
+        }else if(height>=2000){
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,300);
+            p.setMargins(0,0,0,15);
+            homeItem151.setLayoutParams(p);
+            homeItem152.setLayoutParams(p);
+            homeItem153.setLayoutParams(p);
+            homeItem154.setLayoutParams(p);
+            homeItem181.setLayoutParams(p);
+            homeItem182.setLayoutParams(p);
+            homeItem1833.setLayoutParams(p);
+            homeItem185.setLayoutParams(p);
+        }else if(height>=1920){
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,252);
+            p.setMargins(0,0,0,15);
+            homeItem151.setLayoutParams(p);
+            homeItem152.setLayoutParams(p);
+            homeItem153.setLayoutParams(p);
+            homeItem154.setLayoutParams(p);
+            homeItem181.setLayoutParams(p);
+            homeItem182.setLayoutParams(p);
+            homeItem1833.setLayoutParams(p);
+            homeItem185.setLayoutParams(p);
+        }else {
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,195);
+            p.setMargins(0,0,0,15);
+            homeItem151.setLayoutParams(p);
+            homeItem152.setLayoutParams(p);
+            homeItem153.setLayoutParams(p);
+            homeItem154.setLayoutParams(p);
+            homeItem181.setLayoutParams(p);
+            homeItem182.setLayoutParams(p);
+            homeItem1833.setLayoutParams(p);
+            homeItem185.setLayoutParams(p);
         }
 
         /*LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
@@ -457,7 +508,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         onHomeGameItemNewClick(14+postion);
     }
 
-    @OnClick({R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+    @OnClick({R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18_5, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.homeLeft1:
@@ -568,7 +619,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 presenter.postOGGame("","");
                 break;
             case R.id.homeItem15_3://AG赌场厅
-                if (Check.isEmpty(userName)) {
+                showMessage("敬请期待！");
+                /*if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
@@ -583,10 +635,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     presenter.postBYGame("","");
-                }
+                }*/
                 break;
             case R.id.homeItem15_4://AG竞咪厅
-                if (Check.isEmpty(userName)) {
+                showMessage("敬请期待！");
+                /*if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
@@ -601,7 +654,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     presenter.postBYGame("","");
-                }
+                }*/
                 break;
             case R.id.homeItem15:
                 break;
@@ -720,6 +773,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 } else {
                     EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "mw")), SupportFragment.SINGLETASK));
                 }
+                break;
+            case R.id.homeItem18_5:
+                showMessage("敬请期待！");
                 break;
             case R.id.homeItem18:
                 break;
