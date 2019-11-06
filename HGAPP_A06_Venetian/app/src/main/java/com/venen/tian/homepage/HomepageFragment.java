@@ -284,7 +284,28 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //int width = metrics.widthPixels;//获取到的是px，像素，绝对像素，需要转化为dpi
         height = metrics.heightPixels;
         GameLog.log("手机像素的高度："+height);
+        int heightParam = 0;
+        if(height>=2100){
+            heightParam = 428;
+        }else if(height>=2000){
+            heightParam = 300;
+        }else if(height>=1920){
+            heightParam = 252;
+        }else {
+            heightParam = 195;
+        }
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,heightParam);
+        p.setMargins(0,0,0,15);
+        homeItem151.setLayoutParams(p);
+        homeItem152.setLayoutParams(p);
+        homeItem153.setLayoutParams(p);
+        homeItem154.setLayoutParams(p);
+        homeItem181.setLayoutParams(p);
+        homeItem182.setLayoutParams(p);
+        homeItem1833.setLayoutParams(p);
+        homeItem185.setLayoutParams(p);
     }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         initPX(Utils.getContext());
@@ -297,51 +318,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     tvHomePageLine.setText("线路" + domainUrl.getList().get(k).getPid());
                 }
             }
-        }
-        if(height>=2100){
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,428);
-            p.setMargins(0,0,0,15);
-            homeItem151.setLayoutParams(p);
-            homeItem152.setLayoutParams(p);
-            homeItem153.setLayoutParams(p);
-            homeItem154.setLayoutParams(p);
-            homeItem181.setLayoutParams(p);
-            homeItem182.setLayoutParams(p);
-            homeItem1833.setLayoutParams(p);
-            homeItem185.setLayoutParams(p);
-        }else if(height>=2000){
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,300);
-            p.setMargins(0,0,0,15);
-            homeItem151.setLayoutParams(p);
-            homeItem152.setLayoutParams(p);
-            homeItem153.setLayoutParams(p);
-            homeItem154.setLayoutParams(p);
-            homeItem181.setLayoutParams(p);
-            homeItem182.setLayoutParams(p);
-            homeItem1833.setLayoutParams(p);
-            homeItem185.setLayoutParams(p);
-        }else if(height>=1920){
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,252);
-            p.setMargins(0,0,0,15);
-            homeItem151.setLayoutParams(p);
-            homeItem152.setLayoutParams(p);
-            homeItem153.setLayoutParams(p);
-            homeItem154.setLayoutParams(p);
-            homeItem181.setLayoutParams(p);
-            homeItem182.setLayoutParams(p);
-            homeItem1833.setLayoutParams(p);
-            homeItem185.setLayoutParams(p);
-        }else {
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,195);
-            p.setMargins(0,0,0,15);
-            homeItem151.setLayoutParams(p);
-            homeItem152.setLayoutParams(p);
-            homeItem153.setLayoutParams(p);
-            homeItem154.setLayoutParams(p);
-            homeItem181.setLayoutParams(p);
-            homeItem182.setLayoutParams(p);
-            homeItem1833.setLayoutParams(p);
-            homeItem185.setLayoutParams(p);
         }
 
         /*LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
