@@ -17,6 +17,7 @@ import com.sands.corp.data.MaintainResult;
 import com.sands.corp.data.NoticeResult;
 import com.sands.corp.data.OnlineServiceResult;
 import com.sands.corp.data.QipaiResult;
+import com.sands.corp.data.Sportcenter;
 import com.sands.corp.data.ValidResult;
 import com.sands.common.util.Check;
 
@@ -327,6 +328,31 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
                         if(!Check.isNull(response)&&response.isSuccess()){
                             view.postCPResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postSportcenter() {
+        subscriptionHelper.add(RxHelper.addSugar(api.postSportcenter(HGConstant.PRODUCT_PLATFORM,"cm"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<Sportcenter>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<Sportcenter> response) {
+
+                        if(!Check.isNull(response)&&response.isSuccess()){
+                            view.postSportcenterResult(response.getData());
                         }else{
                             view.showMessage(response.getDescribe());
                         }

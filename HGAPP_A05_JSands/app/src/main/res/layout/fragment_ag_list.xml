@@ -52,7 +52,7 @@
         >
         <TextView
             android:id="@+id/agListAg"
-            android:text="AG电子"
+            android:text="AG"
             android:background="@drawable/btn_ag_item_nor"
             android:layout_weight="1"
             android:gravity="center"
@@ -62,7 +62,7 @@
             android:layout_height="match_parent" />
         <TextView
             android:id="@+id/agListMg"
-            android:text="MG电子"
+            android:text="MG"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="18sp"
@@ -73,7 +73,7 @@
             android:layout_height="match_parent" />
         <TextView
             android:id="@+id/agListCQ"
-            android:text="CQ9电子"
+            android:text="CQ9"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:gravity="center"
@@ -84,7 +84,18 @@
             android:layout_height="match_parent" />
         <TextView
             android:id="@+id/agListMW"
-            android:text="MW电子"
+            android:text="MW"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#3b3a40"
+            android:background="@drawable/btn_ag_item_nor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/agListFG"
+            android:text="FG"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="18sp"

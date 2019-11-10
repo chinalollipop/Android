@@ -46,6 +46,7 @@ import com.sands.corp.data.MaintainResult;
 import com.sands.corp.data.NoticeResult;
 import com.sands.corp.data.OnlineServiceResult;
 import com.sands.corp.data.QipaiResult;
+import com.sands.corp.data.Sportcenter;
 import com.sands.corp.data.ValidResult;
 import com.sands.corp.homepage.aglist.AGListFragment;
 import com.sands.corp.homepage.aglist.playgame.XPlayGameActivity;
@@ -694,7 +695,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if ("1".equals(sport_url)) {
                     presenter.postMaintain();
                 } else {
-                    EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName, userMoney), SupportFragment.SINGLETASK));
+                    String sportUrl = ACache.get(getContext()).getAsString("homeSportCenterUrl");
+                    if(Check.isEmpty(sportUrl)){
+                        presenter.postSportcenter();
+                    }else{
+                        Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+                        intent.putExtra("url", sportUrl);
+                        intent.putExtra("gameCnName", "体育竞技");
+                        intent.putExtra("hidetitlebar", true);
+                        getActivity().startActivity(intent);
+                    }
+
+                    //EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName, userMoney), SupportFragment.SINGLETASK));
                 }
                 break;
             case R.id.homeItem17:
@@ -751,8 +763,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "mw")), SupportFragment.SINGLETASK));
                 }
                 break;
-            case R.id.homeItem18_5:
-                showMessage("敬请期待！");
+            case R.id.homeItem18_5://FG电子
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                userState = "12";
+                String game_url5 = ACache.get(getContext()).getAsString("username_dd_maintain_fg");
+                if ("1".equals(game_url5)) {
+                    presenter.postMaintain();
+                } else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "fg")), SupportFragment.SINGLETASK));
+                }
                 break;
             case R.id.homeItem18:
                 break;
@@ -1464,6 +1486,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         initWebView(cpResult.getUrlLogin());*/
     }
 
+    @Override
+    public void postSportcenterResult(Sportcenter sportcenter) {
+        GameLog.log("体育中心的数据："+sportcenter.toString());
+        ACache.get(getContext()).put("homeSportCenterUrl", sportcenter.getGameUrl());
+        initWebView(sportcenter.getUrl());
+    }
+
     private void goCpView(){
         Intent intent = new Intent(getContext(), XPlayGameActivity.class);
         String postData ="";
@@ -1603,6 +1632,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                     GameLog.log("mw "+maintainResult1.getState());
                     ACache.get(getContext()).put("username_dd_maintain_mw",maintainResult1.getState());
+                    break;
+                case "fg":
+                    if(userState.equals("12")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("fg "+maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_fg",maintainResult1.getState());
                     break;
             }
         }
