@@ -325,6 +325,30 @@ public class BalancePlatformPresenter implements BalancePlatformContract.Present
     }
 
     @Override
+    public void postPersonBalanceFG(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceFG(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceFGResult(response.getData().get(0));
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postBanalceTransfer(String appRefer, String f, String t,String b) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransfer(HGConstant.PRODUCT_PLATFORM,f,t,b))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<Object>>() {
@@ -547,6 +571,30 @@ public class BalancePlatformPresenter implements BalancePlatformContract.Present
 
                         if(response.isSuccess()){
                             view.postPersonBalanceMWResult(response.getData().get(0));
+                        }
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postBanalceTransferFG(String appRefer, String f, String t, String b) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferFG(HGConstant.PRODUCT_PLATFORM,f,t,b))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess()){
+                            view.postPersonBalanceFGResult(response.getData().get(0));
                         }
                         view.showMessage(response.getDescribe());
                     }

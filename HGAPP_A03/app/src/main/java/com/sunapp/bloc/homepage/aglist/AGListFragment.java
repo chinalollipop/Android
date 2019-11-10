@@ -64,6 +64,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     TextView agListCQ;
     @BindView(R.id.agListMW)
     TextView agListMW;
+    @BindView(R.id.agListFG)
+    TextView agListFG;
     @BindView(R.id.agUserMoney)
     TextView agUserMoney;
     @BindView(R.id.mwDz)
@@ -123,7 +125,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }else{
             agUserMoneyShow.setVisibility(View.GONE);
         }
-        if("cq".equals(fshowtype)){
+        if("fg".equals(fshowtype)){
+            agListFG.performClick();
+            presenter.postFGGameList("","","");
+            presenter.postFGPersonBalance("","");
+            titleName = "电子额度：";
+        }else if("cq".equals(fshowtype)){
             agListCQ.performClick();
             presenter.postCQGameList("","","");
             presenter.postCQPersonBalance("","");
@@ -172,7 +179,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         GameLog.log("游戏弟弟值："+agGameLoginResult.getUrl());
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
-        if("mw".equals(fshowtype)){
+        if("mw".equals(fshowtype)||"fg".equals(fshowtype)){
             intent.putExtra("url",agGameLoginResult.getToUrl());
         }else{
             intent.putExtra("url",agGameLoginResult.getUrl());
@@ -221,6 +228,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMw_balance()));
     }
 
+    @Override
+    public void postFGPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("postFGPersonBalanceResult："+personBalance.getFg_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getFg_balance()));
+    }
+
     /*@OnClick({R.id.mwDz})
     public void onViewMWClicked(View view ) {
         //AGPlatformDialog.newInstance(agMoney,hgMoney,fshowtype).show(getFragmentManager());
@@ -252,7 +265,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
     }
 
-    @OnClick({R.id.agUserMoneyChange,R.id.agListAg,R.id.agListMg,R.id.agListCQ,R.id.agListMW,R.id.mwDz})
+    @OnClick({R.id.agUserMoneyChange,R.id.agListAg,R.id.agListMg,R.id.agListCQ,R.id.agListMW,R.id.agListFG,R.id.mwDz})
     public void onViewClicked(View view ) {
         switch (view.getId()){
             case R.id.agUserMoneyChange:
@@ -267,6 +280,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
                 agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListFG.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListFG.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 fshowtype ="game";
                 presenter.postPersonBalance("","");
                 presenter.postAGGameList("","","gamelist_dianzi");
@@ -280,6 +295,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
                 agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListFG.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListFG.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 fshowtype ="mg";
                 presenter.postMGPersonBalance("","");
                 presenter.postMGGameList("","","");
@@ -293,6 +310,8 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
                 agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
                 agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListFG.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListFG.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 fshowtype ="cq";
                 presenter.postCQPersonBalance("","");
                 presenter.postCQGameList("","","");
@@ -306,9 +325,26 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 agListMW.setTextColor(getResources().getColor(R.color.register_left));
                 agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
+                agListFG.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListFG.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
                 fshowtype ="mw";
                 presenter.postMWPersonBalance("","");
                 presenter.postMWGameList("","","");
+                break;
+            case R.id.agListFG:
+                agListAg.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListAg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMg.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMg.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListCQ.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListCQ.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListMW.setTextColor(getResources().getColor(R.color.home_item_normal));
+                agListMW.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_nor));
+                agListFG.setTextColor(getResources().getColor(R.color.register_left));
+                agListFG.setBackground(getResources().getDrawable(R.drawable.btn_ag_item_click));
+                fshowtype ="fg";
+                presenter.postFGPersonBalance("","");
+                presenter.postFGGameList("","","");
                 break;
             case R.id.mwDz:
                 presenter.postMWGameList("","","");
@@ -374,7 +410,9 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 @Override
                 public void onClick(View view) {
                     dzTitileName = data.getName();
-                    if(fshowtype.equals("mg")){
+                    if(fshowtype.equals("fg")){
+                        presenter.postGoPlayGameFG("",data.getGameid());
+                    }else if(fshowtype.equals("mg")){
                         presenter.postGoPlayGameMG("",data.getItem_id());
                     }else if(fshowtype.equals("cq")){
                         presenter.postGoPlayGameCQ("",data.getGameid());
@@ -399,6 +437,10 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }*/
 
         switch (fshowtype){
+            case "fg":
+                agMoney = personBalanceResult.getFg_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
             case "mw":
                 agMoney = personBalanceResult.getMw_balance();
                 hgMoney = personBalanceResult.getHg_balance();

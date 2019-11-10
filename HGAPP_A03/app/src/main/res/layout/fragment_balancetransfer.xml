@@ -319,16 +319,16 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:visibility="invisible">
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="开元棋牌"
+                        android:text="FG电子"
                         android:textColor="#2d3134" />
 
                     <TextView
-                        android:id="@+id/BalanceTransferKY4"
+                        android:id="@+id/BalanceTransferFG"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.0"
