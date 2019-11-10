@@ -760,6 +760,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "mw":
                     from = "MW电子";
                     break;
+                case "fg":
+                    from = "FG电子";
+                    break;
             }
             switch (rowsBean.getTo()){
                 case "hg":
@@ -797,6 +800,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     break;
                 case "mw":
                     to = "MW电子";
+                    break;
+                case "fg":
+                    to = "FG电子";
                     break;
             }
             if(rowsBean.getNotes().equals("APP幸运红包活动")||rowsBean.getNotes().contains("新春红包活动")){

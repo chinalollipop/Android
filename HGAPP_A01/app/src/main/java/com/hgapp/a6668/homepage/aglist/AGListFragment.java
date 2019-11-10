@@ -108,6 +108,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         gameTab.addTab(gameTab.newTab().setText("MG电子"));
         gameTab.addTab(gameTab.newTab().setText("CQ9电子"));
         gameTab.addTab(gameTab.newTab().setText("MW电子"));//大满贯
+        gameTab.addTab(gameTab.newTab().setText("FG电子"));//大满贯
         gameTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -140,6 +141,11 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                         mwDz.setVisibility(View.VISIBLE);*/
                         presenter.postMWPersonBalance("","");
                         presenter.postMWGameList("","","");
+                        break;
+                    case 4:
+                        fshowtype ="fg";
+                        presenter.postFGPersonBalance("","");
+                        presenter.postFGGameList("","","");
                         break;
                 }
             }
@@ -227,7 +233,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());
-        if("mw".equals(fshowtype)){
+        if("mw".equals(fshowtype)||"fg".equals(fshowtype)){
             intent.putExtra("url",agGameLoginResult.getToUrl());
         }
         intent.putExtra("gameCnName",dzTitileName);
@@ -277,6 +283,12 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     public void postMWPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("postMWPersonBalanceResult："+personBalance.getMw_balance());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMw_balance()));
+    }
+
+    @Override
+    public void postFGPersonBalanceResult(PersonBalanceResult personBalance) {
+        GameLog.log("postFGPersonBalanceResult："+personBalance.getFg_balance());
+        agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getFg_balance()));
     }
 
     @Override
@@ -382,7 +394,9 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 @Override
                 public void onClick(View view) {
                     dzTitileName = data.getName();
-                    if(fshowtype.equals("mg")){
+                    if(fshowtype.equals("fg")){
+                        presenter.postGoPlayGameFG("",data.getGameid());
+                    }else if(fshowtype.equals("mg")){
                         presenter.postGoPlayGameMG("",data.getItem_id());
                     }else if(fshowtype.equals("cq")){
                         presenter.postGoPlayGameCQ("",data.getGameid());
@@ -399,6 +413,10 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     public void onPersonBalanceResult(PersonBalanceResult personBalanceResult){
         GameLog.log("通过发送消息得的的数据"+personBalanceResult.getBalance_ag());
         switch (fshowtype){
+            case "fg":
+                agMoney = personBalanceResult.getFg_balance();
+                hgMoney = personBalanceResult.getHg_balance();
+                break;
             case "mw":
                 agMoney = personBalanceResult.getMw_balance();
                 hgMoney = personBalanceResult.getHg_balance();

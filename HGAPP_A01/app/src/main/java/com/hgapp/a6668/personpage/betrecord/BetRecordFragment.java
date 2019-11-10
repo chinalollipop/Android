@@ -265,6 +265,9 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                     case 15:
                         gtype = "mwdz";
                         break;
+                    case 16:
+                        gtype = "fgdz";
+                        break;
                 }
                 /*if(text.equals("足球")){
                     gtype = "FT";

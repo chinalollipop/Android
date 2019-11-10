@@ -228,6 +228,57 @@ public class AGPlatformPresenter implements AGPlatformContract.Presenter {
     }
 
     @Override
+    public void postFGBanalceTransfer(String appRefer, String f, String t, String b) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postFGBanalceTransfer(HGConstant.PRODUCT_PLATFORM,f,t,b))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<Object>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<Object> response) {
+
+                        if(response.isSuccess()){
+                            view.postBanalceTransferSuccess();
+                        }
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postFGPersonBalance(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postFGPersonBalance(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PersonBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<PersonBalanceResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceResult(response.getData().get(0));
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void start() {
 
     }
