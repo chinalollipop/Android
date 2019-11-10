@@ -11,6 +11,7 @@ import com.venen.tian.data.MaintainResult;
 import com.venen.tian.data.NoticeResult;
 import com.venen.tian.data.OnlineServiceResult;
 import com.venen.tian.data.QipaiResult;
+import com.venen.tian.data.Sportcenter;
 import com.venen.tian.data.ValidResult;
 
 import retrofit2.http.Field;
@@ -48,6 +49,11 @@ public interface IHomePageApi {
     @POST("ky/ky_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<QipaiResult>> postQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //体育中心
+    @POST("sportcenter/sport_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<Sportcenter>> postSportcenter(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //棋牌游戏
     @POST("lyqp/ly_api.php")

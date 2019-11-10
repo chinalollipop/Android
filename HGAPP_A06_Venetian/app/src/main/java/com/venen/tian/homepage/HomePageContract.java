@@ -13,6 +13,7 @@ import com.venen.tian.data.MaintainResult;
 import com.venen.tian.data.NoticeResult;
 import com.venen.tian.data.OnlineServiceResult;
 import com.venen.tian.data.QipaiResult;
+import com.venen.tian.data.Sportcenter;
 import com.venen.tian.data.ValidResult;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public interface HomePageContract {
         public void postLYQipai(String appRefer,String action);
         public void postAviaQiPai(String appRefer,String action);
         public void postCP();
+        public void postSportcenter();
         public void postValidGift(String appRefer,String action);
         public void postValidGift2(String appRefer,String action);
         public void postMaintain();
@@ -54,6 +56,7 @@ public interface HomePageContract {
         public void postAviaQiPaiResult(QipaiResult qipaiResult);
         public void postOGResult(AGGameLoginResult qipaiResult);
         public void postCPResult(CPResult cpResult);
+        public void postSportcenterResult(Sportcenter sportcenter);
         public void postValidGiftResult(ValidResult validResult);
         public void postValidGift2Result(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);

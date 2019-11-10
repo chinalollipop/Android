@@ -29,6 +29,9 @@ public interface AGListContract {
         public void postGoPlayGameMG(String appRefer, String gameid);
         public void postGoPlayGameCQ(String appRefer, String gameid);
         public void postGoPlayGameMW(String appRefer, String gameid);
+        public void postFGPersonBalance(String appRefer, String action);
+        public void postFGGameList(String appRefer, String uid, String action);
+        public void postGoPlayGameFG(String appRefer, String gameid);
         public void postCheckAgAccount(String appRefer, String uid, String action);
         public void postCreateAgAccount(String appRefer, String uid, String action);
     }
@@ -41,6 +44,7 @@ public interface AGListContract {
         public void postMGPersonBalanceResult(PersonBalanceResult personBalance);
         public void postCQPersonBalanceResult(PersonBalanceResult personBalance);
         public void postMWPersonBalanceResult(PersonBalanceResult personBalance);
+        public void postFGPersonBalanceResult(PersonBalanceResult personBalance);
         public void postAGGameResult(List<AGLiveResult> agLiveResult);
         public void postsMessageGameResult(String message);
         public void postCheckAgAccountResult(CheckAgLiveResult checkAgLiveResult);
