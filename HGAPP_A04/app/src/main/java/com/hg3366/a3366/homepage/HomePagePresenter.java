@@ -16,6 +16,7 @@ import com.hg3366.a3366.data.MaintainResult;
 import com.hg3366.a3366.data.NoticeResult;
 import com.hg3366.a3366.data.OnlineServiceResult;
 import com.hg3366.a3366.data.QipaiResult;
+import com.hg3366.a3366.data.Sportcenter;
 import com.hg3366.a3366.data.ValidResult;
 import com.hg3366.common.util.Check;
 import com.hg3366.common.util.Utils;
@@ -327,6 +328,31 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
                         if(!Check.isNull(response)&&response.isSuccess()){
                             view.postCPResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postSportcenter() {
+        subscriptionHelper.add(RxHelper.addSugar(api.postSportcenter(HGConstant.PRODUCT_PLATFORM,"cm"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<Sportcenter>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<Sportcenter> response) {
+
+                        if(!Check.isNull(response)&&response.isSuccess()){
+                            view.postSportcenterResult(response.getData());
                         }else{
                             view.showMessage(response.getDescribe());
                         }

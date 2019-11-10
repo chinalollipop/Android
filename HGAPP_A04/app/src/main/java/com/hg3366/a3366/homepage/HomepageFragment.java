@@ -47,6 +47,7 @@ import com.hg3366.a3366.data.MaintainResult;
 import com.hg3366.a3366.data.NoticeResult;
 import com.hg3366.a3366.data.OnlineServiceResult;
 import com.hg3366.a3366.data.QipaiResult;
+import com.hg3366.a3366.data.Sportcenter;
 import com.hg3366.a3366.data.ValidResult;
 import com.hg3366.a3366.homepage.aglist.AGListFragment;
 import com.hg3366.a3366.homepage.aglist.playgame.XPlayGameActivity;
@@ -132,6 +133,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem152;
     @BindView(R.id.homeItem15_3)
     ImageView homeItem153;
+    @BindView(R.id.homeItem15_4)
+    ImageView homeItem154;
     @BindView(R.id.homeItem15)
     LinearLayout homeItem15;
     @BindView(R.id.homeItem16_1)
@@ -144,6 +147,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem171;
     @BindView(R.id.homeItem17)
     LinearLayout homeItem17;
+    @BindView(R.id.homeItem18_33)
+    LinearLayout homeItem1833;
     @BindView(R.id.homeItem18_1)
     ImageView homeItem181;
     @BindView(R.id.homeItem18_2)
@@ -152,6 +157,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeItem183;
     @BindView(R.id.homeItem18_4)
     ImageView homeItem184;
+    @BindView(R.id.homeItem18_5)
+    ImageView homeItem185;
     @BindView(R.id.homeItem18)
     LinearLayout homeItem18;
     @BindView(R.id.homeItem19_1)
@@ -269,6 +276,26 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         mWindowManager.getDefaultDisplay().getMetrics(metrics);
         //int width = metrics.widthPixels;//获取到的是px，像素，绝对像素，需要转化为dpi
         height = metrics.heightPixels;
+        int heightParam = 0;
+        if(height>=2100){
+            heightParam = 453;
+        }else if(height>=2000){
+            heightParam = 325;
+        }else if(height>=1920){
+            heightParam = 275;
+        }else {
+            heightParam = 220;
+        }
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,heightParam);
+        p.setMargins(0,0,0,15);
+        homeItem151.setLayoutParams(p);
+        homeItem152.setLayoutParams(p);
+        homeItem153.setLayoutParams(p);
+        homeItem154.setLayoutParams(p);
+        homeItem181.setLayoutParams(p);
+        homeItem182.setLayoutParams(p);
+        homeItem1833.setLayoutParams(p);
+        homeItem185.setLayoutParams(p);
     }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
@@ -319,7 +346,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     @OnClick({R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserName,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,
-            R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3,  R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+            R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3,R.id.homeItem15_4,  R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18_5,  R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvHomePageLogin:
@@ -408,7 +435,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 playName = "OG视讯";
                 presenter.postOGGame("","");
                 break;
-            case R.id.homeItem15_3://更多视讯
+            case R.id.homeItem15_3://BBIN
+            case R.id.homeItem15_4://DG
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
@@ -488,7 +516,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if ("1".equals(sport_url)) {
                     presenter.postMaintain();
                 } else {
-                    EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName, userMoney), SupportFragment.SINGLETASK));
+                    String sportUrl = ACache.get(getContext()).getAsString("homeSportCenterUrl");
+                    if(Check.isEmpty(sportUrl)){
+                        presenter.postSportcenter();
+                    }else{
+                        Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+                        intent.putExtra("url", sportUrl);
+                        intent.putExtra("gameCnName", "体育竞技");
+                        intent.putExtra("hidetitlebar", true);
+                        getActivity().startActivity(intent);
+                    }
+
+                    //EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName, userMoney), SupportFragment.SINGLETASK));
                 }
                 break;
             case R.id.homeItem17:
@@ -543,6 +582,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "mw")), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.homeItem18_5://FG电子
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                userState = "12";
+                String game_url5 = ACache.get(getContext()).getAsString("username_dd_maintain_fg");
+                if ("1".equals(game_url5)) {
+                    presenter.postMaintain();
+                } else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "fg")), SupportFragment.SINGLETASK));
                 }
                 break;
             case R.id.homeItem18:
@@ -1260,6 +1312,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         initWebView(cpResult.getUrlLogin());*/
     }
 
+    @Override
+    public void postSportcenterResult(Sportcenter sportcenter) {
+        GameLog.log("体育中心的数据："+sportcenter.toString());
+        ACache.get(getContext()).put("homeSportCenterUrl", sportcenter.getGameUrl());
+        initWebView(sportcenter.getUrl());
+    }
+
     private void goCpView(){
         Intent intent = new Intent(getContext(), XPlayGameActivity.class);
         String postData ="";
@@ -1398,6 +1457,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         showMessage(maintainResult1.getContent());
                     }
                     ACache.get(getContext()).put("username_dd_maintain_mw",maintainResult1.getState());
+                    break;
+                case "fg":
+                    if(userState.equals("12")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("fg "+maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_fg",maintainResult1.getState());
                     break;
             }
         }

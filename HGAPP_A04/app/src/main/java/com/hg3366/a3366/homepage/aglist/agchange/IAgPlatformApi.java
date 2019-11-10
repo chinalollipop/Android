@@ -49,5 +49,14 @@ public interface IAgPlatformApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<PersonBalanceResult>> postMWPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //获取FG余额
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postFGPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //FG额度转换  f=hg&t=fg f=fg&t=hg
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<Object>> postFGBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
 }

@@ -13,6 +13,7 @@ import com.hg3366.a3366.data.MaintainResult;
 import com.hg3366.a3366.data.NoticeResult;
 import com.hg3366.a3366.data.OnlineServiceResult;
 import com.hg3366.a3366.data.QipaiResult;
+import com.hg3366.a3366.data.Sportcenter;
 import com.hg3366.a3366.data.ValidResult;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public interface HomePageContract {
         public void postLYQipai(String appRefer,String action);
         public void postAviaQiPai(String appRefer,String action);
         public void postCP();
+        public void postSportcenter();
         public void postValidGift(String appRefer,String action);
         public void postValidGift2(String appRefer,String action);
         public void postMaintain();
@@ -54,6 +56,7 @@ public interface HomePageContract {
         public void postAviaQiPaiResult(QipaiResult qipaiResult);
         public void postOGResult(AGGameLoginResult qipaiResult);
         public void postCPResult(CPResult cpResult);
+        public void postSportcenterResult(Sportcenter sportcenter);
         public void postValidGiftResult(ValidResult validResult);
         public void postValidGift2Result(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);
