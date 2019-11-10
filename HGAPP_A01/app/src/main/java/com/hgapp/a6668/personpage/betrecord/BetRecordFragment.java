@@ -114,6 +114,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
         gtypeList.add("OG视讯");
         gtypeList.add("CQ9电子");
         gtypeList.add("MW电子");
+        gtypeList.add("FG电子");
 
         checkedList.add("全部");
         checkedList.add("未结注单");

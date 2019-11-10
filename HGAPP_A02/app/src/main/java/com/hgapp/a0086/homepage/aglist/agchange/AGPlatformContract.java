@@ -12,6 +12,8 @@ public interface AGPlatformContract {
     {
         public void postBanalceTransfer(String appRefer, String f, String t, String b);
         public void postMGBanalceTransfer(String appRefer, String f, String t, String b);
+        public void postFGBanalceTransfer(String appRefer, String f, String t, String b);
+        public void postFGPersonBalance(String appRefer, String action);
         public void postPersonBalance(String appRefer, String action);
         public void postMGPersonBalance(String appRefer, String action);
         public void postCQPersonBalance(String appRefer, String action);

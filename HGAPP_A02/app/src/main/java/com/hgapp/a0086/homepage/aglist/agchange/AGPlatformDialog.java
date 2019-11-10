@@ -78,6 +78,11 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
         hgMoney.setText(GameShipHelper.formatMoney(fhgMoney));
         GameLog.log("当把钱  "+fshowtype);
         switch (fshowtype){
+            case "fg":
+                agOut.setText("FG电子转出");
+                agInt.setText("FG电子转入");
+                presenter.postFGPersonBalance("","");
+                break;
             case "mw":
                 agOut.setText("MW电子转出");
                 agInt.setText("MW电子转入");
@@ -116,6 +121,9 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
                     return;
                 }
                 switch (fshowtype){
+                    case "fg":
+                        presenter.postFGBanalceTransfer("","fg","hg",GameShipHelper.getIntegerString(text));
+                        break;
                     case "mw":
                         presenter.postMWBanalceTransfer("","mw","hg",GameShipHelper.getIntegerString(text));
                         break;
@@ -141,6 +149,9 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
                     return;
                 }
                 switch (fshowtype){
+                    case "fg":
+                        presenter.postFGBanalceTransfer("","hg","fg",GameShipHelper.getIntegerString(text2));
+                        break;
                     case "mw":
                         presenter.postMWBanalceTransfer("","hg","mw",GameShipHelper.getIntegerString(text2));
                         break;
@@ -171,6 +182,9 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
             presenter.postPersonBalance("","");
         }*/
         switch (fshowtype){
+            case "fg":
+                presenter.postFGPersonBalance("","");
+                break;
             case "mw":
                 presenter.postMWPersonBalance("","");
                 break;
@@ -204,6 +218,10 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
             return;
         }
         switch (fshowtype){
+            case "fg":
+                hgMoney.setText(GameShipHelper.formatMoney(personBalance.getHg_balance()));
+                agMoney.setText(GameShipHelper.formatMoney(personBalance.getFg_balance()));
+                break;
             case "mw":
                 hgMoney.setText(GameShipHelper.formatMoney(personBalance.getHg_balance()));
                 agMoney.setText(GameShipHelper.formatMoney(personBalance.getMw_balance()));

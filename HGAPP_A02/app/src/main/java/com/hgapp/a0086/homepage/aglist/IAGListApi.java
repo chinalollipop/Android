@@ -98,6 +98,20 @@ public interface IAGListApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<CheckAgLiveResult>> postCreateAgAccount(@Field("appRefer") String appRefer, @Field("uid") String uid, @Field("action") String action);
 
+    //获取FG余额
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postFGPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //检查FG电子列表
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<AGLiveResult>> postFGGameList(@Field("appRefer") String appRefer,  @Field("action") String action);
+
+    //进入FG游戏
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<AGGameLoginResult>> postFGLoginGame(@Field("appRefer") String appRefer, @Field("game_id") String game_id, @Field("action") String action);
 
 
 

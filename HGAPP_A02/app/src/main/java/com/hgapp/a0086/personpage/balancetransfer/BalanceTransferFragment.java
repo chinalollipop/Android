@@ -13,6 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.hgapp.a0086.HGApplication;
 import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
@@ -23,6 +26,7 @@ import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.widgets.CustomPopWindow;
 import com.hgapp.a0086.common.widgets.NTitleBar;
+import com.hgapp.a0086.data.BalanceTransferData;
 import com.hgapp.a0086.data.BetRecordResult;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
@@ -54,11 +58,13 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     ImageView popMenuHGiv,popMenuCPiv,popMenuAGiv,popMenuKYiv,popMenuFFiv,popMenuVGiv,popMenuLYiv,popMenuMGiv,popMenuAviaGiv,popMenuOGiv,popMenuCQiv,popMenuMWiv;
     private String from ="hg";
     private String to ="hg";
+    OptionsPickerView gtypeOptionsPickerIn, gtypeOptionsPickerOut;
     private CustomPopWindow mCustomPopWindowIn;
     private CustomPopWindow mCustomPopWindowOut;
     private String typeArgs;
     static List<String> searchRecordsArrayList  = new ArrayList<>();
     static  List<PopTransferEvent> itemPopTransferList  = new ArrayList<PopTransferEvent>();
+    static List<BalanceTransferData> gtypeList  = new ArrayList<BalanceTransferData>();
     static {
         itemPopTransferList.add(new PopTransferEvent(true,"体育余额"));
         itemPopTransferList.add(new PopTransferEvent(false,"彩票余额"));
@@ -70,6 +76,19 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         searchRecordsArrayList.add("2000");
         searchRecordsArrayList.add("5000");
 
+        gtypeList.add(new BalanceTransferData("1","体育余额","hg"));
+        gtypeList.add(new BalanceTransferData("2","彩票余额","cp"));
+        gtypeList.add(new BalanceTransferData("3","AG余额","ag"));
+        gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));
+        gtypeList.add(new BalanceTransferData("5","皇冠棋牌","ff"));
+        gtypeList.add(new BalanceTransferData("6","VG棋牌","vg"));
+        gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
+        gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
+        gtypeList.add(new BalanceTransferData("9","泛亚电竞","avia"));
+        gtypeList.add(new BalanceTransferData("10","OG视讯","og"));
+        gtypeList.add(new BalanceTransferData("11","CQ9电子","cq"));
+        gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
+        gtypeList.add(new BalanceTransferData("13","FG电子","fg"));
     }
 
     public static BalanceTransferFragment newInstance(String type) {
@@ -103,6 +122,30 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 pop();
             }
         });
+
+        gtypeOptionsPickerIn = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                to  = gtypeList.get(options1).getEnName();
+                tvBalanceTransferIn.setText(gtypeList.get(options1).getCnName());
+                GameLog.log("去那里："+to);
+            }
+        }).build();
+        gtypeOptionsPickerIn.setPicker(gtypeList);
+
+        gtypeOptionsPickerOut = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                from  = gtypeList.get(options1).getEnName();
+                tvBalanceTransferOut.setText(gtypeList.get(options1).getCnName());
+                GameLog.log("来自那里："+from);
+            }
+        }).build();
+        gtypeOptionsPickerOut.setPicker(gtypeList);
+
+
 
         RecyclerView.LayoutManager layoutActivityManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         flowBalanceTransfer.setLayoutManager(layoutActivityManager);
@@ -308,6 +351,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferMW("","hg","mw",transferMoney);
+        }else if(from.equals("fg")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFG("","fg","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("fg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFG("","hg","fg",transferMoney);
         }else {
             showMessage("转账方式不支持");
         }
@@ -323,10 +378,12 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 onCheckTransferMoney("");
                 break;
             case R.id.tvBalanceTransferOut:
-                showPopMenuOut();
+                //showPopMenuOut();
+                gtypeOptionsPickerOut.show();
                 break;
             case R.id.tvBalanceTransferIn:
-                showPopMenuIn();
+                gtypeOptionsPickerIn.show();
+                //showPopMenuIn();
                 break;
 
         }

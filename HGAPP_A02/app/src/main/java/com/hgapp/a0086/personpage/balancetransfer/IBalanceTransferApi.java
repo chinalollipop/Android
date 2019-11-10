@@ -59,4 +59,8 @@ public interface IBalanceTransferApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferMW(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferFG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
 }
