@@ -2,7 +2,6 @@ package com.sunapp.bloc.personpage.balanceplatform;
 
 import com.sunapp.bloc.common.http.request.AppTextMessageResponseList;
 import com.sunapp.bloc.data.KYBalanceResult;
-import com.sunapp.bloc.data.PersonBalanceResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

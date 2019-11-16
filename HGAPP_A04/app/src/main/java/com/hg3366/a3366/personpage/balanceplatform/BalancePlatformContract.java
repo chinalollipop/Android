@@ -6,7 +6,6 @@ import com.hg3366.a3366.base.IProgressView;
 import com.hg3366.a3366.base.IView;
 import com.hg3366.a3366.data.BetRecordResult;
 import com.hg3366.a3366.data.KYBalanceResult;
-import com.hg3366.a3366.data.PersonBalanceResult;
 
 public interface BalancePlatformContract {
     public interface Presenter extends IPresenter

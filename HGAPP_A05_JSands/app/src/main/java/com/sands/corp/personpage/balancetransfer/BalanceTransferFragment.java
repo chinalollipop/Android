@@ -29,7 +29,6 @@ import com.sands.corp.common.widgets.NTitleBar;
 import com.sands.corp.data.BalanceTransferData;
 import com.sands.corp.data.BetRecordResult;
 import com.sands.corp.data.KYBalanceResult;
-import com.sands.corp.data.PersonBalanceResult;
 import com.sands.common.util.Check;
 import com.sands.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;

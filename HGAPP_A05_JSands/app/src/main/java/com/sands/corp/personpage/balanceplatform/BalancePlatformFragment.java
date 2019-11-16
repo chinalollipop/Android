@@ -122,8 +122,8 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         presenter.postPersonBalanceMW("","");
         presenter.postPersonBalanceFG("","");
         gtypeList.add(new BalanceTransferData("110","体育中心","hg"));
-        gtypeList.add(new BalanceTransferData("0","彩票余额","cp"));
-        gtypeList.add(new BalanceTransferData("1","AG余额","ag"));
+        gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
+        gtypeList.add(new BalanceTransferData("1","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("2","开元棋牌","ky"));
         gtypeList.add(new BalanceTransferData("3","皇冠棋牌","ff"));
         gtypeList.add(new BalanceTransferData("4","VG棋牌","vg"));

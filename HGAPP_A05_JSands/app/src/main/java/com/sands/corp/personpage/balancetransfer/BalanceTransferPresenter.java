@@ -1,13 +1,11 @@
 package com.sands.corp.personpage.balancetransfer;
 
 import com.sands.corp.common.http.ResponseSubscriber;
-import com.sands.corp.common.http.request.AppTextMessageResponse;
 import com.sands.corp.common.http.request.AppTextMessageResponseList;
 import com.sands.corp.common.util.HGConstant;
 import com.sands.corp.common.util.RxHelper;
 import com.sands.corp.common.util.SubscriptionHelper;
 import com.sands.corp.data.KYBalanceResult;
-import com.sands.corp.data.PersonBalanceResult;
 
 
 public  class BalanceTransferPresenter implements BalanceTransferContract.Presenter {

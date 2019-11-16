@@ -2,6 +2,8 @@ package com.venen.tian.data;
 
 public class KYBalanceResult {
     private String ky_balance;
+    private String balance_ag;
+    private String balance_hg;
     private String gmcp_balance;
     private String hg_balance;
     private String ff_balance;
@@ -13,6 +15,7 @@ public class KYBalanceResult {
     private String cq_balance;
     private String mw_balance;
     private String fg_balance;
+    private String sc_balance;
     public String getKy_balance() {
         return ky_balance;
     }
@@ -31,6 +34,30 @@ public class KYBalanceResult {
 
     public String getHg_balance() {
         return hg_balance;
+    }
+
+    public String getBalance_ag() {
+        return balance_ag;
+    }
+
+    public void setBalance_ag(String balance_ag) {
+        this.balance_ag = balance_ag;
+    }
+
+    public String getBalance_hg() {
+        return balance_hg;
+    }
+
+    public void setBalance_hg(String balance_hg) {
+        this.balance_hg = balance_hg;
+    }
+
+    public String getSc_balance() {
+        return sc_balance;
+    }
+
+    public void setSc_balance(String sc_balance) {
+        this.sc_balance = sc_balance;
     }
 
     public void setHg_balance(String hg_balance) {
@@ -113,6 +140,8 @@ public class KYBalanceResult {
     public String toString() {
         return "KYBalanceResult{" +
                 "ky_balance='" + ky_balance + '\'' +
+                ", balance_ag='" + balance_ag + '\'' +
+                ", balance_hg='" + balance_hg + '\'' +
                 ", gmcp_balance='" + gmcp_balance + '\'' +
                 ", hg_balance='" + hg_balance + '\'' +
                 ", ff_balance='" + ff_balance + '\'' +
@@ -124,6 +153,7 @@ public class KYBalanceResult {
                 ", cq_balance='" + cq_balance + '\'' +
                 ", mw_balance='" + mw_balance + '\'' +
                 ", fg_balance='" + fg_balance + '\'' +
+                ", sc_balance='" + sc_balance + '\'' +
                 '}';
     }
 }

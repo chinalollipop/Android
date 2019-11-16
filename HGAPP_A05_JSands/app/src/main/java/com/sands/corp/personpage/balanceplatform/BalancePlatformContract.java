@@ -6,7 +6,6 @@ import com.sands.corp.base.IProgressView;
 import com.sands.corp.base.IView;
 import com.sands.corp.data.BetRecordResult;
 import com.sands.corp.data.KYBalanceResult;
-import com.sands.corp.data.PersonBalanceResult;
 
 public interface BalancePlatformContract {
     public interface Presenter extends IPresenter

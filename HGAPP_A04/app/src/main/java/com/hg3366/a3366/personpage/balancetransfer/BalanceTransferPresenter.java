@@ -1,13 +1,11 @@
 package com.hg3366.a3366.personpage.balancetransfer;
 
 import com.hg3366.a3366.common.http.ResponseSubscriber;
-import com.hg3366.a3366.common.http.request.AppTextMessageResponse;
 import com.hg3366.a3366.common.http.request.AppTextMessageResponseList;
 import com.hg3366.a3366.common.util.HGConstant;
 import com.hg3366.a3366.common.util.RxHelper;
 import com.hg3366.a3366.common.util.SubscriptionHelper;
 import com.hg3366.a3366.data.KYBalanceResult;
-import com.hg3366.a3366.data.PersonBalanceResult;
 
 
 public  class BalanceTransferPresenter implements BalanceTransferContract.Presenter {

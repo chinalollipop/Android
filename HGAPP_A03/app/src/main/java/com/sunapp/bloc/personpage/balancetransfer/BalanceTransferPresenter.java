@@ -1,13 +1,11 @@
 package com.sunapp.bloc.personpage.balancetransfer;
 
 import com.sunapp.bloc.common.http.ResponseSubscriber;
-import com.sunapp.bloc.common.http.request.AppTextMessageResponse;
 import com.sunapp.bloc.common.http.request.AppTextMessageResponseList;
 import com.sunapp.bloc.common.util.HGConstant;
 import com.sunapp.bloc.common.util.RxHelper;
 import com.sunapp.bloc.common.util.SubscriptionHelper;
 import com.sunapp.bloc.data.KYBalanceResult;
-import com.sunapp.bloc.data.PersonBalanceResult;
 
 
 public  class BalanceTransferPresenter implements BalanceTransferContract.Presenter {

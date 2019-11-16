@@ -29,7 +29,6 @@ import com.sunapp.bloc.common.widgets.NTitleBar;
 import com.sunapp.bloc.data.BalanceTransferData;
 import com.sunapp.bloc.data.BetRecordResult;
 import com.sunapp.bloc.data.KYBalanceResult;
-import com.sunapp.bloc.data.PersonBalanceResult;
 import com.sunapp.common.util.Check;
 import com.sunapp.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;

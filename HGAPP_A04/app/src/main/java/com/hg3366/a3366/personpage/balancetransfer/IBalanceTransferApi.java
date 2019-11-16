@@ -1,9 +1,7 @@
 package com.hg3366.a3366.personpage.balancetransfer;
 
-import com.hg3366.a3366.common.http.request.AppTextMessageResponse;
 import com.hg3366.a3366.common.http.request.AppTextMessageResponseList;
 import com.hg3366.a3366.data.KYBalanceResult;
-import com.hg3366.a3366.data.PersonBalanceResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

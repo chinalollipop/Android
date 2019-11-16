@@ -6,7 +6,6 @@ import com.sunapp.bloc.base.IProgressView;
 import com.sunapp.bloc.base.IView;
 import com.sunapp.bloc.data.BetRecordResult;
 import com.sunapp.bloc.data.KYBalanceResult;
-import com.sunapp.bloc.data.PersonBalanceResult;
 
 public interface BalancePlatformContract {
     public interface Presenter extends IPresenter
