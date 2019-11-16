@@ -22,12 +22,67 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
     }
 
     @Override
+    public void postPersonBalanceTY(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalanceTY(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceTYResult(response.getData().get(0));
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postBanalceTransferTY(String appRefer, String f, String t, String b) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferTY(HGConstant.PRODUCT_PLATFORM,f,t,b))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+
+                        if(response.isSuccess())
+                        {
+                            view.postPersonBalanceTYResult(response.getData().get(0));
+                        }
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+
+    @Override
     public void postBanalceTransferCP(String appRefer,  String action, String from,String to, String fund) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCP(HGConstant.PRODUCT_PLATFORM,from,to,fund))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<Object> response) {
-
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()){
+                            view.postPersonBalanceCPResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -46,10 +101,12 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
     @Override
     public void postBanalceTransfer(String appRefer, String f, String t,String b) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransfer(HGConstant.PRODUCT_PLATFORM,f,t,b))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<Object>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<Object> response) {
-
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()) {
+                            postPersonBalance("", "");
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -71,12 +128,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
-                        //view.postPersonBalanceKYResult(response.getData());
-                        /*if(response.isSuccess()){
-                            view.showMessage(response.getDescribe());
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }*/
+                        if(response.isSuccess()){
+                            view.postPersonBalanceKYResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -97,12 +151,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
-                        //view.postPersonBalanceKYResult(response.getData());
-                        /*if(response.isSuccess()){
-                            view.showMessage(response.getDescribe());
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }*/
+                        if(response.isSuccess()){
+                            view.postPersonBalanceHGResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -123,12 +174,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
-                        //view.postPersonBalanceKYResult(response.getData());
-                        /*if(response.isSuccess()){
-                            view.showMessage(response.getDescribe());
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }*/
+                        if(response.isSuccess()){
+                            view.postPersonBalanceVGResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -149,6 +197,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()){
+                            view.postPersonBalanceLYResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -169,6 +220,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()){
+                            view.postPersonBalanceMGResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -189,6 +243,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()){
+                            view.postPersonBalanceAGResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -233,6 +290,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()){
+                            view.postPersonBalanceCQResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -253,6 +313,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                        if(response.isSuccess()){
+                            view.postPersonBalanceMWResult(response.getData().get(0));
+                        }
                         view.showMessage(response.getDescribe());
                     }
 
@@ -294,9 +357,9 @@ public  class BalanceTransferPresenter implements BalanceTransferContract.Presen
     @Override
     public void postPersonBalance(String appRefer, String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postPersonBalance(HGConstant.PRODUCT_PLATFORM,"b"))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PersonBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<PersonBalanceResult> response) {
+                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
                         if(response.isSuccess())
                         {
                             view.postPersonBalanceResult(response.getData().get(0));

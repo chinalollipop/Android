@@ -133,7 +133,7 @@ public class DiscountsFragment extends HGBaseFragment {
 
     @OnClick(R.id.servicePageRefresh)
     public void onViewRefreshClicked(){
-        String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+        String webUrl = Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
         GameLog.log("请求地址是："+webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);
     }

@@ -3,10 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-//        applicationId "com.flush.a01"//90086 6668
+//        applicationId "com.flush.a01"// 6668
+        applicationId "com.flush.a02"//0086
 //        applicationId "com.jinsha.flush"//金沙
 //        applicationId "com.h3366.flush"//3366
-        applicationId "com.suncity.flush"//太太阳城
+//        applicationId "com.suncity.flush"//太太阳城
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1

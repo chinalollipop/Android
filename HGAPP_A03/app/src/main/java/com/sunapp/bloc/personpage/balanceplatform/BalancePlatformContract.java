@@ -11,6 +11,8 @@ import com.sunapp.bloc.data.PersonBalanceResult;
 public interface BalancePlatformContract {
     public interface Presenter extends IPresenter
     {
+        public void postPersonBalanceTY(String appRefer,String action);
+        public void postBanalceTransferTY(String appRefer, String f, String t, String b);
         public void postBanalceTransfer(String appRefer, String f, String t, String b);
         public void postBanalceTransferKY(String appRefer, String f, String t, String b);
         public void postBanalceTransferHG(String appRefer, String f, String t, String b);
@@ -39,7 +41,8 @@ public interface BalancePlatformContract {
     public interface View extends IView<BalancePlatformContract.Presenter>,IMessageView,IProgressView
     {
         public void postBetRecordResult(BetRecordResult message);
-        public void postPersonBalanceResult(PersonBalanceResult personBalance);
+        public void postPersonBalanceTYResult(KYBalanceResult personBalance);
+        public void postPersonBalanceResult(KYBalanceResult personBalance);
         public void postPersonBalanceCPResult(KYBalanceResult personBalance);
         public void postPersonBalanceKYResult(KYBalanceResult personBalance);
         public void postPersonBalanceHGResult(KYBalanceResult personBalance);

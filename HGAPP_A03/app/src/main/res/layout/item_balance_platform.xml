@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/itemBalancePlatformMoney"
         android:layout_alignParentRight="true"
-        android:text="BBIN"
+        android:text="加载中..."
         android:textSize="15sp"
         android:textColor="#3c3941"
         android:paddingRight="20dp"

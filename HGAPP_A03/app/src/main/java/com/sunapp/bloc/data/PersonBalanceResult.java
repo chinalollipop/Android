@@ -18,6 +18,7 @@ public class PersonBalanceResult implements Parcelable {
     private String fg_balance;
     private String mg_balance;
     private String hg_balance;
+    private String sc_balance;
 
     public String getBalance_ag() {
         return balance_ag;
@@ -83,6 +84,14 @@ public class PersonBalanceResult implements Parcelable {
         this.fg_balance = fg_balance;
     }
 
+    public String getSc_balance() {
+        return sc_balance;
+    }
+
+    public void setSc_balance(String sc_balance) {
+        this.sc_balance = sc_balance;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -98,6 +107,7 @@ public class PersonBalanceResult implements Parcelable {
         dest.writeString(this.mg_balance);
         dest.writeString(this.hg_balance);
         dest.writeString(this.fg_balance);
+        dest.writeString(this.sc_balance);
     }
 
     public PersonBalanceResult() {
@@ -112,6 +122,7 @@ public class PersonBalanceResult implements Parcelable {
         this.mg_balance = in.readString();
         this.hg_balance = in.readString();
         this.fg_balance = in.readString();
+        this.sc_balance = in.readString();
     }
 
     public static final Parcelable.Creator<PersonBalanceResult> CREATOR = new Parcelable.Creator<PersonBalanceResult>() {

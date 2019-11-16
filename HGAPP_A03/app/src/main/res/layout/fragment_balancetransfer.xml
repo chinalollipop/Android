@@ -47,7 +47,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="体育余额"
+                        android:text="体育中心"
                         android:textColor="#2d3134" />
 
                     <TextView
@@ -69,7 +69,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="彩票余额"
+                        android:text="彩票平台"
                         android:textColor="#2d3134" />
 
                     <TextView
@@ -91,7 +91,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AG余额"
+                        android:text="AG平台"
                         android:textColor="#2d3134" />
 
                     <TextView
