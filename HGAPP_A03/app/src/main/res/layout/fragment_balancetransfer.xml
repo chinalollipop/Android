@@ -255,7 +255,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OG余额"
+                        android:text="OG平台"
                         android:textColor="#2d3134" />
 
                     <TextView
