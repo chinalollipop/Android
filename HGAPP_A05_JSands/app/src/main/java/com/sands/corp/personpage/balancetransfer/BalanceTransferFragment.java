@@ -102,9 +102,10 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         searchRecordsArrayList.add("2000");
         searchRecordsArrayList.add("5000");
 
-        gtypeList.add(new BalanceTransferData("1","体育余额","hg"));
-        gtypeList.add(new BalanceTransferData("2","彩票余额","cp"));
-        gtypeList.add(new BalanceTransferData("3","AG余额","ag"));
+        gtypeList.add(new BalanceTransferData("0","体育中心","sc"));
+        gtypeList.add(new BalanceTransferData("1","体育平台","hg"));
+        gtypeList.add(new BalanceTransferData("2","彩票平台","cp"));
+        gtypeList.add(new BalanceTransferData("3","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));
         gtypeList.add(new BalanceTransferData("5","皇冠棋牌","ff"));
         gtypeList.add(new BalanceTransferData("6","VG棋牌","vg"));
@@ -198,6 +199,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     }
 
     private void initBalance() {
+        presenter.postPersonBalanceTY("","");
         presenter.postPersonBalance("","");
         presenter.postPersonBalanceCP("","");
         presenter.postPersonBalanceKY("","");
@@ -242,73 +244,86 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         GameLog.log("总共充值多少：" + message.getTotal());
 
     }
+    @Override
+    public void postPersonBalanceTYResult(KYBalanceResult personBalance) {
+        BalanceTransferTY.setText(personBalance.getSc_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+    }
 
     @Override
-    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        BalanceTransferTY.setText(personBalance.getBalance_hg());
-        backTitleBalanceTransfer.setMoreText(personBalance.getBalance_hg());
+    public void postPersonBalanceResult(KYBalanceResult personBalance) {
         BalanceTransferAG.setText(personBalance.getBalance_ag());
+        backTitleBalanceTransfer.setMoreText(personBalance.getBalance_hg());
     }
 
     @Override
     public void postPersonBalanceCPResult(KYBalanceResult personBalance) {
         BalanceTransferCP.setText(personBalance.getGmcp_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceKYResult(KYBalanceResult personBalance) {
         BalanceTransferKY.setText(personBalance.getKy_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
-
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceVGResult(KYBalanceResult personBalance) {
         BalanceTransferVG.setText(personBalance.getVg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceLYResult(KYBalanceResult personBalance) {
         BalanceTransferLY.setText(personBalance.getLy_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceMGResult(KYBalanceResult personBalance) {
         BalanceTransferMG.setText(personBalance.getMg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceAGResult(KYBalanceResult personBalance) {
         BalanceTransferFY.setText(personBalance.getAvia_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceOGResult(KYBalanceResult personBalance) {
         BalanceTransferOG.setText(personBalance.getOg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceCQResult(KYBalanceResult personBalance) {
         BalanceTransferCQ.setText(personBalance.getCq_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceMWResult(KYBalanceResult personBalance) {
         BalanceTransferMW.setText(personBalance.getMw_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void postPersonBalanceFGResult(KYBalanceResult personBalance) {
         BalanceTransferFG.setText(personBalance.getFg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
     }
 
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        initBalance();
         //pop();
     }
 
@@ -330,7 +345,19 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
            showMessage("请输入转换金额");
            return;
        }
-        if(from.equals("hg")&&to.equals("ag")){
+        if(from.equals("hg")&&to.equals("sc")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferTY("","hg","sc",transferMoney);
+        }else if(from.equals("sc")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferTY("","sc","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("ag")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
                 return;

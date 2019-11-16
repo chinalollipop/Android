@@ -724,6 +724,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
             GameLog.log("订单的状态："+rowsBean.getChecked());
             String from = "",to= "";
             switch (rowsBean.getFrom()){
+                case "sc":
+                    from = "体育中心";
+                    break;
                 case "hg":
                     from = "体育平台";
                     break;
@@ -768,6 +771,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     break;
             }
             switch (rowsBean.getTo()){
+                case "sc":
+                    to = "体育中心";
+                    break;
                 case "hg":
                     to = "体育平台";
                     break;
