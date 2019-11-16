@@ -1858,6 +1858,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //presenter.postAGLiveCheckRegister("");
         presenter.postValidGift("", "get_valid");
         presenter.postMaintain();
+        presenter.postSportcenter();
         presenter.postCP();
         presenter.postQipai("", "");
         presenter.postHGQipai("", "");
