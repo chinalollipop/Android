@@ -725,10 +725,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
             String from = "",to= "";
             switch (rowsBean.getFrom()){
                 case "hg":
-                    from = "体育平台";
+                    from = "中心钱包";
                     break;
                 case "sc":
-                    from = "体育中心";
+                    from = "皇冠体育";
                     break;
                 case "cp":
                     from = "彩票平台";
@@ -772,10 +772,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
             }
             switch (rowsBean.getTo()){
                 case "hg":
-                    to = "体育平台";
+                    to = "中心钱包";
                     break;
                 case "sc":
-                    to = "体育中心";
+                    to = "皇冠体育";
                     break;
                 case "cp":
                     to = "彩票平台";
