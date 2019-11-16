@@ -101,8 +101,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         searchRecordsArrayList.add("2000");
         searchRecordsArrayList.add("5000");
 
-        gtypeList.add(new BalanceTransferData("0","体育中心","sc"));
-        gtypeList.add(new BalanceTransferData("1","体育平台","hg"));
+        gtypeList.add(new BalanceTransferData("0","皇冠体育","sc"));
+        gtypeList.add(new BalanceTransferData("1","中心钱包","hg"));
         gtypeList.add(new BalanceTransferData("2","彩票平台","cp"));
         gtypeList.add(new BalanceTransferData("3","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));

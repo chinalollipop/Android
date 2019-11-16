@@ -102,7 +102,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
-        gtypeList.add(new BalanceTransferData("110","体育中心","hg"));
+        gtypeList.add(new BalanceTransferData("110","皇冠体育","sc"));
         gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
         gtypeList.add(new BalanceTransferData("1","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("2","开元棋牌","ky"));
@@ -182,7 +182,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         return;
                                     }
                                     switch (gtypeList.get(postion).getEnName()){
-                                        case "hg":
+                                        case "sc":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                                 showMessage("非常抱歉，请您注册真实会员！");
                                                 return;
@@ -374,7 +374,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         return;
                                     }
                                     switch (gtypeList.get(postion).getEnName()){
-                                        case "hg":
+                                        case "sc":
                                             presenter.postBanalceTransferTY("","sc","hg", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "cp":
