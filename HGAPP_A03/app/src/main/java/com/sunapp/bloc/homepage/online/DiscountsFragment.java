@@ -119,6 +119,7 @@ public class DiscountsFragment extends HGBaseFragment {
             tvServicePageLogin.setVisibility(View.GONE);
             tvServicePageMoney.setText(GameShipHelper.formatMoney(loginResult.getMoney()));
         }
+        onViewRefreshClicked();
     }
 
     @Subscribe
@@ -161,7 +162,7 @@ public class DiscountsFragment extends HGBaseFragment {
         HGIWebSetting.init(wvServiceOnlineContent);
         //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         webviewsetting(wvServiceOnlineContent);
-        String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+        String webUrl = Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
         GameLog.log("请求地址是："+webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);
         //wvServiceOnlineContent.loadUrl(getIntent().getStringExtra("contractservice"));
