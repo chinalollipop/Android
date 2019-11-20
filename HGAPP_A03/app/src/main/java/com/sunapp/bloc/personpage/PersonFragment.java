@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fm.openinstall.OpenInstall;
+import com.fm.openinstall.listener.AppInstallAdapter;
+import com.fm.openinstall.model.AppData;
 import com.sunapp.bloc.HGApplication;
 import com.sunapp.bloc.Injections;
 import com.sunapp.bloc.R;
@@ -126,9 +129,24 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             Timber.e("检查更新失败，获取不到app版本号");
             throw new RuntimeException("检查更新失败，获取不到app版本号");
         }
-        String localver = packageInfo.versionName;
+        final String localver = packageInfo.versionName;
         GameLog.log("当前APP的版本号是："+localver);
-        personVersion.setText("V:"+localver);
+        OpenInstall.getInstall(new AppInstallAdapter() {
+            @Override
+            public void onInstall(AppData appData) {
+                //获取渠道数据
+                String channelCode = appData.getChannel();
+                //获取个性化安装数据
+                String bindData = appData.getData();
+                /*if(Check.isEmpty(channelCode)){
+                        showMessage("获取渠道失败！-1");
+                    }else{
+                        showMessage("获取渠道成功1 【"+channelCode+"】");
+                    }*/
+                personVersion.setText("V:"+localver+"\n"+channelCode);
+            }
+        });
+
     }
 
     class RvMylistAdapter extends com.sunapp.bloc.common.adapters.AutoSizeRVAdapter<String>{

@@ -29,6 +29,7 @@ import com.sunapp.bloc.common.widgets.verifycodeview.VerificationCodeView;
 import com.sunapp.bloc.data.LoginResult;
 import com.sunapp.bloc.login.fastlogin.LoginFragment;
 import com.sunapp.common.util.Check;
+import com.sunapp.common.util.Utils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -284,7 +285,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             return;
         }*/
 
-        /*if(Check.isEmpty(userVerificationCode)){
+        /*if(Check.isEmpty(userVerificationCode)){ HGApplication.instance().getCommentData());
             showMessage("请输入正确的验证码");
             return;
         }*/
@@ -292,7 +293,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
 
         presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,
-                userDrawPwd,userPhone,userWechat,userBrithday,"", HGApplication.instance().getCommentData());
+                userDrawPwd,userPhone,userWechat,userBrithday,"", ACache.get(Utils.getContext()).getAsString("needInstallChannelCode"));
 
     }
 

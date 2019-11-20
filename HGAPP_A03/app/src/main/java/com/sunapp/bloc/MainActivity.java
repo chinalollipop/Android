@@ -70,8 +70,8 @@ public class MainActivity extends SupportActivity {
 
         //获取唤醒参数
         OpenInstall.getWakeUp(getIntent(), wakeUpAdapter);
-        String needInstall = ACache.get(Utils.getContext()).getAsString("needInstall");
-        if(Check.isEmpty(needInstall)){
+        //String needInstall = ACache.get(Utils.getContext()).getAsString("needInstall");
+        //if(Check.isEmpty(needInstall)){
             OpenInstall.getInstall(new AppInstallAdapter() {
                 @Override
                 public void onInstall(AppData appData) {
@@ -82,10 +82,16 @@ public class MainActivity extends SupportActivity {
                     if (!appData.isEmpty()) {
 
                     }
-                    ACache.get(Utils.getContext()).put("needInstall","true");
+                    //ACache.get(Utils.getContext()).put("needInstall","true");
+                    /*if(Check.isEmpty(channelCode)){
+                        ToastUtils.showLongToast("获取渠道失败！-1");
+                    }else{
+                        ToastUtils.showLongToast("获取渠道成功1 【"+channelCode+"】");
+                    }*/
+                    ACache.get(Utils.getContext()).put("needInstallChannelCode",channelCode);
                 }
             });
-        }
+        //}
     }
 
     AppWakeUpAdapter wakeUpAdapter = new AppWakeUpAdapter() {
@@ -95,6 +101,12 @@ public class MainActivity extends SupportActivity {
             String channelCode = appData.getChannel();
             //获取绑定数据
             String bindData = appData.getData();
+            ACache.get(Utils.getContext()).put("needInstallChannelCode",channelCode);
+            /*if(Check.isEmpty(channelCode)){
+                ToastUtils.showLongToast("获取渠道失败！-2");
+            }else{
+                ToastUtils.showLongToast("获取渠道成功2 【"+channelCode+"】");
+            }*/
             GameLog.log("OpenInstall getWakeUp : wakeupData = " + appData.toString());
         }
     };
