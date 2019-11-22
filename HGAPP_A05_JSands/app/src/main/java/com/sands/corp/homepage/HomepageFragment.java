@@ -1489,8 +1489,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postSportcenterResult(Sportcenter sportcenter) {
         GameLog.log("体育中心的数据："+sportcenter.toString());
-        ACache.get(getContext()).put("homeSportCenterUrl", sportcenter.getGameUrl());
-        initWebView(sportcenter.getUrl());
+        ACache.get(getContext()).put("homeSportCenterUrl", sportcenter.getUrl()+"&appRefer=14");
+        //initWebView(sportcenter.getUrl());
     }
 
     private void goCpView(){

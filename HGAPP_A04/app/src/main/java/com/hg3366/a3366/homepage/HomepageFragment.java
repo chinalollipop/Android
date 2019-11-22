@@ -517,6 +517,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     String sportUrl = ACache.get(getContext()).getAsString("homeSportCenterUrl");
+                    GameLog.log("体育的地址是："+sportUrl);
                     if(Check.isEmpty(sportUrl)){
                         presenter.postSportcenter();
                     }else{
@@ -1315,8 +1316,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postSportcenterResult(Sportcenter sportcenter) {
         GameLog.log("体育中心的数据："+sportcenter.toString());
-        ACache.get(getContext()).put("homeSportCenterUrl", sportcenter.getGameUrl());
-        initWebView(sportcenter.getUrl());
+        ACache.get(getContext()).put("homeSportCenterUrl", sportcenter.getUrl()+"&appRefer=14");
+        //initWebView(sportcenter.getUrl());
     }
 
     private void goCpView(){

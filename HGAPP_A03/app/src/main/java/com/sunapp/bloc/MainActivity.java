@@ -101,7 +101,7 @@ public class MainActivity extends SupportActivity {
             String channelCode = appData.getChannel();
             //获取绑定数据
             String bindData = appData.getData();
-            ACache.get(Utils.getContext()).put("needInstallChannelCode",channelCode);
+            //ACache.get(Utils.getContext()).put("needInstallChannelCode",channelCode);
             /*if(Check.isEmpty(channelCode)){
                 ToastUtils.showLongToast("获取渠道失败！-2");
             }else{
