@@ -56,6 +56,9 @@ import com.hgapp.a6668.homepage.handicap.leaguelist.championlist.IChampionDetail
 import com.hgapp.a6668.homepage.handicap.saiguo.ISaiGuoApi;
 import com.hgapp.a6668.homepage.handicap.saiguo.SaiGuoContract;
 import com.hgapp.a6668.homepage.handicap.saiguo.SaiGuoPresenter;
+import com.hgapp.a6668.homepage.signtoday.ISignTodayApi;
+import com.hgapp.a6668.homepage.signtoday.SignTodayContract;
+import com.hgapp.a6668.homepage.signtoday.SignTodayPresenter;
 import com.hgapp.a6668.homepage.sportslist.ISportsListApi;
 import com.hgapp.a6668.homepage.sportslist.SportsListContract;
 import com.hgapp.a6668.homepage.sportslist.SportsListPresenter;
@@ -327,6 +330,13 @@ public class Injections {
             api = Client.getRetrofit().create(IEventsApi.class);
         }
         return new EventsPresenter(api,view);
+    }
+
+    public static SignTodayContract.Presenter inject(@Nullable ISignTodayApi api , @NonNull SignTodayContract.View view){
+        if(null == api){
+            api = Client.getRetrofit().create(ISignTodayApi.class);
+        }
+        return new SignTodayPresenter(api,view);
     }
 
     public static BindingCardContract.Presenter inject(@Nullable IBindingCardApi api , @NonNull BindingCardContract.View view){

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.hgapp.a6668.Injections;
@@ -158,6 +159,25 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+        switch (fshowtype){
+            case "game":
+                presenter.postPersonBalance("","");
+                presenter.postAGGameList("","","gamelist_dianzi");
+                gameTab.getTabAt(0).select();
+                break;
+            case "mg":
+                gameTab.getTabAt(1).select();
+                break;
+            case "cq":
+                gameTab.getTabAt(2).select();
+                break;
+            case "mw":
+                gameTab.getTabAt(3).select();
+                break;
+            case "fg":
+                gameTab.getTabAt(4).select();
+                break;
+        }
     }
 
 
@@ -173,7 +193,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         String userState = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
         GameLog.log("用户登录的状态 ：["+userState+"]"+ fshowtype);
         if(!Check.isNull(userState)&&userState.equals("1")){
-            presenter.postPersonBalance("","");
+           // presenter.postPersonBalance("","");
             //presenter.postCheckAgAccount("","","check_game_account");
             agUserMoneyShow.setVisibility(View.VISIBLE);
         }else{
@@ -182,6 +202,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
         if("live".equals(fshowtype)){
             //presenter.postCheckAgLiveAccount("");
+            presenter.postPersonBalance("","");
             presenter.postAGGameList("","","gamelist_zhenren");
             titleName = "真人额度：";
             //onAgLiveTestData();
@@ -191,7 +212,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }else{
             //presenter.postCheckAgGameAccount("");
             initTabStyle();
-            presenter.postAGGameList("","","gamelist_dianzi");
+            //presenter.postAGGameList("","","gamelist_dianzi");
             titleName = "电子额度：";
             //onAgGameTestData();
             agLiveList.setVisibility(View.VISIBLE);

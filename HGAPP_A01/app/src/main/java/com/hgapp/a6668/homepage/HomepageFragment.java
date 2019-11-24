@@ -12,6 +12,7 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -43,6 +44,7 @@ import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
 import com.hgapp.a6668.data.ValidResult;
 import com.hgapp.a6668.homepage.aglist.AGListFragment;
+import com.hgapp.a6668.homepage.aglist.DZGameFragment;
 import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
 import com.hgapp.a6668.homepage.cplist.CPListFragment;
 import com.hgapp.a6668.homepage.events.EventShowDialog;
@@ -52,6 +54,7 @@ import com.hgapp.a6668.homepage.handicap.HandicapFragment;
 import com.hgapp.a6668.homepage.noticelist.NoticeListFragment;
 import com.hgapp.a6668.homepage.online.ContractFragment;
 import com.hgapp.a6668.homepage.online.OnlineFragment;
+import com.hgapp.a6668.homepage.signtoday.SignTodayFragment;
 import com.hgapp.a6668.launcher.MyHttpClient;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
@@ -105,6 +108,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     MarqueeTextView tvHomapageBulletin;
     @BindView(R.id.rv_homepage_game_hall)
     RecyclerView rvHomapageGameHall;
+    @BindView(R.id.home_sign)
+    ImageView homeSign;
 
 
     private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
@@ -146,6 +151,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact,10));
         homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new,11));
         homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind,12));
+        homeGameList.add(new HomePageIcon("优惠活动1",R.mipmap.home_pro,20));
 //        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
 //        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
 //        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
@@ -170,6 +176,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+        rvHomapageGameHall.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String signSwitch  = ACache.get(getContext()).getAsString("signSwitch");
+                if(!Check.isEmpty(signSwitch)&&"true".equals(signSwitch)){
+                    homeSign.setVisibility(View.VISIBLE);
+                }
+                GameLog.log("签到活动说法："+signSwitch);
+            }
+        },5000);
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
         if(!Check.isNull(domainUrl)&&domainUrl.getList().size()>0){
             int sizeq = domainUrl.getList().size();
@@ -341,7 +357,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if("1".equals(game_url)){
                     presenter.postMaintain();
                 }else {
-                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
+                    //EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
+                    EventBus.getDefault().post(new StartBrotherEvent(DZGameFragment.newInstance( userMoney, "game"), SupportFragment.SINGLETASK));
                 }
                 break;
             case 9:
@@ -436,6 +453,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 userState = "9";
                 presenter.postOGGame("","");
                 break;
+            case 20:
+                EventBus.getDefault().post(new StartBrotherEvent(SignTodayFragment.newInstance(null,userMoney,1), SupportFragment.SINGLETASK));
+                break;
         }
     }
 
@@ -447,7 +467,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine})
+    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.home_sign})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tvHomePageLogin:
@@ -456,6 +476,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case R.id.tvHomePageLine:
                 showPopMenuIn();
+                break;
+            case R.id.home_sign:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(SignTodayFragment.newInstance(null,userMoney,1), SupportFragment.SINGLETASK));
                 break;
         }
 
@@ -738,7 +770,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postValidGiftResult(ValidResult validResult) {
         GameLog.log("=============红包的地址是否正常=============");
-        //EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
+        //EventBus.getDefault().post(new StartBrotherEvent(SignTodayFragment.newInstance(null,userMoney,1)));
         ACache.get(getContext()).put(HGConstant.USERNAME_GIFT_URL,"true");
     }
 
@@ -1037,6 +1069,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postLYQipai("","");
         presenter.postAviaQiPai("","");
         //presenter.postOGGame("","");
+
     }
 
     @Subscribe
