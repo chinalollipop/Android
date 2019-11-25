@@ -15,6 +15,7 @@ public interface SignTodayContract {
     public interface Presenter extends IPresenter
     {
         public void postSignTodayCheck(String appRefer, String action);
+        public void postSignTodaySign(String appRefer, String action);
         public void postSignTodayReceive(String appRefer, String action);
     }
     public interface View extends IView<Presenter>,IMessageView

@@ -44,6 +44,29 @@ public class SignTodayPresenter implements SignTodayContract.Presenter {
     }
 
     @Override
+    public void postSignTodaySign(String appRefer, String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postSignTodayCheck(HGConstant.PRODUCT_PLATFORM,action))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<SignTodayResults>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<SignTodayResults> response) {
+                        //view.postDownAppGiftResult("38");
+                        if(response.isSuccess()){
+                            postSignTodayCheck("","checked");
+                        }
+                        view.showMessage(response.getDescribe());
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void postSignTodayReceive(String appRefer, String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postSignTodayReceive(HGConstant.PRODUCT_PLATFORM,action))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<SignTodayResults>>() {

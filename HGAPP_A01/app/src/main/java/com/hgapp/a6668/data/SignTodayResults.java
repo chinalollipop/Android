@@ -5,20 +5,42 @@ import java.util.List;
 public class SignTodayResults {
 
     /**
-     * rows : [{"signdate":"2019-11-18","status":"0"},{"signdate":"2019-11-19","status":"0"},{"signdate":"2019-11-20","status":"0"},{"signdate":"2019-11-21","status":"0"},{"signdate":"2019-11-22","status":"0"},{"signdate":"2019-11-23","status":"0"},{"signdate":"2019-11-24","status":"0"}]
+     * rows : [{"signdate":"2019-11-25","status":"0"},{"signdate":"2019-11-26","status":"0"},{"signdate":"2019-11-27","status":"0"},{"signdate":"2019-11-28","status":"0"},{"signdate":"2019-11-29","status":"0"},{"signdate":"2019-11-30","status":"0"},{"signdate":"2019-12-01","status":"0"}]
+     * attendanceDay : [3,5,7]
+     * standardmoney : 1001
+     * maxstandardMoney : 888
      * curweekday : 0
      * lastweekday : 0
      */
 
-    private int curweekday;
+    private String standardmoney;
+    private String maxstandardMoney;
+    private String curweekday;
     private int lastweekday;
     private List<RowsBean> rows;
+    private List<Integer> attendanceDay;
 
-    public int getCurweekday() {
+    public String getStandardmoney() {
+        return standardmoney;
+    }
+
+    public void setStandardmoney(String standardmoney) {
+        this.standardmoney = standardmoney;
+    }
+
+    public String getMaxstandardMoney() {
+        return maxstandardMoney;
+    }
+
+    public void setMaxstandardMoney(String maxstandardMoney) {
+        this.maxstandardMoney = maxstandardMoney;
+    }
+
+    public String getCurweekday() {
         return curweekday;
     }
 
-    public void setCurweekday(int curweekday) {
+    public void setCurweekday(String curweekday) {
         this.curweekday = curweekday;
     }
 
@@ -38,9 +60,17 @@ public class SignTodayResults {
         this.rows = rows;
     }
 
+    public List<Integer> getAttendanceDay() {
+        return attendanceDay;
+    }
+
+    public void setAttendanceDay(List<Integer> attendanceDay) {
+        this.attendanceDay = attendanceDay;
+    }
+
     public static class RowsBean {
         /**
-         * signdate : 2019-11-18
+         * signdate : 2019-11-25
          * status : 0
          */
 
