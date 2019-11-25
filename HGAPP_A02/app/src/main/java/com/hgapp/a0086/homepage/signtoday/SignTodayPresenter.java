@@ -1,12 +1,13 @@
-package com.hgapp.a6668.homepage.signtoday;
+package com.hgapp.a0086.homepage.signtoday;
 
-import com.hgapp.a6668.common.http.ResponseSubscriber;
-import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
-import com.hgapp.a6668.common.util.HGConstant;
-import com.hgapp.a6668.common.util.RxHelper;
-import com.hgapp.a6668.common.util.SubscriptionHelper;
-import com.hgapp.a6668.data.ReceiveSignTidayResults;
-import com.hgapp.a6668.data.SignTodayResults;
+
+import com.hgapp.a0086.common.http.ResponseSubscriber;
+import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
+import com.hgapp.a0086.common.util.HGConstant;
+import com.hgapp.a0086.common.util.RxHelper;
+import com.hgapp.a0086.common.util.SubscriptionHelper;
+import com.hgapp.a0086.data.ReceiveSignTidayResults;
+import com.hgapp.a0086.data.SignTodayResults;
 
 public class SignTodayPresenter implements SignTodayContract.Presenter {
 

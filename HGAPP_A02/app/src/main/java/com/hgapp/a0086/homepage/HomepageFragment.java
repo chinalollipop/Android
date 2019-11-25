@@ -12,6 +12,7 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -54,6 +55,7 @@ import com.hgapp.a0086.homepage.handicap.HandicapFragment;
 import com.hgapp.a0086.homepage.noticelist.NoticeListFragment;
 import com.hgapp.a0086.homepage.online.ContractFragment;
 import com.hgapp.a0086.homepage.online.OnlineFragment;
+import com.hgapp.a0086.homepage.signtoday.SignTodayFragment;
 import com.hgapp.a0086.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
@@ -104,7 +106,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     MarqueeTextView tvHomapageBulletin;
     @BindView(R.id.rv_homepage_game_hall)
     RecyclerView rvHomapageGameHall;
-
+    @BindView(R.id.home_sign)
+    ImageView homeSign;
 
     private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
 
@@ -167,6 +170,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        rvHomapageGameHall.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String signSwitch  = ACache.get(getContext()).getAsString("signSwitch");
+                if(!Check.isEmpty(signSwitch)&&"true".equals(signSwitch)){
+                    homeSign.setVisibility(View.VISIBLE);
+                }
+                GameLog.log("签到活动说法："+signSwitch);
+            }
+        },5000);
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
         if(!Check.isNull(domainUrl)&&domainUrl.getList().size()>0) {
@@ -458,7 +471,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine})
+    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.home_sign})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tvHomePageLogin:
@@ -467,6 +480,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case R.id.tvHomePageLine:
                 showPopMenuIn();
+                break;
+            case R.id.home_sign:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                SignTodayFragment.newInstance(userMoney,1).show(getFragmentManager());
                 break;
         }
 

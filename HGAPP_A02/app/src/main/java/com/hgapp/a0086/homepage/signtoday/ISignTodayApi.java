@@ -1,12 +1,8 @@
-package com.hgapp.a6668.homepage.signtoday;
+package com.hgapp.a0086.homepage.signtoday;
 
-import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
-import com.hgapp.a6668.data.DownAppGiftResult;
-import com.hgapp.a6668.data.LuckGiftResult;
-import com.hgapp.a6668.data.PersonBalanceResult;
-import com.hgapp.a6668.data.ReceiveSignTidayResults;
-import com.hgapp.a6668.data.SignTodayResults;
-import com.hgapp.a6668.data.ValidResult;
+import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
+import com.hgapp.a0086.data.ReceiveSignTidayResults;
+import com.hgapp.a0086.data.SignTodayResults;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

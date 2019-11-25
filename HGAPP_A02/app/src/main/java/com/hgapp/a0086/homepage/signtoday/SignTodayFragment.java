@@ -1,4 +1,4 @@
-package com.hgapp.a6668.homepage.signtoday;
+package com.hgapp.a0086.homepage.signtoday;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,13 +7,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hgapp.a6668.Injections;
-import com.hgapp.a6668.R;
-import com.hgapp.a6668.base.HGBaseDialogFragment;
-import com.hgapp.a6668.common.util.DoubleClickHelper;
-import com.hgapp.a6668.data.ReceiveSignTidayResults;
-import com.hgapp.a6668.data.SignTodayResults;
-import com.hgapp.a6668.homepage.UserMoneyEvent;
+import com.hgapp.a0086.Injections;
+import com.hgapp.a0086.R;
+import com.hgapp.a0086.base.HGBaseDialogFragment;
+import com.hgapp.a0086.common.util.DoubleClickHelper;
+import com.hgapp.a0086.common.util.GameShipHelper;
+import com.hgapp.a0086.data.DepositAliPayQCCodeResult;
+import com.hgapp.a0086.data.ReceiveSignTidayResults;
+import com.hgapp.a0086.data.SignTodayResults;
+import com.hgapp.a0086.homepage.UserMoneyEvent;
 import com.hgapp.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
@@ -31,40 +33,20 @@ public class SignTodayFragment extends HGBaseDialogFragment implements SignToday
     private static final String ARG_PARAM3 = "param3";
     @BindView(R.id.eventShowCancel)
     ImageView eventShowCancel;
-    @BindView(R.id.tv_sign_today_days)
-    TextView tvSignTodayDays;
-    @BindView(R.id.im_sign_today_days)
-    ImageView imSignTodayDays;
-    @BindView(R.id.sign_today_8)
-    ImageView signToday8;
     @BindView(R.id.sign_today01)
     ImageView signToday01;
-    @BindView(R.id.sign_today01_start)
-    ImageView signToday01Start;
     @BindView(R.id.sign_today02)
     ImageView signToday02;
-    @BindView(R.id.sign_today02_down)
-    ImageView signToday02Down;
     @BindView(R.id.sign_today03)
     ImageView signToday03;
-    @BindView(R.id.sign_today03_down)
-    ImageView signToday03Down;
     @BindView(R.id.sign_today04)
     ImageView signToday04;
-    @BindView(R.id.sign_today04_down)
-    ImageView signToday04Down;
     @BindView(R.id.sign_today05)
     ImageView signToday05;
-    @BindView(R.id.sign_today05_down)
-    ImageView signToday05Down;
     @BindView(R.id.sign_today06)
     ImageView signToday06;
-    @BindView(R.id.sign_today06_down)
-    ImageView signToday06Down;
     @BindView(R.id.sign_today07)
     ImageView signToday07;
-    @BindView(R.id.sign_today07_down)
-    ImageView signToday07Down;
     @BindView(R.id.sign_today_now)
     ImageView signTodayNow;
     @BindView(R.id.sign_today_now_text)
@@ -129,65 +111,31 @@ public class SignTodayFragment extends HGBaseDialogFragment implements SignToday
 
         GameLog.log("检查日志信息：" + signTodayResults);
         lastweekday =  signTodayResults.getLastweekday();
-        tvSignTodayDays.setText("当前连续 "+signTodayResults.getCurweekday()+" 天");
-        switch (signTodayResults.getCurweekday()){
-            case "0":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_0));
-                break;
-            case "1":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_1));
-                break;
-            case "2":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_2));
-                break;
-            case "3":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_3));
-                break;
-            case "4":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_4));
-                break;
-            case "5":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_5));
-                break;
-            case "6":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_6));
-                break;
-            case "7":
-                imSignTodayDays.setBackground(getResources().getDrawable(R.mipmap.sign_today_7));
-                break;
-        }
         List<SignTodayResults.RowsBean> rowsBeanList =  signTodayResults.getRows();
         if(rowsBeanList.size()>=7){
             if(rowsBeanList.get(0).getStatus().equals("1")){
-                signToday01.setBackground(getResources().getDrawable(R.mipmap.sign_today01_c));
-                signToday01Start.setBackground(getResources().getDrawable(R.mipmap.sign_today_start_c));
+                signToday01.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
             if(rowsBeanList.get(1).getStatus().equals("1")){
-                signToday02.setBackground(getResources().getDrawable(R.mipmap.sign_today02_c));
-                signToday02Down.setBackground(getResources().getDrawable(R.mipmap.sign_today_mid_c));
+                signToday02.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
             if(rowsBeanList.get(2).getStatus().equals("1")){
-                signToday03.setBackground(getResources().getDrawable(R.mipmap.sign_today03_c));
-                signToday03Down.setBackground(getResources().getDrawable(R.mipmap.sign_today_mid_c));
+                signToday03.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
             if(rowsBeanList.get(3).getStatus().equals("1")){
-                signToday04.setBackground(getResources().getDrawable(R.mipmap.sign_today04_c));
-                signToday04Down.setBackground(getResources().getDrawable(R.mipmap.sign_today_mid_c));
+                signToday04.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
             if(rowsBeanList.get(4).getStatus().equals("1")){
-                signToday05.setBackground(getResources().getDrawable(R.mipmap.sign_today05_c));
-                signToday05Down.setBackground(getResources().getDrawable(R.mipmap.sign_today_mid_c));
+                signToday05.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
             if(rowsBeanList.get(5).getStatus().equals("1")){
-                signToday06.setBackground(getResources().getDrawable(R.mipmap.sign_today06_c));
-                signToday06Down.setBackground(getResources().getDrawable(R.mipmap.sign_today_mid_c));
+                signToday06.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
             if(rowsBeanList.get(6).getStatus().equals("1")){
-                signToday07.setBackground(getResources().getDrawable(R.mipmap.sign_today07_c));
-                signToday07Down.setBackground(getResources().getDrawable(R.mipmap.sign_today_end_c));
+                signToday07.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
         }
-        String tyexx = "<br>活动规则：<br>" +
+        String tyexx =
                 "1. 活动期间登录"+onMarkRed("APP")+"，每天累计存款金额达到"+onMarkRed(signTodayResults.getStandardmoney())+"元均可点击签到" +
                 "动态图进入活动页面参与签到。<br>"+
                 "2. 签到以美东时间星期一至星期日为一个周期，完成一个周期玩家可登录活动页面领取红包，24小时未领取视为自动放弃。<br>"+

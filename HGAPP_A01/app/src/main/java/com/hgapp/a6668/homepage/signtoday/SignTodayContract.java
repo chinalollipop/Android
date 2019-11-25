@@ -7,6 +7,7 @@ import com.hgapp.a6668.base.IView;
 import com.hgapp.a6668.data.DownAppGiftResult;
 import com.hgapp.a6668.data.LuckGiftResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
+import com.hgapp.a6668.data.ReceiveSignTidayResults;
 import com.hgapp.a6668.data.SignTodayResults;
 import com.hgapp.a6668.data.ValidResult;
 
@@ -21,7 +22,7 @@ public interface SignTodayContract {
     public interface View extends IView<Presenter>,IMessageView
     {
         public void postSignTodayCheckResult(SignTodayResults signTodayResults);
-        public void postSignTodayReceiveResult(SignTodayResults signTodayResults);
+        public void postSignTodayReceiveResult(ReceiveSignTidayResults receiveSignTidayResults);
     }
 
 }

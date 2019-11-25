@@ -483,7 +483,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                SignTodayFragment.newInstance(null,userMoney,1).show(getFragmentManager());
+                SignTodayFragment.newInstance(userMoney,1).show(getFragmentManager());
                 break;
         }
 
