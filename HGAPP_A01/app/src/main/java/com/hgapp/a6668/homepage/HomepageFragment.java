@@ -151,7 +151,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact,10));
         homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new,11));
         homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind,12));
-        homeGameList.add(new HomePageIcon("优惠活动1",R.mipmap.home_pro,20));
 //        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
 //        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
 //        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
@@ -453,9 +452,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 userState = "9";
                 presenter.postOGGame("","");
                 break;
-            case 20:
-                EventBus.getDefault().post(new StartBrotherEvent(SignTodayFragment.newInstance(null,userMoney,1), SupportFragment.SINGLETASK));
-                break;
         }
     }
 
@@ -487,7 +483,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                EventBus.getDefault().post(new StartBrotherEvent(SignTodayFragment.newInstance(null,userMoney,1), SupportFragment.SINGLETASK));
+                SignTodayFragment.newInstance(null,userMoney,1).show(getFragmentManager());
                 break;
         }
 

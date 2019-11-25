@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.hgapp.a6668.Injections;
@@ -103,6 +101,48 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         return R.layout.fragment_ag_list;
     }
 
+    @Override
+    public void setEvents(@Nullable Bundle savedInstanceState) {
+        agTitleBack.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pop();
+            }
+        });
+        EventBus.getDefault().register(this);
+        String userState = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
+        GameLog.log("用户登录的状态 ：["+userState+"]"+ fshowtype);
+        if(!Check.isNull(userState)&&userState.equals("1")){
+           // presenter.postPersonBalance("","");
+            //presenter.postCheckAgAccount("","","check_game_account");
+            agUserMoneyShow.setVisibility(View.VISIBLE);
+        }else{
+            agUserMoneyShow.setVisibility(View.GONE);
+        }
+
+        if("live".equals(fshowtype)){
+            //presenter.postCheckAgLiveAccount("");
+            presenter.postPersonBalance("","");
+            presenter.postAGGameList("","","gamelist_zhenren");
+            titleName = "真人额度：";
+            //onAgLiveTestData();
+            agLiveList.setVisibility(View.GONE);
+            tabLay.setVisibility(View.GONE);
+            agVideo.setVisibility(View.VISIBLE);
+        }else{
+            //presenter.postCheckAgGameAccount("");
+            initTabStyle();
+            //presenter.postAGGameList("","","gamelist_dianzi");
+            titleName = "电子额度：";
+            //onAgGameTestData();
+            agLiveList.setVisibility(View.VISIBLE);
+            tabLay.setVisibility(View.VISIBLE);
+            agVideo.setVisibility(View.GONE);
+        }
+       // presenter.postCreateAgAccount("","","cga");
+
+    }
+
     private void initTabStyle() {
         //presenter.getDepositSubmit(typeArgs2,"","","");
         gameTab.addTab(gameTab.newTab().setText("AG电子"));
@@ -180,49 +220,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }
     }
 
-
-    @Override
-    public void setEvents(@Nullable Bundle savedInstanceState) {
-        agTitleBack.setBackListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pop();
-            }
-        });
-        EventBus.getDefault().register(this);
-        String userState = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
-        GameLog.log("用户登录的状态 ：["+userState+"]"+ fshowtype);
-        if(!Check.isNull(userState)&&userState.equals("1")){
-           // presenter.postPersonBalance("","");
-            //presenter.postCheckAgAccount("","","check_game_account");
-            agUserMoneyShow.setVisibility(View.VISIBLE);
-        }else{
-            agUserMoneyShow.setVisibility(View.GONE);
-        }
-
-        if("live".equals(fshowtype)){
-            //presenter.postCheckAgLiveAccount("");
-            presenter.postPersonBalance("","");
-            presenter.postAGGameList("","","gamelist_zhenren");
-            titleName = "真人额度：";
-            //onAgLiveTestData();
-            agLiveList.setVisibility(View.GONE);
-            tabLay.setVisibility(View.GONE);
-            agVideo.setVisibility(View.VISIBLE);
-        }else{
-            //presenter.postCheckAgGameAccount("");
-            initTabStyle();
-            //presenter.postAGGameList("","","gamelist_dianzi");
-            titleName = "电子额度：";
-            //onAgGameTestData();
-            agLiveList.setVisibility(View.VISIBLE);
-            tabLay.setVisibility(View.VISIBLE);
-            agVideo.setVisibility(View.GONE);
-        }
-       // presenter.postCreateAgAccount("","","cga");
-
-    }
-
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
@@ -276,22 +273,29 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }
     }
 
+    private void onSetMoney(String money){
+        agTitleBack.setMoreText(GameShipHelper.formatMoney(money));
+    }
+
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("用户的真人账户："+personBalance.getBalance_ag());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getBalance_ag()));
+        onSetMoney(personBalance.getBalance_hg());
     }
 
     @Override
     public void postMGPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("MG用户的真人账户："+personBalance.getMg_balance());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMg_balance()));
+        onSetMoney(personBalance.getHg_balance());
     }
 
     @Override
     public void postCQPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("postCQPersonBalanceResult："+personBalance.getCq_balance());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getCq_balance()));
+        onSetMoney(personBalance.getHg_balance());
     }
 
     @OnClick({R.id.mwDz})
@@ -304,12 +308,14 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     public void postMWPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("postMWPersonBalanceResult："+personBalance.getMw_balance());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getMw_balance()));
+        onSetMoney(personBalance.getHg_balance());
     }
 
     @Override
     public void postFGPersonBalanceResult(PersonBalanceResult personBalance) {
         GameLog.log("postFGPersonBalanceResult："+personBalance.getFg_balance());
         agUserMoney.setText(titleName+ GameShipHelper.formatMoney(personBalance.getFg_balance()));
+        onSetMoney(personBalance.getHg_balance());
     }
 
     @Override

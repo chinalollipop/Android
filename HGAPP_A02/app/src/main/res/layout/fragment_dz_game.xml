@@ -6,7 +6,7 @@
     android:background="@color/title_text"
     android:orientation="vertical">
 
-    <com.hgapp.a6668.common.widgets.NTitleBar
+    <com.hgapp.a0086.common.widgets.NTitleBar
         android:id="@+id/dzTitleBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

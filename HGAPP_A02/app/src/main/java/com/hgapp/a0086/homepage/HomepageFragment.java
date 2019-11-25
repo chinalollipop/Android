@@ -44,6 +44,7 @@ import com.hgapp.a0086.data.OnlineServiceResult;
 import com.hgapp.a0086.data.QipaiResult;
 import com.hgapp.a0086.data.ValidResult;
 import com.hgapp.a0086.homepage.aglist.AGListFragment;
+import com.hgapp.a0086.homepage.aglist.DZGameFragment;
 import com.hgapp.a0086.homepage.aglist.playgame.XPlayGameActivity;
 import com.hgapp.a0086.homepage.cplist.CPListFragment;
 import com.hgapp.a0086.homepage.events.EventShowDialog;
@@ -350,7 +351,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if("1".equals(game_url)){
                     presenter.postMaintain();
                 }else {
-                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
+                    //EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
+                    EventBus.getDefault().post(new StartBrotherEvent(DZGameFragment.newInstance( userMoney, "game"), SupportFragment.SINGLETASK));
                 }
                 break;
             case 9:

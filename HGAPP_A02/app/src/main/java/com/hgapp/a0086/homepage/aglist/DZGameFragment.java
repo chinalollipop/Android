@@ -1,20 +1,15 @@
-package com.hgapp.a6668.homepage.aglist;
+package com.hgapp.a0086.homepage.aglist;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.hgapp.a6668.HGApplication;
-import com.hgapp.a6668.R;
-import com.hgapp.a6668.base.HGBaseFragment;
-import com.hgapp.a6668.common.util.ACache;
-import com.hgapp.a6668.common.util.HGConstant;
-import com.hgapp.a6668.common.util.IntervalClickListener;
-import com.hgapp.a6668.common.widgets.NTitleBar;
-import com.hgapp.a6668.homepage.UserMoneyEvent;
+
+import com.hgapp.a0086.R;
+import com.hgapp.a0086.base.HGBaseFragment;
+import com.hgapp.a0086.common.util.IntervalClickListener;
+import com.hgapp.a0086.common.widgets.NTitleBar;
+import com.hgapp.a0086.homepage.UserMoneyEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -22,9 +17,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.Arrays;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 

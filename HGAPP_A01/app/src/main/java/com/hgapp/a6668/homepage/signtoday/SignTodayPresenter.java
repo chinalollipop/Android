@@ -37,7 +37,6 @@ public class SignTodayPresenter implements SignTodayContract.Presenter {
                     public void fail(String msg) {
                         if(null != view)
                         {
-                            view.setError(0,0);
                             view.showMessage(msg);
                         }
                     }
@@ -46,7 +45,7 @@ public class SignTodayPresenter implements SignTodayContract.Presenter {
 
     @Override
     public void postSignTodayReceive(String appRefer, String action) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postSignTodayReceive(HGConstant.PRODUCT_PLATFORM,"receive_red_envelope"))
+        subscriptionHelper.add(RxHelper.addSugar(api.postSignTodayReceive(HGConstant.PRODUCT_PLATFORM,action))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<SignTodayResults>>() {
                     @Override
                     public void success(AppTextMessageResponseList<SignTodayResults> response) {
@@ -62,7 +61,6 @@ public class SignTodayPresenter implements SignTodayContract.Presenter {
                     public void fail(String msg) {
                         if(null != view)
                         {
-                            view.setError(0,0);
                             view.showMessage(msg);
                         }
                     }
