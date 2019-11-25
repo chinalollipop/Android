@@ -224,7 +224,7 @@ public class SignTodayFragment extends HGBaseDialogFragment implements SignToday
                 if(lastweekday>=3){
                     presenter.postSignTodayReceive("","receive");
                 }else{
-                    showMessage("当前不满足签到规则！");
+                    showMessage("当前不满足领取规则！");
                 }
                 break;
             case R.id.eventShowCancel:

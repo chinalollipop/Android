@@ -805,7 +805,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     to = "FG电子";
                     break;
             }
-            if(rowsBean.getNotes().equals("APP幸运红包活动")||rowsBean.getNotes().contains("新春红包活动")){
+            if(rowsBean.getNotes().equals("APP签到红包活动")){
+                holder.setText(R.id.tvRecordName, "APP签到红包");
+            }else if(rowsBean.getNotes().equals("APP幸运红包活动")||rowsBean.getNotes().contains("新春红包活动")){
                 holder.setText(R.id.tvRecordName, "红包");
             }else{
                 if (rowsBean.getType().equals("S")) {

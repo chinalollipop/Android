@@ -76,9 +76,8 @@ public class SignTodayPresenter implements SignTodayContract.Presenter {
                         //view.postDownAppGiftResult("38");
                         if(response.isSuccess()){
                             view.postSignTodayReceiveResult(response.getData().get(0));
-                        }else{
-                            view.showMessage(response.getDescribe());
                         }
+                        view.showMessage(response.getDescribe());
                     }
 
                     @Override
