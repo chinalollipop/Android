@@ -79,12 +79,23 @@
             android:layout_width="match_parent"
             android:layout_height="144dp"
             android:layout_margin="10dp" />-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <com.lzj.gallery.library.views.BannerViewPager
             android:id="@+id/banner_3d"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_marginTop="10dp"/>
-
+            <ImageView
+                android:id="@+id/home_sign"
+                android:background="@mipmap/home_sign"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="25dp"
@@ -305,6 +316,7 @@
         android:layout_height="match_parent"
         android:background="@mipmap/home_sports"
         android:padding="10dp">
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_homepage_game_hall"
