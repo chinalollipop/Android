@@ -58,6 +58,7 @@ import com.sunapp.bloc.homepage.handicap.ShowMainEvent;
 import com.sunapp.bloc.homepage.noticelist.NoticeListFragment;
 import com.sunapp.bloc.homepage.online.ContractFragment;
 import com.sunapp.bloc.homepage.online.OnlineFragment;
+import com.sunapp.bloc.homepage.signtoday.SignTodayFragment;
 import com.sunapp.bloc.login.fastlogin.LoginFragment;
 import com.sunapp.bloc.personpage.accountcenter.AccountCenterFragment;
 import com.sunapp.bloc.personpage.balancetransfer.BalanceTransferFragment;
@@ -115,6 +116,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     MarqueeTextView tvHomapageBulletin;
     /*@BindView(R.id.rv_homepage_game_hall)
     RecyclerView rvHomapageGameHall;*/
+    @BindView(R.id.home_sign)
+    ImageView homeSign;
     @BindView(R.id.homeLeft1)
     LinearLayout homeLeft1;
     @BindView(R.id.homeLeftIV1)
@@ -310,6 +313,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        rollpageview.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String signSwitch  = ACache.get(getContext()).getAsString("signSwitch");
+                if(!Check.isEmpty(signSwitch)&&"true".equals(signSwitch)){
+                    homeSign.setVisibility(View.VISIBLE);
+                }
+                GameLog.log("签到活动说法："+signSwitch);
+            }
+        },5000);
         initPX(Utils.getContext());
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
@@ -487,9 +500,21 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2,R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2,R.id.homeItem18_3, R.id.homeItem18_4,R.id.homeItem18_5, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+    @OnClick({R.id.home_sign,R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2,R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2,R.id.homeItem18_3, R.id.homeItem18_4,R.id.homeItem18_5, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.home_sign:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                SignTodayFragment.newInstance(userMoney,1).show(getFragmentManager());
+                break;
             case R.id.homeLeft1:
                 initLeftInfo(1);
                 break;

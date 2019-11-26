@@ -327,6 +327,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL_WECHAT,checkUpgradeResult.getService_wechat() );
             ACache.get(getContext()).put("guest_login_must_input_phone",checkUpgradeResult.getGuest_login_must_input_phone() );
             ACache.get(getContext()).put("login_must_tpl_name",checkUpgradeResult.getTpl_name());
+            ACache.get(getContext()).put("signSwitch",checkUpgradeResult.getSignSwitch() );
             //EventBus.getDefault().post(checkUpgradeResult);
 
         }

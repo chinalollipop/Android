@@ -46,6 +46,9 @@ import com.venen.tian.homepage.handicap.leaguelist.championlist.IChampionDetailL
 import com.venen.tian.homepage.handicap.saiguo.ISaiGuoApi;
 import com.venen.tian.homepage.handicap.saiguo.SaiGuoContract;
 import com.venen.tian.homepage.handicap.saiguo.SaiGuoPresenter;
+import com.venen.tian.homepage.signtoday.ISignTodayApi;
+import com.venen.tian.homepage.signtoday.SignTodayContract;
+import com.venen.tian.homepage.signtoday.SignTodayPresenter;
 import com.venen.tian.homepage.sportslist.ISportsListApi;
 import com.venen.tian.homepage.sportslist.SportsListContract;
 import com.venen.tian.homepage.sportslist.SportsListPresenter;
@@ -317,6 +320,13 @@ public class Injections {
             api = Client.getRetrofit().create(IEventsApi.class);
         }
         return new EventsPresenter(api,view);
+    }
+
+    public static SignTodayContract.Presenter inject(@Nullable ISignTodayApi api , @NonNull SignTodayContract.View view){
+        if(null == api){
+            api = Client.getRetrofit().create(ISignTodayApi.class);
+        }
+        return new SignTodayPresenter(api,view);
     }
 
     public static BindingCardContract.Presenter inject(@Nullable IBindingCardApi api , @NonNull BindingCardContract.View view){

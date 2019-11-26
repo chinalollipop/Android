@@ -34,6 +34,7 @@ public class CheckUpgradeResult implements Parcelable {
     private String discount_activity;
     private String guest_login_must_input_phone;
     private String tpl_name;
+    private String signSwitch;
 
     public String getVersion() {
         return version;
@@ -147,6 +148,14 @@ public class CheckUpgradeResult implements Parcelable {
         this.tpl_name = tpl_name;
     }
 
+    public String getSignSwitch() {
+        return signSwitch;
+    }
+
+    public void setSignSwitch(String signSwitch) {
+        this.signSwitch = signSwitch;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -168,6 +177,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.discount_activity);
         dest.writeString(this.guest_login_must_input_phone);
         dest.writeString(this.tpl_name);
+        dest.writeString(this.signSwitch);
     }
 
     public CheckUpgradeResult() {
@@ -188,6 +198,7 @@ public class CheckUpgradeResult implements Parcelable {
         this.discount_activity = in.readString();
         this.guest_login_must_input_phone = in.readString();
         this.tpl_name = in.readString();
+        this.signSwitch = in.readString();
     }
 
     public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {

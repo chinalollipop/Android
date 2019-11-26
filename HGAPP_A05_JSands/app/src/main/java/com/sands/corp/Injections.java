@@ -46,6 +46,9 @@ import com.sands.corp.homepage.handicap.leaguelist.championlist.IChampionDetailL
 import com.sands.corp.homepage.handicap.saiguo.ISaiGuoApi;
 import com.sands.corp.homepage.handicap.saiguo.SaiGuoContract;
 import com.sands.corp.homepage.handicap.saiguo.SaiGuoPresenter;
+import com.sands.corp.homepage.signtoday.ISignTodayApi;
+import com.sands.corp.homepage.signtoday.SignTodayContract;
+import com.sands.corp.homepage.signtoday.SignTodayPresenter;
 import com.sands.corp.homepage.sportslist.ISportsListApi;
 import com.sands.corp.homepage.sportslist.SportsListContract;
 import com.sands.corp.homepage.sportslist.SportsListPresenter;
@@ -317,6 +320,13 @@ public class Injections {
             api = Client.getRetrofit().create(IEventsApi.class);
         }
         return new EventsPresenter(api,view);
+    }
+
+    public static SignTodayContract.Presenter inject(@Nullable ISignTodayApi api , @NonNull SignTodayContract.View view){
+        if(null == api){
+            api = Client.getRetrofit().create(ISignTodayApi.class);
+        }
+        return new SignTodayPresenter(api,view);
     }
 
     public static BindingCardContract.Presenter inject(@Nullable IBindingCardApi api , @NonNull BindingCardContract.View view){
