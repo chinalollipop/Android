@@ -720,7 +720,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if ("1".equals(sport_url)) {
                     presenter.postMaintain();
                 } else {
-                    String sportUrl = ACache.get(getContext()).getAsString("homeSportCenterUrl");
+                    /*String sportUrl = ACache.get(getContext()).getAsString("homeSportCenterUrl");
                     if(Check.isEmpty(sportUrl)){
                         presenter.postSportcenter();
                     }else{
@@ -729,9 +729,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         intent.putExtra("gameCnName", "体育竞技");
                         intent.putExtra("hidetitlebar", true);
                         getActivity().startActivity(intent);
-                    }
-
-                    //EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName, userMoney), SupportFragment.SINGLETASK));
+                    }*/
+                    EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName, userMoney), SupportFragment.SINGLETASK));
                 }
                 break;
             case R.id.homeItem17:
@@ -1883,7 +1882,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //presenter.postAGLiveCheckRegister("");
         presenter.postValidGift("", "get_valid");
         presenter.postMaintain();
-        presenter.postSportcenter();
+        //presenter.postSportcenter();
         presenter.postCP();
         presenter.postQipai("", "");
         presenter.postHGQipai("", "");

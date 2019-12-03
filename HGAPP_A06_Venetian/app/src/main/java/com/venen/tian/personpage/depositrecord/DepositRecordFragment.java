@@ -728,7 +728,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     from = "皇冠体育";
                     break;
                 case "hg":
-                    from = "中心钱包";
+                    from = "体育余额";
                     break;
                 case "cp":
                     from = "彩票平台";
@@ -775,7 +775,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     to = "皇冠体育";
                     break;
                 case "hg":
-                    to = "中心钱包";
+                    to = "体育余额";
                     break;
                 case "cp":
                     to = "彩票平台";
