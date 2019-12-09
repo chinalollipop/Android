@@ -29,6 +29,7 @@ import com.sunapp.bloc.common.widgets.verifycodeview.VerificationCodeView;
 import com.sunapp.bloc.data.LoginResult;
 import com.sunapp.bloc.login.fastlogin.LoginFragment;
 import com.sunapp.common.util.Check;
+import com.sunapp.common.util.GameLog;
 import com.sunapp.common.util.Utils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -285,15 +286,22 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             return;
         }*/
 
-        /*if(Check.isEmpty(userVerificationCode)){ HGApplication.instance().getCommentData());
+        /*if(Check.isEmpty(userVerificationCode)){
             showMessage("请输入正确的验证码");
             return;
         }*/
         //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
-
-        presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,
-                userDrawPwd,userPhone,userWechat,userBrithday,"", ACache.get(Utils.getContext()).getAsString("needInstallChannelCode"));
+        String installOpen = ACache.get(Utils.getContext()).getAsString("needInstallChannelCode");
+        String getCommentData = HGApplication.instance().getCommentData();
+        GameLog.log("installOpen "+installOpen+" getCommentData"+ getCommentData);
+        if(!Check.isEmpty(installOpen)){
+            presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,
+                    userDrawPwd,userPhone,userWechat,userBrithday,"",installOpen);
+        }else{
+            presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,
+                    userDrawPwd,userPhone,userWechat,userBrithday,"", getCommentData);
+        }
 
     }
 

@@ -61,6 +61,8 @@ import com.venen.tian.homepage.signtoday.SignTodayFragment;
 import com.venen.tian.login.fastlogin.LoginFragment;
 import com.venen.tian.personpage.accountcenter.AccountCenterFragment;
 import com.venen.tian.personpage.balancetransfer.BalanceTransferFragment;
+import com.venen.tian.personpage.bindingcard.BindingCardFragment;
+import com.venen.tian.personpage.realname.RealNameFragment;
 import com.venen.tian.withdrawPage.WithdrawFragment;
 import com.venen.common.util.Check;
 import com.venen.common.util.GameLog;
@@ -579,15 +581,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
-                if (Check.isEmpty(userName)) {
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
                 if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                if(Check.isEmpty(alias)){
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                    return;
+                }
+                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+, loginResult.getBindCard_Flag());
+                GameLog.log("用户是否已经绑定过银行卡："+userStatus);
+                if("0".equals(userStatus)){
+                    showMessage("请先绑定银行卡！");
+                    EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                }
                 break;
             case R.id.homeItem15_1://AG旗舰厅
                 if (Check.isEmpty(userName)) {
