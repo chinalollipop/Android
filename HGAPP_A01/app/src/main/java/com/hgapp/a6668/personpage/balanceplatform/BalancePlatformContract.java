@@ -40,7 +40,7 @@ public interface BalancePlatformContract {
     public interface View extends IView<BalancePlatformContract.Presenter>,IMessageView,IProgressView
     {
         public void postBetRecordResult(BetRecordResult message);
-        public void postPersonBalanceResult(PersonBalanceResult personBalance);
+        public void postPersonBalanceResult(KYBalanceResult personBalance);
         public void postPersonBalanceKYResult(KYBalanceResult personBalance);
         public void postPersonBalanceHGResult(KYBalanceResult personBalance);
         public void postPersonBalanceVGResult(KYBalanceResult personBalance);

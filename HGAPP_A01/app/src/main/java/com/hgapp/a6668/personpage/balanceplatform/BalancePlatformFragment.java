@@ -19,6 +19,7 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.NTitleBar;
+import com.hgapp.a6668.data.BalanceTransferData;
 import com.hgapp.a6668.data.BetRecordResult;
 import com.hgapp.a6668.data.KYBalanceResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
@@ -55,7 +56,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     private String typeArgsHG;
     private String typeArgsCP;
     private String typeArgsAG;
-
+    static List<BalanceTransferData> gtypeList  = new ArrayList<BalanceTransferData>();
     List<String> balancePlatformList  = new ArrayList<>();
     BalancePlatformAdapter balancePlatformAdapter;
     public static BalancePlatformFragment newInstance(PersonBalanceResult personBalance) {
@@ -101,6 +102,19 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
+        gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
+        gtypeList.add(new BalanceTransferData("1","AG平台","ag"));
+        gtypeList.add(new BalanceTransferData("2","开元棋牌","ky"));
+        gtypeList.add(new BalanceTransferData("3","皇冠棋牌","ff"));
+        gtypeList.add(new BalanceTransferData("4","VG棋牌","vg"));
+        gtypeList.add(new BalanceTransferData("5","乐游棋牌","ly"));
+        gtypeList.add(new BalanceTransferData("6","MG电子","mg"));
+        gtypeList.add(new BalanceTransferData("7","泛亚电竞","avia"));
+        gtypeList.add(new BalanceTransferData("8","OG视讯","og"));
+        gtypeList.add(new BalanceTransferData("9","CQ9电子","cq"));
+        gtypeList.add(new BalanceTransferData("10","MW电子","mw"));
+        gtypeList.add(new BalanceTransferData("11","FG电子","fg"));
+        gtypeList.add(new BalanceTransferData("12","BBIN视讯","bbin"));
         balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         lvBalancePlatform.setLayoutManager(mLayoutManager1);
@@ -139,33 +153,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
         @Override
         protected void convert(ViewHolder viewHolder, final String sdata, final int postion) {
-            if(postion==0){
-                viewHolder.setText(R.id.itemBalancePlatformName,"彩票平台");
-            }else if(postion==1){
-                viewHolder.setText(R.id.itemBalancePlatformName,"AG平台");
-            }else if(postion==2){
-                viewHolder.setText(R.id.itemBalancePlatformName,"开元棋牌");
-            }else  if(postion==3){
-                viewHolder.setText(R.id.itemBalancePlatformName,"皇冠棋牌");
-            }else  if(postion==4){
-                viewHolder.setText(R.id.itemBalancePlatformName,"VG棋牌");
-            }else  if(postion==5){
-                viewHolder.setText(R.id.itemBalancePlatformName,"乐游棋牌");
-            }else if(postion==6){
-                viewHolder.setText(R.id.itemBalancePlatformName,"MG电子");
-            }else if(postion==7){
-                viewHolder.setText(R.id.itemBalancePlatformName,"泛亚电竞");
-            }else if(postion==8){
-                viewHolder.setText(R.id.itemBalancePlatformName,"OG视讯");
-            }else if(postion==9){
-                viewHolder.setText(R.id.itemBalancePlatformName,"CQ9电子");
-            }else if(postion==10){
-                viewHolder.setText(R.id.itemBalancePlatformName,"MW电子");
-            }else if(postion==11){
-                viewHolder.setText(R.id.itemBalancePlatformName,"FG电子");
-            }else{
-                viewHolder.setText(R.id.itemBalancePlatformName,"BBIN视讯");
-            }
+            viewHolder.setText(R.id.itemBalancePlatformName,gtypeList.get(postion).getCnName());
             viewHolder.setText(R.id.itemBalancePlatformMoney,sdata);
             viewHolder.setOnClickListener(R.id.itemBalancePlatformIn,new View.OnClickListener(){
 
@@ -193,80 +181,94 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                     if(Check.isEmpty(text)){
                                         return;
                                     }
-                                    if (postion == 0) {//彩票转入
-                                        presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "cp", GameShipHelper.getIntegerString(text));
-                                    } else if (postion == 1){//AG转入
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransfer("", "hg", "ag", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 2){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferKY("", "hg", "ky", GameShipHelper.getIntegerString(text));
-                                    }else  if(postion == 3){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferHG("", "hg", "ff", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 4){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferVG("", "hg", "vg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 5){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferLY("", "hg", "ly", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 6){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferMG("", "hg", "mg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 7){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferAG("", "hg", "avia", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 8){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferOG("", "hg", "og", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 9){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferCQ("", "hg", "cq", GameShipHelper.getIntegerString(text));
-                                    }else if(postion == 10){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferMW("", "hg", "mw", GameShipHelper.getIntegerString(text));
-                                    }else  if(postion == 11){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferFG("", "hg", "fg", GameShipHelper.getIntegerString(text));
-                                    }else {
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferBBIN("", "hg", "bbin", GameShipHelper.getIntegerString(text));
+                                    switch (gtypeList.get(postion).getEnName()){
+                                        case "bbin":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferBBIN("", "hg", "bbin", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "cp":
+                                            presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "cp", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ag":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransfer("", "hg", "ag", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ky":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferKY("", "hg", "ky", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ff":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferHG("", "hg", "ff", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "vg":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferVG("", "hg", "vg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ly":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferLY("", "hg", "ly", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "mg":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferMG("", "hg", "mg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "avia":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferAG("", "hg", "avia", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "og":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferOG("", "hg", "og", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "cq":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferCQ("", "hg", "cq", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "mw":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferMW("", "hg", "mw", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "fg":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferFG("", "hg", "fg", GameShipHelper.getIntegerString(text));
+                                            break;
                                     }
 
                                 }
@@ -302,80 +304,97 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                     if(Check.isEmpty(text)){
                                         return;
                                     }
-                                    if(postion==0){//彩票转出
-                                        presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==1){//AG转入
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
-                                    }else if(postion==2){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferKY("", "ky", "hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==3){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferHG("", "ff", "hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==4){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferVG("", "vg", "hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==5){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferLY("", "ly", "hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==6){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferMG("", "mg", "hg", GameShipHelper.getIntegerString(text));
-                                    }else  if(postion==7){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferAG("", "avia", "hg", GameShipHelper.getIntegerString(text));
-                                    }else  if(postion==8){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferOG("", "og", "hg", GameShipHelper.getIntegerString(text));
-                                    }else  if(postion==9){
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferCQ("", "cq", "hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==10) {
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferMW("", "mw", "hg", GameShipHelper.getIntegerString(text));
-                                    }else if(postion==11)  {
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferFG("", "fg", "hg", GameShipHelper.getIntegerString(text));
-                                    }else  {
-                                        if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                            showMessage("非常抱歉，请您注册真实会员！");
-                                            return;
-                                        }
-                                        presenter.postBanalceTransferBBIN("", "bbin", "hg", GameShipHelper.getIntegerString(text));
+                                    switch (gtypeList.get(postion).getEnName()){
+                                        case "bbin":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferBBIN("", "bbin", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "sc":
+                                            //presenter.postBanalceTransferTY("","sc","hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "cp":
+                                            presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ag":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransfer("","ag","hg",GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ky":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferKY("", "ky", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ff":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferHG("", "ff", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "vg":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferVG("", "vg", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "ly":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferLY("", "ly", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "mg":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferMG("", "mg", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "avia":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferAG("", "avia", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "og":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferOG("", "og", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "cq":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferCQ("", "cq", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "mw":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferMW("", "mw", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
+                                        case "fg":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferFG("", "fg", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
                                     }
                                 }
                             })
@@ -394,92 +413,105 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
     }
 
-    @Override
-    public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        //balancePlatformList.clear();
-        balancePlatformList.set(0,personBalance.getBalance_cp());
-        balancePlatformList.set(1,personBalance.getBalance_ag());
-        balancePlatformAdapter.notifyDataSetChanged();
-        typeArgsHG = GameShipHelper.formatMoney(personBalance.getBalance_hg());
+    private void onSetMoreText(KYBalanceResult kyBalanceResult){
+        typeArgsHG = GameShipHelper.formatMoney(kyBalanceResult.getHg_balance());
         backTitleBalancePlatform.setMoreText(typeArgsHG);
         EventBus.getDefault().post(new UserMoneyEvent(typeArgsHG));
-        //lvBalancePlatform.setAdapter(new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList));
-        //balancePlatformAdapter.notifyDataSetInvalidated();
-        //presenter.postPersonBalanceKY("","");
     }
 
     @Override
-    public void postPersonBalanceKYResult(KYBalanceResult personBalance) {
-        GameLog.log("postPersonBalanceKYResult "+personBalance.toString());
-        balancePlatformList.set(2,personBalance.getKy_balance());
+    public void postPersonBalanceResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(0,kyBalanceResult.getBalance_cp());
+        balancePlatformList.set(1,kyBalanceResult.getBalance_ag());
         balancePlatformAdapter.notifyDataSetChanged();
-        //presenter.postPersonBalanceHG("","");
+        typeArgsHG = GameShipHelper.formatMoney(kyBalanceResult.getBalance_hg());
+        backTitleBalancePlatform.setMoreText(typeArgsHG);
+        EventBus.getDefault().post(new UserMoneyEvent(typeArgsHG));
     }
 
     @Override
-    public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
+    public void postPersonBalanceKYResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(2,kyBalanceResult.getKy_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
+    }
+
+    @Override
+    public void postPersonBalanceHGResult(KYBalanceResult kyBalanceResult) {
         GameLog.log("皇冠棋牌的余额 ");
-        balancePlatformList.set(3,personBalance.getFf_balance());
+        balancePlatformList.set(3,kyBalanceResult.getFf_balance());
         balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceVGResult(KYBalanceResult personBalance) {
+    public void postPersonBalanceVGResult(KYBalanceResult kyBalanceResult) {
         GameLog.log("VG棋牌的余额 ");
-        balancePlatformList.set(4,personBalance.getVg_balance());
+        balancePlatformList.set(4,kyBalanceResult.getVg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceLYResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(5,personBalance.getLy_balance());
+    public void postPersonBalanceLYResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(5,kyBalanceResult.getLy_balance());
         balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceMGResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(6,personBalance.getMg_balance());
+    public void postPersonBalanceMGResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(6,kyBalanceResult.getMg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceAGResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(7,personBalance.getAvia_balance());
+    public void postPersonBalanceAGResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(7,kyBalanceResult.getAvia_balance());
         balancePlatformAdapter.notifyDataSetChanged();
-    }
-    @Override
-    public void postPersonBalanceOGResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(8,personBalance.getOg_balance());
-        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceCQResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(9,personBalance.getCq_balance());
+    public void postPersonBalanceOGResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(8,kyBalanceResult.getOg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
-    }
-    @Override
-    public void postPersonBalanceMWResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(10,personBalance.getMw_balance());
-        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceFGResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(11,personBalance.getFg_balance());
+    public void postPersonBalanceCQResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(9,kyBalanceResult.getCq_balance());
         balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
 
     @Override
-    public void postPersonBalanceBBINResult(KYBalanceResult personBalance) {
-        balancePlatformList.set(12,personBalance.getBbin_balance());
+    public void postPersonBalanceMWResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(10,kyBalanceResult.getMw_balance());
         balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
     }
+
+    @Override
+    public void postPersonBalanceFGResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(11,kyBalanceResult.getFg_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
+    }
+
+    @Override
+    public void postPersonBalanceBBINResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(12,kyBalanceResult.getBbin_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
+    }
+
 
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        presenter.postPersonBalance("","");
     }
 
     @Override

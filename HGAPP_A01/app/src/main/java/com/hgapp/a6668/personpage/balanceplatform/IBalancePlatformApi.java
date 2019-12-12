@@ -3,7 +3,6 @@ package com.hgapp.a6668.personpage.balanceplatform;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponse;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a6668.data.KYBalanceResult;
-import com.hgapp.a6668.data.PersonBalanceResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -12,16 +11,25 @@ import rx.Observable;
 
 public interface IBalancePlatformApi {
 
+    //体育中心获取余额
+    @POST("sportcenter/sport_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceTY(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    //体育中心额度转换  action=fundLimitTrans from=hg&to=cp from=cp&to=hg
+    @POST("sportcenter/sport_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferTY(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
     //体育额度转换  f=hg&t=ag f=ag&t=hg
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<Object>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     //彩票额度转换  action=fundLimitTrans from=hg&to=cp from=cp&to=hg
     @POST("ajaxTran.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<Object>> postBanalceTransferCP(@Field("appRefer") String appRefer, @Field("action") String action, @Field("from") String from, @Field("to") String to, @Field("fund") String fund);
-
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferCP(@Field("appRefer") String appRefer, @Field("action") String action, @Field("from") String from, @Field("to") String to, @Field("fund") String fund);
 
     //开元额度转换  f=hg&t=ag f=ag&t=hg
     @POST("ky/ky_api.php")
@@ -64,11 +72,15 @@ public interface IBalancePlatformApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferMW(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
+    @POST("fg/fg_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferFG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     //获取余额
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
+
 
     //获取开元余额
     @POST("ky/ky_api.php")
@@ -113,10 +125,6 @@ public interface IBalancePlatformApi {
     @POST("fg/fg_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceFG(@Field("appRefer") String appRefer, @Field("action") String action);
-
-    @POST("fg/fg_api.php")
-    @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferFG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     @POST("bbin/bbin_api.php")
     @FormUrlEncoded
