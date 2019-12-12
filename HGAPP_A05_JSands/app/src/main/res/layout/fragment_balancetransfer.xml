@@ -640,14 +640,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="温馨提示：\n"
+                android:text="温馨提示："
                 android:textColor="@color/textview_hight"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1、 转账前请退出游戏或游戏投注界面。\n\n2、不参与活动时, 户内转账金额不能少于 1元，户内转账\n不收取任何手续费。\n\n3、如遇网速较慢时，请耐心等候片刻，不要多次重复提交。"
+                android:text="1、 转账前请退出游戏或游戏投注界面。\n2、不参与活动时, 户内转账金额不能少于 1元，户内转账\n不收取任何手续费。\n3、如遇网速较慢时，请耐心等候片刻，不要多次重复提交。"
                 android:textColor="@color/textview_hight"
                 android:textSize="12sp" />
         </LinearLayout>

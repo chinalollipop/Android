@@ -14,6 +14,7 @@ import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.sands.corp.HGApplication;
 import com.sands.corp.Injections;
 import com.sands.corp.R;
 import com.sands.corp.base.HGBaseFragment;
@@ -284,8 +285,8 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         }*/
         //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
-
-        presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithday,"");
+        String getCommentData = HGApplication.instance().getCommentData();
+        presenter.postRegisterMember("","","add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithday,"",getCommentData);
 
     }
 

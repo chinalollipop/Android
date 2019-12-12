@@ -17,7 +17,7 @@ public interface RegisterContract {
 
 
         public void postRegisterMember(String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
-                                   String paypassword,String phone,String wechat,String birthday,String know_site);
+                                   String paypassword,String phone,String wechat,String birthday,String know_site,String code);
     }
 
     public interface View extends IView<Presenter> ,IMessageView,IProgressView
