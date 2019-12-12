@@ -3,6 +3,9 @@ package com.hgapp.a0086.data;
 public class KYBalanceResult {
     private String ky_balance;
     private String hg_balance;
+    private String balance_cp;
+    private String balance_ag;
+    private String balance_hg;
     private String ff_balance;
     private String vg_balance;
     private String ly_balance;
@@ -13,6 +16,27 @@ public class KYBalanceResult {
     private String mw_balance;
     private String fg_balance;
     private String bbin_balance;
+
+    @Override
+    public String toString() {
+        return "KYBalanceResult{" +
+                "ky_balance='" + ky_balance + '\'' +
+                ", hg_balance='" + hg_balance + '\'' +
+                ", balance_cp='" + balance_cp + '\'' +
+                ", balance_ag='" + balance_ag + '\'' +
+                ", balance_hg='" + balance_hg + '\'' +
+                ", ff_balance='" + ff_balance + '\'' +
+                ", vg_balance='" + vg_balance + '\'' +
+                ", ly_balance='" + ly_balance + '\'' +
+                ", mg_balance='" + mg_balance + '\'' +
+                ", avia_balance='" + avia_balance + '\'' +
+                ", og_balance='" + og_balance + '\'' +
+                ", cq_balance='" + cq_balance + '\'' +
+                ", mw_balance='" + mw_balance + '\'' +
+                ", fg_balance='" + fg_balance + '\'' +
+                ", bbin_balance='" + bbin_balance + '\'' +
+                '}';
+    }
 
     public String getKy_balance() {
         return ky_balance;
@@ -28,6 +52,30 @@ public class KYBalanceResult {
 
     public void setHg_balance(String hg_balance) {
         this.hg_balance = hg_balance;
+    }
+
+    public String getBalance_cp() {
+        return balance_cp;
+    }
+
+    public void setBalance_cp(String balance_cp) {
+        this.balance_cp = balance_cp;
+    }
+
+    public String getBalance_ag() {
+        return balance_ag;
+    }
+
+    public void setBalance_ag(String balance_ag) {
+        this.balance_ag = balance_ag;
+    }
+
+    public String getBalance_hg() {
+        return balance_hg;
+    }
+
+    public void setBalance_hg(String balance_hg) {
+        this.balance_hg = balance_hg;
     }
 
     public String getFf_balance() {
@@ -108,23 +156,5 @@ public class KYBalanceResult {
 
     public void setBbin_balance(String bbin_balance) {
         this.bbin_balance = bbin_balance;
-    }
-
-    @Override
-    public String toString() {
-        return "KYBalanceResult{" +
-                "ky_balance='" + ky_balance + '\'' +
-                ", hg_balance='" + hg_balance + '\'' +
-                ", ff_balance='" + ff_balance + '\'' +
-                ", vg_balance='" + vg_balance + '\'' +
-                ", ly_balance='" + ly_balance + '\'' +
-                ", mg_balance='" + mg_balance + '\'' +
-                ", avia_balance='" + avia_balance + '\'' +
-                ", og_balance='" + og_balance + '\'' +
-                ", cq_balance='" + cq_balance + '\'' +
-                ", mw_balance='" + mw_balance + '\'' +
-                ", fg_balance='" + fg_balance + '\'' +
-                ", bbin_balance='" + bbin_balance + '\'' +
-                '}';
     }
 }

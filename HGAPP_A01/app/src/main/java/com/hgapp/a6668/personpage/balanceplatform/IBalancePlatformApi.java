@@ -1,6 +1,5 @@
 package com.hgapp.a6668.personpage.balanceplatform;
 
-import com.hgapp.a6668.common.http.request.AppTextMessageResponse;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a6668.data.KYBalanceResult;
 
@@ -10,16 +9,6 @@ import retrofit2.http.POST;
 import rx.Observable;
 
 public interface IBalancePlatformApi {
-
-    //体育中心获取余额
-    @POST("sportcenter/sport_api.php")
-    @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceTY(@Field("appRefer") String appRefer, @Field("action") String action);
-
-    //体育中心额度转换  action=fundLimitTrans from=hg&to=cp from=cp&to=hg
-    @POST("sportcenter/sport_api.php")
-    @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferTY(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     //体育额度转换  f=hg&t=ag f=ag&t=hg
     @POST("ag_api.php")
