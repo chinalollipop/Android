@@ -123,7 +123,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0));
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16));
-        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_og,17));
+        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,17));
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
