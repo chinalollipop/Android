@@ -471,6 +471,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 presenter.postOGGame("","");
                 break;
             case R.id.homeItem15_3://BBIN
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "13";
+                playName = "BBIN视讯";
+                presenter.postBBINGame("","");
+                break;
             case R.id.homeItem15_4://DG
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -1499,6 +1511,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                     GameLog.log("fg "+maintainResult1.getState());
                     ACache.get(getContext()).put("username_dd_maintain_fg",maintainResult1.getState());
+                    break;
+                case "bbin":
+                    if(userState.equals("13")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("bbin "+maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_bbin",maintainResult1.getState());
                     break;
             }
         }

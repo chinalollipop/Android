@@ -101,6 +101,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
         /*balancePlatformList.add("加载中");
         gtypeList.add(new BalanceTransferData("110","皇冠体育","sc"));*/
         gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
@@ -115,6 +116,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         gtypeList.add(new BalanceTransferData("9","CQ9电子","cq"));
         gtypeList.add(new BalanceTransferData("10","MW电子","mw"));
         gtypeList.add(new BalanceTransferData("11","FG电子","fg"));
+        gtypeList.add(new BalanceTransferData("12","BBIN视讯","bbin"));
         balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         lvBalancePlatform.setLayoutManager(mLayoutManager1);
@@ -134,6 +136,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         presenter.postPersonBalanceCQ("","");
         presenter.postPersonBalanceMW("","");
         presenter.postPersonBalanceFG("","");
+        presenter.postPersonBalanceBBIN("","");
         backTitleBalancePlatform.setMoreText(GameShipHelper.formatMoney(typeArgsHG));
         backTitleBalancePlatform.setBackListener(new View.OnClickListener() {
             @Override
@@ -182,6 +185,13 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                         return;
                                     }
                                     switch (gtypeList.get(postion).getEnName()){
+                                        case "bbin":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferBBIN("", "hg", "bbin", GameShipHelper.getIntegerString(text));
+                                            break;
                                         case "sc":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                                 showMessage("非常抱歉，请您注册真实会员！");
@@ -375,6 +385,13 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                     }
 
                                     switch (gtypeList.get(postion).getEnName()){
+                                        case "bbin":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferBBIN("", "bbin", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
                                         case "sc":
                                             presenter.postBanalceTransferTY("","sc","hg", GameShipHelper.getIntegerString(text));
                                             break;
@@ -644,6 +661,13 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     @Override
     public void postPersonBalanceFGResult(KYBalanceResult kyBalanceResult) {
         balancePlatformList.set(11,kyBalanceResult.getFg_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
+    }
+
+    @Override
+    public void postPersonBalanceBBINResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(12,kyBalanceResult.getBbin_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }

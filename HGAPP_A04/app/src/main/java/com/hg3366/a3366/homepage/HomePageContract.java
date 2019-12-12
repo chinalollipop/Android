@@ -40,6 +40,7 @@ public interface HomePageContract {
         public void postMaintain();
         public void postBYGame(String appRefer, String gameid);
         public void postOGGame(String appRefer, String gameid);
+        public void postBBINGame(String appRefer, String gameid);
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {

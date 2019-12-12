@@ -36,6 +36,8 @@ public interface BalanceTransferContract {
         public void postPersonBalanceCQ(String appRefer,String action);
         public void postPersonBalanceMW(String appRefer,String action);
         public void postPersonBalanceFG(String appRefer,String action);
+        public void postPersonBalanceBBIN(String appRefer,String action);
+        public void postBanalceTransferBBIN(String appRefer, String f, String t, String b);
     }
     public interface View extends IView<BalanceTransferContract.Presenter>,IMessageView,IProgressView
     {
@@ -53,5 +55,6 @@ public interface BalanceTransferContract {
         public void postPersonBalanceCQResult(KYBalanceResult personBalance);
         public void postPersonBalanceMWResult(KYBalanceResult personBalance);
         public void postPersonBalanceFGResult(KYBalanceResult personBalance);
+        public void postPersonBalanceBBINResult(KYBalanceResult personBalance);
     }
 }
