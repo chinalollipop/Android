@@ -16,6 +16,7 @@ public class KYBalanceResult {
     private String mw_balance;
     private String fg_balance;
     private String sc_balance;
+    private String bbin_balance;
     public String getKy_balance() {
         return ky_balance;
     }
@@ -136,6 +137,14 @@ public class KYBalanceResult {
         this.fg_balance = fg_balance;
     }
 
+    public String getBbin_balance() {
+        return bbin_balance;
+    }
+
+    public void setBbin_balance(String bbin_balance) {
+        this.bbin_balance = bbin_balance;
+    }
+
     @Override
     public String toString() {
         return "KYBalanceResult{" +
@@ -154,6 +163,7 @@ public class KYBalanceResult {
                 ", mw_balance='" + mw_balance + '\'' +
                 ", fg_balance='" + fg_balance + '\'' +
                 ", sc_balance='" + sc_balance + '\'' +
+                ", bbin_balance='" + bbin_balance + '\'' +
                 '}';
     }
 }

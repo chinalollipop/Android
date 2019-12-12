@@ -114,6 +114,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
         gtypeList.add("CQ9电子");
         gtypeList.add("MW电子");
         gtypeList.add("FG电子");
+        gtypeList.add("BBIN视讯");
 
         checkedList.add("全部");
         checkedList.add("未结注单");
@@ -271,6 +272,9 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                         break;
                     case 15:
                         gtype = "fgdz";
+                        break;
+                    case 16:
+                        gtype = "bbin";
                         break;
                 }
 

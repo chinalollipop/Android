@@ -130,4 +130,12 @@ public interface IBalanceTransferApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceFG(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    @POST("bbin/bbin_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceBBIN(@Field("appRefer") String appRefer, @Field("action") String action);
+
+    @POST("bbin/bbin_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferBBIN(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+
 }

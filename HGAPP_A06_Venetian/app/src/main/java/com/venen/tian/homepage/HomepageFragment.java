@@ -631,9 +631,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 playName = "OG视讯";
                 presenter.postOGGame("","");
                 break;
-            case R.id.homeItem15_3://AG赌场厅
-                showMessage("敬请期待！");
-                /*if (Check.isEmpty(userName)) {
+            case R.id.homeItem15_3://BBIN
+                if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
                 }
@@ -641,14 +640,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "1";
-                playName = "AG赌场厅";
-                String video_url3 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
-                if ("1".equals(video_url3)) {
-                    presenter.postMaintain();
-                } else {
-                    presenter.postBYGame("","");
-                }*/
+                userState = "13";
+                playName = "BBIN视讯";
+                presenter.postBBINGame("","");
                 break;
             case R.id.homeItem15_4://AG竞咪厅
                 showMessage("敬请期待！");
@@ -1677,6 +1671,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                     GameLog.log("fg "+maintainResult1.getState());
                     ACache.get(getContext()).put("username_dd_maintain_fg",maintainResult1.getState());
+                    break;
+                case "bbin":
+                    if(userState.equals("13")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("bbin "+maintainResult1.getState());
+                    ACache.get(getContext()).put("username_dd_maintain_bbin",maintainResult1.getState());
                     break;
             }
         }
