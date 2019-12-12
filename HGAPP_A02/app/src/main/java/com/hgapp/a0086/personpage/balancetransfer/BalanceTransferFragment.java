@@ -363,6 +363,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferFG("","hg","fg",transferMoney);
+        }else if(from.equals("bbin")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferBBIN("","bbin","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("bbin")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferBBIN("","hg","bbin",transferMoney);
         }else {
             showMessage("转账方式不支持");
         }

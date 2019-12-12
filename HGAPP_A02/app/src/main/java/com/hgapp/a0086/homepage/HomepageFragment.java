@@ -126,6 +126,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0));
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16));
+        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_og,17));
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
@@ -444,7 +445,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "10";
+                userState = "2";
                 presenter.postBYGame("","6");
                 break;
             case 16:
@@ -459,6 +460,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 userState = "9";
                 presenter.postOGGame("","");
+                break;
+            case 17:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "10";
+                presenter.postBBINGame("","");
                 break;
         }
     }
@@ -856,6 +870,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     break;
                 case "og":
                     if(userState.equals("9")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("og "+maintainResult1.getState());
+                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    break;
+                case "bbin":
+                    if(userState.equals("10")){
                         showMessage(maintainResult1.getContent());
                     }
                     GameLog.log("og "+maintainResult1.getState());

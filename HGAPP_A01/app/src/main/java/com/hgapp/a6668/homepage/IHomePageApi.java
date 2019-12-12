@@ -55,6 +55,11 @@ public interface IHomePageApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<AGGameLoginResult>> postOGGame(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //BBIN视讯
+    @POST("bbin/bbin_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postBBINGame(@Field("appRefer") String appRefer, @Field("action") String action);
+
     //棋牌游戏
     @POST("ky/ky_api.php")
     @FormUrlEncoded
