@@ -644,6 +644,15 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                 }
                 if(money.equals("0.00")){
                     betRecordItemWin.setText(Html.fromHtml(onMarkRed("和局")));
+                    if("lottery".equals(gtype)){
+                        if("1".equals(rowsBean.getCancel())){//先判断是否取消注单  cancel :0 未取消，1 已取消  count : 0 未结算 1 已结算 ，
+                            betRecordItemWin.setText("已取消");
+                        }else{
+                            if("0".equals(rowsBean.getCount())){
+                                betRecordItemWin.setText("未结算");
+                            }
+                        }
+                    }
                 }
             }else{
                 if(Check.isNumericNull(money)){

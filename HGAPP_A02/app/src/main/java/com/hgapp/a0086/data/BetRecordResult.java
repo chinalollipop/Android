@@ -94,6 +94,8 @@ public class BetRecordResult {
         private String orderNo;
         private String BetScore;
         private String M_Result;
+        private String count;//0 未结算 1 已结算
+        private String cancel;//0 未取消，1 已取消
         private String Title;
         private String first_half;
         private String font_a = "";
@@ -111,6 +113,22 @@ public class BetRecordResult {
         private String corner_num;
         private String inball_mb_tg;
         private List<MiddleBean> Middle;
+
+        public String getCount() {
+            return count;
+        }
+
+        public void setCount(String count) {
+            this.count = count;
+        }
+
+        public String getCancel() {
+            return cancel;
+        }
+
+        public void setCancel(String cancel) {
+            this.cancel = cancel;
+        }
 
         public String getID() {
             return ID;
