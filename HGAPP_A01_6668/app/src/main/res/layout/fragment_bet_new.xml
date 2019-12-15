@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/title_text"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@color/title_bg_black"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivBetNewBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:src="@mipmap/icon_hand_back" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ivBetNewBowls"
+                android:scaleType="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ft_normal"
+                />
+            <TextView
+                android:id="@+id/tvBetNewBowls"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="滚球"
+                android:textColor="#C0BAB4"
+                android:textSize="20sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvBetNewToday"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="今日"
+                android:textColor="#C0BAB4"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewMorning"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="早盘"
+                android:textColor="#C0BAB4"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/ivBetNewMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:background="@mipmap/bet_nav_default" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlBetNewUserInfor"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="#46362C"
+            android:paddingLeft="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvBetNewUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RMB"
+                    android:textColor="#AEA49D"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvBetNewUserMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:text="10000"
+                    android:textColor="#dfc390"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/ivBetNewUserRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:background="@mipmap/bet_refresh" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/tvBetNewFootball"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_soccer_off"
+                android:gravity="center"
+                android:text="足球"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewBasketball"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_basketball_off"
+                android:gravity="center"
+                android:text="篮球"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvBetNewSaiGuo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/home_three"
+                android:gravity="center"
+                android:text="赛果"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewTennis"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_tennis_off"
+                android:gravity="center"
+                android:text="网球"
+                android:visibility="gone"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewBaseball"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_baseball_off"
+                android:gravity="center"
+                android:text="棒球"
+                android:visibility="gone"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewVideoGame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_poker_off"
+                android:gravity="center"
+                android:text="真人"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewSlotsGame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_slot_off"
+                android:gravity="center"
+                android:text="老虎机"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvBetNewLottery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_lottery_off"
+                android:gravity="center"
+                android:text="彩票"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvBetNewHgQipai"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_hg"
+                android:gravity="center"
+                android:text="皇冠"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvBetNewQipai"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/bet_qipai"
+                android:gravity="center"
+                android:text="开元"
+                android:textColor="#7E7E7E"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <TextView
+            android:background="@color/title_bg_black"
+            android:layout_width="match_parent"
+            android:layout_height="1px" />
+        <FrameLayout
+            android:id="@+id/fgtContainer"
+            android:layout_marginBottom="@dimen/bottombar_wechat_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+

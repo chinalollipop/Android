@@ -145,6 +145,8 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
         if (!localver.equals(checkUpgradeResult.getVersion())) {
             UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
         }
+        //checkUpgradeResult.setFile_path("https://hg-venetain.gz.bcebos.com/VeneTian.apk");
+        //checkUpgradeResult.setFile_path("https://hg-test.gz.bcebos.com/VeneTianVP.apk");
     }
 
     /*@Override
@@ -195,6 +197,7 @@ public class MainFragment extends SupportFragment implements CheckUpdateContract
      */
     private BaseTabItem newRoundItem(int drawable, int checkedDrawable, String text) {
         SpecialTabRound mainTab = new SpecialTabRound(CFApplication.instance().getApplicationContext());
+//        SpecialTabRoundInside mainTab = new SpecialTabRoundInside(CFApplication.instance().getApplicationContext());
         mainTab.initialize(drawable, checkedDrawable, text);
         mainTab.setTextDefaultColor(Color.parseColor("#404040"));
         mainTab.setTextCheckedColor(0xFFFF0000);
