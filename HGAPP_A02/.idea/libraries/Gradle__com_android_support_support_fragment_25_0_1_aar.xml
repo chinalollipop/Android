@@ -8,7 +8,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-fragment-25.0.1.aar/d12b4045b6f563dd3497068662fdd7b0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-fragment-25.0.1.aar/d12b4045b6f563dd3497068662fdd7b0/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/25.0.1/77436830728c7fe9af46eba42b1a9c6ae2d9bb4e/support-fragment-25.0.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/25.0.1/96d4084dd828583ae8e98b02b9442f28b5363050/support-fragment-25.0.1-sources.jar!/" />
     </SOURCES>

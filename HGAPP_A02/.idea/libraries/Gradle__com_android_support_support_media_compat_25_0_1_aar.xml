@@ -8,7 +8,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/4c659111d1cfdb40853373a2023e36fc/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.0.1.aar/4c659111d1cfdb40853373a2023e36fc/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-media-compat/25.0.1/77436830728c7fe9af46eba42b1a9c6ae2d9bb4e/support-media-compat-25.0.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-media-compat/25.0.1/8208dfb0e40f96ed487d5b710678cf5248f1468e/support-media-compat-25.0.1-sources.jar!/" />
     </SOURCES>

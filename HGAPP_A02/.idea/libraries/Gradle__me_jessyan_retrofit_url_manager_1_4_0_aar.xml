@@ -4,7 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/retrofit-url-manager-1.4.0.aar/1fb309c69b8a6528b4e73115f8ce5b0f/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/retrofit-url-manager-1.4.0.aar/1fb309c69b8a6528b4e73115f8ce5b0f/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.jessyan/retrofit-url-manager/1.4.0/182a535425765cf842c80ea80f1f07c5bfd997f2/retrofit-url-manager-1.4.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.jessyan/retrofit-url-manager/1.4.0/69c9ce35dbc67c66718eaf939cc2f44d72acfda2/retrofit-url-manager-1.4.0-sources.jar!/" />
     </SOURCES>

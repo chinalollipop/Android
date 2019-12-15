@@ -343,7 +343,45 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
                     presenter.postCpBetsLM(game_code,  round, totalNums,totalMoney,number,betGold,typeCode, x_session_token);
                 }else if("HKLM".equals(betType)||"HKHX".equals(betType)||"HKZXBZ".equals(betType)||"HKGG".equals(betType)||"HKSXL".equals(betType)){
                     for(int i=0;i<size;++i){
-                        number += betResult.get(i).getGid()+",";
+                        if("HKZXBZ".equals(betType)){
+                            switch (size){
+                                case 5:
+                                    typeCode ="40";
+                                    number += betResult.get(i).getGid()+",";
+                                    break;
+                                case 6:
+                                    typeCode ="41";
+                                    number += (50+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                                case 7:
+                                    typeCode ="42";
+                                    number += (100+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                                case 8:
+                                    typeCode ="43";
+                                    number += (150+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                                case 9:
+                                    typeCode ="44";
+                                    number += (400+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                                case 10:
+                                    typeCode ="45";
+                                    number += (450+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                                case 11:
+                                    typeCode ="46";
+                                    number += (500+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                                case 12:
+                                    typeCode ="47";
+                                    number += (550+ Integer.parseInt(betResult.get(i).getGid()))+",";
+                                    break;
+                            }
+                        }else{
+                            number += betResult.get(i).getGid()+",";
+                        }
+                        //number += betResult.get(i).getGid()+",";
                     }
                     number = number.substring(0,number.length()-1);
                     presenter.postCpBetsHK(game_code,  round, totalNums,totalMoney,number,betGold,typeCode,rtype, x_session_token);

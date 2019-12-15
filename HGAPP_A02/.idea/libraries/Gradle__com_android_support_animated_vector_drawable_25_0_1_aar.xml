@@ -4,7 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.0.1.aar/f36145dda7a8b55dc6460b4cd1e6e6ad/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.0.1.aar/f36145dda7a8b55dc6460b4cd1e6e6ad/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/animated-vector-drawable/25.0.1/e5587087755d51da26a9927ebfff7e2991a57b44/animated-vector-drawable-25.0.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/animated-vector-drawable/25.0.1/8262f0177fc04c95dd0122b1e9e608ed52af1294/animated-vector-drawable-25.0.1-sources.jar!/" />
     </SOURCES>
