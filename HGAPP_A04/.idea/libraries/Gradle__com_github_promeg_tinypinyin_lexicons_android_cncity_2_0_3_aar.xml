@@ -4,7 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed1c85a41daddfe933117161331b49ae/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed1c85a41daddfe933117161331b49ae/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin-lexicons-android-cncity/2.0.3/53767a0dd50114b5ce59f26d500d9a6e0da3424d/tinypinyin-lexicons-android-cncity-2.0.3-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin-lexicons-android-cncity/2.0.3/5948bd557bc3f150dbfc8f6ffe95d9716090bdd8/tinypinyin-lexicons-android-cncity-2.0.3-sources.jar!/" />
     </SOURCES>

@@ -4,7 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0d107afce5e79b17d6697c04b7cf163/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0d107afce5e79b17d6697c04b7cf163/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coolindicator.sdk/coolindicator/1.0.0-beta/44e6a49a5a449d59031e4c15e9d48cdd865accaf/coolindicator-1.0.0-beta-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coolindicator.sdk/coolindicator/1.0.0-beta/ad89fa98dd4d0a0da24c3b19b6bbce6a8de6f1ed/coolindicator-1.0.0-beta-sources.jar!/" />
     </SOURCES>

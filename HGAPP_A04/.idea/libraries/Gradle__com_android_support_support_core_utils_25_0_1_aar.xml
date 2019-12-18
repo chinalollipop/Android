@@ -8,7 +8,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6237ca0a83c14c0ae9c0a94d809c9098/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6237ca0a83c14c0ae9c0a94d809c9098/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-core-utils/25.0.1/96b93f8b1da8a35aa1f7917e4aaca2aeafbd27b6/support-core-utils-25.0.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-core-utils/25.0.1/56f1efb14e4dab6189bb9d012dcfa8836d77925/support-core-utils-25.0.1-sources.jar!/" />
     </SOURCES>

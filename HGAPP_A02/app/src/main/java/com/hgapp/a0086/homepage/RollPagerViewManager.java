@@ -176,7 +176,8 @@ public class RollPagerViewManager {
                     }else{
                     }*/
                     String userMoney = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_MONEY);
-                    EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                    //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                    EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
                 }
                 /*if(!Check.isEmpty(activityList.get(position).getDetailUrl()))
                 EventBus.getDefault().post(new StartBrotherEvent(IntroduceFragment.newInstance(activityList.get(position).getTitle(),activityList.get(position).getDetailUrl())));
