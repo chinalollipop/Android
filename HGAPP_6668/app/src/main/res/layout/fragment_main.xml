@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_tab_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp" />
+
+    <FrameLayout
+        android:id="@+id/fHomeBottom"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/icon_homec">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_gravity="bottom">
+
+            <me.yokeyword.sample.demo_wechat.ui.view.BottomBar
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/home_bottom_bgac" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/homeCenter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center|top"
+            android:background="@drawable/home_center" />
+    </FrameLayout>
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:background="@drawable/actionbar_shadow_up"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/bottombar_wechat_height"
+        android:layout_height="wrap_content"/>-->
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/bottombar_wechat_height"
+        android:background="#C8C7CC" />-->
+</FrameLayout>
