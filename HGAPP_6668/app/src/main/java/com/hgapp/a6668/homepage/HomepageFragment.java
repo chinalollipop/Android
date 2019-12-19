@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -59,6 +60,7 @@ import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.NetworkUtils;
 import com.jude.rollviewpager.RollPagerView;
+import com.lzj.gallery.library.views.BannerViewPager;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieManager;
@@ -96,14 +98,34 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     TextView tvHomePageLogin;
     @BindView(R.id.tvHomePageUserMoney)
     TextView tvHomePageUserMoney;
-    @BindView(R.id.rollpageview)
-    RollPagerView rollpageview;
+    /*@BindView(R.id.rollpageview)
+    RollPagerView rollpageview;*/
+    @BindView(R.id.banner_3d)
+    BannerViewPager banner_3d;
     @BindView(R.id.tv_homapage_bulletin)
     MarqueeTextView tvHomapageBulletin;
     @BindView(R.id.rv_homepage_game_hall)
     RecyclerView rvHomapageGameHall;
     @BindView(R.id.home_sign)
     ImageView homeSign;
+
+    @BindView(R.id.homeUserName)
+    TextView homeUserName;
+    @BindView(R.id.homeGoLogin)
+    LinearLayout homeGoLogin;
+    @BindView(R.id.homeLoginAl)
+    LinearLayout homeLoginAl;
+    @BindView(R.id.homeMoney)
+    TextView homeMoney;
+
+    @BindView(R.id.homeDeposit)
+    TextView homeDeposit;
+    @BindView(R.id.homeDepositC)
+    TextView homeDepositC;
+    @BindView(R.id.homeDwith)
+    TextView homeDwith;
+    @BindView(R.id.homeBank)
+    TextView homeBank;
 
 
     private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
@@ -195,12 +217,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
-        BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
-        if(!Check.isNull(bannerResult)){
-            rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
-            //rollPagerViewManager.testImagesLocal(null);
-            rollPagerViewManager.testImagesNet(null,null);
-        }
+
         NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
         if(!Check.isNull(noticeResult)){
             List<String> stringList = new ArrayList<String>();
@@ -211,6 +228,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tvHomapageBulletin.setContentList(stringList);
         }
         if(!NetworkUtils.isConnected()){
+            BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
+            initBanner(bannerResult);
             GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
         }else{
             //presenter.postOnlineService("");
@@ -221,6 +240,39 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
 
     }
+
+    private void initBanner(final BannerResult bannerResult){
+        if (!Check.isNull(bannerResult)) {
+            ArrayList<String> urlList = new ArrayList<String>();
+            for(int k=0;k<bannerResult.getData().size();++k){
+                urlList.add(bannerResult.getData().get(k).getImg_path());
+            }
+            banner_3d.initBanner(urlList, false)//开启3D画廊效果
+                    .addPageMargin(0, 0)//参数1page之间的间距,参数2中间item距离边界的间距
+                    .addPoint(6)//添加指示器
+                    .addStartTimer(5)//自动轮播5秒间隔
+                    //.addPointBottom(7)
+//                    .addRoundCorners(1)//圆角
+                    .finishConfig()//这句必须加
+                    .addBannerListener(new BannerViewPager.OnClickBannerListener() {
+                        @Override
+                        public void onBannerClick(int position) {
+                            //点击item
+                            if(bannerResult.getData().get(position).getName().equals("promo")){
+                                String userMoney = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_MONEY);
+                                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app" + ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                            }
+                            //showMessage("效果1点击"+position);
+                        }
+                    });
+
+            //rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
+            //rollPagerViewManager.testImagesLocal(null);
+            //rollPagerViewManager.testImagesNet(null, null);
+        }
+    }
+
 
     class HomaPageGameAdapter extends AutoSizeRVAdapter<HomePageIcon> {
         private Context context;
@@ -472,12 +524,57 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.home_sign})
+    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tvHomePageLogin:
+            case R.id.homeGoLogin:
                 //start(LoginFragment.newInstance());  启动一个新的Fragment 但是还是覆盖在以前的Fragemnet的基础上
                 EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                break;
+            case R.id.homeDeposit:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                break;
+            case R.id.homeDepositC:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                break;
+            case R.id.homeDwith:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                break;
+            case R.id.homeBank:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
                 break;
             case R.id.tvHomePageLine:
                 showPopMenuIn();
@@ -582,9 +679,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     public void postBannerResult(BannerResult bannerResult) {
         GameLog.log("。。。。。Banner的数据返回。。。。。");
         ACache.get(getContext()).put(HGConstant.USERNAME_HOME_BANNER, JSON.toJSONString(bannerResult));
-        rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
-        //rollPagerViewManager.testImagesLocal(null);
-        rollPagerViewManager.testImagesNet(null,null);
+        initBanner(bannerResult);
     }
 
     @Override
@@ -1051,6 +1146,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     public void onEventMain(UserMoneyEvent userMoneyEvent){
         userMoney = userMoneyEvent.money;
         tvHomePageUserMoney.setText(userMoney);
+        homeMoney.setText(userMoney);
 		ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
     }
 
@@ -1069,6 +1165,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tvHomePageUserMoney.setVisibility(View.VISIBLE);
             userMoney = GameShipHelper.formatMoney(loginResult.getMoney());
             tvHomePageUserMoney.setText(userMoney);
+            homeMoney.setText(userMoney);
+            homeUserName.setText(userName);
+            homeGoLogin.setVisibility(View.GONE);
+            homeLoginAl.setVisibility(View.VISIBLE);
             tvHomePageLogin.setVisibility(View.GONE);
         }
         //presenter.postAGLiveCheckRegister("");
@@ -1095,7 +1195,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         pro ="";
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro);
         tvHomePageLogin.setVisibility(View.VISIBLE);
+        homeLoginAl.setVisibility(View.GONE);
         tvHomePageUserMoney.setVisibility(View.GONE);
+        homeUserName.setText("欢迎您，亲爱的用户");
+        homeGoLogin.setVisibility(View.VISIBLE);
         userName = "";
         userMoney = "";
         userState = "19";

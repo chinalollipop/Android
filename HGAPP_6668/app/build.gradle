@@ -115,4 +115,5 @@ dependencies {
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
     //implementation 'org.greenrobot:greendao:3.2.2' // add library
     implementation 'com.github.instacart.truetime-android:library-extension-rx:3.4'
+    compile project(path: ':gallery')
 }

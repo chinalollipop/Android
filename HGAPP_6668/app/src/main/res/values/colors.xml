@@ -41,7 +41,7 @@
     <!--Textview默认颜色值-->
     <color name="textview_normal">#9B9B9B</color>
     <!--Textview跑马灯的默认颜色值-->
-    <color name="textview_marque">#666666</color>
+    <color name="textview_marque">#F9F9F9</color>
     <!--Textview高亮颜色值-->
     <color name="textview_hight">#606060</color>
     <!--标题文字颜色-->

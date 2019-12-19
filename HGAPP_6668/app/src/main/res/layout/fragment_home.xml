@@ -11,10 +11,9 @@
         android:orientation="vertical">
 
         <RelativeLayout
-
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:background="@color/title_bg">
+            android:background="@mipmap/home_ty_title">
             <TextView
                 android:id="@+id/tvHomePageLine"
                 android:drawablePadding="10dp"
@@ -60,10 +59,44 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <com.jude.rollviewpager.RollPagerView
+        <!--<com.jude.rollviewpager.RollPagerView
             android:id="@+id/rollpageview"
             android:layout_width="match_parent"
-            android:layout_height="144dp" />
+            android:layout_height="144dp" />-->
+
+            <com.lzj.gallery.library.views.BannerViewPager
+                android:id="@+id/banner_3d"
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:background="@mipmap/homapage_bulletin"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginLeft="43px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/homapage_gonggao" />
+
+                <com.hgapp.a6668.common.widgets.MarqueeTextView
+                    android:id="@+id/tv_homapage_bulletin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="33px"
+                    android:layout_marginRight="23dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/home_sign"
@@ -74,34 +107,137 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </FrameLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="86px"
-            android:gravity="center"
-            android:background="#f0efef"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_marginLeft="43px"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/home_notice" />
-
-            <com.hgapp.a6668.common.widgets.MarqueeTextView
-                android:id="@+id/tv_homapage_bulletin"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="33px"
-                android:background="#f0efef"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:textColor="#666666"
-                android:textSize="12sp" />
-
-        </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@mipmap/home_money_center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/homeUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="欢迎您，亲爱的用户"
+                />
+
+            <LinearLayout
+                android:id="@+id/homeGoLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="请先登录" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@mipmap/home_no_login" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLoginAl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中心钱包"
+                    android:textColor="@color/title_bg_black" />
+
+                <TextView
+                    android:id="@+id/homeMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥0.00"
+                    android:textColor="@color/event_line_title" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:background="@mipmap/home_linec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <TextView
+                android:id="@+id/homeDeposit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="15sp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_deposit"
+                android:text="存款" />
+            <TextView
+                android:text="转账"
+                android:id="@+id/homeDepositC"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="15sp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_deposit_c"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/homeDwith"
+                android:text="取款"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="15sp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_dwith"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/homeBank"
+                android:text="银行卡"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="15sp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_homepage_game_hall"
         android:layout_margin="33px"
