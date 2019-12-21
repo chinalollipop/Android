@@ -1,6 +1,5 @@
 package com.hgapp.common.upgrade;
 
-import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
@@ -9,8 +8,6 @@ import java.io.Serializable;
  */
 
 public class UpgradeInfo implements Serializable{
-    @SerializedName("version")
     public String version;
-    @SerializedName("content")
     public String content;
 }

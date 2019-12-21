@@ -1,1 +1,1 @@
-include ':app', ':commonliberary', ':slidingmenu', ':gallery'
+include ':app', ':commonliberary', ':slidingmenu', ':gallery', ':ijkplayer-java', ':upplayer'

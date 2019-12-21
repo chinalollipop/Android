@@ -1,7 +1,10 @@
 package com.hgapp.a6668.login.fastlogin;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.text.InputType;
 import android.view.View;
@@ -24,33 +27,33 @@ import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
-import com.hgapp.a6668.common.widgets.InputCodeLayout;
-import com.hgapp.a6668.common.widgets.NTitleBar;
-import com.hgapp.a6668.common.widgets.VerificationCodeView;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.SportsPlayMethodRBResult;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
-import com.hgapp.a6668.homepage.handicap.betnew.CloseBottomEvent;
 import com.hgapp.a6668.login.fastregister.RegisterFragment;
 import com.hgapp.a6668.login.forgetpwd.ForgetPwdFragment;
 import com.hgapp.a6668.login.resetpwd.ResetPwdDialog;
 import com.hgapp.a6668.login.resetpwd.ResetPwdEvent;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.upyun.upplayer.widget.UpVideoView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
+import tv.danmaku.ijk.media.player.IMediaPlayer;
 
 public class LoginFragment extends HGBaseFragment implements LoginContract.View {
 
@@ -60,8 +63,10 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @BindView(R.id.verificationCodeView)
     VerificationCodeView verificationCodeView;*/
-    @BindView(R.id.sScrollView)
-    LinearLayout sScrollView;
+    @BindView(R.id.upVideo)
+    UpVideoView upVideo;
+    /*@BindView(R.id.sScrollView)
+    LinearLayout sScrollView;*/
     @BindView(R.id.fgtLogin)
     LinearLayout fgtLogin;
     @BindView(R.id.fgtResgiter)
@@ -88,7 +93,6 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     TextView btnLoginUser;
     @BindView(R.id.btnLoginRegister)
     TextView btnLoginRegister;
-    private Random mRandom = new Random();
 
     @BindView(R.id.etRegisterIntro)
     EditText etRegisterIntro;
@@ -125,6 +129,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     OptionsPickerView optionsPickerViewState;
     private int resource = 1;
     static  List<String> stateList  = new ArrayList<String>();
+    String pasth = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DCIM/Camera/login.mp4";
     static {
         stateList.add("网络广告");
         stateList.add("比分网");
@@ -148,6 +153,18 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        //cpAssertVideoToLocalPath();
+//        upVideo.fullScreen(getActivity());
+        upVideo.setVideoPath(pasth);
+        GameLog.log("视频的目录是："+pasth);
+
+        upVideo.start();
+        upVideo.setOnCompletionListener(new IMediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(IMediaPlayer mp) {
+                upVideo.start();
+            }
+        });
         EventBus.getDefault().register(this);
         BottombarViewManager.getSingleton().onCloseView();
         String userName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT);
@@ -176,6 +193,68 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         }).build();
         optionsPickerViewState.setPicker(stateList);
         etRegisterResource.setText("网络广告");
+    }
+
+    public void verifyStoragePermissions() {
+        try {
+            int permission = ActivityCompat.checkSelfPermission(getActivity(),
+                    "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{
+                        "android.permission.READ_EXTERNAL_STORAGE","android.permission.READ_PHONE_STATE",
+                        "android.permission.WRITE_EXTERNAL_STORAGE","android.permission.WRITE_EXTERNAL_STORAGE"}, 1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            GameLog.log("获取权限异常:"+ e.toString());
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // 重新开始播放器
+        upVideo.resume();
+        upVideo.start();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        upVideo.pause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(!Check.isNull(upVideo)){
+            upVideo.release(true);
+        }
+    }
+
+    private void cpAssertVideoToLocalPath() {
+        verifyStoragePermissions();
+        try {
+            InputStream myInput;
+            OutputStream myOutput = new FileOutputStream(pasth);
+            //myInput = this.getAssets().open("login.mp4");
+            myInput = getResources().openRawResource(R.raw.login);
+            byte[] buffer = new byte[1024];
+            int length = myInput.read(buffer);
+            while (length > 0) {
+                myOutput.write(buffer, 0, length);
+                length = myInput.read(buffer);
+                GameLog.log("长度 "+length);
+            }
+
+            myOutput.flush();
+            myInput.close();
+            myOutput.close();
+        } catch (IOException e) {
+            GameLog.log("IOException "+e.toString());
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -268,7 +347,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     }
 
     private void btnLoginSubmit(){
-        sScrollView.scrollTo(0,0);
+       // sScrollView.scrollTo(0,0);
         String loginType = etLoginType.getText().toString().trim();
         String loginPwd= etLoginPwd.getText().toString().trim();
         if(Check.isEmpty(loginType)){
@@ -321,7 +400,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 EventBus.getDefault().post(new StartBrotherEvent(ForgetPwdFragment.newInstance(),SupportFragment.SINGLETASK));
                 break;
             case R.id.etLoginType:
-                sScrollView.scrollTo(0,400);
+               // sScrollView.scrollTo(0,400);
                 break;
             case R.id.btnLoginSubmit:
                 btnLoginSubmit();
