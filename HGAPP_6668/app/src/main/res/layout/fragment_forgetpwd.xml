@@ -52,117 +52,97 @@
 
         <LinearLayout
             android:id="@+id/llRegisterAccount"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_normal_gray">
 
-                <LinearLayout
-                    android:layout_width="@dimen/h_text_width"
-                    android:layout_height="@dimen/h_text_height"
-                    android:background="@color/login_left"
 
-                    >
-
-                    <TextView
-                        android:id="@+id/tvRegisterType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:text="* 账号"
-                        android:textColor="@color/register_left"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/ivLoginType"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/login_uname" />
 
                 <EditText
                     android:id="@+id/etRegisterUserName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="6-15个字符，英文需小写"
-                    android:maxLength="15" />
+                    android:hint="账号6-15个字符，英文需小写"
+                    android:maxLength="15"
+                    android:background="@null"
+                    android:layout_marginLeft="-7dp"
+                    android:textColor="@color/register_left"
+                    android:textColorHint="@color/register_left" />
             </LinearLayout>
-
-
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_normal_gray">
 
-                <LinearLayout
-                    android:layout_width="@dimen/h_text_width"
-                    android:layout_height="@dimen/h_text_height"
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
-
-                    <TextView
-                        android:id="@+id/tvRegisterRealName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:text="* 真实姓名"
-                        android:textColor="@color/register_left"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                    android:background="@mipmap/login_uname" />
 
                 <EditText
                     android:id="@+id/etRegisterWithDrawName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入真实姓名"
+                    android:layout_marginLeft="-7dp"
+                    android:background="@null"
+                    android:textColor="@color/register_left"
+                    android:textColorHint="@color/register_left"
 
                     />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_normal_gray">
 
-                <LinearLayout
-                    android:layout_width="@dimen/h_text_width"
-                    android:layout_height="@dimen/h_text_height"
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:text="* 提款密码"
-                        android:textColor="@color/register_left"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                    android:background="@mipmap/login_pwd" />
 
                 <EditText
                     android:id="@+id/etRegisterWithDrawPwd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入提款密码"
+                    android:background="@null"
+                    android:layout_marginLeft="-7dp"
                     android:inputType="numberPassword"
-                    />
+                    android:textColor="@color/register_left"
+                    android:textColorHint="@color/register_left" />
             </LinearLayout>
-
-
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
@@ -186,16 +166,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="手机号码(必填）"
-                    android:maxLength="14"
-                    />
+                    android:maxLength="14" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
@@ -225,10 +204,10 @@
 
 
             <LinearLayout
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
@@ -251,76 +230,64 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@mipmap/icon_textview_transfer"
-                    android:inputType="time"
                     android:focusable="false"
                     android:hint="请输入生日"
+                    android:inputType="time"
 
                     />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_normal_gray">
 
-                <LinearLayout
-                    android:layout_width="@dimen/h_text_width"
-                    android:layout_height="@dimen/h_text_height"
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
-
-                    <TextView
-                        android:id="@+id/tvRegisterPwd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:text="* 新密码"
-                        android:textColor="@color/register_left"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                    android:background="@mipmap/login_pwd" />
 
                 <EditText
                     android:id="@+id/etRegisterPwd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:hint="新密码6-15个字母或数字组成"
                     android:inputType="textPassword"
-                    android:hint="6-15个字符长度字母或数字组成"
                     android:maxLength="15"
-
-                    />
+                    android:layout_marginLeft="-7dp"
+                    android:background="@null"
+                    android:textColor="@color/register_left"
+                    android:textColorHint="@color/register_left" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_normal_gray">
 
-                <LinearLayout
-                    android:layout_width="@dimen/h_text_width"
-                    android:layout_height="@dimen/h_text_height"
+
+                <ImageView
+                    android:id="@+id/tvLoginPwd1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
-
-                    <TextView
-                        android:id="@+id/tvRegisterPwdVerify"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:text="* 确认密码"
-                        android:textColor="@color/register_left"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                    android:background="@mipmap/login_pwd" />
 
                 <EditText
                     android:id="@+id/etRegisterPwdVerify"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="再次输入新密码"
-                    android:maxLength="15"
                     android:inputType="textPassword"
-                    />
+                    android:maxLength="15"
+                    android:layout_marginLeft="-7dp"
+                    android:background="@null"
+                    android:textColor="@color/register_left"
+                    android:textColorHint="@color/register_left" />
             </LinearLayout>
         </LinearLayout>
 
@@ -441,14 +408,16 @@
         </LinearLayout>
 
 
-
         <Button
             android:id="@+id/btnRegisterSubmit"
             android:layout_width="match_parent"
-            android:layout_height="33dp"
+            android:layout_height="@dimen/h_login_edit_height"
+            android:background="@drawable/btn_normal_login"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:text="找回密码" />
+            android:text="找回密码"
+            android:textSize="15sp" />
     </LinearLayout>
 
 

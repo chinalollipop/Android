@@ -2,17 +2,21 @@ package com.hgapp.a6668.login.fastlogin;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.hgapp.a6668.HGApplication;
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
@@ -25,7 +29,6 @@ import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.common.widgets.VerificationCodeView;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.SportsPlayMethodRBResult;
-import com.hgapp.a6668.homepage.UserMoneyEvent;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
 import com.hgapp.a6668.homepage.handicap.betnew.CloseBottomEvent;
 import com.hgapp.a6668.login.fastregister.RegisterFragment;
@@ -38,6 +41,7 @@ import com.hgapp.common.util.GameLog;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -51,18 +55,17 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 public class LoginFragment extends HGBaseFragment implements LoginContract.View {
 
     LoginContract.Presenter presenter;
-    @BindView(R.id.tvLoginBack)
-    NTitleBar tvLoginBack;
-    @BindView(R.id.inputCodeLayout)
+    /*@BindView(R.id.inputCodeLayout)
     InputCodeLayout inputCodeLayout;
 
     @BindView(R.id.verificationCodeView)
-    VerificationCodeView verificationCodeView;
-    Unbinder unbinder;
-    @BindView(R.id.tvLoginUserName)
-    TextView tvLoginUserName;
-    @BindView(R.id.tvLoginUserPhone)
-    TextView tvLoginUserPhone;
+    VerificationCodeView verificationCodeView;*/
+    @BindView(R.id.sScrollView)
+    LinearLayout sScrollView;
+    @BindView(R.id.fgtLogin)
+    LinearLayout fgtLogin;
+    @BindView(R.id.fgtResgiter)
+    FrameLayout fgtResgiter;
     @BindView(R.id.ivLoginType)
     ImageView ivLoginType;
     @BindView(R.id.etLoginType)
@@ -81,22 +84,53 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     Button btnLoginSubmit;
     @BindView(R.id.tvLoginForgetPwd)
     TextView tvLoginForgetPwd;
+    @BindView(R.id.btnLoginUser)
+    TextView btnLoginUser;
     @BindView(R.id.btnLoginRegister)
-    Button btnLoginRegister;
+    TextView btnLoginRegister;
+    private Random mRandom = new Random();
+
+    @BindView(R.id.etRegisterIntro)
+    EditText etRegisterIntro;
+    @BindView(R.id.etRegisterUserName)
+    EditText etRegisterUserName;
+    @BindView(R.id.etRegisterPwd)
+    EditText etRegisterPwd;
+    @BindView(R.id.etRegisterPwdVerify)
+    EditText etRegisterPwdVerify;
+    @BindView(R.id.etRegisterPwdEyes)
+    ImageView etRegisterPwdEyes;
+    @BindView(R.id.etRegisterPwdVerifyEyes)
+    ImageView etRegisterPwdVerifyEyes;
+    @BindView(R.id.etRegisterWithDrawName)
+    EditText etRegisterWithDrawName;
+    @BindView(R.id.etRegisterWithDrawPwd)
+    EditText etRegisterWithDrawPwd;
+    @BindView(R.id.etRegisterBrithday)
+    EditText etRegisterBrithday;
+    @BindView(R.id.etRegisterAccountPhone)
+    EditText etRegisterAccountPhone;
+    @BindView(R.id.etRegisterResource)
+    EditText etRegisterResource;
     @BindView(R.id.btnLoginDemo)
     Button btnLoginDemo;
-    @BindView(R.id.fgtLogin)
-    LinearLayout fgtLogin;
     @BindView(R.id.btnLoginLayDemo)
     LinearLayout btnLoginLayDemo;
     @BindView(R.id.etRegisterAccountPhoneDemo)
     EditText etRegisterAccountPhoneDemo;
+    @BindView(R.id.btnRegisterSubmit)
+    Button btnRegisterSubmit;
     @BindView(R.id.btnRegisterSubmitDemo)
     Button btnRegisterSubmitDemo;
-    Unbinder unbinder1;
-    private Random mRandom = new Random();
-
-
+    OptionsPickerView optionsPickerViewState;
+    private int resource = 1;
+    static  List<String> stateList  = new ArrayList<String>();
+    static {
+        stateList.add("网络广告");
+        stateList.add("比分网");
+        stateList.add("朋友推荐");
+        stateList.add("论坛");
+    }
 
     public static LoginFragment newInstance() {
         LoginFragment loginFragment = new LoginFragment();
@@ -131,35 +165,17 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
             etLoginType.setText("");
             etLoginPwd.setText("");
         }
-        //etLoginPwd.setText("123qwe");
-        tvLoginBack.setBackListener(new View.OnClickListener() {
+
+        optionsPickerViewState = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
             @Override
-            public void onClick(View view) {
-                pop();
-                EventBus.getDefault().post(new CloseBottomEvent());
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                resource = options1;
+                etRegisterResource.setText(stateList.get(options1));
             }
-        });
-
-        inputCodeLayout.setOnInputCompleteListener(new InputCodeLayout.OnInputCompleteCallback() {
-            @Override
-            public void onInputCompleteListener(String code) {
-                GameLog.log("输入的验证码为：" + code);
-                showMessage("输入的验证码为：" + code);
-            }
-        });
-
-        verificationCodeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String s = String.valueOf(mRandom.nextInt(10)) +
-                        String.valueOf(mRandom.nextInt(10)) +
-                        String.valueOf(mRandom.nextInt(10)) +
-                        String.valueOf(mRandom.nextInt(10));
-
-                verificationCodeView.setVerificationText(s);
-            }
-        });
+        }).build();
+        optionsPickerViewState.setPicker(stateList);
+        etRegisterResource.setText("网络广告");
     }
 
     @Override
@@ -252,6 +268,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     }
 
     private void btnLoginSubmit(){
+        sScrollView.scrollTo(0,0);
         String loginType = etLoginType.getText().toString().trim();
         String loginPwd= etLoginPwd.getText().toString().trim();
         if(Check.isEmpty(loginType)){
@@ -267,7 +284,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,R.id.tvLoginUserName, R.id.tvLoginUserPhone, R.id.cbLoginRemeber, R.id.btnLoginSubmit,R.id.btnRegisterSubmitDemo, R.id.btnLoginRegister,R.id.btnLoginDemo})
+    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -280,33 +297,53 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 }
                 etLoginPwd.setSelection(etLoginPwd.getText().toString().length());
                 break;
+            case R.id.etRegisterPwdEyes:
+                if (etRegisterPwd.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                    etRegisterPwdEyes.setBackgroundResource(R.mipmap.icon_eye);
+                    etRegisterPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
+                } else {
+                    etRegisterPwdEyes.setBackgroundResource(R.mipmap.icon_eye_close);
+                    etRegisterPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                etRegisterPwd.setSelection(etRegisterPwd.getText().toString().length());
+                break;
+            case R.id.etRegisterPwdVerifyEyes:
+                if (etRegisterPwdVerify.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                    etRegisterPwdVerifyEyes.setBackgroundResource(R.mipmap.icon_eye);
+                    etRegisterPwdVerify.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
+                } else {
+                    etRegisterPwdVerifyEyes.setBackgroundResource(R.mipmap.icon_eye_close);
+                    etRegisterPwdVerify.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                etRegisterPwdVerify.setSelection(etRegisterPwdVerify.getText().toString().length());
+                break;
             case R.id.tvLoginForgetPwd:
                 EventBus.getDefault().post(new StartBrotherEvent(ForgetPwdFragment.newInstance(),SupportFragment.SINGLETASK));
                 break;
-            case R.id.tvLoginUserName:
-                ivLoginType.setBackground(getActivity().getResources().getDrawable(R.mipmap.login_hy));
-                tvLoginUserName.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_hight));
-                tvLoginUserPhone.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_normal));
-                cbLoginRemeber.setVisibility(View.GONE);
-                etLoginType.setHint("您的会员账号");
-                //presenter.loginGet();
-
-                break;
-            case R.id.tvLoginUserPhone:
-                ivLoginType.setBackground(getActivity().getResources().getDrawable(R.mipmap.login_sj));
-                tvLoginUserName.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_normal));
-                tvLoginUserPhone.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_hight));
-                cbLoginRemeber.setVisibility(View.VISIBLE);
-                etLoginType.setHint("输入手机号");
-                break;
-            case R.id.cbLoginRemeber:
+            case R.id.etLoginType:
+                sScrollView.scrollTo(0,400);
                 break;
             case R.id.btnLoginSubmit:
                 btnLoginSubmit();
-
+                break;
+            case R.id.btnLoginUser:
+                btnLoginLayDemo.setVisibility(View.GONE);
+                fgtLogin.setVisibility(View.VISIBLE);
+                fgtResgiter.setVisibility(View.GONE);
+                RegisterFragment registerFragment =  RegisterFragment.newInstance();
+                FragmentTransaction ft =getFragmentManager().beginTransaction().hide(registerFragment);
+                ft.show(registerFragment);
+                ft.commit();
+                btnLoginUser.setBackground(getResources().getDrawable(R.drawable.btn_normal_top_click));
+                btnLoginRegister.setBackground(null);
                 break;
             case R.id.btnLoginRegister:
-                EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
+                btnLoginLayDemo.setVisibility(View.GONE);
+                fgtLogin.setVisibility(View.GONE);
+                fgtResgiter.setVisibility(View.VISIBLE);
+                btnLoginUser.setBackground(null);
+                btnLoginRegister.setBackground(getResources().getDrawable(R.drawable.btn_normal_top_click));
+                //EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
                 //start(RegisterFragment.newInstance());
                 break;
             case R.id.btnLoginDemo:
@@ -314,9 +351,11 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 if(!Check.isEmpty(havePhone)&&havePhone.equals("true")){
                     btnLoginLayDemo.setVisibility(View.VISIBLE);
                     fgtLogin.setVisibility(View.GONE);
+                    fgtResgiter.setVisibility(View.GONE);
                 }else{
                     presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","demoguest","nicainicainicaicaicaicai");
                 }
+                //presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
                 break;
             case R.id.btnRegisterSubmitDemo:
                 String phone = etRegisterAccountPhoneDemo.getText().toString().trim();
@@ -326,6 +365,98 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 }
                 presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,phone,"demoguest","nicainicainicaicaicaicai");
                 break;
+            case R.id.etRegisterResource:
+                optionsPickerViewState.show();
+                break;
+            case R.id.btnRegisterSubmit:
+                onCheckRegisterMember();
+                break;
         }
+
     }
+
+    private void onCheckRegisterMember(){
+        String introducer = etRegisterIntro.getText().toString().trim();
+        String userName = etRegisterUserName.getText().toString().trim();
+        String userPwd = etRegisterPwd.getText().toString().trim();
+        String userBrithday = etRegisterBrithday.getText().toString().trim();
+        String userPwdVerify = etRegisterPwdVerify.getText().toString().trim();
+        String userDrawName = etRegisterWithDrawName.getText().toString().trim();
+        String userDrawPwd = etRegisterWithDrawPwd.getText().toString().trim();
+        String userPhone = etRegisterAccountPhone.getText().toString().trim();
+        if(Check.isEmpty(userName)){
+            showMessage("请输入账号！");
+            return;
+        }
+
+        if(Check.isEmpty(userPwd)||userPwd.length()<6){
+            showMessage("请输入有效密码！");
+            return;
+        }
+
+        if(Check.isEmpty(userPwdVerify)||userPwdVerify.length()<6){
+            showMessage("请输入有效确认密码！");
+            return;
+        }
+
+        if(!userPwdVerify.equals(userPwd)){
+            showMessage("2次输入密码不一致，请重新输入！");
+            return;
+        }
+
+        if(Check.isEmpty(userPhone)){
+            showMessage("请输入手机号！");
+            return;
+        }
+
+        /*if(Check.isEmpty(userDrawName)){
+            showMessage("请输入真实姓名！");
+            return;
+        }
+        if(Check.isEmpty(userDrawPwd)){
+            showMessage("请输入提款密码！");
+            return;
+        }
+
+
+        if(Check.isEmpty(userWechat)){
+            showMessage("请输入微信号码！");
+            return;
+        }
+
+        if(Check.isEmpty(userBrithday)){
+            showMessage("请输入出生日期！");
+            return;
+        }*/
+
+        /*if(Check.isEmpty(userVerificationCode)){
+            showMessage("请输入正确的验证码");
+            return;
+        }*/
+        //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
+        //                                   String paypassword,String phone,String wechat,String birthday,String know_site
+
+        presenter.postRegisterMember("",introducer,"add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,"",userBrithday,resource+"");
+
+    }
+
+    @Override
+    public void postRegisterMemberResult(LoginResult loginResult) {
+        showMessage("恭喜您，账号注册成功！");
+        //正对每一个用户做数据缓存
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_STATUS+loginResult.getUserName(), "1");
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT, loginResult.getUserName());
+        ACache.get(getContext()).put(HGConstant.USERNAME_ALIAS, loginResult.getAlias());
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+HGConstant.USERNAME_BIND_CARD, loginResult.getBindCard_Flag());
+        ACache.get(getContext()).put(HGConstant.USERNAME_BUY_MIN, loginResult.getBetMinMoney());
+        ACache.get(getContext()).put(HGConstant.USERNAME_BUY_MAX, loginResult.getBetMaxMoney());
+        ACache.get(getContext()).put(HGConstant.DOWNLOAD_APP_GIFT_GOLD, loginResult.getDOWNLOAD_APP_GIFT_GOLD());
+        ACache.get(getContext()).put(HGConstant.DOWNLOAD_APP_GIFT_DEPOSIT, loginResult.getDOWNLOAD_APP_GIFT_DEPOSIT());
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_INFO, JSON.toJSONString(loginResult));
+        popTo(LoginFragment.class,true);
+        EventBus.getDefault().post(loginResult);
+    }
+
+
+
 }

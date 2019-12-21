@@ -38,16 +38,10 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
     TextView tvRegisterUserName;
     @BindView(R.id.tvRegisterUserPhone)
     TextView tvRegisterUserPhone;
-    @BindView(R.id.tvRegisterType)
-    TextView tvRegisterType;
     @BindView(R.id.etRegisterUserName)
     EditText etRegisterUserName;
-    @BindView(R.id.tvRegisterPwd)
-    TextView tvRegisterPwd;
     @BindView(R.id.etRegisterPwd)
     EditText etRegisterPwd;
-    @BindView(R.id.tvRegisterPwdVerify)
-    TextView tvRegisterPwdVerify;
     @BindView(R.id.etRegisterPwdVerify)
     EditText etRegisterPwdVerify;
     @BindView(R.id.etRegisterWithDrawName)

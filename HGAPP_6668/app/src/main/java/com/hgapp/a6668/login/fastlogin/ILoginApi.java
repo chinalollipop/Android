@@ -40,6 +40,15 @@ public interface ILoginApi {
             @Field("alias") String alias, @Field("paypassword") String paypassword,@Field("phone") String phone,
             @Field("wechat") String wechat, @Field("birthday") String birthday,@Field("know_site") String know_site);
 
+    //会员注册
+    @POST("mem_reg_add.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<LoginResult>> registerMember(
+            @Field("appRefer") String appRefer, @Field("introducer") String introducer, @Field("keys") String keys,
+            @Field("username") String username, @Field("password") String password, @Field("password2") String password2,
+            @Field("alias") String alias, @Field("paypassword") String paypassword, @Field("phone") String phone,
+            @Field("wechat") String wechat, @Field("birthday") String birthday, @Field("know_site") String know_site);
+
 
     @GET("login.php?appRefer=13&username=lincoin06&passwd=123qwe")
     public Observable<AppTextMessageResponse<LoginResult>> loginGet();
@@ -47,10 +56,12 @@ public interface ILoginApi {
     @GET("var_api.php?appRefer=13&type=FU&more=s")
     public Observable<AppTextMessageResponse<SportsPlayMethodRBResult>> getFullPayGameList();
 
+
     //输入手机号码校验
     @POST("guest_login_save_phone_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<LoginResult>> loginPhone(@Field("appRefer") String appRefer, @Field("phone") String phone);
+
 
 
 
