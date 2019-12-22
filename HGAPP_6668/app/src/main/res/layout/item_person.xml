@@ -15,9 +15,8 @@
 
             <ImageView
                 android:id="@+id/ivItemMyImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/icon_my_balance"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="12dp" />
 
             <TextView

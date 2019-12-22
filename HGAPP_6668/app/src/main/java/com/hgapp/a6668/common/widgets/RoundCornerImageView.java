@@ -24,10 +24,10 @@ public class RoundCornerImageView extends android.support.v7.widget.AppCompatIma
     public RoundCornerImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.RoundCornerImageView, 0, 0);
-        leftBottom = typedArray.getBoolean(R.styleable.RoundCornerImageView_leftBottom_angle,false);
-        leftTop = typedArray.getBoolean(R.styleable.RoundCornerImageView_leftTop_angle,false);
-        rightBottom = typedArray.getBoolean(R.styleable.RoundCornerImageView_rightBottom_angle,false);
-        rightTop = typedArray.getBoolean(R.styleable.RoundCornerImageView_rightTop_angle,false);
+        leftBottom = typedArray.getBoolean(R.styleable.RoundCornerImageView_leftBottom_angle,true);
+        leftTop = typedArray.getBoolean(R.styleable.RoundCornerImageView_leftTop_angle,true);
+        rightBottom = typedArray.getBoolean(R.styleable.RoundCornerImageView_rightBottom_angle,true);
+        rightTop = typedArray.getBoolean(R.styleable.RoundCornerImageView_rightTop_angle,true);
         rect_adius = typedArray.getDimension(R.styleable.RoundCornerImageView_corner_radius,10);
 
         init();
@@ -119,7 +119,7 @@ public class RoundCornerImageView extends android.support.v7.widget.AppCompatIma
         //左上角、右上角、左下角、右下角为圆角
         imageView.setAngle(true, true, true, true);
         //圆角角度
-        imageView.setRectAdius(5);
+        imageView.setRectAdius(10);
     }
 
     //左上，右上为圆角

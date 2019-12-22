@@ -46,11 +46,11 @@
             android:textColor="@color/title_text"
             android:textSize="16sp" />
     </RelativeLayout>
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="#B2B2B2"
-        />
+        />-->
 </LinearLayout>
 <!--<RelativeLayout
         android:paddingTop="20px"

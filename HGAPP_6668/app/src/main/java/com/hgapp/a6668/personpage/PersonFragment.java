@@ -21,13 +21,16 @@ import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
 import com.hgapp.a6668.common.widgets.NTitleBar;
+import com.hgapp.a6668.common.widgets.RoundCornerImageView;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.data.PersonInformResult;
 import com.hgapp.a6668.data.QipaiResult;
+import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.UserMoneyEvent;
 import com.hgapp.a6668.homepage.handicap.ShowMainEvent;
+import com.hgapp.a6668.homepage.online.ContractFragment;
 import com.hgapp.a6668.personpage.accountcenter.AccountCenterFragment;
 import com.hgapp.a6668.personpage.balanceplatform.BalancePlatformFragment;
 import com.hgapp.a6668.personpage.balancetransfer.BalanceTransferFragment;
@@ -58,11 +61,15 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 public class PersonFragment extends HGBaseFragment implements PersonContract.View {
 
     @BindView(R.id.tvPersonBack)
-    NTitleBar tvPersonBack;
+    TextView tvPersonBack;
     @BindView(R.id.rvMyList)
     RecyclerView rvMyList;
     @BindView(R.id.tvPersonUsername)
     TextView tvPersonUsername;
+    @BindView(R.id.personAd)
+    RoundCornerImageView personAd;
+    @BindView(R.id.personAgent)
+    RoundCornerImageView personAgent;
     @BindView(R.id.personRefresh)
     TextView personRefresh;
     @BindView(R.id.tvPersonHg)
@@ -74,20 +81,20 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     private String personMoney;
     private PersonBalanceResult personBalance;
     private PersonContract.Presenter presenter;
-    private static List<String> myList = new ArrayList<String>();
+    private static List<HomePageIcon> myList = new ArrayList<HomePageIcon>();
     static {
-        myList.add("充值");
-        myList.add("额度转换");
-        myList.add("银行卡");
-        myList.add("提现");
-        myList.add("平台余额");
-        myList.add("站内信");
-        myList.add("账户中心");
-        //myList.add("转账记录");
-        myList.add("投注记录");
-        //myList.add("交易记录");
-        myList.add("流水记录");
-        //myList.add("登出");
+        myList.add(new HomePageIcon("充值金额",R.mipmap.icon_my_deposit,0));
+        myList.add(new HomePageIcon("额度转换",R.mipmap.icon_my_transfer,1));
+        myList.add(new HomePageIcon("银行卡",R.mipmap.icon_my_bank_card,2));
+        myList.add(new HomePageIcon("提款",R.mipmap.icon_my_withdraw,3));
+        myList.add(new HomePageIcon("站内信",R.mipmap.icon_my_message,4));
+        myList.add(new HomePageIcon("账户中心",R.mipmap.icon_my_psersion,5));
+        myList.add(new HomePageIcon("投注记录",R.mipmap.icon_my_deal_record,6));
+        myList.add(new HomePageIcon("流水记录",R.mipmap.icon_my_running_record,7));
+        myList.add(new HomePageIcon("新手教程",R.mipmap.icon_my_new,8));
+        myList.add(new HomePageIcon("联系我们",R.mipmap.icon_my_contract,9));
+        myList.add(new HomePageIcon("代理加盟",R.mipmap.icon_my_agent,10));
+        myList.add(new HomePageIcon("皇冠公告",R.mipmap.icon_my_gonggao,11));
 
     }
 
@@ -106,9 +113,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
         rvMyList.setLayoutManager(gridLayoutManager);
-        rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
+        //rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
         rvMyList.setAdapter(new RvMylistAdapter(getContext(),R.layout.item_person,myList));
         PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
         if(null == packageInfo)
@@ -121,20 +128,21 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         personVersion.setText("V:"+localver);
     }
 
-    class RvMylistAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<String>{
+    class RvMylistAdapter extends com.hgapp.a6668.common.adapters.AutoSizeRVAdapter<HomePageIcon>{
         private Context context;
-        public RvMylistAdapter(Context context, int layoutId,List<String> datas){
+        public RvMylistAdapter(Context context, int layoutId,List<HomePageIcon> datas){
             super(context, layoutId, datas);
             this.context =  context;
         }
         @Override
-        protected void convert(ViewHolder holder, String string,final int position) {
-
+        protected void convert(ViewHolder holder,final HomePageIcon data,final int position) {
+            holder.setText(R.id.tvItemMyName,data.getIconName());
+            holder.setImageResource(R.id.ivItemMyImage,data.getIconId());
             holder.setOnClickListener(R.id.llItemMySelf, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     GameLog.log("用户的金额："+personMoney);
-                    switch (position){
+                    switch (data.getId()){
                         case 0:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
@@ -182,87 +190,40 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }*/
-                            EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
+                            showMessage("敬请期待！");
+                            //EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                             break;
                         case 5:
-
-                            break;
-                        case 6:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
                             EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney)));
                             break;
-                        case 7:
-                            //投注记录
+                        case 6://投注记录
                             EventBus.getDefault().post(new StartBrotherEvent(BetRecordFragment.newInstance("today",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 8://交易记录
-                            EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 9://废弃了 暂时无用
-                            EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 10://废弃了 暂时无用
-                            presenter.logOut();
-                        /*case 9:
-                            //交易记录
-                            EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 10:
-                            EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 11:
-                            presenter.logOut();*/
-                            break;
 
+                            break;
+                        case 7://交易记录
+                            EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
+
+                            break;
+                        case 8://新手教学
+                            break;
+                        case 9://联系我们
+                            EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
+                            break;
+                        case 10://代理加盟
+                            //presenter.logOut();
+                        case 11://皇冠公告
+                            //presenter.logOut();
+                            showMessage("敬请期待！");
+                            break;
                     }
                 }
             });
-            holder.setText(R.id.tvItemMyName,string);
-            switch (position){
-                case 0:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deposit);
-                    break;
-                case 1:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer);
-                    break;
-                case 2:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bank_card);
-                    break;
-                case 3:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_withdraw);
-                    break;
-                case 4:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_balance);
-                    break;
-                case 5:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_message);
-                    break;
-                case 6:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_psersion);
-                    break;
-                case 7:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
-                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer_record);
-                    break;
-                case 8:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
-                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
-                    break;
-                case 9:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
-                    break;
-                case 10:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
-                    break;
-                case 11:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
-                    break;
-
-            }
 
         }
 
@@ -291,7 +252,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         personMoney = GameShipHelper.formatMoney(personBalance.getBalance_hg());
         tvPersonHg.setText(personMoney);
         EventBus.getDefault().post(new UserMoneyEvent(personMoney));
-        tvPersonBack.setMoreText(personMoney);
+        tvPersonBack.setText(personMoney);
         GameLog.log("成功获取用户余额信息");
     }
 
@@ -324,7 +285,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         GameLog.log("我的获取的用户余额："+loginResult.getMoney());
         if(!Check.isEmpty(loginResult.getMoney())){
             personMoney = GameShipHelper.formatMoney(loginResult.getMoney());
-            tvPersonBack.setMoreText(personMoney);
+            tvPersonBack.setText(personMoney);
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 tvPersonUsername.setText("试玩玩家");
             }else{
