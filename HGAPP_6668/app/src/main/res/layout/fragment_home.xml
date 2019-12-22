@@ -199,6 +199,7 @@
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:drawablePadding="5dp"
+                android:paddingRight="10dp"
                 android:textColor="@color/title_bg_black"
                 android:drawableLeft="@mipmap/home_deposit"
                 android:text="存款" />
@@ -208,6 +209,7 @@
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:drawablePadding="5dp"
+                android:paddingRight="10dp"
                 android:textColor="@color/title_bg_black"
                 android:drawableLeft="@mipmap/home_deposit_c"
                 android:layout_width="wrap_content"
@@ -218,6 +220,7 @@
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:drawablePadding="5dp"
+                android:paddingRight="10dp"
                 android:textColor="@color/title_bg_black"
                 android:drawableLeft="@mipmap/home_dwith"
                 android:layout_width="wrap_content"
@@ -235,11 +238,24 @@
         </LinearLayout>
 
     </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/homepageTab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_homepage_game_hall"
-        android:layout_margin="33px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fadeScrollbars="true" />
 
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/home_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="60dp"
+        />
 </LinearLayout>

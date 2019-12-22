@@ -3,13 +3,18 @@ package com.hgapp.a6668.homepage;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -59,7 +64,6 @@ import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.NetworkUtils;
-import com.jude.rollviewpager.RollPagerView;
 import com.lzj.gallery.library.views.BannerViewPager;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
@@ -104,8 +108,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     BannerViewPager banner_3d;
     @BindView(R.id.tv_homapage_bulletin)
     MarqueeTextView tvHomapageBulletin;
+
+    @BindView(R.id.homepageTab)
+    TabLayout tabLayout;
+
     @BindView(R.id.rv_homepage_game_hall)
-    RecyclerView rvHomapageGameHall;
+    RecyclerView recyclerView;
     @BindView(R.id.home_sign)
     ImageView homeSign;
 
@@ -141,33 +149,42 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String userMoney = "";
     private String userState = "19";
     //private CheckUpgradeResult checkUpgradeResult;
+
+    private LinearLayoutManager manager;
+    private String[] strTitleName = {"体育", "真人", "电竞", "棋牌", "彩票", "电游"};
+    /**
+     * 需要定位的地方，从小到大排列，需要和tab对应起来，长度一样
+     */
+    private int[] strTitleMarkup = {0, 1, 5, 6, 10, 11};
+    private boolean isScrolled = false;
     static {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0));
+
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16));
         homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,17));
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
+        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,18));
+        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg_qipai,3));
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
-        homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
-        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
-//        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
-//        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
-//        homeGameList.add(new HomePageIcon("BBIN",R.mipmap.home_bbin));
-//        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_kyqp));
-//        homeGameList.add(new HomePageIcon("扑鱼王二代",R.mipmap.home_fish));
-//        homeGameList.add(new HomePageIcon("甜心扑克王",R.mipmap.home_honey));
-//        homeGameList.add(new HomePageIcon("抢红包",R.mipmap.home_red));
-//        homeGameList.add(new HomePageIcon("新春红包",R.mipmap.home_newyear,13));
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,4));
+        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,3));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
+
+        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,6));
+        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,6));
+        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,6));
+        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,6));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,6));
+
+
+        /*homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
         homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red,8));
         homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent,7));
         homeGameList.add(new HomePageIcon("优惠活动",R.mipmap.home_pro,9));
         homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact,10));
         homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new,11));
-        homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind,12));
+        homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind,12));*/
 //        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
 //        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
 //        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
@@ -189,10 +206,131 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         return R.layout.fragment_home;
     }
 
+
+    private void initTab() {
+        for (int i = 0; i < strTitleName.length; i++) {
+            //插入tab标签
+            tabLayout.addTab(tabLayout.newTab().setText(strTitleName[i]));
+        }
+        //标签页可以滑动
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int pos = tab.getPosition();
+                //ToastShow.show(MainActivity.this, "tab -pos=" + pos);
+                if (!isScrolled) {
+                    //滑动时不能点击,
+                    //第一个参数是指定的位置，锚点
+                    // 第二个参数表示 Item 移动到第一项后跟 RecyclerView 上边界或下边界之间的距离（默认是 0）
+                    manager.scrollToPositionWithOffset(strTitleMarkup[pos], 0);
+                }
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+    }
+
+    private void init() {
+
+        manager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(new SimeAdapter(getContext(),R.layout.main_item,homeGameList));
+
+//        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//                //Toast.makeText(MainActivity.this, "点击的item=" + position, Toast.LENGTH_SHORT).show();
+////                switch (position) {
+////                    case 0:
+////
+////                        ToastShow.show(MainActivity.this, "item---" + 0000);
+////                        break;
+////                    default:
+////                        break;
+////                }
+//            }
+//        });
+
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                //重写该方法主要是判断recyclerview是否在滑动
+                //0停止 ，12都是滑动
+                if (newState == 0) {
+                    isScrolled = false;
+                } else {
+                    isScrolled = true;
+                }
+                setMsg("isScrolled" + isScrolled + "--newState=" + newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                //这个主要是recyclerview滑动时让tab定位的方法
+                if (isScrolled) {
+                    int top = manager.findFirstVisibleItemPosition();
+                    int bottom = manager.findLastVisibleItemPosition();
+
+                    int pos = 0;
+                    if (bottom == homeGameList.size() - 1) {
+                        //先判断滑到底部，tab定位到最后一个
+                        pos = strTitleMarkup.length - 1;
+                    } else if (top == strTitleMarkup[strTitleMarkup.length - 1]) {
+                        //如果top等于指定的位置，对应到tab即可，
+                        pos = strTitleMarkup[strTitleMarkup.length - 1];
+                    } else {
+                        //循环遍历，需要比较i+1的位置，所以循环长度要减1，
+                        //  如果 i<top<i+1,  那么tab应该定位到i位置的字符，不管是向上还是向下滑动
+                        for (int i = 0; i < strTitleMarkup.length - 1; i++) {
+                            if (top == strTitleMarkup[i]) {
+                                pos = i;
+                                break;
+                            } else if (top > strTitleMarkup[i] && top < strTitleMarkup[i + 1]) {
+                                pos = i;
+                                break;
+                            }
+                        }
+                    }
+
+                    //设置tab滑动到第pos个
+                    tabLayout.setScrollPosition(pos, 0f, true);
+                }
+
+            }
+        });
+
+    }
+
+    public static void setMsg(String str) {
+        Log.i("tab", str);
+    }
+
+    private void initData() {
+
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initData();
+        init();
+        initTab();
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-        rvHomapageGameHall.postDelayed(new Runnable() {
+        tvHomePageLine.postDelayed(new Runnable() {
             @Override
             public void run() {
                 String signSwitch  = ACache.get(getContext()).getAsString("signSwitch");
@@ -212,12 +350,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             }
         }
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
+       /* GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
         rvHomapageGameHall.setLayoutManager(gridLayoutManager);
         rvHomapageGameHall.setHasFixedSize(true);
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
-
+*/
         NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
         if(!Check.isNull(noticeResult)){
             List<String> stringList = new ArrayList<String>();
@@ -299,6 +437,21 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             });
         }
     }
+
+
+    class SimeAdapter extends AutoSizeRVAdapter<HomePageIcon> {
+        private Context context;
+        public SimeAdapter(Context context, int layoutId, List datas) {
+            super(context, layoutId, datas);
+            context = context;
+        }
+
+        @Override
+        protected void convert(ViewHolder helper, final HomePageIcon data, final int position) {
+            helper.setBackgroundRes(R.id.id_main_item,data.getIconId());
+        }
+    }
+
 
     private void onHomeGameItemClick( int position){
 
@@ -607,7 +760,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1, OrientationHelper.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
-        rvHomapageGameHall.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(new LineChoiceAdapter(getContext(),R.layout.pop_line_choice_item,domainUrl.getList()));
         mCustomPopWindowIn= new CustomPopWindow.PopupWindowBuilder(getContext())
                 .setView(contentView)
