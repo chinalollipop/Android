@@ -132,57 +132,57 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/homeDeposit"
+                    android:id="@+id/personDeposit"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:drawableLeft="@mipmap/home_deposit"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="5dp"
                     android:gravity="center|left"
                     android:text="存款"
                     android:textColor="@color/title_bg_black"
-                    android:textSize="15sp" />
+                    />
 
 
                 <TextView
-                    android:id="@+id/homeDwith"
+                    android:id="@+id/personDwith"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:drawableLeft="@mipmap/home_dwith"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="5dp"
                     android:gravity="center|left"
                     android:text="取款"
                     android:textColor="@color/title_bg_black"
-                    android:textSize="15sp" />
+                    />
                 <TextView
-                    android:id="@+id/homeDepositC"
+                    android:id="@+id/personDepositC"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:drawableLeft="@mipmap/home_deposit_c"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="5dp"
                     android:gravity="center|left"
                     android:text="转账"
                     android:textColor="@color/title_bg_black"
-                    android:textSize="15sp" />
+                    />
                 <TextView
-                    android:id="@+id/homeBank"
+                    android:id="@+id/personAD"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:drawableLeft="@mipmap/home_bank"
-                    android:drawablePadding="10dp"
+                    android:drawableLeft="@mipmap/home_ad"
+                    android:drawablePadding="5dp"
                     android:gravity="center|left"
                     android:text="优惠活动"
                     android:textColor="@color/title_bg_black"
-                    android:textSize="15sp" />
+                    />
             </LinearLayout>
 
         </LinearLayout>

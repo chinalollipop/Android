@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4d8eb9</color>
-    <color name="colorPrimaryDark">#4d8eb9</color>
+    <color name="colorPrimary">#4ea2ea</color>
+    <color name="colorPrimaryDark">#4ea2ea</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="intputEditText">#FF4081</color>
     <!--标题背景色-->
-    <color name="title_bg">#4d8eb9</color>
+    <color name="title_bg">#4ea2ea</color>
     <color name="title_bg_black">#4B4339</color>
 
     <!--标题文字颜色-->

@@ -333,16 +333,53 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         }*/
     }
-    @OnClick(R.id.personLogout)
-    public void onLogout(){
-        if(Check.isNull(presenter)){
-            presenter = Injections.inject(null, this);
+    @OnClick({R.id.personRefresh,R.id.personLogout,R.id.personDeposit,R.id.personDwith,R.id.personDepositC,R.id.personAD})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.personRefresh:
+                presenter.getPersonBalance("","");
+                break;
+            case R.id.personLogout:
+                if(Check.isNull(presenter)){
+                    presenter = Injections.inject(null, this);
+                }
+                presenter.logOut();
+                break;
+            case R.id.personDeposit://存款
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new ShowMainEvent(1));
+                break;
+            case R.id.personDwith://取款
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                if(Check.isEmpty(alias)){
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                    return;
+                }
+                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+, loginResult.getBindCard_Flag());
+                GameLog.log("用户是否已经绑定过银行卡："+userStatus);
+                if("0".equals(userStatus)){
+                    showMessage("请先绑定银行卡！");
+                    EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.personDepositC://转账
+                //EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
+                break;
+            case R.id.personAD://活动
+                EventBus.getDefault().post(new ShowMainEvent(0));
+                break;
         }
-        presenter.logOut();
-    }
-
-    @OnClick(R.id.personRefresh)
-    public void onPersonRefresh(){
-        presenter.getPersonBalance("","");
     }
 }

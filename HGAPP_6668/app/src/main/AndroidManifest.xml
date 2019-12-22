@@ -60,7 +60,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme2">
         <meta-data
             android:name="design_width"
             android:value="1080" />
