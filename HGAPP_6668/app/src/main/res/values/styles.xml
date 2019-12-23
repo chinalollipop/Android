@@ -16,6 +16,7 @@
     </style>
     <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">@dimen/tab_layout_text_size</item>
+        <item name="android:padding">@dimen/h_text_height</item>
     </style>
     <!--自定义EditText的视图样式，项目中所有用到的EditText或者AppCompatEditText控件，直接使用即可,如果有特殊要求，请修改自己的样式，不要修改此处-->
     <style name="NEditText" parent="Widget.AppCompat.EditText">

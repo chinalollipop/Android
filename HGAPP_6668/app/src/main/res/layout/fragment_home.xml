@@ -242,10 +242,65 @@
         android:id="@+id/homepageTab"
         app:tabTextAppearance="@style/TabLayoutTextStyle"
         app:tabIndicatorHeight="0dp"
+        android:visibility="gone"
         app:tabBackground="@drawable/tab_selector"
         android:layout_width="match_parent"
-        android:paddingBottom="10dp"
         android:layout_height="40dp"/>
+    <LinearLayout
+        android:background="@color/register_left"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/hometabTextTY"
+            android:text=""
+            android:layout_weight="1"
+            android:background="@mipmap/home_tab_txt_ty"
+            android:textColor="@color/cp_hall_tv"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/hometabTextZR"
+            android:text="真人"
+            android:layout_weight="1"
+            android:textColor="@color/cp_hall_tv"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/hometabTextDJ"
+            android:text="电竞"
+            android:layout_weight="1"
+            android:textColor="@color/cp_hall_tv"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/hometabTextQP"
+            android:text="棋牌"
+            android:layout_weight="1"
+            android:textColor="@color/cp_hall_tv"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/hometabTextCP"
+            android:text="彩票"
+            android:layout_weight="1"
+            android:textColor="@color/cp_hall_tv"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/hometabTextDY"
+            android:text="电游"
+            android:layout_weight="1"
+            android:textColor="@color/cp_hall_tv"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_homepage_game_hall"

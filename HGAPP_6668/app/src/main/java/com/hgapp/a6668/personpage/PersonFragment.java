@@ -69,7 +69,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     @BindView(R.id.tvPersonUsername)
     TextView tvPersonUsername;
     @BindView(R.id.personAdItem)
-    RoundCornerImageView personAdItem;
+    RoundCornerImageView personAd;
     @BindView(R.id.personAgent)
     RoundCornerImageView personAgent;
     @BindView(R.id.personRefresh)

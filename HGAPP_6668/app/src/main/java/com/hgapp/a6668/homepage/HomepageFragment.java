@@ -17,8 +17,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -120,6 +122,22 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @BindView(R.id.home_sign)
     ImageView homeSign;
 
+
+
+    @BindView(R.id.hometabTextTY)
+    TextView hometabTextTY;
+    @BindView(R.id.hometabTextZR)
+    TextView hometabTextZR;
+    @BindView(R.id.hometabTextDJ)
+    TextView hometabTextDJ;
+    @BindView(R.id.hometabTextQP)
+    TextView hometabTextQP;
+    @BindView(R.id.hometabTextCP)
+    TextView hometabTextCP;
+    @BindView(R.id.hometabTextDY)
+    TextView hometabTextDY;
+
+
     @BindView(R.id.homeUserName)
     TextView homeUserName;
     @BindView(R.id.homeGoLogin)
@@ -156,6 +174,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private LinearLayoutManager manager;
     private String[] strTitleName = {"体育", "真人", "电竞", "棋牌", "彩票", "电游"};
     private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_qp, R.mipmap.home_tab_cp, R.mipmap.home_tab_yy};
+    private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_dj};
     /**
      * 需要定位的地方，从小到大排列，需要和tab对应起来，长度一样
      */
@@ -273,24 +292,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 //            tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
             TextView textView = (TextView) tab.getCustomView().findViewById(R.id.homeTabItemName);
             textView.setText(strTitleName[i]);//设置tab上的文字
-            textView.setPadding(10,0,10,0);
-            tab.getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
+            //textView.setPadding(20,0,20,0);
+            //tab.getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
             if (i == 0) {
                 // 设置第一个tab的TextView是被选择的样式
-                tab.getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.GONE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.VISIBLE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.mipmap.home_tab_click);
+                tab.getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                //tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                //tab.getCustomView().findViewById(R.id.homeTabItemLay).setLayoutParams(new RelativeLayout.LayoutParams(188,30));
+                //tab.getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
             }else{
                 tab.getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.GONE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.tab_selector);
+                //tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                tab.getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(0);
             }
 
         }
         //标签页可以滑动
-        //tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -310,18 +329,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     if (i == pos) {
                         // 设置第一个tab的TextView是被选择的样式
                         GameLog.log("设置当前Tab的位置是："+pos);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.VISIBLE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.GONE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.mipmap.home_tab_click);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                        //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                        //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
+                       // tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
                     }else{
                         GameLog.log("其他Tab的位置是："+i);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.GONE);
+                        //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
                         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.tab_selector);
+                        //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(0);
                     }
 
                 }
@@ -422,24 +439,114 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 //                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
                         if (i == pos) {
                             // 设置第一个tab的TextView是被选择的样式
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.VISIBLE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.GONE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.mipmap.home_tab_click);
-                        }else{
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.GONE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setVisibility(View.VISIBLE);
                             tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.tab_selector);
+                           // tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
+                        }else{
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setVisibility(View.GONE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);tab_selector
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(0);
                         }
 
                     }
+                    homeTabItem(pos);
                 }
             }
         });
 
+    }
+
+    private void homeTabItem(int pos){
+        switch (pos){
+            case 0:
+                hometabTextTY.setText("");
+                hometabTextZR.setText("真人");
+                hometabTextDJ.setText("电竞");
+                hometabTextQP.setText("棋牌");
+                hometabTextCP.setText("彩票");
+                hometabTextDY.setText("电游");
+                hometabTextTY.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(0);
+                hometabTextQP.setBackgroundResource(0);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(0);
+                break;
+            case 1:
+                hometabTextTY.setText("体育");
+                hometabTextZR.setText("");
+                hometabTextDJ.setText("电竞");
+                hometabTextQP.setText("棋牌");
+                hometabTextCP.setText("彩票");
+                hometabTextDY.setText("电游");
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextDJ.setBackgroundResource(0);
+                hometabTextQP.setBackgroundResource(0);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(0);
+                break;
+            case 2:
+                hometabTextTY.setText("体育");
+                hometabTextZR.setText("真人");
+                hometabTextDJ.setText("");
+                hometabTextQP.setText("棋牌");
+                hometabTextCP.setText("彩票");
+                hometabTextDY.setText("电游");
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextQP.setBackgroundResource(0);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(0);
+                break;
+            case 3:
+                hometabTextTY.setText("体育");
+                hometabTextZR.setText("真人");
+                hometabTextDJ.setText("电竞");
+                hometabTextQP.setText("");
+                hometabTextCP.setText("彩票");
+                hometabTextDY.setText("电游");
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(0);
+                hometabTextQP.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(0);
+                break;
+            case 4:
+                hometabTextTY.setText("体育");
+                hometabTextZR.setText("真人");
+                hometabTextDJ.setText("电竞");
+                hometabTextQP.setText("棋牌");
+                hometabTextCP.setText("");
+                hometabTextDY.setText("电游");
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(0);
+                hometabTextQP.setBackgroundResource(0);
+                hometabTextCP.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextDY.setBackgroundResource(0);
+                break;
+            case 5:
+                hometabTextTY.setText("体育");
+                hometabTextZR.setText("真人");
+                hometabTextDJ.setText("电竞");
+                hometabTextQP.setText("棋牌");
+                hometabTextCP.setText("彩票");
+                hometabTextDY.setText("");
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(0);
+                hometabTextQP.setBackgroundResource(0);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(hometabTextIcon[pos]);
+                break;
+        }
     }
 
     public static void setMsg(String str) {
@@ -803,9 +910,40 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
+    @OnClick({R.id.hometabTextTY,R.id.hometabTextZR,R.id.hometabTextDJ,R.id.hometabTextQP,R.id.hometabTextCP,R.id.hometabTextDY,
+            R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
     public void onViewClicked(View view) {
         switch (view.getId()){
+            case R.id.hometabTextTY:
+                homeTabItem(0);
+                manager.scrollToPositionWithOffset(strTitleMarkup[0], 0);
+                //tabLayout.setScrollPosition(0, 0f, true);
+                break;
+            case R.id.hometabTextZR:
+                homeTabItem(1);
+                manager.scrollToPositionWithOffset(strTitleMarkup[1], 0);
+                //tabLayout.setScrollPosition(1, 0f, true);
+                break;
+            case R.id.hometabTextDJ:
+                homeTabItem(2);
+                manager.scrollToPositionWithOffset(strTitleMarkup[2], 0);
+                //tabLayout.setScrollPosition(2, 0f, true);
+                break;
+            case R.id.hometabTextQP:
+                homeTabItem(3);
+                manager.scrollToPositionWithOffset(strTitleMarkup[3], 0);
+                //tabLayout.setScrollPosition(3, 0f, true);
+                break;
+            case R.id.hometabTextCP:
+                homeTabItem(4);
+                manager.scrollToPositionWithOffset(strTitleMarkup[4], 0);
+                //tabLayout.setScrollPosition(4, 0f, true);
+                break;
+            case R.id.hometabTextDY:
+                homeTabItem(5);
+                manager.scrollToPositionWithOffset(strTitleMarkup[5], 0);
+                //tabLayout.setScrollPosition(5, 0f, true);
+                break;
             case R.id.tvHomePageLogin:
             case R.id.homeGoLogin:
                 //start(LoginFragment.newInstance());  启动一个新的Fragment 但是还是覆盖在以前的Fragemnet的基础上
