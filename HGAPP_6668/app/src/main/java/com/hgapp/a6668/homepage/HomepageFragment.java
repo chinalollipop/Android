@@ -62,6 +62,8 @@ import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.homepage.signtoday.SignTodayFragment;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.DensityUtil;
+import com.hgapp.common.util.FileIOUtils;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.NetworkUtils;
 import com.lzj.gallery.library.views.BannerViewPager;
@@ -78,6 +80,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -215,19 +218,74 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.home_tab_item));
         }
 
+        //了解源码得知 线的宽度是根据 tabView的宽度来设置的
+        /*tabLayout.post(() -> {
+
+            try {
+                //拿到tabLayout的mTabStrip属性
+                Field mTabStripField = tabLayout.getClass().getDeclaredField("mTabStrip");
+                mTabStripField.setAccessible(true);
+
+                LinearLayout mTabStrip = (LinearLayout) mTabStripField.get(tabLayout);
+
+                int dp10 = DensityUtil.dip2px(getContext(), 10);
+
+                for (int i = 0; i < mTabStrip.getChildCount(); i++) {
+                    View tabView = mTabStrip.getChildAt(i);
+
+                    //拿到tabView的mTextView属性
+                    Field mTextViewField = tabView.getClass().getDeclaredField("mTextView");
+                    mTextViewField.setAccessible(true);
+
+                    TextView mTextView = (TextView) mTextViewField.get(tabView);
+
+                    tabView.setPadding(0, 0, 0, 0);
+
+                    //因为我想要的效果是   字多宽线就多宽，所以测量mTextView的宽度
+                    int width = 0;
+                    width = mTextView.getWidth();
+                    if (width == 0) {
+                        mTextView.measure(0, 0);
+                        width = mTextView.getMeasuredWidth();
+                    }
+
+                    //设置tab左右间距为10dp  注意这里不能使用Padding 因为源码中线的宽度是根据 tabView的宽度来设置的
+                    LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tabView.getLayoutParams();
+                    params.width = width ;
+                    params.leftMargin = dp10;
+                    params.rightMargin = dp10;
+                    tabView.setLayoutParams(params);
+
+                    tabView.invalidate();
+                }
+
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+        });*/
+
+
         for (int i = 0; i < strTitleName.length; i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);//获得每一个tab
 //            tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
             TextView textView = (TextView) tab.getCustomView().findViewById(R.id.homeTabItemName);
             textView.setText(strTitleName[i]);//设置tab上的文字
+            textView.setPadding(10,0,10,0);
             tab.getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
             if (i == 0) {
                 // 设置第一个tab的TextView是被选择的样式
+                tab.getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.GONE);
                 tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_normal_login);
+                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.VISIBLE);
+                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.mipmap.home_tab_click);
             }else{
+                tab.getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
                 tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_person);
+                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.GONE);
+                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.tab_selector);
             }
 
         }
@@ -238,26 +296,34 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             public void onTabSelected(TabLayout.Tab tab) {
                 int pos = tab.getPosition();
                 GameLog.log("当前Tab的位置是："+pos);
-                for (int i = 0; i < strTitleName.length; i++) {
-//                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
-                    if (i == pos) {
-                        // 设置第一个tab的TextView是被选择的样式
-                        GameLog.log("设置当前Tab的位置是："+pos);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_normal_login);
-                    }else{
-                        GameLog.log("其他Tab的位置是："+i);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_person);
-                    }
 
-                }
                 //ToastShow.show(MainActivity.this, "tab -pos=" + pos);
                 if (!isScrolled) {
                     //滑动时不能点击,
                     //第一个参数是指定的位置，锚点
                     // 第二个参数表示 Item 移动到第一项后跟 RecyclerView 上边界或下边界之间的距离（默认是 0）
                     manager.scrollToPositionWithOffset(strTitleMarkup[pos], 0);
+                }
+
+                for (int i = 0; i < strTitleName.length; i++) {
+//                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
+                    if (i == pos) {
+                        // 设置第一个tab的TextView是被选择的样式
+                        GameLog.log("设置当前Tab的位置是："+pos);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.VISIBLE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.GONE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.mipmap.home_tab_click);
+                    }else{
+                        GameLog.log("其他Tab的位置是："+i);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.GONE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.tab_selector);
+                    }
+
                 }
 
             }
@@ -303,7 +369,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 super.onScrollStateChanged(recyclerView, newState);
 
                 //重写该方法主要是判断recyclerview是否在滑动
-                //0停止 ，12都是滑动
+                //0停止 ，1 2都是滑动
                 if (newState == 0) {
                     isScrolled = false;
                 } else {
@@ -346,29 +412,31 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                             }
                         }
                     }
-
                     if(pos>=5){
                         pos = 5;
                     }
                     //设置tab滑动到第pos个
                     tabLayout.setScrollPosition(pos, 0f, true);
-                }
-                GameLog.log("当前滑动的位置是："+pos);
-                for (int i = 0; i < strTitleName.length; i++) {
+                    GameLog.log("当前滑动的位置是："+pos);
+                    for (int i = 0; i < strTitleName.length; i++) {
 //                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
-                    if (i == pos) {
-                        // 设置第一个tab的TextView是被选择的样式
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_normal_login);
-                    }else{
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
-                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_person);
+                        if (i == pos) {
+                            // 设置第一个tab的TextView是被选择的样式
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.VISIBLE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.GONE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.mipmap.home_tab_click);
+                        }else{
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setVisibility(View.GONE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.tab_selector);
+                        }
+
                     }
-
                 }
-
             }
         });
 
