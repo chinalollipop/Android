@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/homeTabItemLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/title_text"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/homeTabItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="真人"
+            android:textColor="@color/color_bg_dialog"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/homeTabItemIconLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_normal_login">
+
+            <ImageView
+                android:id="@+id/homeTabItemIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/home_tab_cp"
+                 />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!--<View
+        android:id="@+id/tv_item_game_line"
+        android:layout_width="5px"
+        android:background="@mipmap/home_tab_cp"
+        android:layout_height="match_parent"
+        android:background="@color/tab_unselect" />-->
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="@color/tab_unselect" />-->
+</RelativeLayout>

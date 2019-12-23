@@ -152,6 +152,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private LinearLayoutManager manager;
     private String[] strTitleName = {"体育", "真人", "电竞", "棋牌", "彩票", "电游"};
+    private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_qp, R.mipmap.home_tab_cp, R.mipmap.home_tab_yy};
     /**
      * 需要定位的地方，从小到大排列，需要和tab对应起来，长度一样
      */
@@ -210,14 +211,47 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private void initTab() {
         for (int i = 0; i < strTitleName.length; i++) {
             //插入tab标签
-            tabLayout.addTab(tabLayout.newTab().setText(strTitleName[i]));
+           // tabLayout.addTab(tabLayout.newTab().setText(strTitleName[i]));
+            tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.home_tab_item));
+        }
+
+        for (int i = 0; i < strTitleName.length; i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);//获得每一个tab
+//            tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
+            TextView textView = (TextView) tab.getCustomView().findViewById(R.id.homeTabItemName);
+            textView.setText(strTitleName[i]);//设置tab上的文字
+            tab.getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
+            if (i == 0) {
+                // 设置第一个tab的TextView是被选择的样式
+                tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_normal_login);
+            }else{
+                tab.getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                tab.getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_person);
+            }
+
         }
         //标签页可以滑动
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        //tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int pos = tab.getPosition();
+                GameLog.log("当前Tab的位置是："+pos);
+                for (int i = 0; i < strTitleName.length; i++) {
+//                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
+                    if (i == pos) {
+                        // 设置第一个tab的TextView是被选择的样式
+                        GameLog.log("设置当前Tab的位置是："+pos);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_normal_login);
+                    }else{
+                        GameLog.log("其他Tab的位置是："+i);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_person);
+                    }
+
+                }
                 //ToastShow.show(MainActivity.this, "tab -pos=" + pos);
                 if (!isScrolled) {
                     //滑动时不能点击,
@@ -282,12 +316,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 //这个主要是recyclerview滑动时让tab定位的方法
+                int pos = 0;
                 if (isScrolled) {
                     int top = manager.findFirstVisibleItemPosition();
                     int bottom = manager.findLastVisibleItemPosition();
 
-                    int pos = 0;
-                    if (bottom == homeGameList.size() - 1) {
+                    if (top >= 12) {
+                        //先判断滑到底部，tab定位到最后一个
+                        pos = strTitleMarkup.length - 1;
+                        GameLog.log("区间范围的时候"+pos);
+                    } else if (bottom == homeGameList.size() - 1) {
                         //先判断滑到底部，tab定位到最后一个
                         pos = strTitleMarkup.length - 1;
                     } else if (top == strTitleMarkup[strTitleMarkup.length - 1]) {
@@ -299,16 +337,36 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         for (int i = 0; i < strTitleMarkup.length - 1; i++) {
                             if (top == strTitleMarkup[i]) {
                                 pos = i;
+                                //GameLog.log("相等的时候："+pos);
                                 break;
                             } else if (top > strTitleMarkup[i] && top < strTitleMarkup[i + 1]) {
                                 pos = i;
+                                //GameLog.log("区间范围的时候"+pos);
                                 break;
                             }
                         }
                     }
 
+                    if(pos>=5){
+                        pos = 5;
+                    }
                     //设置tab滑动到第pos个
                     tabLayout.setScrollPosition(pos, 0f, true);
+                }
+                GameLog.log("当前滑动的位置是："+pos);
+                for (int i = 0; i < strTitleName.length; i++) {
+//                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
+                    if (i == pos) {
+                        // 设置第一个tab的TextView是被选择的样式
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_normal_login);
+                    }else{
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);
+                        tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIconLay).setBackgroundResource(R.drawable.btn_person);
+                    }
+
                 }
 
             }
@@ -317,7 +375,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     public static void setMsg(String str) {
-        Log.i("tab", str);
+        GameLog.log("tab "+str);
     }
 
     private void initData() {
