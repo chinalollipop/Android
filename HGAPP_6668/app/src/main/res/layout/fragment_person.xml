@@ -225,7 +225,7 @@
             android:layout_marginRight="10dp">
 
             <com.hgapp.a6668.common.widgets.RoundCornerImageView
-                android:id="@+id/personAd"
+                android:id="@+id/personAdItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

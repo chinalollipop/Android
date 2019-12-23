@@ -68,8 +68,8 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     RecyclerView rvMyList;
     @BindView(R.id.tvPersonUsername)
     TextView tvPersonUsername;
-    @BindView(R.id.personAd)
-    RoundCornerImageView personAd;
+    @BindView(R.id.personAdItem)
+    RoundCornerImageView personAdItem;
     @BindView(R.id.personAgent)
     RoundCornerImageView personAgent;
     @BindView(R.id.personRefresh)
@@ -341,9 +341,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         }*/
     }
-    @OnClick({R.id.personRefresh,R.id.personLogout,R.id.personDeposit,R.id.personDwith,R.id.personDepositC,R.id.personAD})
+    @OnClick({R.id.personAgent,R.id.personAdItem,R.id.personRefresh,R.id.personLogout,R.id.personDeposit,R.id.personDwith,R.id.personDepositC,R.id.personAD})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.personAgent:
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                break;
             case R.id.personRefresh:
                 presenter.getPersonBalance("","");
                 break;
@@ -385,6 +388,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 //EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                 EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                 break;
+            case R.id.personAdItem:
             case R.id.personAD://活动
                 EventBus.getDefault().post(new ShowMainEvent(0));
                 break;
