@@ -12,6 +12,7 @@ public class PersonInformResult {
     private String realname;
     private String balance_hg;
     private String balance_cp;
+    private String joinDays;
 
     public String getUsername() {
         return username;
@@ -43,5 +44,13 @@ public class PersonInformResult {
 
     public void setBalance_cp(String balance_cp) {
         this.balance_cp = balance_cp;
+    }
+
+    public String getJoinDays() {
+        return joinDays;
+    }
+
+    public void setJoinDays(String joinDays) {
+        this.joinDays = joinDays;
     }
 }

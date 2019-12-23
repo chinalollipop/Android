@@ -16,6 +16,7 @@ import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.event.LogoutEvent;
+import com.hgapp.a6668.common.http.Client;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
@@ -31,6 +32,7 @@ import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.UserMoneyEvent;
 import com.hgapp.a6668.homepage.handicap.ShowMainEvent;
 import com.hgapp.a6668.homepage.online.ContractFragment;
+import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.personpage.accountcenter.AccountCenterFragment;
 import com.hgapp.a6668.personpage.balanceplatform.BalancePlatformFragment;
 import com.hgapp.a6668.personpage.balancetransfer.BalanceTransferFragment;
@@ -76,6 +78,8 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     TextView tvPersonHg;
     @BindView(R.id.personLogout)
     TextView personLogout;
+    @BindView(R.id.personJoinDays)
+    TextView personJoinDays;
     @BindView(R.id.personVersion)
     TextView personVersion;
     private String personMoney;
@@ -209,6 +213,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
                             break;
                         case 8://新手教学
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"help.php?tip=app")));
                             break;
                         case 9://联系我们
                             EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
@@ -216,6 +221,8 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             break;
                         case 10://代理加盟
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                            break;
                             //presenter.logOut();
                         case 11://皇冠公告
                             //presenter.logOut();
@@ -243,6 +250,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
         //tvPersonUsername.setText(personInformResult.getUsername());
         personMoney = GameShipHelper.formatMoney(personInformResult.getBalance_hg());
+        personJoinDays.setText(personInformResult.getJoinDays()+"天");
         GameLog.log("成功获取用户个人信心");
     }
 
