@@ -36,31 +36,6 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
-    public void postOnlineService(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postOnlineService(HGConstant.PRODUCT_PLATFORM))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<OnlineServiceResult>>() {
-                    @Override
-                    public void success(AppTextMessageResponse<OnlineServiceResult> response) {
-                        if(response.isSuccess()){
-                            view.postOnlineServiceResult(response.getData());
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-
-    }
-
-    @Override
     public void postBanner(String appRefer) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanner(HGConstant.PRODUCT_PLATFORM))
                 .subscribe(new ResponseSubscriber<BannerResult>() {
@@ -108,81 +83,6 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                 }));
     }
 
-    @Override
-    public void postNoticeList(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postNotice(HGConstant.PRODUCT_PLATFORM,""))
-                .subscribe(new ResponseSubscriber<NoticeResult>() {
-                    @Override
-                    public void success(NoticeResult response) {
-                        if(response.getStatus()==200){
-                            view.postNoticeListResult(response);
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-    }
-
-    @Override
-    public void postAGLiveCheckRegister(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postAGLiveCheckRegister(HGConstant.PRODUCT_PLATFORM))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CheckAgLiveResult>>() {
-                    @Override
-                    public void success(AppTextMessageResponse<CheckAgLiveResult> response) {
-
-                        if(response.isSuccess()){
-                            view.postAGLiveCheckRegisterResult(response.getData());
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-    }
-
-
-
-    @Override
-    public void postAGGameRegisterAccount(String appRefer, String action) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postAGGameRegisterAccount(HGConstant.PRODUCT_PLATFORM,"cga"))
-                .subscribe(new ResponseSubscriber<AGCheckAcountResult>() {
-                    @Override
-                    public void success(AGCheckAcountResult response) {
-
-                        if("200".equals(response.getStatus())){
-                            view.postAGGameRegisterAccountResult(response);
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-    }
 
     @Override
     public void postQipai(String appRefer, String action) {

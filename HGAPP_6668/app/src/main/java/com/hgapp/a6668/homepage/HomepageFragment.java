@@ -168,7 +168,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String userName ="";
     private  String pro =  "";
     private String userMoney = "";
-    private String userState = "19";
+    private String userState = "daniel";
     //private CheckUpgradeResult checkUpgradeResult;
 
     private LinearLayoutManager manager;
@@ -181,24 +181,28 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private int[] strTitleMarkup = {0, 1, 5, 6, 10, 11};
     private boolean isScrolled = false;
     static {
-        homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0));
+        homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
 
-        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1));
-        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16));
-        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,17));
-        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,18));
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5));
-        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13));
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,4));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,3));
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2));
+        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1,"video"));
+        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16,"og"));
+        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,17,"bbin"));
+        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,18,"ds"));
 
-        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,6));
-        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,6));
-        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,6));
-        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,6));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,6));
+        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14,"avia"));
+
+        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,5,"vgqp"));
+        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,13,"ly"));
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,4,"ky"));
+        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,3,"hgqp"));
+
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,2,"lottery"));
+
+        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,6,"fg"));
+        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,6,"game"));
+        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,6,"mg"));
+        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,6,"mw"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,6,"cq"));
+        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,6,"agby"));
 
 
         /*homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
@@ -553,13 +557,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GameLog.log("tab "+str);
     }
 
-    private void initData() {
-
-    }
-
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        initData();
         init();
         initTab();
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -603,7 +602,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             initBanner(bannerResult);
             GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
         }else{
-            //presenter.postOnlineService("");
             if(!Check.isNull(presenter)){
                 presenter.postBanner("");
                 presenter.postNotice("");
@@ -665,7 +663,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         showMessage("请检查您的网络！");
                         return;
                     }
-                    onHomeGameItemClick(data.getId());
+                    //onHomeGameItemClick(data.getId());
                 }
             });
         }
@@ -682,24 +680,34 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         @Override
         protected void convert(ViewHolder helper, final HomePageIcon data, final int position) {
             helper.setBackgroundRes(R.id.id_main_item,data.getIconId());
+            helper.setOnClickListener(R.id.id_main_item, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onHomeGameItemClick(data.getIconNameTitle());
+                }
+            });
         }
     }
 
 
-    private void onHomeGameItemClick( int position){
+    private void onHomeGameItemClick( String position){
 
         //showMessage("点击的位置是："+position);
         /*if(Check.isNull(checkUpgradeResult)){
             return;
         }*/
-        if(position<7&&Check.isEmpty(userName)){
+        if(!NetworkUtils.isConnected()){
+            showMessage("请检查您的网络！");
+            return;
+        }
+        if(Check.isEmpty(userName)){
             //start(LoginFragment.newInstance());
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
             return;
         }
         switch (position){
-            case 0:
-                userState = "0";
+            case "sport":
+                userState = "sport";
                 String sport_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SPORT_MAINTAIN);
                 if("1".equals(sport_url)){
                     presenter.postMaintain();
@@ -707,12 +715,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(HandicapFragment.newInstance(userName,userMoney), SupportFragment.SINGLETASK));
                 }
                 break;
-            case 1:
+            case "video":
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "1";
+                userState = "video";
                 String video_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
                 if("1".equals(video_url)){
                     presenter.postMaintain();
@@ -720,8 +728,94 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "live")), SupportFragment.SINGLETASK));
                 }
                 break;
-            case 2:
-                userState = "2";
+            case "og":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "og";
+                presenter.postOGGame("","");
+                break;
+            case "bbin":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "bbin";
+                presenter.postBBINGame("","");
+                break;
+            case "ds":
+                userState = "ds";
+                showMessage("敬请期待！");
+                break;
+            case "avia":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "avia";
+                String avia_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_AVIA_MAINTAIN);
+                if("1".equals(avia_url)){
+                    presenter.postMaintain();
+                }else {
+                    postAviaQiPaiGo();
+                }
+                break;
+
+            case "hgqp":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "hgqp";
+                String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_MAINTAIN);
+                if("1".equals(qp_url)){
+                    presenter.postMaintain();
+                }else {
+                    postHGQiPaiGo();
+                }
+                break;
+            case "ky":
+                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }*/
+                userState = "ky";
+                String hg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
+                if("1".equals(hg_url)){
+                    presenter.postMaintain();
+                }else {
+                    postKYQiPaiGo();
+                }
+                break;
+            case "vgqp":
+                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }*/
+                userState = "vgqp";
+                String vg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VG_MAINTAIN);
+                if("1".equals(vg_url)){
+                    presenter.postMaintain();
+                }else {
+                    postVGQiPaiGo();
+                }
+                break;
+            case "ly":
+                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }*/
+                userState = "ly";
+                String ly_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LY_MAINTAIN);
+                if("1".equals(ly_url)){
+                    presenter.postMaintain();
+                }else {
+                    postLYQiPaiGo();
+                }
+                break;
+            case "lottery":
+                userState = "lottery";
                 String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
                 String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
                 String cp_token = ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE);
@@ -739,165 +833,81 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }else {
                     postCPGo();
                 }*/
-                 break;
-            case 3:
+                break;
+            case "game":
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "3";
-                String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_MAINTAIN);
-                if("1".equals(qp_url)){
-                    presenter.postMaintain();
-                }else {
-                    postHGQiPaiGo();
-                }
-                break;
-            case 4:
-                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }*/
-                userState = "4";
-                String hg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_KY_MAINTAIN);
-                if("1".equals(hg_url)){
-                    presenter.postMaintain();
-                }else {
-                    postQiPaiGo();
-                }
-                break;
-            case 5:
-                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }*/
-                userState = "6";
-                String vg_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VG_MAINTAIN);
-                if("1".equals(vg_url)){
-                    presenter.postMaintain();
-                }else {
-                    postVGQiPaiGo();
-                }
-                break;
-            case 6:
-                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                userState = "5";
+                userState = "game";
                 String game_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN);
                 if("1".equals(game_url)){
                     presenter.postMaintain();
                 }else {
-                    //EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "game")), SupportFragment.SINGLETASK));
-                    EventBus.getDefault().post(new StartBrotherEvent(DZGameFragment.newInstance( userMoney, "game"), SupportFragment.SINGLETASK));
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userMoney, userMoney, "game")), SupportFragment.SINGLETASK));
                 }
                 break;
-            case 9:
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getDiscount_activity())));
-                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+pro)));
-                break;
-            case 7:
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getNewcomer_guide())));
-                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"agents_reg.php?tip=app")));
-                break;
-            case 8:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                postValidGiftGo();
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-                break;
-            case 10:
-                //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney,checkUpgradeResult.getBusiness_agent())));
-                EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(userMoney,
-                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
-                        ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
-                break;
-            case 11:
-                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"/template/help.php?tip=app")));
-                //presenter.postNoticeList("");
-                break;
-            case 12:
-                presenter.postNoticeList("");
-                break;
-            case 13:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }*/
-                userState = "7";
-                String ly_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LY_MAINTAIN);
-                if("1".equals(ly_url)){
-                    presenter.postMaintain();
-                }else {
-                    postLYQiPaiGo();
-                }
-                break;
-            case 14:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
+            case "fg":
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "8";
-                String avia_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_AVIA_MAINTAIN);
-                if("1".equals(avia_url)){
+                userState = "fg";
+                String game_url_fg = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+userState);
+                if("1".equals(game_url_fg)){
                     presenter.postMaintain();
                 }else {
-                    postAviaQiPaiGo();
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userMoney, userMoney, "fg")), SupportFragment.SINGLETASK));
                 }
                 break;
-            case 15:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
+            case "mg":
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                //userState = "2";
+                userState = "mg";
+                String game_url_mg = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+userState);
+                if("1".equals(game_url_mg)){
+                    presenter.postMaintain();
+                }else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userMoney, userMoney, "mg")), SupportFragment.SINGLETASK));
+                }
+                break;
+            case "mw":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "mw";
+                String game_url_mw = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+userState);
+                if("1".equals(game_url_mw)){
+                    presenter.postMaintain();
+                }else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userMoney, userMoney, "mw")), SupportFragment.SINGLETASK));
+                }
+                break;
+            case "cq":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "cq";
+                String game_url_cq9 = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+userState);
+                if("1".equals(game_url_cq9)){
+                    presenter.postMaintain();
+                }else {
+                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userMoney, userMoney, "cq")), SupportFragment.SINGLETASK));
+                }
+                break;
+            case "agby":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "agby";
                 presenter.postBYGame("","6");
                 break;
-            case 16:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                userState = "9";
-                presenter.postOGGame("","");
-                break;
-            case 17:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                userState = "10";
-                presenter.postBBINGame("","");
-                break;
+
         }
 
     }
@@ -1082,15 +1092,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
     }
 
-
-    @Override
-    public void postOnlineServiceResult(OnlineServiceResult onlineServiceResult) {
-
-        GameLog.log("在线客服地址："+onlineServiceResult.getOnlineserver());
-       // onStartOnlineService(onlineServiceResult.getOnlineserver());
-        ACache.get(getContext()).put(HGConstant.USERNAME_SERVICE_URL,onlineServiceResult.getOnlineserver() );
-    }
-
     @Override
     public void postBannerResult(BannerResult bannerResult) {
         GameLog.log("。。。。。Banner的数据返回。。。。。");
@@ -1108,28 +1109,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             stringList.add(noticeResult.getData().get(i).getNotice());
         }
         tvHomapageBulletin.setContentList(stringList);
-    }
-
-    @Override
-    public void postNoticeListResult(NoticeResult noticeResult) {
-
-        noticeResultList =noticeResult;
-        EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
-    }
-
-    @Override
-    public void postAGLiveCheckRegisterResult(CheckAgLiveResult checkAgLiveResult) {
-        GameLog.log("AG视讯是否已经注册："+checkAgLiveResult.getIs_registered());
-        if(!"1".equals(checkAgLiveResult.getIs_registered())){
-            presenter.postAGGameRegisterAccount("","cga");
-            GameLog.log("开始注册 AG视讯账号");
-        }
-    }
-
-
-    @Override
-    public void postAGGameRegisterAccountResult(AGCheckAcountResult agCheckAcountResult) {
-        GameLog.log("AG创建账号："+agCheckAcountResult.toString());
     }
 
     private void initWebView(String url) {
@@ -1304,80 +1283,115 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
            switch (maintainResult1.getType()){
                case "sport":
                    GameLog.log("sport "+maintainResult1.getState());
-                   if(userState.equals("0")){
+                   if(userState.equals("sport")){
                        showMessage(maintainResult1.getContent());
                    }
                    ACache.get(getContext()).put(HGConstant.USERNAME_SPORT_MAINTAIN,maintainResult1.getState());
                    break;
                case "video":
-                   if(userState.equals("1")){
+                   if(userState.equals("video")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("video "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_VIDEO_MAINTAIN,maintainResult1.getState());
                    break;
                case "game":
-                   if(userState.equals("5")){
+                   if(userState.equals("game")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("game "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN,maintainResult1.getState());
                    break;
                case "lottery":
-                   if(userState.equals("2")){
+                   if(userState.equals("lottery")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("lottery "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_LOTTERY_MAINTAIN,maintainResult1.getState());
                    break;
                case "ky":
-                   if(userState.equals("4")){
+                   if(userState.equals("ky")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("ky "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_KY_MAINTAIN,maintainResult1.getState());
                    break;
                case "hgqp":
-                   if(userState.equals("3")){
+                   if(userState.equals("hgqp")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("hg "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_HG_MAINTAIN,maintainResult1.getState());
                    break;
                case "vgqp":
-                   if(userState.equals("6")){
+                   if(userState.equals("vgqp")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("vg "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_VG_MAINTAIN,maintainResult1.getState());
                    break;
                case "ly":
-                   if(userState.equals("7")){
+                   if(userState.equals("ly")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("ly "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_LY_MAINTAIN,maintainResult1.getState());
                    break;
                case "avia":
-                   if(userState.equals("8")){
+                   if(userState.equals("avia")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("avia "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                    break;
                case "og":
-                   if(userState.equals("9")){
+                   if(userState.equals("og")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("og "+maintainResult1.getState());
-                   ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN+"og",maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"og",maintainResult1.getState());
                    break;
                case "bbin":
-                   if(userState.equals("10")){
+                   if(userState.equals("bbin")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("bbin "+maintainResult1.getState());
-                   ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN+"bbin",maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"bbin",maintainResult1.getState());
+                   break;
+               case "ds":
+                   if(userState.equals("ds")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("ds "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"ds",maintainResult1.getState());
+                   break;
+               case "fg":
+                   if(userState.equals("fg")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("fg "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"fg",maintainResult1.getState());
+                   break;
+               case "mg":
+                   if(userState.equals("mg")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("mg "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"mg",maintainResult1.getState());
+                   break;
+               case "mw":
+                   if(userState.equals("mw")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("mw "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"mw",maintainResult1.getState());
+                   break;
+               case "cq":
+                   if(userState.equals("cq")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("cq "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"cq",maintainResult1.getState());
                    break;
            }
        }
@@ -1406,7 +1420,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,userMoney,1)));
         }
     }
-    private void postQiPaiGo(){
+    private void postKYQiPaiGo(){
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_QIPAI_URL);
         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
             qipai_url = ACache.get(getContext()).getAsString(HGConstant.KY_DEMO_URL);

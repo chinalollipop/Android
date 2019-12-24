@@ -21,10 +21,6 @@ import rx.Observable;
 
 public interface IHomePageApi {
 
-    //在线客服
-    @POST("kefu_api.php")
-    @FormUrlEncoded
-    public Observable<AppTextMessageResponse<OnlineServiceResult>> postOnlineService(@Field("appRefer") String appRefer);
 
     @POST("banner.php")
     @FormUrlEncoded
@@ -33,17 +29,6 @@ public interface IHomePageApi {
     @POST("notice.php")
     @FormUrlEncoded
     public Observable<NoticeResult> postNotice(@Field("appRefer") String appRefer,@Field("carousel") String carousel);
-
-    //AG视讯检查账号是否注册
-    @POST("live.php")
-    @FormUrlEncoded
-    public Observable<AppTextMessageResponse<CheckAgLiveResult>> postAGLiveCheckRegister(@Field("appRefer") String appRefer);
-
-
-    //创建AG账号
-    @POST("ag_api.php")
-    @FormUrlEncoded
-    public Observable<AGCheckAcountResult> postAGGameRegisterAccount(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //AG捕鱼
     @POST("zrsx_login.php")

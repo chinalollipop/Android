@@ -21,12 +21,8 @@ public interface HomePageContract {
 
     public interface Presenter extends IPresenter
     {
-        public void postOnlineService(String appRefer);
         public void postBanner(String appRefer);
         public void postNotice(String appRefer);
-        public void postNoticeList(String appRefer);
-        public void postAGLiveCheckRegister(String appRefer);
-        public void postAGGameRegisterAccount(String appRefer,String action);
         public void postQipai(String appRefer,String action);
         public void postHGQipai(String appRefer,String action);
         public void postVGQipai(String appRefer,String action);
@@ -42,12 +38,8 @@ public interface HomePageContract {
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
-        public void postOnlineServiceResult(OnlineServiceResult onlineServiceResult);
         public void postBannerResult(BannerResult bannerResult);
         public void postNoticeResult(NoticeResult noticeResult);
-        public void postNoticeListResult(NoticeResult noticeResult);
-        public void postAGLiveCheckRegisterResult(CheckAgLiveResult checkAgLiveResult);
-        public void postAGGameRegisterAccountResult(AGCheckAcountResult agCheckAcountResult);
         public void postQipaiResult(QipaiResult qipaiResult);
         public void postHGQipaiResult(QipaiResult qipaiResult);
         public void postVGQipaiResult(QipaiResult qipaiResult);

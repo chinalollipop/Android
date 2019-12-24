@@ -249,6 +249,8 @@
     <LinearLayout
         android:background="@color/register_left"
         android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_height="40dp">
         <TextView
             android:id="@+id/hometabTextTY"

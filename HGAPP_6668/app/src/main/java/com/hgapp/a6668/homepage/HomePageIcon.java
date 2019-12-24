@@ -4,6 +4,7 @@ public class HomePageIcon {
     private String iconName;
     private int iconId;
     private int id;
+    private String iconNameTitle;
 
     public HomePageIcon(String iconName, int iconId) {
         this.iconName = iconName;
@@ -13,6 +14,13 @@ public class HomePageIcon {
         this.iconName = iconName;
         this.iconId = iconId;
         this.id = id;
+    }
+
+    public HomePageIcon(String iconName, int iconId, int id, String iconNameTitle) {
+        this.iconName = iconName;
+        this.iconId = iconId;
+        this.id = id;
+        this.iconNameTitle = iconNameTitle;
     }
 
     public String getIconName() {
@@ -37,5 +45,13 @@ public class HomePageIcon {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getIconNameTitle() {
+        return iconNameTitle;
+    }
+
+    public void setIconNameTitle(String iconNameTitle) {
+        this.iconNameTitle = iconNameTitle;
     }
 }
