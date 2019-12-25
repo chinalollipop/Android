@@ -6,22 +6,17 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import com.hgapp.a6668.R;
-import com.hgapp.a6668.common.widgets.GifView;
+import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.common.util.ToastUtils;
 import com.huangzj.slidingmenu.SlidingMenu;
 import com.huangzj.slidingmenu.app.SlidingActivityBase;
 import com.huangzj.slidingmenu.app.SlidingActivityHelper;
-import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 import rx.Subscription;
@@ -36,7 +31,7 @@ public abstract class BaseSlidingActivity extends SupportActivity implements IMe
     private Context baseContext;
     Unbinder unbinder;
     private View layoutLoading;
-    private GifView ivloading;
+    private HGGifView ivloading;
     @Override
     public void showMessage(String message)
     {

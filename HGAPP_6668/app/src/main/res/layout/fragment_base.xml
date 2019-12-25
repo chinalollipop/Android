@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.hgapp.a6668.common.widgets.GifView
+        <com.hgapp.a6668.common.widgets.HGGifView
             android:id="@+id/iv_loading"
             android:layout_centerInParent="true"
             android:layout_width="match_parent"

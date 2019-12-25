@@ -2,25 +2,17 @@ package com.hgapp.a6668.base;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.hgapp.a6668.R;
-import com.hgapp.a6668.common.widgets.GifView;
-import com.hgapp.common.util.Timber;
+import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.common.util.ToastUtils;
-import com.huangzj.slidingmenu.SlidingMenu;
-import com.huangzj.slidingmenu.app.SlidingActivityBase;
-import com.huangzj.slidingmenu.app.SlidingActivityHelper;
 import com.jaeger.library.StatusBarUtil;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -41,7 +33,7 @@ public abstract class BaseActivity2 extends SupportActivity implements IMessageV
     private Context baseContext;
     Unbinder unbinder;
     private View layoutLoading;
-    private GifView ivloading;
+    private HGGifView ivloading;
     @Override
     public void showMessage(String message)
     {
@@ -82,7 +74,7 @@ public abstract class BaseActivity2 extends SupportActivity implements IMessageV
             AutoUtils.auto(view);
             unbinder = ButterKnife.bind(this,view);
             layoutLoading = view.findViewById(R.id.layout_loading);
-            ivloading = (GifView)view.findViewById(R.id.iv_loading);
+            ivloading = (HGGifView)view.findViewById(R.id.iv_loading);
             hideLoadingView();
             setEvents(savedInstanceState);
             setContentView(view);

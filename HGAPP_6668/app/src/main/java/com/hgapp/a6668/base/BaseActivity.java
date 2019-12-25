@@ -1,29 +1,19 @@
 package com.hgapp.a6668.base;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import com.hgapp.a6668.R;
-import com.hgapp.a6668.common.widgets.GifView;
+import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.common.util.ToastUtils;
 import com.huangzj.slidingmenu.SlidingMenu;
 import com.huangzj.slidingmenu.app.SlidingActivityBase;
 import com.huangzj.slidingmenu.app.SlidingActivityHelper;
-import com.zhy.autolayout.AutoLayoutActivity;
-import com.zhy.autolayout.utils.AutoUtils;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 import rx.Subscription;
@@ -37,7 +27,7 @@ public abstract class BaseActivity extends SupportActivity implements IMessageVi
     protected Subscription mSubscription;
     private Context baseContext;
     private View layoutLoading;
-    private GifView ivloading;
+    private HGGifView ivloading;
     Unbinder unbinder;
     @Override
     public void showMessage(String message)

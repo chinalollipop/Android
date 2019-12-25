@@ -80,14 +80,14 @@
         <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
     </style>
 
-    <declare-styleable name="GifView">
+    <declare-styleable name="HGGifView">
         <attr name="gif" format="reference" />
         <attr name="paused" format="boolean" />
     </declare-styleable>
     <declare-styleable name="CustomTheme">
         <attr name="gifViewStyle" format="reference" />
     </declare-styleable>
-    <style name="Widget_GifView"></style>
+    <style name="Widget_GifViews"></style>
 
 	<style name="push_style">
 		<item name="android:hint">@string/style_hint</item>

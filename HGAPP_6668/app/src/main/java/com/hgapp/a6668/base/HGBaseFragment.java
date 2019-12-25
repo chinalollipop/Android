@@ -15,7 +15,7 @@ import com.flurry.android.FlurryAgent;
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.common.service.ServiceOnlineActivity;
 import com.hgapp.a6668.common.useraction.UserActionHandler;
-import com.hgapp.a6668.common.widgets.GifView;
+import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.InputMethodUtils;
 import com.hgapp.common.util.SoftKeyBoardListener;
@@ -44,7 +44,7 @@ public abstract  class HGBaseFragment extends BaseMainFragment implements IMessa
     @Nullable
     Unbinder unbinder;
     private View layoutLoading;
-    private GifView ivloading;
+    private HGGifView ivloading;
     private boolean forbidShowingLoadingView=false;
     @Override
     public void onAttach(Context context) {
@@ -93,7 +93,7 @@ public abstract  class HGBaseFragment extends BaseMainFragment implements IMessa
             unbinder = ButterKnife.bind(this,view);
             layoutLoading = view.findViewById(R.id.layout_loading);
             layoutLoading.setOnClickListener(null);
-            ivloading = (GifView)view.findViewById(R.id.iv_loading);
+            ivloading = (HGGifView)view.findViewById(R.id.iv_loading);
             hideLoadingView();
             setEvents(savedInstanceState);
             return view;

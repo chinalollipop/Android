@@ -1,12 +1,15 @@
 package com.hgapp.a6668.login.fastlogin;
 
 import android.content.pm.PackageManager;
+import android.graphics.PixelFormat;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,7 +17,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
@@ -27,6 +32,8 @@ import com.hgapp.a6668.base.HGBaseFragment;
 import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
+import com.hgapp.a6668.common.widgets.HGControlVideo;
+import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.SportsPlayMethodRBResult;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
@@ -36,7 +43,10 @@ import com.hgapp.a6668.login.resetpwd.ResetPwdDialog;
 import com.hgapp.a6668.login.resetpwd.ResetPwdEvent;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
-import com.upyun.upplayer.widget.UpVideoView;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
+import com.shuyu.gsyvideoplayer.player.PlayerFactory;
+import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
+import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,8 +62,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
+import me.yokeyword.fragmentation.anim.LoginAnimator;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
-import tv.danmaku.ijk.media.player.IMediaPlayer;
 
 public class LoginFragment extends HGBaseFragment implements LoginContract.View {
 
@@ -63,8 +75,10 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @BindView(R.id.verificationCodeView)
     VerificationCodeView verificationCodeView;*/
-    @BindView(R.id.upVideo)
-    UpVideoView upVideo;
+//    @BindView(R.id.upVideo)
+//    UpVideoView upVideo;
+    @BindView(R.id.hgControlVideoPlayer)
+    HGControlVideo hgControlVideoPlayer;
     /*@BindView(R.id.sScrollView)
     LinearLayout sScrollView;*/
     @BindView(R.id.fgtLogin)
@@ -151,20 +165,29 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     }
 
 
+    private void initVideoControl(){
+        getActivity().getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        String url = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.login;
+        //注意，用ijk模式播放raw视频，这个必须打开
+        //GSYVideoManager.instance().enableRawPlay(HGApplication.instance().getApplicationContext());
+
+        //系统内核模式
+        PlayerFactory.setPlayManager(SystemPlayerManager.class);
+        //切换渲染模式
+        GSYVideoType.setShowType(GSYVideoType.SCREEN_MATCH_FULL);
+        ///exo raw 支持
+        //String url =  RawResourceDataSource.buildRawResourceUri(R.raw.login).toString();
+        hgControlVideoPlayer.setShowPauseCover(true);
+        hgControlVideoPlayer.setUp(url, false, null, "");
+        hgControlVideoPlayer.setLooping(true);
+        hgControlVideoPlayer.startPlayLogic();
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         //cpAssertVideoToLocalPath();
-//        upVideo.fullScreen(getActivity());
-        upVideo.setVideoPath(pasth);
-        GameLog.log("视频的目录是："+pasth);
+        initVideoControl();
 
-        upVideo.start();
-        upVideo.setOnCompletionListener(new IMediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(IMediaPlayer mp) {
-                upVideo.start();
-            }
-        });
         EventBus.getDefault().register(this);
         BottombarViewManager.getSingleton().onCloseView();
         String userName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT);
@@ -214,23 +237,30 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     public void onResume() {
         super.onResume();
 
+        hgControlVideoPlayer.onVideoResume();
+        hgControlVideoPlayer.startPlayLogic();
         // 重新开始播放器
-        upVideo.resume();
-        upVideo.start();
+        /*upVideo.resume();
+        upVideo.start();*/
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        upVideo.pause();
+        hgControlVideoPlayer.onVideoPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(!Check.isNull(upVideo)){
-            upVideo.release(true);
+        if(!Check.isNull(hgControlVideoPlayer)){
+            hgControlVideoPlayer.release();
+            //释放所有
+            hgControlVideoPlayer.setVideoAllCallBack(null);
+            GSYVideoManager.releaseAllVideos();
         }
+        //_mActivity.overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+
     }
 
     private void cpAssertVideoToLocalPath() {
@@ -536,6 +566,12 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         EventBus.getDefault().post(loginResult);
     }
 
+
+    @Override
+    protected FragmentAnimator onCreateFragmentAnimator() {
+        // 设置横向(和安卓4.x动画相同)
+        return new LoginAnimator();
+    }
 
 
 }
