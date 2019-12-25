@@ -62,7 +62,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
-import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 import me.yokeyword.fragmentation.anim.LoginAnimator;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;

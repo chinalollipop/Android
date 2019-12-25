@@ -174,7 +174,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private LinearLayoutManager manager;
     private String[] strTitleName = {"体育", "真人", "电竞", "棋牌", "彩票", "电游"};
     private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_qp, R.mipmap.home_tab_cp, R.mipmap.home_tab_yy};
-    private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_dj};
+    private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dj, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_dz};
     /**
      * 需要定位的地方，从小到大排列，需要和tab对应起来，长度一样
      */

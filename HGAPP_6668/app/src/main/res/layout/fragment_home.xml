@@ -247,9 +247,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"/>
     <FrameLayout
-        android:background="@drawable/icon_homec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_homepage_game_hall"
             android:layout_marginLeft="10dp"
@@ -259,11 +258,11 @@
             android:layout_height="wrap_content"
             android:fadeScrollbars="true" />
         <LinearLayout
-            android:background="@mipmap/home_tab_bg_css"
+            android:background="@mipmap/home_tab_bga_c"
             android:layout_width="match_parent"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_height="40dp">
+            android:layout_height="50dp">
             <TextView
                 android:id="@+id/hometabTextTY"
                 android:text=""
