@@ -3,6 +3,9 @@
     <color name="colorPrimary">#4ea2ea</color>
     <color name="colorPrimaryDark">#4ea2ea</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="shape1">#4da2ea</color>
+    <color name="shape2">#5791f5</color>
+    <color name="shape3">#496dd5</color>
     <color name="intputEditText">#FF4081</color>
     <!--标题背景色-->
     <color name="title_bg">#4ea2ea</color>

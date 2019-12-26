@@ -1,6 +1,7 @@
 package com.hgapp.a6668.login.fastlogin;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,9 +19,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
@@ -33,7 +33,6 @@ import com.hgapp.a6668.base.IPresenter;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.HGControlVideo;
-import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.SportsPlayMethodRBResult;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
@@ -47,6 +46,8 @@ import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
+import com.yanzhenjie.sofia.Sofia;
+import com.yanzhenjie.sofia.StatusView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -69,6 +70,8 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 public class LoginFragment extends HGBaseFragment implements LoginContract.View {
 
     LoginContract.Presenter presenter;
+    @BindView(R.id.status_view)
+    StatusView mStatusView;
     /*@BindView(R.id.inputCodeLayout)
     InputCodeLayout inputCodeLayout;
 
@@ -185,6 +188,10 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         //cpAssertVideoToLocalPath();
+        /*Sofia.with(getActivity())
+//                .invasionStatusBar()
+                .statusBarBackground(Color.TRANSPARENT);*/
+        mStatusView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.register_left));
         initVideoControl();
 
         EventBus.getDefault().register(this);
@@ -252,6 +259,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Sofia.with(getActivity())
+                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         if(!Check.isNull(hgControlVideoPlayer)){
             hgControlVideoPlayer.release();
             //释放所有
@@ -293,7 +302,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void postLoginResult(LoginResult loginResult) {
-
+        Sofia.with(getActivity())
+                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         showMessage("登录成功");
         //String userName, String agents, String loginTime, String birthday, String money, String phone, String test_flag, String oid, String alias) {
         EventBus.getDefault().post(new LoginResult(loginResult.getUserName(),loginResult.getAgents(),loginResult.getLoginTime(),loginResult.getBirthday(),loginResult.getMoney(),loginResult.getPhone(),loginResult.getTest_flag(),loginResult.getOid(),loginResult.getAlias(),loginResult.getUserid(),loginResult.getMembermessage().getMem_message()));
@@ -550,6 +560,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void postRegisterMemberResult(LoginResult loginResult) {
+        Sofia.with(getActivity())
+                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         showMessage("恭喜您，账号注册成功！");
         //正对每一个用户做数据缓存
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_STATUS+loginResult.getUserName(), "1");

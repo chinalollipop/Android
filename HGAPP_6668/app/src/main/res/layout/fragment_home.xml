@@ -13,7 +13,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:background="@mipmap/home_ty_title">
+            android:background="@drawable/status_shape">
             <TextView
                 android:id="@+id/tvHomePageLine"
                 android:drawablePadding="10dp"
@@ -312,7 +312,15 @@
                 android:layout_width="wrap_content"
                 android:gravity="center"
                 android:layout_height="match_parent"/>
-
+            <TextView
+                android:id="@+id/hometabTextZX"
+                android:text="自选"
+                android:visibility="gone"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
         </LinearLayout>
 
     </FrameLayout>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.hgapp.a6668.common.useraction.UserActionHandler;
@@ -13,10 +14,10 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.EntranceUtils;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.homepage.push.ExampleUtil;
-import com.hgapp.a6668.launcher.LauncherActivity;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.ToastUtils;
+import com.yanzhenjie.sofia.Sofia;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -63,6 +64,9 @@ public class MainActivity extends SupportActivity {
         });
         UserActionHandler.getInstance().onActivityStart(this);
         registerMessageReceiver();
+        Sofia.with(this)
+                .statusBarBackground(ContextCompat.getDrawable(this, R.drawable.status_shape));
+
     }
 
     public void registerMessageReceiver() {

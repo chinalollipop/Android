@@ -20,8 +20,6 @@ import com.hgapp.a6668.common.http.Client;
 import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
-import com.hgapp.a6668.common.widgets.GridRvItemDecoration;
-import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.LoginResult;

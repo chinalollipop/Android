@@ -3,7 +3,6 @@ package com.hgapp.a6668.homepage;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,13 +13,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -39,33 +35,25 @@ import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.CustomPopWindow;
 import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
-import com.hgapp.a6668.data.AGCheckAcountResult;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
-import com.hgapp.a6668.data.CheckAgLiveResult;
 import com.hgapp.a6668.data.DomainUrl;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
-import com.hgapp.a6668.data.OnlineServiceResult;
 import com.hgapp.a6668.data.QipaiResult;
 import com.hgapp.a6668.data.ValidResult;
 import com.hgapp.a6668.homepage.aglist.AGListFragment;
-import com.hgapp.a6668.homepage.aglist.DZGameFragment;
 import com.hgapp.a6668.homepage.aglist.playgame.XPlayGameActivity;
 import com.hgapp.a6668.homepage.cplist.CPListFragment;
 import com.hgapp.a6668.homepage.events.EventShowDialog;
 import com.hgapp.a6668.homepage.events.EventsFragment;
 import com.hgapp.a6668.homepage.handicap.HandicapFragment;
-import com.hgapp.a6668.homepage.noticelist.NoticeListFragment;
-import com.hgapp.a6668.homepage.online.ContractFragment;
 import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.homepage.signtoday.SignTodayFragment;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
 import com.hgapp.common.util.Check;
-import com.hgapp.common.util.DensityUtil;
-import com.hgapp.common.util.FileIOUtils;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.NetworkUtils;
 import com.lzj.gallery.library.views.BannerViewPager;
@@ -82,7 +70,6 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -557,8 +544,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GameLog.log("tab "+str);
     }
 
+    /**
+     * 初始化沉浸式
+     * Init immersion bar.
+     */
+    protected void initImmersionBar() {
+        //设置共同沉浸式样式
+       // ImmersionBar.with(getActivity()).statusBarColor(R.color.colorPrimary).init();
+    }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        //初始化沉浸式
+        initImmersionBar();
         init();
         initTab();
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
