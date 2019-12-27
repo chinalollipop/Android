@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.hgapp.a6668.Injections;
 import com.hgapp.a6668.R;
@@ -44,7 +45,7 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 public class DepositFragment extends HGBaseFragment implements DepositeContract.View{
 
     @BindView(R.id.tvDepositUserMoney)
-    NTitleBar tvDepositUserMoney;
+    TextView tvDepositUserMoney;
     @BindView(R.id.lvDeposit)
     ListView lvDeposit;
     private String userMoney;
@@ -77,14 +78,14 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
         GameLog.log("存款获取的用户余额："+loginResult.getMoney());
         if(!Check.isEmpty(loginResult.getMoney())){
             userMoney = GameShipHelper.formatMoney(loginResult.getMoney());
-            tvDepositUserMoney.setMoreText(userMoney);
+            tvDepositUserMoney.setText(userMoney);
         }
     }
 
     @Subscribe
     public void onEventMain(UserMoneyEvent userMoneyEvent){
         userMoney = userMoneyEvent.money;
-        tvDepositUserMoney.setMoreText(userMoney);
+        tvDepositUserMoney.setText(userMoney);
     }
 
     @Override

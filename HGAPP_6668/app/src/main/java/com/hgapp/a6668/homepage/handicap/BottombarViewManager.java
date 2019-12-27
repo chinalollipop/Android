@@ -61,7 +61,7 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(0));
+                        EventBus.getDefault().post(new ShowMainEvent(2));
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });
@@ -77,7 +77,7 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(2));
+                        EventBus.getDefault().post(new ShowMainEvent(3));
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });
@@ -85,7 +85,7 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(3));
+                        EventBus.getDefault().post(new ShowMainEvent(4));
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });

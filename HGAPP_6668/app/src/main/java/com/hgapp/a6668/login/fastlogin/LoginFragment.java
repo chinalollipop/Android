@@ -46,7 +46,6 @@ import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
-import com.yanzhenjie.sofia.Sofia;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -183,14 +182,13 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     }
 
     private void onVisiableStatusBar(){
-        //Sofia.with(getActivity()).visiableStatusBar(View.VISIBLE);
+        //Sofia.with(getActivity()).visiableStatusBar(View.VISIBLE).visiableNavigationBar(View.VISIBLE);
     }
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-       /* Sofia.with(getActivity()).visiableStatusBar(View.GONE)
-                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
-*/
+        //Sofia.with(getActivity()).visiableStatusBar(View.GONE);
+//                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         //cpAssertVideoToLocalPath();
 //        Sofia.with(getActivity())
 ////                .invasionStatusBar()

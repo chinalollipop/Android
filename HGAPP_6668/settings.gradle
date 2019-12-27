@@ -1,1 +1,1 @@
-include ':app', ':commonliberary', ':slidingmenu', ':gallery', ':sofia'
+include ':app', ':commonliberary', ':slidingmenu', ':gallery', ':actionbarex'

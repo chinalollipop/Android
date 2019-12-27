@@ -2,15 +2,34 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/transparent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <per.goweii.actionbarex.ActionBarEx
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ab_titleBarHeight="1dp"
+        android:background="@drawable/status_shape"
+        app:ab_statusBarColor="@android:color/transparent"
+        app:ab_immersion="immersed"
+        app:ab_bottomLineHeight="1dp"
+        app:ab_bottomLineOutside="true"
+        app:ab_statusBarMode="auto"
+        app:ab_statusBarVisible="visible"
+        />
     <FrameLayout
         android:id="@+id/fl_tab_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="20dp" />
-
+         />
+    </LinearLayout>
     <FrameLayout
         android:id="@+id/fHomeBottom"
         android:layout_width="match_parent"

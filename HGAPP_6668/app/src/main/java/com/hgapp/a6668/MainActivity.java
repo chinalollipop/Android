@@ -19,7 +19,6 @@ import com.hgapp.a6668.homepage.push.ExampleUtil;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.ToastUtils;
-import com.yanzhenjie.sofia.Sofia;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
