@@ -46,8 +46,6 @@ import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
-import com.yanzhenjie.sofia.Sofia;
-import com.yanzhenjie.sofia.StatusView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -70,8 +68,6 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 public class LoginFragment extends HGBaseFragment implements LoginContract.View {
 
     LoginContract.Presenter presenter;
-    @BindView(R.id.status_view)
-    StatusView mStatusView;
     /*@BindView(R.id.inputCodeLayout)
     InputCodeLayout inputCodeLayout;
 
@@ -188,10 +184,9 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         //cpAssertVideoToLocalPath();
-        /*Sofia.with(getActivity())
-//                .invasionStatusBar()
-                .statusBarBackground(Color.TRANSPARENT);*/
-        mStatusView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.register_left));
+//        Sofia.with(getActivity())
+////                .invasionStatusBar()
+//                .statusBarBackground(Color.TRANSPARENT);
         initVideoControl();
 
         EventBus.getDefault().register(this);
@@ -259,8 +254,6 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Sofia.with(getActivity())
-                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         if(!Check.isNull(hgControlVideoPlayer)){
             hgControlVideoPlayer.release();
             //释放所有
@@ -302,8 +295,6 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void postLoginResult(LoginResult loginResult) {
-        Sofia.with(getActivity())
-                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         showMessage("登录成功");
         //String userName, String agents, String loginTime, String birthday, String money, String phone, String test_flag, String oid, String alias) {
         EventBus.getDefault().post(new LoginResult(loginResult.getUserName(),loginResult.getAgents(),loginResult.getLoginTime(),loginResult.getBirthday(),loginResult.getMoney(),loginResult.getPhone(),loginResult.getTest_flag(),loginResult.getOid(),loginResult.getAlias(),loginResult.getUserid(),loginResult.getMembermessage().getMem_message()));
@@ -560,8 +551,6 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     @Override
     public void postRegisterMemberResult(LoginResult loginResult) {
-        Sofia.with(getActivity())
-                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
         showMessage("恭喜您，账号注册成功！");
         //正对每一个用户做数据缓存
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_STATUS+loginResult.getUserName(), "1");

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.hgapp.a6668.common.useraction.UserActionHandler;
@@ -17,7 +16,6 @@ import com.hgapp.a6668.homepage.push.ExampleUtil;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.ToastUtils;
-import com.yanzhenjie.sofia.Sofia;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -36,9 +34,11 @@ public class MainActivity extends SupportActivity {
     public static final String KEY_TITLE = "title";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_EXTRAS = "extras";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // hideNavigationBar();
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance());
@@ -64,9 +64,16 @@ public class MainActivity extends SupportActivity {
         });
         UserActionHandler.getInstance().onActivityStart(this);
         registerMessageReceiver();
-        Sofia.with(this)
+        //ImmersionBar.with(this).init();
+        /*Sofia.with(this)
                 .statusBarBackground(ContextCompat.getDrawable(this, R.drawable.status_shape));
-
+        if (ImmersionBar.hasNavigationBar(this)) {
+        } else {
+            Toast.makeText(this, "当前设备没有导航栏或者导航栏已经被隐藏或者低于4.4系统", Toast.LENGTH_SHORT).show();
+        }
+        ImmersionBar.with(this).hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR).init();
+        ImmersionBar.with(this).fullScreen(true).transparentNavigationBar().init();
+*/
     }
 
     public void registerMessageReceiver() {

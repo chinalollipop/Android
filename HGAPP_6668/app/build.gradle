@@ -130,5 +130,9 @@ dependencies {
     //完整版引入 7.1以上支持androidX
     implementation 'com.shuyu:GSYVideoPlayer:6.0.3'
     //implementation 'com.github.CYL-ALing:immersionbar:V1.0.0'
-    implementation 'com.yanzhenjie:sofia:1.0.5'
+    //implementation 'com.yanzhenjie:sofia:1.0.5'
+    // 基础依赖包，必须要依赖
+    //implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // fragment快速实现（可选）
+    //implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
 }
