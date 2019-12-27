@@ -129,6 +129,7 @@ dependencies {
    // api project(path: ':upplayer')
     //完整版引入 7.1以上支持androidX
     implementation 'com.shuyu:GSYVideoPlayer:6.0.3'
+    compile project(path: ':sofia')
     //implementation 'com.github.CYL-ALing:immersionbar:V1.0.0'
     //implementation 'com.yanzhenjie:sofia:1.0.5'
     // 基础依赖包，必须要依赖

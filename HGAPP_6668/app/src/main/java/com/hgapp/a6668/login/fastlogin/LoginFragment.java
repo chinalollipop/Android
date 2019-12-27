@@ -46,6 +46,7 @@ import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
+import com.yanzhenjie.sofia.Sofia;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -181,8 +182,15 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         hgControlVideoPlayer.startPlayLogic();
     }
 
+    private void onVisiableStatusBar(){
+        //Sofia.with(getActivity()).visiableStatusBar(View.VISIBLE);
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+       /* Sofia.with(getActivity()).visiableStatusBar(View.GONE)
+                .statusBarBackground(ContextCompat.getDrawable(getActivity(), R.drawable.status_shape));
+*/
         //cpAssertVideoToLocalPath();
 //        Sofia.with(getActivity())
 ////                .invasionStatusBar()
@@ -374,6 +382,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     public void onDestroyView() {
         super.onDestroyView();
         EventBus.getDefault().unregister(this);
+        onVisiableStatusBar();
     }
 
     private void btnLoginSubmit(){
@@ -567,11 +576,11 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     }
 
 
-    @Override
+    /*@Override
     protected FragmentAnimator onCreateFragmentAnimator() {
         // 设置横向(和安卓4.x动画相同)
         return new LoginAnimator();
-    }
+    }*/
 
 
 }

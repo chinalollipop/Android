@@ -50,9 +50,14 @@ import com.hgapp.a6668.homepage.cplist.CPListFragment;
 import com.hgapp.a6668.homepage.events.EventShowDialog;
 import com.hgapp.a6668.homepage.events.EventsFragment;
 import com.hgapp.a6668.homepage.handicap.HandicapFragment;
+import com.hgapp.a6668.homepage.handicap.ShowMainEvent;
 import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.homepage.signtoday.SignTodayFragment;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
+import com.hgapp.a6668.personpage.balanceplatform.BalancePlatformFragment;
+import com.hgapp.a6668.personpage.bindingcard.BindingCardFragment;
+import com.hgapp.a6668.personpage.realname.RealNameFragment;
+import com.hgapp.a6668.withdrawPage.WithdrawFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.NetworkUtils;
@@ -966,6 +971,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
+                EventBus.getDefault().post(new ShowMainEvent(1));
                 break;
             case R.id.homeDepositC:
                 if(Check.isEmpty(userName)){
@@ -977,6 +983,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
+                EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(null), SupportFragment.SINGLETASK));
                 break;
             case R.id.homeDwith:
                 if(Check.isEmpty(userName)){
@@ -987,6 +994,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
+                }
+                String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                if(Check.isEmpty(alias)){
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                    return;
+                }
+                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+, loginResult.getBindCard_Flag());
+                GameLog.log("用户是否已经绑定过银行卡："+userStatus);
+                if("0".equals(userStatus)){
+                    showMessage("请先绑定银行卡！");
+                    EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
                 }
                 break;
             case R.id.homeBank:
@@ -999,6 +1020,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
+                EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
                 break;
             case R.id.tvHomePageLine:
                 showPopMenuIn();
