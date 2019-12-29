@@ -7,6 +7,7 @@ import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.GameNumResult;
 import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
@@ -20,6 +21,10 @@ import retrofit2.http.POST;
 import rx.Observable;
 
 public interface IHomePageApi {
+
+    @POST("api/indexGameNumApi.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<GameNumResult>> postGameNum(@Field("appRefer") String appRefer);
 
 
     @POST("banner.php")

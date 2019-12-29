@@ -52,7 +52,7 @@ public class Client {
     public static String baseUrl()
     {
 //        domainUrl = "http://uatappfront-e03.agg013.com/";//运测环境 http://m.hhhg6668.com/ http://192.168.1.6/
-//        domainUrl = "http://m.dh77.com/";//开发环境http://10.91.6.17:8080/app-front_E03 http://10.91.6.17:8091
+        domainUrl = "http://m.dh77.com/";//开发环境http://10.91.6.17:8080/app-front_E03 http://10.91.6.17:8091
 //        domainUrl = "http://m.hg01455.com/";// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
 //        domainUrl = "https://m.app008602.com/";//运营环境 http://m.hgw777.co http://m.hg50080.com/
         //GameLog.log("get domainUrl:"+domainUrl);

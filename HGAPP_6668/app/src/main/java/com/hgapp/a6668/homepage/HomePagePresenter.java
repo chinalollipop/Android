@@ -13,6 +13,7 @@ import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.GameNumResult;
 import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
@@ -33,6 +34,33 @@ public class HomePagePresenter implements HomePageContract.Presenter {
         this.view = view;
         this.api = api;
         this.view.setPresenter(this);
+    }
+
+    @Override
+    public void postGameNum(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameNum(HGConstant.PRODUCT_PLATFORM))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<GameNumResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<GameNumResult> response) {
+                        if(response.isSuccess()){
+                            if(!Check.isNull(response.getData())){
+                                view.postGameNumResult(response.getData());
+                            }
+                        }else{
+                            ACache.get(Utils.getContext()).put(HGConstant.USERNAME_QIPAI_URL, "");
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

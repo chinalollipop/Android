@@ -5,6 +5,8 @@ public class HomePageIcon {
     private int iconId;
     private int id;
     private String iconNameTitle;
+    private boolean heart = false;
+    private String gameNum;
 
     public HomePageIcon(String iconName, int iconId) {
         this.iconName = iconName;
@@ -21,6 +23,23 @@ public class HomePageIcon {
         this.iconId = iconId;
         this.id = id;
         this.iconNameTitle = iconNameTitle;
+    }
+
+    public HomePageIcon(String iconName, int iconId, int id, String iconNameTitle, boolean heart) {
+        this.iconName = iconName;
+        this.iconId = iconId;
+        this.id = id;
+        this.iconNameTitle = iconNameTitle;
+        this.heart = heart;
+    }
+
+    public HomePageIcon(String iconName, int iconId, int id, String iconNameTitle, boolean heart, String gameNum) {
+        this.iconName = iconName;
+        this.iconId = iconId;
+        this.id = id;
+        this.iconNameTitle = iconNameTitle;
+        this.heart = heart;
+        this.gameNum = gameNum;
     }
 
     public String getIconName() {
@@ -53,5 +72,21 @@ public class HomePageIcon {
 
     public void setIconNameTitle(String iconNameTitle) {
         this.iconNameTitle = iconNameTitle;
+    }
+
+    public boolean isHeart() {
+        return heart;
+    }
+
+    public void setHeart(boolean heart) {
+        this.heart = heart;
+    }
+
+    public String getGameNum() {
+        return gameNum;
+    }
+
+    public void setGameNum(String gameNum) {
+        this.gameNum = gameNum;
     }
 }

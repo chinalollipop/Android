@@ -9,6 +9,7 @@ import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.CheckAgLiveResult;
+import com.hgapp.a6668.data.GameNumResult;
 import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.OnlineServiceResult;
@@ -21,6 +22,7 @@ public interface HomePageContract {
 
     public interface Presenter extends IPresenter
     {
+        public void postGameNum(String appRefer);
         public void postBanner(String appRefer);
         public void postNotice(String appRefer);
         public void postQipai(String appRefer,String action);
@@ -38,6 +40,7 @@ public interface HomePageContract {
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
+        public void postGameNumResult(GameNumResult gameNumResult);
         public void postBannerResult(BannerResult bannerResult);
         public void postNoticeResult(NoticeResult noticeResult);
         public void postQipaiResult(QipaiResult qipaiResult);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
@@ -8,8 +8,18 @@
     <ImageView
         android:id="@+id/id_main_item"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:gravity="center"
+        android:background="@mipmap/home_ly"
+        />
+    <ImageView
+        android:id="@+id/id_main_item_heart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@mipmap/home_heart0"
         />
 
-</LinearLayout>
+</FrameLayout>
