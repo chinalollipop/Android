@@ -40,6 +40,7 @@ import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.DomainUrl;
 import com.hgapp.a6668.data.GameNumResult;
+import com.hgapp.a6668.data.HomePageList;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.MaintainResult;
 import com.hgapp.a6668.data.NoticeResult;
@@ -151,8 +152,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     TextView homeBank;
 
 
-    private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
+    private  List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
+    HomePageList homePageList = new HomePageList();
     SimeAdapter simeAdapter;
+    GameNumResult mGameNumResult;
     HomePageContract.Presenter presenter;
 
     private RollPagerViewManager rollPagerViewManager;
@@ -174,9 +177,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
      */
     private int[] strTitleMarkup = {0, 1, 5, 6, 10, 11,17};
     private boolean isScrolled = false;
-    static {
+    private  void initHomepage() {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
-
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1,"video"));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,2,"og"));
         homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,3,"bbin"));
@@ -191,13 +193,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,10,"lottery"));
 
+        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,16,"agby"));
         homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,11,"fg"));
         homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,12,"game"));
         homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,13,"mg"));
         homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,14,"mw"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,15,"cq"));
-        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,16,"agby"));
-
 
         /*homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
         homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red,8));
@@ -228,10 +229,124 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
+    private void init() {
+
+        manager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(manager);
+        //BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
+        String homeListArray = ACache.get(getContext()).getAsString("home_main_game_heart");
+        if (!Check.isNull(homeListArray)){
+            homeGameList.clear();
+            //homeGameList = stringToList(homeListArray);
+            homePageList =   JSON.parseObject(homeListArray, HomePageList.class);
+            homeGameList = homePageList.getHomeGameList();
+        }else{
+            initHomepage();
+        }
+        simeAdapter= new SimeAdapter(getContext(),R.layout.main_item,homeGameList);
+        recyclerView.setAdapter(simeAdapter);
+
+
+//        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//                //Toast.makeText(MainActivity.this, "点击的item=" + position, Toast.LENGTH_SHORT).show();
+////                switch (position) {
+////                    case 0:
+////
+////                        ToastShow.show(MainActivity.this, "item---" + 0000);
+////                        break;
+////                    default:
+////                        break;
+////                }
+//            }
+//        });
+
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                //重写该方法主要是判断recyclerview是否在滑动
+                //0停止 ，1 2都是滑动
+                if (newState == 0) {
+                    isScrolled = false;
+                } else {
+                    isScrolled = true;
+                }
+                setMsg("isScrolled" + isScrolled + "--newState=" + newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                //这个主要是recyclerview滑动时让tab定位的方法
+                int pos = 0;
+                if (isScrolled) {
+                    int top = manager.findFirstVisibleItemPosition();
+                    int bottom = manager.findLastVisibleItemPosition();
+
+                    if (top >= 18) {
+                        //先判断滑到底部，tab定位到最后一个
+                        pos = strTitleMarkup.length - 1;
+                        GameLog.log("区间范围的时候"+pos);
+                    } else if (bottom == homeGameList.size() - 1) {
+                        //先判断滑到底部，tab定位到最后一个
+                        pos = strTitleMarkup.length - 1;
+                    } else if (top == strTitleMarkup[strTitleMarkup.length - 1]) {
+                        //如果top等于指定的位置，对应到tab即可，
+                        pos = strTitleMarkup[strTitleMarkup.length - 1];
+                    } else {
+                        //循环遍历，需要比较i+1的位置，所以循环长度要减1，
+                        //  如果 i<top<i+1,  那么tab应该定位到i位置的字符，不管是向上还是向下滑动
+                        for (int i = 0; i < strTitleMarkup.length - 1; i++) {
+                            if (top == strTitleMarkup[i]) {
+                                pos = i;
+                                //GameLog.log("相等的时候："+pos);
+                                break;
+                            } else if (top > strTitleMarkup[i] && top < strTitleMarkup[i + 1]) {
+                                pos = i;
+                                //GameLog.log("区间范围的时候"+pos);
+                                break;
+                            }
+                        }
+                    }
+                    if(pos>=6){
+                        pos = 6;
+                    }
+                    //设置tab滑动到第pos个
+                    tabLayout.setScrollPosition(pos, 0f, true);
+                    GameLog.log("当前滑动的位置是："+pos);
+                    for (int i = 0; i < strTitleName.length; i++) {
+//                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
+                        if (i == pos) {
+                            // 设置第一个tab的TextView是被选择的样式
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setVisibility(View.VISIBLE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                           // tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
+                        }else{
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setVisibility(View.GONE);
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
+                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);tab_selector
+                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(0);
+                        }
+
+                    }
+                    homeTabItem(pos);
+                }
+            }
+        });
+
+    }
+
     private void initTab() {
         for (int i = 0; i < strTitleName.length; i++) {
             //插入tab标签
-           // tabLayout.addTab(tabLayout.newTab().setText(strTitleName[i]));
+            // tabLayout.addTab(tabLayout.newTab().setText(strTitleName[i]));
             tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.home_tab_item));
         }
 
@@ -330,7 +445,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
                         //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
                         //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
-                       // tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
+                        // tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
                     }else{
                         GameLog.log("其他Tab的位置是："+i);
                         //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
@@ -351,109 +466,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
-            }
-        });
-
-    }
-
-    private void init() {
-
-        manager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(manager);
-        simeAdapter= new SimeAdapter(getContext(),R.layout.main_item,homeGameList);
-        recyclerView.setAdapter(simeAdapter);
-
-//        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//                //Toast.makeText(MainActivity.this, "点击的item=" + position, Toast.LENGTH_SHORT).show();
-////                switch (position) {
-////                    case 0:
-////
-////                        ToastShow.show(MainActivity.this, "item---" + 0000);
-////                        break;
-////                    default:
-////                        break;
-////                }
-//            }
-//        });
-
-
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-
-                //重写该方法主要是判断recyclerview是否在滑动
-                //0停止 ，1 2都是滑动
-                if (newState == 0) {
-                    isScrolled = false;
-                } else {
-                    isScrolled = true;
-                }
-                setMsg("isScrolled" + isScrolled + "--newState=" + newState);
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                //这个主要是recyclerview滑动时让tab定位的方法
-                int pos = 0;
-                if (isScrolled) {
-                    int top = manager.findFirstVisibleItemPosition();
-                    int bottom = manager.findLastVisibleItemPosition();
-
-                    if (top >= 18) {
-                        //先判断滑到底部，tab定位到最后一个
-                        pos = strTitleMarkup.length - 1;
-                        GameLog.log("区间范围的时候"+pos);
-                    } else if (bottom == homeGameList.size() - 1) {
-                        //先判断滑到底部，tab定位到最后一个
-                        pos = strTitleMarkup.length - 1;
-                    } else if (top == strTitleMarkup[strTitleMarkup.length - 1]) {
-                        //如果top等于指定的位置，对应到tab即可，
-                        pos = strTitleMarkup[strTitleMarkup.length - 1];
-                    } else {
-                        //循环遍历，需要比较i+1的位置，所以循环长度要减1，
-                        //  如果 i<top<i+1,  那么tab应该定位到i位置的字符，不管是向上还是向下滑动
-                        for (int i = 0; i < strTitleMarkup.length - 1; i++) {
-                            if (top == strTitleMarkup[i]) {
-                                pos = i;
-                                //GameLog.log("相等的时候："+pos);
-                                break;
-                            } else if (top > strTitleMarkup[i] && top < strTitleMarkup[i + 1]) {
-                                pos = i;
-                                //GameLog.log("区间范围的时候"+pos);
-                                break;
-                            }
-                        }
-                    }
-                    if(pos>=6){
-                        pos = 6;
-                    }
-                    //设置tab滑动到第pos个
-                    tabLayout.setScrollPosition(pos, 0f, true);
-                    GameLog.log("当前滑动的位置是："+pos);
-                    for (int i = 0; i < strTitleName.length; i++) {
-//                  tab.setCustomView(R.layout.home_tab_item);//给每一个tab设置view
-                        if (i == pos) {
-                            // 设置第一个tab的TextView是被选择的样式
-                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.VISIBLE);
-                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setVisibility(View.VISIBLE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
-                           // tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[pos]);
-                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(R.mipmap.home_tab_click);
-                        }else{
-                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setVisibility(View.GONE);
-                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setVisibility(View.GONE);
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemName).setVisibility(View.VISIBLE);
-                            //tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemIcon).setBackgroundResource(strTitleIcon[i]);tab_selector
-                            tabLayout.getTabAt(i).getCustomView().findViewById(R.id.homeTabItemLay).setBackgroundResource(0);
-                        }
-
-                    }
-                    homeTabItem(pos);
-                }
             }
         });
 
@@ -713,6 +725,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
         @Override
         protected void convert(ViewHolder helper, final HomePageIcon data, final int position) {
+            onGameNum( helper,data.getIconNameTitle());
             if(data.isHeart()){
                 helper.setBackgroundRes(R.id.id_main_item_heart,R.mipmap.home_heart1);
             }else{
@@ -734,6 +747,66 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
     }
 
+    private void onGameNum(ViewHolder helper,String gameNum){
+
+        if(Check.isNull(mGameNumResult)){
+            return;
+        }
+        switch (gameNum){
+            case "sport":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getHgSportNum());
+                break;
+            case "video":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getAgLiveNum());
+                break;
+            case "og":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getOgLiveNum());
+                break;
+            case "bbin":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getBbinLiveNum());
+                break;
+            case "ds":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getDsLiveNum());
+                break;
+            case "avia":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getFydjNum());
+                break;
+            case "hgqp":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getHgChessNum());
+                break;
+            case "ky":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getKyChessNum());
+                break;
+            case "vgqp":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getVgChessNum());
+                break;
+            case "ly":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getLyChessNum());
+                break;
+            case "lottery":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getLotteryChessNum());
+                break;
+            case "game":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getAgGameNum());
+                break;
+            case "fg":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getFgGameNum());
+                break;
+            case "mg":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getMgGameNum());
+                break;
+            case "mw":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getMwGameNum());
+                break;
+            case "cq":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getCqGameNum());
+                break;
+            case "agby":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getFishNum());
+                break;
+
+        }
+    }
 
     private void onHomeGameItemHeartClick( String position){
         /*if(!NetworkUtils.isConnected()){
@@ -767,45 +840,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             }
         }
         simeAdapter.notifyDataSetChanged();
-//        switch (position){
-//            case "sport":
-//                userState = "sport";
-//                break;
-//            case "video":
-//                break;
-//            case "og":
-//                break;
-//            case "bbin":
-//                break;
-//            case "ds":
-//                break;
-//            case "avia":
-//                break;
-//            case "hgqp":
-//                break;
-//            case "ky":
-//                break;
-//            case "vgqp":
-//                break;
-//            case "ly":
-//                break;
-//            case "lottery":
-//
-//                break;
-//            case "game":
-//                break;
-//            case "fg":
-//                break;
-//            case "mg":
-//                break;
-//            case "mw":
-//                break;
-//            case "cq":
-//                break;
-//            case "agby":
-//                break;
-//
-//        }
 
     }
 
@@ -1038,6 +1072,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     }
 
+    @Override
+    public void onSupportInvisible(){
+        super.onSupportInvisible();
+        GameLog.log("onSupportInvisible保存数据：");
+        homePageList.setHomeGameList(homeGameList);
+        ACache.get(getContext()).put("home_main_game_heart", JSON.toJSONString(homePageList));
+    }
+
 
     @OnClick({R.id.hometabTextTY,R.id.hometabTextZR,R.id.hometabTextDJ,R.id.hometabTextQP,R.id.hometabTextCP,R.id.hometabTextDY,R.id.hometabTextZX,
             R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
@@ -1079,7 +1121,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     manager.scrollToPositionWithOffset(strTitleMarkup[6], 0);
                 }else{
                     GameLog.log("当前数据的多少："+homeGameList.size());
-                    showMessage("自选暂无游戏，请记得添加哟！");
+                    showMessage("您暂无自选游戏，请记得添加哟！");
                 }
                 //tabLayout.setScrollPosition(5, 0f, true);
                 break;
@@ -1239,31 +1281,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     public void postGameNumResult(GameNumResult gameNumResult){
-        /*homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport",false,gameNumResult.getHgSportNum()));
-
-        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1,"video"));
-        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,2,"og"));
-        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,3,"bbin"));
-        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,4,"ds"));
-
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,5,"avia"));
-
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,6,"vgqp"));
-        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,7,"ly"));
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,8,"ky"));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,9,"hgqp"));
-
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,10,"lottery"));
-
-        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,11,"fg"));
-        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,12,"game"));
-        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,13,"mg"));
-        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,14,"mw"));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,15,"cq"));
-        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,16,"agby"));
-
-*/
-       // simeAdapter.notifyDataSetChanged();
+        this.mGameNumResult = gameNumResult;
+        simeAdapter.notifyDataSetChanged();
     }
 
     @Override

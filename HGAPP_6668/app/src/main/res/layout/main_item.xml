@@ -12,6 +12,18 @@
         android:gravity="center"
         android:background="@mipmap/home_ly"
         />
+    <TextView
+        android:id="@+id/id_main_item_gamenum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="15sp"
+        android:typeface="monospace"
+        android:textColor="@color/register_left"
+        android:layout_gravity="center"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="15dp"
+        />
     <ImageView
         android:id="@+id/id_main_item_heart"
         android:layout_width="30dp"

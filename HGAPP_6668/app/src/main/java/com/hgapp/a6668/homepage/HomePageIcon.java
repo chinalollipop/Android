@@ -8,6 +8,9 @@ public class HomePageIcon {
     private boolean heart = false;
     private String gameNum;
 
+    public HomePageIcon() {
+    }
+
     public HomePageIcon(String iconName, int iconId) {
         this.iconName = iconName;
         this.iconId = iconId;
