@@ -166,7 +166,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private  String pro =  "";
     private String userMoney = "";
     private String userState = "daniel";
-    private int howmany = 0;
+    private int currentMore = 0;
     //private CheckUpgradeResult checkUpgradeResult;
 
     private LinearLayoutManager manager;
@@ -202,11 +202,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,16,"cq"));
 
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"line"));
-        /*homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));
-*/
-
     }
 
     public static HomepageFragment newInstance() {
@@ -239,6 +237,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }else{
             initHomepage();
         }
+        //initHomepage();
         simeAdapter= new SimeAdapter(getContext(),R.layout.main_item,homeGameList);
         recyclerView.setAdapter(simeAdapter);
 
@@ -909,8 +908,68 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
             }
         }
-        simeAdapter.notifyDataSetChanged();
 
+        //重新计算数量了---------------------------------------------
+        currentMore = 0;
+        int size2 = homeGameList.size();
+        for(int k=0;k<size2;++k){
+            if(homeGameList.get(k).isHeart()){
+                ++currentMore;
+            }
+        }
+        switch (currentMore){
+            case 0:
+                if(size2>=17){
+                    for(int k =17;k<size2;++k){
+                        if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
+                            homeGameList.remove(k);
+                            --k;
+                            --size2;
+                        }
+                    }
+                }
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));
+                break;
+            case 2:
+                if(size2>=18){
+                    for(int k =18;k<size2;++k){
+                        if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
+                            homeGameList.remove(k);
+                            --k;
+                            --size2;
+                        }
+                    }
+                }
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
+                break;
+            case 4:
+                if(size2>=19){
+                    for(int k =19;k<size2;++k){
+                        if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
+                            homeGameList.remove(k);
+                            --k;
+                            --size2;
+                        }
+                    }
+                }
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
+                break;
+            case 6:
+                if(size2>=17){
+                    for(int k =17;k<size2;++k){
+                        if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
+                            homeGameList.remove(k);
+                            --k;
+                            --size2;
+                        }
+                    }
+                }
+                break;
+        }
+        simeAdapter.notifyDataSetChanged();
     }
 
     private void onHomeGameItemClick( String position){
