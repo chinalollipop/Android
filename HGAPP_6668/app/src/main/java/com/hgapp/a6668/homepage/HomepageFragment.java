@@ -1921,7 +1921,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             userMoney = GameShipHelper.formatMoney(loginResult.getMoney());
             tvHomePageUserMoney.setText(userMoney);
             homeMoney.setText(userMoney);
-            homeUserName.setText("欢迎您，亲爱的 "+userName);
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                homeUserName.setText("欢迎您，亲爱的 试玩玩家");
+            }else {
+                homeUserName.setText("欢迎您，亲爱的 " + userName);
+            }
             homeGoLogin.setVisibility(View.GONE);
             homeLoginAl.setVisibility(View.VISIBLE);
             tvHomePageLogin.setVisibility(View.GONE);
