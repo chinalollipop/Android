@@ -1214,7 +1214,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     @OnClick({R.id.hometabTextTY,R.id.hometabTextZR,R.id.hometabTextDJ,R.id.hometabTextQP,R.id.hometabTextCP,R.id.hometabTextDY,R.id.hometabTextZX,
-            R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
+            R.id.home_sign,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.hometabTextTY:
@@ -1921,7 +1921,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             userMoney = GameShipHelper.formatMoney(loginResult.getMoney());
             tvHomePageUserMoney.setText(userMoney);
             homeMoney.setText(userMoney);
-            homeUserName.setText(userName);
+            homeUserName.setText("欢迎您，亲爱的 "+userName);
             homeGoLogin.setVisibility(View.GONE);
             homeLoginAl.setVisibility(View.VISIBLE);
             tvHomePageLogin.setVisibility(View.GONE);
