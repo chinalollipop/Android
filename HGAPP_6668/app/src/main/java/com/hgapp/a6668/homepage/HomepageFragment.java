@@ -170,16 +170,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     //private CheckUpgradeResult checkUpgradeResult;
 
     private LinearLayoutManager manager;
-    private String[] strTitleName = {"体育", "真人", "电竞", "棋牌", "彩票", "电游", "自选"};
-    private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_qp, R.mipmap.home_tab_cp, R.mipmap.home_tab_yy, R.mipmap.home_tab_zx};
-    private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dj, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_zx};
+    private String[] strTitleName = {"体育", "真人", "电竞", "彩票", "棋牌", "电游", "自选"};
+    private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_cp, R.mipmap.home_tab_qp, R.mipmap.home_tab_yy, R.mipmap.home_tab_zx};
+    private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dj, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_zx};
     /**
      * 需要定位的地方，从小到大排列，需要和hometabTextIcon对应起来，长度一样
      */
-    private int[] strTitleMarkup = {0, 1, 5, 6, 10, 11,17};
+    private int[] strTitleMarkup = {0, 1, 5, 6, 7, 11,17};
     private boolean isScrolled = false;
     private  void initHomepage() {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
+
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1,"video"));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,2,"og"));
         homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,3,"bbin"));
@@ -187,14 +188,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
         homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,5,"avia"));
 
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,6,"vgqp"));
-        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,7,"ly"));
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,8,"ky"));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,9,"hgqp"));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,6,"lottery"));
 
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,10,"lottery"));
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,7,"ky"));
+        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,8,"ly"));
+        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,9,"vgqp"));
+        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,10,"hgqp"));
 
-        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,11,"agby"));
+
+        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_py,11,"agby"));
         homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,12,"fg"));
         homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,13,"game"));
         homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,14,"mg"));
@@ -544,29 +546,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextTY.setText("体育");
                 hometabTextZR.setText("真人");
                 hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("自选");
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(hometabTextIcon[pos]);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
-                hometabTextTY.setLayoutParams(lp);
-                hometabTextZR.setLayoutParams(lp);
-                hometabTextDJ.setLayoutParams(lp);
-                hometabTextQP.setLayoutParams(lpmove);
-                hometabTextCP.setLayoutParams(lp);
-                hometabTextDY.setLayoutParams(lp);
-                hometabTextZX.setLayoutParams(lp);
-                break;
-            case 4:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("电竞");
                 hometabTextQP.setText("棋牌");
                 hometabTextCP.setText("");
                 hometabTextDY.setText("电游");
@@ -583,6 +562,30 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextDJ.setLayoutParams(lp);
                 hometabTextQP.setLayoutParams(lp);
                 hometabTextCP.setLayoutParams(lpmove);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
+                break;
+
+            case 4:
+                hometabTextTY.setText("体育");
+                hometabTextZR.setText("真人");
+                hometabTextDJ.setText("电竞");
+                hometabTextQP.setText("");
+                hometabTextCP.setText("彩票");
+                hometabTextDY.setText("电游");
+                hometabTextZX.setText("自选");
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(0);
+                hometabTextQP.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(0);
+                hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lpmove);
+                hometabTextCP.setLayoutParams(lp);
                 hometabTextDY.setLayoutParams(lp);
                 hometabTextZX.setLayoutParams(lp);
                 break;
@@ -1230,13 +1233,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 //tabLayout.setScrollPosition(2, 0f, true);
                 break;
             case R.id.hometabTextQP:
-                homeTabItem(3);
-                manager.scrollToPositionWithOffset(strTitleMarkup[3], 0);
+                homeTabItem(4);
+                manager.scrollToPositionWithOffset(strTitleMarkup[4], 0);
                 //tabLayout.setScrollPosition(3, 0f, true);
                 break;
             case R.id.hometabTextCP:
-                homeTabItem(4);
-                manager.scrollToPositionWithOffset(strTitleMarkup[4], 0);
+                homeTabItem(3);
+                manager.scrollToPositionWithOffset(strTitleMarkup[3], 0);
                 //tabLayout.setScrollPosition(4, 0f, true);
                 break;
             case R.id.hometabTextDY:

@@ -292,14 +292,6 @@
                 android:gravity="center"
                 android:layout_height="match_parent"/>
             <TextView
-                android:id="@+id/hometabTextQP"
-                android:text="棋牌"
-                android:layout_weight="1"
-                android:textColor="@color/cp_hall_tv"
-                android:layout_width="wrap_content"
-                android:gravity="center"
-                android:layout_height="match_parent"/>
-            <TextView
                 android:id="@+id/hometabTextCP"
                 android:text="彩票"
                 android:layout_weight="1"
@@ -307,6 +299,15 @@
                 android:layout_width="wrap_content"
                 android:gravity="center"
                 android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/hometabTextQP"
+                android:text="棋牌"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+
             <TextView
                 android:id="@+id/hometabTextDY"
                 android:text="电游"
