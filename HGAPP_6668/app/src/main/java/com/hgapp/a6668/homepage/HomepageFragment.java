@@ -166,6 +166,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private  String pro =  "";
     private String userMoney = "";
     private String userState = "daniel";
+    private int howmany = 0;
     //private CheckUpgradeResult checkUpgradeResult;
 
     private LinearLayoutManager manager;
@@ -193,23 +194,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,10,"lottery"));
 
-        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,16,"agby"));
-        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,11,"fg"));
-        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,12,"game"));
-        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,13,"mg"));
-        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,14,"mw"));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,15,"cq"));
+        homeGameList.add(new HomePageIcon("捕鱼游戏",R.mipmap.home_py,11,"agby"));
+        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,12,"fg"));
+        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,13,"game"));
+        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,14,"mg"));
+        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,15,"mw"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,16,"cq"));
 
-        /*homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
-        homeGameList.add(new HomePageIcon("幸运红包",R.mipmap.home_red,8));
-        homeGameList.add(new HomePageIcon("代理加盟",R.mipmap.home_agent,7));
-        homeGameList.add(new HomePageIcon("优惠活动",R.mipmap.home_pro,9));
-        homeGameList.add(new HomePageIcon("联系我们",R.mipmap.home_contact,10));
-        homeGameList.add(new HomePageIcon("新手教学",R.mipmap.home_new,11));
-        homeGameList.add(new HomePageIcon("皇冠公告",R.mipmap.home_remind,12));*/
-//        homeGameList.add(new HomePageIcon("电脑版",R.mipmap.home_pc));
-//        homeGameList.add(new HomePageIcon("APP下载区",R.mipmap.home_download));
-//        homeGameList.add(new HomePageIcon("线路导航",R.mipmap.home_wifi));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"line"));
+        /*homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));
+*/
 
     }
 
@@ -472,6 +468,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     private void homeTabItem(int pos){
+
+        LinearLayout.LayoutParams lpmove = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 3.0f);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
         switch (pos){
             case 0:
                 hometabTextTY.setText("");
@@ -488,6 +487,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lpmove);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
                 break;
             case 1:
                 hometabTextTY.setText("体育");
@@ -504,6 +510,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lpmove);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
                 break;
             case 2:
                 hometabTextTY.setText("体育");
@@ -520,6 +533,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lpmove);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
                 break;
             case 3:
                 hometabTextTY.setText("体育");
@@ -536,6 +556,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lpmove);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
                 break;
             case 4:
                 hometabTextTY.setText("体育");
@@ -552,6 +579,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(hometabTextIcon[pos]);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lpmove);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
                 break;
             case 5:
                 hometabTextTY.setText("体育");
@@ -568,6 +602,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(hometabTextIcon[pos]);
                 hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lpmove);
+                hometabTextZX.setLayoutParams(lp);
                 break;
             case 6:
                 hometabTextTY.setText("体育");
@@ -584,6 +625,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lp);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lpmove);
                 break;
         }
     }
@@ -732,6 +780,28 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 helper.setBackgroundRes(R.id.id_main_item_heart,R.mipmap.home_heart0);
             }
             helper.setBackgroundRes(R.id.id_main_item,data.getIconId());
+            if(data.getIconNameTitle().equals("line")){
+                GameLog.log("-----------------华丽的分割线-----------------");
+                helper.setVisible(R.id.id_main_item_line,true);
+                helper.setVisible(R.id.id_main_item_heart,false);
+                helper.setVisible(R.id.id_main_item_gamenum,false);
+                helper.setVisible(R.id.id_main_item,false);
+                return;
+            }else if(data.getIconNameTitle().equals("daniel")){
+                GameLog.log("-----------------华丽的分割线-----------------");
+                helper.setBackgroundRes(R.id.id_main_item,0);
+                helper.setVisible(R.id.id_main_item_line,false);
+                helper.setVisible(R.id.id_main_item_heart,false);
+                helper.setVisible(R.id.id_main_item_gamenum,false);
+                helper.setVisible(R.id.id_main_item,true);
+                return;
+            }else{
+                helper.setVisible(R.id.id_main_item_line,false);
+                helper.setVisible(R.id.id_main_item_heart,true);
+                helper.setVisible(R.id.id_main_item_gamenum,true);
+                helper.setVisible(R.id.id_main_item,true);
+            }
+
             helper.setOnClickListener(R.id.id_main_item, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -249,14 +249,17 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_homepage_game_hall"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fadeScrollbars="true" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:fadeScrollbars="true"
+            />
+
         <LinearLayout
             android:background="@mipmap/home_tab_bga_c"
             android:layout_width="match_parent"
@@ -266,7 +269,7 @@
             <TextView
                 android:id="@+id/hometabTextTY"
                 android:text=""
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:background="@mipmap/home_tab_txt_ty"
                 android:textColor="@color/cp_hall_tv"
                 android:layout_width="wrap_content"
