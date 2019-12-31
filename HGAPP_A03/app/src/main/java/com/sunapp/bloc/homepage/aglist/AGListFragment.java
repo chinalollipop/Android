@@ -176,8 +176,14 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
     @Override
     public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
 
-        GameLog.log("游戏弟弟值："+agGameLoginResult.getUrl());
+        GameLog.log(fshowtype+" 游戏弟弟值："+agGameLoginResult.getUrl());
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
+        /*if("game".equals(fshowtype)){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(agGameLoginResult.getUrl()));
+            startActivity(intent);
+            return;
+        }*/
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         if("mw".equals(fshowtype)||"fg".equals(fshowtype)){
             intent.putExtra("url",agGameLoginResult.getToUrl());
