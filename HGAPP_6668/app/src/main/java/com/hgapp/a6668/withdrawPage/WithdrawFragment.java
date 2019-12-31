@@ -30,6 +30,10 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     private static final String TYPE2 = "type2";
     @BindView(R.id.tvWithdrawBankBack)
     NTitleBar tvWithdrawBankBack;
+    @BindView(R.id.tvWithdrawOweBet)
+    TextView tvWithdrawOweBet;
+    @BindView(R.id.tvWithdrawTotalBet)
+    TextView tvWithdrawTotalBet;
     @BindView(R.id.tvWithdrawBankAddress)
     TextView tvWithdrawBankAddress;
     @BindView(R.id.tvWithdrawBankAccount)
@@ -45,6 +49,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     private String accountNumber;
     private String typeArgs1;
     private String typeArgs2;
+    private WithdrawResult WithdrawResult;
     private WithdrawContract.Presenter presenter;
 
     public static WithdrawFragment newInstance() {
@@ -104,6 +109,9 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     @Override
     public void postWithdrawResult(WithdrawResult withdrawResult) {
 
+        this.WithdrawResult= withdrawResult;
+        tvWithdrawOweBet.setText(withdrawResult.getOwe_bet());
+        tvWithdrawTotalBet.setText(withdrawResult.getTotal_bet());
         tvWithdrawBankAddress.setText(withdrawResult.getBank_Address());
         //前6后3
         accountNumber = withdrawResult.getBank_Account();
@@ -126,6 +134,15 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     @OnClick(R.id.tvWithdrawBankSubmit)
     public void onViewClicked() {
         onCheckWithdrawSubmit();
+    }
+
+    @OnClick(R.id.tvWithdrawTotalBetDetail)
+    public void onViewClickedDetail() {
+        if(Check.isNull(WithdrawResult)){
+            showMessage("请求数据有误，请稍后再试！");
+            return;
+        }
+        WithDrawDetailFragment.newInstance(WithdrawResult).show(getFragmentManager());
     }
 
     private void onCheckWithdrawSubmit(){

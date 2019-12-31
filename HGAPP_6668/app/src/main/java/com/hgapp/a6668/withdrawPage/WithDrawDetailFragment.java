@@ -1,4 +1,4 @@
-package com.hgapp.a0086.withdrawPage;
+package com.hgapp.a6668.withdrawPage;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hgapp.a0086.R;
-import com.hgapp.a0086.base.HGBaseDialogFragment;
-import com.hgapp.a0086.common.adapters.AutoSizeRVAdapter;
-import com.hgapp.a0086.data.WithdrawResult;
+import com.hgapp.a6668.R;
+import com.hgapp.a6668.base.HGBaseDialogFragment;
+import com.hgapp.a6668.common.adapters.AutoSizeRVAdapter;
+import com.hgapp.a6668.data.WithdrawResult;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
