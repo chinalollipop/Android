@@ -12,7 +12,73 @@
         android:layout_height="wrap_content"
         app:backText="返回" />
 
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:layout_marginTop="10dp"
+    android:background="@color/l_view_color" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="40dp"
+        android:gravity="left|center">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="提款打码量"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvWithdrawOweBet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:gravity="left|center"
+            android:text=""
+            android:textSize="15sp" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/l_view_color" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="40dp"
+        android:gravity="left|center">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="已打码量"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvWithdrawTotalBet"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:gravity="left|center"
+            android:text=""
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/tvWithdrawTotalBetDetail"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看详情" />
+        </RelativeLayout>
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
