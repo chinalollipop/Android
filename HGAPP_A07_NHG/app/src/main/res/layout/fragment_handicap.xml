@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/title_text"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@mipmap/home_title_bg"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivHandBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:src="@mipmap/icon_hand_back" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您好"
+                    android:textColor="#DAA041"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvHandicapUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RMB"
+                    android:textColor="#AEA49D"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvHandicapUserMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:text="10000"
+                    android:textColor="#dfc390"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/title_text"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.nhg.xhg.common.widgets.NExpandableListView
+                android:id="@+id/exListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:childDivider="@android:color/transparent"
+                android:divider="@color/title_text"
+                android:dividerHeight="1dp"
+                android:groupIndicator="@null" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#837f89">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/tvHandicapName"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:text="赛果"
+                        android:textColor="@color/title_text"
+                        android:textSize="20sp" />
+
+
+                <TextView
+                    android:layout_width="2px"
+                    android:layout_height="match_parent"
+                    android:background="@color/n_edittext_stroke" />
+
+                <TextView
+                    android:id="@+id/tvHandicapRule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="体育规则"
+                    android:textColor="@color/title_text"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_login_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="滚球赛事->足球滚球"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_login_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="滚球赛事->篮球滚球"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_login_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="今日赛事->今日足球"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_login_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="今日赛事->今日篮球"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_login_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="早盘赛事->早盘足球"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_login_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="早盘赛事->早盘篮球"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+

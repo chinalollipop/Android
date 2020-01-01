@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <com.nhg.xhg.common.widgets.NTitleBar
+        android:id="@+id/tvPersonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backImageShow="false"
+        app:moreText="0.0"
+        />
+
+    <LinearLayout
+        android:background="@mipmap/icon_my_bg"
+        android:layout_width="match_parent"
+        android:layout_height="127dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/icon_my_persion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/tvPersonUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daniel"
+            android:textSize="15sp"
+            android:textColor="@color/title_text"
+            />
+        <RelativeLayout
+            android:gravity="center|right"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvPersonHg"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/title_text"
+                android:textSize="22sp"
+                />
+            <ImageView
+                android:id="@+id/personRefresh"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:background="@mipmap/person_refresh"
+                android:layout_marginLeft="10dp"
+                />
+
+        </LinearLayout>
+            <TextView
+                android:id="@+id/personVersion"
+                android:text="1.0.0"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginRight="@dimen/bet_sw_padding_right"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMyList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadeScrollbars="true" />
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="30dp"
+        android:background="@color/l_view_color" />
+
+    <TextView
+        android:id="@+id/personLogout"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:drawableTop="@mipmap/icon_my_logout"
+        android:text="登出"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color" />-->
+
+</LinearLayout>

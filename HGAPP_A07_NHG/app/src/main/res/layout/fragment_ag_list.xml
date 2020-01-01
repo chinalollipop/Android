@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/title_text"
+    android:orientation="vertical">
+
+    <com.nhg.xhg.common.widgets.NTitleBar
+        android:id="@+id/agTitleBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        />
+    <RelativeLayout
+        android:id="@+id/agUserMoneyShow"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#827f88"
+        android:layout_height="45dp">
+        <TextView
+            android:id="@+id/agUserMoney"
+            android:text="加载额度中..."
+            android:gravity="center"
+            android:textColor="@color/title_text"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/agUserMoneyChange"
+            android:text="额度转换"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_margin"
+            android:drawableLeft="@mipmap/game_quota"
+            android:gravity="center"
+            android:drawablePadding="8dp"
+            android:textColor="#f19f00"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        >
+        <TextView
+            android:id="@+id/agListAg"
+            android:text="AG"
+            android:background="@drawable/btn_ag_item_nor"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#3b3a40"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/agListMg"
+            android:text="MG"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/register_left"
+            android:background="@drawable/btn_ag_item_click"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/agListCQ"
+            android:text="CQ9"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#3b3a40"
+            android:background="@drawable/btn_ag_item_nor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/agListMW"
+            android:text="MW"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#3b3a40"
+            android:background="@drawable/btn_ag_item_nor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/agListFG"
+            android:text="FG"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#3b3a40"
+            android:background="@drawable/btn_ag_item_nor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:background="#827f88"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/agLiveList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/mwDz"
+        android:background="@mipmap/mw"
+        android:layout_margin="20dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"/>
+</LinearLayout>

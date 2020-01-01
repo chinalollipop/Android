@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_home_main_show"
+        android:layout_width="110dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/btn_home_item_nor"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_item_game_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/bet_hg" />
+
+        <TextView
+            android:id="@+id/tv_item_game_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="AG真人"
+            android:textColor="@color/home_item_normal"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!--<View
+        android:id="@+id/tv_item_game_line"
+        android:layout_width="5px"
+        android:layout_height="match_parent"
+        android:background="@color/tab_unselect" />-->
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="@color/tab_unselect" />-->
+</com.zhy.autolayout.AutoRelativeLayout>
