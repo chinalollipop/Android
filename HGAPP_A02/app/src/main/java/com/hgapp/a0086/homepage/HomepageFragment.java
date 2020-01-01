@@ -1074,7 +1074,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GameLog.log("首页获取的用户余额："+loginResult.getMoney());
         userName = loginResult.getUserName();
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);
-        pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents();
+        pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents()+"&appRefer="+HGConstant.PRODUCT_PLATFORM;
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro);
         if(!Check.isEmpty(loginResult.getMoney())){
             ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, loginResult.getMoney());

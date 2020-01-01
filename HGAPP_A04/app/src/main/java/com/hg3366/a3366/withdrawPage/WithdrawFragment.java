@@ -137,7 +137,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
 
     @OnClick(R.id.tvWithdrawTotalBetDetail)
     public void onViewClickedDetail() {
-        if(Check.isNull(WithdrawResult)){
+        if(Check.isNull(WithdrawResult)||Check.isNull(WithdrawResult.getBet_list())){
             showMessage("请求数据有误，请稍后再试！");
             return;
         }

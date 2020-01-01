@@ -1133,6 +1133,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
     }
 
     private void onSartTime(){
+        if(Check.isNull(presenter)){
+            presenter =   Injections.inject(null,this);
+        }
         if(!Check.isEmpty(M_League)){
             //showtype 今日传空""/  早盘传future
             presenter.postComPassSearchList("",typeId,more,moreGid,getArgParam4.equals("2")?"":"future",M_League );
