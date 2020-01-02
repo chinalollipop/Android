@@ -23,12 +23,14 @@ import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
 import com.hgapp.a6668.data.CPResult;
 import com.hgapp.a6668.data.LoginResult;
+import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.data.PersonInformResult;
 import com.hgapp.a6668.data.QipaiResult;
 import com.hgapp.a6668.homepage.HomePageIcon;
 import com.hgapp.a6668.homepage.UserMoneyEvent;
 import com.hgapp.a6668.homepage.handicap.ShowMainEvent;
+import com.hgapp.a6668.homepage.noticelist.NoticeListFragment;
 import com.hgapp.a6668.homepage.online.ContractFragment;
 import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.personpage.accountcenter.AccountCenterFragment;
@@ -82,6 +84,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     TextView personVersion;
     private String personMoney;
     private PersonBalanceResult personBalance;
+    private NoticeResult noticeResultList;
     private PersonContract.Presenter presenter;
     private static List<HomePageIcon> myList = new ArrayList<HomePageIcon>();
     static {
@@ -224,7 +227,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             //presenter.logOut();
                         case 11://皇冠公告
                             //presenter.logOut();
-                            showMessage("敬请期待！");
+                            if(Check.isNull(noticeResultList)) {
+                                presenter.postNoticeList("");
+                            }else{
+                                EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
+                            }
+                            //showMessage("敬请期待！");
                             break;
                     }
                 }
@@ -236,6 +244,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     }
 
 
+    @Override
+    public void postNoticeListResult(NoticeResult noticeResult) {
+
+        noticeResultList =noticeResult;
+        EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
+    }
 
 
     @Override

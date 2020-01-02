@@ -10,6 +10,7 @@ import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.RxHelper;
 import com.hgapp.a6668.common.util.SubscriptionHelper;
 import com.hgapp.a6668.data.CPResult;
+import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.data.PersonInformResult;
 import com.hgapp.a6668.data.QipaiResult;
@@ -31,6 +32,30 @@ public class PersonPresenter implements PersonContract.Presenter {
         this.view.setPresenter(this);
     }
 
+
+    @Override
+    public void postNoticeList(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(iPersonApi.postNotice(HGConstant.PRODUCT_PLATFORM,""))
+                .subscribe(new ResponseSubscriber<NoticeResult>() {
+                    @Override
+                    public void success(NoticeResult response) {
+                        if(response.getStatus()==200){
+                            view.postNoticeListResult(response);
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 
     @Override
     public void getPersonInform(String appRefer) {

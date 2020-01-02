@@ -3,6 +3,7 @@ package com.hgapp.a6668.personpage;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponse;
 import com.hgapp.a6668.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a6668.data.CPResult;
+import com.hgapp.a6668.data.NoticeResult;
 import com.hgapp.a6668.data.PersonBalanceResult;
 import com.hgapp.a6668.data.PersonInformResult;
 import com.hgapp.a6668.data.QipaiResult;
@@ -26,6 +27,9 @@ public interface IPersonApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<PersonBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    @POST("notice.php")
+    @FormUrlEncoded
+    public Observable<NoticeResult> postNotice(@Field("appRefer") String appRefer, @Field("carousel") String carousel);
 
 
 
