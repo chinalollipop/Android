@@ -126,12 +126,23 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     EditText etRegisterBrithday;
     @BindView(R.id.etRegisterAccountPhone)
     EditText etRegisterAccountPhone;
+    @BindView(R.id.etRegisterWeChat)
+    EditText etRegisterWeChat;
     @BindView(R.id.etRegisterResource)
     EditText etRegisterResource;
     @BindView(R.id.btnLoginDemo)
     Button btnLoginDemo;
     @BindView(R.id.btnLoginLayDemo)
     LinearLayout btnLoginLayDemo;
+
+
+    @BindView(R.id.layLineTel)
+    LinearLayout layLineTel;
+    @BindView(R.id.layLineWeChat)
+    LinearLayout layLineWeChat;
+    @BindView(R.id.layLineQQ)
+    LinearLayout layLineQQ;
+
     @BindView(R.id.etRegisterAccountPhoneDemo)
     EditText etRegisterAccountPhoneDemo;
     @BindView(R.id.btnRegisterSubmit)
@@ -194,7 +205,25 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 ////                .invasionStatusBar()
 //                .statusBarBackground(Color.TRANSPARENT);
         initVideoControl();
-
+        String telOn  = ACache.get(getContext()).getAsString("telOn");
+        if(!Check.isEmpty(telOn)&&"true".equals(telOn)){
+            layLineTel.setVisibility(View.VISIBLE);
+        }else{
+            layLineTel.setVisibility(View.GONE);
+        }
+        String chatOn  = ACache.get(getContext()).getAsString("chatOn");
+        if(!Check.isEmpty(chatOn)&&"true".equals(chatOn)){
+            layLineWeChat.setVisibility(View.VISIBLE);
+        }else{
+            layLineWeChat.setVisibility(View.GONE);
+        }
+        String qqOn  = ACache.get(getContext()).getAsString("qqOn");
+        if(!Check.isEmpty(qqOn)&&"true".equals(qqOn)){
+            layLineQQ.setVisibility(View.VISIBLE);
+        }else{
+            layLineQQ.setVisibility(View.GONE);
+        }
+        GameLog.log("telOn "+telOn+" chatOn "+chatOn+" qqOn "+qqOn);
         EventBus.getDefault().register(this);
         BottombarViewManager.getSingleton().onCloseView();
         String userName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT);
@@ -495,11 +524,12 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         String introducer = etRegisterIntro.getText().toString().trim();
         String userName = etRegisterUserName.getText().toString().trim();
         String userPwd = etRegisterPwd.getText().toString().trim();
-        String userBrithday = etRegisterBrithday.getText().toString().trim();
+        String userBrithdayQQ = etRegisterBrithday.getText().toString().trim();
         String userPwdVerify = etRegisterPwdVerify.getText().toString().trim();
         String userDrawName = etRegisterWithDrawName.getText().toString().trim();
         String userDrawPwd = etRegisterWithDrawPwd.getText().toString().trim();
         String userPhone = etRegisterAccountPhone.getText().toString().trim();
+        String userWechat = etRegisterWeChat.getText().toString().trim();
         if(Check.isEmpty(userName)){
             showMessage("请输入账号！");
             return;
@@ -552,7 +582,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
 
-        presenter.postRegisterMember("",introducer,"add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,"",userBrithday,resource+"");
+        presenter.postRegisterMember("",introducer,"add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithdayQQ,resource+"");
 
     }
 

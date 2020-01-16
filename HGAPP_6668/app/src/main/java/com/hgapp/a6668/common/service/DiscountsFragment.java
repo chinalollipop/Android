@@ -19,6 +19,7 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.HGIWebSetting;
+import com.hgapp.a6668.data.DisCountsEvent;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.homepage.UserMoneyEvent;
 import com.hgapp.a6668.login.fastlogin.LoginFragment;
@@ -57,6 +58,8 @@ public class DiscountsFragment extends HGBaseFragment {
     TextView tvServicePageMoney;
     @BindView(R.id.wv_service_xplay_online_content)
     WebView wvServiceOnlineContent;
+
+    boolean isPacket;
 
     private ValueCallback<Uri> uploadFile;
     private ValueCallback<Uri[]> uploadFiles;
@@ -127,6 +130,15 @@ public class DiscountsFragment extends HGBaseFragment {
         tvServicePageMoney.setText(userMoneyEvent.money);
     }
 
+    @Subscribe
+    public void onEventMain(DisCountsEvent disCountsEvent){
+       //
+        String webUrl = Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+        //String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+        GameLog.log("优惠活动的请求地址是："+webUrl+disCountsEvent.getDaya());
+        wvServiceOnlineContent.loadUrl(webUrl+disCountsEvent.getDaya());
+    }
+
     @OnClick(R.id.tvServicePageLogin)
     public void onViewClicked(){
         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
@@ -138,11 +150,13 @@ public class DiscountsFragment extends HGBaseFragment {
         //String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
         GameLog.log("优惠活动的请求地址是："+webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);
+        isPacket = true;
     }
 
     @Override
     public void onVisible() {
         super.onVisible();
+        if (!isPacket)
         onViewRefreshClicked();
     }
 

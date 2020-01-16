@@ -33,11 +33,13 @@ import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.GameShipHelper;
 import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.CustomPopWindow;
+import com.hgapp.a6668.common.widgets.HGGifView;
 import com.hgapp.a6668.common.widgets.MarqueeTextView;
 import com.hgapp.a6668.common.widgets.RoundCornerImageView;
 import com.hgapp.a6668.data.AGGameLoginResult;
 import com.hgapp.a6668.data.BannerResult;
 import com.hgapp.a6668.data.CPResult;
+import com.hgapp.a6668.data.DisCountsEvent;
 import com.hgapp.a6668.data.DomainUrl;
 import com.hgapp.a6668.data.GameNumResult;
 import com.hgapp.a6668.data.HomePageList;
@@ -116,7 +118,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @BindView(R.id.home_sign)
     ImageView homeSign;
     @BindView(R.id.home_newyear)
-    ImageView homeNewYear;
+    HGGifView homeNewYear;
 
 
     @BindView(R.id.hometabTextTY)
@@ -654,6 +656,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        homeNewYear.setMovieResource(R.raw.rebacket);
         //初始化沉浸式
         initImmersionBar();
         init();
@@ -1342,7 +1345,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro+"&type=packet");
+                EventBus.getDefault().post(new DisCountsEvent("&type=packet"));
                 EventBus.getDefault().post(new ShowMainEvent(0));
+
                 break;
             case R.id.home_sign:
                 if(Check.isEmpty(userName)){

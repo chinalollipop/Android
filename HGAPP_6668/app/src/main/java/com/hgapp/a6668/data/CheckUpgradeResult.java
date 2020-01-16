@@ -37,6 +37,9 @@ public class CheckUpgradeResult implements Parcelable {
     private String signSwitch;
     private String tpl_name;
     private String redPocketOpen;
+    private String telOn;
+    private String chatOn;
+    private String qqOn;
 
 
     public String getVersion() {
@@ -175,6 +178,30 @@ public class CheckUpgradeResult implements Parcelable {
         this.redPocketOpen = redPocketOpen;
     }
 
+    public String getTelOn() {
+        return telOn;
+    }
+
+    public void setTelOn(String telOn) {
+        this.telOn = telOn;
+    }
+
+    public String getChatOn() {
+        return chatOn;
+    }
+
+    public void setChatOn(String chatOn) {
+        this.chatOn = chatOn;
+    }
+
+    public String getQqOn() {
+        return qqOn;
+    }
+
+    public void setQqOn(String qqOn) {
+        this.qqOn = qqOn;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -199,6 +226,9 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.signSwitch);
         dest.writeString(this.tpl_name);
         dest.writeString(this.redPocketOpen);
+        dest.writeString(this.telOn);
+        dest.writeString(this.chatOn);
+        dest.writeString(this.qqOn);
     }
 
     public CheckUpgradeResult() {
@@ -222,6 +252,9 @@ public class CheckUpgradeResult implements Parcelable {
         this.signSwitch = in.readString();
         this.tpl_name = in.readString();
         this.redPocketOpen = in.readString();
+        this.telOn = in.readString();
+        this.chatOn = in.readString();
+        this.qqOn = in.readString();
     }
 
     public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {

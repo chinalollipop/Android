@@ -224,7 +224,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -278,7 +279,8 @@
                     android:id="@+id/fgtResgiter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -544,7 +546,11 @@
                                             android:inputType="numberPassword" />
                                     </LinearLayout>
 
-
+                                    <LinearLayout
+                                        android:id="@+id/layLineTel"
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="@dimen/h_login_edit_height"
@@ -591,72 +597,87 @@
                                         android:textColor="#fe0100"
                                         android:textSize="13sp" />
 
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:visibility="gone">
-
-                                        <LinearLayout
-                                            android:layout_width="@dimen/h_text_width"
-                                            android:layout_height="@dimen/h_text_height"
-                                            android:layout_gravity="center"
-                                            android:background="@color/login_left">
-
-                                            <TextView
-                                                android:id="@+id/tvRegisterEmail"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:layout_marginLeft="30dp"
-                                                android:text="* 微信"
-                                                android:textColor="@color/register_left"
-                                                android:textSize="15sp" />
-                                        </LinearLayout>
-
-                                        <EditText
-                                            android:id="@+id/etRegisterWechat"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:hint="微信号码"
-
-                                            />
                                     </LinearLayout>
 
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:visibility="gone">
-
+                                        android:layout_marginTop="5dp"
+                                        android:orientation="vertical"
+                                        android:id="@+id/layLineWeChat"
+                                        >
                                         <LinearLayout
-                                            android:layout_width="@dimen/h_text_width"
-                                            android:layout_height="@dimen/h_text_height"
-                                            android:layout_gravity="center"
-                                            android:background="@color/login_left">
-
-                                            <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/h_login_edit_height">
+                                            <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_gravity="center"
-                                                android:layout_marginLeft="30dp"
-                                                android:text="* 出生日期"
+                                                android:layout_marginLeft="10dp"
+                                                android:background="@mipmap/login_wechat" />
+                                            <TextView
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:text="* 微信号码"
                                                 android:textColor="@color/register_left"
                                                 android:textSize="15sp" />
+
+                                            <EditText
+                                                android:id="@+id/etRegisterWeChat"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:hint="请填写微信号码"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left"
+                                                android:background="@null"
+                                                />
                                         </LinearLayout>
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="#7b7c80" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:orientation="vertical"
+                                        android:id="@+id/layLineQQ"
+                                        >
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/h_login_edit_height">
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginLeft="10dp"
+                                                android:background="@mipmap/login_qq" />
+                                            <TextView
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:text="* QQ号码"
+                                                android:textColor="@color/register_left"
+                                                android:textSize="15sp" />
 
                                         <EditText
                                             android:id="@+id/etRegisterBrithday"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:background="@mipmap/icon_textview_transfer"
-                                            android:focusable="false"
-                                            android:hint="请填写出生年月日"
-                                            android:inputType="time"
-
+                                            android:hint="请填写QQ号码"
+                                            android:textColor="@color/register_left"
+                                            android:textColorHint="@color/register_left"
+                                            android:background="@null"
                                             />
+                                        </LinearLayout>
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="#7b7c80" />
                                     </LinearLayout>
 
                                     <LinearLayout
