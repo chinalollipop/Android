@@ -115,6 +115,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     RecyclerView recyclerView;
     @BindView(R.id.home_sign)
     ImageView homeSign;
+    @BindView(R.id.home_newyear)
+    ImageView homeNewYear;
 
 
     @BindView(R.id.hometabTextTY)
@@ -664,7 +666,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if(!Check.isEmpty(signSwitch)&&"true".equals(signSwitch)){
                     homeSign.setVisibility(View.VISIBLE);
                 }
-                GameLog.log("签到活动说法："+signSwitch);
+                String redPocketOpen  = ACache.get(getContext()).getAsString("redPocketOpen");
+                if(!Check.isEmpty(redPocketOpen)&&"true".equals(redPocketOpen)){
+                    homeNewYear.setVisibility(View.VISIBLE);
+                }
+                GameLog.log("签到活动说法："+signSwitch+" redPocketOpen "+redPocketOpen);
             }
         },5000);
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
@@ -1214,7 +1220,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     @OnClick({R.id.hometabTextTY,R.id.hometabTextZR,R.id.hometabTextDJ,R.id.hometabTextQP,R.id.hometabTextCP,R.id.hometabTextDY,R.id.hometabTextZX,
-            R.id.home_sign,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
+            R.id.home_sign,R.id.home_newyear,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.hometabTextTY:
@@ -1325,6 +1331,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case R.id.tvHomePageLine:
                 showPopMenuIn();
+                break;
+            case R.id.home_newyear:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                EventBus.getDefault().post(new ShowMainEvent(0));
                 break;
             case R.id.home_sign:
                 if(Check.isEmpty(userName)){

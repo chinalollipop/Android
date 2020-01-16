@@ -89,6 +89,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         gtypeList.add(new BalanceTransferData("11","CQ9电子","cq"));
         gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
         gtypeList.add(new BalanceTransferData("13","FG电子","fg"));
+        gtypeList.add(new BalanceTransferData("14","BBIN视讯","bbin"));
     }
 
     public static BalanceTransferFragment newInstance(String type) {

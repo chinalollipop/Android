@@ -110,6 +110,7 @@ public class MainActivity extends SupportActivity {
                 //ACache.get(getApplicationContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT, "");
                 ACache.get(getApplicationContext()).put(HGConstant.APP_CP_COOKIE,"");
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_ALIAS, "");
+                ACache.get(getApplicationContext()).put("servicePageRefresh","");
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_LOGOUT, "true");
                 String isLogoChange = ACache.get(getApplicationContext()).getAsString("change_logo");
                 if(Check.isEmpty(isLogoChange)){
