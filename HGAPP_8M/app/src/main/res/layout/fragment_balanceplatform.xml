@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg"
+    android:orientation="vertical">
+
+    <com.hgapp.m8.common.widgets.NTitleBar
+        android:id="@+id/backTitleBalancePlatform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        app:moreText="0.0"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lvBalancePlatform"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

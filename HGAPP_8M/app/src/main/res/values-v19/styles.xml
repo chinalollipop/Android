@@ -1,0 +1,99 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--<item name="android:listDivider">@drawable/homepage_rv_divider</item>-->
+        <item name="editTextStyle">@style/NEditText</item>
+        <item name="buttonStyle">@style/NButton</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@color/bg_app</item>
+    </style>
+    <!--自定义EditText的视图样式，项目中所有用到的EditText或者AppCompatEditText控件，直接使用即可,如果有特殊要求，请修改自己的样式，不要修改此处-->
+    <style name="NEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_normal</item>
+        <item name="android:textColorHint">@color/n_edittext_hint</item>
+        <item name="android:textColor">@color/n_edittext</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textCursorDrawable">@drawable/text_cursor_color</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_height">@dimen/h_edit_height</item>
+    </style>
+
+    <!--dialog的样式-->
+    <style name="red_custom_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+    <!--自定义按钮样式，项目中所有用到的Button或者AppCompatButton控件,直接使用即可,如果有特殊要求，请修改自己的样式，不要修改此处-->
+    <style name="NButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/btn_normal</item>
+        <item name="android:textColor">@color/btn_text</item>
+        <item name="android:layout_height">@dimen/h_tbn_height</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:buttonStyle">?android:attr/borderlessButtonStyle</item>
+    </style>
+
+    <style name="checkBoxStyle">
+    <item name="android:button">@drawable/btn_check_style</item>
+    </style>
+
+
+    <style name="PNDialog" parent="@style/AppTheme">
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowBackground">@color/color_bg_dialog</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@style/PNDialog.AnimationStyle</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="PNDialog.AnimationStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_show</item>
+        <item name="android:windowExitAnimation">@anim/dialog_hide</item>
+    </style>
+
+    <style name="BottomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@style/BottomDialog.AnimationStyle</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="BottomDialog.AnimationStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+    </style>
+
+    <declare-styleable name="HGGifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+
+	<style name="push_style">
+		<item name="android:hint">@string/style_hint</item>
+		<item name="android:inputType">number</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="push_alias">
+		<item name="android:hint">@string/alias_hint</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="push_mobilenumber">
+		<item name="android:hint">@string/mobilenumber_hint</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="push_tag">
+		<item name="android:hint">@string/tag_hint</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HGAPP_8M.iml" filepath="$PROJECT_DIR$/HGAPP_8M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarex/actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/actionbarex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gallery/gallery.iml" filepath="$PROJECT_DIR$/gallery/gallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" />
+    </modules>
+  </component>
+</project>

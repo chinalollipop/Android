@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll_home_main_show"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+                <com.hgapp.m8.common.widgets.RoundCornerImageView
+                    android:id="@+id/iv_item_game_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/home_ag"
+                    android:layout_marginTop="5dp"
+                    />
+
+            <TextView
+                android:id="@+id/tv_item_game_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="AG真人"
+                android:textColor="@color/login_left"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    <!--<View
+        android:id="@+id/tv_item_game_line"
+        android:layout_width="5px"
+        android:layout_height="match_parent"
+        android:background="@color/tab_unselect" />-->
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="@color/tab_unselect" />-->
+</com.zhy.autolayout.AutoRelativeLayout>
