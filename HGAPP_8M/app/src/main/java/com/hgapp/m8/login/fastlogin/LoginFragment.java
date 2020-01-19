@@ -129,6 +129,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @BindView(R.id.btnLoginLayDemo)
     LinearLayout btnLoginLayDemo;
 
+    @BindView(R.id.loginTypeDaniel)
+    TextView loginTypeDaniel;
 
     @BindView(R.id.layLineTel)
     LinearLayout layLineTel;
@@ -241,11 +243,11 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 resource = options1;
-                etRegisterResource.setText(stateList.get(options1));
+                etRegisterResource.setText(stateList.get(options1)+"  >");
             }
         }).build();
         optionsPickerViewState.setPicker(stateList);
-        etRegisterResource.setText("网络广告");
+        etRegisterResource.setText("网络广告  >");
     }
 
     public void verifyStoragePermissions() {
@@ -423,7 +425,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
+    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit,R.id.loginTypeDaniel, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -464,6 +466,19 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 break;
             case R.id.btnLoginSubmit:
                 btnLoginSubmit();
+                break;
+            case R.id.loginTypeDaniel:
+                if(loginTypeDaniel.getText().toString().equals("注册")){
+                    loginTypeDaniel.setText("登录");
+                    btnLoginLayDemo.setVisibility(View.GONE);
+                    fgtLogin.setVisibility(View.GONE);
+                    fgtResgiter.setVisibility(View.VISIBLE);
+                }else{
+                    loginTypeDaniel.setText("注册");
+                    btnLoginLayDemo.setVisibility(View.GONE);
+                    fgtLogin.setVisibility(View.VISIBLE);
+                    fgtResgiter.setVisibility(View.GONE);
+                }
                 break;
             case R.id.btnLoginUser:
                 btnLoginLayDemo.setVisibility(View.GONE);

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item  android:state_window_focused="false">
+    <item  android:state_window_focused="true">
         <shape>
-            <stroke android:color="#6ca7eb" android:width="1dp"/>
+            <!--<gradient android:angle="90" android:endColor="#7b7c80" android:startColor="#7b7c80" />-->
+            <solid android:color="#f9f9f9"/>
             <corners android:radius="28dp" />
         </shape>
-        <!--<bitmap android:alpha="0.6" android:src="#88898d"/>-->
+        <bitmap android:alpha="0.3" android:src="#f9f9f9"/>
     </item>
-
     <!--默认情况下是一个带圆角,白色背景,蓝色虚线边框的矩形-->
     <!--<item android:state_window_focused="false">-->
         <!--<shape android:shape="rectangle">-->

@@ -68,8 +68,9 @@
 
                 <ImageView
                     android:id="@+id/ivLoginType"
+                    android:layout_marginLeft="10dp"
                     android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_height="29dp"
                     android:layout_gravity="center"
                     android:background="@mipmap/login_uname" />
 
@@ -94,6 +95,7 @@
 
 
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
@@ -120,6 +122,7 @@
 
 
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
@@ -245,6 +248,7 @@
 
 
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
@@ -271,6 +275,7 @@
 
 
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/tvLoginPwd1"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
@@ -412,7 +417,7 @@
             android:id="@+id/btnRegisterSubmit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_login_edit_height"
-            android:background="@drawable/btn_normal_login"
+            android:background="@drawable/home_tab_title"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
