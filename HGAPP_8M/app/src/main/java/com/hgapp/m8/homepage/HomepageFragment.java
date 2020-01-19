@@ -171,38 +171,40 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private LinearLayoutManager manager;
     private String[] strTitleName = {"体育","电竞",  "真人", "彩票", "棋牌", "电游"};
-    private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_cp, R.mipmap.home_tab_qp, R.mipmap.home_tab_yy, R.mipmap.home_tab_zx};
-    private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dj, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_zx};
+    //private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_cp, R.mipmap.home_tab_qp, R.mipmap.home_tab_yy, R.mipmap.home_tab_zx};
+    //private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dj, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_zx};
     /**
      * 需要定位的地方，从小到大排列，需要和hometabTextIcon对应起来，长度一样
      */
-    private int[] strTitleMarkup = {0, 1, 2, 6, 7, 11};
+    private int[] strTitleMarkup = {0, 2, 3, 6, 8, 11};
     private boolean isScrolled = false;
     private  void initHomepage() {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
+        homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hglq,1,"sport"));
 
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,1,"avia"));
+        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,2,"avia"));
 
-        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,2,"video"));
-        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,3,"og"));
-        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,4,"bbin"));
-        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,5,"ds"));
-
-
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,6,"lottery"));
-
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,7,"ky"));
-        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,8,"ly"));
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,9,"vgqp"));
-        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,10,"hgqp"));
+        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,3,"video"));
+        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,4,"og"));
+        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,5,"bbin"));
+        //homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,6,"ds"));
 
 
-        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_py,11,"agby"));
-        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,12,"fg"));
-        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,13,"game"));
-        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,14,"mg"));
-        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,15,"mw"));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,16,"cq"));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,7,"lottery"));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcps,8,"lottery"));
+
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,9,"ky"));
+        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,10,"ly"));
+        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,11,"vgqp"));
+        //homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,12,"hgqp"));
+
+
+        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_py,13,"agby"));
+        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,14,"fg"));
+        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,15,"game"));
+        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,16,"mg"));
+        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,17,"mw"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"cq"));
 
         /*homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"line"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
@@ -285,7 +287,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     int top = manager.findFirstVisibleItemPosition();
                     int bottom = manager.findLastVisibleItemPosition();
 
-                    if (top >= 11) {
+                    if (top >= 13) {
                         //先判断滑到底部，tab定位到最后一个
                         pos = strTitleMarkup.length - 1;
                         GameLog.log("区间范围的时候"+pos);
@@ -706,7 +708,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
         }else{
             if(!Check.isNull(presenter)){
-                presenter.postGameNum("");
+               // presenter.postGameNum("");
                 presenter.postBanner("");
                 presenter.postNotice("");
             }
@@ -783,17 +785,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
         @Override
         protected void convert(ViewHolder helper, final HomePageIcon data, final int position) {
-            onGameNum( helper,data.getIconNameTitle());
+            /*onGameNum( helper,data.getIconNameTitle());
             if(data.isHeart()){
                 helper.setBackgroundRes(R.id.id_main_item_heart,R.mipmap.home_heart1);
             }else{
                 helper.setBackgroundRes(R.id.id_main_item_heart,R.mipmap.home_heart0);
-            }
+            }*/
             helper.setBackgroundRes(R.id.id_main_item,data.getIconId());
             if(data.getIconNameTitle().equals("line")){
                 GameLog.log("-----------------华丽的分割线-----------------");
                 helper.setVisible(R.id.id_main_item_line,true);
-                helper.setVisible(R.id.id_main_item_heart,false);
+//                helper.setVisible(R.id.id_main_item_heart,false);
                 helper.setVisible(R.id.id_main_item_gamenum,false);
                 helper.setVisible(R.id.id_main_item,false);
                 return;
@@ -801,13 +803,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 GameLog.log("-----------------华丽的分割线-----------------");
                 helper.setBackgroundRes(R.id.id_main_item,0);
                 helper.setVisible(R.id.id_main_item_line,false);
-                helper.setVisible(R.id.id_main_item_heart,false);
+//                helper.setVisible(R.id.id_main_item_heart,false);
                 helper.setVisible(R.id.id_main_item_gamenum,false);
                 helper.setVisible(R.id.id_main_item,true);
                 return;
             }else{
                 helper.setVisible(R.id.id_main_item_line,false);
-                helper.setVisible(R.id.id_main_item_heart,true);
+//                helper.setVisible(R.id.id_main_item_heart,true);
                 helper.setVisible(R.id.id_main_item_gamenum,true);
                 helper.setVisible(R.id.id_main_item,true);
             }
@@ -818,12 +820,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     onHomeGameItemClick(data.getIconNameTitle());
                 }
             });
-            helper.setOnClickListener(R.id.id_main_item_heart, new View.OnClickListener() {
+            /*helper.setOnClickListener(R.id.id_main_item_heart, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     onHomeGameItemHeartClick(data.getIconNameTitle());
                 }
-            });
+            });*/
         }
     }
 
@@ -1944,7 +1946,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postMaintain();
         presenter.postCP();
         presenter.postQipai("","");
-        presenter.postHGQipai("","");
+        //presenter.postHGQipai("","");去掉了皇冠棋牌
         presenter.postVGQipai("","");
         presenter.postLYQipai("","");
         presenter.postAviaQiPai("","");
