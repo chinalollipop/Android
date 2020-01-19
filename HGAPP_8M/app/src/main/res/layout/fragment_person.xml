@@ -152,7 +152,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginRight="20dp"
-                android:background="@mipmap/home_linec" />
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -208,7 +208,7 @@
                     android:drawableLeft="@mipmap/home_ad"
                     android:drawablePadding="5dp"
                     android:gravity="center|left"
-                    android:text="优惠活动"
+                    android:text="优惠"
                     android:textColor="@color/title_bg_black"
                     />
             </LinearLayout>

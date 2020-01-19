@@ -139,8 +139,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @BindView(R.id.homeUserName)
     TextView homeUserName;
-    @BindView(R.id.homeGoLogin)
-    LinearLayout homeGoLogin;
     @BindView(R.id.homeLoginAl)
     LinearLayout homeLoginAl;
     @BindView(R.id.homeMoney)
@@ -152,8 +150,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     TextView homeDepositC;
     @BindView(R.id.homeDwith)
     TextView homeDwith;
-    @BindView(R.id.homeBank)
-    TextView homeBank;
 
 
     private  List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
@@ -174,23 +170,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     //private CheckUpgradeResult checkUpgradeResult;
 
     private LinearLayoutManager manager;
-    private String[] strTitleName = {"体育", "真人", "电竞", "彩票", "棋牌", "电游", "自选"};
+    private String[] strTitleName = {"体育","电竞",  "真人", "彩票", "棋牌", "电游"};
     private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_cp, R.mipmap.home_tab_qp, R.mipmap.home_tab_yy, R.mipmap.home_tab_zx};
     private int[] hometabTextIcon = {R.mipmap.home_tab_txt_ty,R.mipmap.home_tab_txt_zr, R.mipmap.home_tab_txt_dj, R.mipmap.home_tab_txt_cp, R.mipmap.home_tab_txt_qp, R.mipmap.home_tab_txt_dz, R.mipmap.home_tab_txt_zx};
     /**
      * 需要定位的地方，从小到大排列，需要和hometabTextIcon对应起来，长度一样
      */
-    private int[] strTitleMarkup = {0, 1, 5, 6, 7, 11,17};
+    private int[] strTitleMarkup = {0, 1, 2, 6, 7, 11};
     private boolean isScrolled = false;
     private  void initHomepage() {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
 
-        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1,"video"));
-        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,2,"og"));
-        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,3,"bbin"));
-        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,4,"ds"));
+        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,1,"avia"));
 
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,5,"avia"));
+        homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,2,"video"));
+        homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,3,"og"));
+        homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,4,"bbin"));
+        homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,5,"ds"));
+
 
         homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,6,"lottery"));
 
@@ -207,10 +204,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,15,"mw"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,16,"cq"));
 
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"line"));
+        /*homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"line"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));*/
     }
 
     public static HomepageFragment newInstance() {
@@ -288,7 +285,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     int top = manager.findFirstVisibleItemPosition();
                     int bottom = manager.findLastVisibleItemPosition();
 
-                    if (top >= 18) {
+                    if (top >= 11) {
                         //先判断滑到底部，tab定位到最后一个
                         pos = strTitleMarkup.length - 1;
                         GameLog.log("区间范围的时候"+pos);
@@ -313,8 +310,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                             }
                         }
                     }
-                    if(pos>=6){
-                        pos = 6;
+                    if(pos>=5){
+                        pos = 5;
                     }
                     //设置tab滑动到第pos个
                     tabLayout.setScrollPosition(pos, 0f, true);
@@ -474,18 +471,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private void homeTabItem(int pos){
 
-        LinearLayout.LayoutParams lpmove = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 3.0f);
+        LinearLayout.LayoutParams lpmove = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
         switch (pos){
             case 0:
-                hometabTextTY.setText("");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("棋牌");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("自选");
-                hometabTextTY.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextTY.setBackgroundResource(R.drawable.home_tab_title);
                 hometabTextZR.setBackgroundResource(0);
                 hometabTextDJ.setBackgroundResource(0);
                 hometabTextQP.setBackgroundResource(0);
@@ -501,15 +498,39 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextZX.setLayoutParams(lp);
                 break;
             case 1:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("");
-                hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("棋牌");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("自选");
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextZR.setBackgroundResource(0);
+                hometabTextDJ.setBackgroundResource(R.drawable.home_tab_title);
+                hometabTextQP.setBackgroundResource(0);
+                hometabTextCP.setBackgroundResource(0);
+                hometabTextDY.setBackgroundResource(0);
+                hometabTextZX.setBackgroundResource(0);
+                hometabTextTY.setLayoutParams(lp);
+                hometabTextZR.setLayoutParams(lp);
+                hometabTextDJ.setLayoutParams(lpmove);
+                hometabTextQP.setLayoutParams(lp);
+                hometabTextCP.setLayoutParams(lp);
+                hometabTextDY.setLayoutParams(lp);
+                hometabTextZX.setLayoutParams(lp);
+
+                break;
+            case 2:
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextTY.setBackgroundResource(0);
+                hometabTextZR.setBackgroundResource(R.drawable.home_tab_title);
                 hometabTextDJ.setBackgroundResource(0);
                 hometabTextQP.setBackgroundResource(0);
                 hometabTextCP.setBackgroundResource(0);
@@ -523,42 +544,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextDY.setLayoutParams(lp);
                 hometabTextZX.setLayoutParams(lp);
                 break;
-            case 2:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("");
-                hometabTextQP.setText("棋牌");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("自选");
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(hometabTextIcon[pos]);
-                hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
-                hometabTextTY.setLayoutParams(lp);
-                hometabTextZR.setLayoutParams(lp);
-                hometabTextDJ.setLayoutParams(lpmove);
-                hometabTextQP.setLayoutParams(lp);
-                hometabTextCP.setLayoutParams(lp);
-                hometabTextDY.setLayoutParams(lp);
-                hometabTextZX.setLayoutParams(lp);
-                break;
             case 3:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("棋牌");
-                hometabTextCP.setText("");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("自选");
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextTY.setBackgroundResource(0);
                 hometabTextZR.setBackgroundResource(0);
                 hometabTextDJ.setBackgroundResource(0);
                 hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextCP.setBackgroundResource(R.drawable.home_tab_title);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
                 hometabTextTY.setLayoutParams(lp);
@@ -571,17 +569,18 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
 
             case 4:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("自选");
+
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextTY.setBackgroundResource(0);
                 hometabTextZR.setBackgroundResource(0);
                 hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextQP.setBackgroundResource(R.drawable.home_tab_title);
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
                 hometabTextZX.setBackgroundResource(0);
@@ -594,19 +593,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextZX.setLayoutParams(lp);
                 break;
             case 5:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("棋牌");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("");
-                hometabTextZX.setText("自选");
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextTY.setBackgroundResource(0);
                 hometabTextZR.setBackgroundResource(0);
                 hometabTextDJ.setBackgroundResource(0);
                 hometabTextQP.setBackgroundResource(0);
                 hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextDY.setBackgroundResource(R.drawable.home_tab_title);
                 hometabTextZX.setBackgroundResource(0);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lp);
@@ -617,20 +616,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextZX.setLayoutParams(lp);
                 break;
             case 6:
-                hometabTextTY.setText("体育");
-                hometabTextZR.setText("真人");
-                hometabTextDJ.setText("电竞");
-                hometabTextQP.setText("棋牌");
-                hometabTextCP.setText("彩票");
-                hometabTextDY.setText("电游");
-                hometabTextZX.setText("");
+                hometabTextTY.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextZR.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextDJ.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextQP.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextCP.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextDY.setTextColor(getResources().getColor(android.R.color.white));
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextTY.setBackgroundResource(0);
                 hometabTextZR.setBackgroundResource(0);
                 hometabTextDJ.setBackgroundResource(0);
                 hometabTextQP.setBackgroundResource(0);
                 hometabTextCP.setBackgroundResource(0);
                 hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(hometabTextIcon[pos]);
+                hometabTextZX.setBackgroundResource(R.drawable.home_tab_title);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lp);
                 hometabTextDJ.setLayoutParams(lp);
@@ -1223,7 +1222,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     @OnClick({R.id.hometabTextTY,R.id.hometabTextZR,R.id.hometabTextDJ,R.id.hometabTextQP,R.id.hometabTextCP,R.id.hometabTextDY,R.id.hometabTextZX,
-            R.id.home_sign,R.id.home_newyear,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
+            R.id.home_sign,R.id.home_newyear,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.hometabTextTY:
@@ -1232,12 +1231,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 //tabLayout.setScrollPosition(0, 0f, true);
                 break;
             case R.id.hometabTextZR:
-                homeTabItem(1);
+                homeTabItem(2);
                 manager.scrollToPositionWithOffset(strTitleMarkup[1], 0);
                 //tabLayout.setScrollPosition(1, 0f, true);
                 break;
             case R.id.hometabTextDJ:
-                homeTabItem(2);
+                homeTabItem(1);
                 manager.scrollToPositionWithOffset(strTitleMarkup[2], 0);
                 //tabLayout.setScrollPosition(2, 0f, true);
                 break;
@@ -1267,7 +1266,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 //tabLayout.setScrollPosition(5, 0f, true);
                 break;
             case R.id.tvHomePageLogin:
-            case R.id.homeGoLogin:
                 //start(LoginFragment.newInstance());  启动一个新的Fragment 但是还是覆盖在以前的Fragemnet的基础上
                 EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                 break;
@@ -1319,18 +1317,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }else{
                     EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
                 }
-                break;
-            case R.id.homeBank:
-                if(Check.isEmpty(userName)){
-                    //start(LoginFragment.newInstance());
-                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
-                    return;
-                }
-                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
-                    return;
-                }
-                EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
                 break;
             case R.id.tvHomePageLine:
                 showPopMenuIn();
@@ -1948,9 +1934,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 homeUserName.setText("欢迎您，亲爱的 试玩玩家");
             }else {
-                homeUserName.setText("欢迎您，亲爱的 " + userName);
+                homeUserName.setText( userName);//"欢迎您，亲爱的 " +
             }
-            homeGoLogin.setVisibility(View.GONE);
             homeLoginAl.setVisibility(View.VISIBLE);
             tvHomePageLogin.setVisibility(View.GONE);
         }
@@ -1981,7 +1966,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeLoginAl.setVisibility(View.GONE);
         tvHomePageUserMoney.setVisibility(View.GONE);
         homeUserName.setText("欢迎您，亲爱的用户");
-        homeGoLogin.setVisibility(View.VISIBLE);
         userName = "";
         userMoney = "";
         userState = "19";

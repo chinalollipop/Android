@@ -54,7 +54,7 @@
         android:name="com.hgapp.m8.HGApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup"
-        android:icon="@drawable/home_center"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
