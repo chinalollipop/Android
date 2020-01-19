@@ -5,9 +5,11 @@ import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hgapp.m8.HGApplication;
@@ -20,7 +22,6 @@ import com.hgapp.m8.common.http.Client;
 import com.hgapp.m8.common.util.ACache;
 import com.hgapp.m8.common.util.GameShipHelper;
 import com.hgapp.m8.common.util.HGConstant;
-import com.hgapp.m8.common.widgets.RoundCornerImageView;
 import com.hgapp.m8.data.CPResult;
 import com.hgapp.m8.data.LoginResult;
 import com.hgapp.m8.data.NoticeResult;
@@ -68,12 +69,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     RecyclerView rvMyList;
     @BindView(R.id.tvPersonUsername)
     TextView tvPersonUsername;
-    @BindView(R.id.personAdItem)
-    RoundCornerImageView personAd;
     @BindView(R.id.personAgent)
-    RoundCornerImageView personAgent;
+    TextView personAgent;
     @BindView(R.id.personRefresh)
     TextView personRefresh;
+    @BindView(R.id.personMyRefresh)
+    ImageView personMyRefresh;
     @BindView(R.id.tvPersonHg)
     TextView tvPersonHg;
     @BindView(R.id.personLogout)
@@ -98,8 +99,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add(new HomePageIcon("流水记录",R.mipmap.icon_my_running_record,7));
         myList.add(new HomePageIcon("新手教程",R.mipmap.icon_my_new,8));
         myList.add(new HomePageIcon("联系我们",R.mipmap.icon_my_contract,9));
-        myList.add(new HomePageIcon("代理加盟",R.mipmap.icon_my_agent,10));
-        myList.add(new HomePageIcon("皇冠公告",R.mipmap.icon_my_gonggao,11));
+        myList.add(new HomePageIcon("8M公告",R.mipmap.icon_my_gonggao,11));
 
     }
 
@@ -118,7 +118,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
+        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext());
         rvMyList.setLayoutManager(gridLayoutManager);
         //rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
         rvMyList.setAdapter(new RvMylistAdapter(getContext(),R.layout.item_person,myList));
@@ -353,12 +353,13 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         }*/
     }
-    @OnClick({R.id.personAgent,R.id.personAdItem,R.id.personRefresh,R.id.personLogout,R.id.personDeposit,R.id.personDwith,R.id.personDepositC,R.id.personAD})
+    @OnClick({R.id.personAgent,R.id.personRefresh,R.id.personMyRefresh,R.id.personLogout,R.id.personDeposit,R.id.personDwith,R.id.personDepositC,R.id.personAD})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.personAgent:
                 EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
                 break;
+            case R.id.personMyRefresh:
             case R.id.personRefresh:
                 presenter.getPersonBalance("","");
                 break;
@@ -400,7 +401,6 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 //EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                 EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                 break;
-            case R.id.personAdItem:
             case R.id.personAD://活动
                 EventBus.getDefault().post(new ShowMainEvent(0));
                 break;
