@@ -64,8 +64,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:background="@drawable/home_tab_title"
-                            android:paddingLeft="18dp"
-                            android:paddingRight="18dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
                             android:text="刷新"
                             android:textColor="@color/register_left"
                             android:textSize="14sp" />
@@ -117,7 +117,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/bet_sw_padding_right"
                         android:text="1.0.0"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="@color/register_left_new" />
 
                 </RelativeLayout>
         </LinearLayout>
@@ -277,6 +277,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/btn_person"
             android:gravity="center"
             android:padding="10dp"

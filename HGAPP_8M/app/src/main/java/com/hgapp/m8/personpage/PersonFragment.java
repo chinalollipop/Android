@@ -83,7 +83,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     TextView personJoinDays;
     @BindView(R.id.personVersion)
     TextView personVersion;
-    private String personMoney;
+    private String personMoney,personJoinDay;
     private PersonBalanceResult personBalance;
     private NoticeResult noticeResultList;
     private PersonContract.Presenter presenter;
@@ -93,12 +93,13 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add(new HomePageIcon("额度转换",R.mipmap.icon_my_transfer,1));
         myList.add(new HomePageIcon("银行卡",R.mipmap.icon_my_bank_card,2));
         myList.add(new HomePageIcon("提款",R.mipmap.icon_my_withdraw,3));
-        myList.add(new HomePageIcon("站内信",R.mipmap.icon_my_message,4));
-        myList.add(new HomePageIcon("账户中心",R.mipmap.icon_my_psersion,5));
-        myList.add(new HomePageIcon("投注记录",R.mipmap.icon_my_deal_record,6));
-        myList.add(new HomePageIcon("流水记录",R.mipmap.icon_my_running_record,7));
-        myList.add(new HomePageIcon("新手教程",R.mipmap.icon_my_new,8));
-        myList.add(new HomePageIcon("联系我们",R.mipmap.icon_my_contract,9));
+        myList.add(new HomePageIcon("平台余额",R.mipmap.icon_my_deal_c,4));
+        myList.add(new HomePageIcon("站内信",R.mipmap.icon_my_message,5));
+        myList.add(new HomePageIcon("账户中心",R.mipmap.icon_my_psersion,6));
+        myList.add(new HomePageIcon("投注记录",R.mipmap.icon_my_deal_record,7));
+        myList.add(new HomePageIcon("流水记录",R.mipmap.icon_my_running_record,8));
+        myList.add(new HomePageIcon("新手教程",R.mipmap.icon_my_new,9));
+        myList.add(new HomePageIcon("联系我们",R.mipmap.icon_my_contract,10));
         myList.add(new HomePageIcon("8M公告",R.mipmap.icon_my_gonggao,11));
 
     }
@@ -148,29 +149,29 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 public void onClick(View view) {
                     GameLog.log("用户的金额："+personMoney);
                     switch (data.getId()){
-                        case 0:
+                        case 0://充值金额
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
                             //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
-                            EventBus.getDefault().post(new ShowMainEvent(1));
+                            EventBus.getDefault().post(new ShowMainEvent(2));
                             break;
-                        case 1:
+                        case 1://额度转换
                            /* if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }*/
                             EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 2:
+                        case 2://银行卡
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
                             EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             break;
-                        case 3:
+                        case 3://提款
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
@@ -191,48 +192,48 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             }
                             break;
                         case 4:
-                            /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage("非常抱歉，请您注册真实会员！");
-                                return;
-                            }*/
-                            showMessage("敬请期待！");
-                            //EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
-                            break;
-                        case 5:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
-                            EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney)));
+                            EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                             break;
-                        case 6://投注记录
+                        case 5://站内信
+                            showMessage("敬请期待！");
+                            //EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
+                            break;
+                        case 6://账户中心
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
+                            EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney,personJoinDay)));
+                            break;
+                        case 7://投注记录
                             EventBus.getDefault().post(new StartBrotherEvent(BetRecordFragment.newInstance("today",personMoney), SupportFragment.SINGLETASK));
 
                             break;
-                        case 7://交易记录
+                        case 8://交易记录
                             EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
 
                             break;
-                        case 8://新手教学
+                        case 9://新手教学
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"help.php?tip=app")));
                             break;
-                        case 9://联系我们
+                        case 10://联系我们
                             EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             break;
-                        case 10://代理加盟
+                        /*case 10://代理加盟
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
-                            break;
-                            //presenter.logOut();
-                        case 11://皇冠公告
-                            //presenter.logOut();
+                            break;*/
+                        case 11://公告
                             if(Check.isNull(noticeResultList)) {
                                 presenter.postNoticeList("");
                             }else{
                                 EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
                             }
-                            //showMessage("敬请期待！");
                             break;
                     }
                 }
@@ -262,8 +263,12 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
         //tvPersonUsername.setText(personInformResult.getUsername());
         personMoney = GameShipHelper.formatMoney(personInformResult.getBalance_hg());
+        personJoinDay = personInformResult.getJoinDays();
         personJoinDays.setText(personInformResult.getJoinDays()+"天");
         GameLog.log("成功获取用户个人信心");
+        tvPersonHg.setText(personMoney);
+        tvPersonBack.setText(personMoney);
+        EventBus.getDefault().post(new UserMoneyEvent(personMoney));
     }
 
     @Override
@@ -341,7 +346,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     public void onVisible() {
         super.onVisible();
         if(!Check.isNull(presenter)) {
-            presenter.getPersonBalance("", "");
+            //presenter.getPersonBalance("", "");
             presenter.getPersonInform("");
         }
         /*String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
@@ -361,7 +366,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 break;
             case R.id.personMyRefresh:
             case R.id.personRefresh:
-                presenter.getPersonBalance("","");
+                presenter.getPersonInform("");
                 break;
             case R.id.personLogout:
                 if(Check.isNull(presenter)){

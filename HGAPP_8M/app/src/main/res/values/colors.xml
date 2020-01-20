@@ -56,6 +56,7 @@
     <color name="register_left_new">#6ca7eb</color>
     <color name="register_left_r">#dcdcdc</color>
     <color name="login_title_hight">#00B3E0</color>
+    <color name="account_text">#525252</color>
     <color name="login_title_normal">#2A8FBD</color>
     <color name="color_bg_dialog">#e0000000</color>
     <color name="color_translucent">#e0000000</color>

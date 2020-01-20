@@ -287,7 +287,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     int top = manager.findFirstVisibleItemPosition();
                     int bottom = manager.findLastVisibleItemPosition();
 
-                    if (top >= 13) {
+                    if (top >= 11) {
                         //先判断滑到底部，tab定位到最后一个
                         pos = strTitleMarkup.length - 1;
                         GameLog.log("区间范围的时候"+pos);

@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.hgapp.m8.Injections;
 import com.hgapp.m8.R;
@@ -17,6 +19,7 @@ import com.hgapp.m8.base.IPresenter;
 import com.hgapp.m8.common.event.LogoutEvent;
 import com.hgapp.m8.common.util.ACache;
 import com.hgapp.m8.common.util.HGConstant;
+import com.hgapp.m8.common.widgets.NTitleBar;
 import com.hgapp.m8.login.fastlogin.LoginFragment;
 import com.hgapp.m8.personpage.accountcenter.AccountCenterFragment;
 import com.hgapp.common.util.Check;
@@ -34,7 +37,16 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContract.View {
 
-
+    @BindView(R.id.backManagePwd)
+    NTitleBar backManagePwd;
+    @BindView(R.id.textLoginPwd)
+    TextView textLoginPwd;
+    @BindView(R.id.textSecurityPwd)
+    TextView textSecurityPwd;
+    @BindView(R.id.manageLoginPwd)
+    LinearLayout manageLoginPwd;
+    @BindView(R.id.manageSecurityPwd)
+    LinearLayout manageSecurityPwd;
     @BindView(R.id.etOldPassword)
     EditText etOldPassword;
     @BindView(R.id.etPassword)
@@ -51,7 +63,6 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
     EditText etPayREpassword;
     @BindView(R.id.btnChangeWithdrawPwd)
     Button btnChangeWithdrawPwd;
-    Unbinder unbinder;
     @BindView(R.id.OldPasswordEyes)
     ImageView OldPasswordEyes;
     @BindView(R.id.PasswordEyes)
@@ -60,7 +71,6 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
     ImageView PayOldPasswordEyes;
     @BindView(R.id.PayPasswordEyes)
     ImageView PayPasswordEyes;
-    Unbinder unbinder1;
     private ManagePwdContract.Presenter presenter;
 
     public static ManagePwdFragment newInstance() {
@@ -76,7 +86,6 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
         return Arrays.asList((IPresenter) presenter);
     }
 
-
     @Override
     public int setLayoutId() {
         return R.layout.fragment_manage_pwd;
@@ -84,7 +93,13 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
+        backManagePwd.setMoreText("");
+        backManagePwd.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -138,9 +153,25 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
         presenter.getChangeWithdrawPwd("", "", "", oldPwd, newPwd, newAgainPwd);
     }
 
-    @OnClick({R.id.btnChangeLoginPwd, R.id.btnChangeWithdrawPwd,R.id.OldPasswordEyes, R.id.PasswordEyes, R.id.PayOldPasswordEyes, R.id.PayPasswordEyes})
+    @OnClick({R.id.textLoginPwd,R.id.textSecurityPwd,R.id.btnChangeLoginPwd, R.id.btnChangeWithdrawPwd,R.id.OldPasswordEyes, R.id.PasswordEyes, R.id.PayOldPasswordEyes, R.id.PayPasswordEyes})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.textLoginPwd:
+                textLoginPwd.setTextColor(getResources().getColor(R.color.register_left));
+                textSecurityPwd.setTextColor(getResources().getColor(R.color.cp_hall_tv));
+                textLoginPwd.setBackground(getResources().getDrawable(R.drawable.home_tab_title));
+                textSecurityPwd.setBackground(null);
+                manageLoginPwd.setVisibility(View.VISIBLE);
+                manageSecurityPwd.setVisibility(View.GONE);
+                break;
+            case R.id.textSecurityPwd:
+                textSecurityPwd.setTextColor(getResources().getColor(R.color.register_left));
+                textLoginPwd.setTextColor(getResources().getColor(R.color.cp_hall_tv));
+                textSecurityPwd.setBackground(getResources().getDrawable(R.drawable.home_tab_title));
+                textLoginPwd.setBackground(null);
+                manageLoginPwd.setVisibility(View.GONE);
+                manageSecurityPwd.setVisibility(View.VISIBLE);
+                break;
             case R.id.btnChangeLoginPwd:
                 onCheckLoginPwd();
                 break;
@@ -190,19 +221,7 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder1 = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder1.unbind();
-    }
 
     @Override
     public void onChangeLoginPwdResut(String successMessage) {

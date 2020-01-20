@@ -13,40 +13,308 @@
         />
 
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/btnAccountCenterMyInform"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/status_shape">
+
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:textSize="15sp"
-            android:textColor="@color/title_text"
-            android:background="@mipmap/account_center_pwd_high"
-            android:text="个人资料"
-            />
-        <TextView
-            android:id="@+id/btnAccountCenterChangePwd"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@mipmap/icon_my_persion" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:text="修改密码"
-            android:textSize="15sp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/textview_hight"
-            android:background="@mipmap/account_center_pwd_normal"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/accountName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Daniel"
+                    android:textColor="@color/title_text"
+                    android:textSize="15sp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加入M8体育第"
+                        android:textColor="@color/account_text" />
+
+                    <TextView
+                        android:id="@+id/personJoinDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/account_text" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
 
     </LinearLayout>
-    <ScrollView
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <FrameLayout
-        android:id="@+id/fragementAccountCenterChange"
+        android:layout_height="1px"
+        android:background="@color/l_view_color" />
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    </ScrollView>
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/l_view_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/status_shape"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="33dp"
+                android:drawableLeft="@mipmap/ic_account_name"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="姓名    "
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/accountAlias"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="姓名"
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33dp"
+                android:text="性别    "
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="40dp"
+                android:background="@mipmap/icon_textview_transfer"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="请选择"
+                android:textColor="@color/n_edittext_pwd"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="33dp"
+                android:drawableLeft="@mipmap/ic_account_phone"
+                android:drawablePadding="10dp"
+                android:text="手机号"
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/accountPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="111"
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33dp"
+                android:text="邮箱    "
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="45dp"
+                android:background="@null"
+                android:hint="请输入"
+                android:textColorHint="@color/n_edittext_pwd"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="33dp"
+                android:drawableLeft="@mipmap/ic_account_wechat"
+                android:drawablePadding="10dp"
+                android:text="微信号   "
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/accountWechat"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:gravity="center|left"
+                android:hint="未绑定 >"
+                android:textColorHint="@color/n_edittext_pwd"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="33dp"
+                android:drawableLeft="@mipmap/ic_account_br"
+                android:drawablePadding="10dp"
+                android:text="生日    "
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/accountBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:gravity="center|left"
+                android:hint="未绑定 >"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/n_edittext_pwd"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+
+        <RelativeLayout
+            android:id="@+id/btnAccountCenterChangePwd"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="33dp"
+                android:drawableLeft="@mipmap/login_pwd"
+                android:drawablePadding="10dp"
+                android:text="修改密码"
+                android:textColor="@color/account_text"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text=">"
+                android:textColorHint="@color/n_edittext_pwd"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 </LinearLayout>

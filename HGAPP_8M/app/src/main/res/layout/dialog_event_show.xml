@@ -10,7 +10,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="@color/title_text"
+        android:background="@color/register_left"
         android:orientation="vertical">
 
         <RelativeLayout

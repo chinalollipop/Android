@@ -2,44 +2,58 @@ package com.hgapp.m8.personpage.accountcenter;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.hgapp.common.util.Check;
 import com.hgapp.m8.R;
 import com.hgapp.m8.base.HGBaseFragment;
 import com.hgapp.m8.base.IPresenter;
+import com.hgapp.m8.common.util.ACache;
+import com.hgapp.m8.common.util.HGConstant;
 import com.hgapp.m8.common.widgets.NTitleBar;
 import com.hgapp.m8.data.BetRecordResult;
+import com.hgapp.m8.data.LoginResult;
 import com.hgapp.m8.personpage.managepwd.ManagePwdFragment;
 import com.hgapp.common.util.GameLog;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class AccountCenterFragment extends HGBaseFragment implements AccountCenterContract.View {
 
-    private static final String TYPE = "type";
+    private static final String TYPE1 = "type1";
+    private static final String TYPE2 = "type2";
     @BindView(R.id.backTitleAccountCenter)
     NTitleBar backTitleAccountCenter;
-    @BindView(R.id.btnAccountCenterMyInform)
-    TextView btnAccountCenterMyInform;
-    @BindView(R.id.btnAccountCenterChangePwd)
-    TextView btnAccountCenterChangePwd;
-    @BindView(R.id.fragementAccountCenterChange)
-    FrameLayout fragementId;
+    @BindView(R.id.accountName)
+    TextView accountName;
+    @BindView(R.id.personJoinDays)
+    TextView personJoinDays;
+    @BindView(R.id.accountAlias)
+    TextView accountAlias;
+    @BindView(R.id.accountPhone)
+    TextView accountPhone;
+    @BindView(R.id.accountBirthday)
+    TextView accountBirthday;
+    @BindView(R.id.accountWechat)
+    TextView accountWechat;
     private AccountCenterContract.Presenter presenter;
 
-    private String typeArgs;
+    private String typeArgs,johnDay;
 
-    public static AccountCenterFragment newInstance(String type) {
+    public static AccountCenterFragment newInstance(String type1,String type2) {
         AccountCenterFragment fragment = new AccountCenterFragment();
         Bundle args = new Bundle();
-        args.putString(TYPE, type);
+        args.putString(TYPE1, type1);
+        args.putString(TYPE2, type2);
         fragment.setArguments(args);
         //Injections.inject(null, fragment);
         return fragment;
@@ -49,7 +63,8 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (null != getArguments()) {
-            typeArgs = getArguments().getString(TYPE);
+            typeArgs = getArguments().getString(TYPE1);
+            johnDay = getArguments().getString(TYPE2);
         }
     }
 
@@ -60,12 +75,7 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
-        /*if ("today".equals(typeArgs)) {
-            presenter.postBetToday("", "FT", "0");
-        } else {
-            presenter.postBetHistory("", "FT", "0");
-        }*/
+        personJoinDays.setText(johnDay+"天");
         backTitleAccountCenter.setMoreText(typeArgs);
         backTitleAccountCenter.setBackListener(new View.OnClickListener() {
             @Override
@@ -73,19 +83,17 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
                 pop();
             }
         });
-        btnAccountCenterMyInform.performClick();
-        /*ManagePwdFragment  managePwdFragment = ManagePwdFragment.newInstance();
-        FragmentTransaction ft = getFragmentManager().beginTransaction().replace(R.id.fragementAccountCenterChange, managePwdFragment);
-        ft.show(managePwdFragment);
-        *//*if(visible)
-        {
-            ft.show(balanceFragment);
+        LoginResult loginResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_INFO), LoginResult.class);
+        accountName.setText(loginResult.getUserName());
+        if(Check.isEmpty(loginResult.getAlias())){
+            accountAlias.setText(loginResult.getAlias());
+        }else {
+            String name = "" + loginResult.getAlias().substring(0, 1) + (loginResult.getAlias().length() >= 3 ? "**" : "*");
+            accountAlias.setText(name);
         }
-        else
-        {
-            ft.hide(balanceFragment);
-        }*//*
-        ft.commit();*/
+        accountPhone.setText(loginResult.getPhone());
+        accountBirthday.setText(loginResult.getBirthday());
+        accountWechat.setText(loginResult.getE_Mail());
     }
 
     @Override
@@ -107,35 +115,11 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
 
     @Override
     public void setPresenter(AccountCenterContract.Presenter presenter) {
-
         this.presenter = presenter;
     }
 
-
-    @OnClick({R.id.btnAccountCenterMyInform, R.id.btnAccountCenterChangePwd})
+    @OnClick(R.id.btnAccountCenterChangePwd)
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btnAccountCenterMyInform:
-                AccountCenterMainFragment accountCenterＭainFragment = AccountCenterMainFragment.newInstance("");
-                FragmentTransaction ft = getFragmentManager().beginTransaction().replace(R.id.fragementAccountCenterChange, accountCenterＭainFragment);
-                ft.show(accountCenterＭainFragment);
-                ft.commit();
-                btnAccountCenterMyInform.setTextColor(getResources().getColor(R.color.title_text));
-                //tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_focus);
-                btnAccountCenterMyInform.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_high));
-                btnAccountCenterChangePwd.setTextColor(getResources().getColor(R.color.n_edittext_hint));
-                btnAccountCenterChangePwd.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_normal));
-                break;
-            case R.id.btnAccountCenterChangePwd:
-                btnAccountCenterMyInform.setTextColor(getResources().getColor(R.color.n_edittext_hint));
-                btnAccountCenterMyInform.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_normal));
-                btnAccountCenterChangePwd.setTextColor(getResources().getColor(R.color.title_text));
-                btnAccountCenterChangePwd.setBackground(getResources().getDrawable(R.mipmap.account_center_pwd_high));
-                ManagePwdFragment  managePwdFragment = ManagePwdFragment.newInstance();
-                FragmentTransaction ft2 = getFragmentManager().beginTransaction().replace(R.id.fragementAccountCenterChange, managePwdFragment);
-                ft2.show(managePwdFragment);
-                ft2.commit();
-                break;
-        }
+        EventBus.getDefault().post(new StartBrotherEvent(ManagePwdFragment.newInstance()));
     }
 }
