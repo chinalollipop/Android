@@ -421,7 +421,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
     @Override
     public void postPersonBalanceResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(0,kyBalanceResult.getBalance_cp());
+        balancePlatformList.set(0,kyBalanceResult.getGmcp_balance());
         balancePlatformList.set(1,kyBalanceResult.getBalance_ag());
         balancePlatformAdapter.notifyDataSetChanged();
         typeArgsHG = GameShipHelper.formatMoney(kyBalanceResult.getBalance_hg());

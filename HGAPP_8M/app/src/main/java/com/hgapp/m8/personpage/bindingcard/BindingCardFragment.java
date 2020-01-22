@@ -15,12 +15,16 @@ import com.hgapp.m8.Injections;
 import com.hgapp.m8.R;
 import com.hgapp.m8.base.HGBaseFragment;
 import com.hgapp.m8.base.IPresenter;
+import com.hgapp.m8.common.service.ServiceOnlineFragment;
 import com.hgapp.m8.common.util.ACache;
 import com.hgapp.m8.common.util.HGConstant;
 import com.hgapp.m8.common.widgets.NTitleBar;
 import com.hgapp.m8.data.GetBankCardListResult;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.hgapp.m8.homepage.handicap.ShowMainEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +32,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class BindingCardFragment extends HGBaseFragment implements BindingCardContract.View {
 
@@ -36,6 +42,8 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     private static final String TYPE2 = "type2";
     @BindView(R.id.tvBindingCardCBack)
     NTitleBar tvBindingCardCBack;
+    @BindView(R.id.tvBindingCardTit)
+    TextView tvBindingCardTit;
     @BindView(R.id.tvBindingCardAccountName)
     TextView tvBindingCardAccountName;
     @BindView(R.id.tvBindingCardBankName)
@@ -58,16 +66,8 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     LinearLayout llBindingCardPwd;
     @BindView(R.id.llBindingCardPwd2)
     LinearLayout llBindingCardPwd2;
-    @BindView(R.id.tv1)
-    TextView tv1;
-    @BindView(R.id.tv2)
-    TextView tv2;
-    @BindView(R.id.tv3)
-    TextView tv3;
-    @BindView(R.id.tv4)
-    TextView tv4;
-
-
+    @BindView(R.id.tvBindingCardService)
+    TextView tvBindingCardService;
 
     private String typeArgs1;
     private String typeArgs2;
@@ -75,7 +75,6 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     OptionsPickerView optionsPickerViewBank;
 
     OptionsPickerView optionsPickerViewState;
-    static List<String> bankNameList  = new ArrayList<>();
     static  List<String> stateList  = new ArrayList<String>();
     static {
         stateList.add("安徽省");
@@ -86,12 +85,6 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         stateList.add("湖北市");
         stateList.add("海南省");
         stateList.add("江苏省");
-
-        bankNameList.add("中国银行");
-        bankNameList.add("中国工商银行");
-        bankNameList.add("中国农业银行");
-        bankNameList.add("中国建设银行");
-        bankNameList.add("中国民生银行");
 
     }
 
@@ -128,15 +121,13 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     public void setEvents(@Nullable Bundle savedInstanceState) {
         bincCard = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
         if("1".equals(bincCard)){
-            tv1.setVisibility(View.GONE);
-            tv2.setVisibility(View.GONE);
-            tv3.setVisibility(View.GONE);
-            tv4.setVisibility(View.GONE);
             llBindingCardPwd.setVisibility(View.GONE);
             llBindingCardPwd2.setVisibility(View.GONE);
             tvBindingCardSubmit.setText("更改绑定");
+            tvBindingCardTit.setText("银行卡更改");
         }else{
             tvBindingCardSubmit.setText("确认绑定");
+            tvBindingCardTit.setText("银行卡绑定");
         }
         String aliasName = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
         if(Check.isEmpty(aliasName)){
@@ -154,7 +145,6 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
                 pop();
             }
         });
-
 
         optionsPickerViewState = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
 
@@ -263,9 +253,14 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     }
 
 
-    @OnClick({R.id.tvBindingCardBankName, R.id.tvBindingCardBankState,R.id.tvBindingCardSubmit})
+    @OnClick({R.id.tvBindingCardService,R.id.tvBindingCardBankName, R.id.tvBindingCardBankState,R.id.tvBindingCardSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.tvBindingCardService:
+                //EventBus.getDefault().post(new StartBrotherEvent(ServiceOnlineFragment.newInstance(), SupportFragment.SINGLETASK));
+                finish();
+                EventBus.getDefault().post(new ShowMainEvent(3));
+                break;
             case R.id.tvBindingCardBankName:
                 hideKeyboard();
                 optionsPickerViewBank.show();

@@ -240,8 +240,6 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 }
             });
         }
-
-
     }
 
 

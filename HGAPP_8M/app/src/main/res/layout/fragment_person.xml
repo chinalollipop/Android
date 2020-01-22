@@ -9,7 +9,6 @@
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical">
 
-
             <RelativeLayout
                 android:background="@color/register_left"
                 android:layout_width="match_parent"
@@ -66,6 +65,7 @@
                             android:background="@drawable/home_tab_title"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
+                            android:visibility="gone"
                             android:text="刷新"
                             android:textColor="@color/register_left"
                             android:textSize="14sp" />
@@ -86,20 +86,21 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone">
+                        >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:alpha="0.5"
-                            android:text="您已加入HG6668 "
-                            android:textColor="@color/title_text" />
+                            android:text="加入M8体育第"
+                            android:textColor="@color/account_text" />
 
                         <TextView
                             android:id="@+id/personJoinDays"
+                            android:alpha="0.5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/title_text" />
+                            android:textColor="@color/account_text" />
                     </LinearLayout>
                 </LinearLayout>
 

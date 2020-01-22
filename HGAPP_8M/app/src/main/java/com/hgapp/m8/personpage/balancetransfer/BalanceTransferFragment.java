@@ -30,6 +30,7 @@ import com.hgapp.m8.data.BalanceTransferData;
 import com.hgapp.m8.data.BetRecordResult;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.hgapp.m8.data.KYBalanceResult;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
@@ -50,6 +51,34 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView tvBalanceTransferIn;
     @BindView(R.id.tvBalanceTransferOut)
     TextView tvBalanceTransferOut;
+    @BindView(R.id.BalanceTransferTY)
+    TextView BalanceTransferTY;
+    @BindView(R.id.BalanceTransferCP)
+    TextView BalanceTransferCP;
+    @BindView(R.id.BalanceTransferAG)
+    TextView BalanceTransferAG;
+    @BindView(R.id.BalanceTransferKY)
+    TextView BalanceTransferKY;
+    @BindView(R.id.BalanceTransferLY)
+    TextView BalanceTransferLY;
+    @BindView(R.id.BalanceTransferVG)
+    TextView BalanceTransferVG;
+    @BindView(R.id.BalanceTransferMG)
+    TextView BalanceTransferMG;
+    @BindView(R.id.BalanceTransferFY)
+    TextView BalanceTransferFY;
+    @BindView(R.id.BalanceTransferOG)
+    TextView BalanceTransferOG;
+    @BindView(R.id.BalanceTransferCQ)
+    TextView BalanceTransferCQ;
+    @BindView(R.id.BalanceTransferMW)
+    TextView BalanceTransferMW;
+    @BindView(R.id.BalanceTransferFG)
+    TextView BalanceTransferFG;
+    @BindView(R.id.BalanceTransferBBIN)
+    TextView BalanceTransferBBIN;
+    @BindView(R.id.BalanceTransferDS)
+    TextView BalanceTransferDS;
     @BindView(R.id.etBalanceTransferMoney)
     EditText etBalanceTransferMoney;
     private BalanceTransferContract.Presenter presenter;
@@ -116,6 +145,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initBalance();
         backTitleBalanceTransfer.setMoreText(typeArgs);
         backTitleBalanceTransfer.setBackListener(new View.OnClickListener() {
             @Override
@@ -172,6 +202,22 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     }
 
+    private void initBalance() {
+        //presenter.postPersonBalanceTY("","");
+        presenter.postPersonBalance("","");
+        presenter.postPersonBalanceCP("","");
+        presenter.postPersonBalanceKY("","");
+        presenter.postPersonBalanceHG("","");
+        presenter.postPersonBalanceVG("","");
+        presenter.postPersonBalanceLY("","");
+        presenter.postPersonBalanceMG("","");
+        presenter.postPersonBalanceAG("","");
+        presenter.postPersonBalanceOG("","");
+        presenter.postPersonBalanceCQ("","");
+        presenter.postPersonBalanceMW("","");
+        presenter.postPersonBalanceFG("","");
+        presenter.postPersonBalanceBBIN("","");
+    }
 
     class FlowBalanceTransferAdapter extends com.hgapp.m8.common.adapters.AutoSizeRVAdapter<String>{
 
@@ -204,9 +250,105 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     }
 
     @Override
+    public void postPersonBalanceTYResult(KYBalanceResult personBalance) {
+        BalanceTransferTY.setText(personBalance.getSc_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceResult(KYBalanceResult personBalance) {
+        BalanceTransferAG.setText(personBalance.getBalance_ag());
+        backTitleBalanceTransfer.setMoreText(personBalance.getBalance_hg());
+        BalanceTransferTY.setText(personBalance.getBalance_hg());
+    }
+
+    @Override
+    public void postPersonBalanceCPResult(KYBalanceResult personBalance) {
+        BalanceTransferCP.setText(personBalance.getGmcp_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceKYResult(KYBalanceResult personBalance) {
+        BalanceTransferKY.setText(personBalance.getKy_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceVGResult(KYBalanceResult personBalance) {
+        BalanceTransferVG.setText(personBalance.getVg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceLYResult(KYBalanceResult personBalance) {
+        BalanceTransferLY.setText(personBalance.getLy_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceMGResult(KYBalanceResult personBalance) {
+        BalanceTransferMG.setText(personBalance.getMg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceAGResult(KYBalanceResult personBalance) {
+        BalanceTransferFY.setText(personBalance.getAvia_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceOGResult(KYBalanceResult personBalance) {
+        BalanceTransferOG.setText(personBalance.getOg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceCQResult(KYBalanceResult personBalance) {
+        BalanceTransferCQ.setText(personBalance.getCq_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceMWResult(KYBalanceResult personBalance) {
+        BalanceTransferMW.setText(personBalance.getMw_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceFGResult(KYBalanceResult personBalance) {
+        BalanceTransferFG.setText(personBalance.getFg_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    @Override
+    public void postPersonBalanceBBINResult(KYBalanceResult personBalance) {
+        BalanceTransferBBIN.setText(personBalance.getBbin_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+
+    @Override
     public void showMessage(String message) {
         super.showMessage(message);
-        pop();
     }
 
     @Override

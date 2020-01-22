@@ -634,10 +634,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.title_text));
-                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.register_left));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.account_text));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -653,10 +653,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.title_text));
-                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.register_left));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.account_text));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -672,10 +672,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.title_text));
-                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.register_left));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.account_text));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_focus);
@@ -691,10 +691,10 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 }
                 tvDepositRecordStartTime.setText(data_start);
                 tvDepositRecordEndTime.setText(data_end);
-                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
-                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.title_text));
+                tvDepositRecordToday.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastDay.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastWeek.setTextColor(getResources().getColor(R.color.account_text));
+                tvDepositRecordLastMonth.setTextColor(getResources().getColor(R.color.register_left));
                 tvDepositRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvDepositRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
