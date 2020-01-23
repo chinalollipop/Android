@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.hgapp.m8.HGApplication;
 import com.hgapp.m8.Injections;
 import com.hgapp.m8.R;
 import com.hgapp.m8.base.HGBaseFragment;
@@ -65,6 +66,7 @@ import com.tencent.smtt.sdk.WebViewClient;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -604,19 +606,8 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
 
     private void postCPGo(){
-        String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
-        if(Check.isEmpty(cp_url)){
-            presenter.postCP();
-        }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
-            showMessage("正在加载中，请稍后再试!");
-        }else{
-            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
-            intent.putExtra("url",cp_url);
-            intent.putExtra("gameCnName","彩票游戏");
-            intent.putExtra("gameType","CP");
-            intent.putExtra("hidetitlebar",false);
-            getActivity().startActivity(intent);
-        }
+        showMessage("正在加载中...");
+        presenter.postCP();
     }
 
 
@@ -884,8 +875,31 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postCPResult(CPResult cpResult) {
-        ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());
-        initWebView(cpResult.getUrlLogin());
+        Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+        //跳转到彩票里面去
+        String postData ="";
+        try {
+            postData = "params=" + URLEncoder.encode(cpResult.getParams(), "UTF-8") +
+                    "&thirdLotteryId=" + URLEncoder.encode(cpResult.getThirdLotteryId(), "UTF-8")+
+                    "&appRefer=" + URLEncoder.encode(HGConstant.PRODUCT_PLATFORM, "UTF-8")+
+                    "&toXinyong=" + URLEncoder.encode("1", "UTF-8");
+            if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
+                intent.putExtra("type", "get");
+                intent.putExtra("url", cpResult.getThird_cpUrl()+"?"+postData);
+            }else{
+                intent.putExtra("type", "post");
+                intent.putExtra("postParam", postData);
+                intent.putExtra("url", cpResult.getThird_cpUrl());
+            }
+            GameLog.log("请求参数： "+postData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        intent.putExtra("gameCnName", "彩票");
+        intent.putExtra("hidetitlebar", false);
+        getActivity().startActivity(intent);
+        /*ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());
+        initWebView(cpResult.getUrlLogin());*/
         /*MyHttpClient myHttpClient = new MyHttpClient();
         String domainUrl = cpResult.getUrlLogin();
         myHttpClient.executeGet(domainUrl, new Callback() {

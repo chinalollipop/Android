@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5791f5</color>
-    <color name="colorPrimaryDark">#5791f5</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#FFFFFF</color>
     <!--<color name="shape1">#5791f5</color>
     <color name="shape2">#5791f5</color>
@@ -12,6 +12,7 @@
     <color name="intputEditText">#FF4081</color>
     <!--标题背景色-->
     <color name="title_bg">#4ea2ea</color>
+    <color name="title_bg_text">#7288e8</color>
     <color name="title_bg_black">#4B4339</color>
 
     <!--标题文字颜色-->

@@ -63,8 +63,8 @@ public class NTitleBar extends RelativeLayout {
             backText = ta.getString(R.styleable.NTitleBar_backText);
             moreText = ta.getString(R.styleable.NTitleBar_moreText);
             moreImage = ta.getResourceId(R.styleable.NTitleBar_moreImage,R.mipmap.title_right);
-            textColor = ta.getColor(R.styleable.NTitleBar_titleColor,context.getResources().getColor(R.color.title_text));
-            moreColor = ta.getColor(R.styleable.NTitleBar_moreColor,context.getResources().getColor(R.color.title_text));
+            textColor = ta.getColor(R.styleable.NTitleBar_titleColor,context.getResources().getColor(R.color.title_bg_text));
+            moreColor = ta.getColor(R.styleable.NTitleBar_moreColor,context.getResources().getColor(R.color.title_bg_text));
             moreTextOnly=ta.getBoolean(R.styleable.NTitleBar_moreTextOnly, false);
             setUpView(context);
         } finally {

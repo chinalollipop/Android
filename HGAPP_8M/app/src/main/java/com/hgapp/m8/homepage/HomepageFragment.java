@@ -79,6 +79,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -168,7 +169,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private String userState = "daniel";
     private int currentMore = 0;
     //private CheckUpgradeResult checkUpgradeResult;
-
+    private CPResult cpResult;
+    private int isLottery = 2;//2为官方，1位信用
     private LinearLayoutManager manager;
     private String[] strTitleName = {"体育","电竞",  "真人", "彩票", "棋牌", "电游"};
     //private int[] strTitleIcon = {R.mipmap.home_tab_ty,R.mipmap.home_tab_zr, R.mipmap.home_tab_dz, R.mipmap.home_tab_cp, R.mipmap.home_tab_qp, R.mipmap.home_tab_yy, R.mipmap.home_tab_zx};
@@ -190,8 +192,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,6,"ds"));
 
 
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,7,"lottery"));
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcps,8,"lottery"));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,7,"lottery_g"));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcps,8,"lottery_x"));
 
         homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,9,"ky"));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,10,"ly"));
@@ -985,6 +987,31 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         simeAdapter.notifyDataSetChanged();
     }
 
+    private void goCpView(){
+        Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+        String postData ="";
+        try {
+            postData = "params=" + URLEncoder.encode(cpResult.getParams(), "UTF-8") +
+                    "&thirdLotteryId=" + URLEncoder.encode(cpResult.getThirdLotteryId(), "UTF-8")+
+                    "&appRefer=" + URLEncoder.encode(HGConstant.PRODUCT_PLATFORM, "UTF-8")+
+                    "&toXinyong=" + URLEncoder.encode(isLottery==1?"1":"", "UTF-8");
+            if ("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))) {
+                intent.putExtra("type", "get");
+                intent.putExtra("url", cpResult.getThird_cpUrl()+"?"+postData);
+            }else{
+                intent.putExtra("type", "post");
+                intent.putExtra("postParam", postData);
+                intent.putExtra("url", cpResult.getThird_cpUrl());
+            }
+            GameLog.log("请求参数： "+postData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        intent.putExtra("gameCnName", "8M彩票");
+        intent.putExtra("hidetitlebar", false);
+        getActivity().startActivity(intent);
+    }
+
     private void onHomeGameItemClick( String position){
 
         //showMessage("点击的位置是："+position);
@@ -1109,25 +1136,46 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     postLYQiPaiGo();
                 }
                 break;
-            case "lottery":
-                userState = "lottery";
-                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
-                String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
-                String cp_token = ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE);
-                if(Check.isEmpty(cp_url)||Check.isEmpty(cp_inform)||Check.isEmpty(cp_token)||Check.isNull(CPClient.getRetrofit())){
+            case "lottery_g":
+                userState = "lottery_g";
+                isLottery = 2;
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                userState = "2";
+                String video_urlcps = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                if ("1".equals(video_urlcps)) {
+                    presenter.postMaintain();
+                    return;
+                }
+                if(Check.isNull(cpResult)){
                     presenter.postCP();
                     showMessage("正在加载中，请稍后再试!");
-                }else{
-                    this.startActivity(new Intent(getContext(),CPListFragment.class));
+                    return;
                 }
-
-                //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
-                /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
-                if("1".equals(cp_url)){
+                //showMessage("敬请期待！！！");
+                goCpView();
+                break;
+            case "lottery_x":
+                isLottery = 1;
+                userState = "lottery_x";
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                userState = "2";
+                String video_urlcp = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);
+                if ("1".equals(video_urlcp)) {
                     presenter.postMaintain();
-                }else {
-                    postCPGo();
-                }*/
+                    return;
+                }
+                if(Check.isNull(cpResult)){
+                    presenter.postCP();
+                    showMessage("正在加载中，请稍后再试!");
+                    return;
+                }
+                goCpView();
                 break;
             case "game":
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -1589,14 +1637,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void postCPResult(CPResult cpResult) {
+        this.cpResult = cpResult;
+
         //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, cpResult.getCpUrl())));
-        CPClient.setClientDomain(cpResult.getCpUrl());
+        /*CPClient.setClientDomain(cpResult.getCpUrl());
         HGApplication.instance().configCPClient();
         ACache.get(getContext()).put("homeTYUrl", cpResult.getCpUrl().replace("mc.","m."));
         ACache.get(getContext()).put("homeCPUrl", cpResult.getCpUrl());
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());//+"?tip=app"
         ACache.get(getContext()).put(HGConstant.USERNAME_CP_INFORM,cpResult.getUrlLogin());
-        initWebView(cpResult.getUrlLogin());
+        initWebView(cpResult.getUrlLogin());*/
     }
 
     @Override

@@ -52,7 +52,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:drawableLeft="@mipmap/title_right"
-                android:textColor="@color/title_text"
+                android:textColor="#7288e8"
                 android:textSize="16sp"
                 android:visibility="gone" />
 

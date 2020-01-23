@@ -41,6 +41,7 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import per.goweii.actionbarex.ActionBarEx;
 
 
 /**
@@ -57,6 +58,8 @@ public class XPlayGameActivity extends Activity {
     private static final int PLUS_ONE_REQUEST_CODE = 0;
     // The URL to +1.  Must be a valid URL.
     private final String PLUS_ONE_URL = "http://developer.android.com";
+    @BindView(R.id.pay_x5_action_bar)
+    ActionBarEx payGameActionBar;
     @BindView(R.id.pay_x5_game_title)
     NTitleBar payGameTitle;
     @BindView(R.id.flayout_xpay)
@@ -73,7 +76,7 @@ public class XPlayGameActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        //getWindow().setFormat(PixelFormat.TRANSLUCENT);
         setContentView(R.layout.fragment_pay_x5_game);
         ButterKnife.bind(this);
         setEvents(savedInstanceState);
@@ -99,6 +102,8 @@ public class XPlayGameActivity extends Activity {
         }
         else{
             payGameTitle.setVisibility(View.VISIBLE);
+            payGameActionBar.setVisibility(View.VISIBLE);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             GameLog.log("SDK_INT upper ......");
             /*if(gameType.equals("shaba")){
                 payGameTitle.setVisibility(View.GONE);
@@ -134,10 +139,13 @@ public class XPlayGameActivity extends Activity {
                     gameFull = 1;
                     payGameTitle.setMoreText("正常");
                     payGameTitle.setVisibility(View.GONE);
+                    payGameActionBar.setVisibility(View.GONE);
                     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }else{
                     gameFull = 0;
                     payGameTitle.setMoreText("全屏");
+                    payGameTitle.setVisibility(View.VISIBLE);
+                    payGameActionBar.setVisibility(View.VISIBLE);
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }
             }
