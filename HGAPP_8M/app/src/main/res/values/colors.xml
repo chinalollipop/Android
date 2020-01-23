@@ -15,7 +15,7 @@
     <color name="title_bg_black">#4B4339</color>
 
     <!--标题文字颜色-->
-    <color name="title_text">#7288e8</color>
+    <color name="title_text">#FFFFFF</color>
     <!--按钮文字颜色-->
     <color name="btn_text">#FFFFFF</color>
     <!--EditText默认颜色值-->

@@ -264,7 +264,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @Override
     public void postPersonBalanceCPResult(KYBalanceResult personBalance) {
-        BalanceTransferCP.setText(personBalance.getGmcp_balance());
+        if(!Check.isNull(personBalance.getGmcp_balance())) {
+            BalanceTransferCP.setText(personBalance.getGmcp_balance());
+        }
         backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
         BalanceTransferTY.setText(personBalance.getHg_balance());
     }

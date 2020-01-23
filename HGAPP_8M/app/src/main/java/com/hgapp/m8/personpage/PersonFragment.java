@@ -84,7 +84,6 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     @BindView(R.id.personVersion)
     TextView personVersion;
     private String personMoney,personJoinDay;
-    private PersonBalanceResult personBalance;
     private NoticeResult noticeResultList;
     private PersonContract.Presenter presenter;
     private static List<HomePageIcon> myList = new ArrayList<HomePageIcon>();
@@ -196,7 +195,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
-                            EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
+                            EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 5://站内信
                             showMessage("敬请期待！");
@@ -273,7 +272,6 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postPersonBalanceResult(PersonBalanceResult personBalance) {
-        this.personBalance = personBalance;
         personMoney = GameShipHelper.formatMoney(personBalance.getBalance_hg());
         tvPersonHg.setText(personMoney);
         EventBus.getDefault().post(new UserMoneyEvent(personMoney));
@@ -404,7 +402,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 break;
             case R.id.personDepositC://转账
                 //EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
-                EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                 break;
             case R.id.personAD://活动
                 EventBus.getDefault().post(new ShowMainEvent(0));

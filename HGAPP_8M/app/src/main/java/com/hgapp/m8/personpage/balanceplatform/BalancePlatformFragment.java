@@ -52,17 +52,14 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     private BalancePlatformContract.Presenter presenter;
     private String from ="hg";
     private String to ="hg";
-    PersonBalanceResult personBalance;
     private String typeArgsHG;
-    private String typeArgsCP;
-    private String typeArgsAG;
     static List<BalanceTransferData> gtypeList  = new ArrayList<BalanceTransferData>();
     List<String> balancePlatformList  = new ArrayList<>();
     BalancePlatformAdapter balancePlatformAdapter;
-    public static BalancePlatformFragment newInstance(PersonBalanceResult personBalance) {
+    public static BalancePlatformFragment newInstance(String type1) {
         BalancePlatformFragment fragment = new BalancePlatformFragment();
         Bundle args = new Bundle();
-        args.putParcelable(TYPE1, personBalance);
+        args.putString(TYPE1, type1);
         fragment.setArguments(args);
         Injections.inject(null, fragment);
         return fragment;
@@ -72,13 +69,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (null != getArguments()) {
-            personBalance = getArguments().getParcelable(TYPE1);
-            if(null!=personBalance){
-                typeArgsCP = personBalance.getBalance_cp();
-                typeArgsAG = personBalance.getBalance_ag();
-                typeArgsHG = personBalance.getBalance_hg();
-            }
-
+            typeArgsHG = getArguments().getString(TYPE1);
         }
     }
 
@@ -89,6 +80,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        GameLog.log("当前日志信息 ："+typeArgsHG);
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
@@ -421,7 +413,9 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
 
     @Override
     public void postPersonBalanceResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(0,kyBalanceResult.getGmcp_balance());
+        if(!Check.isNull(kyBalanceResult.getBalance_cp())){
+            balancePlatformList.set(0,kyBalanceResult.getBalance_cp());
+        }
         balancePlatformList.set(1,kyBalanceResult.getBalance_ag());
         balancePlatformAdapter.notifyDataSetChanged();
         typeArgsHG = GameShipHelper.formatMoney(kyBalanceResult.getBalance_hg());

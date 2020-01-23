@@ -4,6 +4,7 @@ public class KYBalanceResult {
     private String ky_balance;
     private String balance_ag;
     private String balance_hg;
+    private String balance_cp;
     private String gmcp_balance;
     private String hg_balance;
     private String ff_balance;
@@ -34,6 +35,14 @@ public class KYBalanceResult {
         this.balance_ag = balance_ag;
     }
 
+    public String getGmcp_balance() {
+        return gmcp_balance;
+    }
+
+    public void setGmcp_balance(String gmcp_balance) {
+        this.gmcp_balance = gmcp_balance;
+    }
+
     public String getBalance_hg() {
         return balance_hg;
     }
@@ -42,12 +51,12 @@ public class KYBalanceResult {
         this.balance_hg = balance_hg;
     }
 
-    public String getGmcp_balance() {
-        return gmcp_balance;
+    public String getBalance_cp() {
+        return balance_cp;
     }
 
-    public void setGmcp_balance(String gmcp_balance) {
-        this.gmcp_balance = gmcp_balance;
+    public void setBalance_cp(String balance_cp) {
+        this.balance_cp = balance_cp;
     }
 
     public String getHg_balance() {
@@ -152,7 +161,7 @@ public class KYBalanceResult {
                 "ky_balance='" + ky_balance + '\'' +
                 ", balance_ag='" + balance_ag + '\'' +
                 ", balance_hg='" + balance_hg + '\'' +
-                ", gmcp_balance='" + gmcp_balance + '\'' +
+                ", balance_cp='" + balance_cp + '\'' +
                 ", hg_balance='" + hg_balance + '\'' +
                 ", ff_balance='" + ff_balance + '\'' +
                 ", vg_balance='" + vg_balance + '\'' +

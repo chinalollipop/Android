@@ -25,7 +25,7 @@
             android:layout_alignParentRight="true"
             android:drawableLeft="@mipmap/title_right"
             android:text=""
-            android:textColor="@color/title_text"
+            android:textColor="#7288e8"
             android:textSize="14sp" />
 
     </RelativeLayout>

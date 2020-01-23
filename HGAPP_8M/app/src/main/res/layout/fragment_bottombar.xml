@@ -40,11 +40,12 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageView
-                android:layout_margin="3dp"
-                android:background="@drawable/selector_tab_deposit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/selector_tab_deposit2" />
             <TextView
                 android:text="@string/str_title_deposit"
                 android:textColor="@color/all_bg"

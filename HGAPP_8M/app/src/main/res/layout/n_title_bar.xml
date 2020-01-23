@@ -23,7 +23,7 @@
             android:text="@string/n_titlebar_back"
             android:drawablePadding="5dp"
             android:textSize="16sp"
-            android:textColor="@color/title_text"
+            android:textColor="#7288e8"
             android:drawableLeft="@mipmap/back"
             />
 
@@ -44,7 +44,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="@string/account"
-            android:textColor="@color/title_text"
+            android:textColor="#7288e8"
             android:textSize="16sp" />
     </RelativeLayout>
     <!--<TextView
