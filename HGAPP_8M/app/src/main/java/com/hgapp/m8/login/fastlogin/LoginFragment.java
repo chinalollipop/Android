@@ -559,10 +559,14 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
             return;
         }
 
-        if(Check.isEmpty(userPhone)){
-            showMessage("请输入手机号！");
-            return;
+        String telOn  = ACache.get(getContext()).getAsString("telOn");
+        if(!Check.isEmpty(telOn)&&"true".equals(telOn)){
+            if(Check.isEmpty(userPhone)){
+                showMessage("请输入手机号！");
+                return;
+            }
         }
+
 
         /*if(Check.isEmpty(userDrawName)){
             showMessage("请输入真实姓名！");

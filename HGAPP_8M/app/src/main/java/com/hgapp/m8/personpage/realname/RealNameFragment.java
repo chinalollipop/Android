@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
@@ -22,6 +23,7 @@ import com.hgapp.m8.common.util.HGConstant;
 import com.hgapp.m8.common.widgets.NTitleBar;
 import com.hgapp.m8.common.widgets.verifycodeview.VerificationCodeView;
 import com.hgapp.common.util.Check;
+import com.hgapp.m8.data.LoginResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -188,7 +190,7 @@ public class RealNameFragment extends HGBaseFragment implements RealNameContract
                 break;
             case R.id.etRegisterBrithday:
                 hideKeyboard();
-                tpRegisterBrithday.show();;
+                tpRegisterBrithday.show();
                 break;
 
             case R.id.registerVerificationCodeView:
@@ -287,6 +289,12 @@ public class RealNameFragment extends HGBaseFragment implements RealNameContract
     @Override
     public void postRegisterMemberResult(String  message) {
         showMessage(message);
+        LoginResult loginResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_INFO), LoginResult.class);
+        loginResult.setAlias(etRegisterWithDrawName.getText().toString());
+        loginResult.setBirthday(etRegisterBrithday.getText().toString());
+        loginResult.setPhone(etRegisterAccountPhone.getText().toString());
+        loginResult.setE_Mail(etRegisterWechat.getText().toString());
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_INFO, JSON.toJSONString(loginResult));
         ACache.get(getContext()).put(HGConstant.USERNAME_ALIAS,etRegisterWithDrawName.getText().toString());
         pop();
     }

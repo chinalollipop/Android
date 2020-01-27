@@ -194,13 +194,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterRealName"
@@ -209,7 +210,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 真实姓名"
-                        android:textColor="@color/register_left"
+                        android:textColor="@color/title_bg_text"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -218,7 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="提款行卡的姓名，用于提款"
-
+                    android:background="@null"
                     />
             </LinearLayout>
 
@@ -256,14 +257,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterAccountPhone"
@@ -272,7 +273,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 手机号码"
-                        android:textColor="@color/register_left"
+                        android:textColor="@color/title_bg_text"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -282,6 +283,7 @@
                     android:layout_height="match_parent"
                     android:hint="请输入11位手机号码"
                     android:maxLength="11"
+                    android:background="@null"
                     />
             </LinearLayout>
 
@@ -289,14 +291,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterEmail"
@@ -305,7 +307,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 微信"
-                        android:textColor="@color/register_left"
+                        android:textColor="@color/title_bg_text"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -314,7 +316,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="微信号码"
-
+                    android:background="@null"
                     />
             </LinearLayout>
 
@@ -322,14 +324,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -337,7 +339,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 出生日期"
-                        android:textColor="@color/register_left"
+                        android:textColor="@color/title_bg_text"
                         android:textSize="15sp" />
                 </LinearLayout>
 

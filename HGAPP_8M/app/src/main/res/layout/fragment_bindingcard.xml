@@ -25,7 +25,7 @@
         android:gravity="center|left"
         android:paddingLeft="10dp"
         android:text="银行卡绑定"
-        android:textColor="@color/title_text" />
+        android:textColor="@color/title_bg_text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -280,6 +280,6 @@
         android:padding="5dp"
         android:background="@drawable/bg_edit_un_focus"
         android:layout_marginTop="6dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/title_bg_text"
         />
 </LinearLayout>

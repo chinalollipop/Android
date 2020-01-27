@@ -86,14 +86,21 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
         LoginResult loginResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_INFO), LoginResult.class);
         accountName.setText(loginResult.getUserName());
         if(Check.isEmpty(loginResult.getAlias())){
-            accountAlias.setText(loginResult.getAlias());
+            //accountAlias.setText(loginResult.getAlias());
         }else {
             String name = "" + loginResult.getAlias().substring(0, 1) + (loginResult.getAlias().length() >= 3 ? "**" : "*");
             accountAlias.setText(name);
         }
-        accountPhone.setText(loginResult.getPhone());
-        accountBirthday.setText(loginResult.getBirthday());
-        accountWechat.setText(loginResult.getE_Mail());
+        if(!Check.isEmpty(loginResult.getPhone())){
+            accountPhone.setText(loginResult.getPhone());
+        }
+        if(!Check.isEmpty(loginResult.getBirthday())){
+            accountBirthday.setText(loginResult.getBirthday());
+        }
+        if(!Check.isEmpty(loginResult.getE_Mail())){
+            accountWechat.setText(loginResult.getE_Mail());
+        }
+
     }
 
     @Override

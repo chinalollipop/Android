@@ -42,7 +42,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="Daniel"
-                    android:textColor="@color/title_text"
+                    android:textColor="@color/title_bg_text"
                     android:textSize="15sp" />
 
 
@@ -114,7 +114,7 @@
                 android:background="@null"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
-                android:text="姓名"
+                android:text="未绑定 >"
                 android:textColor="@color/account_text"
                 android:textSize="15sp" />
 
@@ -178,7 +178,7 @@
                 android:layout_alignParentRight="true"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
-                android:text="111"
+                android:text="未绑定 >"
                 android:textColor="@color/account_text"
                 android:textSize="15sp" />
 
@@ -236,7 +236,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@null"
                 android:gravity="center|left"
-                android:hint="未绑定 >"
+                android:text="未绑定 >"
                 android:textColorHint="@color/n_edittext_pwd"
                 android:textSize="15sp" />
 
@@ -272,7 +272,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@null"
                 android:gravity="center|left"
-                android:hint="未绑定 >"
+                android:text="未绑定 >"
                 android:paddingLeft="10dp"
                 android:textColorHint="@color/n_edittext_pwd"
                 android:textSize="15sp" />
