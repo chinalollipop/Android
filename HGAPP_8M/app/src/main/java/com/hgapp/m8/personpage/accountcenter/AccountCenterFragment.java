@@ -17,6 +17,7 @@ import com.hgapp.m8.data.BetRecordResult;
 import com.hgapp.m8.data.LoginResult;
 import com.hgapp.m8.personpage.managepwd.ManagePwdFragment;
 import com.hgapp.common.util.GameLog;
+import com.hgapp.m8.personpage.realname.RealNameFragment;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -25,6 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class AccountCenterFragment extends HGBaseFragment implements AccountCenterContract.View {
@@ -125,8 +127,37 @@ public class AccountCenterFragment extends HGBaseFragment implements AccountCent
         this.presenter = presenter;
     }
 
-    @OnClick(R.id.btnAccountCenterChangePwd)
+    @OnClick({R.id.btnAccountCenterChangePwd,R.id.accountAlias,R.id.accountPhone,R.id.accountWechat,R.id.accountBirthday})
     public void onViewClicked(View view) {
-        EventBus.getDefault().post(new StartBrotherEvent(ManagePwdFragment.newInstance()));
+        switch (view.getId()){
+           case R.id.btnAccountCenterChangePwd:
+               EventBus.getDefault().post(new StartBrotherEvent(ManagePwdFragment.newInstance()));
+               break;
+            case R.id.accountAlias:
+                if(accountAlias.getText().toString().equals("未绑定 >")){
+                    finish();
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(typeArgs,""), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.accountPhone:
+                if(accountPhone.getText().toString().equals("未绑定 >")){
+                    finish();
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(typeArgs,""), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.accountWechat:
+                if(accountWechat.getText().toString().equals("未绑定 >")){
+                    finish();
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(typeArgs,""), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.accountBirthday:
+                if(accountBirthday.getText().toString().equals("未绑定 >")){
+                    finish();
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(typeArgs,""), SupportFragment.SINGLETASK));
+                }
+                break;
+        }
+
     }
 }
