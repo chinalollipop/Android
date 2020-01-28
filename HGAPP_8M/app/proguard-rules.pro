@@ -401,10 +401,10 @@
 #----------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
--keep class com.hgapp.a6668.data.** { *; }
--keep class com.hgapp.a6668.homepage.cplist.events.** { *; }
--keep class com.hgapp.a6668.homepage.HomePageIcon { *; }
--keep class com.hgapp.a6668.common.widgets.** { *; }
+-keep class com.hgapp.m8.data.** { *; }
+-keep class com.hgapp.m8.homepage.cplist.events.** { *; }
+-keep class com.hgapp.m8.homepage.HomePageIcon { *; }
+-keep class com.hgapp.m8.common.widgets.** { *; }
 #-keep class com.xxx.app.deposit.model.** { *; }
 #-keep class com.xxx.app.repository.data.** { *; }
 #-keep class com.xxx.app.common.http.**{*;}

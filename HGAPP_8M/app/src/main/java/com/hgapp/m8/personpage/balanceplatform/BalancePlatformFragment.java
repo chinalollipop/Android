@@ -93,11 +93,11 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
-        balancePlatformList.add("加载中");
+        //balancePlatformList.add("加载中");
         gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
         gtypeList.add(new BalanceTransferData("1","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("2","开元棋牌","ky"));
-        gtypeList.add(new BalanceTransferData("3","皇冠棋牌","ff"));
+        //gtypeList.add(new BalanceTransferData("3","皇冠棋牌","ff"));
         gtypeList.add(new BalanceTransferData("4","VG棋牌","vg"));
         gtypeList.add(new BalanceTransferData("5","乐游棋牌","ly"));
         gtypeList.add(new BalanceTransferData("6","MG电子","mg"));
@@ -114,8 +114,9 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         lvBalancePlatform.setNestedScrollingEnabled(false);
         lvBalancePlatform.setAdapter(balancePlatformAdapter);
         presenter.postPersonBalance("","");
+        presenter.postPersonBalanceCP("","");
         presenter.postPersonBalanceKY("","");
-        presenter.postPersonBalanceHG("","");
+        //presenter.postPersonBalanceHG("","");
         presenter.postPersonBalanceVG("","");
         presenter.postPersonBalanceLY("","");
         presenter.postPersonBalanceMG("","");
@@ -182,7 +183,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             presenter.postBanalceTransferBBIN("", "hg", "bbin", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "cp":
-                                            presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "cp", GameShipHelper.getIntegerString(text));
+                                            presenter.postBanalceTransferCP("", "fundLimitTrans", "hg", "gmcp", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "ag":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -308,7 +309,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             //presenter.postBanalceTransferTY("","sc","hg", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "cp":
-                                            presenter.postBanalceTransferCP("","fundLimitTrans","cp","hg", GameShipHelper.getIntegerString(text));
+                                            presenter.postBanalceTransferCP("","fundLimitTrans","gmcp","hg", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "ag":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -412,10 +413,14 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     }
 
     @Override
+    public void postPersonBalanceCPResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(0,kyBalanceResult.getGmcp_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
+    }
+
+    @Override
     public void postPersonBalanceResult(KYBalanceResult kyBalanceResult) {
-        if(!Check.isNull(kyBalanceResult.getBalance_cp())){
-            balancePlatformList.set(0,kyBalanceResult.getBalance_cp());
-        }
         balancePlatformList.set(1,kyBalanceResult.getBalance_ag());
         balancePlatformAdapter.notifyDataSetChanged();
         typeArgsHG = GameShipHelper.formatMoney(kyBalanceResult.getBalance_hg());
@@ -441,63 +446,63 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
     @Override
     public void postPersonBalanceVGResult(KYBalanceResult kyBalanceResult) {
         GameLog.log("VG棋牌的余额 ");
-        balancePlatformList.set(4,kyBalanceResult.getVg_balance());
+        balancePlatformList.set(3,kyBalanceResult.getVg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceLYResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(5,kyBalanceResult.getLy_balance());
+        balancePlatformList.set(4,kyBalanceResult.getLy_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceMGResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(6,kyBalanceResult.getMg_balance());
+        balancePlatformList.set(5,kyBalanceResult.getMg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceAGResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(7,kyBalanceResult.getAvia_balance());
+        balancePlatformList.set(6,kyBalanceResult.getAvia_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceOGResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(8,kyBalanceResult.getOg_balance());
+        balancePlatformList.set(7,kyBalanceResult.getOg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceCQResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(9,kyBalanceResult.getCq_balance());
+        balancePlatformList.set(8,kyBalanceResult.getCq_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceMWResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(10,kyBalanceResult.getMw_balance());
+        balancePlatformList.set(9,kyBalanceResult.getMw_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceFGResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(11,kyBalanceResult.getFg_balance());
+        balancePlatformList.set(10,kyBalanceResult.getFg_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }
 
     @Override
     public void postPersonBalanceBBINResult(KYBalanceResult kyBalanceResult) {
-        balancePlatformList.set(12,kyBalanceResult.getBbin_balance());
+        balancePlatformList.set(11,kyBalanceResult.getBbin_balance());
         balancePlatformAdapter.notifyDataSetChanged();
         onSetMoreText(kyBalanceResult);
     }

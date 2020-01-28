@@ -1006,6 +1006,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             GameLog.log("请求参数： "+postData);
         } catch (Exception e) {
             e.printStackTrace();
+            showMessage("彩票异常，请联系客户！");
         }
         intent.putExtra("gameCnName", "8M彩票");
         intent.putExtra("hidetitlebar", false);

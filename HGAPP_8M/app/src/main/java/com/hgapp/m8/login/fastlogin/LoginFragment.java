@@ -172,7 +172,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
     private void initVideoControl(){
         getActivity().getWindow().setFormat(PixelFormat.TRANSLUCENT);
-        String url = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.login;
+       // String url = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.login;
+        String url = "";
         //注意，用ijk模式播放raw视频，这个必须打开
         //GSYVideoManager.instance().enableRawPlay(HGApplication.instance().getApplicationContext());
 
@@ -200,7 +201,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 //        Sofia.with(getActivity())
 ////                .invasionStatusBar()
 //                .statusBarBackground(Color.TRANSPARENT);
-        initVideoControl();
+      //  initVideoControl();
         String telOn  = ACache.get(getContext()).getAsString("telOn");
         if(!Check.isEmpty(telOn)&&"true".equals(telOn)){
             layLineTel.setVisibility(View.VISIBLE);
@@ -300,8 +301,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         try {
             InputStream myInput;
             OutputStream myOutput = new FileOutputStream(pasth);
-            //myInput = this.getAssets().open("login.mp4");
-            myInput = getResources().openRawResource(R.raw.login);
+            myInput = getResources().getAssets().open("login.mp4");
+            //myInput = getResources().openRawResource(R.raw.login);
             byte[] buffer = new byte[1024];
             int length = myInput.read(buffer);
             while (length > 0) {

@@ -126,6 +126,7 @@ public class XPlayGameActivity extends Activity {
         String gameurl = getIntent().getStringExtra("url");
         String type = getIntent().getStringExtra("type");
         String gameType = getIntent().getStringExtra("gameType");
+        String postParam = getIntent().getStringExtra("postParam");
         String uuid = getIntent().getStringExtra("uuid");
         String gameCnName = getIntent().getStringExtra("gameCnName");
         boolean hidetitlebar = getIntent().getBooleanExtra("hidetitlebar",false);
@@ -267,7 +268,7 @@ public class XPlayGameActivity extends Activity {
             }
         }
         if("post".equals(type)){
-            wvPayGame.postUrl(getIntent().getStringExtra("url"),null);
+            wvPayGame.postUrl(getIntent().getStringExtra("url"),postParam.getBytes());
         }else{
             wvPayGame.loadUrl(getIntent().getStringExtra("url"));
         }
