@@ -140,9 +140,9 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         if (savedInstanceState == null) {
-            mFragments[FIRST] = HomepageFragment.newInstance();
+            mFragments[FIRST] = DepositFragment.newInstance();
             mFragments[SECOND] = DiscountsFragment.newInstance();
-            mFragments[THIRD] = DepositFragment.newInstance();
+            mFragments[THIRD] = HomepageFragment.newInstance();
             mFragments[FOURTH] = ServiceOnlineFragment.newInstance();
             mFragments[FIFTH] = PersonFragment.newInstance();
             loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
@@ -155,9 +155,9 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
 
             // 这里我们需要拿到mFragments的引用,也可以通过getChildFragmentManager.getFragments()自行进行判断查找(效率更高些),用下面的方法查找更方便些
-            mFragments[FIRST] = findChildFragment(HomepageFragment.class);
+            mFragments[FIRST] = findChildFragment(DepositFragment.class);
             mFragments[SECOND] = findChildFragment(DiscountsFragment.class);
-            mFragments[THIRD] = findChildFragment(DepositFragment.class);
+            mFragments[THIRD] = findChildFragment(HomepageFragment.class);
             mFragments[FOURTH] = findChildFragment(ServiceOnlineFragment.class);
             mFragments[FIFTH] = findChildFragment(PersonFragment.class);
         }
@@ -171,14 +171,14 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         mBottomBar = (BottomBar) view.findViewById(R.id.bottomBar);
 
         mBottomBar
-                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_homepage, getString(R.string.str_title_homepage)))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_discount, getString(R.string.str_title_discount)))
                 .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_deposit, getString(R.string.str_title_deposit)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_discount, getString(R.string.str_title_discount)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_homepage, getString(R.string.str_title_homepage)))
                 .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_withdraw, getString(R.string.str_title_withdraw)))
                 .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_person, getString(R.string.str_title_person)));
         // 模拟未读消息
         //mBottomBar.getItem(FIRST).setUnreadCount(9);
-        //mBottomBar.setCurrentItem(2);
+        mBottomBar.setCurrentItem(2);
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position, int prePosition) {
@@ -194,7 +194,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
                         userStatus = "0";
                     }
                     if("0".equals(userStatus)){//未登录的情况下是看不到其他界面的 ，调整到登录页去 &&position!=2
-                        if(position==0||position==3){//DepositFragment
+                        if(position==0||position==2||position==3){//DepositFragment
                             showHideFragment(mFragments[position], mFragments[prePosition]);
                         }else{
                             showHideFragment(mFragments[0],null);

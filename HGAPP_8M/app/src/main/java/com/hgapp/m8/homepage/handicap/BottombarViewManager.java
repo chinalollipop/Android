@@ -61,7 +61,7 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(0));
+                        EventBus.getDefault().post(new ShowMainEvent(2));
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });
@@ -69,7 +69,7 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(2));
+                        EventBus.getDefault().post(new ShowMainEvent(0));
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });

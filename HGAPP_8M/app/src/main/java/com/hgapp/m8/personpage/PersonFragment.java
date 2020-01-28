@@ -154,7 +154,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                 return;
                             }
                             //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
-                            EventBus.getDefault().post(new ShowMainEvent(2));
+                            EventBus.getDefault().post(new ShowMainEvent(0));
                             break;
                         case 1://额度转换
                            /* if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -378,7 +378,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     return;
                 }
                 //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
-                EventBus.getDefault().post(new ShowMainEvent(1));
+                EventBus.getDefault().post(new ShowMainEvent(0));
                 break;
             case R.id.personDwith://取款
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -405,7 +405,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                 break;
             case R.id.personAD://活动
-                EventBus.getDefault().post(new ShowMainEvent(0));
+                EventBus.getDefault().post(new ShowMainEvent(1));
                 break;
         }
     }
