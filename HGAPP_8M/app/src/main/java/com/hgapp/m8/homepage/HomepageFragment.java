@@ -164,6 +164,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private NoticeResult noticeResultList;
     private CustomPopWindow mCustomPopWindowIn;
     private String userName ="";
+    private String playName = "";
     private  String pro =  "";
     private String userMoney = "";
     private String userState = "daniel";
@@ -1044,11 +1045,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "video";
+                playName = "AG旗舰厅";
                 String video_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_VIDEO_MAINTAIN);
                 if("1".equals(video_url)){
                     presenter.postMaintain();
                 }else {
-                    EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "live")), SupportFragment.SINGLETASK));
+                    presenter.postBYGame("","");
+                    //EventBus.getDefault().post(new StartBrotherEvent(AGListFragment.newInstance(Arrays.asList(userName, userMoney, "live")), SupportFragment.SINGLETASK));
                 }
                 break;
             case "og":
@@ -1057,6 +1060,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "og";
+                playName = "OG视讯";
                 presenter.postOGGame("","");
                 break;
             case "bbin":
@@ -1065,6 +1069,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "bbin";
+                playName = "BBIN视讯";
                 presenter.postBBINGame("","");
                 break;
             case "ds":
@@ -1249,6 +1254,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "agby";
+                playName = "捕鱼游戏";
                 presenter.postBYGame("","6");
                 break;
 
@@ -1283,12 +1289,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case R.id.hometabTextZR:
                 homeTabItem(2);
-                manager.scrollToPositionWithOffset(strTitleMarkup[1], 0);
+                manager.scrollToPositionWithOffset(strTitleMarkup[2], 0);
                 //tabLayout.setScrollPosition(1, 0f, true);
                 break;
             case R.id.hometabTextDJ:
                 homeTabItem(1);
-                manager.scrollToPositionWithOffset(strTitleMarkup[2], 0);
+                manager.scrollToPositionWithOffset(strTitleMarkup[1], 0);
                 //tabLayout.setScrollPosition(2, 0f, true);
                 break;
             case R.id.hometabTextQP:
@@ -1789,10 +1795,16 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult) {
         GameLog.log("AG捕鱼的返回数据："+agGameLoginResult.getUrl());
+        if(!"捕鱼游戏".equals(playName)){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(agGameLoginResult.getUrl()));
+            startActivity(intent);
+            return;
+        }
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());
-        intent.putExtra("gameCnName","AG捕鱼");
+        intent.putExtra("gameCnName",playName);
         intent.putExtra("hidetitlebar",false);
         getActivity().startActivity(intent);
     }
@@ -2001,7 +2013,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postVGQipai("","");
         presenter.postLYQipai("","");
         presenter.postAviaQiPai("","");
-        //presenter.postOGGame("","");
+        /*presenter.postOGGame("","");
+        presenter.postBYGame("","");*/
 
     }
 

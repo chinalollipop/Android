@@ -351,7 +351,11 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                     public void success(AppTextMessageResponse<AGGameLoginResult> response) {
                         if(response.isSuccess())
                         {
-                            view.postGoPlayGameResult(response.getData());
+                            if(!Check.isNull(response.getData())){
+                                view.postGoPlayGameResult(response.getData());
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
                         }
                         else
                         {
@@ -379,7 +383,11 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                         if(response.isSuccess())
                         {
                             //view.postGoPlayGameResult(response.getData());
-                            view.postOGResult(response.getData());
+                            if(!Check.isNull(response.getData())){
+                                view.postOGResult(response.getData());
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
                         }
                         else
                         {
@@ -407,7 +415,11 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                         if(response.isSuccess())
                         {
                             //view.postGoPlayGameResult(response.getData());
-                            view.postOGResult(response.getData());
+                            if(!Check.isNull(response.getData())){
+                                view.postOGResult(response.getData());
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
                         }
                         else
                         {
