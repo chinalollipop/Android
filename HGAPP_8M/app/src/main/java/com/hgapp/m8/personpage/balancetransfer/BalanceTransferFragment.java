@@ -47,12 +47,40 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     NTitleBar backTitleBalanceTransfer;
     @BindView(R.id.rvBalanceTransfer)
     RecyclerView flowBalanceTransfer;
+    @BindView(R.id.BalanceTransferRefresh)
+    TextView BalanceTransferRefresh;
+    @BindView(R.id.BalanceTransferOneBack)
+    TextView BalanceTransferOneBack;
     @BindView(R.id.tvBalanceTransferIn)
     TextView tvBalanceTransferIn;
     @BindView(R.id.tvBalanceTransferOut)
     TextView tvBalanceTransferOut;
     @BindView(R.id.BalanceTransferTY)
     TextView BalanceTransferTY;
+    @BindView(R.id.BalanceTransferCPOneBack)
+    TextView BalanceTransferCPOneBack;
+    @BindView(R.id.BalanceTransferAGOneBack)
+    TextView BalanceTransferAGOneBack;
+    @BindView(R.id.BalanceTransferKYOneBack)
+    TextView BalanceTransferKYOneBack;
+    @BindView(R.id.BalanceTransferLYOneBack)
+    TextView BalanceTransferLYOneBack;
+    @BindView(R.id.BalanceTransferVGOneBack)
+    TextView BalanceTransferVGOneBack;
+    @BindView(R.id.BalanceTransferMGOneBack)
+    TextView BalanceTransferMGOneBack;
+    @BindView(R.id.BalanceTransferFYOneBack)
+    TextView BalanceTransferFYOneBack;
+    @BindView(R.id.BalanceTransferOGOneBack)
+    TextView BalanceTransferOGOneBack;
+    @BindView(R.id.BalanceTransferCQOneBack)
+    TextView BalanceTransferCQOneBack;
+    @BindView(R.id.BalanceTransferMWOneBack)
+    TextView BalanceTransferMWOneBack;
+    @BindView(R.id.BalanceTransferFGOneBack)
+    TextView BalanceTransferFGOneBack;
+    @BindView(R.id.BalanceTransferBBINOneBack)
+    TextView BalanceTransferBBINOneBack;
     @BindView(R.id.BalanceTransferCP)
     TextView BalanceTransferCP;
     @BindView(R.id.BalanceTransferAG)
@@ -202,6 +230,144 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     }
 
+
+    private void onCPBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferCP("","","hg","gmcp",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onAGBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransfer("","hg","ag",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onKYBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferKY("","hg","ky",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onLYBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferLY("","hg","ly",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onVGBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferVG("","hg","vg",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onMGBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferMG("","hg","mg",BalanceTransferCPTextInt+"");
+        }
+    }
+
+
+    private void onFYBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferAG("","hg","avia",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onOGBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferOG("","hg","og",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onCQBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferCQ("","hg","cq",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onMWBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferMW("","hg","mw",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onFGBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferFG("","hg","fg",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onBBINBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferBBIN("","hg","bbin",BalanceTransferCPTextInt+"");
+        }
+    }
+
+    private void onOneBack(){
+        if(Integer.parseInt(BalanceTransferAG.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransfer("","ag","hg",Integer.parseInt(BalanceTransferAG.getText().toString().split("\\.")[0])+"");
+        }
+
+        if(Integer.parseInt(BalanceTransferCP.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferCP("","","gmcp","hg",Integer.parseInt(BalanceTransferCP.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferKY.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferKY("","ky","hg",Integer.parseInt(BalanceTransferKY.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferLY.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferLY("","ly","hg",Integer.parseInt(BalanceTransferLY.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferVG.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferVG("","vg","hg",Integer.parseInt(BalanceTransferVG.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferMG.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferMG("","mg","hg",Integer.parseInt(BalanceTransferMG.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferFY.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferAG("","avia","hg",Integer.parseInt(BalanceTransferFY.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferOG.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferOG("","og","hg",Integer.parseInt(BalanceTransferOG.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferCQ.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferCQ("","cq","hg",Integer.parseInt(BalanceTransferCQ.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferFG.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferFG("","fg","hg",Integer.parseInt(BalanceTransferFG.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferBBIN.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferBBIN("","bbin","hg",Integer.parseInt(BalanceTransferBBIN.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferMW.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferMW("","mw","hg",Integer.parseInt(BalanceTransferMW.getText().toString().split("\\.")[0])+"");
+        }
+    }
+
     private void initBalance() {
         //presenter.postPersonBalanceTY("","");
         presenter.postPersonBalance("","");
@@ -238,7 +404,6 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 }
             });
         }
-
 
     }
 
@@ -523,25 +688,71 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
             showMessage("转账方式不支持");
         }
 
-
     }
 
-
-    @OnClick({R.id.btnBalanceTrensferSubmit,R.id.tvBalanceTransferIn, R.id.tvBalanceTransferOut})
+    @OnClick({R.id.BalanceTransferCPOneBack,R.id.BalanceTransferAGOneBack,R.id.BalanceTransferKYOneBack,R.id.BalanceTransferLYOneBack,R.id.BalanceTransferVGOneBack,
+            R.id.BalanceTransferMGOneBack,R.id.BalanceTransferFYOneBack,R.id.BalanceTransferOGOneBack,R.id.BalanceTransferCQOneBack,R.id.BalanceTransferMWOneBack,
+            R.id.BalanceTransferFGOneBack,R.id.BalanceTransferBBINOneBack,
+            R.id.BalanceTransferRefresh,R.id.BalanceTransferOneBack,R.id.btnBalanceTrensferSubmit,R.id.tvBalanceTransferIn, R.id.tvBalanceTransferOut})
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btnBalanceTrensferSubmit:
-                onCheckTransferMoney("");
-                break;
-            case R.id.tvBalanceTransferOut:
-                //showPopMenuOut();
-                gtypeOptionsPickerOut.show();
-                break;
-            case R.id.tvBalanceTransferIn:
-                gtypeOptionsPickerIn.show();
-                //showPopMenuIn();
-                break;
-
+        try {
+            switch (view.getId()) {
+                case R.id.BalanceTransferCPOneBack:
+                    onCPBack();
+                    break;
+                case R.id.BalanceTransferAGOneBack:
+                    onAGBack();
+                    break;
+                case R.id.BalanceTransferKYOneBack:
+                    onKYBack();
+                    break;
+                case R.id.BalanceTransferLYOneBack:
+                    onLYBack();
+                    break;
+                case R.id.BalanceTransferVGOneBack:
+                    onVGBack();
+                    break;
+                case R.id.BalanceTransferMGOneBack:
+                    onMGBack();
+                    break;
+                case R.id.BalanceTransferFYOneBack:
+                    onFYBack();
+                    break;
+                case R.id.BalanceTransferOGOneBack:
+                    onOGBack();
+                    break;
+                case R.id.BalanceTransferCQOneBack:
+                    onCQBack();
+                    break;
+                case R.id.BalanceTransferMWOneBack:
+                    onMWBack();
+                    break;
+                case R.id.BalanceTransferFGOneBack:
+                    onFGBack();
+                    break;
+                case R.id.BalanceTransferBBINOneBack:
+                    onBBINBack();
+                    break;
+                case R.id.BalanceTransferRefresh:
+                    initBalance();
+                    break;
+                case R.id.BalanceTransferOneBack:
+                    onOneBack();
+                    break;
+                case R.id.btnBalanceTrensferSubmit:
+                    onCheckTransferMoney("");
+                    break;
+                case R.id.tvBalanceTransferOut:
+                    //showPopMenuOut();
+                    gtypeOptionsPickerOut.show();
+                    break;
+                case R.id.tvBalanceTransferIn:
+                    gtypeOptionsPickerIn.show();
+                    //showPopMenuIn();
+                    break;
+            }
+        }catch (Exception e){
+            GameLog.log("转账的异常信息是："+e);
         }
     }
 

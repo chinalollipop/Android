@@ -59,6 +59,7 @@ import com.hgapp.m8.homepage.online.OnlineFragment;
 import com.hgapp.m8.homepage.signtoday.SignTodayFragment;
 import com.hgapp.m8.login.fastlogin.LoginFragment;
 import com.hgapp.m8.personpage.balanceplatform.BalancePlatformFragment;
+import com.hgapp.m8.personpage.balancetransfer.BalanceTransferFragment;
 import com.hgapp.m8.personpage.bindingcard.BindingCardFragment;
 import com.hgapp.m8.personpage.realname.RealNameFragment;
 import com.hgapp.m8.withdrawPage.WithdrawFragment;
@@ -1348,7 +1349,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(null), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(userMoney), SupportFragment.SINGLETASK));
+                //EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(null), SupportFragment.SINGLETASK));
                 break;
             case R.id.homeDwith:
                 if(Check.isEmpty(userName)){

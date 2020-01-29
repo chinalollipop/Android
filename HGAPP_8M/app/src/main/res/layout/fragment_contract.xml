@@ -105,7 +105,6 @@
     <ImageView
         android:id="@+id/tvContractWXBg"
         android:layout_gravity="center"
-        android:visibility="gone"
         android:layout_width="150dp"
         android:layout_height="150dp" />
 

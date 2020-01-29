@@ -47,15 +47,48 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="22dp"
                         android:layout_marginLeft="5dp"
                         android:text="平台余额"
                         android:textColor="@color/account_text" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/BalanceTransferRefresh"
+                        android:layout_toLeftOf="@+id/BalanceTransferOneBack"
+                        android:text="全部更新"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/home_tab_title"
+                        android:textColor="@color/register_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/BalanceTransferOneBack"
+                            android:text="一键回收"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="80dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp">
 
@@ -79,7 +112,6 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -103,7 +135,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferCPOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -127,7 +167,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferAGOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -151,7 +199,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferKYOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
 
@@ -159,7 +215,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="80dp"
                     android:layout_marginBottom="5dp">
 
                     <LinearLayout
@@ -182,7 +238,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferLYOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -206,7 +270,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferVGOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -230,7 +302,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferMGOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -254,7 +334,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferFYOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
 
@@ -262,7 +350,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="80dp"
                     android:layout_marginBottom="5dp">
 
                     <LinearLayout
@@ -286,7 +374,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferOGOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -309,7 +405,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferCQOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -333,7 +437,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferMWOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -357,14 +469,22 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferFGOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="80dp"
                     android:layout_marginBottom="5dp">
 
                     <LinearLayout
@@ -388,7 +508,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferBBINOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -397,6 +525,7 @@
                         android:layout_weight="1"
                         android:background="@mipmap/icon_textview_transfer1"
                         android:gravity="center"
+                        android:visibility="invisible"
                         android:orientation="vertical">
 
                         <TextView
@@ -411,7 +540,15 @@
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
-
+                        <TextView
+                            android:id="@+id/BalanceTransferDSOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout

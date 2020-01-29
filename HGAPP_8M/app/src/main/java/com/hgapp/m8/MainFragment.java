@@ -194,11 +194,11 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
                         userStatus = "0";
                     }
                     if("0".equals(userStatus)){//未登录的情况下是看不到其他界面的 ，调整到登录页去 &&position!=2
-                        if(position==0||position==2||position==3){//DepositFragment
+                        if(position==1||position==2||position==3){//DepositFragment
                             showHideFragment(mFragments[position], mFragments[prePosition]);
                         }else{
-                            showHideFragment(mFragments[0],null);
-                            mBottomBar.setCurrentItem(0);
+                            showHideFragment(mFragments[2],null);
+                            mBottomBar.setCurrentItem(2);
                             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                         }
                         return;
