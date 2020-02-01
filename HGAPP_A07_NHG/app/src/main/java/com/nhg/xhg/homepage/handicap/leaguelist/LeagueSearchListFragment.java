@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -34,7 +35,6 @@ import com.nhg.xhg.homepage.handicap.leaguedetail.ComPassSearchEvent;
 import com.nhg.xhg.homepage.handicap.leaguedetail.LeagueDetailSearchEvent;
 import com.nhg.xhg.homepage.handicap.leaguedetail.zhbet.ZHBetViewManager;
 import com.nhg.xhg.homepage.handicap.leaguelist.championlist.ChampionDetailSearchEvent;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

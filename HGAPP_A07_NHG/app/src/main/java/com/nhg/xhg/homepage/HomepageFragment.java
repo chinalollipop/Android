@@ -20,6 +20,10 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.jude.rollviewpager.RollPagerView;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.NetworkUtils;
+import com.nhg.common.util.Utils;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -28,7 +32,6 @@ import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.common.adapters.AutoSizeRVAdapter;
 import com.nhg.xhg.common.event.LogoutEvent;
 import com.nhg.xhg.common.http.Client;
-import com.nhg.xhg.common.http.cphttp.CPClient;
 import com.nhg.xhg.common.util.ACache;
 import com.nhg.xhg.common.util.GameShipHelper;
 import com.nhg.xhg.common.util.HGConstant;
@@ -50,7 +53,6 @@ import com.nhg.xhg.data.Sportcenter;
 import com.nhg.xhg.data.ValidResult;
 import com.nhg.xhg.homepage.aglist.AGListFragment;
 import com.nhg.xhg.homepage.aglist.playgame.XPlayGameActivity;
-import com.nhg.xhg.homepage.cplist.CPListFragment;
 import com.nhg.xhg.homepage.events.EventShowDialog;
 import com.nhg.xhg.homepage.events.EventsFragment;
 import com.nhg.xhg.homepage.handicap.HandicapFragment;
@@ -65,10 +67,6 @@ import com.nhg.xhg.personpage.balancetransfer.BalanceTransferFragment;
 import com.nhg.xhg.personpage.bindingcard.BindingCardFragment;
 import com.nhg.xhg.personpage.realname.RealNameFragment;
 import com.nhg.xhg.withdrawPage.WithdrawFragment;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.NetworkUtils;
-import com.nhg.common.util.Utils;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieManager;
@@ -1069,15 +1067,6 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case 2:
                 userState = "2";
-                String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
-                String cp_inform = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_INFORM);
-                String cp_token = ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE);
-                if (Check.isEmpty(cp_url) || Check.isEmpty(cp_inform) || Check.isEmpty(cp_token) || Check.isNull(CPClient.getRetrofit())) {
-                    presenter.postCP();
-                    showMessage("正在加载中，请稍后再试!");
-                } else {
-                    this.startActivity(new Intent(getContext(), CPListFragment.class));
-                }
 
                 //EventBus.getDefault().post(new StartBrotherEvent(CPListFragment.newInstance(Arrays.asList(userName,userMoney,"live")), SupportFragment.SINGLETASK));
                 /*String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOTTERY_MAINTAIN);

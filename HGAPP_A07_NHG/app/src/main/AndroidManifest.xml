@@ -162,16 +162,6 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/app_name" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name="com.nhg.xhg.common.service.ServiceOnlineActivity"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.bet.betrecords.CPBetRecordsFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.CPListFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.me.CPMeFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.CPHallFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.lottery.CPLotteryListFragment" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.role.RoleActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.role.CPServiceActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.nhg.xhg.homepage.cplist.CPOrderFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
        <!-- <service android:name="com.nhg.xhg.common.service.StartX5Service" />-->
         <service android:name="com.nhg.xhg.upgrade.downunit.AppDownloadService" />
         <!--<service

@@ -20,6 +20,8 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -55,8 +57,6 @@ import com.nhg.xhg.homepage.handicap.leaguelist.championlist.ChampionDetailListF
 import com.nhg.xhg.homepage.handicap.leaguelist.championlist.ChampionDetailSearchEvent;
 import com.nhg.xhg.homepage.handicap.saiguo.SaiGuoFragment;
 import com.nhg.xhg.personpage.PersonContract;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieManager;

@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowManager;
 
-import com.nhg.xhg.R;
-import com.nhg.xhg.common.util.HGIWebSetting;
 import com.nhg.common.util.Check;
 import com.nhg.common.util.GameLog;
+import com.nhg.xhg.R;
+import com.nhg.xhg.common.util.HGIWebSetting;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.ValueCallback;

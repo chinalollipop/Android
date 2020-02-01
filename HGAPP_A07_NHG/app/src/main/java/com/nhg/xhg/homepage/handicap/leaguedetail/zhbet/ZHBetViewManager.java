@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.homepage.sportslist.bet.BetOrderZHSubmitDialog;
-import com.nhg.common.util.GameLog;
 
 public class ZHBetViewManager {
     private volatile static ZHBetViewManager singleton;

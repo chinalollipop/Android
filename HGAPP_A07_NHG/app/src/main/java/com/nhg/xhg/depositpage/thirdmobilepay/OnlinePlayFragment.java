@@ -13,11 +13,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.common.util.HGConstant;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

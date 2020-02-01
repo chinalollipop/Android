@@ -11,16 +11,16 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.base.IPresenter;
+import com.nhg.xhg.common.adapters.AutoSizeAdapter;
 import com.nhg.xhg.common.util.DateHelper;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.FlowingRecordResult;
 import com.nhg.xhg.data.RecordResult;
-import com.nhg.xhg.common.adapters.AutoSizeAdapter;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import java.text.SimpleDateFormat;

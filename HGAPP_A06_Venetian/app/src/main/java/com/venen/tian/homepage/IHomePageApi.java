@@ -26,9 +26,9 @@ public interface IHomePageApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<OnlineServiceResult>> postOnlineService(@Field("appRefer") String appRefer);
 
-    @POST("banner.php")
+    @POST("api/indexBannerApi.php")
     @FormUrlEncoded
-    public Observable<BannerResult> postBanner(@Field("appRefer") String appRefer);
+    public Observable<BannerResult> postBanner(@Field("appRefer") String appRefer, @Field("action") String action);
 
     @POST("notice.php")
     @FormUrlEncoded

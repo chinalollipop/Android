@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.ToastUtils;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.IPresenter;
@@ -13,9 +16,6 @@ import com.nhg.xhg.common.util.GameShipHelper;
 import com.nhg.xhg.common.widgets.bottomdialog.NBaseBottomDialog;
 import com.nhg.xhg.data.BetRecordResult;
 import com.nhg.xhg.data.PersonBalanceResult;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 

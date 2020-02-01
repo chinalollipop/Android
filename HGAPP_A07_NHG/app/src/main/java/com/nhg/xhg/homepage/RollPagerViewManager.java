@@ -9,6 +9,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jude.rollviewpager.OnItemClickListener;
+import com.jude.rollviewpager.RollPagerView;
+import com.jude.rollviewpager.RollPagerView.PageChangeListener;
+import com.jude.rollviewpager.adapter.StaticPagerAdapter;
+import com.jude.rollviewpager.hintview.IconHintView;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.common.http.Client;
 import com.nhg.xhg.common.util.ACache;
@@ -16,12 +22,6 @@ import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.widgets.RoundCornerImageView;
 import com.nhg.xhg.data.BannerResult;
 import com.nhg.xhg.homepage.online.OnlineFragment;
-import com.nhg.common.util.GameLog;
-import com.jude.rollviewpager.OnItemClickListener;
-import com.jude.rollviewpager.RollPagerView;
-import com.jude.rollviewpager.RollPagerView.PageChangeListener;
-import com.jude.rollviewpager.adapter.StaticPagerAdapter;
-import com.jude.rollviewpager.hintview.IconHintView;
 import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;

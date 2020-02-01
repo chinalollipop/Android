@@ -5,8 +5,8 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.sunapp.bloc" //线上环境
-        versionName "1.0.7" //线上环境
+        applicationId "com.nhg.xhg" //线上环境
+        versionName "1.0.0" //线上环境
 //        applicationId "com.cndodricideh.daniel"//测试环境
 //        versionName "1.5" //测试环境环境
         minSdkVersion 19

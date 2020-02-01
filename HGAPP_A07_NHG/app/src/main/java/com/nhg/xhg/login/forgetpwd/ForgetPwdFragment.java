@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.nhg.common.util.Check;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -18,7 +19,6 @@ import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.LoginResult;
 import com.nhg.xhg.login.fastlogin.LoginFragment;
-import com.nhg.common.util.Check;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

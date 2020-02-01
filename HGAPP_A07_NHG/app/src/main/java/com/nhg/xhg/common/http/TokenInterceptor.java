@@ -2,12 +2,12 @@ package com.nhg.xhg.common.http;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.common.http.request.AppTextMessageRequest;
 import com.nhg.xhg.common.http.util.MacUtil;
 import com.nhg.xhg.data.RestartLoginResult;
 import com.nhg.xhg.login.fastlogin.LoginFragment;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 

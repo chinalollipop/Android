@@ -1,5 +1,6 @@
 package com.nhg.xhg.homepage.sportslist.bet;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.util.HGConstant;
@@ -7,7 +8,6 @@ import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.BetResult;
 import com.nhg.xhg.data.SportsPlayMethodResult;
-import com.nhg.common.util.GameLog;
 
 import java.util.Random;
 

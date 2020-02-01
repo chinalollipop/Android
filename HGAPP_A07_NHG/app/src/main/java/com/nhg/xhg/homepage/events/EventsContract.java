@@ -4,9 +4,9 @@ import com.nhg.xhg.base.IMessageView;
 import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.base.IProgressView;
 import com.nhg.xhg.base.IView;
-import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.DownAppGiftResult;
 import com.nhg.xhg.data.LuckGiftResult;
+import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.ValidResult;
 
 public interface EventsContract {

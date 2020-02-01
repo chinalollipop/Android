@@ -1,5 +1,6 @@
 package com.nhg.xhg.login.fastlogin;
 
+import com.nhg.common.util.Timber;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
@@ -10,7 +11,6 @@ import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.LoginResult;
 import com.nhg.xhg.data.SportsPlayMethodRBResult;
-import com.nhg.common.util.Timber;
 
 /**
  * Created by Daniel on 2017/4/20.

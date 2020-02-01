@@ -14,8 +14,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.nhg.xhg.R;
 import com.nhg.common.util.GameLog;
+import com.nhg.xhg.R;
 
 import java.util.Random;
 import java.util.concurrent.Executors;

@@ -1,7 +1,7 @@
 package com.nhg.xhg.common.util;
 
-import com.nhg.xhg.base.IMessageView;
 import com.nhg.common.util.NetworkUtils;
+import com.nhg.xhg.base.IMessageView;
 
 /**
  * Created by Nereus on 2017/4/26.

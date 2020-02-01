@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.nhg.common.util.Check;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.base.IPresenter;
@@ -17,7 +18,6 @@ import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.DepositThirdBankCardResult;
 import com.nhg.xhg.depositpage.DepositeContract;
 import com.nhg.xhg.depositpage.thirdmobilepay.OnlinePlayFragment;
-import com.nhg.common.util.Check;
 
 import org.greenrobot.eventbus.EventBus;
 

@@ -1,5 +1,7 @@
 package com.nhg.xhg.personpage;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.Timber;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
@@ -12,8 +14,6 @@ import com.nhg.xhg.data.NoticeResult;
 import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.PersonInformResult;
 import com.nhg.xhg.data.QipaiResult;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.Timber;
 
 public class PersonPresenter implements PersonContract.Presenter {
 

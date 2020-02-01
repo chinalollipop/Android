@@ -1,9 +1,9 @@
 package com.nhg.xhg.homepage.events;
 
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
-import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.DownAppGiftResult;
 import com.nhg.xhg.data.LuckGiftResult;
+import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.ValidResult;
 
 import retrofit2.http.Field;

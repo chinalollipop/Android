@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ListView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -27,8 +29,6 @@ import com.nhg.xhg.depositpage.thirdmobilepay.OnlinePlayFragment;
 import com.nhg.xhg.depositpage.thirdmobilepay.ThirdMobilePayFragment;
 import com.nhg.xhg.homepage.UserMoneyEvent;
 import com.nhg.xhg.personpage.realname.RealNameFragment;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

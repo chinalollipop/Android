@@ -1,15 +1,15 @@
 package com.nhg.xhg.homepage.events;
 
+import com.nhg.common.util.Timber;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
-import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.DownAppGiftResult;
 import com.nhg.xhg.data.LuckGiftResult;
+import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.ValidResult;
-import com.nhg.common.util.Timber;
 
 public class EventsPresenter implements EventsContract.Presenter {
 

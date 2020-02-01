@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -19,7 +20,6 @@ import com.nhg.xhg.common.util.ACache;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.login.fastlogin.LoginFragment;
 import com.nhg.xhg.personpage.accountcenter.AccountCenterFragment;
-import com.nhg.common.util.Check;
 
 import org.greenrobot.eventbus.EventBus;
 

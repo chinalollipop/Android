@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import com.nhg.xhg.R;
 import com.nhg.common.util.InputMethodUtils;
 import com.nhg.common.util.Timber;
 import com.nhg.common.util.ToastUtils;
+import com.nhg.xhg.R;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;

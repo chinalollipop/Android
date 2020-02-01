@@ -9,6 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.view.View;
 
+import com.mylhyl.circledialog.CircleDialog;
+import com.mylhyl.circledialog.callback.ConfigInput;
+import com.mylhyl.circledialog.params.InputParams;
+import com.mylhyl.circledialog.view.listener.OnInputClickListener;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -24,12 +30,6 @@ import com.nhg.xhg.data.BetRecordResult;
 import com.nhg.xhg.data.KYBalanceResult;
 import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.homepage.UserMoneyEvent;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
-import com.mylhyl.circledialog.CircleDialog;
-import com.mylhyl.circledialog.callback.ConfigInput;
-import com.mylhyl.circledialog.params.InputParams;
-import com.mylhyl.circledialog.view.listener.OnInputClickListener;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

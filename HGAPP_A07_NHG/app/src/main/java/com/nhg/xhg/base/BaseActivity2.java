@@ -1,4 +1,5 @@
 package com.nhg.xhg.base;
+
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -10,10 +11,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import com.jaeger.library.StatusBarUtil;
+import com.nhg.common.util.ToastUtils;
 import com.nhg.xhg.R;
 import com.nhg.xhg.common.widgets.GifView;
-import com.nhg.common.util.ToastUtils;
-import com.jaeger.library.StatusBarUtil;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;

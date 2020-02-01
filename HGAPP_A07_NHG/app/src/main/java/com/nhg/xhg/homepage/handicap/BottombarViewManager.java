@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.homepage.handicap.leaguedetail.zhbet.ZHBetViewManager;
-import com.nhg.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 

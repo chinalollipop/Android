@@ -1,5 +1,7 @@
 package com.nhg.xhg.homepage;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.Utils;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
@@ -18,8 +20,6 @@ import com.nhg.xhg.data.OnlineServiceResult;
 import com.nhg.xhg.data.QipaiResult;
 import com.nhg.xhg.data.Sportcenter;
 import com.nhg.xhg.data.ValidResult;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.Utils;
 
 
 public class HomePagePresenter implements HomePageContract.Presenter {
@@ -62,7 +62,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
     @Override
     public void postBanner(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBanner(HGConstant.PRODUCT_PLATFORM))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanner(HGConstant.PRODUCT_PLATFORM,"mobile"))
                 .subscribe(new ResponseSubscriber<BannerResult>() {
                     @Override
                     public void success(BannerResult response) {

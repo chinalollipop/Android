@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseDialogFragment;
@@ -30,8 +32,6 @@ import com.nhg.xhg.data.PrepareBetResult;
 import com.nhg.xhg.homepage.handicap.betapi.PrepareBetApiContract;
 import com.nhg.xhg.homepage.handicap.betapi.PrepareRequestParams;
 import com.nhg.xhg.homepage.handicap.leaguedetail.PrepareBetEvent;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import java.util.Arrays;
 import java.util.List;

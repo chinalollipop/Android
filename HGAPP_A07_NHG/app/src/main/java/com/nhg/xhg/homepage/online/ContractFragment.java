@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.PackageUtil;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.common.util.FilterApp;
 import com.nhg.xhg.common.widgets.NTitleBar;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.PackageUtil;
 
 import java.util.ArrayList;
 import java.util.List;

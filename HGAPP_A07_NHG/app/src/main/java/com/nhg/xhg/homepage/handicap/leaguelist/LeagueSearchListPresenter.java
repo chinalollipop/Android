@@ -1,5 +1,6 @@
 package com.nhg.xhg.homepage.handicap.leaguelist;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
 import com.nhg.xhg.common.util.HGConstant;
@@ -9,7 +10,6 @@ import com.nhg.xhg.data.LeagueDetailSearchListResult;
 import com.nhg.xhg.data.LeagueSearchListResult;
 import com.nhg.xhg.data.LeagueSearchTimeResult;
 import com.nhg.xhg.data.MaintainResult;
-import com.nhg.common.util.Check;
 
 
 public class LeagueSearchListPresenter implements LeagueSearchListContract.Presenter {

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseDialogFragment;
 import com.nhg.xhg.common.adapters.AutoSizeRVAdapter;
@@ -21,7 +22,6 @@ import com.nhg.xhg.homepage.UserMoneyEvent;
 import com.nhg.xhg.homepage.handicap.BottombarViewManager;
 import com.nhg.xhg.homepage.handicap.leaguedetail.CalosEvent;
 import com.nhg.xhg.personpage.betrecord.BetRecordFragment;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

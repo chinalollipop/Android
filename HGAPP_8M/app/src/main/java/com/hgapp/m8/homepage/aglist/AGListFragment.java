@@ -375,7 +375,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             //holder.setText(R.id.tv_item_game_name,data.getName());
             RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
             roundCornerImageView.onCornerAll(roundCornerImageView);
-            switch (position){
+            /*switch (position){
                 case 0:
                     roundCornerImageView.setBackgroundResource(R.drawable.game_one);
                     break;
@@ -388,7 +388,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
                 case 3:
                     roundCornerImageView.setBackgroundResource(R.drawable.game_three);
                     break;
-            }
+            }*/
             holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -61,7 +61,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
     @Override
     public void postBanner(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBanner(HGConstant.PRODUCT_PLATFORM))
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanner(HGConstant.PRODUCT_PLATFORM,"mobile"))
                 .subscribe(new ResponseSubscriber<BannerResult>() {
                     @Override
                     public void success(BannerResult response) {

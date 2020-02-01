@@ -1,12 +1,12 @@
 package com.nhg.xhg.personpage.realname;
 
+import com.nhg.common.util.Timber;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.LoginResult;
-import com.nhg.common.util.Timber;
 
 /**
  * Created by Daniel on 2017/4/20.

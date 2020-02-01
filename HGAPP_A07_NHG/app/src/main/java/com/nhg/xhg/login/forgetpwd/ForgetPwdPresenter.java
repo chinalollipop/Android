@@ -1,11 +1,11 @@
 package com.nhg.xhg.login.forgetpwd;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
-import com.nhg.common.util.GameLog;
 
 /**
  * Created by Daniel on 2017/4/20.

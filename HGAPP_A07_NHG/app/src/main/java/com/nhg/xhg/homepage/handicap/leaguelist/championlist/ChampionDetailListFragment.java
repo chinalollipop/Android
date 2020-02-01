@@ -12,6 +12,8 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -28,8 +30,6 @@ import com.nhg.xhg.homepage.handicap.HandicapFragment;
 import com.nhg.xhg.homepage.handicap.betapi.PrepareRequestParams;
 import com.nhg.xhg.homepage.handicap.betnew.LeagueEvent;
 import com.nhg.xhg.homepage.sportslist.bet.BetOrderSubmitDialog;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 

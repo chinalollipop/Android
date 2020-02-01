@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -26,8 +28,6 @@ import com.nhg.xhg.login.fastregister.RegisterFragment;
 import com.nhg.xhg.login.forgetpwd.ForgetPwdFragment;
 import com.nhg.xhg.login.resetpwd.ResetPwdDialog;
 import com.nhg.xhg.login.resetpwd.ResetPwdEvent;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

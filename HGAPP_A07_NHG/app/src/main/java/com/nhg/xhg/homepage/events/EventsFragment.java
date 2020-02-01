@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -19,15 +21,13 @@ import com.nhg.xhg.common.util.GameShipHelper;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.widgets.redpacket.RedPacketsLayout;
 import com.nhg.xhg.data.DepositAliPayQCCodeResult;
-import com.nhg.xhg.data.PersonBalanceResult;
-import com.nhg.xhg.homepage.UserMoneyEvent;
 import com.nhg.xhg.data.DownAppGiftResult;
 import com.nhg.xhg.data.LuckGiftResult;
-import com.nhg.xhg.homepage.events.anim.Swing;
+import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.ValidResult;
+import com.nhg.xhg.homepage.UserMoneyEvent;
+import com.nhg.xhg.homepage.events.anim.Swing;
 import com.nhg.xhg.homepage.events.anim.ZoomOutRightExit;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 

@@ -38,10 +38,10 @@ import com.hgapp.m8.login.resetpwd.ResetPwdDialog;
 import com.hgapp.m8.login.resetpwd.ResetPwdEvent;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
-import com.shuyu.gsyvideoplayer.GSYVideoManager;
+/*import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
-import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
+import com.shuyu.gsyvideoplayer.utils.GSYVideoType;*/
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -69,8 +69,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     VerificationCodeView verificationCodeView;*/
 //    @BindView(R.id.upVideo)
 //    UpVideoView upVideo;
-    @BindView(R.id.hgControlVideoPlayer)
-    HGControlVideo hgControlVideoPlayer;
+   /* @BindView(R.id.hgControlVideoPlayer)
+    HGControlVideo hgControlVideoPlayer;*/
     /*@BindView(R.id.sScrollView)
     LinearLayout sScrollView;*/
     @BindView(R.id.fgtLogin)
@@ -170,7 +170,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     }
 
 
-    private void initVideoControl(){
+    /*private void initVideoControl(){
         getActivity().getWindow().setFormat(PixelFormat.TRANSLUCENT);
        // String url = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.login;
         String url = "";
@@ -187,7 +187,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         hgControlVideoPlayer.setUp(url, false, null, "");
         hgControlVideoPlayer.setLooping(true);
         hgControlVideoPlayer.startPlayLogic();
-    }
+    }*/
 
     private void onVisiableStatusBar(){
         //Sofia.with(getActivity()).visiableStatusBar(View.VISIBLE).visiableNavigationBar(View.VISIBLE);
@@ -270,8 +270,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     public void onResume() {
         super.onResume();
 
-        hgControlVideoPlayer.onVideoResume();
-        hgControlVideoPlayer.startPlayLogic();
+        /*hgControlVideoPlayer.onVideoResume();
+        hgControlVideoPlayer.startPlayLogic();*/
         // 重新开始播放器
         /*upVideo.resume();
         upVideo.start();*/
@@ -280,18 +280,18 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @Override
     public void onPause() {
         super.onPause();
-        hgControlVideoPlayer.onVideoPause();
+        //hgControlVideoPlayer.onVideoPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(!Check.isNull(hgControlVideoPlayer)){
+        /*if(!Check.isNull(hgControlVideoPlayer)){
             hgControlVideoPlayer.release();
             //释放所有
             hgControlVideoPlayer.setVideoAllCallBack(null);
             GSYVideoManager.releaseAllVideos();
-        }
+        }*/
         //_mActivity.overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
 
     }

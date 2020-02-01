@@ -8,6 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.PackageUtil;
+import com.nhg.common.util.Timber;
+import com.nhg.common.util.ToastUtils;
+import com.nhg.common.util.Utils;
 import com.nhg.xhg.common.event.LogoutEvent;
 import com.nhg.xhg.common.event.StartBrotherWithPopEvent;
 import com.nhg.xhg.common.service.ServiceOnlineFragment;
@@ -28,12 +34,6 @@ import com.nhg.xhg.upgrade.downunit.AppDownloadServiceBinder;
 import com.nhg.xhg.upgrade.downunit.DownloadIntent;
 import com.nhg.xhg.upgrade.downunit.DownloadProgress;
 import com.nhg.xhg.upgrade.downunit.FileDownloaderListener;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.PackageUtil;
-import com.nhg.common.util.Timber;
-import com.nhg.common.util.ToastUtils;
-import com.nhg.common.util.Utils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -194,7 +194,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
                         userStatus = "0";
                     }
                     if("0".equals(userStatus)){//未登录的情况下是看不到其他界面的 ，调整到登录页去 &&position!=2
-                        if(position==0||position==2){
+                        if(position==0||position==2||position==3){
                             showHideFragment(mFragments[position], mFragments[prePosition]);
                         }else{
                             showHideFragment(mFragments[0],null);

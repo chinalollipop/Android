@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -31,8 +33,6 @@ import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.homepage.UserMoneyEvent;
 import com.nhg.xhg.homepage.aglist.agchange.AGPlatformDialog;
 import com.nhg.xhg.homepage.aglist.playgame.XPlayGameActivity;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -355,41 +355,6 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
         }
     }
 
-    class AGLiveAdapter extends AutoSizeRVAdapter<AGLiveResult> {
-        private Context context;
-        public AGLiveAdapter(Context context, int layoutId, List datas) {
-            super(context, layoutId, datas);
-            this.context = context;
-        }
-
-        @Override
-        protected void convert(ViewHolder holder, final AGLiveResult data, final int position) {
-            //holder.setText(R.id.tv_item_game_name,data.getName());
-            RoundCornerImageView roundCornerImageView =      (RoundCornerImageView) holder.getView(R.id.iv_item_game_icon);
-            roundCornerImageView.onCornerAll(roundCornerImageView);
-            switch (position){
-                case 0:
-                    roundCornerImageView.setBackgroundResource(R.drawable.game_one);
-                    break;
-                case 1:
-                    roundCornerImageView.setBackgroundResource(R.drawable.game_four);
-                    break;
-                case 2:
-                    roundCornerImageView.setBackgroundResource(R.drawable.game_two);
-                    break;
-                case 3:
-                    roundCornerImageView.setBackgroundResource(R.drawable.game_three);
-                    break;
-            }
-            holder.setOnClickListener(R.id.ll_home_main_show, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dzTitileName = data.getName();
-                    presenter.postGoPlayGame("",data.getGameid());
-                }
-            });
-        }
-    }
 
     class AGGameAdapter extends AutoSizeRVAdapter<AGLiveResult> {
         private Context context;

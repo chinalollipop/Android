@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.nhg.xhg.common.http.Client;
-import com.nhg.xhg.common.http.cphttp.CPClient;
 import com.nhg.xhg.depositpage.DepositPresenter;
 import com.nhg.xhg.depositpage.DepositeContract;
 import com.nhg.xhg.depositpage.IDepositApi;
@@ -23,15 +22,6 @@ import com.nhg.xhg.homepage.aglist.IAGListApi;
 import com.nhg.xhg.homepage.aglist.agchange.AGPlatformContract;
 import com.nhg.xhg.homepage.aglist.agchange.AGPlatformPresenter;
 import com.nhg.xhg.homepage.aglist.agchange.IAgPlatformApi;
-import com.nhg.xhg.homepage.cplist.CPListContract;
-import com.nhg.xhg.homepage.cplist.CPListPresenter;
-import com.nhg.xhg.homepage.cplist.ICPListApi;
-import com.nhg.xhg.homepage.cplist.hall.CPHallListContract;
-import com.nhg.xhg.homepage.cplist.hall.CPHallListPresenter;
-import com.nhg.xhg.homepage.cplist.hall.ICPHallListApi;
-import com.nhg.xhg.homepage.cplist.order.CPOrderContract;
-import com.nhg.xhg.homepage.cplist.order.CPOrderPresenter;
-import com.nhg.xhg.homepage.cplist.order.ICPOrderApi;
 import com.nhg.xhg.homepage.events.EventsContract;
 import com.nhg.xhg.homepage.events.EventsPresenter;
 import com.nhg.xhg.homepage.events.IEventsApi;
@@ -404,34 +394,5 @@ public class Injections {
         return new CheckUpdatePresenter(view,api);
     }
 
-    //彩票的接口
-    //----------------------------------------------------------------------------------------------------------------------------------
-    public static CPHallListContract.Presenter inject(@NonNull CPHallListContract.View view, @Nullable ICPHallListApi api)
-    {
-        if(null == api)
-        {
-            api = CPClient.getRetrofit().create(ICPHallListApi.class);
-        }
-        return new CPHallListPresenter(api,view);
-    }
-
-    public static CPListContract.Presenter inject(@NonNull CPListContract.View view, @Nullable ICPListApi api)
-    {
-        if(null == api)
-        {
-            api = CPClient.getRetrofit().create(ICPListApi.class);
-        }
-        return new CPListPresenter(api,view);
-    }
-
-    public static CPOrderContract.Presenter inject(@Nullable ICPOrderApi api, @NonNull CPOrderContract.View view)
-    {
-        if(null == api)
-        {
-            api = CPClient.getRetrofit().create(ICPOrderApi.class);
-        }
-
-        return new CPOrderPresenter(api,view);
-    }
 
 }

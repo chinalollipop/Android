@@ -1,12 +1,12 @@
 package com.nhg.xhg.personpage.depositrecord;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.RecordResult;
-import com.nhg.common.util.Check;
 
 
 public class DepositRecordPresenter implements DepositRecordContract.Presenter {

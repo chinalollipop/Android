@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -29,8 +31,6 @@ import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.BalanceTransferData;
 import com.nhg.xhg.data.BetRecordResult;
 import com.nhg.xhg.data.KYBalanceResult;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;

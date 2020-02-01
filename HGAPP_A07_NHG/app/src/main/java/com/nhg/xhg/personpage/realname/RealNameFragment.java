@@ -13,6 +13,7 @@ import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.nhg.common.util.Check;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -21,7 +22,6 @@ import com.nhg.xhg.common.util.ACache;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.common.widgets.verifycodeview.VerificationCodeView;
-import com.nhg.common.util.Check;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

@@ -12,13 +12,13 @@ import com.fm.openinstall.OpenInstall;
 import com.fm.openinstall.listener.AppInstallAdapter;
 import com.fm.openinstall.listener.AppWakeUpAdapter;
 import com.fm.openinstall.model.AppData;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.ToastUtils;
+import com.nhg.common.util.Utils;
 import com.nhg.xhg.common.useraction.UserActionHandler;
 import com.nhg.xhg.common.util.ACache;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.homepage.push.ExampleUtil;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.ToastUtils;
-import com.nhg.common.util.Utils;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;

@@ -11,6 +11,8 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.common.event.LogoutEvent;
@@ -22,8 +24,6 @@ import com.nhg.xhg.common.util.HGIWebSetting;
 import com.nhg.xhg.data.LoginResult;
 import com.nhg.xhg.homepage.UserMoneyEvent;
 import com.nhg.xhg.login.fastlogin.LoginFragment;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.ValueCallback;

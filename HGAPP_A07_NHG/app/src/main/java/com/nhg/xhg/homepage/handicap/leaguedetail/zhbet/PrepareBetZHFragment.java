@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -29,8 +31,6 @@ import com.nhg.xhg.homepage.handicap.leaguedetail.CalosEvent;
 import com.nhg.xhg.homepage.handicap.leaguedetail.ComPassListData;
 import com.nhg.xhg.homepage.sportslist.bet.BetOrderSubmitDialog;
 import com.nhg.xhg.homepage.sportslist.bet.SportMethodResult;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

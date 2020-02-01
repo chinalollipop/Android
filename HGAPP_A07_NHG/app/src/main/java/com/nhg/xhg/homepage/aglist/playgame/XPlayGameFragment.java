@@ -11,14 +11,14 @@ import android.view.ViewParent;
 import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 
-import com.nhg.xhg.R;
-import com.nhg.xhg.base.HGBaseFragment;
-import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.common.util.Check;
 import com.nhg.common.util.GameLog;
 import com.nhg.common.util.PNThreadFactory;
 import com.nhg.common.util.ToastUtils;
 import com.nhg.common.util.Utils;
+import com.nhg.xhg.R;
+import com.nhg.xhg.base.HGBaseFragment;
+import com.nhg.xhg.common.widgets.NTitleBar;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;

@@ -7,9 +7,9 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.nhg.xhg.R;
 import com.nhg.common.util.NotificationUtil;
 import com.nhg.common.util.Timber;
+import com.nhg.xhg.R;
 
 import java.io.File;
 import java.util.ArrayList;

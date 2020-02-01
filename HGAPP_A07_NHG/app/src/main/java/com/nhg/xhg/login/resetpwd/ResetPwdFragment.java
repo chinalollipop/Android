@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -17,7 +18,6 @@ import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.homepage.handicap.BottombarViewManager;
 import com.nhg.xhg.homepage.handicap.betnew.CloseBottomEvent;
-import com.nhg.common.util.Check;
 
 import org.greenrobot.eventbus.EventBus;
 

@@ -1,5 +1,6 @@
 package com.nhg.xhg.homepage.handicap.betapi.zhbetapi;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
 import com.nhg.xhg.common.util.HGConstant;
@@ -7,7 +8,6 @@ import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.BetZHResult;
 import com.nhg.xhg.data.GameAllZHBetsBKResult;
-import com.nhg.common.util.Check;
 
 import java.util.Random;
 

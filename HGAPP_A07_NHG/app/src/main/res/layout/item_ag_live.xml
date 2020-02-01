@@ -17,7 +17,6 @@
                 android:layout_height="238dp"
                 android:layout_margin="10dp"
                 android:scaleType="fitXY"
-                android:background="@drawable/game_one"
                 />
 
         </LinearLayout>

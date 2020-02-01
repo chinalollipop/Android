@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.base.IPresenter;
@@ -12,8 +14,6 @@ import com.nhg.xhg.common.util.ACache;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.data.BetRecordResult;
 import com.nhg.xhg.data.LoginResult;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 
 import java.util.Arrays;
 import java.util.List;

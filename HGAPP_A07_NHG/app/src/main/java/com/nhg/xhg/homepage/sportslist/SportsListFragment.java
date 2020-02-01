@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ListView;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.data.SportsListResult;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import java.util.Arrays;

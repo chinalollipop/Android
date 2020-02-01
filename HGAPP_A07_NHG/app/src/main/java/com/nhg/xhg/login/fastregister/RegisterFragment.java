@@ -14,6 +14,9 @@ import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.Utils;
 import com.nhg.xhg.HGApplication;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
@@ -25,9 +28,6 @@ import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.widgets.verifycodeview.VerificationCodeView;
 import com.nhg.xhg.data.LoginResult;
 import com.nhg.xhg.login.fastlogin.LoginFragment;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.Utils;
 
 import org.greenrobot.eventbus.EventBus;
 

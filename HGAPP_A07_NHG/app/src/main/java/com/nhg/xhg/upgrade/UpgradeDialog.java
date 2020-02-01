@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.Timber;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseDialogFragment;
 import com.nhg.xhg.common.util.InstallHelper;
@@ -14,8 +16,6 @@ import com.nhg.xhg.upgrade.downunit.AppDownloadServiceBinder;
 import com.nhg.xhg.upgrade.downunit.DownloadIntent;
 import com.nhg.xhg.upgrade.downunit.DownloadProgress;
 import com.nhg.xhg.upgrade.downunit.FileDownloaderListener;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.Timber;
 
 import java.io.File;
 

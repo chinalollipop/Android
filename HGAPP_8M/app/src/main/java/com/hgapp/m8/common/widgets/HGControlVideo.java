@@ -3,12 +3,14 @@ package com.hgapp.m8.common.widgets;
 import android.content.Context;
 import android.util.AttributeSet;
 
+/*
 import com.hgapp.m8.R;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+*/
 
-public class HGControlVideo extends StandardGSYVideoPlayer {
+public class HGControlVideo {// extends StandardGSYVideoPlayer
 
-    public HGControlVideo(Context context, Boolean fullFlag) {
+    /*public HGControlVideo(Context context, Boolean fullFlag) {
         super(context, fullFlag);
     }
 
@@ -42,5 +44,5 @@ public class HGControlVideo extends StandardGSYVideoPlayer {
     protected void touchDoubleUp() {
         //super.touchDoubleUp();
         //不需要双击暂停
-    }
+    }*/
 }

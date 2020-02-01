@@ -2,7 +2,6 @@ package com.hgapp.m8.personpage;
 
 import com.hgapp.m8.HGApplication;
 import com.hgapp.m8.common.http.ResponseSubscriber;
-import com.hgapp.m8.common.http.cphttp.CPClient;
 import com.hgapp.m8.common.http.request.AppTextMessageResponse;
 import com.hgapp.m8.common.http.request.AppTextMessageResponseList;
 import com.hgapp.m8.common.util.ACache;
@@ -211,7 +210,7 @@ public class PersonPresenter implements PersonContract.Presenter {
                         }
                     }
                 }));
-        RetrofitUrlManager.getInstance().putDomain("CpUrl", CPClient.baseUrl());
+        //RetrofitUrlManager.getInstance().putDomain("CpUrl", CPClient.baseUrl());
         String token = ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.APP_CP_X_SESSION_TOKEN);
         subscriptionHelper.add(RxHelper.addSugar(iPersonApi.getLogOutCP("login/out/?token="+token+"&x-session-token="+token))//loginGet() login(appRefer,username,pwd)
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {

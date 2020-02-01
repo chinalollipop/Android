@@ -1,8 +1,8 @@
 package com.nhg.xhg.launcher;
 
 import com.google.gson.Gson;
-import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.common.util.GameLog;
+import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 
 import java.util.concurrent.TimeUnit;
 

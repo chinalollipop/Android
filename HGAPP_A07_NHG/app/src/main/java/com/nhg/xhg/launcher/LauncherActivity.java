@@ -17,16 +17,16 @@ import android.widget.Button;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.NetworkUtils;
+import com.nhg.common.util.ToastUtils;
 import com.nhg.xhg.MainActivity;
 import com.nhg.xhg.R;
 import com.nhg.xhg.common.http.Client;
 import com.nhg.xhg.common.util.ACache;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.data.DomainUrl;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.NetworkUtils;
-import com.nhg.common.util.ToastUtils;
 
 import java.io.IOException;
 import java.util.List;

@@ -5,9 +5,9 @@ import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.base.IProgressView;
 import com.nhg.xhg.base.IView;
 import com.nhg.xhg.data.BetResult;
-import com.nhg.xhg.data.GameAllPlayRBKResult;
 import com.nhg.xhg.data.GameAllPlayBKResult;
 import com.nhg.xhg.data.GameAllPlayFTResult;
+import com.nhg.xhg.data.GameAllPlayRBKResult;
 import com.nhg.xhg.data.GameAllPlayRFTResult;
 import com.nhg.xhg.data.PrepareBetResult;
 

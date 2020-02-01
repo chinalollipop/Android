@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseDialogFragment;
@@ -15,7 +15,6 @@ import com.nhg.xhg.common.util.DoubleClickHelper;
 import com.nhg.xhg.data.ReceiveSignTidayResults;
 import com.nhg.xhg.data.SignTodayResults;
 import com.nhg.xhg.homepage.UserMoneyEvent;
-import com.nhg.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 

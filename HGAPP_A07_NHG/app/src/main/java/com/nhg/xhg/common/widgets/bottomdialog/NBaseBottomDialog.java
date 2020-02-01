@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.nhg.common.util.ToastUtils;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.IMessageView;
 import com.nhg.xhg.base.IPresenter;
-import com.nhg.common.util.ToastUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;

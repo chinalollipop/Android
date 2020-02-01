@@ -12,13 +12,13 @@ import android.view.ViewParent;
 import android.widget.FrameLayout;
 
 import com.coolindicator.sdk.CoolIndicator;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.common.util.HGIWebSetting;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.homepage.handicap.betnew.CloseBottomEvent;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;

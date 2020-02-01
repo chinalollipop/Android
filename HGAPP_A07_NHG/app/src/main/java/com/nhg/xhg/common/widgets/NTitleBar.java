@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.nhg.xhg.R;
 import com.nhg.common.util.Check;
+import com.nhg.xhg.R;
 
 
 /**

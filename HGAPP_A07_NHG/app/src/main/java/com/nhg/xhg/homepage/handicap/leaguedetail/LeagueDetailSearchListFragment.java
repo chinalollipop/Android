@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
@@ -33,8 +35,6 @@ import com.nhg.xhg.homepage.handicap.leaguedetail.zhbet.ZHBetManager;
 import com.nhg.xhg.homepage.handicap.leaguedetail.zhbet.ZHBetViewManager;
 import com.nhg.xhg.homepage.sportslist.bet.BetOrderSubmitDialog;
 import com.nhg.xhg.homepage.sportslist.bet.OrderNumber;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

@@ -1,10 +1,10 @@
 package com.nhg.xhg.common.http;
 
 
-import com.nhg.xhg.HGApplication;
-import com.nhg.xhg.common.util.ACache;
 import com.nhg.common.util.DeviceUtils;
 import com.nhg.common.util.GameLog;
+import com.nhg.xhg.HGApplication;
+import com.nhg.xhg.common.util.ACache;
 
 import java.io.IOException;
 

@@ -3,9 +3,9 @@ package com.nhg.xhg.homepage.handicap.betapi;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
 import com.nhg.xhg.data.BetResult;
-import com.nhg.xhg.data.GameAllPlayRBKResult;
 import com.nhg.xhg.data.GameAllPlayBKResult;
 import com.nhg.xhg.data.GameAllPlayFTResult;
+import com.nhg.xhg.data.GameAllPlayRBKResult;
 import com.nhg.xhg.data.GameAllPlayRFTResult;
 import com.nhg.xhg.data.PrepareBetResult;
 

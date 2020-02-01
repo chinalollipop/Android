@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nhg.common.util.Timber;
+import com.nhg.common.util.ToastUtils;
 import com.nhg.xhg.common.event.LogoutEvent;
 import com.nhg.xhg.common.event.StartBrotherWithPopEvent;
 import com.nhg.xhg.data.CheckUpgradeResult;
@@ -15,8 +17,6 @@ import com.nhg.xhg.interfaces.IBackPressedSupport;
 import com.nhg.xhg.personpage.PersonFragment;
 import com.nhg.xhg.upgrade.CheckUpdateContract;
 import com.nhg.xhg.withdrawPage.WithdrawFragment;
-import com.nhg.common.util.Timber;
-import com.nhg.common.util.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

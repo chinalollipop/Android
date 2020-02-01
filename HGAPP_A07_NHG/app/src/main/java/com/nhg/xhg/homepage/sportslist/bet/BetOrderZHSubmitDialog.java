@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseDialogFragment;
@@ -35,8 +37,6 @@ import com.nhg.xhg.homepage.handicap.leaguedetail.ComPassListData;
 import com.nhg.xhg.homepage.handicap.leaguedetail.PrepareBetEvent;
 import com.nhg.xhg.homepage.handicap.leaguedetail.zhbet.ZHBetManager;
 import com.nhg.xhg.homepage.handicap.leaguedetail.zhbet.ZHBetViewManager;
-import com.nhg.common.util.Check;
-import com.nhg.common.util.GameLog;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;

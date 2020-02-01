@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.nhg.common.util.GameLog;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.BetRecordResult;
 import com.nhg.xhg.personpage.managepwd.ManagePwdFragment;
-import com.nhg.common.util.GameLog;
 
 import java.util.Arrays;
 import java.util.List;

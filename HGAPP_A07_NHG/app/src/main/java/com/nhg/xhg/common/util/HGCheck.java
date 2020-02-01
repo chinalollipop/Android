@@ -3,11 +3,11 @@ package com.nhg.xhg.common.util;
 
 import android.support.annotation.StringRes;
 
-import com.nhg.xhg.interfaces.ResourceGetter;
 import com.nhg.common.util.Check;
 import com.nhg.common.util.GameLog;
 import com.nhg.common.util.RegexUtils;
 import com.nhg.common.util.Timber;
+import com.nhg.xhg.interfaces.ResourceGetter;
 
 import java.math.BigDecimal;
 import java.util.regex.Pattern;

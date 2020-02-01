@@ -1,11 +1,11 @@
 package com.nhg.xhg.upgrade;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.CheckUpgradeResult;
-import com.nhg.common.util.Check;
 
 /**
  * Created by Daniel on 2018/7/29.

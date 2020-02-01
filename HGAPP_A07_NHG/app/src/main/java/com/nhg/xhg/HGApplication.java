@@ -10,15 +10,8 @@ import android.support.multidex.MultiDexApplication;
 
 import com.flurry.android.FlurryAgent;
 import com.fm.openinstall.OpenInstall;
-import com.nhg.xhg.common.MemoryManager;
-import com.nhg.xhg.common.comment.CommentUtils;
-import com.nhg.xhg.common.http.Client;
-import com.nhg.xhg.common.http.ClientConfig;
-import com.nhg.xhg.common.http.cphttp.CPClient;
-import com.nhg.xhg.common.useraction.UserActionHandler;
-import com.nhg.xhg.common.util.HGCheck;
-import com.nhg.xhg.common.util.HGConstant;
-import com.nhg.xhg.interfaces.ResourceGetter;
+import com.instacart.library.truetime.TrueTime;
+import com.lzy.okgo.OkGo;
 import com.nhg.common.util.AppUtil;
 import com.nhg.common.util.Check;
 import com.nhg.common.util.DeviceUtils;
@@ -27,8 +20,14 @@ import com.nhg.common.util.FileUtils;
 import com.nhg.common.util.GameLog;
 import com.nhg.common.util.Timber;
 import com.nhg.common.util.Utils;
-import com.instacart.library.truetime.TrueTime;
-import com.lzy.okgo.OkGo;
+import com.nhg.xhg.common.MemoryManager;
+import com.nhg.xhg.common.comment.CommentUtils;
+import com.nhg.xhg.common.http.Client;
+import com.nhg.xhg.common.http.ClientConfig;
+import com.nhg.xhg.common.useraction.UserActionHandler;
+import com.nhg.xhg.common.util.HGCheck;
+import com.nhg.xhg.common.util.HGConstant;
+import com.nhg.xhg.interfaces.ResourceGetter;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.commonsdk.UMConfigure;
 
@@ -216,35 +215,6 @@ public class HGApplication extends MultiDexApplication {
         return comment;
     }
 
-    public void  configCPClient(){
-        String versionName = AppUtil.getPackageInfo(getApplicationContext()).versionName;
-
-        String locale = DeviceUtils.getLocaleLanguage(getApplicationContext());
-        if(Check.isEmpty(locale))
-        {
-            locale= Locale.SIMPLIFIED_CHINESE.getLanguage();
-        }
-        String deviceId = DeviceUtils.getAndroidID();
-        if(Check.isEmpty(deviceId))
-        {
-            deviceId = Build.BRAND+Build.SERIAL+Build.DEVICE;
-        }
-        String filePath = FileUtils.getFilePath(getApplicationContext(),"")+"/markets.txt";
-        //先读本地文件，没有的话，再读comments，然后在保存到本地
-        String comment  = FileIOUtils.readFile2String(filePath);
-        if(Check.isEmpty(comment)){
-            comment =  CommentUtils.readAPK(new File(getApplicationContext().getPackageCodePath()));
-            if(Check.isEmpty(comment)){
-                comment = HGConstant.CHANNEL_ID;
-            }
-            FileIOUtils.writeFileFromString(filePath,comment);
-        }/*else{
-            FileIOUtils.writeFileFromString(filePath,comment);
-        }*/
-        clientConfigCP =new ClientConfig(HGConstant.PRODUCT_ID,comment, HGConstant.PRODUCT_PLATFORM,versionName,locale,deviceId);
-        //Client.config(new ClientConfig("e04","android",versionName,locale,deviceId));
-        CPClient.config(clientConfig);
-    }
 
     public ClientConfig getClientConfig()
     {

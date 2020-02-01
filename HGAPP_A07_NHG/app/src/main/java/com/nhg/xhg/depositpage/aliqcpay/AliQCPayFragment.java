@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.nhg.common.util.Check;
 import com.nhg.xhg.Injections;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.common.util.DoubleClickHelper;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.DepositAliPayQCCodeResult;
-import com.nhg.common.util.Check;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;

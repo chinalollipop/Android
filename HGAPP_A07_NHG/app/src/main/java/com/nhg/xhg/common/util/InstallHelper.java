@@ -12,9 +12,9 @@ import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
 
-import com.nhg.xhg.BuildConfig;
 import com.nhg.common.util.GameLog;
 import com.nhg.common.util.Timber;
+import com.nhg.xhg.BuildConfig;
 
 import java.io.File;
 import java.io.IOException;

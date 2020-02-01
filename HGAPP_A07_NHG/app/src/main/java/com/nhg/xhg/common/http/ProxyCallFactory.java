@@ -1,7 +1,7 @@
 package com.nhg.xhg.common.http;
 
-import com.nhg.xhg.common.http.util.RequestBuilder;
 import com.nhg.common.util.Timber;
+import com.nhg.xhg.common.http.util.RequestBuilder;
 
 import java.io.IOException;
 

@@ -1,11 +1,11 @@
 package com.nhg.xhg.homepage.handicap.saiguo;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.common.util.RxHelper;
 import com.nhg.xhg.common.util.SubscriptionHelper;
 import com.nhg.xhg.data.SaiGuoResult;
-import com.nhg.common.util.Check;
 
 public class SaiGuoPresenter implements SaiGuoContract.Presenter {
     private ISaiGuoApi api;

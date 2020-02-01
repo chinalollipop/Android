@@ -1,5 +1,6 @@
 package com.nhg.xhg.homepage.handicap.leaguedetail;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.common.http.ResponseSubscriber;
 import com.nhg.xhg.common.http.request.AppTextMessageResponse;
 import com.nhg.xhg.common.http.request.AppTextMessageResponseList;
@@ -10,7 +11,6 @@ import com.nhg.xhg.data.BetResult;
 import com.nhg.xhg.data.ComPassSearchListResult;
 import com.nhg.xhg.data.LeagueDetailSearchListResult;
 import com.nhg.xhg.data.PrepareBetResult;
-import com.nhg.common.util.Check;
 
 import java.util.Random;
 

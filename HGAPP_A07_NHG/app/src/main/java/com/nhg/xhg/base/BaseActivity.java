@@ -1,4 +1,5 @@
 package com.nhg.xhg.base;
+
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -8,11 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nhg.xhg.common.widgets.GifView;
-import com.nhg.common.util.ToastUtils;
 import com.huangzj.slidingmenu.SlidingMenu;
 import com.huangzj.slidingmenu.app.SlidingActivityBase;
 import com.huangzj.slidingmenu.app.SlidingActivityHelper;
+import com.nhg.common.util.ToastUtils;
+import com.nhg.xhg.common.widgets.GifView;
 
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;

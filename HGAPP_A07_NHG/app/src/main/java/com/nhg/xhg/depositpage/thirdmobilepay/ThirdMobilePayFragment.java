@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nhg.common.util.Check;
 import com.nhg.xhg.R;
 import com.nhg.xhg.base.HGBaseFragment;
 import com.nhg.xhg.base.IPresenter;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.DepositThirdQQPayResult;
 import com.nhg.xhg.depositpage.DepositeContract;
-import com.nhg.common.util.Check;
 
 import org.greenrobot.eventbus.EventBus;
 

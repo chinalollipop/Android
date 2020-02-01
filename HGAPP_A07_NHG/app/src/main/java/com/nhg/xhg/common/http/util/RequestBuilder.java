@@ -1,8 +1,8 @@
 package com.nhg.xhg.common.http.util;
 
-import com.nhg.xhg.common.http.ClientConfig;
 import com.nhg.common.util.GameLog;
 import com.nhg.common.util.Timber;
+import com.nhg.xhg.common.http.ClientConfig;
 
 import java.io.IOException;
 import java.util.HashMap;

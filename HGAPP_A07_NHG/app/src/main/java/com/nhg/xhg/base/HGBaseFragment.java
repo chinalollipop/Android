@@ -12,16 +12,16 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.flurry.android.FlurryAgent;
-import com.nhg.xhg.R;
-import com.nhg.xhg.common.service.ServiceOnlineActivity;
-import com.nhg.xhg.common.useraction.UserActionHandler;
-import com.nhg.xhg.common.widgets.GifView;
 import com.nhg.common.util.Check;
 import com.nhg.common.util.InputMethodUtils;
 import com.nhg.common.util.SoftKeyBoardListener;
 import com.nhg.common.util.Timber;
 import com.nhg.common.util.ToastUtils;
 import com.nhg.common.util.Utils;
+import com.nhg.xhg.R;
+import com.nhg.xhg.common.service.ServiceOnlineActivity;
+import com.nhg.xhg.common.useraction.UserActionHandler;
+import com.nhg.xhg.common.widgets.GifView;
 import com.umeng.analytics.MobclickAgent;
 import com.zhy.autolayout.utils.AutoUtils;
 

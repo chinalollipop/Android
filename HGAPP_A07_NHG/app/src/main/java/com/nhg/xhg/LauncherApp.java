@@ -5,14 +5,15 @@ import android.content.Intent;
 import android.support.annotation.StringRes;
 
 import com.flurry.android.FlurryAgent;
+import com.nhg.common.util.GameLog;
+import com.nhg.common.util.Timber;
+import com.nhg.common.util.Utils;
 import com.nhg.xhg.common.service.StartX5Service;
 import com.nhg.xhg.common.useraction.UserActionHandler;
 import com.nhg.xhg.common.util.HGCheck;
 import com.nhg.xhg.common.util.HGConstant;
 import com.nhg.xhg.interfaces.ResourceGetter;
-import com.nhg.common.util.GameLog;
-import com.nhg.common.util.Timber;
-import com.nhg.common.util.Utils;
+
 import me.yokeyword.sample.App;
 
 //用以初始化所有的启动数据，如数据库，基本配置信息等等，这样方便Application 里面简洁
