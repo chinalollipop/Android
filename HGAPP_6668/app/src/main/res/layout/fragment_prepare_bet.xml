@@ -214,6 +214,18 @@
                     </RelativeLayout>
 
                     <LinearLayout
+                        android:id="@+id/sw_R_showN"
+                        android:visibility="gone"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sw_R_show_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/sw_R_show"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -471,7 +483,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    >
 
                     <View
                         android:layout_width="match_parent"
@@ -503,6 +516,18 @@
                             android:layout_marginRight="@dimen/bet_sw_padding_right"
                             android:background="@mipmap/icon_ex_down" />
                     </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sw_OU_showN"
+                        android:visibility="gone"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sw_OU_show_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/sw_OU_show"
@@ -787,6 +812,17 @@
                             android:background="@mipmap/icon_ex_down" />
                     </RelativeLayout>
 
+                    <LinearLayout
+                        android:id="@+id/sw_M_showN"
+                        android:visibility="gone"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sw_M_show_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/sw_M_show"
@@ -2273,6 +2309,18 @@
                     </RelativeLayout>
 
                     <LinearLayout
+                        android:id="@+id/sw_OUH_showN"
+                        android:visibility="gone"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sw_OUH_show_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/sw_OUH_show"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2413,6 +2461,18 @@
                             android:layout_marginRight="@dimen/bet_sw_padding_right"
                             android:background="@mipmap/icon_ex_down" />
                     </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sw_OUC_showN"
+                        android:visibility="gone"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sw_OUC_show_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/sw_OUC_show"
@@ -2844,6 +2904,18 @@
                             android:layout_marginRight="@dimen/bet_sw_padding_right"
                             android:background="@mipmap/icon_ex_down" />
                     </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sw_EO_showN"
+                        android:visibility="gone"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/sw_EO_show_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/sw_EO_show"

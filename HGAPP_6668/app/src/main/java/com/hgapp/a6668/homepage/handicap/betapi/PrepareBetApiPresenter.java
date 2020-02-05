@@ -67,12 +67,13 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
                     public void success(AppTextMessageResponseList<GameAllPlayBKResult> response) {
                         if(response.getStatus().equals("200")){
                             if(response.getData()!=null){
-                                for(int k=0;k<response.getData().size();k++){
+                                view.postGameAllBetsBKResult(response.getData());
+                                /*for(int k=0;k<response.getData().size();k++){
                                     if(gid.equals(response.getData().get(k).getGid())){
                                         view.postGameAllBetsBKResult(response.getData().get(k));
                                         return;
                                     }
-                                }
+                                }*/
                             }else{
                                 view.postGameAllBetsFTFailResult(response.getDescribe());
                             }

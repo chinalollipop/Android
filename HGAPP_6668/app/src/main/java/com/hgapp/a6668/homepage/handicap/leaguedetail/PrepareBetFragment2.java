@@ -54,7 +54,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiContract.View {
+public class PrepareBetFragment2 extends HGBaseFragment implements PrepareBetApiContract.View {
 
     private static final String ARG_PARAM1 = "mLeague";
     private static final String ARG_PARAM2 = "mTeamH";
@@ -1227,8 +1227,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
     //三项让球投注   开关
     boolean b_sw_W3 = true;
 
-    public static PrepareBetFragment newInstance(String mLeague, String mTeamH, String mTeamC, String gid, String gtype, String showtype, String userMoney, String fromType, String fromString) {
-        PrepareBetFragment fragment = new PrepareBetFragment();
+    public static PrepareBetFragment2 newInstance(String mLeague, String mTeamH, String mTeamC, String gid, String gtype, String showtype, String userMoney, String fromType, String fromString) {
+        PrepareBetFragment2 fragment = new PrepareBetFragment2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, mLeague);
         args.putString(ARG_PARAM2, mTeamH);
@@ -2295,25 +2295,7 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         imprepareBetTop.setVisibility(View.VISIBLE);
         swALL.setVisibility(View.VISIBLE);
         GameLog.log("所有篮球玩法的接口：" + gameAllPlayBKResult.toString());
-        //让球的数据展示
-        sw_BKR(gameAllPlayBKResult.get(0));
-        //大/小的数据展示
-        sw_BKOU(gameAllPlayBKResult.get(0));
-        //单/双
-        sw_BKEO(gameAllPlayBKResult.get(0));
-        //独赢的数据展示
-        sw_BKM(gameAllPlayBKResult.get(0));
-        //球队进球数 主队 大/小的数据展示
-        sw_BKOUH(gameAllPlayBKResult.get(0));
-
-        //球队进球数 客队大/小的数据展示
-        sw_BKOUC(gameAllPlayBKResult.get(0));
-
-        //波胆 球队得分：主队/客队 -最后一位
-        sw_BKPD(gameAllPlayBKResult.get(0));
-
-
-        /*int size = gameAllPlayBKResult.size();
+        int size = gameAllPlayBKResult.size();
         List<BKDataList> gopen_showDataLists = new ArrayList<>();
         List<BKDataList> sw_R_showDataLists = new ArrayList<>();
         List<BKDataList> sw_OU_showDataLists = new ArrayList<>();
@@ -2500,15 +2482,20 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             //swOUName.setText("总分：大/小");
             GameLog.log("当前波胆 球队得分：主队/客队的大小是："+sw_PD_showDataLists.size());
             sw_BKPD(gameAllPlayBKResult.get(0));
+        }
+        //-------------------------------------------------------
+        //presenter.postPrepareBetApi("", order_method, gid, type, wtype, rtype, "", "", "");
+        //让球从新写
+       /* if (gameAllPlayBKResult.getSw_R().equals("Y") && b_sw_R) {
+            sw_R.setVisibility(View.VISIBLE);
+        } else {
+            sw_R.setVisibility(View.GONE);
         }*/
 
-        //-------------------------------------------------------
-        //让球从新写
-        /*
         //让球的数据展示
-        sw_BKR(gameAllPlayBKResult);
+        //sw_BKR(gameAllPlayBKResult);
         //大/小的数据展示
-        sw_BKOU(gameAllPlayBKResult);
+        /*sw_BKOU(gameAllPlayBKResult);
         //单/双
         sw_BKEO(gameAllPlayBKResult);
         //独赢的数据展示
@@ -2520,8 +2507,7 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         sw_BKOUC(gameAllPlayBKResult);
 
         //波胆 球队得分：主队/客队 -最后一位
-        sw_BKPD(gameAllPlayBKResult);
-        */
+        sw_BKPD(gameAllPlayBKResult);*/
 
     }
 

@@ -11,6 +11,8 @@ import com.hgapp.a6668.data.GameAllPlayFTResult;
 import com.hgapp.a6668.data.GameAllPlayRFTResult;
 import com.hgapp.a6668.data.PrepareBetResult;
 
+import java.util.List;
+
 public interface PrepareBetApiContract {
     public interface Presenter extends IPresenter{
 
@@ -30,7 +32,7 @@ public interface PrepareBetApiContract {
     }
 
     public interface View extends IView<PrepareBetApiContract.Presenter>,IMessageView,IProgressView {
-        public void postGameAllBetsBKResult(GameAllPlayBKResult gameAllPlayBKResult);
+        public void postGameAllBetsBKResult(List<GameAllPlayBKResult> gameAllPlayBKResult);
         public void postGameAllBetsRBKResult(GameAllPlayRBKResult gameAllPlayRBKResult);
         public void postGameAllBetsFTResult(GameAllPlayFTResult gameAllPlayFTResult);
         public void postGameAllBetsRFTResult(GameAllPlayRFTResult gameAllPlayRFTResult);

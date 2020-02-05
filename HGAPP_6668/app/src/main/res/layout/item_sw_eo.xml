@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/sw_EO_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/ior_EOO_Click"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bet_sw_height"
+            android:layout_weight="1"
+            android:background="@color/bet_line_inside_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/bet_sw_padding_left"
+                android:text="单"
+                android:textColor="@color/bet_line_inside"
+                android:textSize="@dimen/bet_sw_size" />
+
+            <LinearLayout
+                android:id="@+id/ior_EOO_H"
+                android:layout_width="@dimen/bet_sw_layout_width"
+                android:layout_height="@dimen/bet_sw_layout_height"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/bet_sw_layout_padding"
+                android:layout_marginRight="@dimen/bet_sw_padding_right"
+                android:layout_marginTop="@dimen/bet_sw_layout_padding"
+                android:background="@drawable/wanfa_item_default"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/ior_EOO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="让球"
+                    android:textColor="@color/bet_tv_down"
+                    android:textSize="@dimen/bet_sw_down_size" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ior_EOE_Click"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bet_sw_height"
+            android:layout_weight="1"
+            android:background="@color/bet_line_inside_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/bet_sw_padding_left"
+                android:text="双"
+                android:textColor="@color/bet_line_inside"
+                android:textSize="@dimen/bet_sw_size" />
+
+            <LinearLayout
+                android:id="@+id/ior_EOE_H"
+                android:layout_width="@dimen/bet_sw_layout_width"
+                android:layout_height="@dimen/bet_sw_layout_height"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/bet_sw_layout_padding"
+                android:layout_marginRight="@dimen/bet_sw_padding_right"
+                android:layout_marginTop="@dimen/bet_sw_layout_padding"
+                android:background="@drawable/wanfa_item_default"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/ior_EOE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="让球"
+                    android:textColor="@color/bet_tv_down"
+                    android:textSize="@dimen/bet_sw_down_size" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bet_line_image" />
+</LinearLayout>

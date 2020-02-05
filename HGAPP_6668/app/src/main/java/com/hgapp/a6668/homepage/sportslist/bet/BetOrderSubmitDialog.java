@@ -295,8 +295,9 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
         return Arrays.asList((IPresenter) presenter);
     }
 
+
     @Override
-    public void postGameAllBetsBKResult(GameAllPlayBKResult gameAllPlayBKResult) {
+    public void postGameAllBetsBKResult(List<GameAllPlayBKResult> gameAllPlayBKResult) {
 
     }
 
