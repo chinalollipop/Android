@@ -273,7 +273,31 @@
                             android:textColor="@color/register_left"
                             android:textColorHint="@color/register_left" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/layRealName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_normal_gray">
 
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:background="@mipmap/login_uname_add" />
+
+
+                        <EditText
+                            android:id="@+id/etRegisterRealName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="真实姓名"
+                            android:maxLength="15"
+                            android:textColor="@color/register_left"
+                            android:textColorHint="@color/register_left" />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"

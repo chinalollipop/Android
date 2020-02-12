@@ -97,6 +97,10 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
     @BindView(R.id.btnRegisterSubmit)
     Button btnRegisterSubmit;
 
+    @BindView(R.id.layRealName)
+    LinearLayout layRealName;
+    @BindView(R.id.etRegisterRealName)
+    EditText etRegisterRealName;
 
     TimePickerView tpRegisterBrithday;
     OptionsPickerView optionsPickerViewState;
@@ -130,6 +134,13 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+       String realName =  ACache.get(getContext()).getAsString("aliasOn");
+
+       if(!Check.isNull(realName)&&"true".equals(realName)){
+           layRealName.setVisibility(View.VISIBLE);
+       }else{
+           layRealName.setVisibility(View.GONE);
+       }
         //时间选择器
         tpRegisterBrithday = new TimePickerBuilder(getContext(), new OnTimeSelectListener() {
             @Override
@@ -229,7 +240,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         String userPwd = etRegisterPwd.getText().toString().trim();
         String userBrithday = etRegisterBrithday.getText().toString().trim();
         String userPwdVerify = etRegisterPwdVerify.getText().toString().trim();
-        String userDrawName = etRegisterWithDrawName.getText().toString().trim();
+        String userDrawName = etRegisterRealName.getText().toString().trim();
         String userDrawPwd = etRegisterWithDrawPwd.getText().toString().trim();
         String userPhone = etRegisterAccountPhone.getText().toString().trim();
         String userWechat = etRegisterWechat.getText().toString().trim();
