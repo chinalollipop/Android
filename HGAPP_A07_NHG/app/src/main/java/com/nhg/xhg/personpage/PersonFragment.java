@@ -97,7 +97,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("投注记录");
         myList.add("流水记录");
         myList.add("新手教学");
-        myList.add("关于新皇冠");
+        //myList.add("关于新皇冠");
         myList.add("代理加盟");
         myList.add("联系我们");
         myList.add("安全退出");
@@ -244,23 +244,27 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 11://关于太阳城
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"aboutus.php?tip=app")));
-
+                            //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"aboutus.php?tip=app")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
                             //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"/template/help.php?tip=app")));
                             break;
                         case 12://代理加盟
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                            //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                            EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             //交易记录
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
                         case 13://联系我们
-                            EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
+                            /*EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
-                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
-                            break;
-                        case 14:
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));*/
                             presenter.logOut();
                             break;
+                        /*case 14:
+                            presenter.logOut();
+                            break;*/
                     }
                 }
             });

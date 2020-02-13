@@ -38,6 +38,7 @@ import me.yokeyword.sample.App;
 public class HGApplication extends MultiDexApplication {
     private static HGApplication hgApplicationInstance;
     private ClientConfig clientConfig;
+    private String comment;
     private ClientConfig clientConfigCP;
 
     @Override
@@ -160,20 +161,24 @@ public class HGApplication extends MultiDexApplication {
         }
         String filePath = FileUtils.getFilePath(getApplicationContext(),"")+"/markets.txt";
         //先读本地文件，没有的话，再读comments，然后在保存到本地
-        String comment  = FileIOUtils.readFile2String(filePath);
+        comment  = FileIOUtils.readFile2String(filePath);
         if(Check.isEmpty(comment)){
             comment =  CommentUtils.readAPK(new File(getApplicationContext().getPackageCodePath()));
             if(Check.isEmpty(comment)){
                 comment = HGConstant.CHANNEL_ID;
             }
             FileIOUtils.writeFileFromString(filePath,comment);
-        }/*else{
+        }else{
             FileIOUtils.writeFileFromString(filePath,comment);
-        }*/
+        }
         clientConfig =new ClientConfig(HGConstant.PRODUCT_ID,comment, HGConstant.PRODUCT_PLATFORM,versionName,locale,deviceId);
         //Client.config(new ClientConfig("e04","android",versionName,locale,deviceId));
         Client.config(clientConfig);
         //Client.setToken("eyJhbGciOiJIUzI1NiIsInppcCI6IkRFRiJ9.eNqqVkosTVGyUvIILKmINHL1Ci3xjTBLdQ019k-qMim3tVXSUSouTQIqSExPLi5JLS4xMAAKZRYXA4UMDQwNDAzMDI3MDAyBglklmUDBkqLSVCAntaJAycrQxNLC0tzIwMhcRykvKQ0iYGpiABSoBQAAAP__.9AefImiFGDw73R802b_XKDM-MlGnrPcfVsdal08_lyo");
+    }
+
+    public String getCommentData() {
+        return comment;
     }
 
     public void  configCPClient(){

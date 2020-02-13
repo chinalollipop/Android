@@ -285,7 +285,7 @@
                             android:layout_height="35dp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:background="@mipmap/login_uname_add" />
+                            android:background="@mipmap/login_realname" />
 
 
                         <EditText

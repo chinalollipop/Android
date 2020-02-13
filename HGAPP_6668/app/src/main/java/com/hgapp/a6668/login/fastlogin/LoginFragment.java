@@ -582,7 +582,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
 
-        presenter.postRegisterMember("",introducer,"add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithdayQQ,resource+"");
+        presenter.postRegisterMember("",introducer,"add",userName,userPwd,userPwdVerify,userDrawName,userDrawPwd,userPhone,userWechat,userBrithdayQQ,resource+"",HGApplication.instance().getCommentData());
 
     }
 
