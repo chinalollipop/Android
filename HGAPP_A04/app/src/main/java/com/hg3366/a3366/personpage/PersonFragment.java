@@ -98,7 +98,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         //myList.add("关于太阳城");
         myList.add("代理加盟");
         myList.add("联系我们");
-       // myList.add("安全退出");
+        myList.add("代理登录");
 
     }
 
@@ -239,8 +239,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             break;
-                        case 14:
-                            presenter.logOut();
+                        case 13:
+                            //presenter.logOut();
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, ACache.get(getContext()).getAsString("agentLoginUrl"))));
                             break;
                     }
                 }
@@ -291,8 +292,8 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                 case 12:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_contact);
                     break;
-                case 14:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
+                case 13:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_agent_login);
                     break;
 
             }

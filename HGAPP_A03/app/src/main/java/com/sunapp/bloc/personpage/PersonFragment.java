@@ -101,6 +101,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("代理加盟");
         myList.add("联系我们");
         myList.add("安全退出");
+        myList.add("代理登录");
 
     }
 
@@ -261,6 +262,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                         case 14:
                             presenter.logOut();
                             break;
+                        case 15:
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, ACache.get(getContext()).getAsString("agentLoginUrl"))));
+                            break;
                     }
                 }
             });
@@ -312,6 +316,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     break;
                 case 14:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
+                    break;
+                case 15:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_agent_login);
                     break;
 
             }

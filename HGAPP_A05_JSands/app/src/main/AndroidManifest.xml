@@ -53,7 +53,7 @@
         android:name="com.sands.corp.HGApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup"
-        android:icon="@mipmap/icon_new"
+        android:icon="@mipmap/icon_new_s"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"

@@ -33,16 +33,19 @@ import com.nhg.xhg.common.widgets.GridRvItemDecoration;
 import com.nhg.xhg.common.widgets.NTitleBar;
 import com.nhg.xhg.data.AGGameLoginResult;
 import com.nhg.xhg.data.CPResult;
+import com.nhg.xhg.data.DisCountsEvent;
 import com.nhg.xhg.data.LoginResult;
 import com.nhg.xhg.data.NoticeResult;
 import com.nhg.xhg.data.PersonBalanceResult;
 import com.nhg.xhg.data.PersonInformResult;
 import com.nhg.xhg.data.QipaiResult;
 import com.nhg.xhg.homepage.UserMoneyEvent;
+import com.nhg.xhg.homepage.events.EventsFragment;
 import com.nhg.xhg.homepage.handicap.ShowMainEvent;
 import com.nhg.xhg.homepage.noticelist.NoticeListFragment;
 import com.nhg.xhg.homepage.online.ContractFragment;
 import com.nhg.xhg.homepage.online.OnlineFragment;
+import com.nhg.xhg.homepage.signtoday.SignTodayFragment;
 import com.nhg.xhg.personpage.accountcenter.AccountCenterFragment;
 import com.nhg.xhg.personpage.balanceplatform.BalancePlatformFragment;
 import com.nhg.xhg.personpage.balancetransfer.BalanceTransferFragment;
@@ -101,6 +104,9 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("代理加盟");
         myList.add("联系我们");
         myList.add("安全退出");
+        myList.add("代理登录");
+        myList.add("今日签到");
+        myList.add("领取红包");
 
     }
 
@@ -262,9 +268,23 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));*/
                             presenter.logOut();
                             break;
-                        /*case 14:
-                            presenter.logOut();
-                            break;*/
+                        case 14:
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, ACache.get(getContext()).getAsString("agentLoginUrl"))));
+                            break;
+                        case 15:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
+                            SignTodayFragment.newInstance(personMoney,1).show(getFragmentManager());
+                            break;
+                        case 16:
+                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }
+                            EventBus.getDefault().post(new StartBrotherEvent(EventsFragment.newInstance(null,personMoney,1)));
+                            break;
                     }
                 }
             });
@@ -306,16 +326,23 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_new);
                     break;
                 case 11:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_about);
-                    break;
-                case 12:
+                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_about);
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_accent);
                     break;
-                case 13:
+                case 12:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_contact);
                     break;
-                case 14:
+                case 13:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
+                    break;
+                case 14:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_agent_login);
+                    break;
+                case 15:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_sign);
+                    break;
+                case 16:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_red);
                     break;
 
             }

@@ -307,6 +307,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put("guest_login_must_input_phone",checkUpgradeResult.getGuest_login_must_input_phone() );
             ACache.get(getContext()).put("login_must_tpl_name",checkUpgradeResult.getTpl_name());
             ACache.get(getContext()).put("signSwitch",checkUpgradeResult.getSignSwitch() );
+            ACache.get(getContext()).put("agentLoginUrl",checkUpgradeResult.getAgentLoginUrl() );
             //EventBus.getDefault().post(checkUpgradeResult);
             checkUpgradeDone = true;
             PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
