@@ -313,7 +313,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        rollpageview.postDelayed(new Runnable() {
+        /*rollpageview.postDelayed(new Runnable() {
             @Override
             public void run() {
                 String signSwitch  = ACache.get(getContext()).getAsString("signSwitch");
@@ -322,7 +322,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 GameLog.log("签到活动说法："+signSwitch);
             }
-        },5000);
+        },5000);*/
         initPX(Utils.getContext());
         // EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         DomainUrl domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
@@ -347,9 +347,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }*/
         BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
         if (!Check.isNull(bannerResult)) {
-            rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
-            //rollPagerViewManager.testImagesLocal(null);
-            rollPagerViewManager.testImagesNet(null, null);
+            if(!Check.isNull(bannerResult.getData())){
+                rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
+                //rollPagerViewManager.testImagesLocal(null);
+                rollPagerViewManager.testImagesNet(null, null);
+            }
         }
         NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
         if (!Check.isNull(noticeResult)) {
@@ -1302,6 +1304,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     @Override
     public void postBannerResult(BannerResult bannerResult) {
         GameLog.log("。。。。。Banner的数据返回。。。。。");
+        if(Check.isNull(bannerResult)){
+            return;
+        }
         ACache.get(getContext()).put(HGConstant.USERNAME_HOME_BANNER, JSON.toJSONString(bannerResult));
         rollPagerViewManager = new RollPagerViewManager(rollpageview, bannerResult.getData());
         //rollPagerViewManager.testImagesLocal(null);
@@ -1597,7 +1602,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     GameLog.log("ky " + maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_KY_MAINTAIN, maintainResult1.getState());
                     break;
-                case "hgqp":
+                case "klqp":
                     if (userState.equals("3")) {
                         showMessage(maintainResult1.getContent());
                     }
@@ -1724,7 +1729,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }*/ else {
             Intent intent = new Intent(getContext(), XPlayGameActivity.class);
             intent.putExtra("url", qipai_url);
-            intent.putExtra("gameCnName", "皇冠棋牌");
+            intent.putExtra("gameCnName", "快乐棋牌");
             intent.putExtra("hidetitlebar", false);
             getActivity().startActivity(intent);
         }

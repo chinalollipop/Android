@@ -38,7 +38,7 @@ public interface IBalanceTransferApi {
 
 
     //皇冠额度转换  f=hg&t=ag f=ag&t=hg
-    @POST("hgqp/hg_api.php")
+    @POST("klqp/kl_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferHG(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
@@ -92,7 +92,7 @@ public interface IBalanceTransferApi {
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceKY(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //获取皇冠棋牌余额
-    @POST("hgqp/hg_api.php")
+    @POST("klqp/kl_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceHG(@Field("appRefer") String appRefer, @Field("action") String action);
 
