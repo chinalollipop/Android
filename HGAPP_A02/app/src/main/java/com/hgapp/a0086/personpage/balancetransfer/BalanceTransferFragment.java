@@ -80,7 +80,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         gtypeList.add(new BalanceTransferData("2","彩票余额","cp"));
         gtypeList.add(new BalanceTransferData("3","AG余额","ag"));
         gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));
-        gtypeList.add(new BalanceTransferData("5","皇冠棋牌","ff"));
+        gtypeList.add(new BalanceTransferData("5","快乐棋牌","kl"));
         gtypeList.add(new BalanceTransferData("6","VG棋牌","vg"));
         gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
         gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
@@ -262,18 +262,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferKY("","ky","hg",transferMoney);
-        }else if(from.equals("ff")&&to.equals("hg")){
+        }else if(from.equals("kl")&&to.equals("hg")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
                 return;
             }
-            presenter.postBanalceTransferHG("","ff","hg",transferMoney);
-        }else if(from.equals("hg")&&to.equals("ff")){
+            presenter.postBanalceTransferHG("","kl","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("kl")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
                 return;
             }
-            presenter.postBanalceTransferHG("","hg","ff",transferMoney);
+            presenter.postBanalceTransferHG("","hg","kl",transferMoney);
         }else if(from.equals("vg")&&to.equals("hg")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
@@ -515,8 +515,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         showContent = "In 点击 Item菜单4";
                         break;
                     case R.id.popMenuFF:
-                        to = "ff";
-                        tvBalanceTransferIn.setText("皇冠棋牌");
+                        to = "kl";
+                        tvBalanceTransferIn.setText("快乐棋牌");
                         showContent = "In 点击 Item菜单5";
                         break;
                     case R.id.popMenuVG:
@@ -769,7 +769,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuMWtv.setTextColor(getResources().getColor(R.color.pop_normal));
 
                 break;
-            case "ff":
+            case "kl":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuCP.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuAG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -1136,8 +1136,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         showContent = "Out 点击 Item菜单4";
                         break;
                     case R.id.popMenuFF:
-                        from = "ff";
-                        tvBalanceTransferOut.setText("皇冠棋牌");
+                        from = "kl";
+                        tvBalanceTransferOut.setText("快乐棋牌");
                         showContent = "Out 点击 Item菜单5";
                         break;
                     case R.id.popMenuVG:
@@ -1395,7 +1395,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuMWtv.setTextColor(getResources().getColor(R.color.pop_normal));
 
                 break;
-            case "ff":
+            case "kl":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuCP.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuAG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));

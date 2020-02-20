@@ -71,7 +71,7 @@ public interface IHomePageApi {
     public Observable<AppTextMessageResponse<QipaiResult>> postLYQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //皇冠棋牌游戏
-    @POST("hgqp/hg_api.php")
+    @POST("klqp/kl_api.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<QipaiResult>> postHGQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
 
