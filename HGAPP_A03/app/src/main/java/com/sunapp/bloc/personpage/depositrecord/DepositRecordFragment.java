@@ -736,8 +736,8 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "ky":
                     from = "开元棋牌";
                     break;
-                case "ff":
-                    from = "皇冠棋牌";
+                case "kl":
+                    from = "快乐棋牌";
                     break;
                 case "ag":
                     from = "AG平台";
@@ -786,8 +786,8 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "ky":
                     to = "开元棋牌";
                     break;
-                case "ff":
-                    to = "皇冠棋牌";
+                case "kl":
+                    to = "快乐棋牌";
                     break;
                 case "ag":
                     to = "AG平台";

@@ -1608,7 +1608,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     GameLog.log("ky " + maintainResult1.getState());
                     ACache.get(getContext()).put(HGConstant.USERNAME_KY_MAINTAIN, maintainResult1.getState());
                     break;
-                case "hgqp":
+                case "klqp":
                     if (userState.equals("3")) {
                         showMessage(maintainResult1.getContent());
                     }
@@ -1735,7 +1735,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }*/ else {
             Intent intent = new Intent(getContext(), XPlayGameActivity.class);
             intent.putExtra("url", qipai_url);
-            intent.putExtra("gameCnName", "皇冠棋牌");
+            intent.putExtra("gameCnName", "快乐棋牌");
             intent.putExtra("hidetitlebar", false);
             getActivity().startActivity(intent);
         }
