@@ -107,7 +107,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
         gtypeList.add(new BalanceTransferData("1","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("2","开元棋牌","ky"));
-        gtypeList.add(new BalanceTransferData("3","皇冠棋牌","ff"));
+        gtypeList.add(new BalanceTransferData("3","快乐棋牌","kl"));
         gtypeList.add(new BalanceTransferData("4","VG棋牌","vg"));
         gtypeList.add(new BalanceTransferData("5","乐游棋牌","ly"));
         gtypeList.add(new BalanceTransferData("6","MG电子","mg"));
@@ -217,12 +217,12 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             }
                                             presenter.postBanalceTransferKY("", "hg", "ky", GameShipHelper.getIntegerString(text));
                                             break;
-                                        case "ff":
+                                        case "kl":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                                 showMessage("非常抱歉，请您注册真实会员！");
                                                 return;
                                             }
-                                            presenter.postBanalceTransferHG("", "hg", "ff", GameShipHelper.getIntegerString(text));
+                                            presenter.postBanalceTransferHG("", "hg", "kl", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "vg":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -300,7 +300,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             showMessage("非常抱歉，请您注册真实会员！");
                                             return;
                                         }
-                                        presenter.postBanalceTransferHG("", "hg", "ff", GameShipHelper.getIntegerString(text));
+                                        presenter.postBanalceTransferHG("", "hg", "kl", GameShipHelper.getIntegerString(text));
                                     }else if(postion == 4){
                                         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                             showMessage("非常抱歉，请您注册真实会员！");
@@ -412,12 +412,12 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             }
                                             presenter.postBanalceTransferKY("", "ky", "hg", GameShipHelper.getIntegerString(text));
                                             break;
-                                        case "ff":
+                                        case "kl":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                                 showMessage("非常抱歉，请您注册真实会员！");
                                                 return;
                                             }
-                                            presenter.postBanalceTransferHG("", "ff", "hg", GameShipHelper.getIntegerString(text));
+                                            presenter.postBanalceTransferHG("", "kl", "hg", GameShipHelper.getIntegerString(text));
                                             break;
                                         case "vg":
                                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
@@ -496,7 +496,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             showMessage("非常抱歉，请您注册真实会员！");
                                             return;
                                         }
-                                        presenter.postBanalceTransferHG("", "ff", "hg", GameShipHelper.getIntegerString(text));
+                                        presenter.postBanalceTransferHG("", "kl", "hg", GameShipHelper.getIntegerString(text));
                                     }else if(postion==4){
                                         if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                             showMessage("非常抱歉，请您注册真实会员！");
