@@ -177,7 +177,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     /**
      * 需要定位的地方，从小到大排列，需要和hometabTextIcon对应起来，长度一样
      */
-    private int[] strTitleMarkup = {0, 2, 3, 6, 8, 11};
+    private int[] strTitleMarkup = {0, 2, 3, 6, 8, 12};
     private boolean isScrolled = false;
     private  void initHomepage() {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
@@ -197,7 +197,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,9,"ky"));
         homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,10,"ly"));
         homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,11,"vgqp"));
-        //homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,12,"hgqp"));
+        homeGameList.add(new HomePageIcon("皇冠棋牌",R.mipmap.home_hg,12,"klqp"));
 
 
         homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_py,13,"agby"));
@@ -288,7 +288,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     int top = manager.findFirstVisibleItemPosition();
                     int bottom = manager.findLastVisibleItemPosition();
 
-                    if (top >= 11) {
+                    if (top >= 12) {
                         //先判断滑到底部，tab定位到最后一个
                         pos = strTitleMarkup.length - 1;
                         GameLog.log("区间范围的时候"+pos);
@@ -854,7 +854,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             case "avia":
                 helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getFydjNum());
                 break;
-            case "hgqp":
+            case "klqp":
                 helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getHgChessNum());
                 break;
             case "ky":
@@ -1088,12 +1088,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 break;
 
-            case "hgqp":
+            case "klqp":
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                     showMessage("非常抱歉，请您注册真实会员！");
                     return;
                 }
-                userState = "hgqp";
+                userState = "klqp";
                 String qp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_MAINTAIN);
                 if("1".equals(qp_url)){
                     presenter.postMaintain();
@@ -1709,8 +1709,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                    GameLog.log("ky "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_KY_MAINTAIN,maintainResult1.getState());
                    break;
-               case "hgqp":
-                   if(userState.equals("hgqp")){
+               case "klqp":
+                   if(userState.equals("klqp")){
                        showMessage(maintainResult1.getContent());
                    }
                    GameLog.log("hg "+maintainResult1.getState());
@@ -2008,7 +2008,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postMaintain();
         presenter.postCP();
         presenter.postQipai("","");
-        //presenter.postHGQipai("","");去掉了皇冠棋牌
+        presenter.postHGQipai("","");
         presenter.postVGQipai("","");
         presenter.postLYQipai("","");
         presenter.postAviaQiPai("","");

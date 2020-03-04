@@ -93,12 +93,13 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("账户中心");
         myList.add("投注记录");
         myList.add("流水记录");
+        myList.add("优惠申请");
         myList.add("新手教学");
         myList.add("关于金沙集团");
         myList.add("代理加盟");
+        myList.add("代理登录");
         myList.add("联系我们");
         myList.add("安全退出");
-        myList.add("代理登录");
 
     }
 
@@ -221,32 +222,41 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                         case 9://流水记录
                             EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 10://新手教学
+                        case 10:
+                            if(!Check.isNull(ACache.get(getContext()).getAsString("promo_url"))){
+                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, ACache.get(getContext()).getAsString("promo_url"))));
+                            }else{
+                                showMessage("配置有误，请联系在线客服！");
+                            }
+                            break;
+                        case 11://新手教学
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"help.php?tip=app")));
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 11://关于太阳城
+                        case 12://关于太阳城
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"aboutus.php?tip=app")));
 
                             //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"/template/help.php?tip=app")));
                             break;
-                        case 12://代理加盟
+                        case 13://代理加盟
                             EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
                             //交易记录
                             //EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 13://联系我们
+                        case 14:
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, ACache.get(getContext()).getAsString("agentLoginUrl"))));
+                            break;
+                        case 15://联系我们
                             EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
+
                             break;
-                        case 14:
+                        case 16:
                             presenter.logOut();
                             break;
-                        case 15:
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, ACache.get(getContext()).getAsString("agentLoginUrl"))));
-                            break;
+
                     }
                 }
             });
@@ -285,23 +295,27 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
                     break;
                 case 10:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_new);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_youhui);
                     break;
                 case 11:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_about);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_new);
                     break;
                 case 12:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_accent);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_about);
                     break;
                 case 13:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_contact);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_accent);
                     break;
                 case 14:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
-                    break;
-                case 15:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_agent_login);
                     break;
+                case 15:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_contact);
+                    break;
+                case 16:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
+                    break;
+
 
             }
 

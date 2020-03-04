@@ -37,6 +37,7 @@ public class CheckUpgradeResult implements Parcelable {
     private String signSwitch;
     private String aliasOn;
     private String agentLoginUrl;
+    private String promo_url;
 
     public String getVersion() {
         return version;
@@ -174,6 +175,14 @@ public class CheckUpgradeResult implements Parcelable {
         this.agentLoginUrl = agentLoginUrl;
     }
 
+    public String getPromo_url() {
+        return promo_url;
+    }
+
+    public void setPromo_url(String promo_url) {
+        this.promo_url = promo_url;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -198,6 +207,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.signSwitch);
         dest.writeString(this.aliasOn);
         dest.writeString(this.agentLoginUrl);
+        dest.writeString(this.promo_url);
     }
 
     public CheckUpgradeResult() {
@@ -221,6 +231,7 @@ public class CheckUpgradeResult implements Parcelable {
         this.signSwitch = in.readString();
         this.aliasOn = in.readString();
         this.agentLoginUrl = in.readString();
+        this.promo_url = in.readString();
     }
 
     public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {

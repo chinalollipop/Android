@@ -1,0 +1,4 @@
+#Sun Feb 23 16:27:16 CST 2020
+base.0=E\:\\AndroidGitNew\\WEB_APP\\APP_XPJModule\\JPushExample(1474113)\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
