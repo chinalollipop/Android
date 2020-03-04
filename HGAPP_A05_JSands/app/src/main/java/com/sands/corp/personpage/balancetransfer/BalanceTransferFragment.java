@@ -280,6 +280,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @Override
     public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
+        BalanceTransferKL.setText(personBalance.getFf_balance());
         backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
         BalanceTransferTY.setText(personBalance.getHg_balance());
     }
