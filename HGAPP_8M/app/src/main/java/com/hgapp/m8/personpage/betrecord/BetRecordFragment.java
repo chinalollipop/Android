@@ -108,7 +108,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
         gtypeList.add("开元棋牌");
         gtypeList.add("乐游棋牌");
         gtypeList.add("VG棋牌");
-        gtypeList.add("皇冠棋牌");
+        gtypeList.add("快乐棋牌");
         gtypeList.add("MG电子");
         gtypeList.add("泛亚电竞");
         gtypeList.add("OG视讯");
@@ -250,7 +250,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                         gtype = "vgqp";
                         break;
                     case 10:
-                        gtype = "hgqp";
+                        gtype = "klqp";
                         break;
                     case 11:
                         gtype = "mgdz";

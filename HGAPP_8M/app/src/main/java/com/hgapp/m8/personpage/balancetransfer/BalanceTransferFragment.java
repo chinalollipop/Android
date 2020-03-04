@@ -57,6 +57,10 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView tvBalanceTransferOut;
     @BindView(R.id.BalanceTransferTY)
     TextView BalanceTransferTY;
+    @BindView(R.id.BalanceTransferKL)
+    TextView BalanceTransferKL;
+    @BindView(R.id.BalanceTransferKLOneBack)
+    TextView BalanceTransferKLOneBack;
     @BindView(R.id.BalanceTransferCPOneBack)
     TextView BalanceTransferCPOneBack;
     @BindView(R.id.BalanceTransferAGOneBack)
@@ -137,7 +141,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         gtypeList.add(new BalanceTransferData("2","彩票余额","cp"));
         gtypeList.add(new BalanceTransferData("3","AG余额","ag"));
         gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));
-        gtypeList.add(new BalanceTransferData("5","皇冠棋牌","ff"));
+        gtypeList.add(new BalanceTransferData("5","快乐棋牌","kl"));
         gtypeList.add(new BalanceTransferData("6","VG棋牌","vg"));
         gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
         gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
@@ -271,6 +275,14 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         }
     }
 
+    private void onKLBack(){
+        String BalanceTransferKLText = BalanceTransferTY.getText().toString();
+        int BalanceTransferKLTextInt =  Integer.parseInt(BalanceTransferKLText.split("\\.")[0]);
+        if(BalanceTransferKLTextInt>0){
+            presenter.postBanalceTransferHG("","hg","kl",BalanceTransferKLTextInt+"");
+        }
+    }
+
     private void onMGBack(){
         String BalanceTransferCPText = BalanceTransferTY.getText().toString();
         int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
@@ -344,6 +356,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         }
         if(Integer.parseInt(BalanceTransferVG.getText().toString().split("\\.")[0])>0){
             presenter.postBanalceTransferVG("","vg","hg",Integer.parseInt(BalanceTransferVG.getText().toString().split("\\.")[0])+"");
+        }
+        if(Integer.parseInt(BalanceTransferKL.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferHG("","kl","hg",Integer.parseInt(BalanceTransferKL.getText().toString().split("\\.")[0])+"");
         }
         if(Integer.parseInt(BalanceTransferMG.getText().toString().split("\\.")[0])>0){
             presenter.postBanalceTransferMG("","mg","hg",Integer.parseInt(BalanceTransferMG.getText().toString().split("\\.")[0])+"");
@@ -445,6 +460,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @Override
     public void postPersonBalanceHGResult(KYBalanceResult personBalance) {
+        BalanceTransferKL.setText(personBalance.getFf_balance());
         backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
         BalanceTransferTY.setText(personBalance.getHg_balance());
     }
@@ -570,18 +586,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferKY("","ky","hg",transferMoney);
-        }else if(from.equals("ff")&&to.equals("hg")){
+        }else if(from.equals("kl")&&to.equals("hg")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
                 return;
             }
-            presenter.postBanalceTransferHG("","ff","hg",transferMoney);
-        }else if(from.equals("hg")&&to.equals("ff")){
+            presenter.postBanalceTransferHG("","kl","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("kl")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
                 return;
             }
-            presenter.postBanalceTransferHG("","hg","ff",transferMoney);
+            presenter.postBanalceTransferHG("","hg","kl",transferMoney);
         }else if(from.equals("vg")&&to.equals("hg")){
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 showMessage("非常抱歉，请您注册真实会员！");
@@ -692,7 +708,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @OnClick({R.id.BalanceTransferCPOneBack,R.id.BalanceTransferAGOneBack,R.id.BalanceTransferKYOneBack,R.id.BalanceTransferLYOneBack,R.id.BalanceTransferVGOneBack,
             R.id.BalanceTransferMGOneBack,R.id.BalanceTransferFYOneBack,R.id.BalanceTransferOGOneBack,R.id.BalanceTransferCQOneBack,R.id.BalanceTransferMWOneBack,
-            R.id.BalanceTransferFGOneBack,R.id.BalanceTransferBBINOneBack,
+            R.id.BalanceTransferFGOneBack,R.id.BalanceTransferBBINOneBack,R.id.BalanceTransferKLOneBack,
             R.id.BalanceTransferRefresh,R.id.BalanceTransferOneBack,R.id.btnBalanceTrensferSubmit,R.id.tvBalanceTransferIn, R.id.tvBalanceTransferOut})
     public void onViewClicked(View view) {
         try {
@@ -711,6 +727,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                     break;
                 case R.id.BalanceTransferVGOneBack:
                     onVGBack();
+                    break;
+                case R.id.BalanceTransferKLOneBack:
+                    onKLBack();
                     break;
                 case R.id.BalanceTransferMGOneBack:
                     onMGBack();
@@ -869,8 +888,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         showContent = "In 点击 Item菜单4";
                         break;
                     case R.id.popMenuFF:
-                        to = "ff";
-                        tvBalanceTransferIn.setText("皇冠棋牌");
+                        to = "kl";
+                        tvBalanceTransferIn.setText("快乐棋牌");
                         showContent = "In 点击 Item菜单5";
                         break;
                     case R.id.popMenuVG:
@@ -1123,7 +1142,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuMWtv.setTextColor(getResources().getColor(R.color.pop_normal));
 
                 break;
-            case "ff":
+            case "kl":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuCP.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuAG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
@@ -1489,8 +1508,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                         showContent = "Out 点击 Item菜单4";
                         break;
                     case R.id.popMenuFF:
-                        from = "ff";
-                        tvBalanceTransferOut.setText("皇冠棋牌");
+                        from = "kl";
+                        tvBalanceTransferOut.setText("快乐棋牌");
                         showContent = "Out 点击 Item菜单5";
                         break;
                     case R.id.popMenuVG:
@@ -1748,7 +1767,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 popMenuMWtv.setTextColor(getResources().getColor(R.color.pop_normal));
 
                 break;
-            case "ff":
+            case "kl":
                 popMenuHG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuCP.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));
                 popMenuAG.setBackgroundColor(getResources().getColor(R.color.pop_ll_normal));

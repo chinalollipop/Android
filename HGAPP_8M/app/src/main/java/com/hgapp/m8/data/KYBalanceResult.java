@@ -7,7 +7,7 @@ public class KYBalanceResult {
     private String balance_cp;
     private String gmcp_balance;
     private String hg_balance;
-    private String ff_balance;
+    private String kl_balance;
     private String vg_balance;
     private String ly_balance;
     private String mg_balance;
@@ -68,11 +68,11 @@ public class KYBalanceResult {
     }
 
     public String getFf_balance() {
-        return ff_balance;
+        return kl_balance;
     }
 
     public void setFf_balance(String ff_balance) {
-        this.ff_balance = ff_balance;
+        this.kl_balance = ff_balance;
     }
 
     public String getVg_balance() {
@@ -163,7 +163,7 @@ public class KYBalanceResult {
                 ", balance_hg='" + balance_hg + '\'' +
                 ", balance_cp='" + balance_cp + '\'' +
                 ", hg_balance='" + hg_balance + '\'' +
-                ", ff_balance='" + ff_balance + '\'' +
+                ", kl_balance='" + kl_balance + '\'' +
                 ", vg_balance='" + vg_balance + '\'' +
                 ", ly_balance='" + ly_balance + '\'' +
                 ", mg_balance='" + mg_balance + '\'' +

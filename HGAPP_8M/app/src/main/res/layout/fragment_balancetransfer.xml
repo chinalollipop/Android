@@ -293,17 +293,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MG电子"
+                            android:text="快乐棋牌"
                             android:textColor="#2d3134" />
 
                         <TextView
-                            android:id="@+id/BalanceTransferMG"
+                            android:id="@+id/BalanceTransferKL"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0.0"
                             android:textColor="#4d8eb9" />
                         <TextView
-                            android:id="@+id/BalanceTransferMGOneBack"
+                            android:id="@+id/BalanceTransferKLOneBack"
                             android:text="一键转入"
                             android:padding="4dp"
                             android:textSize="12sp"
@@ -499,6 +499,38 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="MG电子"
+                            android:textColor="#2d3134" />
+
+                        <TextView
+                            android:id="@+id/BalanceTransferMG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0"
+                            android:textColor="#4d8eb9" />
+                        <TextView
+                            android:id="@+id/BalanceTransferMGOneBack"
+                            android:text="一键转入"
+                            android:padding="4dp"
+                            android:textSize="12sp"
+                            android:background="@drawable/home_tab_title"
+                            android:textColor="@color/register_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@mipmap/icon_textview_transfer1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="BBIN平台"
                             android:textColor="#2d3134" />
 
@@ -575,29 +607,6 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:background="@mipmap/icon_textview_transfer1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:visibility="invisible">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="BBIN平台"
-                            android:textColor="#2d3134" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0.0"
-                            android:textColor="#4d8eb9" />
-
-                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
