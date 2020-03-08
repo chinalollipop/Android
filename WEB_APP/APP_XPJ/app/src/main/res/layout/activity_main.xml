@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.pkpkpk.newatoa.utils.FloatButtonLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/float_button_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -10,17 +10,45 @@
         android:id="@+id/flayout_xpay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
+
     <com.tencent.smtt.sdk.WebView
         android:id="@+id/wv_pay_x5_game"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+
     <com.coolindicator.sdk.CoolIndicator
         android:id="@+id/indicator"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:progressDrawable="@drawable/default_drawable_indicator"
         android:layout_width="match_parent"
-        android:layout_height="3dp"/>
+        android:layout_height="3dp"
+        android:progressDrawable="@drawable/default_drawable_indicator" />
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@id/float_homes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="80dp"
+        android:background="@mipmap/drag_view_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@id/float_home"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/drag_view_home" />
+
+        <ImageView
+            android:id="@id/float_refesh"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/drag_view_refresh" />
+
+        <ImageView
+            android:id="@id/float_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/drag_view_back" />
+    </LinearLayout>
+</com.pkpkpk.newatoa.utils.FloatButtonLayout>

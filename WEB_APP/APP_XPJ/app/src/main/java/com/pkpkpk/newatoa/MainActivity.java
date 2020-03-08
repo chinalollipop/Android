@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.coolindicator.sdk.CoolIndicator;
@@ -22,6 +23,7 @@ import com.pkpkpk.newatoa.utils.Check;
 import com.pkpkpk.newatoa.utils.CommentUtils;
 import com.pkpkpk.newatoa.utils.FileIOUtils;
 import com.pkpkpk.newatoa.utils.FileUtils;
+import com.pkpkpk.newatoa.utils.FloatButtonLayout;
 import com.pkpkpk.newatoa.utils.GameLog;
 import com.pkpkpk.newatoa.utils.TBSWebSetting;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
@@ -61,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     private long TOUCH_TIME = 0;
     private WebView wvPayGame;
     private CoolIndicator mCoolIndicator;
+    private ImageView float_home,float_refesh,float_back;
+    private FloatButtonLayout floatButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +73,52 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         flayoutXpay = this.findViewById(R.id.flayout_xpay);
         wvPayGame = this.findViewById(R.id.wv_pay_x5_game);
+        float_home = this.findViewById(R.id.float_home);
+        float_refesh = this.findViewById(R.id.float_refesh);
+        float_back = this.findViewById(R.id.float_back);
+        floatButton = this.findViewById(R.id.float_button_layout);
+        //设置点击事件
+        float_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String demainUrl =  ACache.get(getApplicationContext()).getAsString("APP_DEMAIN_URL");
+                if(Check.isEmpty(demainUrl)){
+                    demainUrl = "https://3013777.com/m";
+                }
+                wvPayGame.loadUrl(demainUrl);
+            }
+        });
+        float_refesh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wvPayGame.reload();
+            }
+        });
+        float_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(wvPayGame.canGoBack()) {
+                    wvPayGame.goBack();
+                } else {
+                    if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+                        finish();
+                        System.exit(0);
+                    }else{
+                        TOUCH_TIME = System.currentTimeMillis();
+                        Toast.makeText(getApplicationContext(),"再按一次退出程序", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
+        floatButton.setCallback(new FloatButtonLayout.Callback() {
+            @Override
+            public void onClickFloatButton() {
+                GameLog.log("你点击了啥");
+                //startActivity(new Intent(MainActivity.this, NewYearActivity.class));
+            }
+        });
         mCoolIndicator = this.findViewById(R.id.indicator);
         mCoolIndicator.setMax(100);
         TBSWebSetting.init(wvPayGame);
@@ -131,6 +182,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+               /* if("https://3013777.com/m".equals(url)){
+                    floatButton.setVisibility(View.GONE);
+                }else{
+                    floatButton.setVisibility(View.VISIBLE);
+                }*/
                 view.loadUrl(url);
                 return true;
             }

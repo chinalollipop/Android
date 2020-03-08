@@ -8,6 +8,7 @@
     <permission
         android:name="com.pkpkpk.newatoa.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
+
     <!-- Required  一些系统要求的权限，如访问网络等-->
     <uses-permission android:name="com.pkpkpk.newatoa.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -30,6 +31,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+
 
 
     <application
@@ -188,7 +190,6 @@
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
         <meta-data android:name="JPUSH_APPKEY" android:value="a6fa987009e550477f7feb5a" /> <!--  </>值来自开发者平台取得的AppKey-->
-
 
         <provider
             android:name="android.support.v4.content.FileProvider"

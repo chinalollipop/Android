@@ -7,9 +7,11 @@ import android.util.Log;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+
 import cn.jpush.android.api.JPushInterface;
 
 public class HGWEBApplication extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
