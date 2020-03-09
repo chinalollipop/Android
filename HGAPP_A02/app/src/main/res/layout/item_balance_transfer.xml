@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="6dp"
-        android:background="@drawable/btn_balance_transfer"
+        android:background="@drawable/btn_balance_transfer_press"
         android:ellipsize="end"
         android:gravity="center"
         android:maxEms="11"
@@ -19,7 +19,7 @@
         android:paddingTop="6dp"
         android:singleLine="true"
         android:text="200"
-        android:textColor="#868686"
+        android:textColor="#ffffff"
         android:textSize="12sp" />
 </LinearLayout>
 
