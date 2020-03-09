@@ -10,7 +10,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 
 import cn.jpush.android.api.JPushInterface;
 
-public class HGWEBApplication extends Application {
+public class WebApplication extends Application {
 
     @Override
     public void onCreate() {

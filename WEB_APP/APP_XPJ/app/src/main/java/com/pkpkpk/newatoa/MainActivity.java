@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.coolindicator.sdk.CoolIndicator;
 import com.pkpkpk.newatoa.http.UpdateAppHttpUtil;
+import com.pkpkpk.newatoa.push.ExampleUtil;
+import com.pkpkpk.newatoa.push.LocalBroadcastManager;
 import com.pkpkpk.newatoa.utils.ACache;
 import com.pkpkpk.newatoa.utils.Check;
 import com.pkpkpk.newatoa.utils.CommentUtils;
@@ -122,12 +124,6 @@ public class MainActivity extends AppCompatActivity {
         mCoolIndicator = this.findViewById(R.id.indicator);
         mCoolIndicator.setMax(100);
         TBSWebSetting.init(wvPayGame);
-        String demainUrl =  ACache.get(getApplicationContext()).getAsString("APP_DEMAIN_URL");
-        if(Check.isEmpty(demainUrl)){
-            demainUrl = "https://3013777.com/m";
-        }
-        wvPayGame.loadUrl(demainUrl);
-        //wvPayGame.loadUrl("https://m.hhhg6668.com/");
         registerMessageReceiver();  // used for receive msg
         wvPayGame.setWebChromeClient(new WebChromeClient(){
 
@@ -196,6 +192,12 @@ public class MainActivity extends AppCompatActivity {
                 handler.proceed();
             }
         });
+        String demainUrl =  ACache.get(getApplicationContext()).getAsString("APP_DEMAIN_URL");
+        if(Check.isEmpty(demainUrl)){
+            demainUrl = "https://3013777.com/m";
+        }
+        wvPayGame.loadUrl(demainUrl);
+
     }
 
 
@@ -418,8 +420,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "没有新版本", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
 
     }
 }

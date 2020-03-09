@@ -1,4 +1,4 @@
-package com.pkpkpk.newatoa;
+package com.pkpkpk.newatoa.push;
 
 import cn.jpush.android.service.JCommonService;
 

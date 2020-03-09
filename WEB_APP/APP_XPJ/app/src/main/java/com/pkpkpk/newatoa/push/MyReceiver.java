@@ -1,10 +1,15 @@
-package com.pkpkpk.newatoa;
+package com.pkpkpk.newatoa.push;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+
+import com.pkpkpk.newatoa.MainActivity;
+import com.pkpkpk.newatoa.push.ExampleUtil;
+import com.pkpkpk.newatoa.push.LocalBroadcastManager;
+import com.pkpkpk.newatoa.push.Logger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
