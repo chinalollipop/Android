@@ -23,6 +23,7 @@ import com.hgapp.a6668.data.DepositThirdQQPayResult;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.depositpage.aliqcpay.AliQCPayFragment;
 import com.hgapp.a6668.depositpage.companypay.CompanyPayFragment;
+import com.hgapp.a6668.depositpage.companypay.CompanyPayOneFragment;
 import com.hgapp.a6668.depositpage.thirdbankcardpay.ThirdbankCardFragment;
 import com.hgapp.a6668.depositpage.thirdmobilepay.OnlinePlayFragment;
 import com.hgapp.a6668.depositpage.thirdmobilepay.ThirdMobilePayFragment;
@@ -113,8 +114,8 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
     @Override
     public void postDepositBankCordListResult(DepositBankCordListResult message) {
         GameLog.log("公司入款："+message.getData().size());
-        EventBus.getDefault().post(new StartBrotherEvent(CompanyPayFragment.newInstance(message,userMoney), SupportFragment.SINGLETASK));
-
+        //EventBus.getDefault().post(new StartBrotherEvent(CompanyPayFragment.newInstance(message,userMoney), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(CompanyPayOneFragment.newInstance(message,userMoney), SupportFragment.SINGLETASK));
     }
 
     @Override

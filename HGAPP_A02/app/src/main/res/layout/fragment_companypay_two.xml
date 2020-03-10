@@ -180,7 +180,7 @@
 
     <TextView
         android:layout_margin="5dp"
-        android:text="温馨提示：\n 一：请在金额转出之后务必及时填写汇款信息表格，一遍我们财务人员能及时为您确认添加金额到您的会员账户。\n二：本公司最低存款金额为100元。"
+        android:text="温馨提示：\n 一：请在金额转出之后务必及时填写汇款信息表格，以遍我们财务人员能及时为您确认添加金额到您的会员账号。\n二：本公司最低存款金额为100元。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -202,7 +202,7 @@
     <TextView
         android:layout_margin="5dp"
         android:textColor="@android:color/holo_red_light"
-        android:text="此存款信息只是您汇款详细的提交，并非代表存款。您需要自己通过ATM或网银转账到本公司提供的账户后，填写提交此信息，待工作人员审核充值！"
+        android:text="此存款信息只是您汇款详情的提交，并非代表存款。您需要自己通过ATM或网银转账到本公司的账户后，填写提交此信息，待工作人员核实充值！"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
