@@ -32683,7 +32683,9 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                         onResetData();
                         return;
                     }
-                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
+                    //String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"蛇":data.getOrderName().equals("虎")?"兔":data.getOrderName());
+                    String name  = data.getFullName().equals("")?(data.getOrderName().equals("龙")?"龙":data.getOrderName().equals("虎")?"虎":data.getOrderName()):data.getFullName()+" - "+(data.getOrderName().equals("龙")?"龙":data.getOrderName().equals("虎")?"虎":data.getOrderName());
+
                     if("_".equals(name.substring(name.length() -1, name.length()))){
                         name = name.substring(0, name.length() -1);
                     }
