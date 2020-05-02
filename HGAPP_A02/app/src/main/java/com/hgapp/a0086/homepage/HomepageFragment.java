@@ -133,7 +133,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("快乐棋牌",R.mipmap.home_hg_qipai,3));
         homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,14));
+        homeGameList.add(new HomePageIcon("泛亚电竞",R.mipmap.home_avia,14));
+        homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_leihuo,18));
         homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
@@ -473,6 +474,19 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 userState = "10";
                 presenter.postBBINGame("","");
+                break;
+            case 18:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "11";
+                presenter.postThunFireGame("","");
                 break;
         }
     }
@@ -882,6 +896,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     GameLog.log("og "+maintainResult1.getState());
                     //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
                     break;
+                case "thunfire":
+                    if(userState.equals("11")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("fire "+maintainResult1.getState());
+                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    break;
             }
         }
     }
@@ -1092,6 +1113,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         presenter.postVGQipai("","");
         presenter.postLYQipai("","");
         presenter.postAviaQiPai("","");
+        //presenter.postThunFireGame("","");
     }
 
     @Subscribe

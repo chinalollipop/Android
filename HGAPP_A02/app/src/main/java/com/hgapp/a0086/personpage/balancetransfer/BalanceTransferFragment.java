@@ -90,6 +90,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
         gtypeList.add(new BalanceTransferData("13","FG电子","fg"));
         gtypeList.add(new BalanceTransferData("14","BBIN视讯","bbin"));
+        gtypeList.add(new BalanceTransferData("15","雷火电竞","fire"));
     }
 
     public static BalanceTransferFragment newInstance(String type) {
@@ -376,6 +377,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferBBIN("","hg","bbin",transferMoney);
+        }else if(from.equals("fire")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFire("","fire","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("fire")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFire("","hg","fire",transferMoney);
         }else {
             showMessage("转账方式不支持");
         }

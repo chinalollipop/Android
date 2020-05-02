@@ -79,7 +79,7 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
             getArgParam1 = getArguments().getString(ARG_PARAM1);
             getArgParam2 = getArguments().getInt(ARG_PARAM2);
         }
-    }
+}
 
 
     @Override

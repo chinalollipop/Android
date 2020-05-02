@@ -85,6 +85,11 @@ public interface IHomePageApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<QipaiResult>> postAviaQiPai(@Field("appRefer") String appRefer, @Field("action") String action);
 
+    //雷火电竞
+    @POST("thunfire/fire_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<AGGameLoginResult>> postThunFireGame(@Field("appRefer") String appRefer, @Field("action") String action);
+
 
     //彩票联合登录接口
     @POST("index_api.php")

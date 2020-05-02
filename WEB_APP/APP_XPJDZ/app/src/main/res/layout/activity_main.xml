@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pkpkpk.fenghang.utils.FloatButtonLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/float_button_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/flayout_xpay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/wv_pay_x5_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/homeDeposit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="充值" />
+
+        <TextView
+            android:id="@+id/homeRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="注册" />
+
+        <TextView
+            android:id="@+id/homeActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="优惠" />
+
+        <TextView
+            android:id="@+id/homeExChange"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="额度转换" />
+
+        <TextView
+            android:id="@+id/homeWithdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取款" />
+
+    </LinearLayout>
+
+    <com.coolindicator.sdk.CoolIndicator
+        android:id="@+id/indicator"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:progressDrawable="@drawable/default_drawable_indicator" />
+
+    <LinearLayout
+        android:id="@id/float_homes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"
+        android:background="@mipmap/drag_view_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/float_home"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="存款"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@id/float_refesh"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="取款"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@id/float_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</com.pkpkpk.fenghang.utils.FloatButtonLayout>

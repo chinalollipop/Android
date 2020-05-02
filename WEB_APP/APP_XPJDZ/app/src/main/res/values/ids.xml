@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="float_homes" type="id"/>
+    <item name="float_home" type="id"/>
+    <item name="float_refesh" type="id"/>
+    <item name="float_back" type="id"/>
+    <item name="float_button_layout" type="id"/>
+</resources>

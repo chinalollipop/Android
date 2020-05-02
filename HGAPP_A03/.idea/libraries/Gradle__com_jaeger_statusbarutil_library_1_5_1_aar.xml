@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.jaeger.statusbarutil:library:1.5.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7c98f96c4e6cb4f6e8a4974dc0a37147/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7c98f96c4e6cb4f6e8a4974dc0a37147/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df44f82cba19d70dd4c67fe2e51c5e01/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df44f82cba19d70dd4c67fe2e51c5e01/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jaeger.statusbarutil/library/1.5.1/bfdbaf66523ddb99f921eaaa53f5e14f49d5e896/library-1.5.1-javadoc.jar!/" />

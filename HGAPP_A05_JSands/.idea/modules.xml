@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-HGAPP_A05_JSands.iml" filepath="$PROJECT_DIR$/Android-HGAPP_A05_JSands.iml" group="HGAPP_A05_JSands" />
       <module fileurl="file://$PROJECT_DIR$/HGAPP_A05_JSands.iml" filepath="$PROJECT_DIR$/HGAPP_A05_JSands.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/HGAPP_A05_JSands-app.iml" filepath="$PROJECT_DIR$/app/HGAPP_A05_JSands-app.iml" group="HGAPP_A05_JSands/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/HGAPP_A05_JSands-commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/HGAPP_A05_JSands-commonliberary.iml" group="HGAPP_A05_JSands/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/HGAPP_A05_JSands-slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/HGAPP_A05_JSands-slidingmenu.iml" group="HGAPP_A05_JSands/slidingmenu" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" />

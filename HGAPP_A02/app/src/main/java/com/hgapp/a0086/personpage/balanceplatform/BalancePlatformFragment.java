@@ -102,6 +102,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
         balancePlatformList.add("加载中");
+        balancePlatformList.add("加载中");
         gtypeList.add(new BalanceTransferData("0","彩票平台","cp"));
         gtypeList.add(new BalanceTransferData("1","AG平台","ag"));
         gtypeList.add(new BalanceTransferData("2","开元棋牌","ky"));
@@ -115,6 +116,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         gtypeList.add(new BalanceTransferData("10","MW电子","mw"));
         gtypeList.add(new BalanceTransferData("11","FG电子","fg"));
         gtypeList.add(new BalanceTransferData("12","BBIN视讯","bbin"));
+        gtypeList.add(new BalanceTransferData("13","雷火电竞","fire"));
         balancePlatformAdapter = new BalancePlatformAdapter(getContext(),R.layout.item_balance_platform,balancePlatformList);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         lvBalancePlatform.setLayoutManager(mLayoutManager1);
@@ -133,6 +135,7 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         presenter.postPersonBalanceMW("","");
         presenter.postPersonBalanceFG("","");
         presenter.postPersonBalanceBBIN("","");
+        presenter.postPersonBalanceFire("","");
         backTitleBalancePlatform.setMoreText(GameShipHelper.formatMoney(typeArgsHG));
         backTitleBalancePlatform.setBackListener(new View.OnClickListener() {
             @Override
@@ -268,6 +271,13 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             }
                                             presenter.postBanalceTransferFG("", "hg", "fg", GameShipHelper.getIntegerString(text));
                                             break;
+                                        case "fire":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferFire("", "hg", "fire", GameShipHelper.getIntegerString(text));
+                                            break;
                                     }
                                 }
                             })
@@ -393,6 +403,13 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
                                             }
                                             presenter.postBanalceTransferFG("", "fg", "hg", GameShipHelper.getIntegerString(text));
                                             break;
+                                        case "fire":
+                                            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                                showMessage("非常抱歉，请您注册真实会员！");
+                                                return;
+                                            }
+                                            presenter.postBanalceTransferFire("", "fire", "hg", GameShipHelper.getIntegerString(text));
+                                            break;
                                     }
                                 }
                             })
@@ -506,6 +523,12 @@ public class BalancePlatformFragment extends HGBaseFragment implements BalancePl
         onSetMoreText(kyBalanceResult);
     }
 
+    @Override
+    public void postPersonBalanceFireResult(KYBalanceResult kyBalanceResult) {
+        balancePlatformList.set(13,kyBalanceResult.getFire_balance());
+        balancePlatformAdapter.notifyDataSetChanged();
+        onSetMoreText(kyBalanceResult);
+    }
 
     @Override
     public void showMessage(String message) {
