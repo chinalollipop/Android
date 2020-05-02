@@ -180,7 +180,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     /**
      * 需要定位的地方，从小到大排列，需要和hometabTextIcon对应起来，长度一样
      */
-    private int[] strTitleMarkup = {0, 1, 5, 6, 7, 11,17};
+    private int[] strTitleMarkup = {0, 1, 5, 7, 8, 12,18};
+    private int lastPostion = 18;
     private boolean isScrolled = false;
     private  void initHomepage() {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0,"sport"));
@@ -190,27 +191,29 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,3,"bbin"));
         homeGameList.add(new HomePageIcon("DS视讯",R.mipmap.home_ds,4,"ds"));
 
-        homeGameList.add(new HomePageIcon("电子竞技",R.mipmap.home_avia,5,"avia"));
+        homeGameList.add(new HomePageIcon("泛亚竞技",R.mipmap.home_avia,5,"avia"));
+        homeGameList.add(new HomePageIcon("雷火竞技",R.mipmap.home_leihuo,6,"thunfire"));
 
-        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,6,"lottery"));
+        homeGameList.add(new HomePageIcon("彩票游戏",R.mipmap.home_vrcp,7,"lottery"));
 
-        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,7,"ky"));
-        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,8,"ly"));
-        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,9,"vgqp"));
-        homeGameList.add(new HomePageIcon("快乐棋牌",R.mipmap.home_hg,10,"klqp"));
+        homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_ky,8,"ky"));
+        homeGameList.add(new HomePageIcon("乐游棋牌",R.mipmap.home_ly,9,"ly"));
+        homeGameList.add(new HomePageIcon("VG棋牌",R.mipmap.home_vg,10,"vgqp"));
+        homeGameList.add(new HomePageIcon("快乐棋牌",R.mipmap.home_hg,11,"klqp"));
 
 
-        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_py,11,"agby"));
-        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,12,"fg"));
-        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,13,"game"));
-        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,14,"mg"));
-        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,15,"mw"));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,16,"cq"));
+        homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_py,12,"agby"));
+        homeGameList.add(new HomePageIcon("FG电子",R.mipmap.home_dz_fg,13,"fg"));
+        homeGameList.add(new HomePageIcon("AG电子",R.mipmap.home_dz_ag,14,"game"));
+        homeGameList.add(new HomePageIcon("MG电子",R.mipmap.home_dz_mg,15,"mg"));
+        homeGameList.add(new HomePageIcon("MW电子",R.mipmap.home_dz_mw,16,"mw"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"cq"));
 
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,17,"line"));
-        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"line"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
         homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,21,"daniel"));
+        homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,22,"daniel"));
     }
 
     public static HomepageFragment newInstance() {
@@ -288,7 +291,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     int top = manager.findFirstVisibleItemPosition();
                     int bottom = manager.findLastVisibleItemPosition();
 
-                    if (top >= 18) {
+                    if (top >= lastPostion) {
                         //先判断滑到底部，tab定位到最后一个
                         pos = strTitleMarkup.length - 1;
                         GameLog.log("区间范围的时候"+pos);
@@ -851,6 +854,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case "avia":
                 helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getFydjNum());
+            case "thunfire":
+                helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getFireGameNumber());
                 break;
             case "klqp":
                 helper.setText(R.id.id_main_item_gamenum,mGameNumResult.getHgChessNum());
@@ -905,7 +910,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             if(homeGameList.get(k).isHeart()){
                 if(homeGameList.get(k).getIconNameTitle().equals(userState)) {
                     homeGameList.get(k).setHeart(false);
-                    if (k >= 17) {
+                    if (k >= lastPostion) {
                         GameLog.log("当前列表的大小：" + k);
                         homeGameList.remove(k);
                         --size;
@@ -931,8 +936,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         switch (currentMore){
             case 0:
-                if(size2>=17){
-                    for(int k =17;k<size2;++k){
+                if(size2>=lastPostion){
+                    for(int k =lastPostion;k<size2;++k){
                         if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
                             homeGameList.remove(k);
                             --k;
@@ -940,13 +945,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         }
                     }
                 }
-                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
-                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
-                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,20,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+1,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+2,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+3,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+4,"daniel"));
                 break;
             case 2:
-                if(size2>=18){
-                    for(int k =18;k<size2;++k){
+                if(size2>=lastPostion+1){
+                    for(int k =lastPostion+1;k<size2;++k){
                         if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
                             homeGameList.remove(k);
                             --k;
@@ -954,12 +960,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         }
                     }
                 }
-                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,18,"daniel"));
-                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+1,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+2,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+3,"daniel"));
                 break;
             case 4:
-                if(size2>=19){
-                    for(int k =19;k<size2;++k){
+                if(size2>=lastPostion+2){
+                    for(int k =lastPostion+2;k<size2;++k){
                         if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
                             homeGameList.remove(k);
                             --k;
@@ -967,11 +974,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         }
                     }
                 }
-                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,19,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+2,"daniel"));
+                homeGameList.add(new HomePageIcon("CQ9电子",R.mipmap.home_dz_cq9,lastPostion+3,"daniel"));
                 break;
             case 6:
-                if(size2>=17){
-                    for(int k =17;k<size2;++k){
+                if(size2>=lastPostion){
+                    for(int k =lastPostion;k<size2;++k){
                         if(homeGameList.get(k).getIconNameTitle().equals("daniel")){
                             homeGameList.remove(k);
                             --k;
@@ -1201,6 +1209,21 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 userState = "agby";
                 presenter.postBYGame("","6");
                 break;
+            case "thunfire":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "thunfire";
+                String fire_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire");
+                GameLog.log("当前是否关闭 "+fire_url);
+                if(!Check.isEmpty(fire_url)&&"1".equals(fire_url)){
+                    presenter.postMaintain();
+                }else {
+                    presenter.postThunFireGame("","");
+                }
+
+                break;
 
         }
 
@@ -1257,7 +1280,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 //tabLayout.setScrollPosition(5, 0f, true);
                 break;
             case R.id.hometabTextZX:
-                if(homeGameList.size()>=18){
+                if(homeGameList.size()>=lastPostion+1){
                     homeTabItem(6);
                     manager.scrollToPositionWithOffset(strTitleMarkup[6], 0);
                 }else{
@@ -1584,6 +1607,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postThunFireGameResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_QIPAI_URL+"fire",qipaiResult.getUrl());
+        GameLog.log("=============雷火电竞的地址=============");
+        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","雷火电竞");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);
+    }
+
+    @Override
     public void postOGResult(AGGameLoginResult qipaiResult) {
         GameLog.log("OG的返回数据："+qipaiResult.getUrl());
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
@@ -1741,6 +1775,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                    }
                    GameLog.log("cq "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"cq",maintainResult1.getState());
+                   break;
+               case "thunfire":
+                   if(userState.equals("thunfire")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("thunfire "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire",maintainResult1.getState());
                    break;
            }
        }
