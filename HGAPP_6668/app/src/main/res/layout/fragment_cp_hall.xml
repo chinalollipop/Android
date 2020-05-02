@@ -79,7 +79,7 @@
             android:layout_margin="10dp"
             android:drawableLeft="@mipmap/cp_user_name"
             android:drawablePadding="10dp"
-            android:text="daniel"
+            android:text=""
             android:textColor="@color/cp_hall_tv"
             android:textSize="16sp" />
 
@@ -91,7 +91,7 @@
             android:layout_margin="10dp"
             android:drawableLeft="@mipmap/cp_user_money"
             android:drawablePadding="10dp"
-            android:text="12345"
+            android:text=""
             android:textColor="@color/cp_hall_tv"
             android:textSize="16sp" />
     </RelativeLayout>
