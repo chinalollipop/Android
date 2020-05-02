@@ -766,6 +766,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "bbin":
                     from = "BBIN视讯";
                     break;
+                case "fire":
                     from = "雷火电竞";
                     break;
             }
