@@ -27,6 +27,7 @@ public class GameNumResult {
     private String bbinLiveNum;
     private String dsLiveNum;
     private String fydjNum;
+    private String fireGameNumber;
     private String vgChessNum;
     private String lyChessNum;
     private String kyChessNum;
@@ -173,5 +174,13 @@ public class GameNumResult {
 
     public void setMwGameNum(String mwGameNum) {
         this.mwGameNum = mwGameNum;
+    }
+
+    public String getFireGameNumber() {
+        return fireGameNumber;
+    }
+
+    public void setFireGameNumber(String fireGameNumber) {
+        this.fireGameNumber = fireGameNumber;
     }
 }

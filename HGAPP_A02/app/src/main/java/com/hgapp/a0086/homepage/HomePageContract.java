@@ -60,6 +60,7 @@ public interface HomePageContract {
         public void postValidGift2Result(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);
         public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult);
+        public void postThunFireGameResult(QipaiResult qipaiResult);
     }
 
 }

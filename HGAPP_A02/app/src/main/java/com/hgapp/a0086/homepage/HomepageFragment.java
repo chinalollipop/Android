@@ -124,6 +124,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     //private CheckUpgradeResult checkUpgradeResult;
     static {
         homeGameList.add(new HomePageIcon("体育投注",R.mipmap.home_hgty,0));
+        homeGameList.add(new HomePageIcon("泛亚电竞",R.mipmap.home_avia,14));
+        homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_leihuo,18));
         homeGameList.add(new HomePageIcon("AG视讯",R.mipmap.home_ag,1));
         homeGameList.add(new HomePageIcon("OG视讯",R.mipmap.home_og,16));
         homeGameList.add(new HomePageIcon("BBIN视讯",R.mipmap.home_bbin,17));
@@ -133,8 +135,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         homeGameList.add(new HomePageIcon("快乐棋牌",R.mipmap.home_hg_qipai,3));
         homeGameList.add(new HomePageIcon("开元棋牌",R.mipmap.home_qipai,4));
         homeGameList.add(new HomePageIcon("电子游艺",R.mipmap.home_lhj,6));
-        homeGameList.add(new HomePageIcon("泛亚电竞",R.mipmap.home_avia,14));
-        homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_leihuo,18));
+        /*homeGameList.add(new HomePageIcon("泛亚电竞",R.mipmap.home_avia,14));
+        homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_leihuo,18));*/
         homeGameList.add(new HomePageIcon("AG捕鱼",R.mipmap.home_agfishing,15));
 //        homeGameList.add(new HomePageIcon("欧博真人",R.mipmap.home_obzr));
 //        homeGameList.add(new HomePageIcon("沙巴体育",R.mipmap.home_sbty));
@@ -486,7 +488,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 userState = "11";
-                presenter.postThunFireGame("","");
+                String fire_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire");
+                GameLog.log("当前是否关闭 "+fire_url);
+                if(!Check.isEmpty(fire_url)&&"1".equals(fire_url)){
+                    presenter.postMaintain();
+                }else {
+                    presenter.postThunFireGame("", "");
+                }
                 break;
         }
     }
@@ -772,6 +780,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postThunFireGameResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_QIPAI_URL+"fire",qipaiResult.getUrl());
+        GameLog.log("=============雷火电竞的地址=============");
+        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","雷火电竞");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);
+    }
+
+    @Override
     public void postOGResult(AGGameLoginResult qipaiResult) {
         GameLog.log("OG的返回数据："+qipaiResult.getUrl());
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
@@ -900,8 +919,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     if(userState.equals("11")){
                         showMessage(maintainResult1.getContent());
                     }
-                    GameLog.log("fire "+maintainResult1.getState());
-                    //ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_MAINTAIN,maintainResult1.getState());
+                    GameLog.log("thunfire "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire",maintainResult1.getState());
                     break;
             }
         }

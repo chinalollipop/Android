@@ -37,6 +37,7 @@ public interface HomePageContract {
         public void postBYGame(String appRefer, String gameid);
         public void postOGGame(String appRefer, String gameid);
         public void postBBINGame(String appRefer, String gameid);
+        public void postThunFireGame(String appRefer, String gameid);
     }
     public interface View extends IView<HomePageContract.Presenter>,IMessageView,IProgressView
     {
@@ -54,6 +55,7 @@ public interface HomePageContract {
         public void postValidGift2Result(ValidResult validResult);
         public void postMaintainResult(List<MaintainResult> maintainResult);
         public void postGoPlayGameResult(AGGameLoginResult agGameLoginResult);
+        public void postThunFireGameResult(QipaiResult qipaiResult);
     }
 
 }

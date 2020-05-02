@@ -21,6 +21,7 @@ public interface BalanceTransferContract {
         public void postBanalceTransferMW(String appRefer, String f, String t, String b);
         public void postBanalceTransferFG(String appRefer, String f, String t, String b);
         public void postBanalceTransferBBIN(String appRefer, String f, String t, String b);
+        public void postBanalceTransferFire(String appRefer, String f, String t, String b);
         public void postBanalceTransferCP(String appRefer,String action, String from,String to, String fund);
     }
     public interface View extends IView<BalanceTransferContract.Presenter>,IMessageView,IProgressView
