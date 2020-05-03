@@ -217,6 +217,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     LinearLayout homeItem19;
     @BindView(R.id.homeItem20_1)
     ImageView homeItem201;
+    @BindView(R.id.homeItem20_2)
+    ImageView homeItem202;
     @BindView(R.id.homeItem20)
     LinearLayout homeItem20;
     @BindView(R.id.homeItem21_1)
@@ -500,7 +502,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         onHomeGameItemNewClick(14+postion);
     }
 
-    @OnClick({R.id.home_sign,R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18_5, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
+    @OnClick({R.id.home_sign,R.id.homeLeft1,R.id.homeLeft2,R.id.homeLeft3,R.id.homeLeft4,R.id.homeLeft5,R.id.homeLeft6,R.id.homeLeft7,R.id.tvHomePageLogin, R.id.tvHomePageLine,R.id.homeUserCenter,R.id.homeDeposite1,R.id.homeDeposite2,R.id.homeDeposite3,R.id.homeItem15_1, R.id.homeItem15_2, R.id.homeItem15_3, R.id.homeItem15_4, R.id.homeItem15, R.id.homeItem16_1, R.id.homeItem16_2, R.id.homeItem16, R.id.homeItem17_1, R.id.homeItem17, R.id.homeItem18_1, R.id.homeItem18_2, R.id.homeItem18_3, R.id.homeItem18_4, R.id.homeItem18_5, R.id.homeItem18, R.id.homeItem19_1, R.id.homeItem19_2, R.id.homeItem19_3, R.id.homeItem19_4, R.id.homeItem19, R.id.homeItem20_1,R.id.homeItem20_2, R.id.homeItem20, R.id.homeItem21_1, R.id.homeItem21})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home_sign:
@@ -873,7 +875,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case R.id.homeItem19:
                 break;
-            case R.id.homeItem20_1://电子竞技
+            case R.id.homeItem20_1://电子竞技  泛亚
                 if (Check.isEmpty(userName)) {
                     EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                     return;
@@ -888,6 +890,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     presenter.postMaintain();
                 } else {
                     postAviaQiPaiGo();
+                }
+                break;
+            case R.id.homeItem20_2://电子竞技 雷火
+                if (Check.isEmpty(userName)) {
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "thunfire";
+                String fire_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire");
+                GameLog.log("当前是否关闭 "+fire_url);
+                if(!Check.isEmpty(fire_url)&&"1".equals(fire_url)){
+                    presenter.postMaintain();
+                }else {
+                    presenter.postThunFireGame("","");
                 }
                 break;
             case R.id.homeItem20:
@@ -1485,6 +1505,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postThunFireGameResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_QIPAI_URL+"thunfire",qipaiResult.getUrl());
+        GameLog.log("=============雷火电竞的地址=============");
+        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","雷火电竞");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);
+    }
+
+    @Override
     public void postOGResult(AGGameLoginResult qipaiResult) {
         GameLog.log("OG的返回数据："+qipaiResult.getUrl());
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
@@ -1678,6 +1709,13 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     }
                     GameLog.log("bbin "+maintainResult1.getState());
                     ACache.get(getContext()).put("username_dd_maintain_bbin",maintainResult1.getState());
+                    break;
+                case "thunfire":
+                    if(userState.equals("thunfire")){
+                        showMessage(maintainResult1.getContent());
+                    }
+                    GameLog.log("thunfire "+maintainResult1.getState());
+                    ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire",maintainResult1.getState());
                     break;
             }
         }
