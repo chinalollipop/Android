@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-HGAPP_A07_NHG.iml" filepath="$PROJECT_DIR$/Android-HGAPP_A07_NHG.iml" group="HGAPP_A07_NHG" />
       <module fileurl="file://$PROJECT_DIR$/HGAPP_A07_NHG.iml" filepath="$PROJECT_DIR$/HGAPP_A07_NHG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/HGAPP_A07_NHG-app.iml" filepath="$PROJECT_DIR$/app/HGAPP_A07_NHG-app.iml" group="HGAPP_A07_NHG/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/HGAPP_A07_NHG-commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/HGAPP_A07_NHG-commonliberary.iml" group="HGAPP_A07_NHG/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/HGAPP_A07_NHG-slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/HGAPP_A07_NHG-slidingmenu.iml" group="HGAPP_A07_NHG/slidingmenu" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" />

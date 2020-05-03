@@ -528,6 +528,35 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
+    public void postThunFireGame(String appRefer, String gameid) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postThunFireGame(HGConstant.PRODUCT_PLATFORM,"getLaunchGameUrl"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<QipaiResult> response) {
+                        if(response.isSuccess())
+                        {
+                            if(!Check.isNull(response.getData())){
+                                view.postThunFireGameResult(response.getData());
+                            }
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void start() {
 
     }
