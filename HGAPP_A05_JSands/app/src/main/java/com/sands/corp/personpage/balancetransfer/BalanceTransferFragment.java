@@ -79,6 +79,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView BalanceTransferFG;
     @BindView(R.id.BalanceTransferBBIN)
     TextView BalanceTransferBBIN;
+    @BindView(R.id.BalanceTransferFire)
+    TextView BalanceTransferFire;
     @BindView(R.id.BalanceTransferDS)
     TextView BalanceTransferDS;
     @BindView(R.id.etBalanceTransferMoney)
@@ -117,6 +119,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
         gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
         gtypeList.add(new BalanceTransferData("9","泛亚电竞","avia"));
+        gtypeList.add(new BalanceTransferData("15","雷火电竞","fire"));
         gtypeList.add(new BalanceTransferData("10","OG视讯","og"));
         gtypeList.add(new BalanceTransferData("11","CQ9电子","cq"));
         gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
@@ -219,6 +222,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         presenter.postPersonBalanceMW("","");
         presenter.postPersonBalanceFG("","");
         presenter.postPersonBalanceBBIN("","");
+        presenter.postPersonBalanceFire("","");
     }
 
 
@@ -344,6 +348,12 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     @Override
     public void postPersonBalanceBBINResult(KYBalanceResult personBalance) {
         BalanceTransferBBIN.setText(personBalance.getBbin_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
+
+    public void postPersonBalanceFireResult(KYBalanceResult personBalance){
+        BalanceTransferFire.setText(personBalance.getFire_balance());
         backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
         BalanceTransferTY.setText(personBalance.getHg_balance());
     }
@@ -532,6 +542,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferBBIN("","hg","bbin",transferMoney);
+        }else if(from.equals("fire")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFire("","fire","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("fire")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFire("","hg","fire",transferMoney);
         }else {
             showMessage("转账方式不支持");
         }

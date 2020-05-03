@@ -772,6 +772,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "bbin":
                     from = "BBIN视讯";
                     break;
+                case "fire":
+                    from = "雷火电竞";
+                    break;
             }
             switch (rowsBean.getTo()){
                 case "sc":
@@ -821,6 +824,9 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                     break;
                 case "bbin":
                     to = "BBIN视讯";
+                    break;
+                case "fire":
+                    to = "雷火电竞";
                     break;
             }
             if(rowsBean.getNotes().equals("APP幸运红包活动")||rowsBean.getNotes().contains("新春红包活动")){
