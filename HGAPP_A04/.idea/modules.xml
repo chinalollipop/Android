@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-HGAPP_A04.iml" filepath="$PROJECT_DIR$/Android-HGAPP_A04.iml" group="HGAPP_A04" />
       <module fileurl="file://$PROJECT_DIR$/HGAPP_A04.iml" filepath="$PROJECT_DIR$/HGAPP_A04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/HGAPP_A04-app.iml" filepath="$PROJECT_DIR$/app/HGAPP_A04-app.iml" group="HGAPP_A04/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/HGAPP_A04-commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/HGAPP_A04-commonliberary.iml" group="HGAPP_A04/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/gallery/HGAPP_A04-gallery.iml" filepath="$PROJECT_DIR$/gallery/HGAPP_A04-gallery.iml" group="HGAPP_A04/gallery" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/HGAPP_A04-slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/HGAPP_A04-slidingmenu.iml" group="HGAPP_A04/slidingmenu" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" />
       <module fileurl="file://$PROJECT_DIR$/gallery/gallery.iml" filepath="$PROJECT_DIR$/gallery/gallery.iml" />
