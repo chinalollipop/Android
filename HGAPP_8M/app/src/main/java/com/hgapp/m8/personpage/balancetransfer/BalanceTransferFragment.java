@@ -85,6 +85,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView BalanceTransferFGOneBack;
     @BindView(R.id.BalanceTransferBBINOneBack)
     TextView BalanceTransferBBINOneBack;
+    @BindView(R.id.BalanceTransferFireOneBack)
+    TextView BalanceTransferFireOneBack;
     @BindView(R.id.BalanceTransferCP)
     TextView BalanceTransferCP;
     @BindView(R.id.BalanceTransferAG)
@@ -109,6 +111,8 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     TextView BalanceTransferFG;
     @BindView(R.id.BalanceTransferBBIN)
     TextView BalanceTransferBBIN;
+    @BindView(R.id.BalanceTransferFire)
+    TextView BalanceTransferFire;
     @BindView(R.id.BalanceTransferDS)
     TextView BalanceTransferDS;
     @BindView(R.id.etBalanceTransferMoney)
@@ -146,6 +150,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
         gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
         gtypeList.add(new BalanceTransferData("9","泛亚电竞","avia"));
+        gtypeList.add(new BalanceTransferData("15","雷火电竞","fire"));
         gtypeList.add(new BalanceTransferData("10","OG视讯","og"));
         gtypeList.add(new BalanceTransferData("11","CQ9电子","cq"));
         gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
@@ -339,6 +344,13 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
             presenter.postBanalceTransferBBIN("","hg","bbin",BalanceTransferCPTextInt+"");
         }
     }
+    private void onFireBack(){
+        String BalanceTransferCPText = BalanceTransferTY.getText().toString();
+        int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
+        if(BalanceTransferCPTextInt>0){
+            presenter.postBanalceTransferFire("","hg","fire",BalanceTransferCPTextInt+"");
+        }
+    }
 
     private void onOneBack(){
         if(Integer.parseInt(BalanceTransferAG.getText().toString().split("\\.")[0])>0){
@@ -381,6 +393,10 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         if(Integer.parseInt(BalanceTransferMW.getText().toString().split("\\.")[0])>0){
             presenter.postBanalceTransferMW("","mw","hg",Integer.parseInt(BalanceTransferMW.getText().toString().split("\\.")[0])+"");
         }
+
+        if(Integer.parseInt(BalanceTransferFire.getText().toString().split("\\.")[0])>0){
+            presenter.postBanalceTransferFire("","fire","hg",Integer.parseInt(BalanceTransferFire.getText().toString().split("\\.")[0])+"");
+        }
     }
 
     private void initBalance() {
@@ -398,6 +414,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         presenter.postPersonBalanceMW("","");
         presenter.postPersonBalanceFG("","");
         presenter.postPersonBalanceBBIN("","");
+        presenter.postPersonBalanceFire("","");
     }
 
     class FlowBalanceTransferAdapter extends com.hgapp.m8.common.adapters.AutoSizeRVAdapter<String>{
@@ -528,6 +545,11 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         BalanceTransferTY.setText(personBalance.getHg_balance());
     }
 
+    public void postPersonBalanceFireResult(KYBalanceResult personBalance){
+        BalanceTransferFire.setText(personBalance.getFire_balance());
+        backTitleBalanceTransfer.setMoreText(personBalance.getHg_balance());
+        BalanceTransferTY.setText(personBalance.getHg_balance());
+    }
 
     @Override
     public void showMessage(String message) {
@@ -700,6 +722,18 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                 return;
             }
             presenter.postBanalceTransferBBIN("","hg","bbin",transferMoney);
+        }else if(from.equals("fire")&&to.equals("hg")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFire("","fire","hg",transferMoney);
+        }else if(from.equals("hg")&&to.equals("fire")){
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }
+            presenter.postBanalceTransferFire("","hg","fire",transferMoney);
         }else {
             showMessage("转账方式不支持");
         }
@@ -708,7 +742,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
 
     @OnClick({R.id.BalanceTransferCPOneBack,R.id.BalanceTransferAGOneBack,R.id.BalanceTransferKYOneBack,R.id.BalanceTransferLYOneBack,R.id.BalanceTransferVGOneBack,
             R.id.BalanceTransferMGOneBack,R.id.BalanceTransferFYOneBack,R.id.BalanceTransferOGOneBack,R.id.BalanceTransferCQOneBack,R.id.BalanceTransferMWOneBack,
-            R.id.BalanceTransferFGOneBack,R.id.BalanceTransferBBINOneBack,R.id.BalanceTransferKLOneBack,
+            R.id.BalanceTransferFGOneBack,R.id.BalanceTransferBBINOneBack,R.id.BalanceTransferKLOneBack,R.id.BalanceTransferFireOneBack,
             R.id.BalanceTransferRefresh,R.id.BalanceTransferOneBack,R.id.btnBalanceTrensferSubmit,R.id.tvBalanceTransferIn, R.id.tvBalanceTransferOut})
     public void onViewClicked(View view) {
         try {
@@ -751,6 +785,9 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
                     break;
                 case R.id.BalanceTransferBBINOneBack:
                     onBBINBack();
+                    break;
+                case R.id.BalanceTransferFireOneBack:
+                    onFireBack();
                     break;
                 case R.id.BalanceTransferRefresh:
                     initBalance();

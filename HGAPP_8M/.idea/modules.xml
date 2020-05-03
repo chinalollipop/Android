@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-HGAPP_8M.iml" filepath="$PROJECT_DIR$/Android-HGAPP_8M.iml" group="HGAPP_8M" />
       <module fileurl="file://$PROJECT_DIR$/HGAPP_8M.iml" filepath="$PROJECT_DIR$/HGAPP_8M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarex/HGAPP_8M-actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/HGAPP_8M-actionbarex.iml" group="HGAPP_8M/actionbarex" />
+      <module fileurl="file://$PROJECT_DIR$/app/HGAPP_8M-app.iml" filepath="$PROJECT_DIR$/app/HGAPP_8M-app.iml" group="HGAPP_8M/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/HGAPP_8M-commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/HGAPP_8M-commonliberary.iml" group="HGAPP_8M/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/gallery/HGAPP_8M-gallery.iml" filepath="$PROJECT_DIR$/gallery/HGAPP_8M-gallery.iml" group="HGAPP_8M/gallery" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/HGAPP_8M-slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/HGAPP_8M-slidingmenu.iml" group="HGAPP_8M/slidingmenu" />
       <module fileurl="file://$PROJECT_DIR$/actionbarex/actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/actionbarex.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" />

@@ -111,6 +111,7 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
         gtypeList.add("快乐棋牌");
         gtypeList.add("MG电子");
         gtypeList.add("泛亚电竞");
+        gtypeList.add("雷火电竞");
         gtypeList.add("OG视讯");
         gtypeList.add("CQ9电子");
         gtypeList.add("MW电子");
@@ -259,18 +260,21 @@ public class BetRecordFragment extends HGBaseFragment implements BetRecordContra
                         gtype = "avia";
                         break;
                     case 13:
-                        gtype = "oglive";
+                        gtype = "fire";
                         break;
                     case 14:
-                        gtype = "cq9dz";
+                        gtype = "oglive";
                         break;
                     case 15:
-                        gtype = "mwdz";
+                        gtype = "cq9dz";
                         break;
                     case 16:
-                        gtype = "fgdz";
+                        gtype = "mwdz";
                         break;
                     case 17:
+                        gtype = "fgdz";
+                        break;
+                    case 18:
                         gtype = "bbin";
                         break;
                 }
