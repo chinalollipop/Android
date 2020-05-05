@@ -200,7 +200,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
         BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
-        if(!Check.isNull(bannerResult)){
+        if(!Check.isNull(bannerResult)&&!Check.isNull(bannerResult.getData())){
             rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
             //rollPagerViewManager.testImagesLocal(null);
             rollPagerViewManager.testImagesNet(null,null);
