@@ -16,6 +16,7 @@ import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.common.event.LogoutEvent;
+import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
@@ -28,6 +29,7 @@ import com.hgapp.a0086.data.PersonInformResult;
 import com.hgapp.a0086.data.QipaiResult;
 import com.hgapp.a0086.homepage.UserMoneyEvent;
 import com.hgapp.a0086.homepage.handicap.ShowMainEvent;
+import com.hgapp.a0086.homepage.online.OnlineFragment;
 import com.hgapp.a0086.personpage.accountcenter.AccountCenterFragment;
 import com.hgapp.a0086.personpage.balanceplatform.BalancePlatformFragment;
 import com.hgapp.a0086.personpage.balancetransfer.BalanceTransferFragment;
@@ -76,6 +78,8 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     private PersonContract.Presenter presenter;
     private static List<String> myList = new ArrayList<String>();
     static {
+        myList.add("真人升级");
+        myList.add("体育升级");
         myList.add("充值");
         myList.add("额度转换");
         myList.add("银行卡");
@@ -136,6 +140,14 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     GameLog.log("用户的金额："+personMoney);
                     switch (position){
                         case 0:
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"middle_lives_upgraded.php?tip=app&game_Type=live")));
+
+                            break;
+                        case 1:
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"middle_lives_upgraded.php?tip=app&game_Type=sport")));
+
+                            break;
+                        case 2:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
@@ -143,21 +155,18 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                             //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
                             EventBus.getDefault().post(new ShowMainEvent(1));
                             break;
-                        case 1:
-                            /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage("非常抱歉，请您注册真实会员！");
-                                return;
-                            }*/
+                        case 3:
                             EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 2:
+                        case 4:
+
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
                             EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             break;
-                        case 3:
+                        case 5:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
@@ -177,46 +186,35 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                 EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             }
                             break;
-                        case 4:
-                           /* if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage("非常抱歉，请您注册真实会员！");
-                                return;
-                            }*/
+                        case 6:
                             EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                             break;
-                        case 5:
-
+                        case 7:
+                            showMessage("敬请期待！");
                             break;
-                        case 6:
+                        case 8:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                                 showMessage("非常抱歉，请您注册真实会员！");
                                 return;
                             }
                             EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney)));
                             break;
-                        case 7:
+                        case 9:
                             //投注记录
                             EventBus.getDefault().post(new StartBrotherEvent(BetRecordFragment.newInstance("today",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 8://交易记录
+                        case 10:
+                            //交易记录
                             EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 9://废弃了 暂时无用
+                        case 11:
+                            presenter.logOut();
+                            break;
+                        case 12:
                             EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 10://废弃了 暂时无用
-                            presenter.logOut();
-                        /*case 9:
-                            //交易记录
-                            EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 10:
-                            EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            break;
-                        case 11:
-                            presenter.logOut();*/
-                            break;
+
 
                     }
                 }
@@ -224,41 +222,47 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             holder.setText(R.id.tvItemMyName,string);
             switch (position){
                 case 0:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deposit);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_live);
                     break;
                 case 1:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_sport);
                     break;
                 case 2:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bank_card);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deposit);
                     break;
                 case 3:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_withdraw);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer);
                     break;
                 case 4:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_balance);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bank_card);
                     break;
                 case 5:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_message);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_withdraw);
                     break;
                 case 6:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_psersion);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_balance);
                     break;
                 case 7:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
-                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer_record);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_message);
                     break;
                 case 8:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
-                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_psersion);
                     break;
                 case 9:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
+                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer_record);
                     break;
                 case 10:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
+                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
                     break;
                 case 11:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
+                    break;
+                case 12:
+                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
+                    break;
+                case 13:
                     holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
                     break;
 
