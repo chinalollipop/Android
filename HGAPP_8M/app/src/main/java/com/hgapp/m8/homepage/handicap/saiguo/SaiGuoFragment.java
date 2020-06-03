@@ -464,8 +464,8 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             }
             view_type_1.betSaiGuoTime.setText(Html.fromHtml(resultBean.getM_Date()+"<br>"+resultBean.getM_Time()));
             view_type_1.betSaiGuoName.setText(Html.fromHtml(resultBean.getMB_Team()+"<br>"+resultBean.getTG_Team()));
-            view_type_1.betSaiGuoHalf.setText(Html.fromHtml(resultBean.getMB_Inball()+"<br>"+resultBean.getTG_Inball()));
-            view_type_1.betSaiGuoQuan.setText(Html.fromHtml(resultBean.getMB_Inball_HR()+"<br>"+resultBean.getTG_Inball_HR()));
+            view_type_1.betSaiGuoQuan.setText(Html.fromHtml(resultBean.getMB_Inball()+"<br>"+resultBean.getTG_Inball()));
+            view_type_1.betSaiGuoHalf.setText(Html.fromHtml(resultBean.getMB_Inball_HR()+"<br>"+resultBean.getTG_Inball_HR()));
             return convertView;
         }
 
