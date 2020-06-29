@@ -76,21 +76,25 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         searchRecordsArrayList.add("2000");
         searchRecordsArrayList.add("5000");
 
-        gtypeList.add(new BalanceTransferData("1","体育余额","hg"));
-        gtypeList.add(new BalanceTransferData("2","彩票余额","cp"));
-        gtypeList.add(new BalanceTransferData("3","AG余额","ag"));
-        gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));
-        gtypeList.add(new BalanceTransferData("5","快乐棋牌","kl"));
-        gtypeList.add(new BalanceTransferData("6","VG棋牌","vg"));
-        gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
-        gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
-        gtypeList.add(new BalanceTransferData("9","泛亚电竞","avia"));
-        gtypeList.add(new BalanceTransferData("10","OG视讯","og"));
-        gtypeList.add(new BalanceTransferData("11","CQ9电子","cq"));
-        gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
-        gtypeList.add(new BalanceTransferData("13","FG电子","fg"));
-        gtypeList.add(new BalanceTransferData("14","BBIN视讯","bbin"));
+        gtypeList.add(new BalanceTransferData("1","体育平台","hg"));
         gtypeList.add(new BalanceTransferData("15","雷火电竞","fire"));
+        gtypeList.add(new BalanceTransferData("9","泛亚电竞","avia"));
+
+        gtypeList.add(new BalanceTransferData("3","AG视讯","ag"));
+        gtypeList.add(new BalanceTransferData("10","OG视讯","og"));
+        gtypeList.add(new BalanceTransferData("2","彩票游戏","cp"));
+
+        gtypeList.add(new BalanceTransferData("4","开元棋牌","ky"));
+        gtypeList.add(new BalanceTransferData("7","乐游棋牌","ly"));
+        gtypeList.add(new BalanceTransferData("6","VG棋牌","vg"));
+
+        gtypeList.add(new BalanceTransferData("8","MG电子","mg"));
+        gtypeList.add(new BalanceTransferData("12","MW电子","mw"));
+        gtypeList.add(new BalanceTransferData("11","CQ9电子","cq"));
+        gtypeList.add(new BalanceTransferData("13","FG电子","fg"));
+
+        gtypeList.add(new BalanceTransferData("14","BBIN视讯","bbin"));
+        gtypeList.add(new BalanceTransferData("5","快乐棋牌","kl"));
     }
 
     public static BalanceTransferFragment newInstance(String type) {
