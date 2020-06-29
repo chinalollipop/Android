@@ -27,7 +27,7 @@ public class GameNumResult {
     private String bbinLiveNum;
     private String dsLiveNum;
     private String fydjNum;
-    private String fireGameNumber;
+    private String lhdjNum;
     private String vgChessNum;
     private String lyChessNum;
     private String kyChessNum;
@@ -177,10 +177,10 @@ public class GameNumResult {
     }
 
     public String getFireGameNumber() {
-        return fireGameNumber;
+        return lhdjNum;
     }
 
     public void setFireGameNumber(String fireGameNumber) {
-        this.fireGameNumber = fireGameNumber;
+        this.lhdjNum = fireGameNumber;
     }
 }

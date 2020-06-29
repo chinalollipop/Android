@@ -10,10 +10,12 @@ import android.widget.TextView;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.common.util.ACache;
+import com.hgapp.a0086.common.util.CLipHelper;
 import com.hgapp.a0086.common.util.FilterApp;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.CopyUtil;
 import com.hgapp.common.util.PackageUtil;
 import com.squareup.picasso.Picasso;
 
@@ -91,12 +93,13 @@ public class ContractFragment extends HGBaseFragment {
                 .load(wechat_url)
                 .placeholder(R.drawable.loading)
                 .into(tvContractWXBg);
-        new Thread(new Runnable() {
+
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 fasterPayList = FilterApp.newInstance().filterApp(getContext(), 2);
             }
-        }).start();
+        }).start();*/
 
 
 
@@ -107,7 +110,9 @@ public class ContractFragment extends HGBaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.llContractQQ:
-                if(fasterPayList.contains("com.tencent.mobileqq")){
+                CLipHelper.copy(getContext(),getArgParam2);
+                showMessage("复制成功！");
+                /*if(fasterPayList.contains("com.tencent.mobileqq")){
                     //PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
                     String tvContractQQ = tvContractQQNumber.getText().toString();
                     if(!Check.isEmpty(tvContractQQ)){
@@ -117,7 +122,7 @@ public class ContractFragment extends HGBaseFragment {
                     }
                 }else{
                     showMessage("手机没有安装QQ，请安装再重试！");
-                }
+                }*/
                 /*for(int k=0;k<fasterPayList.size();++k){
 
                     if("com.tencent.mm".equals(fasterPayList.get(0).getPackageName())){
@@ -126,11 +131,13 @@ public class ContractFragment extends HGBaseFragment {
                 }*/
                 break;
             case R.id.llContractWX:
-                if(!tvContractWXBg.isShown()){
+                CLipHelper.copy(getContext(),getArgParam3);
+                showMessage("复制成功！");
+                /*if(!tvContractWXBg.isShown()){
                     tvContractWXBg.setVisibility(View.VISIBLE);
                 }else{
                     tvContractWXBg.setVisibility(View.GONE);
-                }
+                }*/
                 /*if(fasterPayList.contains("com.tencent.mm")){
                     PackageUtil.startAppByPackageName(getContext(), "com.tencent.mm");
                 }else{
