@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hgapp.bet365.common.widgets.NTitleBar
+        android:id="@+id/tvBetRecordBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginTop="5dp"
+        android:background="@color/register_left"
+        android:gravity="center|left">
+
+        <TextView
+            android:id="@+id/tvBetRecordToday"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_focus"
+            android:gravity="center"
+            android:text="今日"
+            android:textColor="@color/register_left"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBetRecordLastDay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_no_focus"
+            android:gravity="center"
+            android:text="昨日 "
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBetRecordLastWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_no_focus"
+            android:gravity="center"
+            android:text="近一周 "
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBetRecordLastMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_no_focus"
+            android:gravity="center"
+            android:text="本月 "
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBetRecordChoiceTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:background="@drawable/bg_btn_no_focus"
+            android:gravity="center"
+            android:text="自选"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="平台类型"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/betRrcordGtype"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:drawableRight="@mipmap/arrow_bottom_shallow"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="足球"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="是否结算"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/betRrcordChecked"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:drawableRight="@mipmap/arrow_bottom_shallow"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="全部"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="是否取消"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/betRrcordCancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:drawableRight="@mipmap/arrow_bottom_shallow"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="未取消交易单"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="center|left">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="开始时间"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBetRecordStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:drawableRight="@mipmap/arrow_bottom_shallow"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="请选择时间 "
+            android:textColor="#868686"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="center|left">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="结束时间"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBetRecordEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:drawableRight="@mipmap/arrow_bottom_shallow"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="请选择时间 "
+            android:textColor="#868686"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnBetRecordSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_tbn_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="查询" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="center"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="日期"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:text="赛事"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="金额"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="输/赢"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <!--<com.hgapp.a6668.common.widgets.NListView
+        android:id="@+id/lvBetRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />-->
+    <TextView
+        android:id="@+id/tvBetRecordNodataT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="暂无没有数据"
+        android:textColor="@color/account_text"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/lvBetRecord2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/betTTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            android:background="@mipmap/record_top"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

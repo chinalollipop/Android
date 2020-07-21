@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_app"
+    android:orientation="vertical">
+    <com.hgapp.bet365.common.widgets.NTitleBar
+        android:id="@+id/backOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/flayout_xpay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/wv_service_xplay_online_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <com.coolindicator.sdk.CoolIndicator
+        android:id="@+id/indicator"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/default_drawable_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

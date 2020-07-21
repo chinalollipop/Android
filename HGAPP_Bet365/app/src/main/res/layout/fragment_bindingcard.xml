@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.hgapp.bet365.common.widgets.NTitleBar
+        android:id="@+id/tvBindingCardCBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回" />
+
+    <TextView
+        android:id="@+id/tvBindingCardTit"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:drawableLeft="@mipmap/home_deposit_c"
+        android:drawablePadding="5dp"
+        android:gravity="center|left"
+        android:paddingLeft="10dp"
+        android:text="银行卡绑定"
+        android:textColor="@color/title_bg_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="帐户姓名"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvBindingCardAccountName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left|center"
+            android:hint="请输入账户姓名"
+            android:paddingLeft="10dp"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="开户银行"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tvBindingCardBankName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:drawableRight="@mipmap/arrow_bottom_shallow"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="选择开户银行"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="银行卡号"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/tvBindingCardBankCode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:gravity="left|center"
+            android:hint="请输入银行卡卡号"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="40dp"
+        android:gravity="left|center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="银行省分"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tvBindingCardBankState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@mipmap/icon_textview_transfer"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:text="请选择"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="银行地址"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/tvBindingCardBankAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:hint="请输入银行地址"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBindingCardPwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="提款密码"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/tvBindingCardPwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:hint="请输入6位纯数字"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBindingCardPwd2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_login_noram_d"
+        android:gravity="left|center"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="确认密码"
+            android:textColor="@color/account_text"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/tvBindingCardPwd2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:hint="请输入确认密码"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="40dp"
+        android:gravity="left|center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="县市"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/tvBindingCardTownsName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:hint="请输入县市名称"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/tvBindingCardSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_tbn_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="确认绑定" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="如有问题？请联系在线客服"
+        android:gravity="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvBindingCardService"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系客服"
+        android:padding="5dp"
+        android:background="@drawable/bg_edit_un_focus"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/title_bg_text"
+        />
+</LinearLayout>

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CFCPAPP_A01.iml" filepath="$PROJECT_DIR$/CFCPAPP_A01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CFCPAPP_A01.iml" filepath="$PROJECT_DIR$/CFCPAPP_A01.iml" group="CFCPAPP_A01" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="CFCPAPP_A01/app" />
     </modules>
   </component>
 </project>

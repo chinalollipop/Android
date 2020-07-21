@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HGAPP_8M.iml" filepath="$PROJECT_DIR$/HGAPP_8M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HGAPP_Bet365.iml" filepath="$PROJECT_DIR$/HGAPP_Bet365.iml" group="HGAPP_Bet365" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarex/HGAPP_Bet365-actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/HGAPP_Bet365-actionbarex.iml" group="HGAPP_Bet365/actionbarex" />
+      <module fileurl="file://$PROJECT_DIR$/app/HGAPP_Bet365-app.iml" filepath="$PROJECT_DIR$/app/HGAPP_Bet365-app.iml" group="HGAPP_Bet365/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/HGAPP_Bet365-commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/HGAPP_Bet365-commonliberary.iml" group="HGAPP_Bet365/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/gallery/HGAPP_Bet365-gallery.iml" filepath="$PROJECT_DIR$/gallery/HGAPP_Bet365-gallery.iml" group="HGAPP_Bet365/gallery" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/HGAPP_Bet365-slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/HGAPP_Bet365-slidingmenu.iml" group="HGAPP_Bet365/slidingmenu" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarex/actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/actionbarex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gallery/gallery.iml" filepath="$PROJECT_DIR$/gallery/gallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" />
+    </modules>
+  </component>
+</project>
