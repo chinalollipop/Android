@@ -279,7 +279,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     private void init() {
-        ACache.get(getContext()).put(HGConstant.USERNAME_LOGOUT, "false");
+        //ACache.get(getContext()).put(HGConstant.USERNAME_LOGOUT, "false");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         //BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
@@ -2119,6 +2119,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Subscribe
     public void onEventMain(LoginResult loginResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGOUT, "false");
         if(!Check.isEmpty(loginResult.getNoteMessage())){
             EventShowDialog.newInstance(loginResult.getNoteMessage(),"").show(getFragmentManager());
         }

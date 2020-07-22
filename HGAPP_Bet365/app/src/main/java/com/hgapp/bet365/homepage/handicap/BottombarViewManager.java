@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.hgapp.bet365.R;
 import com.hgapp.bet365.base.HGBaseFragment;
+import com.hgapp.bet365.data.MessageTopEvent;
 import com.hgapp.bet365.homepage.handicap.leaguedetail.zhbet.ZHBetViewManager;
 import com.hgapp.common.util.GameLog;
 
@@ -18,7 +19,7 @@ import org.greenrobot.eventbus.EventBus;
 
 public class BottombarViewManager {
     private volatile static BottombarViewManager singleton;
-    LinearLayout bottomBar1,bottomBar2,bottomBar3,bottomBar4;
+    LinearLayout bottomBar1,bottomBar2,bottomBar3,bottomBar4,bottomBar5;
     FrameLayout mFloatBtnWrapper;
     FrameLayout content;
     String form;
@@ -42,6 +43,7 @@ public class BottombarViewManager {
             mFloatBtnWrapper= (FrameLayout) LayoutInflater.from(fragment.getContext()).inflate(R.layout.fragment_bottombar,null,false);
             //stackView = (ImageView) mFloatBtnWrapper.findViewById(R.id.iv_shine);
             bottomBar1 = (LinearLayout) mFloatBtnWrapper.findViewById(R.id.bottomBar1);
+            bottomBar5 = (LinearLayout) mFloatBtnWrapper.findViewById(R.id.bottomBar5);
             bottomBar2 = (LinearLayout) mFloatBtnWrapper.findViewById(R.id.bottomBar2);
             bottomBar3 = (LinearLayout) mFloatBtnWrapper.findViewById(R.id.bottomBar3);
             bottomBar4 = (LinearLayout) mFloatBtnWrapper.findViewById(R.id.bottomBar4);
@@ -61,7 +63,15 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(2));
+                        EventBus.getDefault().post(new ShowMainEvent(0));
+                        fragment.popTo(HandicapFragment.class,true);
+                    }
+                });
+                bottomBar5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onCloseView();
+                        EventBus.getDefault().post(new ShowMainEvent(1));
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });
@@ -69,7 +79,8 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(0));
+                        //EventBus.getDefault().post(new ShowMainEvent(2));
+                        EventBus.getDefault().post(new MessageTopEvent(2,"2") );
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });
@@ -85,7 +96,8 @@ public class BottombarViewManager {
                     @Override
                     public void onClick(View v) {
                         onCloseView();
-                        EventBus.getDefault().post(new ShowMainEvent(4));
+                        //EventBus.getDefault().post(new ShowMainEvent(4));
+                        EventBus.getDefault().post(new MessageTopEvent(4,"4") );
                         fragment.popTo(HandicapFragment.class,true);
                     }
                 });

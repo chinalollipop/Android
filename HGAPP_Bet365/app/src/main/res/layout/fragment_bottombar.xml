@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_margin="3dp"
-                android:background="@drawable/icon_home_nor"
+                android:background="@drawable/icon_home_sel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -34,7 +34,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/bottomBar2"
+            android:id="@+id/bottomBar5"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
@@ -45,7 +45,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
-                android:background="@drawable/selector_tab_deposit2" />
+                android:background="@drawable/icon_yuohui_sel" />
+            <TextView
+                android:text="@string/str_title_discount"
+                android:textColor="@color/all_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/bottomBar2"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="3dp"
+                android:background="@drawable/home_center" />
             <TextView
                 android:text="@string/str_title_deposit"
                 android:textColor="@color/all_bg"
@@ -62,7 +81,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_margin="3dp"
-                android:background="@drawable/selector_tab_withdraw"
+                android:background="@drawable/icon_quqian_sel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -81,7 +100,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_margin="3dp"
-                android:background="@drawable/selector_tab_person"
+                android:background="@drawable/icon_my_sel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView

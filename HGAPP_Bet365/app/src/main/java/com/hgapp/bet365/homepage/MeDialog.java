@@ -94,7 +94,6 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
                 presenter.getPersonInform("");
                 presenter.postNoticeList("");
             }
-
         }
         initDJ();
         String userName = ACache.get(getContext()).getAsString("userName");
@@ -102,6 +101,7 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
         if(!Check.isEmpty(userName)){
             myList.add(new HomePageIcon("退出",R.mipmap.icon_my_gonggao,11,"logout"));
         }
+        GameLog.log("用户是否注销了 true 为是 --> 【"+logout+"】用户的名字是【 "+userName+"】 用户的余额为 【"+personMoney+"】");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
         rvHomepageMe.setLayoutManager(gridLayoutManager);
         rvHomepageMe.addItemDecoration(new GridRvItemDecoration(getContext()));
@@ -217,7 +217,7 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
     }
 
     private void onHomeGameItemClick(String iconNameTitle) {
-        if(!Check.isNull(logout)&&"true".equals(logout)){
+        if(Check.isNull(logout)||"true".equals(logout)){
             showMessage("请先登录");
             this.dismiss();
             return;

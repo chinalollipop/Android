@@ -40,7 +40,7 @@ public class MainActivity extends SupportActivity {
         super.onCreate(savedInstanceState);
        // hideNavigationBar();
         setContentView(R.layout.activity_main);
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
+        //StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance());
         }

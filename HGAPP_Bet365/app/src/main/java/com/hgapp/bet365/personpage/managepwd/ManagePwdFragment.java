@@ -89,7 +89,7 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        backManagePwd.setMoreText("");
+        backManagePwd.setMoreText(ACache.get(getContext()).getAsString("userMoney"));
         backManagePwd.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
