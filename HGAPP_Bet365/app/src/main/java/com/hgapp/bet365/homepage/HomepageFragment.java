@@ -1042,6 +1042,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         if(Check.isEmpty(userName)){
             //start(LoginFragment.newInstance());
+            showMessage("请先登录！");
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
             return;
         }
@@ -1288,7 +1289,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 break;
             case "yhhd":
+                showMessage("1");
                 EventBus.getDefault().post(new ShowMainEvent(1));
+                break;
+            case "zxkf":
+                showMessage("3");
+                EventBus.getDefault().post(new ShowMainEvent(3));
                 break;
         }
 
