@@ -12,8 +12,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:background="@drawable/status_shape">
+            android:layout_height="45dp"
+            android:background="@drawable/bk_normal">
 
             <TextView
                 android:id="@+id/tvHomePageLine"
@@ -24,7 +24,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:text="线路1"
-                android:textColor="#7288e8" />
+                android:textColor="#ffffff" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:text="登陆/注册"
-                android:textColor="#7288e8"
+                android:textColor="#ffffff"
                 android:textSize="14sp" />
 
             <TextView
@@ -105,15 +105,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:background="@color/register_left"
+        android:layout_marginTop="-10dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginLeft="6dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_gravity="bottom"
-            android:background="@mipmap/homapage_bulletin"
+            android:background="@drawable/btn_person"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -247,21 +248,22 @@
             android:id="@+id/rv_homepage_game_hall"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="66dp"
             android:layout_marginBottom="50dp"
-            android:layout_marginRight="10dp"
             android:fadeScrollbars="true" />
 
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.333px"
+            android:layout_marginTop="57dp"
+            android:background="@color/account_text"
+            />-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/btn_person"
-            android:paddingLeft="10dp"
-            android:paddingTop="3dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="3dp">
+            android:layout_height="58dp"
+            android:layout_marginTop="10dp"
+
+            >
 
 
             <TextView
@@ -269,8 +271,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:gravity="center"
-                android:background="@drawable/home_tab_title"
+                android:background="@drawable/tab_s"
                 android:drawableTop="@mipmap/icon_1"
                 android:text="热门"
                 android:textSize="17sp"
@@ -282,6 +286,9 @@
                 android:layout_height="match_parent"
                 android:drawableTop="@mipmap/icon_2"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/tab_n_s"
                 android:gravity="center"
                 android:text="体育"
                 android:textSize="17sp"
@@ -293,9 +300,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:drawableTop="@mipmap/icon_3"
                 android:gravity="center"
                 android:text="彩票"
+                android:background="@drawable/tab_n_s"
                 android:textSize="17sp"
                 android:textColor="@color/cp_hall_tv" />
 
@@ -304,7 +314,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:drawableTop="@mipmap/icon_4"
+                android:background="@drawable/tab_n_s"
                 android:gravity="center"
                 android:text="视讯"
                 android:textSize="17sp"
@@ -317,6 +330,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/tab_n_s"
                 android:drawableTop="@mipmap/icon_5"
                 android:gravity="center"
                 android:text="电子"
@@ -328,7 +344,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:drawableTop="@mipmap/icon_6"
+                android:background="@drawable/tab_n_s"
                 android:gravity="center"
                 android:text="棋牌"
                 android:textSize="17sp"
@@ -348,6 +367,7 @@
                 android:textColor="@color/cp_hall_tv"
                 android:visibility="gone" />
         </LinearLayout>
+
 
     </FrameLayout>
 

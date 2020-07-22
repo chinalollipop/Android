@@ -54,7 +54,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="加入M8体育第"
+                        android:text="加入bet365体育第"
                         android:textColor="@color/account_text" />
 
                     <TextView

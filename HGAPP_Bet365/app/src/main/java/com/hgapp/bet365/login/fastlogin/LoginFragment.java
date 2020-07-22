@@ -27,6 +27,7 @@ import com.hgapp.bet365.base.HGBaseFragment;
 import com.hgapp.bet365.base.IPresenter;
 import com.hgapp.bet365.common.util.ACache;
 import com.hgapp.bet365.common.util.HGConstant;
+import com.hgapp.bet365.common.widgets.NTitleBar;
 import com.hgapp.bet365.data.LoginResult;
 import com.hgapp.bet365.data.SportsPlayMethodRBResult;
 import com.hgapp.bet365.homepage.handicap.BottombarViewManager;
@@ -71,6 +72,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     HGControlVideo hgControlVideoPlayer;*/
     /*@BindView(R.id.sScrollView)
     LinearLayout sScrollView;*/
+    @BindView(R.id.tvLoginBack)
+    NTitleBar tvLoginBack;
     @BindView(R.id.fgtLogin)
     LinearLayout fgtLogin;
     @BindView(R.id.fgtResgiter)
@@ -200,6 +203,18 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 ////                .invasionStatusBar()
 //                .statusBarBackground(Color.TRANSPARENT);
       //  initVideoControl();
+        tvLoginBack.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        tvLoginBack.setMoreListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new StartBrotherEvent(RegisterFragment.newInstance(), SupportFragment.SINGLETASK));
+            }
+        });
         String telOn  = ACache.get(getContext()).getAsString("telOn");
         if(!Check.isEmpty(telOn)&&"true".equals(telOn)){
             layLineTel.setVisibility(View.VISIBLE);

@@ -44,9 +44,11 @@ import com.hgapp.bet365.data.GameNumResult;
 import com.hgapp.bet365.data.HomePageList;
 import com.hgapp.bet365.data.LoginResult;
 import com.hgapp.bet365.data.MaintainResult;
+import com.hgapp.bet365.data.MessageTopEvent;
 import com.hgapp.bet365.data.NoticeResult;
 import com.hgapp.bet365.data.QipaiResult;
 import com.hgapp.bet365.data.ValidResult;
+import com.hgapp.bet365.depositpage.DepositFragment;
 import com.hgapp.bet365.homepage.aglist.AGListFragment;
 import com.hgapp.bet365.homepage.aglist.playgame.XPlayGameActivity;
 import com.hgapp.bet365.homepage.events.EventShowDialog;
@@ -226,7 +228,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private void initTY(){
         homeGameList.add(new HomePageIcon("系统体育",R.mipmap.home_hgty,0,"sport"));
-        homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_avia,2,"lh"));
+        homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_lh,2,"thunfire"));
         homeGameList.add(new HomePageIcon("泛亚电竞",R.mipmap.home_avia,2,"avia"));
     }
 
@@ -277,7 +279,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     private void init() {
-
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGOUT, "false");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         //BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
@@ -521,24 +523,24 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     private void homeTabItem(int pos){
 
-        LinearLayout.LayoutParams lpmove = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
+        LinearLayout.LayoutParams lpmove = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
         switch (pos){
             case 0:
-                hometabTextTY.setTextColor(getResources().getColor(android.R.color.white));
+                /*hometabTextTY.setTextColor(getResources().getColor(android.R.color.white));
                 hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextTY.setBackgroundResource(R.drawable.home_tab_title);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));*/
+                hometabTextTY.setBackgroundResource(R.drawable.tab_s);
+                hometabTextZR.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDJ.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextQP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextCP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZX.setBackgroundResource(R.drawable.tab_n_s);
                 hometabTextTY.setLayoutParams(lpmove);
                 hometabTextZR.setLayoutParams(lp);
                 hometabTextDJ.setLayoutParams(lp);
@@ -548,20 +550,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextZX.setLayoutParams(lp);
                 break;
             case 1:
-                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                /*hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDJ.setTextColor(getResources().getColor(android.R.color.white));
                 hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(R.drawable.home_tab_title);
-                hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));*/
+                hometabTextTY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZR.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDJ.setBackgroundResource(R.drawable.tab_s);
+                hometabTextQP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextCP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZX.setBackgroundResource(R.drawable.tab_n_s);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lp);
                 hometabTextDJ.setLayoutParams(lpmove);
@@ -572,20 +574,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
                 break;
             case 2:
-                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                /*hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextZR.setTextColor(getResources().getColor(android.R.color.white));
                 hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(R.drawable.home_tab_title);
-                hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));*/
+                hometabTextTY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZR.setBackgroundResource(R.drawable.tab_s);
+                hometabTextDJ.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextQP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextCP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZX.setBackgroundResource(R.drawable.tab_n_s);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lpmove);
                 hometabTextDJ.setLayoutParams(lp);
@@ -595,20 +597,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextZX.setLayoutParams(lp);
                 break;
             case 3:
-                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+               /* hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextCP.setTextColor(getResources().getColor(android.R.color.white));
                 hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(R.drawable.home_tab_title);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));*/
+                hometabTextTY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZR.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDJ.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextQP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextCP.setBackgroundResource(R.drawable.tab_s);
+                hometabTextDY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZX.setBackgroundResource(R.drawable.tab_n_s);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lp);
                 hometabTextDJ.setLayoutParams(lp);
@@ -620,20 +622,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
             case 4:
 
-                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                /*hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextQP.setTextColor(getResources().getColor(android.R.color.white));
                 hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDY.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(R.drawable.home_tab_title);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(0);
-                hometabTextZX.setBackgroundResource(0);
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));*/
+                hometabTextTY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZR.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDJ.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextQP.setBackgroundResource(R.drawable.tab_s);
+                hometabTextCP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZX.setBackgroundResource(R.drawable.tab_n_s);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lp);
                 hometabTextDJ.setLayoutParams(lp);
@@ -643,20 +645,20 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 hometabTextZX.setLayoutParams(lp);
                 break;
             case 5:
-                hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
+                /*hometabTextTY.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextZR.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDJ.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextQP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextCP.setTextColor(getResources().getColor(android.R.color.black));
                 hometabTextDY.setTextColor(getResources().getColor(android.R.color.white));
-                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));
-                hometabTextTY.setBackgroundResource(0);
-                hometabTextZR.setBackgroundResource(0);
-                hometabTextDJ.setBackgroundResource(0);
-                hometabTextQP.setBackgroundResource(0);
-                hometabTextCP.setBackgroundResource(0);
-                hometabTextDY.setBackgroundResource(R.drawable.home_tab_title);
-                hometabTextZX.setBackgroundResource(0);
+                hometabTextZX.setTextColor(getResources().getColor(android.R.color.black));*/
+                hometabTextTY.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextZR.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDJ.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextQP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextCP.setBackgroundResource(R.drawable.tab_n_s);
+                hometabTextDY.setBackgroundResource(R.drawable.tab_s);
+                hometabTextZX.setBackgroundResource(R.drawable.tab_n_s);
                 hometabTextTY.setLayoutParams(lp);
                 hometabTextZR.setLayoutParams(lp);
                 hometabTextDJ.setLayoutParams(lp);
@@ -701,7 +703,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
      */
     protected void initImmersionBar() {
         //设置共同沉浸式样式
-       // ImmersionBar.with(getActivity()).statusBarColor(R.color.colorPrimary).init();
+        //ImmersionBar.with(getActivity()).statusBarColor(R.color.colorPrimary).init();
     }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
@@ -1271,7 +1273,23 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 playName = "捕鱼游戏";
                 presenter.postBYGame("","6");
                 break;
-
+            case "thunfire":
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                userState = "thunfire";
+                String fire_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire");
+                GameLog.log("当前是否关闭 "+fire_url);
+                if(!Check.isEmpty(fire_url)&&"1".equals(fire_url)){
+                    presenter.postMaintain();
+                }else {
+                    presenter.postThunFireGame("","");
+                }
+                break;
+            case "yhhd":
+                EventBus.getDefault().post(new ShowMainEvent(1));
+                break;
         }
 
     }
@@ -1662,6 +1680,17 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     @Override
+    public void postThunFireGameResult(QipaiResult qipaiResult) {
+        ACache.get(getContext()).put(HGConstant.USERNAME_AVIA_QIPAI_URL+"fire",qipaiResult.getUrl());
+        GameLog.log("=============雷火电竞的地址=============");
+        Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+        intent.putExtra("url",qipaiResult.getUrl());
+        intent.putExtra("gameCnName","雷火电竞");
+        intent.putExtra("hidetitlebar",false);
+        getActivity().startActivity(intent);
+    }
+
+    @Override
     public void postOGResult(AGGameLoginResult qipaiResult) {
         GameLog.log("OG的返回数据："+qipaiResult.getUrl());
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
@@ -1822,6 +1851,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                    GameLog.log("cq "+maintainResult1.getState());
                    ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"cq",maintainResult1.getState());
                    break;
+               case "thunfire":
+                   if(userState.equals("thunfire")){
+                       showMessage(maintainResult1.getContent());
+                   }
+                   GameLog.log("thunfire "+maintainResult1.getState());
+                   ACache.get(getContext()).put(HGConstant.USERNAME_GAME_MAINTAIN+"thunfire",maintainResult1.getState());
+                   break;
+
            }
        }
 
@@ -2008,11 +2045,76 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }*/
 
     @Subscribe
+    public void onEventMain(MessageTopEvent messageTopEvent){
+        int prePosition = messageTopEvent.getPrePosition();
+        if(prePosition==2){
+            //存取款
+            if("HomeDeposite".equals(messageTopEvent.getEventMessage())){
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                ACache.get(getContext()).put("userMoney",userMoney);
+                EventBus.getDefault().post(new StartBrotherEvent(DepositFragment.newInstance(), SupportFragment.SINGLETASK));
+
+            }else if("HomeWithDraw".equals(messageTopEvent.getEventMessage())){
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+
+                String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                if(Check.isEmpty(alias)){
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                    return;
+                }
+                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+, loginResult.getBindCard_Flag());
+                GameLog.log("用户是否已经绑定过银行卡："+userStatus);
+                if("0".equals(userStatus)){
+                    showMessage("请先绑定银行卡！");
+                    EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(userMoney,""), SupportFragment.SINGLETASK));
+                }
+            }else{
+                DepositeDialog.newInstance().show(getFragmentManager());
+            }
+
+        }else if(prePosition==4){
+            //我的
+            /*if(Check.isEmpty(userName)){
+                //start(LoginFragment.newInstance());
+                EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                return;
+            }
+            if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                showMessage("非常抱歉，请您注册真实会员！");
+                return;
+            }*/
+
+            ACache.get(getContext()).put("userName",userName);
+            MeDialog.newInstance().show(getFragmentManager());
+
+        }
+    }
+
+    @Subscribe
     public void onEventMain(UserMoneyEvent userMoneyEvent){
         userMoney = userMoneyEvent.money;
         tvHomePageUserMoney.setText(userMoney);
         homeMoney.setText(userMoney);
-		ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
+        ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, userMoney);
     }
 
     @Subscribe

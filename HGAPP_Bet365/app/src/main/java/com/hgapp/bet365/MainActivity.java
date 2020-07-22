@@ -15,6 +15,7 @@ import com.hgapp.bet365.homepage.push.ExampleUtil;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.ToastUtils;
+import com.jaeger.library.StatusBarUtil;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -39,6 +40,7 @@ public class MainActivity extends SupportActivity {
         super.onCreate(savedInstanceState);
        // hideNavigationBar();
         setContentView(R.layout.activity_main);
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance());
         }

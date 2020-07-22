@@ -169,6 +169,13 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
                 finish();
             }
         });
+        tvRegisterBack.setMoreListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
         /*String s = String.valueOf(mRandom.nextInt(10)) +
                 String.valueOf(mRandom.nextInt(10)) +
                 String.valueOf(mRandom.nextInt(10)) +

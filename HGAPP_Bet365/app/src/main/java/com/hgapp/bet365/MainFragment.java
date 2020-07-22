@@ -16,6 +16,7 @@ import com.hgapp.bet365.common.util.ACache;
 import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.common.util.InstallHelper;
 import com.hgapp.bet365.data.CheckUpgradeResult;
+import com.hgapp.bet365.data.MessageTopEvent;
 import com.hgapp.bet365.depositpage.DepositFragment;
 import com.hgapp.bet365.homepage.HomepageFragment;
 import com.hgapp.bet365.homepage.handicap.ShowMainEvent;
@@ -140,9 +141,9 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         if (savedInstanceState == null) {
-            mFragments[FIRST] = DepositFragment.newInstance();
+            mFragments[THIRD] = DepositFragment.newInstance();
             mFragments[SECOND] = DiscountsFragment.newInstance();
-            mFragments[THIRD] = HomepageFragment.newInstance();
+            mFragments[FIRST] = HomepageFragment.newInstance();
             mFragments[FOURTH] = ServiceOnlineFragment.newInstance();
             mFragments[FIFTH] = PersonFragment.newInstance();
             loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
@@ -155,9 +156,9 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
 
             // 这里我们需要拿到mFragments的引用,也可以通过getChildFragmentManager.getFragments()自行进行判断查找(效率更高些),用下面的方法查找更方便些
-            mFragments[FIRST] = findChildFragment(DepositFragment.class);
+            mFragments[THIRD] = findChildFragment(DepositFragment.class);
             mFragments[SECOND] = findChildFragment(DiscountsFragment.class);
-            mFragments[THIRD] = findChildFragment(HomepageFragment.class);
+            mFragments[FIRST] = findChildFragment(HomepageFragment.class);
             mFragments[FOURTH] = findChildFragment(ServiceOnlineFragment.class);
             mFragments[FIFTH] = findChildFragment(PersonFragment.class);
         }
@@ -171,14 +172,14 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         mBottomBar = (BottomBar) view.findViewById(R.id.bottomBar);
 
         mBottomBar
-                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_deposit, getString(R.string.str_title_deposit)))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_discount, getString(R.string.str_title_discount)))
                 .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_homepage, getString(R.string.str_title_homepage)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_discount, getString(R.string.str_title_discount)))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_deposit, getString(R.string.str_title_deposit)))
                 .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_withdraw, getString(R.string.str_title_withdraw)))
                 .addItem(new BottomBarTab(_mActivity, R.drawable.selector_tab_person, getString(R.string.str_title_person)));
         // 模拟未读消息
         //mBottomBar.getItem(FIRST).setUnreadCount(9);
-        mBottomBar.setCurrentItem(2);
+        mBottomBar.setCurrentItem(0);
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position, int prePosition) {
@@ -189,16 +190,30 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
                 }
                 try{
                     String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT));
-                    GameLog.log("用户的登录状态 [ 1登录成功 ] [ 0 未登录 ] ："+userStatus+" 当前的位置是 "+prePosition+" 目前位置是 "+position);
+                    GameLog.log("用户的登录状态 [ 1登录成功 ]/ [ 0 未登录 ] -->：["+userStatus+" ] 当前的位置是 "+prePosition+" 目前位置是 "+position);
                     if(Check.isEmpty(userStatus)){
                         userStatus = "0";
                     }
+                    if(position==2){
+                        //显示充值体现
+                        EventBus.getDefault().post(new MessageTopEvent(2,"2") );
+                       // mBottomBar.setCurrentItem(0);
+                        showHideFragment(mFragments[0],null);
+                        return;
+                    }else if(position==4){
+                        //我的
+                        EventBus.getDefault().post(new MessageTopEvent(4,"4") );
+                        //mBottomBar.setCurrentItem(0);
+                        showHideFragment(mFragments[0],null);
+                        return;
+                    }
+
                     if("0".equals(userStatus)){//未登录的情况下是看不到其他界面的 ，调整到登录页去 &&position!=2
-                        if(position==1||position==2||position==3){//DepositFragment
+                        if(position==0||position==1||position==3){//DepositFragment
                             showHideFragment(mFragments[position], mFragments[prePosition]);
                         }else{
-                            showHideFragment(mFragments[2],null);
-                            mBottomBar.setCurrentItem(2);
+                            showHideFragment(mFragments[0],null);
+                            mBottomBar.setCurrentItem(0);
                             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
                         }
                         return;
@@ -250,7 +265,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
     @Subscribe
     public void onLogoutEvent(LogoutEvent event)
     {
-       setSelectTab(2);
+       setSelectTab(0);
     }
     @Subscribe
     public void startBrotherWithPop(StartBrotherWithPopEvent event)

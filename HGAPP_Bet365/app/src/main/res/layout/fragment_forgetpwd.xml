@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_normal_gray">
+                android:background="@drawable/edittext_normal">
 
 
                 <ImageView
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_normal_gray">
+                android:background="@drawable/edittext_normal">
 
 
                 <ImageView
@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_normal_gray">
+                android:background="@drawable/edittext_normal">
 
 
                 <ImageView
@@ -244,7 +244,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_normal_gray">
+                android:background="@drawable/edittext_normal">
 
 
                 <ImageView
@@ -271,7 +271,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_normal_gray">
+                android:background="@drawable/edittext_normal">
 
 
                 <ImageView
@@ -417,7 +417,6 @@
             android:id="@+id/btnRegisterSubmit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/h_login_edit_height"
-            android:background="@drawable/home_tab_title"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"

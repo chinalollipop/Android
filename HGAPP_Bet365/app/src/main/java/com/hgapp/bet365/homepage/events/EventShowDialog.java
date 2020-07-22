@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import com.hgapp.bet365.R;
 import com.hgapp.bet365.base.HGBaseDialogFragment;
+import com.hgapp.bet365.homepage.handicap.ShowMainEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -41,9 +44,11 @@ public class EventShowDialog extends HGBaseDialogFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.eventShowCancel:
+                EventBus.getDefault().post(new ShowMainEvent(0));
                 this.dismiss();
                 break;
             case R.id.eventShowSuccess:
+                EventBus.getDefault().post(new ShowMainEvent(0));
                 this.dismiss();
                 break;
         }

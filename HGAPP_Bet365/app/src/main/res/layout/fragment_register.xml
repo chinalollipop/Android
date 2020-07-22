@@ -10,7 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backText="返回"
+        app:moreText="登录"
         app:moreTextOnly="true"
+
         />
 
     <LinearLayout
@@ -60,12 +62,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
-                    android:background="@color/login_left"
 
                     >
 
@@ -85,19 +87,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="没有可不填写"
+                    android:background="@null"
                     android:maxLength="15" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
-                    android:background="@color/login_left"
-
                     >
 
                     <TextView
@@ -116,6 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="5-15个字符，英文需小写"
+                    android:background="@null"
                     android:maxLength="15" />
             </LinearLayout>
 
@@ -123,13 +126,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterPwd"
@@ -148,6 +152,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
                     android:hint="6-15个字母或数字组成"
+                    android:background="@null"
                     android:maxLength="15"
 
                     />
@@ -156,13 +161,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterPwdVerify"
@@ -180,6 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
+                    android:background="@null"
                     android:hint="再次输入密码"
                     android:maxLength="15"
 
@@ -197,7 +204,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                   >
 
                     <TextView
                         android:id="@+id/tvRegisterRealName"
@@ -229,7 +236,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -257,13 +264,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterAccountPhone"
@@ -283,6 +291,7 @@
                     android:hint="请输入11位手机号码"
                     android:maxLength="11"
                     android:inputType="number"
+                    android:background="@null"
                     />
             </LinearLayout>
 
@@ -308,7 +317,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterEmail"
@@ -341,7 +350,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -368,13 +377,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterResource"
@@ -393,7 +403,7 @@
                     android:layout_height="match_parent"
                     android:focusable="false"
                     android:hint="网络广告"
-
+                    android:background="@null"
                     />
             </LinearLayout>
 
@@ -408,7 +418,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterVerificationCode"
@@ -469,7 +479,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterPhone"
@@ -502,7 +512,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterPhonePwd"
@@ -534,7 +544,7 @@
                     android:layout_width="@dimen/h_text_width"
                     android:layout_height="@dimen/h_text_height"
                     android:layout_gravity="center"
-                    android:background="@color/login_left">
+                    >
 
                     <TextView
                         android:id="@+id/tvRegisterPhoneVerificationCode"

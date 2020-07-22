@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/status_shape"
+    android:background="@drawable/bk_normal"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:text="@string/n_titlebar_back"
             android:drawablePadding="5dp"
             android:textSize="16sp"
-            android:textColor="#7288e8"
+            android:textColor="#ffffff"
             android:drawableLeft="@mipmap/back"
             />
 
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textColor="#7288e8"
+            android:textColor="#ffffff"
             android:drawableLeft="@mipmap/home_logo"
             android:textSize="18sp" />
 
@@ -44,7 +44,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="@string/account"
-            android:textColor="#7288e8"
+            android:textColor="#ffffff"
             android:textSize="16sp" />
     </RelativeLayout>
     <!--<TextView

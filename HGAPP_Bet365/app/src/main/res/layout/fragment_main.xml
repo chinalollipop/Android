@@ -39,12 +39,14 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="72dp"
+
             android:background="@drawable/home_iicc"
             android:layout_gravity="bottom">
 
             <me.yokeyword.sample.demo_wechat.ui.view.BottomBar
                 android:id="@+id/bottomBar"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_gravity="bottom" />
@@ -52,8 +54,9 @@
 
         <ImageView
             android:id="@+id/homeCenter"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center|top"
             android:background="@drawable/home_center" />
     </FrameLayout>

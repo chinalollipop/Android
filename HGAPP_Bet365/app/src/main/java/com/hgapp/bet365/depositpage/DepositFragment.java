@@ -14,6 +14,7 @@ import com.hgapp.bet365.base.IPresenter;
 import com.hgapp.bet365.common.util.ACache;
 import com.hgapp.bet365.common.util.GameShipHelper;
 import com.hgapp.bet365.common.util.HGConstant;
+import com.hgapp.bet365.common.widgets.NTitleBar;
 import com.hgapp.bet365.data.DepositAliPayQCCodeResult;
 import com.hgapp.bet365.data.DepositBankCordListResult;
 import com.hgapp.bet365.data.DepositListResult;
@@ -43,8 +44,10 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class DepositFragment extends HGBaseFragment implements DepositeContract.View{
 
-    @BindView(R.id.tvDepositUserMoney)
-    TextView tvDepositUserMoney;
+    @BindView(R.id.backDeposite)
+    NTitleBar backDeposite;
+    /*@BindView(R.id.tvDepositUserMoney)
+    TextView tvDepositUserMoney;*/
     @BindView(R.id.lvDeposit)
     ListView lvDeposit;
     private String userMoney;
@@ -77,14 +80,14 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
         GameLog.log("存款获取的用户余额："+loginResult.getMoney());
         if(!Check.isEmpty(loginResult.getMoney())){
             userMoney = GameShipHelper.formatMoney(loginResult.getMoney());
-            tvDepositUserMoney.setText(userMoney);
+            //tvDepositUserMoney.setText(userMoney);
         }
     }
 
     @Subscribe
     public void onEventMain(UserMoneyEvent userMoneyEvent){
         userMoney = userMoneyEvent.money;
-        tvDepositUserMoney.setText(userMoney);
+        //tvDepositUserMoney.setText(userMoney);
     }
 
     @Override
@@ -99,7 +102,14 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
+        userMoney = GameShipHelper.formatMoney(ACache.get(getContext()).getAsString("userMoney"));
+        backDeposite.setBackListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        backDeposite.setMoreText(userMoney);
     }
 
     @Override
