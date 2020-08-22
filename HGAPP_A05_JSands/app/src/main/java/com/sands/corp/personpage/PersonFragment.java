@@ -95,7 +95,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         myList.add("流水记录");
         myList.add("优惠申请");
         myList.add("新手教学");
-        myList.add("关于金沙集团");
+        myList.add("关于澳门线上娱乐");
         myList.add("代理加盟");
         myList.add("代理登录");
         myList.add("联系我们");

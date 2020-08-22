@@ -139,6 +139,12 @@ public class DiscountsFragment extends HGBaseFragment {
         wvServiceOnlineContent.loadUrl(webUrl);
     }
 
+    @Override
+    public void onVisible() {
+        super.onVisible();
+        onViewRefreshClicked();
+    }
+
     @Subscribe
     public void onEventMain(LogoutEvent logoutEvent) {
 
