@@ -268,7 +268,7 @@ public class RollPagerViewManager {
                 }
             });
             view.onCornerAll(view);
-            view.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            view.setScaleType(ImageView.ScaleType.FIT_XY);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             Picasso.with(context)
                     .load(activityList.get(position).getImg_path())

@@ -170,7 +170,7 @@ public class AppDownloadService extends Service {
         if(0 != size && 0!=finishSize)
         {
             NotificationUtil.notification(getApplicationContext(),(PendingIntent) null,
-                    10010, R.mipmap.icon_new_s,
+                    10010, R.mipmap.icon_tt,
                     "app下载","正在下载"+size+"个app","已下载" + finishSize +"个app");
         }
 
