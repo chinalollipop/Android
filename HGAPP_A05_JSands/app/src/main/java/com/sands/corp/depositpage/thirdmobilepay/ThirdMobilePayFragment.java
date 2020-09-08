@@ -1,12 +1,21 @@
 package com.sands.corp.depositpage.thirdmobilepay;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.sands.common.util.GameLog;
 import com.sands.corp.R;
 import com.sands.corp.base.HGBaseFragment;
 import com.sands.corp.base.IPresenter;
@@ -14,9 +23,11 @@ import com.sands.corp.common.widgets.NTitleBar;
 import com.sands.corp.data.DepositThirdQQPayResult;
 import com.sands.corp.depositpage.DepositeContract;
 import com.sands.common.util.Check;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,18 +45,35 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
     NTitleBar tvThirdMobilePayBack;
     @BindView(R.id.etDepositThirdMobileMoney)
     EditText etDepositThirdMobileMoney;
+    @BindView(R.id.rvBalanceTransfer)
+    RecyclerView flowBalanceTransfer;
     @BindView(R.id.tvDepositThirdMobile)
     TextView tvDepositThirdMobile;
     @BindView(R.id.btnDepositThirdMobileSubmit)
     Button btnDepositThirdMobileSubmit;
     private DepositeContract.Presenter presenter;
-    DepositThirdQQPayResult.DataBean dataBean;
+
     private String getArgParam1;
     private int getArgParam2;
-    public static ThirdMobilePayFragment newInstance(DepositThirdQQPayResult.DataBean dataBean,String getArgParam1,int argParam2) {
+    private String useId,id,url;
+    OptionsPickerView gtypeOptionsPickerIn;
+    ArrayList<DepositThirdQQPayResult.DataBean> dataBean;
+    static List<String> searchRecordsArrayList  = new ArrayList<>();
+    static {
+
+        searchRecordsArrayList.add("100");
+        searchRecordsArrayList.add("300");
+        searchRecordsArrayList.add("500");
+        searchRecordsArrayList.add("800");
+        searchRecordsArrayList.add("1000");
+        searchRecordsArrayList.add("2000");
+        searchRecordsArrayList.add("3000");
+        searchRecordsArrayList.add("5000");
+    }
+    public static ThirdMobilePayFragment newInstance(DepositThirdQQPayResult dataBean,String getArgParam1,int argParam2) {
         ThirdMobilePayFragment fragment = new ThirdMobilePayFragment();
         Bundle args = new Bundle();
-        args.putParcelable(ARG_PARAM0,dataBean);
+        args.putParcelableArrayList(ARG_PARAM0, (ArrayList<? extends Parcelable>) dataBean.getData());
         args.putString(ARG_PARAM1,getArgParam1);
         args.putInt(ARG_PARAM2,argParam2);
 //        Injections.inject(null,fragment);
@@ -57,7 +85,7 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            dataBean = getArguments().getParcelable(ARG_PARAM0);
+            dataBean = getArguments().getParcelableArrayList(ARG_PARAM0);
             getArgParam1 = getArguments().getString(ARG_PARAM1);
             getArgParam2 = getArguments().getInt(ARG_PARAM2);
         }
@@ -75,7 +103,7 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        tvDepositThirdMobile.setText(dataBean.getTitle());
+
         tvThirdMobilePayBack.setMoreText(getArgParam1);
         tvThirdMobilePayBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -83,6 +111,60 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
                 finish();
             }
         });
+
+        if(dataBean.size()>=2){
+            tvDepositThirdMobile.setText("请点击此处选择支付渠道 ⇊▼");
+        }else{
+            etDepositThirdMobileMoney.setHint("大于"+dataBean.get(0).getMinCurrency()+"小于"+dataBean.get(0).getMaxCurrency());
+            tvDepositThirdMobile.setText(dataBean.get(0).getTitle());
+            id = dataBean.get(0).getId();
+            url = dataBean.get(0).getUrl();
+            useId = dataBean.get(0).getUserid();
+        }
+
+        gtypeOptionsPickerIn = new OptionsPickerBuilder(getContext(),new OnOptionsSelectListener(){
+
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                tvDepositThirdMobile.setText(dataBean.get(options1).getTitle()+" ⇊▼");
+                GameLog.log("充值方式："+dataBean.get(options1).getTitle());
+                //showMessage("金额必须大于"+dataBean.get(options1).getMinCurrency()+"小于"+dataBean.get(options1).getMaxCurrency());
+                etDepositThirdMobileMoney.setHint("大于"+dataBean.get(options1).getMinCurrency()+"小于"+dataBean.get(options1).getMaxCurrency());
+                id = dataBean.get(options1).getId();
+                url = dataBean.get(options1).getUrl();
+                useId = dataBean.get(options1).getUserid();
+            }
+        }).build();
+        gtypeOptionsPickerIn.setPicker(dataBean);
+        GridLayoutManager layoutActivityManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
+        //RecyclerView.LayoutManager layoutActivityManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
+        flowBalanceTransfer.setLayoutManager(layoutActivityManager);
+
+        flowBalanceTransfer.setAdapter(new FlowBalanceTransferAdapter(getContext(),R.layout.item_balance_transfer,searchRecordsArrayList));
+
+    }
+
+    class FlowBalanceTransferAdapter extends com.sands.corp.common.adapters.AutoSizeRVAdapter<String>{
+
+        private Context context;
+        public FlowBalanceTransferAdapter(Context context, int layoutId, List<String> datas){
+            super(context, layoutId, datas);
+            this.context =  context;
+        }
+        @Override
+        protected void convert(ViewHolder holder, final String  string, final int position) {
+
+            holder.setText(R.id.tvItemBalanceTransfer,string);
+            holder.setOnClickListener(R.id.tvItemBalanceTransfer,new View.OnClickListener(){
+
+                @Override
+                public void onClick(View view) {
+                    etDepositThirdMobileMoney.setText(string);
+                }
+            });
+        }
+
+
     }
 
     private void onCheckThirdMobilePay(){
@@ -92,11 +174,29 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
             showMessage("汇款金额必须是整数！");
             return;
         }
-        EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(dataBean.getUrl(),thirdMobileMoney,dataBean.getUserid(),dataBean.getId(),""), SupportFragment.SINGLETASK));
+        if("请点击此处选择支付渠道 ⇊▼".equals(tvDepositThirdMobile.getText().toString().trim())){
+            showMessage("亲，记得请选择支付渠道哦！");
+            return;
+        }
+        if(Check.isEmpty(url)){
+            showMessage("充值方式错误，请联系管理员！");
+            return;
+        }
+
+        EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(url,thirdMobileMoney,useId,id,""), SupportFragment.SINGLETASK));
     }
 
-    @OnClick(R.id.btnDepositThirdMobileSubmit)
-    public void onViewClicked() {
-        onCheckThirdMobilePay();
+    @OnClick({R.id.btnDepositThirdMobileSubmit,R.id.tvDepositThirdMobile})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btnDepositThirdMobileSubmit:
+                onCheckThirdMobilePay();
+                break;
+            case R.id.tvDepositThirdMobile:
+                hideSoftInput();
+                gtypeOptionsPickerIn.show();
+                break;
+        }
     }
+
 }
