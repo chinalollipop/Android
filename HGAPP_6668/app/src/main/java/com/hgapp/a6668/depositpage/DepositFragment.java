@@ -134,14 +134,14 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
     @Override
     public void postDepositThirdWXPayResult(DepositThirdQQPayResult message) {
         GameLog.log("第三方微信支付大小："+message.getData().size());
-        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message.getData().get(0),userMoney,payId), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message,userMoney,payId), SupportFragment.SINGLETASK));
 
     }
 
     @Override
     public void postDepositThirdAliPayResult(DepositThirdQQPayResult message) {
         GameLog.log("第三方支付宝支付大小："+message.getData().size());
-        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message.getData().get(0),userMoney,payId), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message,userMoney,payId), SupportFragment.SINGLETASK));
 
     }
 
@@ -150,7 +150,7 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
 
         GameLog.log("第三方QQ支付大小："+message.getData().size());
 
-        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message.getData().get(0),userMoney,payId), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message,userMoney,payId), SupportFragment.SINGLETASK));
     }
 
     @Override

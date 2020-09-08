@@ -44,6 +44,12 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/l_view_color" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvBalanceTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -73,6 +79,7 @@
             android:textSize="15sp"
             android:text="请输入汇款金额" />
     </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
