@@ -178,10 +178,15 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
             showMessage("汇款金额必须是整数！");
             return;
         }
+        if("请点击此处选择支付渠道 ⇊▼".equals(tvDepositThirdMobile.getText().toString().trim())){
+            showMessage("亲，记得请选择支付渠道哦！");
+            return;
+        }
         if(Check.isEmpty(url)){
             showMessage("充值方式错误，请联系管理员！");
             return;
         }
+
         EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(url,thirdMobileMoney,useId,id,""), SupportFragment.SINGLETASK));
     }
 
