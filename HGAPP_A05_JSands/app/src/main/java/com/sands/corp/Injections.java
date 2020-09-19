@@ -13,6 +13,9 @@ import com.sands.corp.depositpage.aliqcpay.IAliQCPayApi;
 import com.sands.corp.depositpage.companypay.CompanyPayContract;
 import com.sands.corp.depositpage.companypay.CompanyPayPresenter;
 import com.sands.corp.depositpage.companypay.ICompanyPayApi;
+import com.sands.corp.depositpage.usdtpay.IUSDTPayApi;
+import com.sands.corp.depositpage.usdtpay.USDTPayContract;
+import com.sands.corp.depositpage.usdtpay.USDTPayPresenter;
 import com.sands.corp.homepage.HomePageContract;
 import com.sands.corp.homepage.HomePagePresenter;
 import com.sands.corp.homepage.IHomePageApi;
@@ -392,6 +395,21 @@ public class Injections {
             api = Client.getRetrofit().create(ICheckVerUpdateApi.class);
         }
         return new CheckUpdatePresenter(view,api);
+    }
+
+    /**
+     * USDT支付
+     * @param view
+     * @param api
+     * @return
+     */
+    public static USDTPayContract.Presenter inject(@NonNull USDTPayContract.View view, @Nullable IUSDTPayApi api)
+    {
+        if(null == api)
+        {
+            api = Client.getRetrofit().create(IUSDTPayApi.class);
+        }
+        return new USDTPayPresenter(api,view);
     }
 
 }

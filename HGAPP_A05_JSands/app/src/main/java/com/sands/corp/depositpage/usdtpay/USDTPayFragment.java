@@ -1,4 +1,4 @@
-package com.sands.corp.depositpage.thirdbankcardpay;
+package com.sands.corp.depositpage.usdtpay;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,30 +7,30 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
-import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.sands.corp.Injections;
 import com.sands.corp.R;
 import com.sands.corp.base.HGBaseFragment;
 import com.sands.corp.base.IPresenter;
 import com.sands.corp.common.widgets.NTitleBar;
-import com.sands.corp.data.DepositThirdBankCardResult;
-import com.sands.corp.depositpage.DepositeContract;
-import com.sands.corp.depositpage.thirdmobilepay.OnlinePlayFragment;
+import com.sands.corp.data.DepositAliPayQCCodeResult;
+import com.sands.corp.data.USDTRateResult;
+import com.sands.corp.homepage.online.OnlineFragment;
 import com.sands.common.util.Check;
+import com.sands.common.util.GameLog;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
-public class ThirdbankCardFragment extends HGBaseFragment {
+public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.View {
 
     private static final String ARG_PARAM0 = "param0";
     private static final String ARG_PARAM1 = "param1";
@@ -44,18 +44,22 @@ public class ThirdbankCardFragment extends HGBaseFragment {
     TextView tvDepositThirdBankCode;
     @BindView(R.id.btnDepositThirdBankSubmit)
     Button btnDepositThirdBankSubmit;
-    private DepositeContract.Presenter presenter;
-    DepositThirdBankCardResult.DataBean dataBean;
-    OptionsPickerView  optionsPickerView;
+    @BindView(R.id.btnUSDTSubmit)
+    Button btnUSDTSubmit;
+
+    DepositAliPayQCCodeResult.DataBean dataBean;
+    OptionsPickerView optionsPickerView;
+
+    private USDTPayContract.Presenter presenter;
     private String getArgParam1;
     private String bankCode;
-    public static ThirdbankCardFragment newInstance(DepositThirdBankCardResult.DataBean dataBean,String getArgParam1) {
-        ThirdbankCardFragment fragment = new ThirdbankCardFragment();
+    public static USDTPayFragment newInstance(DepositAliPayQCCodeResult.DataBean dataBean, String getArgParam1) {
+        USDTPayFragment fragment = new USDTPayFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_PARAM0,dataBean);
         args.putString(ARG_PARAM1,getArgParam1);
-//        Injections.inject(null,fragment);
         fragment.setArguments(args);
+        Injections.inject(fragment,null);
         return fragment;
     }
 
@@ -75,12 +79,15 @@ public class ThirdbankCardFragment extends HGBaseFragment {
 
     @Override
     public int setLayoutId() {
-        return R.layout.fragment_thirdbankcardpay;
+        return R.layout.fragment_usdtpay;
     }
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         tvThirdBankBack.setMoreText(getArgParam1);
+        GameLog.log("USDT当前存款的方式 "+dataBean.getType() +dataBean.getUsdt_name());
+        tvDepositThirdBankChannel.setText(dataBean.getType());
+        tvDepositThirdBankCode.setText(dataBean.getUsdt_name());
         tvThirdBankBack.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +95,7 @@ public class ThirdbankCardFragment extends HGBaseFragment {
             }
         });
 
-        List<String> stringList  = new ArrayList<String>();
+       /* List<String> stringList  = new ArrayList<String>();
         int listSize = dataBean.getBankList().size();
         for(int i=0;i<listSize;++i){
             stringList.add(dataBean.getBankList().get(i).getBankname());
@@ -106,27 +113,61 @@ public class ThirdbankCardFragment extends HGBaseFragment {
         optionsPickerView.isDialog();
         tvDepositThirdBankChannel.setText(dataBean.getTitle());
         tvDepositThirdBankCode.setText(dataBean.getBankList().get(0).getBankname());
-        bankCode = dataBean.getBankList().get(0).getBankcode();
+        bankCode = dataBean.getBankList().get(0).getBankcode();*/
     }
 
     private void onCheckThirdMobilePay(){
         String thirdBankMoney = etDepositThirdBankMoney.getText().toString().trim();
-
-        if(Check.isEmpty(thirdBankMoney)){
-            showMessage("汇款金额必须是整数！");
+        if (Check.isEmpty(thirdBankMoney)||Double.parseDouble(thirdBankMoney)<Double.parseDouble("100")) {
+            super.showMessage("汇款金额须大于100元！");
             return;
         }
-        EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(dataBean.getUrl(),thirdBankMoney,dataBean.getUserid(),dataBean.getId(),bankCode), SupportFragment.SINGLETASK));
+        presenter.postDepositUSDTPaySubimt("", dataBean.getId(),  thirdBankMoney, getTime(new Date()), "",dataBean.getBank_user());
+        //EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(dataBean.getUrl(),thirdBankMoney,dataBean.getUserid(),dataBean.getId(),bankCode), SupportFragment.SINGLETASK));
     }
 
-    @OnClick(R.id.btnDepositThirdBankSubmit)
-    public void onViewClicked() {
-        onCheckThirdMobilePay();
+    public static String getTime(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return format.format(date);
+    }
+
+    @OnClick({R.id.btnDepositThirdBankSubmit,R.id.btnUSDTSubmit})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.btnDepositThirdBankSubmit:
+                onCheckThirdMobilePay();
+                break;
+            case R.id.btnUSDTSubmit:
+
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(getArgParam1, dataBean.getTutorial_url())));
+
+                //showMessage("当前访问的是 "+dataBean.getTutorial_url());
+                break;
+        }
+
     }
 
     @OnClick(R.id.tvDepositThirdBankCode)
     public void onViewBankCodeClicked() {
-        optionsPickerView.show();
+        //optionsPickerView.show();
 
+    }
+
+    @Override
+    public void postDepositUSDTPaySubimtResult(String message) {
+        showMessage(message);
+        String thirdBankMoney = etDepositThirdBankMoney.getText().toString().trim();
+        presenter.postUsdtRateApiSubimt(thirdBankMoney);
+    }
+
+    @Override
+    public void postUsdtRateApiSubimtResult(USDTRateResult usdtRateResult) {
+        EventBus.getDefault().post(new StartBrotherEvent(USDTQCPayFragment.newInstance(dataBean,usdtRateResult,getArgParam1)));
+
+    }
+
+    @Override
+    public void setPresenter(USDTPayContract.Presenter presenter) {
+        this.presenter = presenter;
     }
 }
