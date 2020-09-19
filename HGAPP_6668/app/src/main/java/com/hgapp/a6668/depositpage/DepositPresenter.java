@@ -245,6 +245,30 @@ public class DepositPresenter implements DepositeContract.Presenter {
     }
 
     @Override
+    public void postDepositThirdUSDTCCode(String appRefer, String bankid) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postDepositThirdUSDTCCode(HGConstant.PRODUCT_PLATFORM,"detail",bankid))
+                .subscribe(new ResponseSubscriber<DepositAliPayQCCodeResult>() {
+                    @Override
+                    public void success(DepositAliPayQCCodeResult response) {
+                        if("200".equals(response.getStatus())){
+                            view.postDepositUSDTPayCCodeResult(response);
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void start() {
 
     }

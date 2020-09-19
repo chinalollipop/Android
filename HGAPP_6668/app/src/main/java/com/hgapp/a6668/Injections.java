@@ -14,6 +14,9 @@ import com.hgapp.a6668.depositpage.aliqcpay.IAliQCPayApi;
 import com.hgapp.a6668.depositpage.companypay.CompanyPayContract;
 import com.hgapp.a6668.depositpage.companypay.CompanyPayPresenter;
 import com.hgapp.a6668.depositpage.companypay.ICompanyPayApi;
+import com.hgapp.a6668.depositpage.usdtpay.IUSDTPayApi;
+import com.hgapp.a6668.depositpage.usdtpay.USDTPayContract;
+import com.hgapp.a6668.depositpage.usdtpay.USDTPayPresenter;
 import com.hgapp.a6668.homepage.HomePageContract;
 import com.hgapp.a6668.homepage.HomePagePresenter;
 import com.hgapp.a6668.homepage.IHomePageApi;
@@ -403,6 +406,22 @@ public class Injections {
         }
         return new CheckUpdatePresenter(view,api);
     }
+
+    /**
+     * USDT支付
+     * @param view
+     * @param api
+     * @return
+     */
+    public static USDTPayContract.Presenter inject(@NonNull USDTPayContract.View view, @Nullable IUSDTPayApi api)
+    {
+        if(null == api)
+        {
+            api = Client.getRetrofit().create(IUSDTPayApi.class);
+        }
+        return new USDTPayPresenter(api,view);
+    }
+
 
     //彩票的接口
     //----------------------------------------------------------------------------------------------------------------------------------
