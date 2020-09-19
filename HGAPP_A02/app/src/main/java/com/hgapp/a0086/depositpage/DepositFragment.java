@@ -26,6 +26,7 @@ import com.hgapp.a0086.depositpage.companypay.CompanyPayOneFragment;
 import com.hgapp.a0086.depositpage.thirdbankcardpay.ThirdbankCardFragment;
 import com.hgapp.a0086.depositpage.thirdmobilepay.OnlinePlayFragment;
 import com.hgapp.a0086.depositpage.thirdmobilepay.ThirdMobilePayFragment;
+import com.hgapp.a0086.depositpage.usdtpay.USDTPayFragment;
 import com.hgapp.a0086.homepage.UserMoneyEvent;
 import com.hgapp.a0086.personpage.realname.RealNameFragment;
 import com.hgapp.common.util.Check;
@@ -125,6 +126,13 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
     }
 
     @Override
+    public void postDepositUSDTPayCCodeResult(DepositAliPayQCCodeResult message) {
+        GameLog.log("USDT："+message.getData().size()+"金额："+userMoney);
+        EventBus.getDefault().post(new StartBrotherEvent(USDTPayFragment.newInstance(message.getData().get(0),userMoney), SupportFragment.SINGLETASK));
+
+    }
+
+    @Override
     public void postDepositThirdBankCardResult(DepositThirdBankCardResult message) {
         GameLog.log("第三方银行卡线上："+message.getData().size());
         EventBus.getDefault().post(new StartBrotherEvent(ThirdbankCardFragment.newInstance(message.getData().get(0),userMoney), SupportFragment.SINGLETASK));
@@ -205,6 +213,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 case 8:
                     holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.u_pay);
                     break;
+                case 9:
+                    holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.usdt);
+                    break;
 
             }
 
@@ -255,6 +266,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 break;
             case 8://云闪付
                 presenter.postDepositThirdUQCCode("",bankid);
+                break;
+            case 9://USDT
+                presenter.postDepositThirdUSDTCCode("",bankid);
                 break;
         }
     }

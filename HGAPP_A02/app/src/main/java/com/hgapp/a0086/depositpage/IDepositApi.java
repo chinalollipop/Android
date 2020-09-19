@@ -59,4 +59,8 @@ public interface IDepositApi {
     @FormUrlEncoded
     public Observable<DepositAliPayQCCodeResult> postDepositUQCCode(@Field("appRefer") String appRefer,@Field("bankid") String bankid);
 
+    //USDT
+    @POST("account/bank_type_USDT_api.php")
+    @FormUrlEncoded
+    public Observable<DepositAliPayQCCodeResult> postDepositThirdUSDTCCode(@Field("appRefer") String appRefer,@Field("type") String type,@Field("bankid") String bankid);
 }
