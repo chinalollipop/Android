@@ -102,7 +102,7 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
         // \n3.请确保收款地址收到14.81 USDt[不含转账手续费]，否则无法到账。
         // \n 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。
         StringBuffer mark = new StringBuffer();
-        mark.append("*注意<br> 1.请勿想上述地址支付任何非"+onMarkRed(getArgParam1.getType())+" USDT资产，否则资产将无法找回。<br> ")
+        mark.append("*注意<br> 1.请勿向上述地址支付任何非"+onMarkRed(getArgParam1.getType())+" USDT资产，否则资产将无法找回。<br> ")
         .append( "2.当前Okex/火币/币安交易所USDT最新场外卖单单价").
                 append(onMarkRed(getArgParam1.getUsdt_rate())).
                 append("元。<br>3.请确保收款地址收到").
