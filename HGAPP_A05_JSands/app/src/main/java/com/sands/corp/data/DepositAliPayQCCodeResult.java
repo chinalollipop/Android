@@ -76,6 +76,8 @@ public class DepositAliPayQCCodeResult implements Parcelable {
         private String type;
         private String tutorial_url;
         private String usdt_name;
+        private String yuhui_rate;
+        private String min_deposit;
 
         public String getId() {
             return id;
@@ -141,6 +143,22 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             this.usdt_name = usdt_name;
         }
 
+        public String getYuhui_rate() {
+            return yuhui_rate;
+        }
+
+        public void setYuhui_rate(String yuhui_rate) {
+            this.yuhui_rate = yuhui_rate;
+        }
+
+        public String getMin_deposit() {
+            return min_deposit;
+        }
+
+        public void setMin_deposit(String min_deposit) {
+            this.min_deposit = min_deposit;
+        }
+
         public DataBean() {
         }
 
@@ -159,6 +177,8 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             dest.writeString(this.type);
             dest.writeString(this.tutorial_url);
             dest.writeString(this.usdt_name);
+            dest.writeString(this.yuhui_rate);
+            dest.writeString(this.min_deposit);
         }
 
         protected DataBean(Parcel in) {
@@ -170,6 +190,8 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             this.type = in.readString();
             this.tutorial_url = in.readString();
             this.usdt_name = in.readString();
+            this.yuhui_rate = in.readString();
+            this.min_deposit = in.readString();
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
