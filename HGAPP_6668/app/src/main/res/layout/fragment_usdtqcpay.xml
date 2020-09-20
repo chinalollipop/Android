@@ -125,7 +125,19 @@
         android:layout_height="1px"
         android:background="@color/l_view_color"
         />
+    <TextView
+        android:id="@+id/usdtService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:textColor="@color/color_bg_dialog"
+        android:drawableRight="@mipmap/tv_tservice"
+        android:background="@drawable/tv_service"
+        android:text="*支付完成请等待5-10分钟到账，支付失败请咨询客服"
+        />
 
     <TextView
         android:id="@+id/usdtMark"

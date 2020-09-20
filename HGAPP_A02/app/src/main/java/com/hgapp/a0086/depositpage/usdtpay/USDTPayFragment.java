@@ -2,6 +2,7 @@ package com.hgapp.a0086.depositpage.usdtpay;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,7 +53,8 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
     Button btnDepositThirdBankSubmit;
     @BindView(R.id.btnUSDTSubmit)
     Button btnUSDTSubmit;
-
+    @BindView(R.id.tvUsdtMark)
+    TextView tvUsdtMark;
     DepositAliPayQCCodeResult.DataBean dataBean;
     OptionsPickerView  optionsPickerView;
 
@@ -88,6 +90,10 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
         return R.layout.fragment_usdtpay;
     }
 
+    //标记为红色
+    private String onMarkRed(String sign){
+        return " <font color='#FF0000'>" + sign+"</font>";
+    }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         tvThirdBankBack.setMoreText(getArgParam1);
@@ -101,6 +107,11 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
             }
         });
 
+        StringBuffer mark = new StringBuffer();
+        //请注意：请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。\n 本公司最低存款金额为100元，每次存款赠送最高1%红利。
+        mark.append("请注意：<br>请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。<br>本公司最低存款金额为").append("").
+                append(onMarkRed(dataBean.getMin_deposit())).append("元，每次存款赠送最高").append(onMarkRed(dataBean.getYuhui_rate())).append("红利。");
+        tvUsdtMark.setText(Html.fromHtml(mark.toString()));
        /* List<String> stringList  = new ArrayList<String>();
         int listSize = dataBean.getBankList().size();
         for(int i=0;i<listSize;++i){

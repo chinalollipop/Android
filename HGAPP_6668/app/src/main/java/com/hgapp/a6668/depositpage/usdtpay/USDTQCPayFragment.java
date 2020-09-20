@@ -10,18 +10,25 @@ import android.widget.TextView;
 
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
+import com.hgapp.a6668.common.util.ACache;
 import com.hgapp.a6668.common.util.CLipHelper;
 import com.hgapp.a6668.common.util.DoubleClickHelper;
+import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.widgets.NTitleBar;
 import com.hgapp.a6668.data.DepositAliPayQCCodeResult;
 import com.hgapp.a6668.data.USDTRateResult;
+import com.hgapp.a6668.homepage.online.OnlineFragment;
+import com.hgapp.common.util.Check;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 
 public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract.View {
 
@@ -44,6 +51,8 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
     Button usdtAmountCopy;
     @BindView(R.id.usdtAddressCopy)
     Button usdtAddressCopy;
+    @BindView(R.id.usdtService)
+    TextView usdtService;
     @BindView(R.id.usdtMark)
     TextView usdtMark;
     private String payId,payBankUser;
@@ -111,6 +120,9 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
                 append(onMarkRed("[不含转账手续费]")).
                 append(",否则无法到账。<br> 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。");
         usdtMark.setText(Html.fromHtml(mark.toString()));
+        StringBuffer service = new StringBuffer();
+        service.append("*支付完成请等待").append(onMarkRed("5-10")).append("分钟到账,支付失败").append(onMarkRed("咨询客服"));
+        usdtService.setText(Html.fromHtml(service.toString()));
         tvAliQCPayBack.setMoreText(getArgParam2);
         tvAliQCPayBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -135,20 +147,30 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
         this.presenter = presenter;
     }
 
-    @OnClick({R.id.usdtAddressCopy,R.id.usdtAmountCopy})
+    @OnClick({R.id.usdtAddressCopy,R.id.usdtAmountCopy,R.id.usdtService})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.usdtAddressCopy:
+                showMessage("复制成功！");
                 DoubleClickHelper.getNewInstance().disabledView(usdtAddressCopy);
                 CLipHelper.copy(getContext(),usdtAddress.getText().toString());
                 break;
             case R.id.usdtAmountCopy:
+                showMessage("复制成功！");
                 DoubleClickHelper.getNewInstance().disabledView(usdtAmountCopy);
                 CLipHelper.copy(getContext(),usdtAmount.getText().toString());
                 break;
+            case R.id.usdtService:
+                String webUrl = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL);
+                if(Check.isEmpty(webUrl)){
+                    webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(getArgParam2, webUrl)));
+
+                // EventBus.getDefault().post(new ShowMainEvent(2));
+                break;
         }
 
-        showMessage("复制成功！");
     }
 
 
