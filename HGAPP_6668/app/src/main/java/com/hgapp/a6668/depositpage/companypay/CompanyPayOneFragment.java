@@ -8,6 +8,7 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.hgapp.a6668.R;
 import com.hgapp.a6668.base.HGBaseFragment;
@@ -87,6 +88,74 @@ public class CompanyPayOneFragment extends HGBaseFragment{
         }
     }
 
+    private void onSwitchBankCode(ImageView imageView,String bankCode){
+
+        switch (bankCode){
+            case "ICBC":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_icbc));
+                break;
+            case "ABC":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_abc));
+                break;
+            case "CCB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_ccb));
+                break;
+            case "BOCO":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_boco));
+                break;
+            case "BOC":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_boc));
+                break;
+            case "CEBB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_cebb));
+                break;
+            case "CMBC":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_cmbc));
+                break;
+            case "POST":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_post));
+                break;
+            case "CMB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_cmb));
+                break;
+            case "CIB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_cib));
+                break;
+            case "CCCB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_cccb));
+                break;
+            case "GDB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_gdb));
+                break;
+            case "SPDB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_spdb));
+                break;
+            case "HXB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_hxb));
+                break;
+            case "PAB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_pab));
+                break;
+            case "SHB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_shb));
+                break;
+            case "BJB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_bjb));
+                break;
+            case "ZZB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_zzb));
+                break;
+            case "JSBC":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_jsbc));
+                break;
+            case "LZBC":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_lzbc));
+                break;
+            default:
+                imageView.setBackground(getResources().getDrawable(R.mipmap.deposit_union));
+                break;
+        }
+    }
     class RvMylistAdapter extends AutoSizeRVAdapter<DepositBankCordListResult.DataBean> {
         private Context context;
         public RvMylistAdapter(Context context, int layoutId,List<DepositBankCordListResult.DataBean> datas){
@@ -95,7 +164,7 @@ public class CompanyPayOneFragment extends HGBaseFragment{
         }
         @Override
         protected void convert(ViewHolder holder, final DepositBankCordListResult.DataBean dataBean1, final int position) {
-
+            onSwitchBankCode((ImageView)holder.getView(R.id.ivItemMyImage),dataBean1.getBankcode());
             holder.setOnClickListener(R.id.llItemMySelf, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

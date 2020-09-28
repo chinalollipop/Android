@@ -3,6 +3,8 @@ package com.hgapp.a0086.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.hgapp.common.util.Check;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -144,7 +146,7 @@ public class DepositAliPayQCCodeResult implements Parcelable {
         }
 
         public String getYuhui_rate() {
-            return yuhui_rate;
+            return yuhui_rate= Check.isEmpty(yuhui_rate)?"2%":yuhui_rate;
         }
 
         public void setYuhui_rate(String yuhui_rate) {
@@ -152,7 +154,7 @@ public class DepositAliPayQCCodeResult implements Parcelable {
         }
 
         public String getMin_deposit() {
-            return min_deposit;
+            return min_deposit= Check.isEmpty(min_deposit)?"100":min_deposit;
         }
 
         public void setMin_deposit(String min_deposit) {

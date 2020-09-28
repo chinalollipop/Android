@@ -70,12 +70,20 @@ public class DepositBankCordListResult implements Parcelable {
          * bank_user : 关元
          * id : 11
          */
-
+        private String bankcode;
         private String bank_account;
         private String bank_name;
         private String bank_user;
         private String bank_addres;
         private String id;
+
+        public String getBankcode() {
+            return bankcode;
+        }
+
+        public void setBankcode(String bankcode) {
+            this.bankcode = bankcode;
+        }
 
         public String getBank_account() {
             return bank_account;
@@ -117,6 +125,9 @@ public class DepositBankCordListResult implements Parcelable {
             this.id = id;
         }
 
+        public DataBean() {
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -124,6 +135,7 @@ public class DepositBankCordListResult implements Parcelable {
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.bankcode);
             dest.writeString(this.bank_account);
             dest.writeString(this.bank_name);
             dest.writeString(this.bank_user);
@@ -131,10 +143,8 @@ public class DepositBankCordListResult implements Parcelable {
             dest.writeString(this.id);
         }
 
-        public DataBean() {
-        }
-
         protected DataBean(Parcel in) {
+            this.bankcode = in.readString();
             this.bank_account = in.readString();
             this.bank_name = in.readString();
             this.bank_user = in.readString();
