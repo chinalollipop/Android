@@ -46,8 +46,8 @@ public class BindingCardPresenter implements BindingCardContract.Presenter {
     }
 
     @Override
-    public void postBindingBankCard(String appRefer, String action_type, String bank_name, String bank_account, String bank_address, String pay_password, String pay_password2) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBindingBankCard(HGConstant.PRODUCT_PLATFORM,action_type,bank_name,bank_account,bank_address,pay_password,pay_password2))
+    public void postBindingBankCard(String appRefer, String action_type, String bank_name, String bank_account, String bank_address, String pay_password, String pay_password2,String usdt_address) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBindingBankCard(HGConstant.PRODUCT_PLATFORM,action_type,bank_name,bank_account,bank_address,pay_password,pay_password2,usdt_address))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {

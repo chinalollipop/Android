@@ -19,6 +19,6 @@ public interface IBindingCardApi {
     //绑定银行卡
     @POST("account/bankcard.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<Object>> postBindingBankCard(@Field("appRefer") String appRefer, @Field("action_type") String action_type, @Field("bank_name") String bank_name, @Field("bank_account") String bank_account, @Field("bank_address") String bank_address, @Field("pay_password") String pay_password, @Field("pay_password2") String pay_password2);
+    public Observable<AppTextMessageResponse<Object>> postBindingBankCard(@Field("appRefer") String appRefer, @Field("action_type") String action_type, @Field("bank_name") String bank_name, @Field("bank_account") String bank_account, @Field("bank_address") String bank_address, @Field("pay_password") String pay_password, @Field("pay_password2") String pay_password2,@Field("usdt_address") String usdt_address);
 
 }

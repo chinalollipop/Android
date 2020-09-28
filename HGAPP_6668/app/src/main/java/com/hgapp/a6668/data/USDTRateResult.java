@@ -8,6 +8,17 @@ public class USDTRateResult implements Parcelable {
     private String usdt_amount;
     private String type;
     private String tutorial_url;
+    private String withdrawals_usdt_rate;
+    private String Usdt_Address;
+    private String Usdt_Address_hide;
+
+    public String getUsdt_Address_hide() {
+        return Usdt_Address_hide;
+    }
+
+    public void setUsdt_Address_hide(String usdt_Address_hide) {
+        Usdt_Address_hide = usdt_Address_hide;
+    }
 
     public String getUsdt_rate() {
         return usdt_rate;
@@ -41,6 +52,25 @@ public class USDTRateResult implements Parcelable {
         this.tutorial_url = tutorial_url;
     }
 
+    public String getWithdrawals_usdt_rate() {
+        return withdrawals_usdt_rate;
+    }
+
+    public void setWithdrawals_usdt_rate(String withdrawals_usdt_rate) {
+        this.withdrawals_usdt_rate = withdrawals_usdt_rate;
+    }
+
+    public String getUsdt_Address() {
+        return Usdt_Address;
+    }
+
+    public void setUsdt_Address(String usdt_Address) {
+        Usdt_Address = usdt_Address;
+    }
+
+    public USDTRateResult() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -52,9 +82,9 @@ public class USDTRateResult implements Parcelable {
         dest.writeString(this.usdt_amount);
         dest.writeString(this.type);
         dest.writeString(this.tutorial_url);
-    }
-
-    public USDTRateResult() {
+        dest.writeString(this.withdrawals_usdt_rate);
+        dest.writeString(this.Usdt_Address);
+        dest.writeString(this.Usdt_Address_hide);
     }
 
     protected USDTRateResult(Parcel in) {
@@ -62,6 +92,9 @@ public class USDTRateResult implements Parcelable {
         this.usdt_amount = in.readString();
         this.type = in.readString();
         this.tutorial_url = in.readString();
+        this.withdrawals_usdt_rate = in.readString();
+        this.Usdt_Address = in.readString();
+        this.Usdt_Address_hide = in.readString();
     }
 
     public static final Creator<USDTRateResult> CREATOR = new Creator<USDTRateResult>() {
