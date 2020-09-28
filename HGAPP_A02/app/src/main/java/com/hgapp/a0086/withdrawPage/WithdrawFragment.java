@@ -2,9 +2,13 @@ package com.hgapp.a0086.withdrawPage;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.Html;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hgapp.a0086.Injections;
@@ -15,9 +19,13 @@ import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.DoubleClickHelper;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.widgets.NTitleBar;
+import com.hgapp.a0086.data.USDTRateResult;
 import com.hgapp.a0086.data.WithdrawResult;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.GameLog;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,7 +54,21 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     EditText tvWithdrawBankPwd;
     @BindView(R.id.tvWithdrawBankSubmit)
     Button tvWithdrawBankSubmit;
-
+    @BindView(R.id.usdtRButton)
+    TextView usdtRButton;
+    @BindView(R.id.bankRButton)
+    TextView bankRButton;
+    @BindView(R.id.layUsdtRate)
+    LinearLayout layUsdtRate;
+    @BindView(R.id.tvWithdrawUsdtMoney)
+    TextView tvWithdrawUsdtMoney;
+    @BindView(R.id.tvWithdrawUsdtRate)
+    TextView tvWithdrawUsdtRate;
+    @BindView(R.id.tvWithdrawUsdtAddress)
+    TextView tvWithdrawUsdtAddress;
+    private String usdtRate;
+    private String usdtAddress;
+    private boolean isUsdtWithdraw;
     private String accountNumber;
     private String typeArgs1;
     private String typeArgs2;
@@ -99,8 +121,59 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
                 pop();
             }
         });
+        tvWithdrawBankMoney.addTextChangedListener(new TextWatcher(){
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String sdata = tvWithdrawBankMoney.getText().toString().trim();
+                if(!Check.isEmpty(sdata)&&!Check.isEmpty(usdtRate)&&Double.valueOf(sdata)>=100){
+                    BigDecimal a1 = new BigDecimal(sdata);
+                    BigDecimal b1 = new BigDecimal(usdtRate);
+                    //double result = a1.divide(b1,2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                    BigDecimal result = a1.divide(b1,2, BigDecimal.ROUND_HALF_UP);
+                    GameLog.log(result+"  结果是");
+
+                    //BigDecimal one = new BigDecimal("2");
+                    //double a = result.divide(one,2,BigDecimal.ROUND_HALF_UP).doubleValue();//保留1位数
+                    tvWithdrawUsdtMoney.setText(formatToNumber(result));
+                    //tvWithdrawUsdtMoney.setText(result+"");
+                }else{
+                    tvWithdrawUsdtMoney.setText("0.00");
+                }
+            }
+        });
     }
 
+    /**
+     * @desc 1.0~1之间的BigDecimal小数，格式化后失去前面的0,则前面直接加上0。
+     * 2.传入的参数等于0，则直接返回字符串"0.00"
+     * 3.大于1的小数，直接格式化返回字符串
+     * @param obj 传入的小数
+     * @return
+     */
+    public static String formatToNumber(BigDecimal obj) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        if(obj.compareTo(BigDecimal.ZERO)==0) {
+            return "0.00";
+        }else if(obj.compareTo(BigDecimal.ZERO)>0&&obj.compareTo(new BigDecimal(1))<0){
+            return "0"+df.format(obj).toString();
+        }else if(obj.compareTo(BigDecimal.ZERO)<0&&obj.compareTo(new BigDecimal(-1))>0){
+            df = new DecimalFormat("0.00");
+            return df.format(obj);
+        }else {
+            return df.format(obj).toString();
+        }
+    }
 
     @Override
     protected List<IPresenter> presenters() {
@@ -127,14 +200,51 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
         pop();
     }
 
+    //标记为红色
+    private String onMarkRed(String sign){
+        return " <font color='#FF0000'>" + sign+"</font>";
+    }
+
+    @Override
+    public void postUsdtRateApiSubimtResult(USDTRateResult usdtRateResult) {
+        usdtAddress = usdtRateResult.getUsdt_Address();
+        String account = usdtAddress.substring(0,6)+"******"+usdtAddress.substring(usdtAddress.length()-3);
+        tvWithdrawUsdtAddress.setText(account);
+        usdtRate = usdtRateResult.getWithdrawals_usdt_rate();
+        String usdtrate  = "实时汇率："+onMarkRed(usdtRate);
+        tvWithdrawUsdtRate.setText(Html.fromHtml(usdtrate.toString()));
+
+    }
+
     @Override
     public void showMessage(String message) {
         super.showMessage(message);
     }
 
-    @OnClick(R.id.tvWithdrawBankSubmit)
-    public void onViewClicked() {
-        onCheckWithdrawSubmit();
+    @OnClick({R.id.tvWithdrawBankSubmit,R.id.bankRButton,R.id.usdtRButton})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.tvWithdrawBankSubmit:
+                onCheckWithdrawSubmit();
+                break;
+            case R.id.bankRButton:
+                isUsdtWithdraw = false;
+                layUsdtRate.setVisibility(View.GONE);
+                bankRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_selet),null,null,null);
+                usdtRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_no_select),null,null,null);
+                break;
+            case R.id.usdtRButton:
+                if(Check.isEmpty(usdtAddress)){
+                 showMessage("请您先绑定USDT提款地址");
+                    return;
+                }
+                isUsdtWithdraw = true;
+                layUsdtRate.setVisibility(View.VISIBLE);
+                usdtRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_selet),null,null,null);
+                bankRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_no_select),null,null,null);
+
+                break;
+        }
     }
 
     @OnClick(R.id.tvWithdrawTotalBetDetail)
@@ -165,14 +275,19 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
             return;
         }
         DoubleClickHelper.getNewInstance().disabledView(tvWithdrawBankSubmit);
-        presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
-                money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y");
-
+        if(isUsdtWithdraw){
+            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
+                    money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y",usdtAddress);
+        }else{
+            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
+                    money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y","");
+        }
     }
 
     @Override
     public void onVisible() {
         super.onVisible();
         presenter.postWithdrawBankCard("");
+        presenter.postUsdtRateApiSubimt("getUsdtAddress");
     }
 }

@@ -10,7 +10,7 @@ public interface BindingCardContract {
     public interface Presenter extends IPresenter
     {
         public void postGetBankCardList(String appRefer, String action_type);
-        public void postBindingBankCard(String appRefer, String action_type, String bank_name, String bank_account, String bank_address, String pay_password, String pay_password2);
+        public void postBindingBankCard(String appRefer, String action_type, String bank_name, String bank_account, String bank_address, String pay_password, String pay_password2, String usdt_address);
     }
     public interface View extends IView<BindingCardContract.Presenter>,IMessageView,IProgressView
     {

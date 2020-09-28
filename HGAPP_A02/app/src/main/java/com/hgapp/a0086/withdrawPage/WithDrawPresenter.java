@@ -5,6 +5,7 @@ import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.util.RxHelper;
 import com.hgapp.a0086.common.util.SubscriptionHelper;
+import com.hgapp.a0086.data.USDTRateResult;
 import com.hgapp.a0086.data.WithdrawResult;
 
 
@@ -47,8 +48,8 @@ public class WithDrawPresenter implements WithdrawContract.Presenter {
     }
 
     @Override
-    public void postWithdrawSubmit(String appRefer, String Bank_Address, String Bank_Account, String Bank_Name, String Money, String Withdrawal_Passwd, String Alias, String Key) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawSubmit(HGConstant.PRODUCT_PLATFORM,Bank_Address,Bank_Account,Bank_Name,Money,Withdrawal_Passwd,Alias,Key))
+    public void postWithdrawSubmit(String appRefer, String Bank_Address, String Bank_Account, String Bank_Name, String Money, String Withdrawal_Passwd, String Alias, String Key,String usdt_address) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawSubmit(HGConstant.PRODUCT_PLATFORM,Bank_Address,Bank_Account,Bank_Name,Money,Withdrawal_Passwd,Alias,Key,usdt_address))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
@@ -69,6 +70,30 @@ public class WithDrawPresenter implements WithdrawContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postUsdtRateApiSubimt(String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postUsdtRateApiSubimt(HGConstant.PRODUCT_PLATFORM,action))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<USDTRateResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<USDTRateResult> response) {
+                        if(response.isSuccess()){
+                            view.postUsdtRateApiSubimtResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

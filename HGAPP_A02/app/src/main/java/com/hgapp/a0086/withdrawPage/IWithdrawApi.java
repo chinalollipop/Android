@@ -1,6 +1,7 @@
 package com.hgapp.a0086.withdrawPage;
 
 import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
+import com.hgapp.a0086.data.USDTRateResult;
 import com.hgapp.a0086.data.WithdrawResult;
 
 import retrofit2.http.Field;
@@ -18,6 +19,10 @@ public interface IWithdrawApi {
     //取款提交
     @POST("account/take.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<Object>> postWithdrawSubmit(@Field("appRefer") String appRefer, @Field("Bank_Address") String Bank_Address, @Field("Bank_Account") String Bank_Account, @Field("Bank_Name") String Bank_Name, @Field("Money") String Money, @Field("Withdrawal_Passwd") String Withdrawal_Passwd, @Field("Alias") String Alias, @Field("Key") String Key);
+    public Observable<AppTextMessageResponse<Object>> postWithdrawSubmit(@Field("appRefer") String appRefer, @Field("Bank_Address") String Bank_Address, @Field("Bank_Account") String Bank_Account, @Field("Bank_Name") String Bank_Name, @Field("Money") String Money, @Field("Withdrawal_Passwd") String Withdrawal_Passwd, @Field("Alias") String Alias, @Field("Key") String Key,@Field("usdt_address") String usdt_address);
+
+    @POST("api/usdtRateApi.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<USDTRateResult>> postUsdtRateApiSubimt(@Field("appRefer") String appRefer, @Field("action") String action);
 
 }
