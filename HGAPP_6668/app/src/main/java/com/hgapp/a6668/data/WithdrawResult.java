@@ -19,6 +19,7 @@ public class WithdrawResult implements Parcelable {
     private String Bank_Name;
     private String Bank_Account;
     private String Bank_Address;
+    private String Usdt_Address;
     /**
      * owe_bet : 0
      * total_bet : 0
@@ -85,6 +86,14 @@ public class WithdrawResult implements Parcelable {
         this.bet_list = bet_list;
     }
 
+    public String getUsdt_Address() {
+        return Usdt_Address;
+    }
+
+    public void setUsdt_Address(String usdt_Address) {
+        Usdt_Address = usdt_Address;
+    }
+
     public static class BetListBean {
         /**
          * key : hg
@@ -121,6 +130,9 @@ public class WithdrawResult implements Parcelable {
         }
     }
 
+    public WithdrawResult() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -132,12 +144,10 @@ public class WithdrawResult implements Parcelable {
         dest.writeString(this.Bank_Name);
         dest.writeString(this.Bank_Account);
         dest.writeString(this.Bank_Address);
+        dest.writeString(this.Usdt_Address);
         dest.writeString(this.owe_bet);
         dest.writeString(this.total_bet);
         dest.writeList(this.bet_list);
-    }
-
-    public WithdrawResult() {
     }
 
     protected WithdrawResult(Parcel in) {
@@ -145,13 +155,14 @@ public class WithdrawResult implements Parcelable {
         this.Bank_Name = in.readString();
         this.Bank_Account = in.readString();
         this.Bank_Address = in.readString();
+        this.Usdt_Address = in.readString();
         this.owe_bet = in.readString();
         this.total_bet = in.readString();
         this.bet_list = new ArrayList<BetListBean>();
         in.readList(this.bet_list, BetListBean.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<WithdrawResult> CREATOR = new Parcelable.Creator<WithdrawResult>() {
+    public static final Creator<WithdrawResult> CREATOR = new Creator<WithdrawResult>() {
         @Override
         public WithdrawResult createFromParcel(Parcel source) {
             return new WithdrawResult(source);

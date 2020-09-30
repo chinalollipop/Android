@@ -19,6 +19,7 @@ import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.widgets.NTitleBar;
 import com.hgapp.a0086.data.GetBankCardListResult;
+import com.hgapp.a0086.data.WithdrawResult;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 
@@ -194,6 +195,19 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         finish();
     }
 
+    @Override
+    public void postWithdrawResult(WithdrawResult withdrawResult) {
+        tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address());
+        tvBindingCardBankAddress.setText(withdrawResult.getBank_Address());
+        tvBindingCardBankCode.setText(withdrawResult.getBank_Account());
+        if(Check.isEmpty(withdrawResult.getBank_Name())){
+            tvBindingCardBankName.setText("请选择银行");
+        }else{
+            tvBindingCardBankName.setText(withdrawResult.getBank_Name());
+        }
+
+    }
+
 
     @Override
     public void showMessage(String message) {
@@ -261,6 +275,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     @Override
     public void onVisible() {
         super.onVisible();
+        presenter.postWithdrawBankCard("");
     }
 
 

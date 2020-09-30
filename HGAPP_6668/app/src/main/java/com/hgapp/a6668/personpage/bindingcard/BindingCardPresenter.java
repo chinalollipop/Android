@@ -6,6 +6,7 @@ import com.hgapp.a6668.common.util.HGConstant;
 import com.hgapp.a6668.common.util.RxHelper;
 import com.hgapp.a6668.common.util.SubscriptionHelper;
 import com.hgapp.a6668.data.GetBankCardListResult;
+import com.hgapp.a6668.data.WithdrawResult;
 
 
 public class BindingCardPresenter implements BindingCardContract.Presenter {
@@ -67,6 +68,30 @@ public class BindingCardPresenter implements BindingCardContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postWithdrawBankCard(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawBankCard(HGConstant.PRODUCT_PLATFORM))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<WithdrawResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<WithdrawResult> response) {
+                        if(response.isSuccess()){
+                            view.postWithdrawResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

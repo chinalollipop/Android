@@ -2,6 +2,7 @@ package com.hgapp.a6668.personpage.bindingcard;
 
 import com.hgapp.a6668.common.http.request.AppTextMessageResponse;
 import com.hgapp.a6668.data.GetBankCardListResult;
+import com.hgapp.a6668.data.WithdrawResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -20,5 +21,10 @@ public interface IBindingCardApi {
     @POST("account/bankcard.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<Object>> postBindingBankCard(@Field("appRefer") String appRefer, @Field("action_type") String action_type, @Field("bank_name") String bank_name, @Field("bank_account") String bank_account, @Field("bank_address") String bank_address, @Field("pay_password") String pay_password, @Field("pay_password2") String pay_password2,@Field("usdt_address") String usdt_address);
+
+    //取款个人银行卡信息
+    @POST("account/updatebank.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<WithdrawResult>> postWithdrawBankCard(@Field("appRefer") String appRefer);
 
 }

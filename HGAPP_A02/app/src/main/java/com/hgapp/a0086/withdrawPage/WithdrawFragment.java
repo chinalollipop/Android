@@ -66,6 +66,9 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     TextView tvWithdrawUsdtRate;
     @BindView(R.id.tvWithdrawUsdtAddress)
     TextView tvWithdrawUsdtAddress;
+    @BindView(R.id.bankName)
+    TextView bankName;
+    private String bankNameString;
     private String usdtRate;
     private String usdtAddress;
     private boolean isUsdtWithdraw;
@@ -192,6 +195,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
         String account = accountNumber.substring(0,6)+"******"+accountNumber.substring(accountNumber.length()-3);
         tvWithdrawBankAccount.setText(account);
         tvWithdrawBankName.setText(withdrawResult.getBank_Name());
+        bankNameString= withdrawResult.getBank_Name();
     }
 
     @Override
@@ -229,6 +233,8 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
                 break;
             case R.id.bankRButton:
                 isUsdtWithdraw = false;
+                bankName.setText("所在银行");
+                tvWithdrawBankName.setText(bankNameString);
                 layUsdtRate.setVisibility(View.GONE);
                 bankRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_selet),null,null,null);
                 usdtRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_no_select),null,null,null);
@@ -238,6 +244,8 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
                  showMessage("请您先绑定USDT提款地址");
                     return;
                 }
+                bankName.setText("所属币种");
+                tvWithdrawBankName.setText("USDT(TRC20)");
                 isUsdtWithdraw = true;
                 layUsdtRate.setVisibility(View.VISIBLE);
                 usdtRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_selet),null,null,null);
