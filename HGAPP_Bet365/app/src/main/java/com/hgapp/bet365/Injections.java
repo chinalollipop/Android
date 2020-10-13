@@ -13,6 +13,9 @@ import com.hgapp.bet365.depositpage.aliqcpay.IAliQCPayApi;
 import com.hgapp.bet365.depositpage.companypay.CompanyPayContract;
 import com.hgapp.bet365.depositpage.companypay.CompanyPayPresenter;
 import com.hgapp.bet365.depositpage.companypay.ICompanyPayApi;
+import com.hgapp.bet365.depositpage.usdtpay.IUSDTPayApi;
+import com.hgapp.bet365.depositpage.usdtpay.USDTPayContract;
+import com.hgapp.bet365.depositpage.usdtpay.USDTPayPresenter;
 import com.hgapp.bet365.homepage.HomePageContract;
 import com.hgapp.bet365.homepage.HomePagePresenter;
 import com.hgapp.bet365.homepage.IHomePageApi;
@@ -392,6 +395,22 @@ public class Injections {
             api = Client.getRetrofit().create(ICheckVerUpdateApi.class);
         }
         return new CheckUpdatePresenter(view,api);
+    }
+
+
+    /**
+     * USDT支付
+     * @param view
+     * @param api
+     * @return
+     */
+    public static USDTPayContract.Presenter inject(@NonNull USDTPayContract.View view, @Nullable IUSDTPayApi api)
+    {
+        if(null == api)
+        {
+            api = Client.getRetrofit().create(IUSDTPayApi.class);
+        }
+        return new USDTPayPresenter(api,view);
     }
 
 }

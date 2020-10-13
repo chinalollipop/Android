@@ -68,7 +68,7 @@ public class WithDrawDetailFragment extends HGBaseDialogFragment {
             if(position%2==0){
                 holder.setBackgroundColor(R.id.withDrawDetailItemLay,getResources().getColor(R.color.l_view_color));
             }else{
-                holder.setBackgroundColor(R.id.withDrawDetailItemLay,getResources().getColor(R.color.register_left));
+                holder.setBackgroundColor(R.id.withDrawDetailItemLay,getResources().getColor(R.color.register_left_r));
             }
             holder.setText(R.id.withDrawDetailItemMsg,""+data.getMsg());
             holder.setText(R.id.withDrawDetailItemValue,""+data.getValue());

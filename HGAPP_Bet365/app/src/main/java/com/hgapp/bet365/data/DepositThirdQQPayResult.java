@@ -3,6 +3,8 @@ package com.hgapp.bet365.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.contrarywind.interfaces.IPickerViewData;
+
 import java.util.List;
 
 public class DepositThirdQQPayResult{
@@ -61,7 +63,7 @@ public class DepositThirdQQPayResult{
         this.data = data;
     }
 
-    public static class DataBean implements Parcelable {
+    public static class DataBean implements Parcelable , IPickerViewData {
         /**
          * id : 80
          * thirdpay_code : rx
@@ -176,5 +178,10 @@ public class DepositThirdQQPayResult{
                 return new DataBean[size];
             }
         };
+
+        @Override
+        public String getPickerViewText() {
+            return title;
+        }
     }
 }

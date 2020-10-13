@@ -15,6 +15,7 @@ import com.hgapp.bet365.R;
 import com.hgapp.bet365.base.IPresenter;
 import com.hgapp.bet365.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.bet365.common.event.LogoutEvent;
+import com.hgapp.bet365.common.http.Client;
 import com.hgapp.bet365.common.util.ACache;
 import com.hgapp.bet365.common.util.GameShipHelper;
 import com.hgapp.bet365.common.util.HGConstant;
@@ -29,6 +30,8 @@ import com.hgapp.bet365.data.QipaiResult;
 import com.hgapp.bet365.homepage.handicap.ShowMainEvent;
 import com.hgapp.bet365.homepage.noticelist.NoticeListFragment;
 import com.hgapp.bet365.homepage.online.ContractFragment;
+import com.hgapp.bet365.homepage.online.OnlineFragment;
+import com.hgapp.bet365.login.fastlogin.LoginFragment;
 import com.hgapp.bet365.personpage.PersonContract;
 import com.hgapp.bet365.personpage.accountcenter.AccountCenterFragment;
 import com.hgapp.bet365.personpage.balancetransfer.BalanceTransferFragment;
@@ -80,6 +83,7 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
         myList.add(new HomePageIcon("账户中心",R.mipmap.icon_my_psersion,6,"account_center"));
         myList.add(new HomePageIcon("投注记录",R.mipmap.icon_my_deal_record,7,"deal_record"));
 
+        myList.add(new HomePageIcon("代理加盟",R.mipmap.icon_my_agent,11,"agent"));
         myList.add(new HomePageIcon("联系我们",R.mipmap.icon_my_contract,10,"contract"));
         myList.add(new HomePageIcon("公告",R.mipmap.icon_my_gonggao,11,"gonggao"));
 
@@ -220,6 +224,7 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
         if(Check.isNull(logout)||"true".equals(logout)){
             showMessage("请先登录");
             this.dismiss();
+            EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
             return;
         }
         switch (iconNameTitle){
@@ -275,6 +280,11 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
                     presenter = Injections.inject(null, this);
                 }
                 presenter.logOut();
+                break;
+            case "agent":
+                this.dismiss();
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"agent?appRefer=14&tip=app")));
+
                 break;
         }
     }

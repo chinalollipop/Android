@@ -133,10 +133,10 @@ public class DiscountsFragment extends HGBaseFragment {
     @Subscribe
     public void onEventMain(DisCountsEvent disCountsEvent){
        //
-        String webUrl = Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+
         //String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
-        GameLog.log("优惠活动的请求地址是："+webUrl+disCountsEvent.getDaya());
-        wvServiceOnlineContent.loadUrl(webUrl+disCountsEvent.getDaya());
+        GameLog.log("登录成功之后的优惠活动的请求地址是："+getLoadUrl()+disCountsEvent.getDaya());
+        wvServiceOnlineContent.loadUrl(getLoadUrl()+disCountsEvent.getDaya());
     }
 
     @OnClick(R.id.tvServicePageLogin)
@@ -144,12 +144,19 @@ public class DiscountsFragment extends HGBaseFragment {
         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
     }
 
+    private  String getLoadUrl(){
+        String url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+        if(Check.isNull(url)){
+            url ="";
+        }
+        String webUrl = Client.baseUrl()+"promo?appRefer=14&tip=app"+ url;
+        GameLog.log("优惠活动的请求地址是："+webUrl);
+        return webUrl;
+    }
+
     @OnClick(R.id.servicePageRefresh)
     public void onViewRefreshClicked(){
-        String webUrl = Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
-        //String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
-        GameLog.log("优惠活动的请求地址是："+webUrl);
-        wvServiceOnlineContent.loadUrl(webUrl);
+        wvServiceOnlineContent.loadUrl(getLoadUrl());
         isPacket = true;
     }
 
@@ -183,10 +190,8 @@ public class DiscountsFragment extends HGBaseFragment {
         HGIWebSetting.init(wvServiceOnlineContent);
         //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         webviewsetting(wvServiceOnlineContent);
-        String webUrl = Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
-        //String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
-        GameLog.log("优惠活动请求地址是："+webUrl);
-        wvServiceOnlineContent.loadUrl(webUrl);
+
+        wvServiceOnlineContent.loadUrl(getLoadUrl());
         //wvServiceOnlineContent.loadUrl(getIntent().getStringExtra("contractservice"));
         //wvHomepageIntroduceContent.postUrl();
     }

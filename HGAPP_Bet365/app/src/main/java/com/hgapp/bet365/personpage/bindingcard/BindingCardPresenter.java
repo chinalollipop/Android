@@ -6,6 +6,7 @@ import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.common.util.RxHelper;
 import com.hgapp.bet365.common.util.SubscriptionHelper;
 import com.hgapp.bet365.data.GetBankCardListResult;
+import com.hgapp.bet365.data.WithdrawResult;
 
 
 public class BindingCardPresenter implements BindingCardContract.Presenter {
@@ -46,8 +47,8 @@ public class BindingCardPresenter implements BindingCardContract.Presenter {
     }
 
     @Override
-    public void postBindingBankCard(String appRefer, String action_type, String bank_name, String bank_account, String bank_address, String pay_password, String pay_password2) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBindingBankCard(HGConstant.PRODUCT_PLATFORM,action_type,bank_name,bank_account,bank_address,pay_password,pay_password2))
+    public void postBindingBankCard(String appRefer, String action_type, String bank_name, String bank_account, String bank_address, String pay_password, String pay_password2,String usdt_address) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBindingBankCard(HGConstant.PRODUCT_PLATFORM,action_type,bank_name,bank_account,bank_address,pay_password,pay_password2,usdt_address))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
@@ -67,6 +68,30 @@ public class BindingCardPresenter implements BindingCardContract.Presenter {
                     }
                 }));
 
+    }
+
+    @Override
+    public void postWithdrawBankCard(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawBankCard(HGConstant.PRODUCT_PLATFORM))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<WithdrawResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<WithdrawResult> response) {
+                        if(response.isSuccess()){
+                            view.postWithdrawResult(response.getData());
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

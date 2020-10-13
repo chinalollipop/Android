@@ -26,6 +26,7 @@ import com.hgapp.bet365.depositpage.companypay.CompanyPayFragment;
 import com.hgapp.bet365.depositpage.thirdbankcardpay.ThirdbankCardFragment;
 import com.hgapp.bet365.depositpage.thirdmobilepay.OnlinePlayFragment;
 import com.hgapp.bet365.depositpage.thirdmobilepay.ThirdMobilePayFragment;
+import com.hgapp.bet365.depositpage.usdtpay.USDTPayFragment;
 import com.hgapp.bet365.homepage.UserMoneyEvent;
 import com.hgapp.bet365.personpage.realname.RealNameFragment;
 import com.hgapp.common.util.Check;
@@ -102,7 +103,8 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        userMoney = GameShipHelper.formatMoney(ACache.get(getContext()).getAsString("userMoney"));
+        //userMoney = GameShipHelper.formatMoney(ACache.get(getContext()).getAsString("userMoney"));
+        userMoney = ACache.get(getContext()).getAsString("userMoney");
         backDeposite.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +135,14 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
     }
 
     @Override
+    public void postDepositUSDTPayCCodeResult(DepositAliPayQCCodeResult message) {
+
+        GameLog.log("USDT："+message.getData().size()+"金额："+userMoney);
+        EventBus.getDefault().post(new StartBrotherEvent(USDTPayFragment.newInstance(message.getData().get(0),userMoney), SupportFragment.SINGLETASK));
+
+    }
+
+    @Override
     public void postDepositThirdBankCardResult(DepositThirdBankCardResult message) {
         GameLog.log("第三方银行卡线上："+message.getData().size());
         EventBus.getDefault().post(new StartBrotherEvent(ThirdbankCardFragment.newInstance(message.getData().get(0),userMoney), SupportFragment.SINGLETASK));
@@ -142,14 +152,14 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
     @Override
     public void postDepositThirdWXPayResult(DepositThirdQQPayResult message) {
         GameLog.log("第三方微信支付大小："+message.getData().size());
-        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message.getData().get(0),userMoney,payId), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message,userMoney,payId), SupportFragment.SINGLETASK));
 
     }
 
     @Override
     public void postDepositThirdAliPayResult(DepositThirdQQPayResult message) {
         GameLog.log("第三方支付宝支付大小："+message.getData().size());
-        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message.getData().get(0),userMoney,payId), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message,userMoney,payId), SupportFragment.SINGLETASK));
 
     }
 
@@ -158,7 +168,7 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
 
         GameLog.log("第三方QQ支付大小："+message.getData().size());
 
-        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message.getData().get(0),userMoney,payId), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(ThirdMobilePayFragment.newInstance(message,userMoney,payId), SupportFragment.SINGLETASK));
     }
 
     @Override
@@ -213,6 +223,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 case 8:
                     holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.u_pay);
                     break;
+                case 9:
+                    holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.usdt);
+                    break;
 
             }
 
@@ -263,6 +276,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 break;
             case 8://云闪付
                 presenter.postDepositThirdUQCCode("",bankid);
+                break;
+            case 9://USDT
+                presenter.postDepositThirdUSDTCCode("",bankid);
                 break;
         }
     }

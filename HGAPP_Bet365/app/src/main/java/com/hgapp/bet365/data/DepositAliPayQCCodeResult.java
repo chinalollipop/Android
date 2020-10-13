@@ -72,6 +72,12 @@ public class DepositAliPayQCCodeResult implements Parcelable {
         private String bank_user;
         private String photo_name;
         private String notice;
+        private String deposit_address;
+        private String type;
+        private String tutorial_url;
+        private String usdt_name;
+        private String yuhui_rate;
+        private String min_deposit;
 
         public String getId() {
             return id;
@@ -105,6 +111,57 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             this.notice = notice;
         }
 
+        public String getDeposit_address() {
+            return deposit_address;
+        }
+
+        public void setDeposit_address(String deposit_address) {
+            this.deposit_address = deposit_address;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getTutorial_url() {
+            return tutorial_url;
+        }
+
+        public void setTutorial_url(String tutorial_url) {
+            this.tutorial_url = tutorial_url;
+        }
+
+        public String getUsdt_name() {
+            return usdt_name;
+        }
+
+        public void setUsdt_name(String usdt_name) {
+            this.usdt_name = usdt_name;
+        }
+
+        public String getYuhui_rate() {
+            return yuhui_rate;
+        }
+
+        public void setYuhui_rate(String yuhui_rate) {
+            this.yuhui_rate = yuhui_rate;
+        }
+
+        public String getMin_deposit() {
+            return min_deposit;
+        }
+
+        public void setMin_deposit(String min_deposit) {
+            this.min_deposit = min_deposit;
+        }
+
+        public DataBean() {
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -116,9 +173,12 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             dest.writeString(this.bank_user);
             dest.writeString(this.photo_name);
             dest.writeString(this.notice);
-        }
-
-        public DataBean() {
+            dest.writeString(this.deposit_address);
+            dest.writeString(this.type);
+            dest.writeString(this.tutorial_url);
+            dest.writeString(this.usdt_name);
+            dest.writeString(this.yuhui_rate);
+            dest.writeString(this.min_deposit);
         }
 
         protected DataBean(Parcel in) {
@@ -126,6 +186,12 @@ public class DepositAliPayQCCodeResult implements Parcelable {
             this.bank_user = in.readString();
             this.photo_name = in.readString();
             this.notice = in.readString();
+            this.deposit_address = in.readString();
+            this.type = in.readString();
+            this.tutorial_url = in.readString();
+            this.usdt_name = in.readString();
+            this.yuhui_rate = in.readString();
+            this.min_deposit = in.readString();
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {

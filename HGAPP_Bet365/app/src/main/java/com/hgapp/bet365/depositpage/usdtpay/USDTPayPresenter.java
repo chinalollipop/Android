@@ -1,4 +1,4 @@
-package com.hgapp.bet365.withdrawPage;
+package com.hgapp.bet365.depositpage.usdtpay;
 
 import com.hgapp.bet365.common.http.ResponseSubscriber;
 import com.hgapp.bet365.common.http.request.AppTextMessageResponse;
@@ -6,58 +6,30 @@ import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.common.util.RxHelper;
 import com.hgapp.bet365.common.util.SubscriptionHelper;
 import com.hgapp.bet365.data.USDTRateResult;
-import com.hgapp.bet365.data.WithdrawResult;
 
+public class USDTPayPresenter implements USDTPayContract.Presenter {
 
-public class WithDrawPresenter implements WithdrawContract.Presenter {
-
-
-    private IWithdrawApi api;
-    private WithdrawContract.View view;
+    private IUSDTPayApi api;
+    private USDTPayContract.View view;
     private SubscriptionHelper subscriptionHelper = new SubscriptionHelper();
 
-    public WithDrawPresenter(IWithdrawApi api, WithdrawContract.View  view){
+    public USDTPayPresenter(IUSDTPayApi api, USDTPayContract.View view){
         this.view = view;
         this.api = api;
         this.view.setPresenter(this);
     }
-
     @Override
-    public void postWithdrawBankCard(String appRefer) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawBankCard(HGConstant.PRODUCT_PLATFORM))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<WithdrawResult>>() {
-                    @Override
-                    public void success(AppTextMessageResponse<WithdrawResult> response) {
-                        if(response.isSuccess()){
-                            view.postWithdrawResult(response.getData());
-                        }else{
-                            view.showMessage(response.getDescribe());
-                        }
-                    }
-
-                    @Override
-                    public void fail(String msg) {
-                        if(null != view)
-                        {
-                            view.setError(0,0);
-                            view.showMessage(msg);
-                        }
-                    }
-                }));
-
-    }
-
-    @Override
-    public void postWithdrawSubmit(String appRefer, String Bank_Address, String Bank_Account, String Bank_Name, String Money, String Withdrawal_Passwd, String Alias, String Key,String usdt_address) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawSubmit(HGConstant.PRODUCT_PLATFORM,Bank_Address,Bank_Account,Bank_Name,Money,Withdrawal_Passwd,Alias,Key,usdt_address))
+    public void postDepositUSDTPaySubimt(String appRefer, String payid,final String v_amount, String cn_date, String memo,String bank_user) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postDepositUSDTPaySubimt(HGConstant.PRODUCT_PLATFORM,payid,v_amount,cn_date,memo,bank_user))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
                         if(response.isSuccess()){
-                            view.postWithdrawResult(response.getDescribe());
-                        }else{
-                            view.showMessage(response.getDescribe());
+                            //view.postDepositUSDTPaySubimtResult(response.getDescribe());
+                            postUsdtRateApiSubimt(v_amount);
                         }
+                        view.showMessage(response.getDescribe());
+
                     }
 
                     @Override
@@ -69,12 +41,11 @@ public class WithDrawPresenter implements WithdrawContract.Presenter {
                         }
                     }
                 }));
-
     }
 
     @Override
-    public void postUsdtRateApiSubimt(String action) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postUsdtRateApiSubimt(HGConstant.PRODUCT_PLATFORM,action))
+    public void postUsdtRateApiSubimt(String v_amount) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postUsdtRateApiSubimt(HGConstant.PRODUCT_PLATFORM,v_amount))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<USDTRateResult>>() {
                     @Override
                     public void success(AppTextMessageResponse<USDTRateResult> response) {

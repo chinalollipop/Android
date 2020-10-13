@@ -783,10 +783,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         @Override
                         public void onBannerClick(int position) {
                             //点击item
-                            if(bannerResult.getData().get(position).getName().equals("promo")){
+                            if(bannerResult.getData().get(position).getName().startsWith("promo")){
                                 String userMoney = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_MONEY);
                                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
-                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app" + ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                                String url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+                                if(Check.isNull(url)){
+                                    url ="";
+                                }
+                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+ "promo?appRefer=14&tip=app" + url)));
                             }
                             //showMessage("效果1点击"+position);
                         }
@@ -1025,7 +1029,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             e.printStackTrace();
             showMessage("彩票异常，请联系客户！");
         }
-        intent.putExtra("gameCnName", "8M彩票");
+        intent.putExtra("gameCnName", "彩票");
         intent.putExtra("hidetitlebar", false);
         getActivity().startActivity(intent);
     }

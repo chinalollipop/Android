@@ -19,6 +19,7 @@ import com.hgapp.bet365.common.util.ACache;
 import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.common.widgets.NTitleBar;
 import com.hgapp.bet365.data.GetBankCardListResult;
+import com.hgapp.bet365.data.WithdrawResult;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.bet365.homepage.handicap.ShowMainEvent;
@@ -51,6 +52,8 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     TextView tvBindingCardBankState;
     @BindView(R.id.tvBindingCardBankAddress)
     EditText tvBindingCardBankAddress;
+    @BindView(R.id.tvBindingCardUSDTAddress)
+    EditText tvBindingCardUSDTAddress;
     @BindView(R.id.tvBindingCardTownsName)
     EditText tvBindingCardTownsName;
     @BindView(R.id.tvBindingCardPwd2)
@@ -181,6 +184,18 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         finish();
     }
 
+    @Override
+    public void postWithdrawResult(WithdrawResult withdrawResult) {
+        tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address());
+        tvBindingCardBankAddress.setText(withdrawResult.getBank_Address());
+        tvBindingCardBankCode.setText(withdrawResult.getBank_Account());
+        if(Check.isEmpty(withdrawResult.getBank_Name())){
+            tvBindingCardBankName.setText("请选择银行");
+        }else{
+            tvBindingCardBankName.setText(withdrawResult.getBank_Name());
+        }
+    }
+
 
     @Override
     public void showMessage(String message) {
@@ -193,6 +208,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         String bankName = tvBindingCardBankName.getText().toString().trim();
         String bankCode = tvBindingCardBankCode.getText().toString().trim();
         String bankAddress = tvBindingCardBankAddress.getText().toString().trim();
+        String usdtAddress = tvBindingCardUSDTAddress.getText().toString().trim();
         String tvPwd = tvBindingCardPwd.getText().toString().trim();
         String tvPwd2 = tvBindingCardPwd2.getText().toString().trim();
 
@@ -211,7 +227,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         }
 
         if("1".equals(bincCard)){
-            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","");
+            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","",usdtAddress);
         }else{
             if(Check.isEmpty(tvPwd)||tvPwd.length()<6){
                 showMessage("请输入有效密码！");
@@ -232,7 +248,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
                 showMessage("2次输入密码不一致，请重新输入！");
                 return;
             }
-            presenter.postBindingBankCard("","bind",bankName,bankCode,bankAddress,tvPwd,tvPwd2);
+            presenter.postBindingBankCard("","bind",bankName,bankCode,bankAddress,tvPwd,tvPwd2,usdtAddress);
         }
 
 
@@ -247,6 +263,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     @Override
     public void onVisible() {
         super.onVisible();
+        presenter.postWithdrawBankCard("");
     }
 
 

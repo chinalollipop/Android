@@ -18,6 +18,7 @@ public interface DepositeContract {
         public void postDepositAliPayQCCode(String appRefer,String bankid);
         public void postDepositWechatQCCode(String appRefer,String bankid);
         public void postDepositThirdUQCCode(String appRefer,String bankid);
+        public void postDepositThirdUSDTCCode(String appRefer,String bankid);
         public void postDepositThirdBankCard(String appRefer);
         public void postDepositThirdWXPay(String appRefer);
         public void postDepositThirdAliPay(String appRefer);
@@ -28,6 +29,7 @@ public interface DepositeContract {
         public void postDepositListResult(DepositListResult message);
         public void postDepositBankCordListResult(DepositBankCordListResult message);
         public void postDepositAliPayQCCodeResult(DepositAliPayQCCodeResult message);
+        public void postDepositUSDTPayCCodeResult(DepositAliPayQCCodeResult message);
         public void postDepositThirdBankCardResult(DepositThirdBankCardResult message);
         public void postDepositThirdWXPayResult(DepositThirdQQPayResult message);
         public void postDepositThirdAliPayResult(DepositThirdQQPayResult message);
