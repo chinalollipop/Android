@@ -21,7 +21,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:drawableLeft="@mipmap/line_choice"
-                android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:text="线路1"
                 android:textColor="#ffffff" />
@@ -40,6 +39,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
+                android:padding="10dp"
                 android:text="登陆/注册"
                 android:textColor="#ffffff"
                 android:textSize="14sp" />

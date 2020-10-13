@@ -103,7 +103,7 @@ public class MeDialog extends NBaseBottomDialog implements PersonContract.View{
         String userName = ACache.get(getContext()).getAsString("userName");
         personMoney = GameShipHelper.formatMoney(ACache.get(getContext()).getAsString("userMoney"));
         if(!Check.isEmpty(userName)){
-            myList.add(new HomePageIcon("退出",R.mipmap.icon_my_gonggao,11,"logout"));
+            myList.add(new HomePageIcon("退出",R.mipmap.icon_my_logout,11,"logout"));
         }
         GameLog.log("用户是否注销了 true 为是 --> 【"+logout+"】用户的名字是【 "+userName+"】 用户的余额为 【"+personMoney+"】");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);

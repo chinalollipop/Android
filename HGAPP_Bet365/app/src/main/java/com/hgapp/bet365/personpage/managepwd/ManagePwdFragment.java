@@ -153,17 +153,17 @@ public class ManagePwdFragment extends HGBaseFragment implements ManagePwdContra
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.textLoginPwd:
-                textLoginPwd.setTextColor(getResources().getColor(R.color.register_left));
+                textLoginPwd.setTextColor(getResources().getColor(R.color.register_left_r));
                 textSecurityPwd.setTextColor(getResources().getColor(R.color.cp_hall_tv));
-                textLoginPwd.setBackground(getResources().getDrawable(R.drawable.home_tab_title));
+                textLoginPwd.setBackground(getResources().getDrawable(R.drawable.btn_normal));//home_tab_title status_shape
                 textSecurityPwd.setBackground(null);
                 manageLoginPwd.setVisibility(View.VISIBLE);
                 manageSecurityPwd.setVisibility(View.GONE);
                 break;
             case R.id.textSecurityPwd:
-                textSecurityPwd.setTextColor(getResources().getColor(R.color.register_left));
+                textSecurityPwd.setTextColor(getResources().getColor(R.color.register_left_r));
                 textLoginPwd.setTextColor(getResources().getColor(R.color.cp_hall_tv));
-                textSecurityPwd.setBackground(getResources().getDrawable(R.drawable.home_tab_title));
+                textSecurityPwd.setBackground(getResources().getDrawable(R.drawable.btn_normal));//status_shape status_shape
                 textLoginPwd.setBackground(null);
                 manageLoginPwd.setVisibility(View.GONE);
                 manageSecurityPwd.setVisibility(View.VISIBLE);
