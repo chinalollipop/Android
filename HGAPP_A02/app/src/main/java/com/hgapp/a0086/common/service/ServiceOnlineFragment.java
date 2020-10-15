@@ -130,13 +130,29 @@ public class ServiceOnlineFragment extends HGBaseFragment {
         EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
     }
 
-    @OnClick(R.id.servicePageRefresh)
-    public void onViewRefreshClicked(){
+    @Override
+    public void onVisible() {
+        super.onVisible();
+        String isResf = ACache.get(getContext()).getAsString("servicePageRefresh");
+        if(!Check.isEmpty(isResf)&&isResf.equals("1")){
+            return;
+        }
+        onViewRefreshClicked();
+    }
+
+    private void  goWebURl(){
         String webUrl = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL);
         if(Check.isEmpty(webUrl)){
             webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
         }
+        GameLog.log("客服界面加载的url地址 "+webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);
+    }
+
+    @OnClick(R.id.servicePageRefresh)
+    public void onViewRefreshClicked(){
+        goWebURl();
+        ACache.get(getContext()).put("servicePageRefresh","1");
     }
 
     @Subscribe
@@ -162,11 +178,7 @@ public class ServiceOnlineFragment extends HGBaseFragment {
         HGIWebSetting.init(wvServiceOnlineContent);
         //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         webviewsetting(wvServiceOnlineContent);
-        String webUrl = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL);
-        if(Check.isEmpty(webUrl)){
-            webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
-        }
-        wvServiceOnlineContent.loadUrl(webUrl);
+        goWebURl();
         //wvServiceOnlineContent.loadUrl(getIntent().getStringExtra("contractservice"));
         //wvHomepageIntroduceContent.postUrl();
     }

@@ -151,6 +151,9 @@ public class CompanyPayOneFragment extends HGBaseFragment{
             case "LZBC":
                 imageView.setBackground(getResources().getDrawable(R.mipmap.bank_lzbc));
                 break;
+            case "GLB":
+                imageView.setBackground(getResources().getDrawable(R.mipmap.bank_glb));
+                break;
             default:
                 imageView.setBackground(getResources().getDrawable(R.mipmap.deposit_union));
                 break;

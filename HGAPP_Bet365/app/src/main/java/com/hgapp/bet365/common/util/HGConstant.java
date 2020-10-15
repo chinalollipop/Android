@@ -121,7 +121,7 @@ public abstract class HGConstant {
     public static final String USERNAME_SERVICE_URL_WECHAT = "username_service_url_wechat";
 
     //用户的默认客服地址
-    public static final String USERNAME_SERVICE_DEFAULT_URL = "https://ent-16.chatnow.mstatik.com/dist/standalone.html?eid=61033";
+    public static final String USERNAME_SERVICE_DEFAULT_URL = "";
 
 
     //用户的是否绑卡

@@ -90,6 +90,7 @@ public class MainActivity extends SupportActivity {
             if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_LOGIN_STATUS+ACache.get(getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT), "0");
                 //ACache.get(getApplicationContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT, "");
+                ACache.get(getApplicationContext()).put("servicePageRefresh","");
                 ACache.get(getApplicationContext()).put(HGConstant.APP_CP_COOKIE,"");
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_ALIAS, "");
                 ACache.get(getApplicationContext()).put(HGConstant.USERNAME_LOGOUT, "true");
