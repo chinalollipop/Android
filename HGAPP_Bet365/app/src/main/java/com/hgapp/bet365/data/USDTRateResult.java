@@ -11,7 +11,7 @@ public class USDTRateResult implements Parcelable {
     private String withdrawals_usdt_rate;
     private String Usdt_Address;
     private String Usdt_Address_hide;
-
+    private String jiaoyisuo;
     public String getUsdt_Address_hide() {
         return Usdt_Address_hide;
     }
@@ -68,6 +68,14 @@ public class USDTRateResult implements Parcelable {
         Usdt_Address = usdt_Address;
     }
 
+    public String getJiaoyisuo() {
+        return jiaoyisuo;
+    }
+
+    public void setJiaoyisuo(String jiaoyisuo) {
+        this.jiaoyisuo = jiaoyisuo;
+    }
+
     public USDTRateResult() {
     }
 
@@ -85,6 +93,7 @@ public class USDTRateResult implements Parcelable {
         dest.writeString(this.withdrawals_usdt_rate);
         dest.writeString(this.Usdt_Address);
         dest.writeString(this.Usdt_Address_hide);
+        dest.writeString(this.jiaoyisuo);
     }
 
     protected USDTRateResult(Parcel in) {
@@ -95,6 +104,7 @@ public class USDTRateResult implements Parcelable {
         this.withdrawals_usdt_rate = in.readString();
         this.Usdt_Address = in.readString();
         this.Usdt_Address_hide = in.readString();
+        this.jiaoyisuo = in.readString();
     }
 
     public static final Creator<USDTRateResult> CREATOR = new Creator<USDTRateResult>() {
