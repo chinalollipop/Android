@@ -3,6 +3,8 @@ package com.hgapp.a0086.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.hgapp.common.util.Check;
+
 public class CheckUpgradeResult implements Parcelable {
 
     /**
@@ -36,6 +38,15 @@ public class CheckUpgradeResult implements Parcelable {
     private String guest_login_must_input_phone;
     private String signSwitch;
     private String tpl_name;
+    private String service_meiqia2;
+
+    public String getService_meiqia2() {
+        return !Check.isEmpty(service_meiqia2)?service_meiqia2:".livelyhelp.chat/";
+    }
+
+    public void setService_meiqia2(String service_meiqia2) {
+        this.service_meiqia2 = service_meiqia2;
+    }
 
     public String getVersion() {
         return version;
@@ -165,6 +176,9 @@ public class CheckUpgradeResult implements Parcelable {
         this.tpl_name = tpl_name;
     }
 
+    public CheckUpgradeResult() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -188,9 +202,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.guest_login_must_input_phone);
         dest.writeString(this.signSwitch);
         dest.writeString(this.tpl_name);
-    }
-
-    public CheckUpgradeResult() {
+        dest.writeString(this.service_meiqia2);
     }
 
     protected CheckUpgradeResult(Parcel in) {
@@ -210,9 +222,10 @@ public class CheckUpgradeResult implements Parcelable {
         this.guest_login_must_input_phone = in.readString();
         this.signSwitch = in.readString();
         this.tpl_name = in.readString();
+        this.service_meiqia2 = in.readString();
     }
 
-    public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {
+    public static final Creator<CheckUpgradeResult> CREATOR = new Creator<CheckUpgradeResult>() {
         @Override
         public CheckUpgradeResult createFromParcel(Parcel source) {
             return new CheckUpgradeResult(source);

@@ -2,6 +2,7 @@ package com.hgapp.a0086.common.service;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,8 @@ import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
+import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
@@ -145,6 +148,7 @@ public class ServiceOnlineFragment extends HGBaseFragment {
         if(Check.isEmpty(webUrl)){
             webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
         }
+        //webUrl="https://888168u.com/";
         GameLog.log("客服界面加载的url地址 "+webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);
     }
@@ -187,7 +191,7 @@ public class ServiceOnlineFragment extends HGBaseFragment {
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            public boolean shouldOverrideUrlLoading(WebView view,final String url) {
                 view.loadUrl(url);
                 return true;
             }
@@ -197,6 +201,39 @@ public class ServiceOnlineFragment extends HGBaseFragment {
                 handler.proceed();
             }
 
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                return super.shouldInterceptRequest(view, request);
+            }
+
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, String urlStr) {
+                //GameLog.log("WebResourceResponse 进入网址："+urlStr);
+                String lanjieqi = ACache.get(getContext()).getAsString("service_meiqia2");//".livelyhelp.chat/"
+                //GameLog.log("拦截器："+lanjieqi);
+                if(Check.isEmpty(urlStr)){
+                    return  super.shouldInterceptRequest(view, urlStr);
+                }
+                if(urlStr.contains(lanjieqi)){
+                    return  super.shouldInterceptRequest(view, urlStr);
+                }
+                goWebURl();
+                /*String webUrl = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL);
+                view.loadUrl(webUrl);
+                GameLog.log("WebResourceResponse2 进入网址："+webUrl);*/
+                return super.shouldInterceptRequest(view, urlStr);
+            }
+
+           /* @Override
+           public void onPageStarted(WebView webView, String urlStr, Bitmap bitmap) {
+                super.onPageStarted(webView, urlStr, bitmap);
+                GameLog.log("onPageStarted 进入网址："+urlStr);
+                String lanjieqi = ACache.get(getContext()).getAsString("service_meiqia2");//".livelyhelp.chat/"
+                GameLog.log("onPageStarted拦截器："+lanjieqi);
+                if(!urlStr.contains(lanjieqi)){
+                    goWebURl();
+                }
+            }*/
         });
 
         webView.setWebChromeClient(new WebChromeClient() {

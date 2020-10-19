@@ -118,8 +118,8 @@ public abstract class HGConstant {
     public static final String USERNAME_SERVICE_URL_WECHAT = "username_service_url_wechat";
 
     //用户的默认客服地址
-    public static final String USERNAME_SERVICE_DEFAULT_URL = "";//http://temp-chat.mstatik.com/widget/standalone.html?eid=61037
-
+    public static final String USERNAME_SERVICE_DEFAULT_URL = "";//https://temp-chat.mstatik.com/widget/standalone.html?eid=61037
+    //https://vue.livelyhelp.chat/chatWindow.aspx?siteId=60000764&planId=5bc962ad-17cf-415a-88fa-0ad80fb7556b
     //用户的是否绑卡
     public static final String USERNAME_BIND_CARD = "username_bind_card";
 
