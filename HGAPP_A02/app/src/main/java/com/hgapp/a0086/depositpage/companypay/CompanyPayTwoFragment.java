@@ -43,6 +43,8 @@ public class CompanyPayTwoFragment extends HGBaseFragment {
     NTitleBar tvCompanyPayBack;
     @BindView(R.id.tvDepositCompanyPayBank)
     TextView tvDepositCompanyPayBank;
+    @BindView(R.id.tvDepositCompanyPayBankCont)
+    TextView tvDepositCompanyPayBankCont;
     @BindView(R.id.tvDepositCompanyPayBankNumber)
     TextView tvDepositCompanyPayBankNumber;
     @BindView(R.id.tvDepositCompanyPayBankAddress)
@@ -98,6 +100,7 @@ public class CompanyPayTwoFragment extends HGBaseFragment {
                 "bank_addres": "中国银行"
         },*/
         tvDepositCompanyPayBank.setText(dataBean.getBank_name());
+        tvDepositCompanyPayBankCont.setText(dataBean.getBank_context());
         etDepositCompanyPayName.setText(dataBean.getBank_user());
         tvDepositCompanyPayBankNumber.setText(dataBean.getBank_account());
         tvDepositCompanyPayBankAddress.setText(dataBean.getBank_addres());

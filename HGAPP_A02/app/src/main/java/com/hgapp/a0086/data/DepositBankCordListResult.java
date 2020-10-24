@@ -74,8 +74,17 @@ public class DepositBankCordListResult implements Parcelable {
         private String bank_account;
         private String bank_name;
         private String bank_user;
+        private String bank_context;
         private String bank_addres;
         private String id;
+
+        public String getBank_context() {
+            return bank_context;
+        }
+
+        public void setBank_context(String bank_context) {
+            this.bank_context = bank_context;
+        }
 
         public String getBankcode() {
             return bankcode;
@@ -139,6 +148,7 @@ public class DepositBankCordListResult implements Parcelable {
             dest.writeString(this.bank_account);
             dest.writeString(this.bank_name);
             dest.writeString(this.bank_user);
+            dest.writeString(this.bank_context);
             dest.writeString(this.bank_addres);
             dest.writeString(this.id);
         }
@@ -148,6 +158,7 @@ public class DepositBankCordListResult implements Parcelable {
             this.bank_account = in.readString();
             this.bank_name = in.readString();
             this.bank_user = in.readString();
+            this.bank_context = in.readString();
             this.bank_addres = in.readString();
             this.id = in.readString();
         }
