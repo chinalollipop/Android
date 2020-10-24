@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">HG0086</string>
+
+    <string name="hello">Hello World, JPush!</string>
+    <string name="tag_hint">Tag can be number, alphabet, underscore, Chinese. Use , to split many tags.</string>
+    <string name="alias_hint">Alias can be number, alphabet, underscore, Chinese.</string>
+    <string name="mobilenumber_hint">The phone number can only start with a "+" or a number,other can only contain "-" and Numbers</string>
+    <string name="style_hint">style should be number</string>
+    <string name="error_style_empty">style cannot be empty</string>
+    <string name="error_alias_empty">alias cannot be empty</string>
+    <string name="error_tag_empty">tag cannot be empty</string>
+    <string name="error_tag_gs_empty">Invalid format</string>
+    <string name="mobilenumber_empty_guide">will clear last set phone number</string>
+    <string name="error_network">Failed to init due to network exception.</string>
+    <string name="logining">Running in background. Please see log.</string>
+    <string name="setting_su">Succeed to set</string>
+    <!--底部兰标题-->
+    <string name="str_title_homepage">首页</string>
+    <string name="str_title_deposit">存款</string>
+    <string name="str_title_withdraw">客服</string>
+    <string name="str_title_person">我的</string>
+    <string name="cp_title_record">下注记录</string>
+
+    <string name="plat_ty">体育平台</string>
+    <string name="plat_cp">彩票平台</string>
+    <string name="plat_ag">AG平台</string>
+    <string name="plat_ky">开元棋牌</string>
+    <string name="plat_kl">快乐棋牌</string>
+    <string name="plat_vg">VG棋牌</string>
+    <string name="plat_ly">乐游棋牌</string>
+    <string name="plat_mg">MG电子</string>
+    <string name="plat_avia">泛亚电竞</string>
+    <string name="plat_og">OG视讯</string>
+    <string name="plat_cq">CQ9电子</string>
+    <string name="plat_mw">MW电子</string>
+    <string name="plat_fg">FG电子</string>
+    <string name="plat_bbin">BBIN视讯</string>
+    <string name="plat_fire">雷火电竞</string>
+    <string name="plat_football">足球</string>
+    <string name="plat_basketball">篮球</string>
+    <string name="plat_champion">冠军</string>
+    <string name="plat_lottery">彩票</string>
+    <string name="plat_agvideo">AG视讯</string>
+    <string name="plat_aggame">AG电子</string>
+    <string name="plat_agby">AG捕鱼</string>
+
+
+    <string name="bcard_user_first">请先绑定银行卡！</string>
+    <string name="bcard_user_no_alise">暂无</string>
+    <string name="bcard_change_confirm">更改绑定</string>
+    <string name="bcard_confirm">确认绑定</string>
+    <string name="bcard_account_name">帐户姓名</string>
+    <string name="bcard_bank_name">银行名称</string>
+    <string name="bcard_bank_account">银行账户</string>
+    <string name="bcard_bank_address">银行地址</string>
+    <string name="bcard_t20_address">TRC20提币地址</string>
+    <string name="bcard_withdraw_pwd">提款密码</string>
+    <string name="bcard_withdraw_pwd2">确认密码</string>
+    <string name="bcard_account_name_hint">请输入账户姓名</string>
+    <string name="bcard_bank_name_hint">请选择银行</string>
+    <string name="bcard_bank_account_hint">请输入账(卡)号</string>
+    <string name="bcard_bank_address_hint">请输入银行地址</string>
+    <string name="bcard_t20_address_hint">请输入提币地址</string>
+    <string name="bcard_withdraw_pwd_hint">请输入提款密码</string>
+    <string name="bcard_withdraw_pwd2_hint">请输入确认密码</string>
+
+    <string name="bcard_withdraw_pwd_hint1">请输入有效密码！</string>
+    <string name="bcard_withdraw_pwd2_hint1">请输入有效确认密码！</string>
+    <string name="bcard_withdraw_pwd_hint2">请输入确认提款密码！</string>
+    <string name="bcard_withdraw_pwd2_hint2">2次输入密码不一致，请重新输入！</string>
+
+
+
+    <string name="bet_record_checked_all">全部</string>
+    <string name="bet_record_checked_no">未结注单</string>
+    <string name="bet_record_checked_yes">已结注单</string>
+    <string name="bet_record_checked_youxiao">有效注单</string>
+    <string name="bet_record_checked_wuxiao">未结注单</string>
+    <string name="plat_exchange">请选择平台</string>
+
+    <string name="bet_record_event_type">赛事类型</string>
+    <string name="bet_record_clearing">是否结算</string>
+    <string name="bet_record_cancel">是否取消</string>
+    <string name="bet_record_starttime">开始时间</string>
+    <string name="bet_record_endtime">结束时间</string>
+
+    <string name="bet_record_type">足球</string>
+    <string name="bet_record_all">全部</string>
+    <string name="bet_record_success">未取消交易单</string>
+    <string name="bet_record_choice_time">请选择时间</string>
+
+    <string name="bet_record_today">今日</string>
+    <string name="bet_record_yestoday">昨日</string>
+    <string name="bet_record_one_week">近一周</string>
+    <string name="bet_record_month">本月 </string>
+    <string name="bet_record_search">立即查询</string>
+
+    <string name="bet_record_time">日期</string>
+    <string name="bet_record_saishi">赛事</string>
+    <string name="bet_record_money">金额</string>
+    <string name="bet_record_win">输/赢</string>
+
+    <string name="deposit_record_type">类别:</string>
+    <string name="deposit_record_state">状态:</string>
+
+    <string name="deposit_record_order_number">订单号</string>
+    <string name="deposit_record_time">日期/时间</string>
+    <string name="deposit_record_project">项目</string>
+    <string name="deposit_record_dstate">订单状态</string>
+    <string name="deposit_record_no_data">暂时没有记录</string>
+    <string name="deposit_record_deposit">充值</string>
+    <string name="deposit_record_with">提现</string>
+    <string name="deposit_record_back">返水</string>
+    <string name="deposit_record_succeed">成功</string>
+    <string name="deposit_record_fail">失败</string>
+    <string name="deposit_record_review">审核中</string>
+    <string name="deposit_record_review2">二次审核</string>
+    <string name="deposit_record_app_red_sign_huodong">APP签到红包活动</string>
+    <string name="deposit_record_app_red_sign">APP签到红包</string>
+    <string name="deposit_record_app_red_xingyun">APP幸运红包活动</string>
+    <string name="deposit_record_app_red_newyear">新春红包活动</string>
+    <string name="deposit_record_app_red">红包</string>
+    <string name="deposit_record_withdraw">取款</string>
+
+    <string name="withdraw_dama_amount">提款打码量</string>
+    <string name="withdraw_dama_detail">查看详情</string>
+    <string name="withdraw_dama_already">已打码量</string>
+    <string name="withdraw_dama_kaihu">开户行</string>
+    <string name="withdraw_dama_kaihu_address">所在银行</string>
+    <string name="withdraw_dama_money">提款金额</string>
+    <string name="withdraw_dama_pwd">提款密码</string>
+    <string name="withdraw_dama_money_hint">请输入提款金额</string>
+    <string name="withdraw_dama_pwd_hint">请输入提款密码</string>
+    <string name="withdraw_dama_usdt_rate">USDT汇率</string>
+    <string name="withdraw_dama_usdt_amount">USDT提币数量</string>
+    <string name="withdraw_dama_usdt_rate_now">实时汇率</string>
+    <string name="withdraw_dama_confirm">确认提款</string>
+    <string name="withdraw_dama_list">打码量列表</string>
+    <string name="withdraw_dama_liang">打码量</string>
+    <string name="withdraw_dama_liang_all">总计: </string>
+
+    <string name="realname_accountname">* 真实姓名</string>
+    <string name="realname_accountname_hint">提款行卡的姓名，用于提款</string>
+    <string name="realname_accountname_hint2">请输入真实姓名！</string>
+
+    <string name="comm_register">注册</string>
+    <string name="comm_pls_register_real_acccount">非常抱歉，请您注册真实会员！</string>
+    <string name="comm_loading">加载中</string>
+    <string name="comm_dialog_title">提示</string>
+    <string name="comm_dialog_input_hint_in">请输入转入金额</string>
+    <string name="comm_dialog_input_hint_out">请输入转出金额</string>
+    <string name="comm_copy_succeed">复制成功！</string>
+    <string name="comm_roll_in"> 转入 </string>
+    <string name="comm_roll_out"> 转出 </string>
+    <string name="comm_roll_money"> 金额 </string>
+    <string name="comm_roll_money_all"> 全转 </string>
+    <string name="comm_roll_money_unit"> 元 </string>
+    <string name="comm_roll_money_fail"> 转账方式不支持 </string>
+    <string name="comm_roll_money_in"> 请输入转换金额 </string>
+    <string name="comm_roll_money_out"> 请输出转换金额 </string>
+    <string name="comm_cancel">取消</string>
+    <string name="comm_confirm">确认</string>
+    <string name="comm_back">返回</string>
+    <string name="comm_usernamealisa">用户名</string>
+    <string name="comm_username">姓名</string>
+    <string name="comm_phonenumber">手机号</string>
+    <string name="comm_gender">性别</string>
+    <string name="comm_wechatnumber">微信</string>
+    <string name="comm_accountcenthint">请前往提现处完善信息</string>
+    <string name="lan_chinese">中文</string>
+    <string name="lan_en">英文</string>
+    <string name="lan_ja">日文</string>
+    <string name="lan_de">德文</string>
+
+    <string name="me_refresh">刷新</string>
+    <string name="me_logout">登出</string>
+    <string name="me_zhenren">真人升级</string>
+    <string name="me_tiyu">体育升级</string>
+    <string name="me_deposit">充值</string>
+    <string name="me_exchange">额度转换</string>
+    <string name="me_bankcode">银行卡</string>
+    <string name="me_withdraw">提现</string>
+    <string name="me_platbalance">平台余额</string>
+    <string name="me_message">站内信</string>
+    <string name="me_accountcenter">账户中心</string>
+    <string name="me_bettingrecord">投注记录</string>
+    <string name="me_flowrecord">流水记录</string>
+    <string name="select_language">语言设置</string>
+    <string name="me_personaldata">个人资料</string>
+    <string name="me_changepwd">修改密码</string>
+    <string name="me_stay_tuned">敬请期待！</string>
+    <string name="me_test_player">试玩玩家</string>
+
+    <!--修改密码 &#32;&#32;&#32;&#32;&#160;&#160;&#160;&#160;&#160;&#160;-->
+    <string name="pwd_oldpwd">旧登录密码</string>
+    <string name="pwd_oldpwd_hint">请输入旧密码</string>
+    <string name="pwd_newloginpwd1">新登录密码</string>
+    <string name="pwd_newloginpwd1_hint">请输入新密码(6-15位字符 ）</string>
+    <string name="pwd_newloginpwd2">新确认密码</string>
+    <string name="pwd_newloginpwd2_hint">请输入新确认密码(6-15位字符 ）</string>
+    <string name="pwd_changeloginpwd">修改登录密码</string>
+    <string name="pwd_oldwithpwd">旧取款密码</string>
+    <string name="pwd_oldwithpwd_hint">请输入旧取款密码</string>
+    <string name="pwd_newwithpwd1">新提款密码</string>
+    <string name="pwd_newwithpwd1_hint">请输入新提款密码</string>
+
+
+    <string name="pwd_newwithpwd2">提款密码确认</string>
+    <string name="pwd_newwithpwd2_hint">请输入提款密码确认</string>
+    <string name="pwd_changewithpwd">修改取款密码</string>
+
+
+    <string name="str_exchange_text">\n\n1. 转账前请退出游戏或游戏投注界面。\n\n2.不参与活动时, 户内转账金额不能少于 1元，户内转账不收取任何手续费。\n\n3.如遇网速较慢时，请耐心等候片刻，不要多次重复提交。</string>
+    <string name="str_event_list1"> 1、每日计算区间：北京时间中午12:00:00至次日12:00:00期间的<font color='#FF0000'>体育</font>的打码量（输赢一半计算一半打码量，和局不计算打码量）。\n
+                                    <font color='#FF0000'>2、此活动有效流水仅计算通过APP投注的流水！</font>\n
+                                    3、此优惠需要会员在此活动页面点击【抽取幸运红包】进行领取，领取到的红包金额将自动添加到会员账户！\n
+                                    4、每位会员每个可参与的红包次数，次日15点之后自动更新，更新可领次数即可开始点击抽取幸运红包进行领取，直至可领次数用完为止；如果在24小时内未点击抽取幸运红包本公司将视为自动放弃本次活动。\n
+                                    5、领取红包之后将重新计算新一轮的日累计打码量！\n
+</string>
+    <string name="str_event_list2"> 1、此活动仅适用于<font color='#FF0000'>手机APP</font>用户！\n
+                                    2、任何个人或团体以不诚实方式套取红利，HG0086保留取消其活动资格，收回优惠红利和活动产生盈利以及关闭会员账号的权利。\n
+                                    3、HG0086保留在任何时候都可以更改，停止该活动的权利，并不做提前通知。\n
+                                    4、本活动最终解释权归属HG0086所有。</string>
+</resources>

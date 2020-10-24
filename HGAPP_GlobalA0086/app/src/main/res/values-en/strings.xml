@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">HG0086</string>
+	<string name="lan_chinese">Chinese</string>
+	<string name="lan_en">English</string>
+	<string name="lan_ja">Japanese</string>
+	<string name="lan_de">German</string>
+	<string name="select_language">select language</string>
+	<!--底部兰标题-->
+	<string name="str_title_discount">discounts</string>
+	<string name="str_title_deposit">deposit</string>
+	<string name="str_title_homepage">home</string>
+	<string name="str_title_withdraw">service</string>
+	<string name="str_title_person">me</string>
+
+	<string name="plat_ty">Sports</string>
+	<string name="plat_cp">Lottery</string>
+	<string name="plat_ag">AG</string>
+	<string name="plat_ky">Kaiyuan chess</string>
+	<string name="plat_kl">kuaile chess</string>
+	<string name="plat_vg">VG chess</string>
+	<string name="plat_ly">leyou chess</string>
+	<string name="plat_mg">MG  game </string>
+	<string name="plat_avia">fanya  game </string>
+	<string name="plat_og">OG Video</string>
+	<string name="plat_cq">CQ9  game </string>
+	<string name="plat_mw">MW  game </string>
+	<string name="plat_fg">FG  game </string>
+	<string name="plat_bbin">BBIN video</string>
+	<string name="plat_fire">fire  game </string>
+
+	<string name="plat_exchange">plat exchange</string>
+
+
+	<string name="plat_football">football</string>
+	<string name="plat_basketball">basketball</string>
+	<string name="plat_champion">champion</string>
+	<string name="plat_lottery">lottery</string>
+	<string name="plat_agvideo">ag video</string>
+	<string name="plat_aggame">ag game</string>
+	<string name="plat_agby">agby</string>
+
+	<string name="bet_record_checked_all">checked all</string>
+	<string name="bet_record_checked_no">checked no</string>
+	<string name="bet_record_checked_yes">checked yes</string>
+	<string name="bet_record_checked_youxiao">youxiao</string>
+	<string name="bet_record_checked_wuxiao">wuxiao</string>
+    <string name="bet_record_event_type"> type</string>
+    <string name="bet_record_clearing">settlement</string>
+    <string name="bet_record_cancel">cancel</string>
+    <string name="bet_record_starttime">start time</string>
+    <string name="bet_record_endtime">end time</string>
+
+    <string name="bet_record_type">sports</string>
+    <string name="bet_record_all">All</string>
+    <string name="bet_record_success">No cancellation of order</string>
+    <string name="bet_record_choice_time">Please select time</string>
+
+    <string name="bet_record_today">today</string>
+    <string name="bet_record_yestoday">yestoday</string>
+    <string name="bet_record_one_week">one week</string>
+    <string name="bet_record_month">months</string>
+    <string name="bet_record_search">search now</string>
+
+    <string name="bet_record_time">time</string>
+    <string name="bet_record_saishi">Competition</string>
+    <string name="bet_record_money">amount</string>
+    <string name="bet_record_win">lose/win</string>
+
+	<string name="deposit_record_type">type</string>
+	<string name="deposit_record_state">state</string>
+
+	<string name="deposit_record_order_number">order number</string>
+	<string name="deposit_record_time">time</string>
+	<string name="deposit_record_project">project</string>
+	<string name="deposit_record_dstate">d state</string>
+	<string name="deposit_record_no_data">no data</string>
+	<string name="deposit_record_deposit">deposit</string>
+	<string name="deposit_record_with">withdraw</string>
+	<string name="deposit_record_back">back</string>
+	<string name="deposit_record_succeed">succeed</string>
+	<string name="deposit_record_fail">fail</string>
+	<string name="deposit_record_review">review</string>
+
+	<string name="comm_copy_succeed">copy succeed！</string>
+	<string name="comm_roll_in"> roll-in </string>
+	<string name="comm_roll_out"> roll-out  </string>
+	<string name="comm_roll_money"> money </string>
+	<string name="comm_roll_money_unit"> RMB </string>
+	<string name="comm_roll_money_all"> roll </string>
+    <string name="comm_roll_money_in"> Please enter the conversion amount </string>
+	<string name="comm_roll_money_fail"> Transfer mode is not supported </string>
+	<string name="comm_back">back</string>
+	<string name="comm_loading">loading</string>
+	<string name="comm_cancel">cancel</string>
+	<string name="comm_confirm">confirm</string>
+	<string name="comm_usernamealisa">alisa</string>
+	<string name="comm_username">username</string>
+	<string name="comm_phonenumber">phone</string>
+	<string name="comm_gender">gender</string>
+	<string name="comm_wechatnumber">wechat</string>
+	<string name="comm_accountcenthint">please input ...</string>
+    <string name="me_refresh">refresh</string>
+    <string name="me_logout">logout</string>
+	<string name="me_zhenren">zhenren</string>
+	<string name="me_tiyu">tiyu</string>
+	<string name="me_deposit">deposit</string>
+	<string name="me_exchange">exchange</string>
+	<string name="me_bankcode">bank code</string>
+	<string name="me_withdraw">withdraw</string>
+	<string name="me_platbalance">plat balance</string>
+	<string name="me_message">message</string>
+	<string name="me_accountcenter">accountcenter</string>
+	<string name="me_bettingrecord">betting record</string>
+	<string name="me_flowrecord">flow record</string>
+	<string name="me_personaldata">personal data</string>
+	<string name="me_changepwd">change password</string>
+	<string name="me_stay_tuned">stay tuned！</string>
+    <string name="me_test_player">Test Player</string>
+</resources>

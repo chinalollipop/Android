@@ -1,0 +1,30 @@
+
+
+【-----线上环境-----】
+1、修改build.gradle
+
+	applicationId "com.hgapp.a01" //线上环境
+	versionName "1.0" 版本号
+
+2、res/strings.xml文件 
+	
+	app_name 皇冠娱乐
+
+3、注释Client.java文件的baseUrl()方法
+	
+
+
+
+
+
+【-----测试环境-----】
+
+1、修改build.gradle
+	
+	applicationId "com.hgapp.a01.test"//测试环境
+	versionName "1.0.7" 版本号
+2、res/strings.xml文件 
+	
+	app_name 皇冠娱乐测试
+3、打开Client.java文件的baseUrl()方法
+   domainUrl = "http://m.hg01455.com/";

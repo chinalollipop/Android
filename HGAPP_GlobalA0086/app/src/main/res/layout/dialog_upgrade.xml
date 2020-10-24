@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/frame_roundcorner_white">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingTop="36px"
+            android:paddingBottom="160px"
+            android:paddingLeft="89px"
+            android:paddingRight="89px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_titleupgrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#030303"
+                android:textSize="18sp"
+                android:text="版本更新"/>
+            <TextView
+                android:id="@+id/tv_msg_upgrade"
+                android:paddingTop="56px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="有新的升级包\ns收了你\n立即更新"
+                android:layout_marginBottom="12px"
+                android:textColor="#FF1D1D1D"
+                android:textSize="14sp"
+                android:gravity="left"
+                />
+
+            <ProgressBar
+                android:id="@+id/pb_progress_upgrade"
+                android:layout_width="match_parent"
+                android:layout_height="18px"
+                android:layout_marginTop="12px"
+                android:progressDrawable="@drawable/drawable_progress"
+                android:progress="0"
+                android:max="100"
+                style="?android:attr/progressBarStyleHorizontal"/>
+            <RelativeLayout
+                android:id="@+id/group_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_size_upgrade"
+                    android:paddingTop="16px"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="left"
+                    android:text="5M/55M"
+                    android:textColor="#FF1D1D1D"
+                    android:textSize="14sp"
+                    android:gravity="left"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_cancel_upgrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="以后更新"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/btn_cancel_dialog"
+                android:paddingTop="39px"
+                android:paddingBottom="39px"
+                />
+            <Button
+                android:id="@+id/btn_confirm_upgrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立即更新"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp"
+                android:background="@drawable/btn_confirm_dialog"
+                android:paddingTop="39px"
+                android:paddingBottom="39px"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

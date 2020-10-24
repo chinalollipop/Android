@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.hgapp.a0086.common.widgets.NTitleBar
+        android:id="@+id/backContract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/l_view_color" />
+    <LinearLayout
+        android:id="@+id/llContractQQ"
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center|left"
+        android:layout_gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/deposit_qq"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ客服"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/tvContractQQNumber"
+            android:text="255455544"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="点击复制"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="48dp"
+            android:background="@mipmap/icon_edittext_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/l_view_color" />
+    <LinearLayout
+        android:id="@+id/llContractWX"
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center|left"
+        android:layout_gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/contract_wechat"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="微信公众号"
+            />
+        <TextView
+            android:id="@+id/tvContractWXNumber"
+            android:text="255455544"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="点击复制"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/icon_edittext_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="微信公众号二维码"
+        android:layout_margin="10dp"
+        />
+    <ImageView
+        android:id="@+id/tvContractWXBg"
+        android:layout_gravity="center"
+        android:layout_width="180dp"
+        android:layout_height="180dp" />
+
+</LinearLayout>

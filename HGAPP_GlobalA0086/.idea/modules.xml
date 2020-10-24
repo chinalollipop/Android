@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HGAPP_GlobalA0086.iml" filepath="$PROJECT_DIR$/HGAPP_GlobalA0086.iml" group="HGAPP_GlobalA0086" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="HGAPP_GlobalA0086/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" group="HGAPP_GlobalA0086/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" group="HGAPP_GlobalA0086/slidingmenu" />
+    </modules>
+  </component>
+</project>
