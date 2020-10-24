@@ -29,6 +29,9 @@ import com.flush.a01.utils.GameLog;
 import com.flush.a01.utils.TBSWebSetting;
 import com.flush.a01.utils.ToastUtils;
 import com.google.gson.Gson;
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener;
+import com.kongzue.dialog.util.BaseDialog;
+import com.kongzue.dialog.v3.MessageDialog;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;
@@ -151,6 +154,27 @@ public class MainActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
 //                onloadedOtherUrl(url);
                 super.onPageFinished(view, url);
+
+                String app_demain_url_s =  ACache.get(getApplicationContext()).getAsString("app_demain_url_s");
+                CookieSyncManager.createInstance(getApplicationContext());
+                CookieManager cookieManager = CookieManager.getInstance();
+                if (cookieManager != null) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        cookieManager.setAcceptThirdPartyCookies(wvPayGame, true);
+                    }
+                }
+                String CookieStr = cookieManager.getCookie(url);
+                GameLog.log("CookieStr "+CookieStr);
+                if(CookieStr.contains("gamePoint")){
+                    ACache.get(getApplicationContext()).put("APP_COOKIE", CookieStr);
+                    String uid = ACache.get(getApplicationContext()).getAsString("uidEx");
+                    String urlEnd = ACache.get(getApplicationContext()).getAsString("urlEnd");
+
+                    String cookie = ACache.get(getApplicationContext()).getAsString("APP_COOKIE");
+                    final String dataUrl= app_demain_url_s+"&uidEx="+ uid+"&cookie="+cookie+"&urlEnd="+urlEnd;
+                    onloadedOtherUrl(dataUrl);
+                }
+
                 // 获取页面内容
                 /*view.loadUrl("javascript:window.java_obj.showSource("
                         + "document.getElementsByTagName('html')[0].innerHTML);");
@@ -273,30 +297,20 @@ public class MainActivity extends AppCompatActivity {
                     String CookieStr = cookieManager.getCookie(urlStr);
                     GameLog.log("CookieStr "+CookieStr);
                     ACache.get(getApplicationContext()).put("APP_COOKIE", CookieStr);
-                }else */if(urlStr.contains("reloadCredit.php")){
+                }else */if(urlStr.contains("app/member/FT_browse/body_var.php?")){//reloadCredit.php member/live/game_ioratio_view.php member/FT_browse/index.php?rtype=r
                     String uid="",cookie="";
                     String[] data = urlStr.split("\\?");
                     String[] data2 = data[1].split("&");
                     for(int k=0;k<data2.length;++k){
                         if("uid".equals(data2[k].split("=")[0])){
                             uid = data2[k].split("=")[1];
+                            ACache.get(getApplicationContext()).put("uidEx", uid);
                         }
 
                     }
-                    String app_demain_url_s =  ACache.get(getApplicationContext()).getAsString("app_demain_url_s");
-                    CookieSyncManager.createInstance(getApplicationContext());
-                    CookieManager cookieManager = CookieManager.getInstance();
-                    if (cookieManager != null) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            cookieManager.setAcceptThirdPartyCookies(wvPayGame, true);
-                        }
-                    }
-                    String CookieStr = cookieManager.getCookie(urlStr);
-                    GameLog.log("CookieStr "+CookieStr);
-                    ACache.get(getApplicationContext()).put("APP_COOKIE", CookieStr);
-                    cookie = ACache.get(getApplicationContext()).getAsString("APP_COOKIE");
-                    final String dataUrl= app_demain_url_s+"&uidEx="+ uid+"&cookie="+cookie;
-                    onloadedOtherUrl(dataUrl);
+                    String urlEnd = urlStr.split(".com")[0]+".com";
+                    ACache.get(getApplicationContext()).put("urlEnd", urlEnd);
+
 
                 }
                 GameLog.log("进入网址："+urlStr);
@@ -366,6 +380,16 @@ public class MainActivity extends AppCompatActivity {
                             GameLog.log("返回的数据：" + responseText);
                             DomainAddResult domainUrlList = new Gson().fromJson(responseText, DomainAddResult.class);
                             if (domainUrlList.getStatus() == 200) {
+                                MessageDialog.show(MainActivity.this, "刷水成功提示", "请求成功了，Cookie："+domainUrlList.getData().getCookie(),"取消")
+                                        .setOkButton(new OnDialogButtonClickListener() {  //仅需要对需要处理的按钮进行操作
+                                            @Override
+                                            public boolean onClick(BaseDialog baseDialog, View v) {
+                                                //处理确定按钮事务
+                                                return false;    //可以通过 return 决定点击按钮是否默认自动关闭对话框
+                                            }
+                                        });
+                                new AlertDialog.Builder(MainActivity.this)
+                                        .setMessage("请求成功了，Cookie："+domainUrlList.getData().getCookie()).create().show();
                                 showMessage(domainUrlList.getMessage());
                             }
                         }catch (Exception e){
@@ -417,7 +441,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onloadedOtherUrl(String urls){
-        GameLog.log("成功之后的往事："+urls);
+        GameLog.log("页面加载完成："+urls);
         MyHttpClient myHttpClient = new MyHttpClient();
         myHttpClient.execute(urls ,null, new Callback() {
             @Override

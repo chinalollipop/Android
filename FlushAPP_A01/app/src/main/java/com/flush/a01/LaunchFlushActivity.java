@@ -67,8 +67,8 @@ public class LaunchFlushActivity extends AppCompatActivity {
     private boolean ifStop = false;
     //http://admin.qsd0086.com/   0086
     // http://admin.789567111.com/  6668
-    String domainUrl = "http://admin.qsd0086.com/";//6668  http://admin.qdf6668.com/ 0086 http://admin.qsd0086.com/
-    //String domainUrl = "http://admin.js33377.com/";//金沙
+//    String domainUrl = "http://admin.qsd0086.com/";//6668  http://admin.qdf6668.com/ 0086 http://admin.qsd0086.com/
+    String domainUrl = "http://admin.hgw777.co/";//金沙
 //    String domainUrl = "http://admin.100372.com/";//3366
 //    String domainUrl = "http://admin.77000111.com/";//太阳城
 
