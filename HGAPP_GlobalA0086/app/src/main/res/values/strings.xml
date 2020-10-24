@@ -21,6 +21,18 @@
     <string name="str_title_person">我的</string>
     <string name="cp_title_record">下注记录</string>
 
+    <string name="games_hello">您好</string>
+    <string name="games_results">赛果</string>
+    <string name="games_rules">体育规则</string>
+    <string name="games_ball">滚球赛事</string>
+    <string name="games_today">今日赛事</string>
+    <string name="games_morning">早盘赛事</string>
+    <string name="games_football_hint">足球（0）</string>
+    <string name="games_basketball">篮球 / 美式足球</string>
+    <string name="games_basketball_hint">篮球 / 美式足球（0）</string>
+
+
+
     <string name="plat_ty">体育平台</string>
     <string name="plat_cp">彩票平台</string>
     <string name="plat_ag">AG平台</string>

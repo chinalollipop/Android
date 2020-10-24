@@ -117,7 +117,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
     private String wtype;
 
     // 数据源
-    private String[] groups = { "滚球赛事", "今日赛事", "早盘赛事" };
+    //private String[] groups = { "滚球赛事", "今日赛事", "早盘赛事" };
     /*private String[][] children = {
             { "足球（0）", "篮球 / 美式足球（0）", "网球（0）", "排球（0）", "羽毛球（0）", "棒球（0）", "其它（0）" },
             { "足球（0）", "篮球 / 美式足球（0）", "网球（0）", "排球（0）", "羽毛球（0）", "棒球（0）", "其它（0）" },
@@ -128,11 +128,23 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             { "足球", "篮球 / 美式足球", "网球", "排球", "羽毛球", "棒球", "其它" },
             { "足球", "篮球 / 美式足球", "网球", "排球", "羽毛球", "棒球", "其它" }
     };*/
+   /* private String[] groups = { "滚球赛事", "今日赛事", "早盘赛事" };
     private String[][] children = {
             { "足球（0）", "篮球 / 美式足球（0）" },
             { "足球（0）", "篮球 / 美式足球（0）" },
             { "足球（0）", "篮球 / 美式足球（0）" }
-    };
+    };*/
+
+    private String[] groups ;
+    private String[][] children ;
+
+   /* private String[] groups = { getString(R.string.games_ball), getString(R.string.games_today), getString(R.string.games_morning) };
+
+    private String[][] children = {
+            { getString(R.string.games_football_hint), getString(R.string.games_basketball_hint) },
+            { getString(R.string.games_football_hint), getString(R.string.games_basketball_hint) },
+            { getString(R.string.games_football_hint), getString(R.string.games_basketball_hint) }
+    };*/
     private String userName,userMoney;
 
     OptionsPickerView optionsPickerViewState;
@@ -230,8 +242,19 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
         EventBus.getDefault().unregister(this);
     }
 
+    private void initData() {
+        groups = new String[]{getString(R.string.games_ball), getString(R.string.games_today), getString(R.string.games_morning)};
+        children = new String[][]{
+                { getString(R.string.games_football_hint), getString(R.string.games_basketball_hint) },
+                { getString(R.string.games_football_hint), getString(R.string.games_basketball_hint) },
+                { getString(R.string.games_football_hint), getString(R.string.games_basketball_hint) }
+        };
+    }
+
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initData();
         BottombarViewManager.getSingleton().onShowView(getActivity(),this,"","","");
         try {
             onPostData();
@@ -403,6 +426,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
 
     }
 
+
     @Override
     public void onVisible() {
         super.onVisible();
@@ -507,7 +531,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             }
         }
         GameLog.log("今日足球：postSportsListResultResultFTs "+kkszie);
-        children[1][0]="足球（"+kkszie+"）";
+        children[1][0]=getString(R.string.plat_football)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
     @Override
@@ -522,7 +546,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             }
         }
         GameLog.log("今日篮球：postSportsListResultResultBKs "+kkszie);
-        children[1][1]="篮球 / 美式足球（"+kkszie+"）";
+        children[1][1]=getString(R.string.games_basketball)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
 
@@ -538,7 +562,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             }
         }
         GameLog.log("滚球足球：postSportsListResultResultFTr "+kkszie);
-        children[0][0]="足球（"+kkszie+"）";
+        children[0][0]=getString(R.string.plat_football)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
     @Override
@@ -553,7 +577,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             }
         }
         GameLog.log("滚球篮球：postSportsListResultResultBKr "+kkszie);
-        children[0][1]="篮球 / 美式足球（"+kkszie+"）";
+        children[0][1]=getString(R.string.games_basketball)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
 
@@ -569,7 +593,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             }
         }
         GameLog.log("早盘足球：postSportsListResultResultFU "+kkszie);
-        children[2][0]="足球（"+kkszie+"）";
+        children[2][0]=getString(R.string.plat_football)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
     @Override
@@ -584,7 +608,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
             }
         }
         GameLog.log("早盘篮球：postSportsListResultResultBU "+kkszie);
-        children[2][1]="篮球 / 美式足球（"+kkszie+"）";
+        children[2][1]=getString(R.string.games_basketball)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
 

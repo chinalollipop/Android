@@ -13,6 +13,15 @@
 	<string name="str_title_withdraw">service</string>
 	<string name="str_title_person">me</string>
 
+	<string name="games_hello">Hello</string>
+	<string name="games_results">Sports results</string>
+	<string name="games_rules">Sports rules</string>
+	<string name="games_ball">Boll Games</string>
+	<string name="games_today">Today Games</string>
+	<string name="games_morning">Morning Games</string>
+	<string name="games_basketball">Basket Ball / American football</string>
+
+
 	<string name="plat_ty">Sports</string>
 	<string name="plat_cp">Lottery</string>
 	<string name="plat_ag">AG</string>
