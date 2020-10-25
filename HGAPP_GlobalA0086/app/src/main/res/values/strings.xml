@@ -87,6 +87,7 @@
 
 
 
+    <string name="plat_sports">体育投注</string>
     <string name="plat_ty">体育平台</string>
     <string name="plat_cp">彩票平台</string>
     <string name="plat_ag">AG平台</string>
@@ -113,6 +114,18 @@
     <string name="plat_tiger">老虎机</string>
     <string name="plat_hg">皇冠</string>
     <string name="plat_kyqp">开元</string>
+    <string name="plat_games">电子游艺</string>
+    <string name="plat_red">幸运红包</string>
+    <string name="plat_agents">代理加盟</string>
+    <string name="plat_activity">优惠活动</string>
+    <string name="plat_contracts">联系我们</string>
+    <string name="plat_new_t">新手教学</string>
+    <string name="plast_hg_remind">皇冠公告</string>
+    <string name="comm_no_net">请检查您的网络！</string>
+    <string name="comm_better_net">已是最优线路！</string>
+    <string name="comm_line">线路</string>
+    <string name="comm_login_register">登陆/注册</string>
+
 
     <string name="bcard_user_first">请先绑定银行卡！</string>
     <string name="bcard_user_no_alise">暂无</string>

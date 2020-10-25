@@ -172,8 +172,34 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         return R.layout.fragment_home;
     }
 
+    private void initData(){
+        homeGameList.clear();
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_sports),R.mipmap.home_hgty,0));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_avia),R.mipmap.home_avia,14));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_fire),R.mipmap.home_leihuo,18));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_agvideo),R.mipmap.home_ag,1));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_og),R.mipmap.home_og,16));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_bbin),R.mipmap.home_bbin,17));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_lottery),R.mipmap.home_vrcp,2));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_vg),R.mipmap.home_vg,5));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_ly),R.mipmap.home_ly,13));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_kl),R.mipmap.home_hg_qipai,3));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_ky),R.mipmap.home_qipai,4));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_games),R.mipmap.home_lhj,6));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_agby),R.mipmap.home_agfishing,15));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_red),R.mipmap.home_red,8));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_agents),R.mipmap.home_agent,7));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_activity),R.mipmap.home_pro,9));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_contracts),R.mipmap.home_contact,10));
+        homeGameList.add(new HomePageIcon(getString(R.string.plat_new_t),R.mipmap.home_new,11));
+        homeGameList.add(new HomePageIcon(getString(R.string.plast_hg_remind),R.mipmap.home_remind,12));
+    }
+
+
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initData();
         rvHomapageGameHall.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -256,7 +282,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 @Override
                 public void onClick(View view) {
                     if(!NetworkUtils.isConnected()){
-                        showMessage("请检查您的网络！");
+                        showMessage(getString(R.string.comm_no_net));
                         return;
                     }
                     onHomeGameItemClick(data.getId());
@@ -288,7 +314,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case 1:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "1";
@@ -315,12 +341,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     String cp_token = ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE);
                     if (Check.isEmpty(cp_url) || Check.isEmpty(cp_inform) || Check.isEmpty(cp_token) || Check.isNull(CPClient.getRetrofit())) {
                         presenter.postCP();
-                        showMessage("正在加载中，请稍后再试!");
+                        showMessage(getString(R.string.comm_loading1));
                     } else {
                         this.startActivity(new Intent(getContext(), CPListFragment.class));
                     }
                 }catch (Exception e){
-                    showMessage("正在加载中，请稍后再试!");
+                    showMessage(getString(R.string.comm_loading1));
                     presenter.postCP();
                     GameLog.log("获取彩票日志信息异常 "+e);
                 }
@@ -329,7 +355,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                  break;
             case 3:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "3";
@@ -368,7 +394,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 break;
             case 6:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "5";
@@ -435,7 +461,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "8";
@@ -453,7 +479,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "2";
@@ -466,7 +492,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "9";
@@ -479,7 +505,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "10";
@@ -492,7 +518,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 userState = "11";
@@ -532,7 +558,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 SignTodayFragment.newInstance(userMoney,1).show(getFragmentManager());
@@ -546,7 +572,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //处理popWindow 显示内容
         DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
         if(Check.isNull(domainUrl)){
-            showMessage("已是最优线路！");
+            showMessage(getString(R.string.comm_better_net));
             return;
         }
         RecyclerView recyclerView = contentView.findViewById(R.id.popLineChoice);
@@ -573,7 +599,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
         @Override
         protected void convert(ViewHolder holder, final DomainUrl.ListBean data, final int position) {
-            holder.setText(R.id.popLineName,"线路"+data.getPid());
+            holder.setText(R.id.popLineName,getString(R.string.comm_line)+data.getPid());
             if(data.isChecked()){
                 holder.setBackgroundRes(R.id.popLineImg,R.mipmap.line_choice_cheack1);
             }else{
@@ -583,7 +609,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 @Override
                 public void onClick(View view) {
                     if(!NetworkUtils.isConnected()){
-                        showMessage("请检查您的网络！");
+                        showMessage(getString(R.string.comm_no_net));
                         return;
                     }
                     DomainUrl  domainUrl = JSON.parseObject(ACache.get(getContext()).getAsString("homeLineChoice"), DomainUrl.class);
@@ -604,7 +630,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     HGApplication.instance().configClient();*/
                     /*CPClient.setClientDomain(data.getUrl().replace("m.","mc."));
                     HGApplication.instance().configCPClient();*/
-                    tvHomePageLine.setText("线路"+data.getPid());
+                    tvHomePageLine.setText(getString(R.string.comm_line)+data.getPid());
                     mCustomPopWindowIn.dissmiss();
                     //onHomeGameItemClick(data.getId());
                 }
@@ -793,7 +819,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         GameLog.log("=============雷火电竞的地址=============");
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",qipaiResult.getUrl());
-        intent.putExtra("gameCnName","雷火电竞");
+        intent.putExtra("gameCnName",getString(R.string.plat_fire));
         intent.putExtra("hidetitlebar",false);
         getActivity().startActivity(intent);
     }
@@ -940,7 +966,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         //EventBus.getDefault().post(new StartBrotherEvent(XPlayGameFragment.newInstance(dzTitileName,agGameLoginResult.getUrl(),"1"), SupportFragment.SINGLETASK));
         Intent intent = new Intent(getContext(),XPlayGameActivity.class);
         intent.putExtra("url",agGameLoginResult.getUrl());
-        intent.putExtra("gameCnName","AG捕鱼");
+        intent.putExtra("gameCnName",getString(R.string.plat_agby));
         intent.putExtra("hidetitlebar",false);
         getActivity().startActivity(intent);
     }
@@ -963,14 +989,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             qipai_url = ACache.get(getContext()).getAsString(HGConstant.KY_DEMO_URL);
         }
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postQipai("","");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","开元棋牌");
+            intent.putExtra("gameCnName",getString(R.string.plat_ky));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -980,14 +1006,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     private void postHGQiPaiGo(){
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_QIPAI_URL);
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postHGQipai("","");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","快乐棋牌");
+            intent.putExtra("gameCnName",getString(R.string.plat_kl));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -1000,14 +1026,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             qipai_url = ACache.get(getContext()).getAsString(HGConstant.VG_DEMO_URL);
         }
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postVGQipai("","");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","VG棋牌");
+            intent.putExtra("gameCnName",getString(R.string.plat_vg));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -1020,14 +1046,14 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             qipai_url = ACache.get(getContext()).getAsString(HGConstant.LY_DEMO_URL);
         }
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postLYQipai("","");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","乐游棋牌");
+            intent.putExtra("gameCnName",getString(R.string.plat_ly));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -1040,12 +1066,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             qipai_url = ACache.get(getContext()).getAsString(HGConstant.AV_DEMO_URL);
         }
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postAviaQiPai("","");
         }else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","电子竞技");
+            intent.putExtra("gameCnName",getString(R.string.plat_avia));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -1058,11 +1084,11 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             presenter.postCP();
         }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
             presenter.postCP();
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
         }else{
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",cp_url);
-            intent.putExtra("gameCnName","彩票游戏");
+            intent.putExtra("gameCnName",getString(R.string.plat_cp));
             intent.putExtra("gameType","CP");
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
