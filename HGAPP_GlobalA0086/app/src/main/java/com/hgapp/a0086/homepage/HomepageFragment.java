@@ -223,6 +223,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             GameLog.log("无网络连接，请求到的是本地缓存。。。。。");
         }else {
             //presenter.postOnlineService("");
+            if(Check.isNull(presenter)){
+                presenter =  Injections.inject(null,this);
+            }
             if(!Check.isNull(presenter)) {
                 presenter.postBanner("");
                 presenter.postNotice("");

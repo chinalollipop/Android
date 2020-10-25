@@ -180,7 +180,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
         onSendAuthCode();
         if(prepareGoZHEvent.getFromType().equals("4")||prepareGoZHEvent.getFromType().equals("6")){
             teamVs.setText("|");
-            teamRFT.setBackground(getActivity().getDrawable(R.drawable.bg_bet_bk));
+            teamRFT.setBackground(getResources().getDrawable(R.drawable.bg_bet_bk));
         }
         presenter.postGameAllBetsZH("",prepareGoZHEvent.getGtype(),prepareGoZHEvent.sorttype,prepareGoZHEvent.getMdata(),prepareGoZHEvent.getShowtype(),prepareGoZHEvent.getM_League(),prepareGoZHEvent.getGid());
     }
@@ -222,7 +222,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataRang.ratioHMethod = "PRH";
             prepareBetDataRang.ratioCMethod = "PRC";
             arrayListDataRang.add(prepareBetDataRang);
-            prepareBetDataAllRang.name = "让球";
+            prepareBetDataAllRang.name = getString(R.string.games_ball_rang);//"让球";
             prepareBetDataAllRang.prepareBetData = arrayListDataRang;
             arrayListDataAll.add(prepareBetDataAllRang);
         }
@@ -242,7 +242,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataRangH.ratioCMethod = "HPRC";
             arrayListDataRangH.add(prepareBetDataRangH);
 
-            prepareBetDataAllRangH.name = "让球-上半场";
+            prepareBetDataAllRangH.name = getString(R.string.games_ball_rang_half_up);//"让球-上半场";
             prepareBetDataAllRangH.prepareBetData = arrayListDataRangH;
             arrayListDataAll.add(prepareBetDataAllRangH);
         }
@@ -259,7 +259,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataDaxiao.ratioCMethod = "POUH";
             arrayListDataDaxiao.add(prepareBetDataDaxiao);
 
-            prepareBetDataAllDaxiao.name = "大小";
+            prepareBetDataAllDaxiao.name = getString(R.string.games_ball_size);//"大小";
             prepareBetDataAllDaxiao.prepareBetData =arrayListDataDaxiao;
             arrayListDataAll.add(prepareBetDataAllDaxiao);
         }
@@ -277,7 +277,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataDaxiaoH.ratioCMethod = "HPOUH";
             arrayListDataDaxiaoH.add(prepareBetDataDaxiaoH);
 
-            prepareBetDataAllDaxiaoH.name = "大小-上半场";
+            prepareBetDataAllDaxiaoH.name = getString(R.string.games_ball_size_half_up);//"大小-上半场";
             prepareBetDataAllDaxiaoH.prepareBetData =arrayListDataDaxiaoH;
             arrayListDataAll.add(prepareBetDataAllDaxiaoH);
         }
@@ -298,7 +298,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataDuYin.ratioNMethod = "PMN";
             arrayListDataDuYin.add(prepareBetDataDuYin);
 
-            prepareBetDataAllDuYin.name = "独赢";
+            prepareBetDataAllDuYin.name = getString(R.string.games_ball_duyin);//"独赢";
             prepareBetDataAllDuYin.prepareBetData = arrayListDataDuYin;
             arrayListDataAll.add(prepareBetDataAllDuYin);
         }
@@ -318,7 +318,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataDuyinH.ratioNMethod = "HPMN";
             arrayListDataDuYinH.add(prepareBetDataDuyinH);
 
-            prepareBetDataAllDuYinH.name = "独赢-上半场";
+            prepareBetDataAllDuYinH.name = getString(R.string.games_ball_duyin_half_up);//"独赢-上半场";
             prepareBetDataAllDuYinH.prepareBetData = arrayListDataDuYinH;
             arrayListDataAll.add(prepareBetDataAllDuYinH);
         }
@@ -334,7 +334,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             prepareBetDataDanshuang.ratioCMethod = "PEVEN";
             arrayListDataDanshuang.add(prepareBetDataDanshuang);
 
-            prepareBetDataAllDanshuang.name = "单双";
+            prepareBetDataAllDanshuang.name = getString(R.string.games_ball_odd);//"单双";
             prepareBetDataAllDanshuang.prepareBetData = arrayListDataDanshuang;
             arrayListDataAll.add(prepareBetDataAllDanshuang);
         }
@@ -508,7 +508,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             //onPostGameData();
             //GameLog.log("jointdata "+jointdata+" pgid "+pgid+" pmothed_type "+pmothed_type);
             if(ZHBetManager.getSingleton().onListSize()>=10){
-                showMessage("不接受超过10串过关投注！");
+                showMessage(getString(R.string.games_com_size_need10));
                 return;
             }
             ZHBetManager.getSingleton().onAddData(jointdata,pgid,pmothed_type,chedkedNumber);

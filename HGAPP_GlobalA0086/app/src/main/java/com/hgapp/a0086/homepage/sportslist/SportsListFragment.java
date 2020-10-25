@@ -144,7 +144,7 @@ public class SportsListFragment extends HGBaseFragment implements SportsListCont
         if(sportsListResult.getData().size()>0){
             lvSportList.setAdapter(new SportsListAdapter(getContext(),R.layout.item_sports,sportsListResult.getData()));
         }else{
-            showMessage("盘口暂无数据，请稍后！");
+            showMessage(getString(R.string.games_no_data));
         }
 
     }

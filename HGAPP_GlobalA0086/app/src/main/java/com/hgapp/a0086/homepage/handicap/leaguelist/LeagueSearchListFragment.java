@@ -19,6 +19,7 @@ import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.common.adapters.AutoSizeRVAdapter;
+import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.ArrayListHelper;
 import com.hgapp.a0086.common.util.HGConstant;
@@ -34,6 +35,7 @@ import com.hgapp.a0086.homepage.handicap.leaguedetail.ComPassSearchEvent;
 import com.hgapp.a0086.homepage.handicap.leaguedetail.LeagueDetailSearchEvent;
 import com.hgapp.a0086.homepage.handicap.leaguedetail.zhbet.ZHBetViewManager;
 import com.hgapp.a0086.homepage.handicap.leaguelist.championlist.ChampionDetailSearchEvent;
+import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.zhy.adapter.abslistview.ViewHolder;
 
@@ -104,10 +106,10 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
     String mdata ="";
     private int sorttype = 0;
     static List<String> stateList = new ArrayList<String>();
-    static {
+    /*static {
         stateList.add("联盟排序");
         stateList.add("时间排序");
-    }
+    }*/
 
     public static LeagueSearchListFragment newInstance(List<String> param1) {
         LeagueSearchListFragment fragment = new LeagueSearchListFragment();
@@ -145,7 +147,9 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
     Animation animation ;
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
+        stateList.clear();
+        stateList.add(getString(R.string.games_union_sorting));
+        stateList.add(getString(R.string.games_time_sorting));
         /*animation= new RotateAnimation(0,360f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         animation.setDuration(1000);
         animation.setFillAfter(true);
@@ -223,7 +227,15 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                 break;
         }
 
-        switch (getArgParam2){
+        if(getArgParam2.equals(getString(R.string.plat_football))){
+            gtype = "FT";
+        }else if(getArgParam2.equals(getString(R.string.games_basketball))){
+            gtype = "BK";
+        }else{
+            gtype = "";
+        }
+
+        /*switch (getArgParam2){
             case "足球":
                 gtype = "FT";
                 break;
@@ -236,7 +248,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
              default:
                 gtype = "";
                 break;
-        }
+        }*/
 
         GameLog.log("getArgParam1 "+getArgParam1 + " getArgParam2 " + getArgParam2+" getArgParam3 "+getArgParam3 + " getArgParam4 " + getArgParam4);
         //
@@ -353,13 +365,16 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
             executorService.shutdown();
             executorService = null;
         }
+
+        Client.cancelTag(this);
+
     }
 
 
     @Override
     public void postLeagueSearchTimeResult(final LeagueSearchTimeResult leagueSearchTimeResult) {
         List<LeagueSearchTimeResult.DataBean>  dataBean = leagueSearchTimeResult.getData();
-        time.add("全部日期");
+        time.add(getString(R.string.games_all_time));
         for(int k=0;k<dataBean.size();++k){
             time.add(dataBean.get(k).getDate_txt());
         }

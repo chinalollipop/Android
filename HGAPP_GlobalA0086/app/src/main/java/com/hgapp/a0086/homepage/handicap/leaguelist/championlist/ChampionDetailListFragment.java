@@ -16,6 +16,7 @@ import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
+import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.ArrayListHelper;
 import com.hgapp.a0086.common.util.HGConstant;
@@ -125,6 +126,14 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
     //滚球的数值
     private String ratio;
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(!Check.isNull(presenter)){
+            Client.cancelTag(this);
+        }
+    }
+
     private String buyOrderInfor,buyOrderTitle,buyOrderText;
 
     /**
@@ -170,6 +179,7 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -276,7 +286,7 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
                 myExAdapter.dataChanged(championDetailListResult);
             }
         }else{
-            tvLeagueDetailSearchName.setText("暂无赛事");
+            tvLeagueDetailSearchName.setText(getString(R.string.games_no_saishi));
         }
         exChampionListView.setVisibility(View.VISIBLE);
         tvLeagueSearchNoData.setVisibility(View.GONE);
@@ -491,6 +501,7 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
             executorService.shutdown();
             executorService = null;
         }
+        Client.cancelTag(this);
     }
 
     class MyExpandableAdapter extends BaseExpandableListAdapter {

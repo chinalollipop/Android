@@ -98,7 +98,7 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
     static List<String> gtypeList  = new ArrayList<>();
     static  List<String> checkedList = new ArrayList<>();
     static  List<String> cancelList  = new ArrayList<>();
-    static {
+    /*static {
         gtypeList.add("足球");
         gtypeList.add("篮球");
 
@@ -110,8 +110,7 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
         cancelList.add("取消交易单");
 
 
-
-    }
+    }*/
     public static SaiGuoFragment newInstance(String type1, String type2) {
         SaiGuoFragment fragment = new SaiGuoFragment();
         Bundle args = new Bundle();
@@ -136,8 +135,25 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
         return R.layout.fragment_saiguo;
     }
 
+    private void initData(){
+
+        gtypeList.clear();
+        checkedList.clear();
+        cancelList.clear();
+        gtypeList.add(getString(R.string.plat_football));
+        gtypeList.add(getString(R.string.plat_basketball));
+
+        checkedList.add(getString(R.string.bet_record_all));
+        checkedList.add(getString(R.string.bet_record_checked_no));
+        checkedList.add(getString(R.string.bet_record_checked_yes));
+
+        cancelList.add(getString(R.string.bet_record_success));
+        cancelList.add(getString(R.string.bet_record_fail));
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initData();
         onPostBetRecord();
         betTTop.setVisibility(View.GONE);
        /* String body = TxtTool.getStates(getContext());
@@ -195,7 +211,7 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 String text = gtypeList.get(options1);
                 betRrcordGtype.setText(text);
-                if(text.equals("足球")){
+                if(text.equals(getString(R.string.plat_football))){
                     gtype = "FT";
                 }else{
                     gtype = "BK";
@@ -211,9 +227,9 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 String text = checkedList.get(options1);
                 betRrcordChecked.setText(text);
-                if(text.equals("全部")){
+                if(text.equals(getString(R.string.bet_record_all))){
                     checked = "";
-                }else if(text.equals("未结注单")){
+                }else if(text.equals(getString(R.string.bet_record_checked_no))){
                     checked = "N";
                 }else{
                     checked = "Y";
@@ -228,7 +244,7 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 String text = cancelList.get(options1);
                 betRrcordCancel.setText(text);
-                if(text.equals("未取消交易单")){
+                if(text.equals(getString(R.string.bet_record_success))){
                     cancel = "N";
                 }else{
                     cancel = "Y";
@@ -541,10 +557,10 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             case R.id.tvBetRecordToday:
                 tvBetRecordStartTime.setText(DateHelper.getToday());
                 tvBetRecordEndTime.setText(DateHelper.getToday());
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.title_text));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.title_text));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -553,10 +569,10 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             case R.id.tvBetRecordLastDay:
                 tvBetRecordStartTime.setText(DateHelper.getYesterday());
                 tvBetRecordEndTime.setText(DateHelper.getYesterday());
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.title_text));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.title_text));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);
@@ -565,10 +581,10 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             case R.id.tvBetRecordLastWeek:
                 tvBetRecordStartTime.setText(DateHelper.getLastWeek());
                 tvBetRecordEndTime.setText(DateHelper.getToday());
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.title_text));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.title_text));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_focus);
@@ -577,10 +593,10 @@ public class SaiGuoFragment extends HGBaseFragment implements SaiGuoContract.Vie
             case R.id.tvBetRecordLastMonth:
                 tvBetRecordStartTime.setText(DateHelper.getCurrentMonthDayBegin());
                 tvBetRecordEndTime.setText(DateHelper.getToday());
-                tvBetRecordToday.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastDay.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastWeek.setTextColor(getContext().getColor(R.color.n_edittext_pwd));
-                tvBetRecordLastMonth.setTextColor(getContext().getColor(R.color.title_text));
+                tvBetRecordToday.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastDay.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastWeek.setTextColor(getResources().getColor(R.color.n_edittext_pwd));
+                tvBetRecordLastMonth.setTextColor(getResources().getColor(R.color.title_text));
                 tvBetRecordToday.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastDay.setBackgroundResource(R.drawable.bg_btn_no_focus);
                 tvBetRecordLastWeek.setBackgroundResource(R.drawable.bg_btn_no_focus);

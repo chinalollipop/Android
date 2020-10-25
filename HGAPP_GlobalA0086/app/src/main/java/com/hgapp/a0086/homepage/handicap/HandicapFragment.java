@@ -172,6 +172,12 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Client.cancelTag(this);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -530,7 +536,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("今日足球：postSportsListResultResultFTs "+kkszie);
+        GameLog.log("HandicapFragment 今日足球：postSportsListResultResultFTs "+kkszie);
         children[1][0]=getString(R.string.plat_football)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
@@ -545,7 +551,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("今日篮球：postSportsListResultResultBKs "+kkszie);
+        GameLog.log("HandicapFragment 今日篮球：postSportsListResultResultBKs "+kkszie);
         children[1][1]=getString(R.string.games_basketball)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
@@ -561,7 +567,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("滚球足球：postSportsListResultResultFTr "+kkszie);
+        GameLog.log("HandicapFragment 滚球足球：postSportsListResultResultFTr "+kkszie);
         children[0][0]=getString(R.string.plat_football)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
@@ -576,7 +582,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("滚球篮球：postSportsListResultResultBKr "+kkszie);
+        GameLog.log("HandicapFragment 滚球篮球：postSportsListResultResultBKr "+kkszie);
         children[0][1]=getString(R.string.games_basketball)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
@@ -592,7 +598,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("早盘足球：postSportsListResultResultFU "+kkszie);
+        GameLog.log("HandicapFragment 早盘足球：postSportsListResultResultFU "+kkszie);
         children[2][0]=getString(R.string.plat_football)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }
@@ -607,7 +613,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("早盘篮球：postSportsListResultResultBU "+kkszie);
+        GameLog.log("HandicapFragment 早盘篮球：postSportsListResultResultBU "+kkszie);
         children[2][1]=getString(R.string.games_basketball)+"（"+kkszie+"）";
         myExAdapter.notifyDataSetInvalidated();
     }

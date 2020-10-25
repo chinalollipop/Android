@@ -23,6 +23,7 @@ import com.hgapp.a0086.Injections;
 import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
+import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.ArrayListHelper;
 import com.hgapp.a0086.common.util.GameShipHelper;
@@ -479,6 +480,13 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
         return true;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+
+
     @OnClick({R.id.ivBetNewBack, R.id.ivBetNewMenu, R.id.ivBetNewUserRefresh,
             R.id.tvBetNewBowls,R.id.tvBetNewToday,R.id.tvBetNewMorning,
             R.id.tvBetNewFootball, R.id.tvBetNewBasketball,R.id.tvBetNewSaiGuo, R.id.tvBetNewTennis, R.id.tvBetNewBaseball, R.id.tvBetNewVideoGame, R.id.tvBetNewSlotsGame, R.id.tvBetNewLottery,R.id.tvBetNewQipai,R.id.tvBetNewHgQipai})
@@ -530,7 +538,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
                 break;
             case R.id.tvBetNewFootball:
                 onHideDeatail();
-                getArgParam4 = "足球";
+                getArgParam4 = getString(R.string.plat_football);
 
                 if(getArgParam3.equals("1")){
                     getArgParam7 = "1";
@@ -545,7 +553,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
                 break;
             case R.id.tvBetNewBasketball:
                 onHideDeatail();
-                getArgParam4 = "篮球 / 美式足球";
+                getArgParam4 = getString(R.string.games_basketball);
                 if(getArgParam3.equals("1")){
                     getArgParam7 = "2";
                 }else if(getArgParam3.equals("2")){
@@ -562,10 +570,10 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
                 EventBus.getDefault().post(new StartBrotherEvent(SaiGuoFragment.newInstance(getArgParam2,getArgParam2 ), SupportFragment.SINGLETASK));
                 break;
             case R.id.tvBetNewTennis:
-                showMessage("暂无赛事");
+                showMessage(getString(R.string.games_no_data));
                 break;
             case R.id.tvBetNewBaseball:
-                showMessage("暂无赛事");
+                showMessage(getString(R.string.games_no_data));
                 break;
             case R.id.tvBetNewVideoGame:
                 onHideDeatail();
@@ -606,11 +614,11 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
         if(Check.isEmpty(cp_url)){
             presenter.postCP();
         }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
         }else{
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",cp_url);
-            intent.putExtra("gameCnName","彩票游戏");
+            intent.putExtra("gameCnName",getString(R.string.plat_cp));
             intent.putExtra("gameType","CP");
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
@@ -638,6 +646,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        Client.cancelTag(this);
         EventBus.getDefault().unregister(this);
         getActivity().unregisterReceiver(dynamicReceiver);
     }
@@ -756,14 +765,14 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
     private void postQiPaiGo(){
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_QIPAI_URL);
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postQipai("","");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","棋牌游戏");
+            intent.putExtra("gameCnName",getString(R.string.plat_ky));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }
@@ -773,14 +782,14 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
     private void postHGQiPaiGo(){
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_QIPAI_URL);
         if(Check.isEmpty(qipai_url)){
-            showMessage("正在加载中，请稍后再试!");
+            showMessage(getString(R.string.comm_loading1));
             presenter.postHgQipai("","");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);
-            intent.putExtra("gameCnName","棋牌游戏");
+            intent.putExtra("gameCnName",getString(R.string.plat_hg));
             intent.putExtra("hidetitlebar",false);
             getActivity().startActivity(intent);
         }

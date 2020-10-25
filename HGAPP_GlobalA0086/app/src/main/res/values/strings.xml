@@ -30,6 +30,60 @@
     <string name="games_football_hint">足球（0）</string>
     <string name="games_basketball">篮球 / 美式足球</string>
     <string name="games_basketball_hint">篮球 / 美式足球（0）</string>
+    <string name="games_half_court">半场</string>
+    <string name="games_full_court">全场</string>
+    <string name="games_no_data">盘口暂无数据，请稍后！</string>
+    <string name="games_list">赛事列表</string>
+    <string name="games_ball_running">滚球</string>
+    <string name="games_ball_today">今日</string>
+    <string name="games_ball_morning">早盘</string>
+    <string name="games_rang_size">让球 / 大小</string>
+    <string name="games_ball_rang">让球</string>
+    <string name="games_ball_rang_half_up">让球-上半场</string>
+    <string name="games_ball_zhong">中</string>
+    <string name="games_ball_size">大/小</string>
+    <string name="games_ball_size_half_up">大小-上半场</string>
+    <string name="games_ball_duyin">独赢</string>
+    <string name="games_ball_duyin_half_up">独赢-上半场</string>
+    <string name="games_ball_odd">单双</string>
+    <string name="games_ball_odd_half_up">单双-上半场</string>
+
+
+
+    <string name="games_ball_method">玩法></string>
+    <string name="games_ball_more_method">更多玩法></string>
+    <string name="games_ball_all_method">所有玩法></string>
+    <string name="games_com_pass">综合过关</string>
+
+
+    <string name="games_com_ft_re">足球（滚球） 让球</string>
+    <string name="games_com_bk_re">篮球（滚球） 让球</string>
+    <string name="games_com_ft_r">足球 让球</string>
+    <string name="games_com_bk_r">篮球 让球</string>
+    <string name="games_com_ft_r_m">足球 早盘 让球</string>
+    <string name="games_com_bk_r_m">篮球 早盘 让球</string>
+    <string name="games_com_d_r">单场让球</string>
+    <string name="games_com_d_s">单场大小</string>
+    <string name="games_com_size_need10">不接受超过10串过关投注！</string>
+
+    <string name="games_com_ft_rou">足球（滚球） 总分 大/小</string>
+    <string name="games_com_bk_rou">篮球（滚球） 总分 大/小</string>
+    <string name="games_com_ft_ou">足球 大/小</string>
+    <string name="games_com_bk_ou">篮球 大/小</string>
+    <string name="games_com_ft_ou_m">足球 早盘 大/小</string>
+    <string name="games_com_bk_ou_m">篮球 早盘 大/小</string>
+
+    <string name="games_team_h">主队</string>
+    <string name="games_team_c">客队</string>
+
+    <string name="games_all_time">全部日期</string>
+    <string name="games_union_sorting">联盟排序</string>
+    <string name="games_time_sorting">时间排序</string>
+    <string name="games_all_ball">所有球类</string>
+    <string name="games_back_home">回到首页</string>
+    <string name="games_union_saishi">联盟赛事</string>
+    <string name="games_get_saishi">获取赛事</string>
+    <string name="games_no_saishi">暂无赛事</string>
 
 
 
@@ -55,7 +109,10 @@
     <string name="plat_agvideo">AG视讯</string>
     <string name="plat_aggame">AG电子</string>
     <string name="plat_agby">AG捕鱼</string>
-
+    <string name="plat_video">真人荷官</string>
+    <string name="plat_tiger">老虎机</string>
+    <string name="plat_hg">皇冠</string>
+    <string name="plat_kyqp">开元</string>
 
     <string name="bcard_user_first">请先绑定银行卡！</string>
     <string name="bcard_user_no_alise">暂无</string>
@@ -98,6 +155,7 @@
 
     <string name="bet_record_type">足球</string>
     <string name="bet_record_all">全部</string>
+    <string name="bet_record_fail">取消交易单</string>
     <string name="bet_record_success">未取消交易单</string>
     <string name="bet_record_choice_time">请选择时间</string>
 
@@ -158,6 +216,7 @@
     <string name="comm_register">注册</string>
     <string name="comm_pls_register_real_acccount">非常抱歉，请您注册真实会员！</string>
     <string name="comm_loading">加载中</string>
+    <string name="comm_loading1">正在加载中，请稍后再试!</string>
     <string name="comm_dialog_title">提示</string>
     <string name="comm_dialog_input_hint_in">请输入转入金额</string>
     <string name="comm_dialog_input_hint_out">请输入转出金额</string>

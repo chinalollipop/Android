@@ -15,6 +15,7 @@ import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.common.adapters.AutoSizeAdapter;
+import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.ArrayListHelper;
 import com.hgapp.a0086.common.util.HGConstant;
@@ -273,7 +274,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
         if(!Check.isNull(leagueDetailSearchListResult.getData())&&leagueDetailSearchListResult.getData().size()>0){
             tvLeagueDetailSearchName.setText(leagueDetailSearchListResult.getData().get(0).getLeague());
         }else{
-            tvLeagueDetailSearchName.setText("暂无赛事");
+            tvLeagueDetailSearchName.setText(getString(R.string.games_no_saishi));
         }
         lvLeagueSearchList.setAdapter(new LeagueDetailListAdapter(getContext(),R.layout.item_league_detail, leagueDetailSearchListResult.getData()));
         lvLeagueSearchList.setVisibility(View.VISIBLE);
@@ -303,7 +304,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 }
             }
         }else{
-            tvLeagueDetailSearchName.setText("暂无赛事");
+            tvLeagueDetailSearchName.setText(getString(R.string.games_no_saishi));
             lvLeagueSearchList.setVisibility(View.GONE);
             tvLeagueSearchNoData.setVisibility(View.VISIBLE);
         }
@@ -420,10 +421,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setText(R.id.tv_ratio_u_str,dataList.getRatio_u_str());//客队大小
             holder.setText(R.id.tv_ior_ouh,dataList.getIor_OUH());          //客队大小赔率
             if("0".equals(dataList.getAll())||"".equals(dataList.getAll())){
-                holder.setText(R.id.tv_pay_all,"更多玩法>");
+                holder.setText(R.id.tv_pay_all,getString(R.string.games_ball_more_method));
             }else{
                 holder.setVisible(R.id.ll_pay_all,true);
-                holder.setText(R.id.tv_pay_all,dataList.getAll()+" 玩法>");
+                holder.setText(R.id.tv_pay_all,dataList.getAll()+getString(R.string.games_ball_method));
             }
             if(dataList.getStrong().equals("H")){       //主队让球
                 holder.setText(R.id.tv_ratio_mb_str,dataList.getRatio());
@@ -490,22 +491,22 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
                     if(fromType.equals("1")){//滚球足球
                         line_type = "9";
-                        buyOrderTitle = "足球（滚球） 让球";
+                        buyOrderTitle = getString(R.string.games_com_ft_re);//"足球（滚球） 让球";
                         porder_method = "FT_re";
                     }else if(fromType.equals("2")){//滚球篮球
-                        buyOrderTitle = "篮球（滚球） 让球";
+                        buyOrderTitle = getString(R.string.games_com_bk_re);//"篮球（滚球） 让球";
                         porder_method = "BK_re";
                     }else if(fromType.equals("3")){//今日足球
-                        buyOrderTitle = "足球 让球";
+                        buyOrderTitle = getString(R.string.games_com_ft_r);//"足球 让球";
                         porder_method = "FT_r";
                     }else if(fromType.equals("4")){//今日篮球
-                        buyOrderTitle = "篮球 让球";
+                        buyOrderTitle = getString(R.string.games_com_bk_r);//"篮球 让球";
                         porder_method = "BK_r";
                     }else if(fromType.equals("5")){//早盘足球
-                        buyOrderTitle = "足球 早盘 让球";
+                        buyOrderTitle = getString(R.string.games_com_ft_r_m);//"足球 早盘 让球";
                         porder_method = "FT_r";
                     }else if(fromType.equals("6")){//早盘篮球
-                        buyOrderTitle = "篮球 早盘 让球";
+                        buyOrderTitle = getString(R.string.games_com_bk_r_m);//"篮球 早盘 让球";
                         porder_method = "BK_r";
                     }
                     onCheckThirdMobilePay(cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype);
@@ -539,22 +540,22 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     prtype = "";
 
                     if(fromType.equals("1")){//滚球足球
-                        buyOrderTitle = "足球（滚球） 总分 大/小";
+                        buyOrderTitle = getString(R.string.games_com_ft_rou);//"足球（滚球） 总分 大/小";
                         porder_method = "FT_rou";
                     }else if(fromType.equals("2")){//滚球篮球
-                        buyOrderTitle = "篮球（滚球） 总分 大/小";
+                        buyOrderTitle = getString(R.string.games_com_bk_rou);//"篮球（滚球） 总分 大/小";
                         porder_method = "BK_rou";
                     }else if(fromType.equals("3")){//今日足球
-                        buyOrderTitle = "足球 大/小";
+                        buyOrderTitle = getString(R.string.games_com_ft_ou);//"足球 大/小";
                         porder_method = "FT_ou";
                     }else if(fromType.equals("4")){//今日篮球
-                        buyOrderTitle = "篮球 大/小";
+                        buyOrderTitle = getString(R.string.games_com_bk_ou);//"篮球 大/小";
                         porder_method = "BK_ou";
                     }else if(fromType.equals("5")){//早盘足球
-                        buyOrderTitle = "足球 早盘 大/小";
+                        buyOrderTitle = getString(R.string.games_com_ft_ou_m);//"足球 早盘 大/小";
                         porder_method = "FT_ou";
                     }else if(fromType.equals("6")){//早盘篮球
-                        buyOrderTitle = "篮球 早盘 大/小";
+                        buyOrderTitle = getString(R.string.games_com_bk_ou_m);//"篮球 早盘 大/小";
                         porder_method = "BK_ou";
                     }
                     if(fromType.equals("1")){
@@ -586,7 +587,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         return;
                     }
                     ratio = dataList.getRatio();
-                    buyOrderTitle = "单场让球";
+                    buyOrderTitle = getString(R.string.games_com_d_r);//"单场让球";
                     buyOrderText = mTeamC+" @ <font color='#C9270B'>"+ioradio_r_h+"</font>";
                     gid = dataList.getGid();
                     line_type = "2";
@@ -601,22 +602,22 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     prtype = "";
 
                     if(fromType.equals("1")){//滚球足球
-                        buyOrderTitle = "足球（滚球） 让球";
+                        buyOrderTitle = getString(R.string.games_com_ft_re);//"足球（滚球） 让球";
                         porder_method = "FT_re";
                     }else if(fromType.equals("2")){//滚球篮球
-                        buyOrderTitle = "篮球（滚球） 让球";
+                        buyOrderTitle = getString(R.string.games_com_bk_re);//"篮球（滚球） 让球";
                         porder_method = "BK_re";
                     }else if(fromType.equals("3")){//今日足球
-                        buyOrderTitle = "足球 让球";
+                        buyOrderTitle = getString(R.string.games_com_ft_r);//"足球 让球";
                         porder_method = "FT_r";
                     }else if(fromType.equals("4")){//今日篮球
-                        buyOrderTitle = "篮球 让球";
+                        buyOrderTitle = getString(R.string.games_com_bk_r);//"篮球 让球";
                         porder_method = "BK_r";
                     }else if(fromType.equals("5")){//早盘足球
-                        buyOrderTitle = "足球 早盘 让球";
+                        buyOrderTitle = getString(R.string.games_com_ft_r_m);//"足球 早盘 让球";
                         porder_method = "FT_r";
                     }else if(fromType.equals("6")){//早盘篮球
-                        buyOrderTitle = "篮球 早盘 让球";
+                        buyOrderTitle = getString(R.string.games_com_bk_r_m);//"篮球 早盘 让球";
                         porder_method = "BK_r";
                     }
                     if(fromType.equals("1")){
@@ -653,22 +654,22 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     prtype = "";
 
                     if(fromType.equals("1")){//滚球足球
-                        buyOrderTitle = "足球（滚球） 总分 大/小";
+                        buyOrderTitle = getString(R.string.games_com_ft_rou);//"足球（滚球） 总分 大/小";
                         porder_method = "FT_rou";
                     }else if(fromType.equals("2")){//滚球篮球
-                        buyOrderTitle = "篮球（滚球） 总分 大/小";
+                        buyOrderTitle = getString(R.string.games_com_bk_rou);//"篮球（滚球） 总分 大/小";
                         porder_method = "BK_rou";
                     }else if(fromType.equals("3")){//今日足球
-                        buyOrderTitle = "足球 大/小";
+                        buyOrderTitle = getString(R.string.games_com_ft_ou);//"足球 大/小";
                         porder_method = "FT_ou";
                     }else if(fromType.equals("4")){//今日篮球
-                        buyOrderTitle = "篮球 大/小";
+                        buyOrderTitle = getString(R.string.games_com_bk_ou);//"篮球 大/小";
                         porder_method = "BK_ou";
                     }else if(fromType.equals("5")){//早盘足球
+                        buyOrderTitle = getString(R.string.games_com_ft_ou_m);//"足球 早盘 大/小";
                         porder_method = "FT_ou";
-                        buyOrderTitle = "足球 早盘 大/小";
                     }else if(fromType.equals("6")){//早盘篮球
-                        buyOrderTitle = "篮球 早盘 大/小";
+                        buyOrderTitle = getString(R.string.games_com_bk_ou_m);//"篮球 早盘 大/小";
                         porder_method = "BK_ou";
                     }
                     if(fromType.equals("1")){
@@ -745,7 +746,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setText(R.id.tv_ior_rc,dataList.getIor_PRC());            //客队让球赔率
             holder.setText(R.id.tv_ratio_u_str,dataList.getRatio_u_str());//客队大小
             holder.setText(R.id.tv_ior_ouh,dataList.getIor_POUH());          //客队大小赔率
-            holder.setText(R.id.tv_pay_all,"所有玩法>");
+            holder.setText(R.id.tv_pay_all,getString(R.string.games_ball_all_method));
 
             if(dataList.getStrong().equals("H")){       //主队让球
                 holder.setText(R.id.tv_ratio_mb_str,dataList.getRatio());
@@ -936,7 +937,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         return;
                     }
                     ratio = dataList.getRatio();
-                    buyOrderTitle = "单场让球";
+                    buyOrderTitle = getString(R.string.games_com_d_r);//"单场让球";
                     gid = dataList.getGid();
                     line_type = "2";
                     type = "";
@@ -981,7 +982,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         return;
                     }
                     ratio = "";
-                    buyOrderTitle = "单场大小";
+                    buyOrderTitle = getString(R.string.games_com_d_s);//"单场大小";
 
                     gid = dataList.getGid();
                     type = "";
@@ -1055,7 +1056,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
     private void onAddData(){
         if(ZHBetManager.getSingleton().onListSize()>=10){
-            showMessage("不接受超过10串过关投注！");
+            showMessage(getString(R.string.games_com_size_need10));
             return;
         }
         ZHBetManager.getSingleton().onAddData(jointdata,gid,method_type,checked);
@@ -1134,6 +1135,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
     private void onSartTime(){
         if(Check.isNull(presenter)){
+            if(Check.isNull(onWaitingThread)&&Check.isNull(presenter)){
+                return;
+            }
             presenter =   Injections.inject(null,this);
         }
         if(!Check.isEmpty(M_League)){
@@ -1186,6 +1190,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             executorService = null;
             onWaitingThread = null;
         }
+        Client.cancelTag(this);
+        pappRefer = null;
     }
 
     @Override

@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="赛事列表"
+            android:text="@string/games_list"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:textColor="#F4F4F4"

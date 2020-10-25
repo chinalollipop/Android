@@ -124,12 +124,14 @@ public class Client {
     public static void cancelTag(Object tag){
         for(Call call:client.dispatcher().runningCalls()){
             if(tag.equals(call.request().tag())){
+                GameLog.log("关闭正在运行的请求" +tag.getClass().getSimpleName());
                 call.cancel();
             }
         }
 
         for(Call call:client.dispatcher().queuedCalls()){
             if(tag.equals(call.request().tag())){
+                GameLog.log("关闭等待运行的请求" +tag.getClass().getSimpleName());
                 call.cancel();
             }
         }

@@ -20,7 +20,7 @@
         android:textSize="18sp"
         android:singleLine="true"
         android:ellipsize="end"
-        android:text="获取赛事"
+        android:text="@string/games_get_saishi"
         android:gravity="center|left"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
@@ -58,7 +58,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:textSize="18sp"
-        android:text="联盟赛事"
+        android:text="@string/games_union_saishi"
         android:paddingLeft="16dp"
         android:gravity="center|left"
         android:layout_width="match_parent"
@@ -79,7 +79,7 @@
         android:layout_gravity="center"
         android:drawablePadding="10dp"
         android:drawableTop="@mipmap/bet_nodata"
-        android:text="无赛程"
+        android:text="@string/games_no_saishi"
         android:visibility="gone" />
 
     <Button
@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="所有球类"
+        android:text="@string/games_all_ball"
         />
     <Button
         android:id="@+id/btnLeagueSearchBackHome"
@@ -98,7 +98,7 @@
         android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="回到首页"
+        android:text="@string/games_back_home"
         android:textSize="18sp"
         android:textColor="#706860"
         android:background="@drawable/ex_item_default"

@@ -21,7 +21,7 @@
                 android:layout_height="45dp"
                 android:gravity="center|left"
                 android:paddingLeft="16dp"
-                android:text="滚球赛事滚球赛事滚球赛事滚球赛事滚球赛事滚球赛事滚球赛事"
+                android:text=""
                 android:maxEms="10"
                 android:singleLine="true"
                 android:ellipsize="end"
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:gravity="center"
-                    android:text="让球 / 大小"
+                    android:text="@string/games_rang_size"
                     android:textColor="@color/bet_title_tv_clicked"
                     android:textSize="18sp" />
 
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:gravity="center"
-                    android:text="综合过关"
+                    android:text="@string/games_com_pass"
                     android:textColor="@color/bet_line"
                     android:textSize="18sp" />
 
@@ -121,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:gravity="center"
-                    android:text="冠军"
+                    android:text="@string/plat_champion"
                     android:textColor="@color/bet_line"
                     android:textSize="18sp" />
 
@@ -152,7 +152,7 @@
                 android:background="@mipmap/icon_textview_transfer"
                 android:gravity="center|left"
                 android:paddingLeft="16dp"
-                android:text="全部日期"
+                android:text="@string/games_all_time"
                 android:textColor="#837D78"
                 android:textSize="18sp" />
 
@@ -165,7 +165,7 @@
                 android:background="@mipmap/icon_textview_transfer"
                 android:gravity="center|left"
                 android:paddingLeft="16dp"
-                android:text="联盟排序"
+                android:text="@string/games_union_sorting"
                 android:textColor="#837D78"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -181,7 +181,7 @@
             android:background="@mipmap/icon_textview_transfer"
             android:gravity="center|left"
             android:paddingLeft="16dp"
-            android:text="联盟排序"
+            android:text="@string/games_union_sorting"
             android:textColor="#837D78"
             android:textSize="18sp" />
         <android.support.v7.widget.RecyclerView
@@ -215,7 +215,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="所有球类"
+            android:text="@string/games_all_ball"
             android:textSize="18sp" />
 
         <Button
@@ -226,7 +226,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/ex_item_default"
-            android:text="回到首页"
+            android:text="@string/games_back_home"
             android:textColor="#706860"
             android:textSize="18sp" />
 

@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="滚球"
+                android:text="@string/games_ball_running"
                 android:textColor="#C0BAB4"
                 android:textSize="20sp" />
             </LinearLayout>
@@ -46,7 +46,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="今日"
+                android:text="@string/games_ball_today"
                 android:textColor="#C0BAB4"
                 android:textSize="20sp" />
 
@@ -57,7 +57,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="早盘"
+                android:text="@string/games_ball_morning"
                 android:textColor="#C0BAB4"
                 android:textSize="20sp" />
 
@@ -139,7 +139,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_soccer_off"
                 android:gravity="center"
-                android:text="足球"
+                android:text="@string/plat_football"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
 
@@ -150,7 +150,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_basketball_off"
                 android:gravity="center"
-                android:text="篮球"
+                android:text="@string/plat_basketball"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/home_three"
                 android:gravity="center"
-                android:text="赛果"
+                android:text="@string/games_results"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
 
@@ -195,7 +195,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_poker_off"
                 android:gravity="center"
-                android:text="真人荷官"
+                android:text="@string/plat_video"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
 
@@ -206,7 +206,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_slot_off"
                 android:gravity="center"
-                android:text="老虎机"
+                android:text="@string/plat_tiger"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
 
@@ -217,7 +217,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_lottery_off"
                 android:gravity="center"
-                android:text="彩票"
+                android:text="@string/plat_cp"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
             <TextView
@@ -227,7 +227,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_hg"
                 android:gravity="center"
-                android:text="皇冠"
+                android:text="@string/plat_hg"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
             <TextView
@@ -237,7 +237,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/bet_qipai"
                 android:gravity="center"
-                android:text="开元"
+                android:text="@string/plat_kyqp"
                 android:textColor="#7E7E7E"
                 android:textSize="16sp" />
         </LinearLayout>

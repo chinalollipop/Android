@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:gravity="center"
-            android:text="滚球" />
+            android:text="@string/games_ball_running" />
 
         <TextView
             android:id="@+id/tv_time"
@@ -31,21 +31,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="中" />
+            android:text="@string/games_ball_zhong" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="让球" />
+            android:text="@string/games_ball_rang" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="大/小" />
+            android:text="@string/games_ball_size" />
     </LinearLayout>
 
     <RelativeLayout
@@ -94,7 +94,7 @@
                 android:id="@+id/tv_ratio_mb_str"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="让球"
+                android:text="@string/games_ball_rang"
                 android:textColor="#6E5336" />
 
             <TextView
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="让球"
+                android:text="@string/games_ball_rang"
                 android:textColor="#C9270B" />
         </LinearLayout>
 
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="大小"
+                android:text="@string/games_ball_size"
                 android:textColor="#6E5336" />
 
             <TextView
@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="大小"
+                android:text="@string/games_ball_size"
                 android:textColor="#C9270B " />
         </LinearLayout>
     </RelativeLayout>
@@ -187,7 +187,7 @@
                 android:layout_height="wrap_content"
 
                 android:gravity="center"
-                android:text="让球"
+                android:text="@string/games_ball_rang"
                 android:textColor="#6E5336" />
 
             <TextView
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:text="让球"
+                android:text="@string/games_ball_rang"
                 android:textColor="#C9270B" />
         </LinearLayout>
 
@@ -219,7 +219,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="大小"
+                android:text="@string/games_ball_size"
                 android:textColor="#6E5336" />
 
             <TextView
@@ -227,7 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="大小"
+                android:text="@string/games_ball_size"
                 android:textSize="16sp"
                 android:textColor="#C9270B" />
         </LinearLayout>
@@ -256,7 +256,7 @@
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:gravity="center"
-            android:text="1 玩法>"
+            android:text="@string/games_ball_method"
             android:textColor="#579F7E" />
 
     </LinearLayout>

@@ -15,6 +15,7 @@ import com.hgapp.a0086.R;
 import com.hgapp.a0086.base.HGBaseFragment;
 import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.common.adapters.AutoSizeAdapter;
+import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.data.SportsListResult;
@@ -57,8 +58,7 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
         stateList.add("印尼盘");
         stateList.add("欧洲盘");
 
-        groups.add("足球（0）");
-        groups.add("篮球 / 美式足球（0）");
+
         /*groups.add("网球");
         groups.add("排球");
         groups.add("羽毛球");
@@ -93,28 +93,39 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
+        groups.clear();
+        groups.add(getString(R.string.games_football_hint));
+        groups.add(getString(R.string.games_basketball_hint));
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Client.cancelTag(this);
+        presenter = null;
+    }
 
     @Override
     public void onVisible() {
         super.onVisible();
+        if(Check.isNull(presenter)){
+            return;
+        }
         if(getArgParam1.equals("1")){
-            tvLeagueName.setText("滚球赛事");
+            tvLeagueName.setText(getString(R.string.games_ball));
 
             //滚球
             presenter.postSportsListFTr(null,"FT","RB","league","");
             presenter.postSportsListBKr(null,"BK","RB","league","");
 
         }else if(getArgParam1.equals("2")){
-            tvLeagueName.setText("今日赛事");
+            tvLeagueName.setText(getString(R.string.games_today));
             //今日
             presenter.postSportsListFTs(null,"FT","FT","league","");
             presenter.postSportsListBKs(null,"BK","FT","league","");
 
         }else if(getArgParam1.equals("3")){
-            tvLeagueName.setText("早盘赛事");
+            tvLeagueName.setText(getString(R.string.games_morning));
             //早盘
             presenter.postSportsListFU(null,"FT","FU","league","");
             presenter.postSportsListBU(null,"BK","FU","league","");
@@ -130,9 +141,6 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
             }
         }).build();
         optionsPickerViewState.setPicker(stateList);
-
-
-
 
     }
 
@@ -153,9 +161,9 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("滚球足球：postSportsListResultResultFTr "+kkszie);
+        GameLog.log("滚球足球：postSportsListResultResultFTr LeagueListFragment "+kkszie);
         groups.remove(0);
-        groups.add(0,"足球（"+kkszie+"）");
+        groups.add(0,getString(R.string.plat_football)+"（"+kkszie+"）");
         leagueListAdapter.notifyDataSetInvalidated();
 
     }
@@ -171,9 +179,9 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("滚球篮球：postSportsListResultResultBKr "+kkszie);
+        GameLog.log("滚球篮球：postSportsListResultResultBKr LeagueListFragment "+kkszie);
         groups.remove(1);
-        groups.add(1,"篮球 / 美式足球（"+kkszie+"）");
+        groups.add(1,getString(R.string.games_basketball)+"（"+kkszie+"）");
         leagueListAdapter.notifyDataSetInvalidated();
     }
 
@@ -190,9 +198,9 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
             }
         }
 
-        GameLog.log("今日足球：postSportsListResultResultFTs "+kkszie);
+        GameLog.log("今日足球：postSportsListResultResultFTs LeagueListFragment "+kkszie);
         groups.remove(0);
-        groups.add(0,"足球（"+kkszie+"）");
+        groups.add(0,getString(R.string.plat_football)+"（"+kkszie+"）");
         leagueListAdapter.notifyDataSetInvalidated();
     }
     @Override
@@ -206,9 +214,9 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("今日篮球：postSportsListResultResultFTs "+kkszie);
+        GameLog.log("今日篮球：postSportsListResultResultBKs LeagueListFragment "+kkszie);
         groups.remove(1);
-        groups.add(1,"篮球 / 美式足球（"+kkszie+"）");
+        groups.add(1,getString(R.string.games_basketball)+"（"+kkszie+"）");
         leagueListAdapter.notifyDataSetInvalidated();
     }
 
@@ -223,9 +231,9 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("早盘足球：postSportsListResultResultFU "+kkszie);
+        GameLog.log("早盘足球：postSportsListResultResultFU LeagueListFragment "+kkszie);
         groups.remove(0);
-        groups.add(0,"足球（"+kkszie+"）");
+        groups.add(0,getString(R.string.plat_football)+"（"+kkszie+"）");
         leagueListAdapter.notifyDataSetInvalidated();
     }
 
@@ -240,9 +248,9 @@ public class LeagueListFragment extends HGBaseFragment implements SportsListCont
                 kkszie += sportsListResult.getData().get(k).getNum();
             }
         }
-        GameLog.log("早盘篮球：postSportsListResultResultBU "+kkszie);
+        GameLog.log("早盘篮球：postSportsListResultResultBU LeagueListFragment "+kkszie);
         groups.remove(1);
-        groups.add(1,"篮球 / 美式足球（"+kkszie+"）");
+        groups.add(1,getString(R.string.games_basketball)+"（"+kkszie+"）");
         leagueListAdapter.notifyDataSetInvalidated();
     }
 
