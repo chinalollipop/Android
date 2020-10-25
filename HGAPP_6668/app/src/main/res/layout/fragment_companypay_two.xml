@@ -47,11 +47,13 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:text="银行"
+            android:layout_marginTop="5dp"
             android:textSize="15sp" />
 
 
         <LinearLayout
             android:orientation="horizontal"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
