@@ -60,7 +60,6 @@
             android:id="@+id/tvDepositCompanyPayBank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
             android:gravity="left|center"
             android:text="工商银行"
             />
