@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.hgapp.bet365.Injections;
 import com.hgapp.bet365.R;
@@ -22,7 +21,7 @@ import com.hgapp.bet365.data.DepositThirdBankCardResult;
 import com.hgapp.bet365.data.DepositThirdQQPayResult;
 import com.hgapp.bet365.data.LoginResult;
 import com.hgapp.bet365.depositpage.aliqcpay.AliQCPayFragment;
-import com.hgapp.bet365.depositpage.companypay.CompanyPayFragment;
+import com.hgapp.bet365.depositpage.companypay.CompanyPayOneFragment;
 import com.hgapp.bet365.depositpage.thirdbankcardpay.ThirdbankCardFragment;
 import com.hgapp.bet365.depositpage.thirdmobilepay.OnlinePlayFragment;
 import com.hgapp.bet365.depositpage.thirdmobilepay.ThirdMobilePayFragment;
@@ -124,7 +123,7 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
     @Override
     public void postDepositBankCordListResult(DepositBankCordListResult message) {
         GameLog.log("公司入款："+message.getData().size());
-        EventBus.getDefault().post(new StartBrotherEvent(CompanyPayFragment.newInstance(message,userMoney), SupportFragment.SINGLETASK));
+        EventBus.getDefault().post(new StartBrotherEvent(CompanyPayOneFragment.newInstance(message,userMoney), SupportFragment.SINGLETASK));
 
     }
 
