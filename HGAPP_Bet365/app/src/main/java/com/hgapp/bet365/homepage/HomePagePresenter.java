@@ -246,12 +246,12 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     @Override
     public void postCP() {
         subscriptionHelper.add(RxHelper.addSugar(api.postCP(HGConstant.PRODUCT_PLATFORM,"login"))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponse<CPResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<CPResult>>() {
                     @Override
-                    public void success(AppTextMessageResponse<CPResult> response) {
+                    public void success(AppTextMessageResponseList<CPResult> response) {
 
                         if(!Check.isNull(response)&&response.isSuccess()){
-                            view.postCPResult(response.getData());
+                            view.postCPResult(response.getData().get(0));
                         }else{
                             view.showMessage(response.getDescribe());
                         }

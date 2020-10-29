@@ -112,96 +112,10 @@ public class LauncherActivity extends AppCompatActivity{
             GameLog.log("===============mCountDownTimer.cancel====================加载了数据========================");
         }
         super.onDestroy();
-       /* GameLog.log("===================================加载了数据========================");
-        String isLogoChange = ACache.get(LauncherActivity.this).getAsString("change_logo");
-        GameLog.log("目前的状态是  " +isLogoChange);
-        //changeLauncher("com.hgapp.a6668.LauncherActivity2");
-        if(Check.isEmpty(isLogoChange)){
-            ACache.get(LauncherActivity.this).put("change_logo","1");
-            EntranceUtils.getInstance().enable(this,"com.hgapp.a6668.EntranceSpec");
-            //changeLauncher("com.hgapp.a6668.launcher.LauncherAliasActivity");
-            //start();
-        }*//*else{
-            changeLauncher( "com.hgapp.a6668.launcher.LauncherActivity");
-        }*/
-    }
-
-    /**
-     * @param useCode =1、为活动图标 =2 为用普通图标 =3、不启用判断
-     */
-    private void switchIcon(int useCode) {
-
-        try {
-            //要跟manifest的activity-alias 的name保持一致
-            String icon_tag = "com.weechan.shidexianapp.icon_tag";
-            String icon_tag_1212 = "com.weechan.shidexianapp.icon_tag_1212";
-
-            if (useCode != 3) {
-
-                PackageManager pm = getPackageManager();
-
-                ComponentName normalComponentName = new ComponentName(
-                        getBaseContext(),
-                        icon_tag);
-                //正常图标新状态
-                int normalNewState = useCode == 2 ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-                        : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-                if (pm.getComponentEnabledSetting(normalComponentName) != normalNewState) {//新状态跟当前状态不一样才执行
-                    pm.setComponentEnabledSetting(
-                            normalComponentName,
-                            normalNewState,
-                            PackageManager.DONT_KILL_APP);
-                }
-
-                ComponentName actComponentName = new ComponentName(
-                        getBaseContext(),
-                        icon_tag_1212);
-                //正常图标新状态
-                int actNewState = useCode == 1 ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-                        : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-                if (pm.getComponentEnabledSetting(actComponentName) != actNewState) {//新状态跟当前状态不一样才执行
-
-                    pm.setComponentEnabledSetting(
-                            actComponentName,
-                            actNewState,
-                            PackageManager.DONT_KILL_APP);
-                }
-
-            }
-        } catch (Exception e) {
-        }
 
     }
 
 
-
-    /**
-     * 立即开始执行，如果不执行start方法，根据ROM的不同，在禁用了组件之后，会等一会，Launcher也会自动刷新图标。
-     */
-    /*private void start() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
-        PackageManager packageManager = getPackageManager();
-        ActivityManager activityManager = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
-        List<ResolveInfo> resolves = packageManager.queryIntentActivities(intent, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT); // 默认启用状态
-        for (ResolveInfo res : resolves) {
-            if (res.activityInfo != null) {
-                activityManager.killBackgroundProcesses(res.activityInfo.packageName); // 杀死后台进程
-            }
-        }
-    }*/
-
-    private void changeLauncher(String name) {
-        PackageManager pm = getPackageManager();
-        //隐藏之前显示的桌面组件
-        pm.setComponentEnabledSetting(new ComponentName(LauncherActivity.this, "com.hgapp.a6668.launcher.LauncherActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        //显示新的桌面组件
-        pm.setComponentEnabledSetting(new ComponentName(LauncherActivity.this, name),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-        ACache.get(LauncherActivity.this).put("change_logo","1");
-    }
 
     //获取可用域名
     public void onGetAvailableDomain() {
@@ -215,7 +129,7 @@ public class LauncherActivity extends AppCompatActivity{
             ToastUtils.showLongToast("无网络连接！");
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
-        String domainUrl = "https://new-domain.gz.bcebos.com/8m.txt";
+        String domainUrl = "https://new-domain.gz.bcebos.com/new365.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {

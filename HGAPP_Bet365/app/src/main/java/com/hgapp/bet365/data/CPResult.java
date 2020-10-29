@@ -7,7 +7,7 @@ public class CPResult {
      * thirdLotteryId : gmcp
      */
 
-    private String third_cpUrl;
+   /* private String third_cpUrl;
     private String params;
     private String thirdLotteryId;
 
@@ -33,5 +33,24 @@ public class CPResult {
 
     public void setThirdLotteryId(String thirdLotteryId) {
         this.thirdLotteryId = thirdLotteryId;
+    }*/
+
+    private String cpUrl;
+    private String urlLogin;
+
+    public String getCpUrl() {
+        return cpUrl;
+    }
+
+    public void setCpUrl(String cpUrl) {
+        this.cpUrl = cpUrl;
+    }
+
+    public String getUrlLogin() {
+        return urlLogin;
+    }
+
+    public void setUrlLogin(String urlLogin) {
+        this.urlLogin = urlLogin;
     }
 }

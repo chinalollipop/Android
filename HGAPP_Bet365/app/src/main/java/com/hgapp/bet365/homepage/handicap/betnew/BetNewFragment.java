@@ -606,8 +606,21 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
 
     private void postCPGo(){
-        showMessage("正在加载中...");
-        presenter.postCP();
+        /*showMessage("正在加载中...");
+        presenter.postCP();*/
+        String cp_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_CP_URL);
+        if(Check.isEmpty(cp_url)){
+            presenter.postCP();
+        }else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.APP_CP_COOKIE))){
+            showMessage("正在加载中，请稍后再试!");
+        }else{
+            Intent intent = new Intent(getContext(),XPlayGameActivity.class);
+            intent.putExtra("url",cp_url);
+            intent.putExtra("gameCnName","彩票游戏");
+            intent.putExtra("gameType","CP");
+            intent.putExtra("hidetitlebar",false);
+            getActivity().startActivity(intent);
+        }
     }
 
 
@@ -875,7 +888,9 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void postCPResult(CPResult cpResult) {
-        Intent intent = new Intent(getContext(), XPlayGameActivity.class);
+        ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());
+        initWebView(cpResult.getUrlLogin());
+       /* Intent intent = new Intent(getContext(), XPlayGameActivity.class);
         //跳转到彩票里面去
         String postData ="";
         try {
@@ -897,7 +912,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
         }
         intent.putExtra("gameCnName", "彩票");
         intent.putExtra("hidetitlebar", false);
-        getActivity().startActivity(intent);
+        getActivity().startActivity(intent);*/
         /*ACache.get(getContext()).put(HGConstant.USERNAME_CP_URL,cpResult.getCpUrl());
         initWebView(cpResult.getUrlLogin());*/
         /*MyHttpClient myHttpClient = new MyHttpClient();
