@@ -210,7 +210,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 真实姓名"
-                        android:textColor="@color/title_bg_text"
+                        android:textColor="@color/title_bg_black"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -273,7 +273,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 手机号码"
-                        android:textColor="@color/title_bg_text"
+                        android:textColor="@color/title_bg_black"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -307,7 +307,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 微信"
-                        android:textColor="@color/title_bg_text"
+                        android:textColor="@color/title_bg_black"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -339,7 +339,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
                         android:text="* 出生日期"
-                        android:textColor="@color/title_bg_text"
+                        android:textColor="@color/title_bg_black"
                         android:textSize="15sp" />
                 </LinearLayout>
 

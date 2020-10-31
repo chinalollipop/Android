@@ -48,7 +48,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     @BindView(R.id.tvBindingCardBankAddress)
     EditText tvBindingCardBankAddress;
     @BindView(R.id.tvBindingCardUSDTAddress)
-    EditText tvBindingCardUSDTAddress;
+    TextView tvBindingCardUSDTAddress;
     @BindView(R.id.tvBindingCardTownsName)
     EditText tvBindingCardTownsName;
     @BindView(R.id.tvBindingCardPwd2)

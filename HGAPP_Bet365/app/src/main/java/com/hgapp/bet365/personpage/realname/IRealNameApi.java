@@ -1,6 +1,7 @@
 package com.hgapp.bet365.personpage.realname;
 
 
+import com.hgapp.bet365.common.http.request.AppTextMessageResponse;
 import com.hgapp.bet365.common.http.request.AppTextMessageResponseList;
 import com.hgapp.bet365.data.LoginResult;
 
@@ -19,7 +20,7 @@ public interface IRealNameApi {
     //先设置真实姓名
     @POST("account/update_realname.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<LoginResult>> postUpdataRealName(
+    public Observable<AppTextMessageResponse<LoginResult>> postUpdataRealName(
             @Field("appRefer") String appRefer, @Field("realname") String realname, @Field("phone") String phone,
             @Field("wechat") String wechat, @Field("birthday") String birthday);
 }

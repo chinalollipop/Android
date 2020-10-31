@@ -207,14 +207,24 @@
             android:text="@string/bcard_t20_address"
             android:textSize="15sp" />
 
-
-        <EditText
-            android:id="@+id/tvBindingCardUSDTAddress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_marginLeft="15dp"
-            android:hint="@string/bcard_t20_address_hint"
-            android:textSize="15sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvBindingCardUSDTAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="15sp" />
+            <TextView
+                android:text="注：如需修改提币地址，请联系客服"
+                android:textColor="@color/cp_order_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
     </LinearLayout>
     <TextView
         android:id="@+id/tv1"

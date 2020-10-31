@@ -1,6 +1,7 @@
 package com.hgapp.bet365.personpage.realname;
 
 import com.hgapp.bet365.common.http.ResponseSubscriber;
+import com.hgapp.bet365.common.http.request.AppTextMessageResponse;
 import com.hgapp.bet365.common.http.request.AppTextMessageResponseList;
 import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.common.util.RxHelper;
@@ -27,9 +28,9 @@ public class RealNamePresenter implements RealNameContract.Presenter {
     @Override
     public void postUpdataRealName(String appRefer, String realname, String phone, String wechat, String birthday) {
         subscriptionHelper.add(RxHelper.addSugar(api.postUpdataRealName(HGConstant.PRODUCT_PLATFORM,realname,phone,wechat,birthday))//loginGet() login(appRefer,username,pwd) appRefer=13&type=FU&more=s
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LoginResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<LoginResult> response) {
+                    public void success(AppTextMessageResponse<LoginResult> response) {
                         if(response.isSuccess())
                         {
                             view.postRegisterMemberResult(response.getDescribe());
