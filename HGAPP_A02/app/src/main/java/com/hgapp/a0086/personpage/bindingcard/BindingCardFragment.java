@@ -69,7 +69,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
     @BindView(R.id.tv4)
     TextView tv4;
 
-
+    private String bank_account;
 
     private String typeArgs1;
     private String typeArgs2;
@@ -165,7 +165,19 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
             }
         }).build();
         optionsPickerViewState.setPicker(stateList);
-        
+
+        tvBindingCardBankCode.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                GameLog.log("bank_account "+bank_account+" hasFocus "+hasFocus);
+                if(!Check.isEmpty(bank_account)){
+                    tvBindingCardBankCode.setText(bank_account);
+                    bank_account = null;
+                }
+            }
+
+        });
     }
 
 
@@ -197,6 +209,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
 
     @Override
     public void postWithdrawResult(WithdrawResult withdrawResult) {
+        bank_account = withdrawResult.getBank_Account();
         tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address_hide());
         tvBindingCardBankAddress.setText(withdrawResult.getBank_Address());
         tvBindingCardBankCode.setText(withdrawResult.getBank_Account_hide());
@@ -231,6 +244,9 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         if(Check.isEmpty(bankCode)){
             showMessage("请输入银行账户！");
             return;
+        }
+        if(!Check.isEmpty(bank_account)){
+            bankCode = bank_account;
         }
         if(!Check.isEmpty(bankCode)&&bankCode.contains("**")){
             showMessage("请输入正确的银行账户");
