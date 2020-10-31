@@ -186,9 +186,9 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
 
     @Override
     public void postWithdrawResult(WithdrawResult withdrawResult) {
-        tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address());
+        tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address_hide());
         tvBindingCardBankAddress.setText(withdrawResult.getBank_Address());
-        tvBindingCardBankCode.setText(withdrawResult.getBank_Account());
+        tvBindingCardBankCode.setText(withdrawResult.getBank_Account_hide());
         if(Check.isEmpty(withdrawResult.getBank_Name())){
             tvBindingCardBankName.setText("请选择银行");
         }else{
@@ -220,14 +220,18 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
             showMessage("请输入银行账户！");
             return;
         }
+        if(!Check.isEmpty(bankCode)&&bankCode.contains("**")){
+            showMessage("请输入正确的银行账户");
+            return;
+        }
 
-        if(Check.isEmpty(bankCode)){
+        if(Check.isEmpty(bankAddress)){
             showMessage("请输入银行地址！");
             return;
         }
 
         if("1".equals(bincCard)){
-            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","",usdtAddress);
+            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","","");
         }else{
             if(Check.isEmpty(tvPwd)||tvPwd.length()<6){
                 showMessage("请输入有效密码！");
@@ -248,7 +252,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
                 showMessage("2次输入密码不一致，请重新输入！");
                 return;
             }
-            presenter.postBindingBankCard("","bind",bankName,bankCode,bankAddress,tvPwd,tvPwd2,usdtAddress);
+            presenter.postBindingBankCard("","bind",bankName,bankCode,bankAddress,tvPwd,tvPwd2,"");
         }
 
 

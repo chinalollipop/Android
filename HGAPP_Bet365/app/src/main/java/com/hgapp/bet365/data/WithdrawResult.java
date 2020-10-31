@@ -19,6 +19,8 @@ public class WithdrawResult implements Parcelable {
     private String Bank_Name;
     private String Bank_Account;
     private String Bank_Address;
+    private String Usdt_Address_hide;
+    private String Bank_Account_hide;
     private String Usdt_Address;
     /**
      * owe_bet : 0
@@ -30,6 +32,21 @@ public class WithdrawResult implements Parcelable {
     private String total_bet;
     private List<BetListBean> bet_list;
 
+    public String getUsdt_Address_hide() {
+        return Usdt_Address_hide;
+    }
+
+    public void setUsdt_Address_hide(String usdt_Address_hide) {
+        Usdt_Address_hide = usdt_Address_hide;
+    }
+
+    public String getBank_Account_hide() {
+        return Bank_Account_hide;
+    }
+
+    public void setBank_Account_hide(String bank_Account_hide) {
+        Bank_Account_hide = bank_Account_hide;
+    }
     public String getUserName() {
         return UserName;
     }
@@ -93,6 +110,7 @@ public class WithdrawResult implements Parcelable {
     public void setUsdt_Address(String usdt_Address) {
         Usdt_Address = usdt_Address;
     }
+
     public static class BetListBean {
         /**
          * key : hg
@@ -129,6 +147,9 @@ public class WithdrawResult implements Parcelable {
         }
     }
 
+    public WithdrawResult() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -140,13 +161,12 @@ public class WithdrawResult implements Parcelable {
         dest.writeString(this.Bank_Name);
         dest.writeString(this.Bank_Account);
         dest.writeString(this.Bank_Address);
+        dest.writeString(this.Usdt_Address_hide);
+        dest.writeString(this.Bank_Account_hide);
         dest.writeString(this.Usdt_Address);
         dest.writeString(this.owe_bet);
         dest.writeString(this.total_bet);
         dest.writeList(this.bet_list);
-    }
-
-    public WithdrawResult() {
     }
 
     protected WithdrawResult(Parcel in) {
@@ -154,6 +174,8 @@ public class WithdrawResult implements Parcelable {
         this.Bank_Name = in.readString();
         this.Bank_Account = in.readString();
         this.Bank_Address = in.readString();
+        this.Usdt_Address_hide = in.readString();
+        this.Bank_Account_hide = in.readString();
         this.Usdt_Address = in.readString();
         this.owe_bet = in.readString();
         this.total_bet = in.readString();
@@ -161,7 +183,7 @@ public class WithdrawResult implements Parcelable {
         in.readList(this.bet_list, BetListBean.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<WithdrawResult> CREATOR = new Parcelable.Creator<WithdrawResult>() {
+    public static final Creator<WithdrawResult> CREATOR = new Creator<WithdrawResult>() {
         @Override
         public WithdrawResult createFromParcel(Parcel source) {
             return new WithdrawResult(source);

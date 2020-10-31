@@ -141,6 +141,7 @@
     <string name="bcard_account_name_hint">请输入账户姓名</string>
     <string name="bcard_bank_name_hint">请选择银行</string>
     <string name="bcard_bank_account_hint">请输入账(卡)号</string>
+    <string name="bcard_bank_account_s_hint">请输入正确的银行账户</string>
     <string name="bcard_bank_address_hint">请输入银行地址</string>
     <string name="bcard_t20_address_hint">请输入提币地址</string>
     <string name="bcard_withdraw_pwd_hint">请输入提款密码</string>

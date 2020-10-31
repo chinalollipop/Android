@@ -197,9 +197,9 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
 
     @Override
     public void postWithdrawResult(WithdrawResult withdrawResult) {
-        tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address());
+        tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address_hide());
         tvBindingCardBankAddress.setText(withdrawResult.getBank_Address());
-        tvBindingCardBankCode.setText(withdrawResult.getBank_Account());
+        tvBindingCardBankCode.setText(withdrawResult.getBank_Account_hide());
         if(Check.isEmpty(withdrawResult.getBank_Name())){
             tvBindingCardBankName.setText(getString(R.string.bcard_bank_name_hint));
         }else{
@@ -232,14 +232,18 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
             showMessage(getString(R.string.bcard_bank_account_hint));
             return;
         }
+        if(!Check.isEmpty(bankCode)&&bankCode.contains("**")){
+            showMessage(getString(R.string.bcard_bank_account_s_hint));
+            return;
+        }
 
-        if(Check.isEmpty(bankCode)){
+        if(Check.isEmpty(bankAddress)){
             showMessage(getString(R.string.bcard_bank_address_hint));
             return;
         }
 
         if("1".equals(bincCard)){
-            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","",usdtAddress);
+            presenter.postBindingBankCard("","reset",bankName,bankCode,bankAddress,"","","");
         }else{
             if(Check.isEmpty(tvPwd)||tvPwd.length()<6){
                 showMessage(getString(R.string.bcard_withdraw_pwd_hint1));
@@ -260,7 +264,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
                 showMessage(getString(R.string.bcard_withdraw_pwd2_hint2));
                 return;
             }
-            presenter.postBindingBankCard("","bind",bankName,bankCode,bankAddress,tvPwd,tvPwd2,usdtAddress);
+            presenter.postBindingBankCard("","bind",bankName,bankCode,bankAddress,tvPwd,tvPwd2,"");
         }
 
 
