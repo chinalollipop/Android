@@ -727,7 +727,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "hg":
                     from = "体育平台";
                     break;
-                case "gmcp":
+                case "cp":
                     from = "彩票平台";
                     break;
                 case "ky":
@@ -774,7 +774,7 @@ public class DepositRecordFragment extends HGBaseFragment implements DepositReco
                 case "hg":
                     to = "体育平台";
                     break;
-                case "gmcp":
+                case "cp":
                     to = "彩票平台";
                     break;
                 case "ky":

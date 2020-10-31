@@ -1,5 +1,6 @@
 package com.hgapp.bet365.personpage.balancetransfer;
 
+import com.hgapp.bet365.common.http.request.AppTextMessageResponse;
 import com.hgapp.bet365.common.http.request.AppTextMessageResponseList;
 import com.hgapp.bet365.data.KYBalanceResult;
 
@@ -26,9 +27,9 @@ public interface IBalanceTransferApi {
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     //彩票额度转换  action=fundLimitTrans from=hg&to=cp from=cp&to=hg
-    @POST("gmcp/cp_api.php")
+    @POST("ajaxTran.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransferCP(@Field("appRefer") String appRefer,  @Field("f") String f, @Field("t") String t, @Field("b") String b);
+    public Observable<AppTextMessageResponse<KYBalanceResult>> postBanalceTransferCP(@Field("appRefer") String appRefer, @Field("action") String action, @Field("f") String f, @Field("t") String t, @Field("fund") String fund);
 
     //开元额度转换  f=hg&t=ag f=ag&t=hg
     @POST("ky/ky_api.php")
@@ -80,7 +81,7 @@ public interface IBalanceTransferApi {
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalance(@Field("appRefer") String appRefer, @Field("action") String action);
 
     //获取彩票余额
-    @POST("gmcp/cp_api.php")
+    @POST("ajaxTran.php")
     @FormUrlEncoded
     public Observable<AppTextMessageResponseList<KYBalanceResult>> postPersonBalanceCP(@Field("appRefer") String appRefer, @Field("action") String action);
 

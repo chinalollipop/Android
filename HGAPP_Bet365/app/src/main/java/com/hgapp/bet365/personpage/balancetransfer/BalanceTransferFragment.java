@@ -244,7 +244,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         String BalanceTransferCPText = BalanceTransferTY.getText().toString();
         int BalanceTransferCPTextInt =  Integer.parseInt(BalanceTransferCPText.split("\\.")[0]);
         if(BalanceTransferCPTextInt>0){
-            presenter.postBanalceTransferCP("","","hg","gmcp",BalanceTransferCPTextInt+"");
+            presenter.postBanalceTransferCP("","","hg","cp",BalanceTransferCPTextInt+"");
         }
     }
 
@@ -358,7 +358,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         }
 
         if(Integer.parseInt(BalanceTransferCP.getText().toString().split("\\.")[0])>0){
-            presenter.postBanalceTransferCP("","","gmcp","hg",Integer.parseInt(BalanceTransferCP.getText().toString().split("\\.")[0])+"");
+            presenter.postBanalceTransferCP("","","cp","hg",Integer.parseInt(BalanceTransferCP.getText().toString().split("\\.")[0])+"");
         }
         if(Integer.parseInt(BalanceTransferKY.getText().toString().split("\\.")[0])>0){
             presenter.postBanalceTransferKY("","ky","hg",Integer.parseInt(BalanceTransferKY.getText().toString().split("\\.")[0])+"");
@@ -455,6 +455,7 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
     @Override
     public void postPersonBalanceResult(KYBalanceResult personBalance) {
         BalanceTransferAG.setText(personBalance.getBalance_ag());
+        BalanceTransferCP.setText( personBalance.getBalance_cp());
         backTitleBalanceTransfer.setMoreText(personBalance.getBalance_hg());
         BalanceTransferTY.setText(personBalance.getBalance_hg());
     }

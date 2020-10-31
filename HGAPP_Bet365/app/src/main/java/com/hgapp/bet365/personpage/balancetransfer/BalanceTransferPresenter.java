@@ -1,6 +1,7 @@
 package com.hgapp.bet365.personpage.balancetransfer;
 
 import com.hgapp.bet365.common.http.ResponseSubscriber;
+import com.hgapp.bet365.common.http.request.AppTextMessageResponse;
 import com.hgapp.bet365.common.http.request.AppTextMessageResponseList;
 import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.common.util.RxHelper;
@@ -78,12 +79,13 @@ public class BalanceTransferPresenter implements BalanceTransferContract.Present
 
     @Override
     public void postBanalceTransferCP(String appRefer,  String action, String from,String to, String fund) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCP(HGConstant.PRODUCT_PLATFORM,from,to,fund))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+        subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCP(HGConstant.PRODUCT_PLATFORM,"fundLimitTrans",from,to,fund))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                    public void success(AppTextMessageResponse<KYBalanceResult> response) {
                         if(response.isSuccess()){
-                            view.postPersonBalanceCPResult(response.getData().get(0));
+                            postPersonBalance("","");
+                            //view.postPersonBalanceCPResult(response.getData().get(0));
                         }
                         view.showMessage(response.getDescribe());
                     }
