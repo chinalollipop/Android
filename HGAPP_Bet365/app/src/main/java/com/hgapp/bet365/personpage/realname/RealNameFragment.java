@@ -282,7 +282,7 @@ public class RealNameFragment extends HGBaseFragment implements RealNameContract
         //String appRefer,String introducer,String keys,String username,String password, String password2,String alias,
         //                                   String paypassword,String phone,String wechat,String birthday,String know_site
 
-        presenter.postUpdataRealName("",userDrawName,userPhone,userWechat,userBrithday);
+        presenter.postUpdataRealName("",userDrawName,"","","");
 
     }
 

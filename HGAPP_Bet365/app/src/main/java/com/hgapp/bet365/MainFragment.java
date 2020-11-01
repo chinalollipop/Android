@@ -327,6 +327,8 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put("telOn",checkUpgradeResult.getTelOn() );
             ACache.get(getContext()).put("chatOn",checkUpgradeResult.getChatOn() );
             ACache.get(getContext()).put("qqOn",checkUpgradeResult.getQqOn() );
+            String havePhone = ACache.get(getContext()).getAsString("guest_login_must_input_phone");
+            GameLog.log("havePhone1 "+havePhone);
             //EventBus.getDefault().post(checkUpgradeResult);
             checkUpgradeDone = true;
             PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());

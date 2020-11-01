@@ -1,4 +1,4 @@
-package com.hgapp.bet365.homepage;
+package com.hgapp.bet365.common.widgets;
 
 import android.view.View;
 import android.widget.TextView;

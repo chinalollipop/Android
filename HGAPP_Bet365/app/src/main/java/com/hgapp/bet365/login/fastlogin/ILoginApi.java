@@ -60,7 +60,7 @@ public interface ILoginApi {
     //输入手机号码校验
     @POST("guest_login_save_phone_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<LoginResult>> loginPhone(@Field("appRefer") String appRefer, @Field("phone") String phone);
+    public Observable<AppTextMessageResponse<LoginResult>> loginPhone(@Field("appRefer") String appRefer, @Field("phone") String phone);
 
 
 

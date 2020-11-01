@@ -108,9 +108,9 @@ public class LoginPresenter implements LoginContract.Presenter {
             return;
         }
         subscriptionHelper.add(RxHelper.addSugar(api.loginPhone(appRefer,phone))//loginGet() login(appRefer,username,pwd)
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LoginResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<LoginResult> response) {
+                    public void success(AppTextMessageResponse<LoginResult> response) {
                         if(response.isSuccess()) {
                             subscriptionHelper.add(RxHelper.addSugar(api.loginDemo(appRefer,"Yes",username,passwd))//loginGet() login(appRefer,username,pwd)
                                     .subscribe(new ResponseSubscriber<AppTextMessageResponse<LoginResult>>() {

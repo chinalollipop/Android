@@ -516,6 +516,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 break;
             case R.id.btnLoginDemo:
                 String havePhone = ACache.get(getContext()).getAsString("guest_login_must_input_phone");
+                GameLog.log("havePhone "+havePhone);
                 if(!Check.isEmpty(havePhone)&&havePhone.equals("true")){
                     btnLoginLayDemo.setVisibility(View.VISIBLE);
                     fgtLogin.setVisibility(View.GONE);

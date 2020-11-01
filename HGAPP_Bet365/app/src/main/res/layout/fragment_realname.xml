@@ -13,6 +13,12 @@
         app:moreTextOnly="true"
         />
 
+    <TextView
+        android:layout_margin="15dp"
+        android:textColor="@color/register_left"
+        android:text="为了保障您的资金安全，请先设置个人信息。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/h_text_height"
@@ -218,7 +224,7 @@
                     android:id="@+id/etRegisterWithDrawName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="提款行卡的姓名，用于提款"
+                    android:hint="提款银行卡的姓名，用于提款"
                     android:background="@null"
                     />
             </LinearLayout>
@@ -257,6 +263,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
@@ -291,6 +298,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
@@ -324,6 +332,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/btn_login_noram_d"
                 android:layout_marginTop="10dp">
 
@@ -579,7 +588,7 @@
             android:layout_height="33dp"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
-            android:text="注册" />
+            android:text="设置" />
     </LinearLayout>
 
 
