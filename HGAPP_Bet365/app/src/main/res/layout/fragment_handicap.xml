@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:paddingTop="20dp"
-        android:background="@color/title_bg_black"
+        android:background="@drawable/bk_normal"
         android:gravity="center">
 
         <ImageView
@@ -102,7 +102,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="#46362C">
+                android:background="#6f9787">
 
                     <TextView
                         android:layout_weight="1"

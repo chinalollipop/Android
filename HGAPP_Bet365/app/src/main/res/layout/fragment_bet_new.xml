@@ -11,7 +11,7 @@
             android:layout_height="90dp"
             android:layout_gravity="center"
             android:paddingTop="20dp"
-            android:background="@color/title_bg_black"
+            android:background="@drawable/bk_normal"
             android:gravity="center">
 
             <ImageView
