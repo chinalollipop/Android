@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/frame_roundcorner_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="89px"
+            android:paddingRight="89px"
+            android:paddingTop="36px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:paddingTop="56px"
+                android:text="当前余额："
+                android:textColor="#030303"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvBetOrderMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:paddingTop="56px"
+                android:text="20002"
+                android:textColor="@color/bet_line_inside_odds"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:paddingTop="56px"
+                android:text=" 元"
+                android:textColor="#FF1D1D1D"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/etBetGoldInput"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:hint="请输入下注金额"
+            android:inputType="number"
+            android:maxLength="8" />
+
+        <TextView
+            android:id="@+id/tvBetOrderMoneyLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="每注最小10元" />
+
+        <Button
+            android:id="@+id/btnBetOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bet_dialog"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/pop_hight"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

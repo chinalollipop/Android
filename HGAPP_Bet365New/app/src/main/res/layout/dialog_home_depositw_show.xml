@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/register_left_r"
+        >
+
+        <TextView
+            android:id="@+id/dialogHomeDeposite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/color_bg_dialog"
+            android:drawableTop="@mipmap/home_deposite1"
+            android:text="在线存款"
+            />
+        <TextView
+            android:background="@color/n_edittext_cursor"
+            android:layout_width="1dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="30dp"/>
+        <TextView
+            android:id="@+id/dialogHomeWithDraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/color_bg_dialog"
+            android:drawableTop="@mipmap/home_withdraw1"
+            android:layout_alignParentRight="true"
+            android:text="在线取款"
+            />
+    </LinearLayout>
+</FrameLayout>

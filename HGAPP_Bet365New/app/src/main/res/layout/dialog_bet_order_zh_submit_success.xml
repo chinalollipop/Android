@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/frame_roundcorner_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/betSuccessTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="恭喜，交易成功！"
+            android:textColor="#7B7369" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:text="当前余额："
+                android:textColor="#030303"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvSuccessUserMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:text="20002"
+                android:textColor="@color/bet_line_inside_odds"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:text=" 元"
+                android:textColor="#FF1D1D1D"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#7B7369" />
+        <TextView
+            android:id="@+id/etBetSuccessInfor1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center|left"
+            android:textSize="15sp"
+            android:text="订单号" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/etBetSuccessInforList"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <TextView
+            android:id="@+id/etBetSuccessInfor2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center|left"
+            android:textSize="15sp"
+            android:text="数据2" />
+        <TextView
+            android:id="@+id/etBetSuccessInfor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:gravity="center|left"
+            android:textSize="15sp"
+            android:text="足球 单场独赢\n\n中国甲级超级联赛\n\n恒大足球俱乐部 VS 广州恒大 \n\n广州恒大 @3.16 \n\n120.00元" />
+        <TextView
+            android:id="@+id/tvBetSuccessZHLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#bb941b"
+            android:textSize="15sp"
+            android:layout_marginRight="10dp"
+            android:gravity="center|right"
+            android:text="投注记录>" />
+        <Button
+            android:id="@+id/btnBetSuccessCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bet_dialog"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/pop_hight"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>
