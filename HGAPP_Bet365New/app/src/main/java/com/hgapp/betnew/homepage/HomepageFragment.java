@@ -228,7 +228,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
     private void initTY(){
-        homeGameList.add(new HomePageIcon("系统体育",R.mipmap.home_hgty,0,"sport"));
+        homeGameList.add(new HomePageIcon("官方体育",R.mipmap.home_hgty,0,"sport"));
         homeGameList.add(new HomePageIcon("雷火电竞",R.mipmap.home_lh,2,"thunfire"));
         homeGameList.add(new HomePageIcon("泛亚电竞",R.mipmap.home_avia,2,"avia"));
     }
