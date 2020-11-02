@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/id_main_item_line"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:id="@+id/id_main_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/id_main_item_gamenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="玩法"
+            android:gravity="center"
+            android:textColor="@color/cp_hall_tv"
+            android:textSize="16sp"
+            android:typeface="monospace"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
