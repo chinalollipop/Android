@@ -24,7 +24,7 @@ public interface IBalanceTransferApi {
     //体育额度转换  f=hg&t=ag f=ag&t=hg
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<KYBalanceResult>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+    public Observable<AppTextMessageResponse<KYBalanceResult>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     //彩票额度转换  action=fundLimitTrans from=hg&to=cp from=cp&to=hg
     @POST("ajaxTran.php")

@@ -28,10 +28,13 @@ import com.hgapp.bet365.common.widgets.CustomPopWindow;
 import com.hgapp.bet365.common.widgets.NTitleBar;
 import com.hgapp.bet365.data.BalanceTransferData;
 import com.hgapp.bet365.data.BetRecordResult;
+import com.hgapp.bet365.homepage.UserMoneyEvent;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.bet365.data.KYBalanceResult;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -165,6 +168,14 @@ public class BalanceTransferFragment extends HGBaseFragment implements BalanceTr
         fragment.setArguments(args);
         Injections.inject(null, fragment);
         return fragment;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        String tybal = BalanceTransferTY.getText().toString();
+        GameLog.log("当前用户的余额："+tybal);
+        EventBus.getDefault().post(new UserMoneyEvent(tybal));
     }
 
     @Override

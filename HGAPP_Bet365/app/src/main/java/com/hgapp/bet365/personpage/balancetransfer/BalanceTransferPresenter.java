@@ -105,9 +105,9 @@ public class BalanceTransferPresenter implements BalanceTransferContract.Present
     @Override
     public void postBanalceTransfer(String appRefer, String f, String t,String b) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransfer(HGConstant.PRODUCT_PLATFORM,f,t,b))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                    public void success(AppTextMessageResponse<KYBalanceResult> response) {
                         if(response.isSuccess()) {
                             postPersonBalance("", "");
                         }
