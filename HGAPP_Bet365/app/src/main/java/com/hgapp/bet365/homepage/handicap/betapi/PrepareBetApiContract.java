@@ -9,6 +9,7 @@ import com.hgapp.bet365.data.GameAllPlayRBKResult;
 import com.hgapp.bet365.data.GameAllPlayBKResult;
 import com.hgapp.bet365.data.GameAllPlayFTResult;
 import com.hgapp.bet365.data.GameAllPlayRFTResult;
+import com.hgapp.bet365.data.PersonInformResult;
 import com.hgapp.bet365.data.PrepareBetResult;
 
 public interface PrepareBetApiContract {
@@ -26,7 +27,7 @@ public interface PrepareBetApiContract {
         public void postBetBKApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype, String autoOdd);
         public void postBetBKreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype, String autoOdd);
         public void postBetChampionApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype, String autoOdd);
-
+        public void getPersonInform(String appRefer);
     }
 
     public interface View extends IView<PrepareBetApiContract.Presenter>,IMessageView,IProgressView {
@@ -39,5 +40,6 @@ public interface PrepareBetApiContract {
         public void postPrepareBetApiResult(PrepareBetResult prepareBetResult);
         public void postBetApiResult(BetResult betResult);
         public void postBetApiFailResult(String message);
+        public void postPersonInformResult(PersonInformResult personInformResult);
     }
 }

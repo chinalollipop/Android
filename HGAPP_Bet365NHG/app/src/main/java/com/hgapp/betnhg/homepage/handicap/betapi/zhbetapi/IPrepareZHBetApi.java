@@ -1,8 +1,10 @@
 package com.hgapp.betnhg.homepage.handicap.betapi.zhbetapi;
 
+import com.hgapp.betnhg.common.http.request.AppTextMessageResponse;
 import com.hgapp.betnhg.common.http.request.AppTextMessageResponseList;
 import com.hgapp.betnhg.data.BetZHResult;
 import com.hgapp.betnhg.data.GameAllZHBetsBKResult;
+import com.hgapp.betnhg.data.PersonInformResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -51,5 +53,9 @@ public interface IPrepareZHBetApi {
     @POST("order/FT_order_p_finish_api.php")
     @FormUrlEncoded
     public Observable<BetZHResult> postZHBetFT(@Field("appRefer") String appRefer,  @Field("active") String active,  @Field("teamcount") String teamcount,  @Field("gold") String gold, @Field("wagerDatas") String wagerDatas,  @Field("randomNum") String randomNum);
+
+    @POST("account_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<PersonInformResult>> postPersonInform(@Field("appRefer") String appRefer);
 
 }

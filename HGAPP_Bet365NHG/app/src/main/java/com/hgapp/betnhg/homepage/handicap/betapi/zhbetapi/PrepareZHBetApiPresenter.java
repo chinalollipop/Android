@@ -1,13 +1,16 @@
 package com.hgapp.betnhg.homepage.handicap.betapi.zhbetapi;
 
 import com.hgapp.betnhg.common.http.ResponseSubscriber;
+import com.hgapp.betnhg.common.http.request.AppTextMessageResponse;
 import com.hgapp.betnhg.common.http.request.AppTextMessageResponseList;
 import com.hgapp.betnhg.common.util.HGConstant;
 import com.hgapp.betnhg.common.util.RxHelper;
 import com.hgapp.betnhg.common.util.SubscriptionHelper;
 import com.hgapp.betnhg.data.BetZHResult;
 import com.hgapp.betnhg.data.GameAllZHBetsBKResult;
+import com.hgapp.betnhg.data.PersonInformResult;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.Timber;
 
 import java.util.Random;
 
@@ -121,6 +124,34 @@ public class PrepareZHBetApiPresenter implements PrepareZHBetApiContract.Present
                             }
                         }else{
                             view.postBetApiFailResult(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getPersonInform(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonInform(HGConstant.PRODUCT_PLATFORM))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<PersonInformResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<PersonInformResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonInformResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                            Timber.d("快速登陆失败:%s",response);
                         }
                     }
 

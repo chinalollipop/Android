@@ -1,13 +1,16 @@
 package com.hgapp.betnew.homepage.handicap.betapi.zhbetapi;
 
 import com.hgapp.betnew.common.http.ResponseSubscriber;
+import com.hgapp.betnew.common.http.request.AppTextMessageResponse;
 import com.hgapp.betnew.common.http.request.AppTextMessageResponseList;
 import com.hgapp.betnew.common.util.HGConstant;
 import com.hgapp.betnew.common.util.RxHelper;
 import com.hgapp.betnew.common.util.SubscriptionHelper;
 import com.hgapp.betnew.data.BetZHResult;
 import com.hgapp.betnew.data.GameAllZHBetsBKResult;
+import com.hgapp.betnew.data.PersonInformResult;
 import com.hgapp.common.util.Check;
+import com.hgapp.common.util.Timber;
 
 import java.util.Random;
 
@@ -135,6 +138,33 @@ public class PrepareZHBetApiPresenter implements PrepareZHBetApiContract.Present
                 }));
     }
 
+    @Override
+    public void getPersonInform(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonInform(HGConstant.PRODUCT_PLATFORM))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<PersonInformResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<PersonInformResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonInformResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                            Timber.d("快速登陆失败:%s",response);
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
 
     @Override
     public void start() {

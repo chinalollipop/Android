@@ -26,6 +26,7 @@ import com.hgapp.betnew.data.GameAllPlayBKResult;
 import com.hgapp.betnew.data.GameAllPlayFTResult;
 import com.hgapp.betnew.data.GameAllPlayRBKResult;
 import com.hgapp.betnew.data.GameAllPlayRFTResult;
+import com.hgapp.betnew.data.PersonInformResult;
 import com.hgapp.betnew.data.PrepareBetResult;
 import com.hgapp.betnew.homepage.handicap.betapi.PrepareBetApiContract;
 import com.hgapp.betnew.homepage.handicap.betapi.PrepareRequestParams;
@@ -115,6 +116,7 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
     @Override
     protected void initView(View view, Bundle bundle) {
         //EventBus.getDefault().register(this);
+        presenter.getPersonInform("");
         getParam0 =  getArguments().getString(PARAM0);
         getParam1 =  getArguments().getString(PARAM1);
         orderNumber =  getArguments().getParcelable(PARAM2);
@@ -443,6 +445,13 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
     public void postBetApiFailResult(String message) {
         showMessage(message);
         hide();
+    }
+
+    @Override
+    public void postPersonInformResult(PersonInformResult personInformResult) {
+        String personMoney = GameShipHelper.formatMoney(personInformResult.getBalance_hg());
+        GameLog.log("个人的金额："+personMoney);
+        tvBetOrderMM.setText(personMoney);
     }
 
     @Override

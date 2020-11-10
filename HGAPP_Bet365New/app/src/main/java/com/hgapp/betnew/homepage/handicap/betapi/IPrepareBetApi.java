@@ -7,6 +7,7 @@ import com.hgapp.betnew.data.GameAllPlayRBKResult;
 import com.hgapp.betnew.data.GameAllPlayBKResult;
 import com.hgapp.betnew.data.GameAllPlayFTResult;
 import com.hgapp.betnew.data.GameAllPlayRFTResult;
+import com.hgapp.betnew.data.PersonInformResult;
 import com.hgapp.betnew.data.PrepareBetResult;
 
 import retrofit2.http.Field;
@@ -112,4 +113,9 @@ public interface IPrepareBetApi {
             , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
 
+    @POST("account_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<PersonInformResult>> postPersonInform(@Field("appRefer") String appRefer);
+
 }
+

@@ -11,7 +11,9 @@ import com.hgapp.betnhg.data.GameAllPlayRBKResult;
 import com.hgapp.betnhg.data.GameAllPlayBKResult;
 import com.hgapp.betnhg.data.GameAllPlayFTResult;
 import com.hgapp.betnhg.data.GameAllPlayRFTResult;
+import com.hgapp.betnhg.data.PersonInformResult;
 import com.hgapp.betnhg.data.PrepareBetResult;
+import com.hgapp.common.util.Timber;
 
 import java.util.Random;
 
@@ -372,6 +374,34 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
                             view.postBetApiResult(response);
                         }else{
                             view.postBetApiFailResult(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void getPersonInform(String appRefer) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPersonInform(HGConstant.PRODUCT_PLATFORM))//loginGet() login(appRefer,username,pwd)
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<PersonInformResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponse<PersonInformResult> response) {
+                        if(response.isSuccess())
+                        {
+                            view.postPersonInformResult(response.getData());
+                        }
+                        else
+                        {
+                            view.showMessage(response.getDescribe());
+                            Timber.d("快速登陆失败:%s",response);
                         }
                     }
 

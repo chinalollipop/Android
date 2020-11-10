@@ -6,6 +6,7 @@ import com.hgapp.bet365.base.IProgressView;
 import com.hgapp.bet365.base.IView;
 import com.hgapp.bet365.data.BetZHResult;
 import com.hgapp.bet365.data.GameAllZHBetsBKResult;
+import com.hgapp.bet365.data.PersonInformResult;
 
 public interface PrepareZHBetApiContract {
     public interface Presenter extends IPresenter{
@@ -13,6 +14,7 @@ public interface PrepareZHBetApiContract {
         public void postGameAllZHBetsFT(String appRefer, String game, String game_id);
         public void postZHBetBK(String appRefer, String active, String teamcount, String gold, String wagerDatas);
         public void postZHBetFT(String appRefer, String active, String teamcount, String gold, String wagerDatas);
+        public void getPersonInform(String appRefer);
     }
 
     public interface View extends IView<PrepareZHBetApiContract.Presenter>,IMessageView,IProgressView {
@@ -20,5 +22,6 @@ public interface PrepareZHBetApiContract {
         public void postGameAllZHBetsFTResult(GameAllZHBetsBKResult gameAllZHBetsBKResult);
         public void postZHBetFTResult(BetZHResult betResult);
         public void postBetApiFailResult(String message);
+        public void postPersonInformResult(PersonInformResult personInformResult);
     }
 }

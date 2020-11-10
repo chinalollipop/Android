@@ -7,6 +7,7 @@ import com.hgapp.betnhg.data.GameAllPlayRBKResult;
 import com.hgapp.betnhg.data.GameAllPlayBKResult;
 import com.hgapp.betnhg.data.GameAllPlayFTResult;
 import com.hgapp.betnhg.data.GameAllPlayRFTResult;
+import com.hgapp.betnhg.data.PersonInformResult;
 import com.hgapp.betnhg.data.PrepareBetResult;
 
 import retrofit2.http.Field;
@@ -111,5 +112,9 @@ public interface IPrepareBetApi {
     public Observable<BetResult> postBetChampionFT(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
             , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("autoOdd") String autoOdd, @Field("randomNum") String randomNum);
 
+
+    @POST("account_api.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<PersonInformResult>> postPersonInform(@Field("appRefer") String appRefer);
 
 }

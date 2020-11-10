@@ -27,6 +27,7 @@ import com.hgapp.bet365.common.util.GameShipHelper;
 import com.hgapp.bet365.common.util.HGConstant;
 import com.hgapp.bet365.data.BetZHResult;
 import com.hgapp.bet365.data.GameAllZHBetsBKResult;
+import com.hgapp.bet365.data.PersonInformResult;
 import com.hgapp.bet365.data.PrepareBetResult;
 import com.hgapp.bet365.homepage.handicap.betapi.PrepareRequestParams;
 import com.hgapp.bet365.homepage.handicap.betapi.zhbetapi.PrepareZHBetApiContract;
@@ -134,6 +135,7 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
         prepareBetEvent =  getArguments().getParcelable(PARAM3);
         prepareRequestParams =  getArguments().getParcelable(PARAM4);
         prepareBetResult =  getArguments().getParcelable(PARAM5);*/
+       presenter.getPersonInform("");
         gType = getArguments().getString(PARAM1);
         getParam0 =  getArguments().getString(PARAM2);
         active =  getArguments().getString(PARAM3);
@@ -386,6 +388,13 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
     public void postBetApiFailResult(String message) {
         showMessage(message);
         hide();
+    }
+
+    @Override
+    public void postPersonInformResult(PersonInformResult personInformResult) {
+        String personMoney = GameShipHelper.formatMoney(personInformResult.getBalance_hg());
+        GameLog.log("ZH个人的金额："+personMoney);
+        tvBetOrderMM.setText(personMoney);
     }
 
 

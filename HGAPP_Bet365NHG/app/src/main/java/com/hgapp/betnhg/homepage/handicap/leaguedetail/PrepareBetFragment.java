@@ -31,6 +31,7 @@ import com.hgapp.betnhg.data.GameAllPlayBKResult;
 import com.hgapp.betnhg.data.GameAllPlayFTResult;
 import com.hgapp.betnhg.data.GameAllPlayRBKResult;
 import com.hgapp.betnhg.data.GameAllPlayRFTResult;
+import com.hgapp.betnhg.data.PersonInformResult;
 import com.hgapp.betnhg.data.PrepareBetResult;
 import com.hgapp.betnhg.data.SwDua;
 import com.hgapp.betnhg.data.SwPDMD2TG;
@@ -5869,6 +5870,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
     @Override
     public void postBetApiFailResult(String message) {
+
+    }
+
+    @Override
+    public void postPersonInformResult(PersonInformResult personInformResult) {
 
     }
 
