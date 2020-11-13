@@ -61,15 +61,15 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
          *
          */
         cpGameList.add(new CPIcon("返回大厅", R.mipmap.home_hgty,0));
-        cpGameList.add(new CPIcon("北京赛车", R.mipmap.home_hgty,51));
-        cpGameList.add(new CPIcon("欢乐生肖", R.mipmap.home_vrcp,2));
+        //cpGameList.add(new CPIcon("北京赛车", R.mipmap.home_hgty,51));
+        //cpGameList.add(new CPIcon("欢乐生肖", R.mipmap.home_vrcp,2));
         cpGameList.add(new CPIcon("极速赛车", R.mipmap.home_vrcp,189));
         cpGameList.add(new CPIcon("极速飞艇", R.mipmap.home_hgty,222));
         cpGameList.add(new CPIcon("分分彩", R.mipmap.home_vrcp,207));
         cpGameList.add(new CPIcon("三分彩", R.mipmap.home_vrcp,407));
         cpGameList.add(new CPIcon("五分彩", R.mipmap.home_vrcp,507));
         cpGameList.add(new CPIcon("腾讯二分彩", R.mipmap.home_vrcp,607));
-        cpGameList.add(new CPIcon("PC蛋蛋", R.mipmap.home_ag,304));
+        //cpGameList.add(new CPIcon("PC蛋蛋", R.mipmap.home_ag,304));
         cpGameList.add(new CPIcon("江苏快3", R.mipmap.home_ag,159));
         cpGameList.add(new CPIcon("幸运农场", R.mipmap.home_ag,47));
         cpGameList.add(new CPIcon("快乐十分", R.mipmap.home_vrcp,3));

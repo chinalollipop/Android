@@ -34,7 +34,7 @@ public class Client {
     private static OkHttpClient client;
     private static ClientConfig clientConfig;
     private static ProxyCallFactory proxyCallFactory;
-    public static String domainUrl = "http://m.365app22.com/";
+    public static String domainUrl = "https://m.365app11.com/";
     /**
      * 应该在Application onCreate中使用
      * @param config

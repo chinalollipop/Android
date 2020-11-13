@@ -90,15 +90,15 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     TextView moneyText;
     String moneyStr="0.00";
     static {
-        cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
-        cpGameList.add(new CPHallIcon("欢乐生肖", R.mipmap.cp_cqssc, 0,2));
+        //cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
+        //cpGameList.add(new CPHallIcon("欢乐生肖", R.mipmap.cp_cqssc, 0,2));
         cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsft, 0,189));
         cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsfc, 0,222));
         cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 0,207));
         cpGameList.add(new CPHallIcon("三分彩", R.mipmap.cp_sfc, 0,407));
         cpGameList.add(new CPHallIcon("五分彩", R.mipmap.cp_wfc, 0,507));
         cpGameList.add(new CPHallIcon("腾讯二分彩", R.mipmap.cp_efc, 0,607));
-        cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 0,304));
+        //cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 0,304));
         cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 0,159));
         cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
         cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
@@ -400,7 +400,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         cpGameList.get(13).setIsopen(cpHallResult.getdata51().getIsopen());*/
         //String systTime =TimeUtils.getDateAndTimeString();
         //String systTime = TimeUtils.convertToDetailTime(TrueTime.now());
-       if(Check.isNumericNull(cpHallResult.getdata51().getEndtime())){
+       /*if(Check.isNumericNull(cpHallResult.getdata51().getEndtime())){
            cpHallIcon0 = 0;
            scpHallIcon0 = 1;
        }else{
@@ -413,7 +413,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         }else {
             scpHallIcon1 = 0;
             cpHallIcon1 = TimeHelper.timeToSecond(cpHallResult.getdata2().getEndtime(),cpHallResult.getdata2().getServerTime());
-        }
+        }*/
         if(Check.isNumericNull(cpHallResult.getdata189().getEndtime())){
             cpHallIcon2 = 0;
             scpHallIcon2 = 1;
@@ -456,13 +456,13 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             scpHallIcon7 = 0;
             cpHallIcon7 = TimeHelper.timeToSecond(cpHallResult.getdata607().getEndtime(),cpHallResult.getdata607().getServerTime());
         }
-        if(Check.isNumericNull(cpHallResult.getdata304().getEndtime())){
+       /* if(Check.isNumericNull(cpHallResult.getdata304().getEndtime())){
             cpHallIcon8 = 0;
             scpHallIcon8 = 1;
         }else {
             scpHallIcon8 = 0;
             cpHallIcon8 = TimeHelper.timeToSecond(cpHallResult.getdata304().getEndtime(),cpHallResult.getdata304().getServerTime());
-        }
+        }*/
         if(Check.isNumericNull(cpHallResult.getdata159().getEndtime())){
             cpHallIcon9 = 0;
             scpHallIcon9 = 1;

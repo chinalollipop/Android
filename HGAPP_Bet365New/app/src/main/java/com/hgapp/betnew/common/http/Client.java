@@ -34,7 +34,7 @@ public class Client {
     private static OkHttpClient client;
     private static ClientConfig clientConfig;
     private static ProxyCallFactory proxyCallFactory;
-    public static String domainUrl = "https://m.555365.vip/";
+    public static String domainUrl = "https://m.bet3659.tt/";
     /**
      * 应该在Application onCreate中使用
      * @param config
