@@ -25,6 +25,7 @@ import com.hgapp.common.util.ToastUtils;
 import java.io.IOException;
 import java.util.List;
 
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -44,6 +45,7 @@ public class LauncherActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RetrofitUrlManager.getInstance().setGlobalDomain(Client.domainUrl);
         setContentView(R.layout.activity_launcher);
         button = (Button)findViewById(R.id.retry);
         button.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +89,7 @@ public class LauncherActivity extends AppCompatActivity{
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086_1.txt";
-        String domainUrl = "http://new-domain.gz.bcebos.com/hg0086.txt";
+        String domainUrl = "https://hg0086.appdolo.com/hg0086.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
@@ -151,6 +153,7 @@ public class LauncherActivity extends AppCompatActivity{
                             }
                             ACache.get(getContext()).put("homeLineChoice", JSON.toJSONString(domainUrl));
                             Client.setClientDomain(demain);
+                            RetrofitUrlManager.getInstance().setGlobalDomain(demain);
                             enterMain();
                         }
                     });

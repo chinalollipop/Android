@@ -26,6 +26,7 @@ import com.hgapp.common.util.ToastUtils;
 import java.io.IOException;
 import java.util.List;
 
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -46,6 +47,7 @@ public class LauncherActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RetrofitUrlManager.getInstance().setGlobalDomain(Client.domainUrl);
         //去除标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //去除状态栏
@@ -127,7 +129,7 @@ public class LauncherActivity extends AppCompatActivity{
             ToastUtils.showLongToast("无网络连接！");
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
-        String domainUrl = "https://new-domain.gz.bcebos.com/new865.txt";
+        String domainUrl = "https://and.555365.vip/new865.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
@@ -202,6 +204,7 @@ public class LauncherActivity extends AppCompatActivity{
                             }
                             ACache.get(getContext()).put("homeLineChoice", JSON.toJSONString(domainUrl));
                             Client.setClientDomain(demain);
+                            RetrofitUrlManager.getInstance().setGlobalDomain(demain);
                         }
                     });
                     //enterMain();
