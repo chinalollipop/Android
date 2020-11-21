@@ -1789,13 +1789,13 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         }
 
         if(!Check.isEmpty(gameAllPlayRBKResult.getSc_H1_H())||!Check.isEmpty(gameAllPlayRBKResult.getSc_H1_A())){
-            stringBuilder.append("上半场(").append(gameAllPlayRBKResult.getSc_H1_H()).append("-").append(gameAllPlayRBKResult.getSc_H1_A()).append(")");
+            stringBuilder.append(getString(R.string.games_prepare_bet_sbc)+"(").append(gameAllPlayRBKResult.getSc_H1_H()).append("-").append(gameAllPlayRBKResult.getSc_H1_A()).append(")");
         }
         if(!Check.isEmpty(gameAllPlayRBKResult.getSc_H2_H())||!Check.isEmpty(gameAllPlayRBKResult.getSc_H2_A())){
-            stringBuilder.append("下半场(").append(gameAllPlayRBKResult.getSc_H2_H()).append("-").append(gameAllPlayRBKResult.getSc_H2_A()).append(")");
+            stringBuilder.append(getString(R.string.games_prepare_bet_xbc)+"(").append(gameAllPlayRBKResult.getSc_H2_H()).append("-").append(gameAllPlayRBKResult.getSc_H2_A()).append(")");
         }
         if(!Check.isEmpty(gameAllPlayRBKResult.getSc_OT_H())||!Check.isEmpty(gameAllPlayRBKResult.getSc_OT_A())){
-            stringBuilder.append("加时(").append(gameAllPlayRBKResult.getSc_OT_H()).append("-").append(gameAllPlayRBKResult.getSc_OT_A()).append(")");
+            stringBuilder.append(getString(R.string.games_prepare_bet_js)+"(").append(gameAllPlayRBKResult.getSc_OT_H()).append("-").append(gameAllPlayRBKResult.getSc_OT_A()).append(")");
         }
         if(Check.isEmpty(stringBuilder.toString())){
             rbkStateKK.setVisibility(View.GONE);
@@ -2624,8 +2624,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             swBKPDHAll.setVisibility(View.GONE);
             swBKPDCAll.setVisibility(View.GONE);
         }
-        swBKPDHName.setText("球队得分：" + gameAllPlayBKResult.getTeam_h() + " -最后一位数");
-        swBKPDCName.setText("球队得分：" + gameAllPlayBKResult.getTeam_c() + " -最后一位数");
+        swBKPDHName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayBKResult.getTeam_h() + getString(R.string.games_prepare_bet_bk_dfl));
+        swBKPDCName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayBKResult.getTeam_c() + getString(R.string.games_prepare_bet_bk_dfl));
         ArrayList<SwPDMD2TG> myListSwPDh = new ArrayList<SwPDMD2TG>();
         ArrayList<SwPDMD2TG> myListSwPDc = new ArrayList<SwPDMD2TG>();
         for (int i = 0; i < 5; ++i) {
@@ -2638,47 +2638,47 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             switch (i) {
                 case 0:
                     swPDMD2TGH.rtype = "PDH0";
-                    swPDMD2TGH.ior_H_up = "0或5";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo05);
                     swPDMD2TGH.ior_H_down = gameAllPlayBKResult.getIor_PDH0();
 
                     swPDMD2TGC.rtype = "PDC0";
-                    swPDMD2TGC.ior_H_up = "0或5";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo05);
                     swPDMD2TGC.ior_H_down = gameAllPlayBKResult.getIor_PDC0();
                     break;
                 case 1:
                     swPDMD2TGH.rtype = "PDH1";
-                    swPDMD2TGH.ior_H_up = "1或6";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo16);
                     swPDMD2TGH.ior_H_down = gameAllPlayBKResult.getIor_PDH1();
 
                     swPDMD2TGC.rtype = "PDC1";
-                    swPDMD2TGC.ior_H_up = "1或6";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo16);
                     swPDMD2TGC.ior_H_down = gameAllPlayBKResult.getIor_PDC1();
                     break;
                 case 2:
                     swPDMD2TGH.rtype = "PDH2";
-                    swPDMD2TGH.ior_H_up = "2或7";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo27);
                     swPDMD2TGH.ior_H_down = gameAllPlayBKResult.getIor_PDH2();
 
                     swPDMD2TGC.rtype = "PDC2";
-                    swPDMD2TGC.ior_H_up = "2或7";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo27);
                     swPDMD2TGC.ior_H_down = gameAllPlayBKResult.getIor_PDC2();
                     break;
                 case 3:
                     swPDMD2TGH.rtype = "PDH3";
-                    swPDMD2TGH.ior_H_up = "3或8";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo38);
                     swPDMD2TGH.ior_H_down = gameAllPlayBKResult.getIor_PDH3();
 
                     swPDMD2TGC.rtype = "PDC3";
-                    swPDMD2TGC.ior_H_up = "3或8";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo38);
                     swPDMD2TGC.ior_H_down = gameAllPlayBKResult.getIor_PDC3();
                     break;
                 case 4:
                     swPDMD2TGH.rtype = "PDH4";
-                    swPDMD2TGH.ior_H_up = "4或9";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo49);
                     swPDMD2TGH.ior_H_down = gameAllPlayBKResult.getIor_PDH4();
 
                     swPDMD2TGC.rtype = "PDC4";
-                    swPDMD2TGC.ior_H_up = "4或9";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo49);
                     swPDMD2TGC.ior_H_down = gameAllPlayBKResult.getIor_PDC4();
                     break;
             }
@@ -2710,8 +2710,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             swBKPDHAll.setVisibility(View.GONE);
             swBKPDCAll.setVisibility(View.GONE);
         }
-        swBKPDHName.setText("球队得分：" + gameAllPlayRBKResult.getTeam_h() + " -最后一位数");
-        swBKPDCName.setText("球队得分：" + gameAllPlayRBKResult.getTeam_c() + " -最后一位数");
+        swBKPDHName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayRBKResult.getTeam_h() + getString(R.string.games_prepare_bet_bk_dfl) );
+        swBKPDCName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayRBKResult.getTeam_c() + getString(R.string.games_prepare_bet_bk_dfl));
         ArrayList<SwPDMD2TG> myListSwPDh = new ArrayList<SwPDMD2TG>();
         ArrayList<SwPDMD2TG> myListSwPDc = new ArrayList<SwPDMD2TG>();
         for (int i = 0; i < 5; ++i) {
@@ -2724,47 +2724,47 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             switch (i) {
                 case 0:
                     swPDMD2TGH.rtype = "RPDH0";
-                    swPDMD2TGH.ior_H_up = "0或5";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo05);
                     swPDMD2TGH.ior_H_down = gameAllPlayRBKResult.getIor_RPDH0();
 
                     swPDMD2TGC.rtype = "RPDC0";
-                    swPDMD2TGC.ior_H_up = "0或5";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo05);
                     swPDMD2TGC.ior_H_down = gameAllPlayRBKResult.getIor_RPDC0();
                     break;
                 case 1:
                     swPDMD2TGH.rtype = "RPDH1";
-                    swPDMD2TGH.ior_H_up = "1或6";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo16);
                     swPDMD2TGH.ior_H_down = gameAllPlayRBKResult.getIor_RPDH1();
 
                     swPDMD2TGC.rtype = "RPDC1";
-                    swPDMD2TGC.ior_H_up = "1或6";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo16);
                     swPDMD2TGC.ior_H_down = gameAllPlayRBKResult.getIor_RPDC1();
                     break;
                 case 2:
                     swPDMD2TGH.rtype = "RPDH2";
-                    swPDMD2TGH.ior_H_up = "2或7";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo27);
                     swPDMD2TGH.ior_H_down = gameAllPlayRBKResult.getIor_RPDH2();
 
                     swPDMD2TGC.rtype = "RPDC2";
-                    swPDMD2TGC.ior_H_up = "2或7";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo27);
                     swPDMD2TGC.ior_H_down = gameAllPlayRBKResult.getIor_RPDC2();
                     break;
                 case 3:
                     swPDMD2TGH.rtype = "RPDH3";
-                    swPDMD2TGH.ior_H_up = "3或8";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo38);
                     swPDMD2TGH.ior_H_down = gameAllPlayRBKResult.getIor_RPDH3();
 
                     swPDMD2TGC.rtype = "RPDC3";
-                    swPDMD2TGC.ior_H_up = "3或8";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo38);
                     swPDMD2TGC.ior_H_down = gameAllPlayRBKResult.getIor_RPDC3();
                     break;
                 case 4:
                     swPDMD2TGH.rtype = "RPDH4";
-                    swPDMD2TGH.ior_H_up = "4或9";
+                    swPDMD2TGH.ior_H_up = getString(R.string.games_prepare_bet_huo49);
                     swPDMD2TGH.ior_H_down = gameAllPlayRBKResult.getIor_RPDH4();
 
                     swPDMD2TGC.rtype = "RPDC4";
-                    swPDMD2TGC.ior_H_up = "4或9";
+                    swPDMD2TGC.ior_H_up = getString(R.string.games_prepare_bet_huo49);
                     swPDMD2TGC.ior_H_down = gameAllPlayRBKResult.getIor_RPDC4();
                     break;
             }
@@ -2996,12 +2996,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             iorDSSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
 
-        iorDSHYName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 是");
-        iorDSHNName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 不是");
-        iorDSCYName.setText(gameAllPlayFTResult.getTeam_c() + " / 和局  & 是");
-        iorDSCNName.setText(gameAllPlayFTResult.getTeam_c() + " / 和局 & 不是");
-        iorDSSYName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + "  & 是");
-        iorDSSNName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + " & 不是");
+        iorDSHYName.setText(gameAllPlayFTResult.getTeam_h() + " / "+getString(R.string.games_prepare_bet_heju)+" & "+getString(R.string.games_prepare_bet_shi));
+        iorDSHNName.setText(gameAllPlayFTResult.getTeam_h() + " / "+getString(R.string.games_prepare_bet_heju)+ "& "+getString(R.string.games_prepare_bet_bushi));
+        iorDSCYName.setText(gameAllPlayFTResult.getTeam_c() + " / "+getString(R.string.games_prepare_bet_heju)+ " & "+getString(R.string.games_prepare_bet_shi));
+        iorDSCNName.setText(gameAllPlayFTResult.getTeam_c() + " / "+getString(R.string.games_prepare_bet_heju)+" & "+getString(R.string.games_prepare_bet_bushi));
+        iorDSSYName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + "  & "+getString(R.string.games_prepare_bet_shi));
+        iorDSSNName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + " & "+getString(R.string.games_prepare_bet_bushi));
 
     }
 
@@ -3041,12 +3041,12 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             iorDSSN.setVisibility(View.GONE);
             iorDSSNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
-        iorDSHYName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 是");
-        iorDSHNName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局 & 不是");
-        iorDSCYName.setText(gameAllPlayFTResult.getTeam_c() + " / 和局  & 是");
-        iorDSCNName.setText(gameAllPlayFTResult.getTeam_c() + " / 和局 & 不是");
-        iorDSSYName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + "  & 是");
-        iorDSSNName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + " & 不是");
+        iorDSHYName.setText(gameAllPlayFTResult.getTeam_h() + " / "+getString(R.string.games_prepare_bet_heju)+" & "+getString(R.string.games_prepare_bet_shi));
+        iorDSHNName.setText(gameAllPlayFTResult.getTeam_h() + " / "+getString(R.string.games_prepare_bet_heju)+" & "+getString(R.string.games_prepare_bet_bushi));
+        iorDSCYName.setText(gameAllPlayFTResult.getTeam_c() + " / "+getString(R.string.games_prepare_bet_heju)+" & "+getString(R.string.games_prepare_bet_shi));
+        iorDSCNName.setText(gameAllPlayFTResult.getTeam_c() + " / "+getString(R.string.games_prepare_bet_heju)+" & "+getString(R.string.games_prepare_bet_bushi));
+        iorDSSYName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + "  & "+getString(R.string.games_prepare_bet_shi));
+        iorDSSNName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c() + " & "+getString(R.string.games_prepare_bet_bushi));
 
     }
 
@@ -3089,10 +3089,10 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             iorMTSCN.setVisibility(View.GONE);
             iorMTSCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
-        iorMTSHYName.setText(gameAllPlayFTResult.getTeam_h() + " & 是");
-        iorMTSHNName.setText(gameAllPlayFTResult.getTeam_h() + " & 不是");
-        iorMTSCYName.setText(gameAllPlayFTResult.getTeam_c() + "  & 是");
-        iorMTSCNName.setText(gameAllPlayFTResult.getTeam_c() + " & 不是");
+        iorMTSHYName.setText(gameAllPlayFTResult.getTeam_h() + " & "+getString(R.string.games_prepare_bet_shi));
+        iorMTSHNName.setText(gameAllPlayFTResult.getTeam_h() + " & "+getString(R.string.games_prepare_bet_bushi));
+        iorMTSCYName.setText(gameAllPlayFTResult.getTeam_c() + " & "+getString(R.string.games_prepare_bet_shi));
+        iorMTSCNName.setText(gameAllPlayFTResult.getTeam_c() + " & "+getString(R.string.games_prepare_bet_bushi));
 
     }
 
@@ -3132,10 +3132,10 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             iorMTSCN.setVisibility(View.GONE);
             iorMTSCNH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
-        iorMTSHYName.setText(gameAllPlayRFTResult.getTeam_h() + " & 是");
-        iorMTSHNName.setText(gameAllPlayRFTResult.getTeam_h() + " & 不是");
-        iorMTSCYName.setText(gameAllPlayRFTResult.getTeam_c() + "  & 是");
-        iorMTSCNName.setText(gameAllPlayRFTResult.getTeam_c() + " & 不是");
+        iorMTSHYName.setText(gameAllPlayRFTResult.getTeam_h() + " & "+getString(R.string.games_prepare_bet_shi));
+        iorMTSHNName.setText(gameAllPlayRFTResult.getTeam_h() + " & "+getString(R.string.games_prepare_bet_bushi));
+        iorMTSCYName.setText(gameAllPlayRFTResult.getTeam_c() + " & "+getString(R.string.games_prepare_bet_shi));
+        iorMTSCNName.setText(gameAllPlayRFTResult.getTeam_c() + " & "+getString(R.string.games_prepare_bet_bushi));
 
     }
 
@@ -3161,8 +3161,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             iorDCHC.setVisibility(View.GONE);
             iorDCHCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
-        iorDCHNName.setText(gameAllPlayFTResult.getTeam_h() + " / 和局");
-        iorDCCNName.setText(gameAllPlayFTResult.getTeam_c() + " / 和局");
+        iorDCHNName.setText(gameAllPlayFTResult.getTeam_h() + " / "+getString(R.string.games_prepare_bet_heju));
+        iorDCCNName.setText(gameAllPlayFTResult.getTeam_c() + " / "+getString(R.string.games_prepare_bet_heju));
         iorDCHCName.setText(gameAllPlayFTResult.getTeam_h() + " / " + gameAllPlayFTResult.getTeam_c());
 
     }
@@ -3188,8 +3188,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             iorDCHC.setVisibility(View.GONE);
             iorDCHCH.setBackground(getResources().getDrawable(R.mipmap.bet_lock));
         }
-        iorDCHNName.setText(gameAllPlayRFTResult.getTeam_h() + " / 和局");
-        iorDCCNName.setText(gameAllPlayRFTResult.getTeam_c() + " / 和局");
+        iorDCHNName.setText(gameAllPlayRFTResult.getTeam_h() + " / "+getString(R.string.games_prepare_bet_heju));
+        iorDCCNName.setText(gameAllPlayRFTResult.getTeam_c() + " / "+getString(R.string.games_prepare_bet_heju));
         iorDCHCName.setText(gameAllPlayRFTResult.getTeam_h() + " / " + gameAllPlayRFTResult.getTeam_c());
 
     }
@@ -3385,15 +3385,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
 
         iorFHHName.setText(gameAllPlayFTResult.getTeam_h() + "/" + gameAllPlayFTResult.getTeam_h());
-        iorFHNName.setText(gameAllPlayFTResult.getTeam_h() + "/和局");
+        iorFHNName.setText(gameAllPlayFTResult.getTeam_h() + "/"+getString(R.string.games_prepare_bet_heju));
         iorFHCName.setText(gameAllPlayFTResult.getTeam_h() + "/" + gameAllPlayFTResult.getTeam_c());
 
-        iorFNHName.setText("和局/" + gameAllPlayFTResult.getTeam_h());
-        iorFNNName.setText("和局/和局");
-        iorFNCName.setText("和局/" + gameAllPlayFTResult.getTeam_c());
+        iorFNHName.setText(getString(R.string.games_prepare_bet_heju) +"/"+ gameAllPlayFTResult.getTeam_h());
+        iorFNNName.setText(getString(R.string.games_prepare_bet_heju)+"/"+getString(R.string.games_prepare_bet_heju));
+        iorFNCName.setText(getString(R.string.games_prepare_bet_heju) +"/"+ gameAllPlayFTResult.getTeam_c());
 
         iorFCHName.setText(gameAllPlayFTResult.getTeam_c() + "/" + gameAllPlayFTResult.getTeam_h());
-        iorFCNName.setText(gameAllPlayFTResult.getTeam_c() + "/和局");
+        iorFCNName.setText(gameAllPlayFTResult.getTeam_c() + "/"+getString(R.string.games_prepare_bet_heju));
         iorFCCName.setText(gameAllPlayFTResult.getTeam_c() + "/" + gameAllPlayFTResult.getTeam_c());
 
     }
@@ -3456,15 +3456,15 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         }
 
         iorFHHName.setText(gameAllPlayRFTResult.getTeam_h() + "/" + gameAllPlayRFTResult.getTeam_h());
-        iorFHNName.setText(gameAllPlayRFTResult.getTeam_h() + "/和局");
+        iorFHNName.setText(gameAllPlayRFTResult.getTeam_h() + "/"+getString(R.string.games_prepare_bet_heju));
         iorFHCName.setText(gameAllPlayRFTResult.getTeam_h() + "/" + gameAllPlayRFTResult.getTeam_c());
 
-        iorFNHName.setText("和局/" + gameAllPlayRFTResult.getTeam_h());
-        iorFNNName.setText("和局/和局");
-        iorFNCName.setText("和局/" + gameAllPlayRFTResult.getTeam_c());
+        iorFNHName.setText(getString(R.string.games_prepare_bet_heju)+"/" + gameAllPlayRFTResult.getTeam_h());
+        iorFNNName.setText(getString(R.string.games_prepare_bet_heju)+"/"+getString(R.string.games_prepare_bet_heju));
+        iorFNCName.setText(getString(R.string.games_prepare_bet_heju)+"/" + gameAllPlayRFTResult.getTeam_c());
 
         iorFCHName.setText(gameAllPlayRFTResult.getTeam_c() + "/" + gameAllPlayRFTResult.getTeam_h());
-        iorFCNName.setText(gameAllPlayRFTResult.getTeam_c() + "/和局");
+        iorFCNName.setText(gameAllPlayRFTResult.getTeam_c() + "/"+getString(R.string.games_prepare_bet_heju));
         iorFCCName.setText(gameAllPlayRFTResult.getTeam_c() + "/" + gameAllPlayRFTResult.getTeam_c());
 
     }
@@ -3747,7 +3747,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         } else {
             swEOAll.setVisibility(View.GONE);
         }
-        swEOName.setText("总分：单/双");
+        //swEOName.setText("总分：单/双");
+        swEOName.setText(getString(R.string.games_prepare_bet_bk_zfds));
         iorEOO.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_EOO()));
         iorEOE.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_EOE()));
 
@@ -3767,7 +3768,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         } else {
             swEOAll.setVisibility(View.GONE);
         }
-        swEOName.setText("总分：单/双");
+        //swEOName.setText("总分：单/双");
+        swEOName.setText(getString(R.string.games_prepare_bet_bk_zfds));
         iorEOO.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_REOO()));
         iorEOE.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_REOE()));
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_REOO())){
@@ -4237,8 +4239,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorHOUCU.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_HOUCU()));
         ratioHouco.setText(gameAllPlayFTResult.getRatio_houco());
         ratioHoucu.setText(gameAllPlayFTResult.getRatio_houcu());
-        swHOUCName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_c() + " 大/小 上半场");
-
+        //swHOUCName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_c() + " 大/小 上半场");
+        swHOUCName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayFTResult.getTeam_c() + getString(R.string.games_prepare_bet_sw_hou));
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUCO())){
             iorHOUCO.setVisibility(View.GONE);
             ratioHouco.setVisibility(View.GONE);
@@ -4262,7 +4264,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorHOUCU.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_HRUCU()));
         ratioHouco.setText(gameAllPlayRFTResult.getRatio_hruco());
         ratioHoucu.setText(gameAllPlayRFTResult.getRatio_hrucu());
-        swHOUCName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_c() + " 大/小 上半场");
+        //swHOUCName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_c() + " 大/小 上半场");
+        swHOUCName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayRFTResult.getTeam_c() + getString(R.string.games_prepare_bet_sw_hou));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRUCO())){
             iorHOUCO.setVisibility(View.GONE);
             ratioHouco.setVisibility(View.GONE);
@@ -4285,8 +4288,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorHOUHU.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_HOUHU()));
         ratioHouho.setText(gameAllPlayFTResult.getRatio_houho());
         ratioHouhu.setText(gameAllPlayFTResult.getRatio_houhu());
-        swHOUHName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_h() + " 大/小 上半场");
-
+        //swHOUHName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_h() + " 大/小 上半场");
+        swHOUHName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayFTResult.getTeam_h() + getString(R.string.games_prepare_bet_sw_hou));
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_HOUHO())){
             iorHOUHO.setVisibility(View.GONE);
             ratioHouho.setVisibility(View.GONE);
@@ -4309,8 +4312,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorHOUHU.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_HRUHU()));
         ratioHouho.setText(gameAllPlayRFTResult.getRatio_hruho());
         ratioHouhu.setText(gameAllPlayRFTResult.getRatio_hruhu());
-        swHOUHName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_h() + " 大/小 上半场");
-
+        //swHOUHName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_h() + " 大/小 上半场");
+        swHOUHName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayRFTResult.getTeam_h() + getString(R.string.games_prepare_bet_sw_hou));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_HRUHO())){
             iorHOUHO.setVisibility(View.GONE);
             ratioHouho.setVisibility(View.GONE);
@@ -4333,8 +4336,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUCU.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_OUCU()));
         ratioOuco.setText(gameAllPlayFTResult.getRatio_ouco());
         ratioOucu.setText(gameAllPlayFTResult.getRatio_oucu());
-        swOUCName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_c() + " 大/小");
-
+        //swOUCName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_c() + " 大/小");
+        swOUCName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayFTResult.getTeam_c() + getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
@@ -4358,7 +4361,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUCU.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_OUCU()));
         ratioOuco.setText(gameAllPlayBKResult.getRatio_ouco());
         ratioOucu.setText(gameAllPlayBKResult.getRatio_oucu());
-        swOUCName.setText("球队得分 - " + gameAllPlayBKResult.getTeam_c() + " 大/小");
+        //swOUCName.setText("球队得分 - " + gameAllPlayBKResult.getTeam_c() + " 大/小");
+        swOUCName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayBKResult.getTeam_c() +getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
@@ -4381,7 +4385,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUCU.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_ROUCU()));
         ratioOuco.setText(gameAllPlayRBKResult.getRatio_rouco());
         ratioOucu.setText(gameAllPlayRBKResult.getRatio_roucu());
-        swOUCName.setText("球队得分 - " + gameAllPlayRBKResult.getTeam_c() + " 大/小");
+        //swOUCName.setText("球队得分 - " + gameAllPlayRBKResult.getTeam_c() + " 大/小");
+        swOUCName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayRBKResult.getTeam_c() +getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
@@ -4404,8 +4409,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUCU.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_ROUCU()));
         ratioOuco.setText(gameAllPlayRFTResult.getRatio_rouco());
         ratioOucu.setText(gameAllPlayRFTResult.getRatio_roucu());
-        swOUCName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_c() + " 大/小");
-
+        //swOUCName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_c() + " 大/小");
+        swOUCName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayRFTResult.getTeam_c() + getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUCO())){
             iorOUCO.setVisibility(View.GONE);
             ratioOuco.setVisibility(View.GONE);
@@ -4428,8 +4433,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUHU.setText(GameShipHelper.formatNumber(gameAllPlayFTResult.getIor_OUHU()));
         ratioOuho.setText(gameAllPlayFTResult.getRatio_ouho());
         ratioOuhu.setText(gameAllPlayFTResult.getRatio_ouhu());
-        swOUHName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_h() + " 大/小");
-
+        //swOUHName.setText("球队进球数 - " + gameAllPlayFTResult.getTeam_h() + " 大/小");
+        swOUHName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayFTResult.getTeam_h() + getString(R.string.games_prepare_bet_sw_ou));
 
         if(Check.isNumericNull(gameAllPlayFTResult.getIor_OUHO())){
             iorOUHO.setVisibility(View.GONE);
@@ -4455,7 +4460,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUHU.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_OUHU()));
         ratioOuho.setText(gameAllPlayBKResult.getRatio_ouho());
         ratioOuhu.setText(gameAllPlayBKResult.getRatio_ouhu());
-        swOUHName.setText("球队得分 - " + gameAllPlayBKResult.getTeam_h() + " 大/小");
+        //swOUHName.setText("球队得分 - " + gameAllPlayBKResult.getTeam_h() + " 大/小");
+        swOUHName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayBKResult.getTeam_h() +getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayBKResult.getIor_OUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
@@ -4478,7 +4484,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUHU.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_ROUHU()));
         ratioOuho.setText(gameAllPlayRBKResult.getRatio_rouho());
         ratioOuhu.setText(gameAllPlayRBKResult.getRatio_rouhu());
-        swOUHName.setText("球队得分 - " + gameAllPlayRBKResult.getTeam_h() + " 大/小");
+        //swOUHName.setText("球队得分 - " + gameAllPlayRBKResult.getTeam_h() + " 大/小");
+        swOUHName.setText(getString(R.string.games_prepare_bet_bk_dff) + gameAllPlayRBKResult.getTeam_h() +getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayRBKResult.getIor_ROUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
@@ -4501,8 +4508,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         iorOUHU.setText(GameShipHelper.formatNumber(gameAllPlayRFTResult.getIor_ROUHU()));
         ratioOuho.setText(gameAllPlayRFTResult.getRatio_rouho());
         ratioOuhu.setText(gameAllPlayRFTResult.getRatio_rouhu());
-        swOUHName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_h() + " 大/小");
-
+        //swOUHName.setText("球队进球数 - " + gameAllPlayRFTResult.getTeam_h() + " 大/小");
+        swOUHName.setText(getString(R.string.games_prepare_bet_bk_jqs) + gameAllPlayRFTResult.getTeam_h() + getString(R.string.games_prepare_bet_sw_ou));
         if(Check.isNumericNull(gameAllPlayRFTResult.getIor_ROUHO())){
             iorOUHO.setVisibility(View.GONE);
             ratioOuho.setVisibility(View.GONE);
@@ -4594,8 +4601,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         } else {
             swOUAll.setVisibility(View.GONE);
         }
-        swOUName.setText("总分：大/小");
-
+        //swOUName.setText("总分：大/小");
+        swOUName.setText(getString(R.string.games_prepare_bet_bk_zfdx));
         iorOUH.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_OUH()));
         iorOUC.setText(GameShipHelper.formatNumber(gameAllPlayBKResult.getIor_OUC()));
         ratioO.setText(gameAllPlayBKResult.getRatio_o());
@@ -4618,8 +4625,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         } else {
             swOUAll.setVisibility(View.GONE);
         }
-        swOUName.setText("总分：大/小");
-
+        //swOUName.setText("总分：大/小");
+        swOUName.setText(getString(R.string.games_prepare_bet_bk_zfdx));
         iorOUH.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_ROUH()));
         iorOUC.setText(GameShipHelper.formatNumber(gameAllPlayRBKResult.getIor_ROUC()));
         ratioO.setText(gameAllPlayRBKResult.getRatio_rouo());
@@ -4892,9 +4899,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayFTResult.getSw_DUA().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大1.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayFTResult.getIor_DUAHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUAHU();
             sw_duaAll1.order_method = "FT_single";
@@ -4903,9 +4910,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "DUA";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大1.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayFTResult.getIor_DUACO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUACU();
             sw_duaAll2.order_method = "FT_single";
@@ -4915,8 +4922,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/" + gameAllPlayFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大1.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayFTResult.getIor_DUASO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUASU();
             sw_duaAll3.order_method = "FT_single";
@@ -4928,9 +4935,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayFTResult.getSw_DUB().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大2.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayFTResult.getIor_DUBHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUBHU();
             sw_duaAll1.order_method = "FT_single";
@@ -4939,9 +4946,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "DUB";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大2.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayFTResult.getIor_DUBCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUBCU();
             sw_duaAll2.order_method = "FT_single";
@@ -4951,8 +4958,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/" + gameAllPlayFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大2.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayFTResult.getIor_DUBSO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUBSU();
             sw_duaAll3.order_method = "FT_single";
@@ -4964,9 +4971,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayFTResult.getSw_DUC().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大3.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayFTResult.getIor_DUCHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUCHU();
             sw_duaAll1.order_method = "FT_single";
@@ -4975,9 +4982,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "DUC";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大3.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayFTResult.getIor_DUCCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUCCU();
             sw_duaAll2.order_method = "FT_single";
@@ -4987,8 +4994,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/" + gameAllPlayFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大3.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayFTResult.getIor_DUCSO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUCSU();
             sw_duaAll3.order_method = "FT_single";
@@ -5000,9 +5007,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayFTResult.getSw_DUD().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大4.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayFTResult.getIor_DUDHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUDHU();
             sw_duaAll1.order_method = "FT_single";
@@ -5011,9 +5018,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "DUD";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大4.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayFTResult.getIor_DUDCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUDCU();
             sw_duaAll2.order_method = "FT_single";
@@ -5023,8 +5030,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayFTResult.getTeam_h() + "\n/" + gameAllPlayFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大4.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayFTResult.getIor_DUDSO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayFTResult.getIor_DUDSU();
             sw_duaAll3.order_method = "FT_single";
@@ -5054,9 +5061,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RDUA().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大1.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUAHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUAHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5065,9 +5072,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "RDUA";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大1.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUACO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUACU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5077,8 +5084,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/" + gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大1.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUASO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUASU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5090,9 +5097,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RDUB().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大2.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUBHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUBHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5101,9 +5108,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "RDUB";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大2.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUBCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUBCU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5114,8 +5121,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/" + gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大2.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUBSO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUBSU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5127,9 +5134,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RDUC().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大3.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUCHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUCHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5138,9 +5145,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "RDUC";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大3.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUCCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUCCU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5150,8 +5157,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/" + gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大3.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUCSO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUCSU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5163,9 +5170,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RDUD().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/和局";
-            sw_duaAll1.ior_DUA_da_Name = "大4.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUDHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUDHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5174,9 +5181,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             sw_duaAll1.wtype = "RDUD";
             myListSWDUA.add(sw_duaAll1);
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/和局";
-            sw_duaAll2.ior_DUA_da_Name = "大4.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c() + "\n/"+getString(R.string.games_prepare_bet_heju);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUDCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUDCU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5186,8 +5193,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll2);
             SwDua sw_duaAll3 = new SwDua();
             sw_duaAll3.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h() + "\n/" + gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll3.ior_DUA_da_Name = "大4.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RDUDSO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RDUDSU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5216,8 +5223,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if (gameAllPlayRFTResult.getSw_RMUA().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
             sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h();
-            sw_duaAll1.ior_DUA_da_Name = "大1.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUAHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUAHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5227,9 +5234,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll3 = new SwDua();
-            sw_duaAll3.ior_DUA_Name = "和局";
-            sw_duaAll3.ior_DUA_da_Name = "大1.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll3.ior_DUA_Name = getString(R.string.games_prepare_bet_heju);
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUANO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUANU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5240,8 +5247,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
             SwDua sw_duaAll2 = new SwDua();
             sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll2.ior_DUA_da_Name = "大1.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUACO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUACU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5255,8 +5262,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if (gameAllPlayRFTResult.getSw_RMUB().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
             sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h();
-            sw_duaAll1.ior_DUA_da_Name = "大2.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUBHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUBHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5266,9 +5273,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll3 = new SwDua();
-            sw_duaAll3.ior_DUA_Name = "和局";
-            sw_duaAll3.ior_DUA_da_Name = "大2.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll3.ior_DUA_Name = getString(R.string.games_prepare_bet_heju);
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUBNO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUBNU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5279,8 +5286,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
             SwDua sw_duaAll2 = new SwDua();
             sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll2.ior_DUA_da_Name = "大2.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUBCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUBCU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5294,8 +5301,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if (gameAllPlayRFTResult.getSw_RMUC().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
             sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h();
-            sw_duaAll1.ior_DUA_da_Name = "大3.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUCHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUCHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5305,9 +5312,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll3 = new SwDua();
-            sw_duaAll3.ior_DUA_Name = "和局";
-            sw_duaAll3.ior_DUA_da_Name = "大3.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll3.ior_DUA_Name = getString(R.string.games_prepare_bet_heju);
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUCNO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUCNU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5318,8 +5325,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
             SwDua sw_duaAll2 = new SwDua();
             sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll2.ior_DUA_da_Name = "大3.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUCCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUCCU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5333,8 +5340,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         if (gameAllPlayRFTResult.getSw_RMUD().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
             sw_duaAll1.ior_DUA_Name = gameAllPlayRFTResult.getTeam_h();
-            sw_duaAll1.ior_DUA_da_Name = "大4.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUDHO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUDHU();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5344,9 +5351,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll3 = new SwDua();
-            sw_duaAll3.ior_DUA_Name = "和局";
-            sw_duaAll3.ior_DUA_da_Name = "大4.5";
-            sw_duaAll3.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll3.ior_DUA_Name = getString(R.string.games_prepare_bet_heju);
+            sw_duaAll3.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll3.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll3.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUDNO();
             sw_duaAll3.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUDNU();
             sw_duaAll3.order_method = "FT_rsingle";
@@ -5357,8 +5364,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
             SwDua sw_duaAll2 = new SwDua();
             sw_duaAll2.ior_DUA_Name = gameAllPlayRFTResult.getTeam_c();
-            sw_duaAll2.ior_DUA_da_Name = "大4.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RMUDCO();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RMUDCU();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5387,9 +5394,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUTA().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "是";
-            sw_duaAll1.ior_DUA_da_Name = "大1.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_shi);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTAOY();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTAUY();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5399,9 +5406,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "不是";
-            sw_duaAll2.ior_DUA_da_Name = "大1.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_bushi);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTAON();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTAUN();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5414,9 +5421,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUTB().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "是";
-            sw_duaAll1.ior_DUA_da_Name = "大2.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_shi);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTBOY();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTBUY();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5427,9 +5434,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "不是";
-            sw_duaAll2.ior_DUA_da_Name = "大2.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_bushi);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTBON();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTBUN();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5442,9 +5449,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUTC().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "是";
-            sw_duaAll1.ior_DUA_da_Name = "大3.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_shi);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTCOY();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTCUY();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5455,9 +5462,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "不是";
-            sw_duaAll2.ior_DUA_da_Name = "大3.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_bushi);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTCON();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTCUN();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5470,9 +5477,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUTD().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "是";
-            sw_duaAll1.ior_DUA_da_Name = "大4.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_shi);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTDOY();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTDUY();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5482,9 +5489,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "不是";
-            sw_duaAll2.ior_DUA_da_Name = "大4.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_bushi);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUTDON();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUTDUN();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5514,9 +5521,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUEA().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "单";
-            sw_duaAll1.ior_DUA_da_Name = "大1.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_dan);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUEAOO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUEAUO();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5526,9 +5533,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "双";
-            sw_duaAll2.ior_DUA_da_Name = "大1.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小1.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_shuang);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"1.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"1.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUEAOE();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUEAUE();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5541,9 +5548,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUEB().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "单";
-            sw_duaAll1.ior_DUA_da_Name = "大2.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_dan);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUEBOO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUEBUO();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5554,9 +5561,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "双";
-            sw_duaAll2.ior_DUA_da_Name = "大2.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小2.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_shuang);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"2.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"2.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUEBOE();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUEBUE();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5569,9 +5576,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUEC().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "单";
-            sw_duaAll1.ior_DUA_da_Name = "大3.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_dan);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUECOO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUECUO();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5582,9 +5589,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "双";
-            sw_duaAll2.ior_DUA_da_Name = "大3.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小3.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_shuang);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"3.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"3.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUECOE();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUECUE();
             sw_duaAll2.order_method = "FT_rsingle";
@@ -5597,9 +5604,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
         if (gameAllPlayRFTResult.getSw_RUED().equals("Y")) {
             SwDua sw_duaAll1 = new SwDua();
-            sw_duaAll1.ior_DUA_Name = "单";
-            sw_duaAll1.ior_DUA_da_Name = "大4.5";
-            sw_duaAll1.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll1.ior_DUA_Name = getString(R.string.games_prepare_bet_dan);
+            sw_duaAll1.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll1.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll1.ior_DUA_da = gameAllPlayRFTResult.getIor_RUEDOO();
             sw_duaAll1.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUEDUO();
             sw_duaAll1.order_method = "FT_rsingle";
@@ -5609,9 +5616,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
             myListSWDUA.add(sw_duaAll1);
 
             SwDua sw_duaAll2 = new SwDua();
-            sw_duaAll2.ior_DUA_Name = "双";
-            sw_duaAll2.ior_DUA_da_Name = "大4.5";
-            sw_duaAll2.ior_DUA_xiao_Name = "小4.5";
+            sw_duaAll2.ior_DUA_Name = getString(R.string.games_prepare_bet_shuang);
+            sw_duaAll2.ior_DUA_da_Name = getString(R.string.games_prepare_bet_da)+"4.5";
+            sw_duaAll2.ior_DUA_xiao_Name = getString(R.string.games_prepare_bet_xiao)+"4.5";
             sw_duaAll2.ior_DUA_da = gameAllPlayRFTResult.getIor_RUEDOE();
             sw_duaAll2.ior_DUA_xiao = gameAllPlayRFTResult.getIor_RUEDUE();
             sw_duaAll2.order_method = "FT_rsingle";

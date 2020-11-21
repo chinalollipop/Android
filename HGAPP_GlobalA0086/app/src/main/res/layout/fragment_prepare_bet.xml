@@ -36,7 +36,7 @@
                     android:ellipsize="end"
                     android:gravity="center|left"
                     android:singleLine="true"
-                    android:text="澳大利亚国际超级二联赛123324265"
+                    android:text="123324265"
                     android:textColor="#F4F4F4"
                     android:textSize="18sp" />
                 <FrameLayout
@@ -170,7 +170,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:drawableTop="@mipmap/bet_nodata"
-                android:text="此赛事暂时停止收注或已关闭"
+                android:text="@string/games_prepare_bet_nodata"
                 android:visibility="gone"
                 />
             <LinearLayout
@@ -199,7 +199,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="让球"
+                            android:text="@string/games_prepare_bet_sw_r"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -344,7 +344,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="让球-上半场"
+                            android:text="@string/games_prepare_bet_sw_hr"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -490,7 +490,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="大/小"
+                            android:text="@string/games_prepare_bet_sw_ou"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -522,7 +522,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="大"
+                                android:text="@string/games_prepare_bet_da"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -569,7 +569,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="小"
+                                android:text="@string/games_prepare_bet_xiao"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -631,7 +631,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="大/小- 上半场"
+                            android:text="@string/games_prepare_bet_sw_hou"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -663,7 +663,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="大"
+                                android:text="@string/games_prepare_bet_da"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -710,7 +710,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="小"
+                                android:text="@string/games_prepare_bet_xiao"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -773,7 +773,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="独赢"
+                            android:text="@string/games_prepare_bet_sw_m"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -895,7 +895,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="和局"
+                                android:text="@string/games_prepare_bet_heju"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -952,7 +952,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="独赢-上半场"
+                            android:text="@string/games_prepare_bet_sw_hm"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -1074,7 +1074,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="和局"
+                                android:text="@string/games_prepare_bet_heju"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -1132,7 +1132,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="波胆"
+                            android:text="@string/games_prepare_bet_sw_pd"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -1241,7 +1241,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="其他"
+                                android:text="@string/games_prepare_bet_qita"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -1405,7 +1405,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="波胆上半场"
+                            android:text="@string/games_prepare_bet_sw_hpd"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -1514,7 +1514,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="其他"
+                                android:text="@string/games_prepare_bet_qita"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -1568,7 +1568,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="总进球数"
+                            android:text="@string/games_prepare_bet_sw_t"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -1731,7 +1731,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="7或以上"
+                                android:text="@string/games_prepare_bet_sw_t_over"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -1786,7 +1786,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="总进球数-上半场"
+                            android:text="@string/games_prepare_bet_sw_ht"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -1949,7 +1949,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="3或以上"
+                                android:text="@string/games_prepare_bet_sw_ht_over"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2004,7 +2004,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="双方球队进球"
+                            android:text="@string/games_prepare_bet_sw_ts"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -2036,7 +2036,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="是"
+                                android:text="@string/games_prepare_bet_shi"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2076,7 +2076,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="不是"
+                                android:text="@string/games_prepare_bet_bushi"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2131,7 +2131,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="双方球队进球-上半场"
+                            android:text="@string/games_prepare_bet_sw_hts"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -2163,7 +2163,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="是"
+                                android:text="@string/games_prepare_bet_shi"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2203,7 +2203,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="不是"
+                                android:text="@string/games_prepare_bet_bushi"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2576,7 +2576,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="大"
+                                android:text="@string/games_prepare_bet_da"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2623,7 +2623,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="小"
+                                android:text="@string/games_prepare_bet_xiao"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2721,7 +2721,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="大"
+                                android:text="@string/games_prepare_bet_da"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2768,7 +2768,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="小"
+                                android:text="@string/games_prepare_bet_xiao"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2831,7 +2831,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="单/双"
+                            android:text="@string/games_prepare_bet_sw_eo"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -2863,7 +2863,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="单"
+                                android:text="@string/games_prepare_bet_dan"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2903,7 +2903,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="双"
+                                android:text="@string/games_prepare_bet_shuang"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -2946,7 +2946,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1px"
                         android:background="@color/title_text" />
-                    <!--当双-上半场 开关-->
+                    <!--单双-上半场 开关-->
                     <RelativeLayout
                         android:id="@+id/sw_HEO_Click"
                         android:layout_width="match_parent"
@@ -2958,7 +2958,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="单/双-上半场"
+                            android:text="@string/games_prepare_bet_sw_heo"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -2990,7 +2990,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="单"
+                                android:text="@string/games_prepare_bet_dan"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3030,7 +3030,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="双"
+                                android:text="@string/games_prepare_bet_shuang"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3084,7 +3084,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="半场/全场"
+                            android:text="@string/games_prepare_bet_sw_f"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -3534,7 +3534,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="净胜球数"
+                            android:text="@string/games_prepare_bet_sw_wm"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -3573,7 +3573,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜1球"
+                                android:text="@string/games_prepare_bet_sw_wm1"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3617,7 +3617,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜2球"
+                                android:text="@string/games_prepare_bet_sw_wm2"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3661,7 +3661,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜3球"
+                                android:text="@string/games_prepare_bet_sw_wm3"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3705,7 +3705,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜4球或更多"
+                                android:text="@string/games_prepare_bet_sw_wm4"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3756,7 +3756,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜1球"
+                                android:text="@string/games_prepare_bet_sw_wm1"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3800,7 +3800,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜2球"
+                                android:text="@string/games_prepare_bet_sw_wm2"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3844,7 +3844,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜3球"
+                                android:text="@string/games_prepare_bet_sw_wm3"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3888,7 +3888,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="净胜4球或更多"
+                                android:text="@string/games_prepare_bet_sw_wm4"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3932,7 +3932,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="0 - 0和局"
+                                android:text="@string/games_prepare_bet_sw_wm5"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -3975,7 +3975,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="任意进球和局"
+                                android:text="@string/games_prepare_bet_sw_wm6"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -4029,7 +4029,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="双重机会"
+                            android:text="@string/games_prepare_bet_sw_dc"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4207,7 +4207,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="零失球"
+                            android:text="@string/games_prepare_bet_sw_cs"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4336,7 +4336,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="零失球获胜"
+                            android:text="@string/games_prepare_bet_sw_wn"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4465,7 +4465,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="独赢 &amp; 进球 大/小"
+                            android:text="@string/games_prepare_bet_sw_rmu"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4515,7 +4515,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="独赢&amp;双方球队进球"
+                            android:text="@string/games_prepare_bet_sw_mts"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4824,7 +4824,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="进球 大/小&amp;双方球队进球"
+                            android:text="@string/games_prepare_bet_sw_rut"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4874,7 +4874,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="最多进球半场"
+                            android:text="@string/games_prepare_bet_sw_hg"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -4906,7 +4906,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="上半场"
+                                android:text="@string/games_prepare_bet_sbc"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -4952,7 +4952,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="下半场"
+                                android:text="@string/games_prepare_bet_xbc"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -5007,7 +5007,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="最多进球的半场-独赢"
+                            android:text="@string/games_prepare_bet_sw_mg"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -5039,7 +5039,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="上半场"
+                                android:text="@string/games_prepare_bet_sbc"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -5084,7 +5084,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="下半场"
+                                android:text="@string/games_prepare_bet_xbc"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -5128,7 +5128,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                                android:text="和局"
+                                android:text="@string/games_prepare_bet_heju"
                                 android:textColor="@color/bet_line_inside"
                                 android:textSize="@dimen/bet_sw_size" />
 
@@ -5181,7 +5181,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="双半场进球"
+                            android:text="@string/games_prepare_bet_sw_sb"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 
@@ -5315,7 +5315,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/bet_sw_padding_left"
-                            android:text="双重机会&amp;进球 大/小"
+                            android:text="@string/games_prepare_bet_sw_dua"
                             android:textColor="@color/title_text"
                             android:textSize="@dimen/bet_sw_size" />
 

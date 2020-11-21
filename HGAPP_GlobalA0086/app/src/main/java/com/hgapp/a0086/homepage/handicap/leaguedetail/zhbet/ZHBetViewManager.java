@@ -59,7 +59,7 @@ public class ZHBetViewManager {
                     public void onClick(View v) {
                         GameLog.log("===========================fragment 是否为空  "+fragment);
                         if(ZHBetManager.getSingleton().onListSize()<3){
-                            fragment.showMessage("下注单数最少3注");
+                            fragment.showMessage(fragment.getString(R.string.games_bet_zh_limit));//"下注单数最少3注"
                             return;
                         }
                         BetOrderZHSubmitDialog.newInstance(form,userMoney,active,ZHBetManager.getSingleton().onShowViewListData()).show(context.getSupportFragmentManager());
