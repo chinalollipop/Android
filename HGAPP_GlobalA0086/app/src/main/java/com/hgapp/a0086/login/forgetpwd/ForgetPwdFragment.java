@@ -216,16 +216,16 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
         String userPhone = etRegisterAccountPhone.getText().toString().trim();
         String userWechat = etRegisterWechat.getText().toString().trim();
         if(Check.isEmpty(userName)){
-            showMessage("请输入账号！");
+            showMessage(getString(R.string.games_register_uname_error));
             return;
         }
 
         if(Check.isEmpty(userDrawName)){
-            showMessage("请输入真实姓名！");
+            showMessage(getString(R.string.games_forgetpwd_uname_h));
             return;
         }
         if(Check.isEmpty(userDrawPwd)){
-            showMessage("请输入提款密码！");
+            showMessage(getString(R.string.games_forgetpwd_tk_pwd_h));
             return;
         }
 
@@ -235,17 +235,17 @@ public class ForgetPwdFragment extends HGBaseFragment implements ForgetPwdContra
         }*/
 
         if(Check.isEmpty(userPwd)||userPwd.length()<6){
-            showMessage("请输入有效密码！");
+            showMessage(getString(R.string.games_register_pwd_error1));
             return;
         }
 
         if(Check.isEmpty(userPwdVerify)||userPwdVerify.length()<6){
-            showMessage("请输入有效确认密码！");
+            showMessage(getString(R.string.games_register_pwd_error2));
             return;
         }
 
         if(!userPwdVerify.equals(userPwd)){
-            showMessage("2次输入密码不一致，请重新输入！");
+            showMessage(getString(R.string.games_register_pwd_error3));
             return;
         }
 

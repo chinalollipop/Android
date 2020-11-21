@@ -168,7 +168,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     @Override
     public void postLoginResult(LoginResult loginResult) {
 
-        showMessage("登录成功");
+        showMessage(getString(R.string.games_login_success));
         //String userName, String agents, String loginTime, String birthday, String money, String phone, String test_flag, String oid, String alias) {
         EventBus.getDefault().post(new LoginResult(loginResult.getUserName(),loginResult.getAgents(),loginResult.getLoginTime(),loginResult.getBirthday(),loginResult.getMoney(),loginResult.getPhone(),loginResult.getTest_flag(),loginResult.getOid(),loginResult.getAlias(),loginResult.getUserid(),loginResult.getMembermessage().getMem_message()));
         if(loginRemeberPwd.isChecked()){
@@ -244,12 +244,12 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         String loginType = etLoginType.getText().toString().trim();
         String loginPwd= etLoginPwd.getText().toString().trim();
         if(Check.isEmpty(loginType)){
-            showMessage("账号格式错误！");
+            showMessage(getString(R.string.games_login_uname_error));
             return;
         }
 
         if(Check.isEmpty(loginPwd)||loginPwd.length()<6){
-            showMessage("请输入有效密码！");
+            showMessage(getString(R.string.games_login_pwd_error));
             return;
         }
         presenter.postLogin(HGConstant.PRODUCT_PLATFORM, loginType, loginPwd);
@@ -278,7 +278,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 tvLoginUserName.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_hight));
                 tvLoginUserPhone.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_normal));
                 cbLoginRemeber.setVisibility(View.GONE);
-                etLoginType.setHint("您的会员账号");
+                etLoginType.setHint(getString(R.string.games_login_uname_h));
                 //presenter.loginGet();
 
                 break;
@@ -287,7 +287,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 tvLoginUserName.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_normal));
                 tvLoginUserPhone.setBackgroundColor(getActivity().getResources().getColor(R.color.login_title_hight));
                 cbLoginRemeber.setVisibility(View.VISIBLE);
-                etLoginType.setHint("输入手机号");
+                etLoginType.setHint(getString(R.string.games_register_phone_h));
                 break;
             case R.id.cbLoginRemeber:
                 break;
@@ -310,8 +310,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 break;
             case R.id.btnRegisterSubmitDemo:
                 String phone = etRegisterAccountPhoneDemo.getText().toString().trim();
-                if(Check.isEmpty(phone)||phone.length()<11){
-                    showMessage("请输入正确的手机号码");
+                if(Check.isEmpty(phone)||phone.length()<10){
+                    showMessage(getString(R.string.games_register_phone_h));
                     return;
                 }
                 presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,phone,"demoguest","nicainicainicaicaicaicai");

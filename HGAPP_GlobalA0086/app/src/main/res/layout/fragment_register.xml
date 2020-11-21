@@ -9,7 +9,7 @@
         android:id="@+id/tvRegisterBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backText="返回"
+        app:backText="@string/comm_back"
         app:moreTextOnly="true"
         />
 
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="介绍人"
+                        android:text="@string/games_register_introducer"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -84,7 +84,7 @@
                     android:id="@+id/etRegisterIntro"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="没有可不填写"
+                    android:hint="@string/games_register_introducer_h"
                     android:maxLength="15" />
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 账号"
+                        android:text="@string/games_register_uname"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -115,7 +115,7 @@
                     android:id="@+id/etRegisterUserName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="5-15个字符，英文需小写"
+                    android:hint="@string/games_register_uname_h"
                     android:maxLength="15" />
             </LinearLayout>
 
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 密码"
+                        android:text="@string/games_register_pwd1"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -147,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:hint="6-15个字母或数字组成"
+                    android:hint="@string/games_register_pwd1_h"
                     android:maxLength="15"
 
                     />
@@ -170,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 确认密码"
+                        android:text="@string/games_register_pwd2"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:hint="再次输入密码"
+                    android:hint="@string/games_register_pwd2_h"
                     android:maxLength="15"
 
                     />
@@ -271,7 +271,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 手机号"
+                        android:text="@string/games_register_phone"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -280,7 +280,7 @@
                     android:id="@+id/etRegisterAccountPhone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="请输入11位手机号码"
+                    android:hint="@string/games_register_phone_h"
                     android:inputType="number"
                     android:maxLength="11"
                     />
@@ -291,7 +291,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|left"
-                android:text="* 请认真填写,以便有优惠活动可以及时通知您参与！"
+                android:text="@string/games_register_note"
                 android:textColor="@android:color/holo_red_light"
                 android:textSize="15sp" />
 
@@ -314,7 +314,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 微信"
+                        android:text="@string/games_register_wechat"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -323,7 +323,7 @@
                     android:id="@+id/etRegisterWechat"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="微信号码"
+                    android:hint="@string/games_register_wechat_h"
 
                     />
             </LinearLayout>
@@ -346,7 +346,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 出生日期"
+                        android:text="@string/games_register_brithday"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -358,7 +358,7 @@
                     android:layout_height="match_parent"
                     android:inputType="time"
                     android:focusable="false"
-                    android:hint="请填写出生年月日"
+                    android:hint="@string/games_register_brithday_h"
 
                     />
             </LinearLayout>
@@ -380,7 +380,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 如何得知本网站"
+                        android:text="@string/games_register_where"
                         android:textColor="@color/register_left"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -390,7 +390,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:focusable="false"
-                    android:hint="网络广告"
+                    android:hint="@string/games_register_where_net_ad"
 
                     />
             </LinearLayout>

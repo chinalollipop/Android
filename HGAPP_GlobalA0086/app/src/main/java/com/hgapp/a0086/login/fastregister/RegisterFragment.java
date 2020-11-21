@@ -116,13 +116,8 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
 
     private Random mRandom = new Random();
     private int resource = 1;
-    static  List<String> stateList  = new ArrayList<String>();
-    static {
-        stateList.add("网络广告");
-        stateList.add("比分网");
-        stateList.add("朋友推荐");
-        stateList.add("论坛");
-    }
+    List<String> stateList  = new ArrayList<String>();
+
     public static RegisterFragment newInstance() {
         RegisterFragment loginFragment = new RegisterFragment();
         Bundle args = new Bundle();
@@ -143,6 +138,11 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        stateList.add(getString(R.string.games_register_where_net_ad));
+        stateList.add(getString(R.string.games_register_where_bifen));
+        stateList.add(getString(R.string.games_register_where_friends));
+        stateList.add(getString(R.string.games_register_where_bass));
+
         //时间选择器
         tpRegisterBrithday = new TimePickerBuilder(getContext(), new OnTimeSelectListener() {
             @Override
@@ -161,7 +161,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
             }
         }).build();
         optionsPickerViewState.setPicker(stateList);
-        etRegisterResource.setText("网络广告");
+        etRegisterResource.setText(getString(R.string.games_register_where_net_ad));
         registerVerificationCodeView.refreshCode();
         tvRegisterBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -270,27 +270,27 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
         String userVerificationCode = etRegisterVerificationCode.getText().toString().trim();
         String userResource = etRegisterResource.getText().toString().trim();
         if(Check.isEmpty(userName)){
-            showMessage("请输入账号！");
+            showMessage(getString(R.string.games_register_uname_error));
             return;
         }
 
         if(Check.isEmpty(userPwd)||userPwd.length()<6){
-            showMessage("请输入有效密码！");
+            showMessage(getString(R.string.games_register_pwd_error1));
             return;
         }
 
         if(Check.isEmpty(userPwdVerify)||userPwdVerify.length()<6){
-            showMessage("请输入有效确认密码！");
+            showMessage(getString(R.string.games_register_pwd_error2));
             return;
         }
 
         if(!userPwdVerify.equals(userPwd)){
-            showMessage("2次输入密码不一致，请重新输入！");
+            showMessage(getString(R.string.games_register_pwd_error3));
             return;
         }
 
         if(Check.isEmpty(userPhone)){
-            showMessage("请输入手机号！");
+            showMessage(getString(R.string.games_register_phone_error));
             return;
         }
         /*if(Check.isEmpty(userDrawName)){
@@ -329,7 +329,7 @@ public class RegisterFragment extends HGBaseFragment implements RegisterContract
 
     @Override
     public void postRegisterMemberResult(LoginResult loginResult) {
-        showMessage("恭喜您，账号注册成功！");
+        showMessage(getString(R.string.games_register_success));
         //正对每一个用户做数据缓存
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_STATUS+loginResult.getUserName(), "1");
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT, loginResult.getUserName());

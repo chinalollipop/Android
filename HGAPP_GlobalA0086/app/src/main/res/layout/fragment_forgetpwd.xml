@@ -9,7 +9,7 @@
         android:id="@+id/tvRegisterBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backText="返回"
+        app:backText="@string/comm_back"
         app:moreTextOnly="true"
         />
 
@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 账号"
+                        android:text="@string/games_register_uname"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -85,7 +85,7 @@
                     android:id="@+id/etRegisterUserName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="6-15个字符，英文需小写"
+                    android:hint="@string/games_register_uname_h"
                     android:maxLength="15" />
             </LinearLayout>
 
@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 真实姓名"
+                        android:text="@string/games_forgetpwd_uname"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -119,7 +119,7 @@
                     android:id="@+id/etRegisterWithDrawName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="请输入真实姓名"
+                    android:hint="@string/games_forgetpwd_uname_h"
 
                     />
             </LinearLayout>
@@ -140,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 提款密码"
+                        android:text="@string/games_forgetpwd_tk_pwd"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -149,7 +149,7 @@
                     android:id="@+id/etRegisterWithDrawPwd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="请输入提款密码"
+                    android:hint="@string/games_forgetpwd_tk_pwd_h"
                     android:inputType="numberPassword"
                     />
             </LinearLayout>
@@ -275,7 +275,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 新密码"
+                        android:text="@string/games_forgetpwd_new_pwd"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -285,7 +285,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:hint="6-15个字符长度字母或数字组成"
+                    android:hint="@string/games_forgetpwd_new_pwd_h"
                     android:maxLength="15"
 
                     />
@@ -308,7 +308,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="30dp"
-                        android:text="* 确认密码"
+                        android:text="@string/games_forgetpwd_new_pwd2"
                         android:textColor="@color/register_left"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -317,7 +317,7 @@
                     android:id="@+id/etRegisterPwdVerify"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="再次输入新密码"
+                    android:hint="@string/games_forgetpwd_new_pwd2_h"
                     android:maxLength="15"
                     android:inputType="textPassword"
                     />
@@ -448,7 +448,7 @@
             android:layout_height="33dp"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
-            android:text="找回密码" />
+            android:text="@string/games_forgetpwd_submit" />
     </LinearLayout>
 
 
