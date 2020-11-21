@@ -226,17 +226,19 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
                String god =  etBetSubmitGod.getText().toString().trim();
                 String godWin = tvetBetSubmitWinGod.getText().toString().trim();
                if(Check.isEmpty(god)){
-                   showMessage("请输入投注额！");
+                   showMessage(getString(R.string.games_prepare_bet_bill_input));
                    return;
                }
                GameLog.log(" 购买金额："+god);
 
                 if(Double.valueOf(god) < Double.valueOf(prepareBetResult.getMinBet())){
-                    showMessage("下注金额需大于"+prepareBetResult.getMinBet()+"元！");
+                    //showMessage("下注金额需大于"+prepareBetResult.getMinBet()+"元！");
+                    showMessage(getString(R.string.games_prepare_bet_bill_big_highest)+prepareBetResult.getMinBet()+getString(R.string.comm_roll_money_unit));
                     return;
                 }
                 if(Double.valueOf(godWin.replace(",","")) > Double.valueOf("1000000")){
-                    showMessage("单注最高派彩额是RMB 1,000,000");
+                    //showMessage("单注最高派彩额是RMB 1,000,000");
+                    showMessage(getString(R.string.games_prepare_bet_bill_highest));
                     return;
                 }
                 GameLog.log("下注的请求参数是："+prepareRequestParams.autoOdd);

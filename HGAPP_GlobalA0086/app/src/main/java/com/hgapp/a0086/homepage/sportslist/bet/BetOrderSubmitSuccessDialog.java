@@ -62,13 +62,13 @@ public class BetOrderSubmitSuccessDialog extends HGBaseDialogFragment{
     protected void initView(View view, Bundle bundle) {
         getParam1 =  getArguments().getString(PARAM1);
         betResult =  getArguments().getParcelable(PARAM2);
-        betSuccessTitle.setText(betResult.getCaption()+"\n交易成功");
+        betSuccessTitle.setText(betResult.getCaption()+"\n"+getString(R.string.games_prepare_bet_bill_zh_success));
         userMoney = GameShipHelper.formatMoney(betResult.getHavemoney());
         ACache.get(getContext()).put(HGConstant.USERNAME_REMAIN_MONEY, userMoney);
         EventBus.getDefault().post(new UserMoneyEvent(userMoney));
         tvSuccessUserMoney.setText(userMoney);
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("编号：")
+        stringBuilder.append(getString(R.string.games_prepare_bet_bill_number))
                 .append(betResult.getOrder()).append("<br>").append(betResult.getS_sleague());
         if(Check.isEmpty(getParam1)){
             stringBuilder.append("<br>").append(onMarkRed(betResult.getInball())).append(betResult.getS_mb_team());
@@ -83,7 +83,7 @@ public class BetOrderSubmitSuccessDialog extends HGBaseDialogFragment{
             stringBuilder.append("<br>").append(getParam1);
         }
         stringBuilder.append(onMarkRed(betResult.getS_m_place()+" @"+betResult.getW_m_rate()))
-                .append("<br>").append(betResult.getGold()).append("元<br>可赢").append(GameShipHelper.formatMoney(betResult.getOrder_bet_amount()+""));
+                .append("<br>").append(getString(R.string.games_prepare_bet_bill_money)+betResult.getGold()).append(getString(R.string.comm_roll_money_unit)+"<br>"+getString(R.string.games_prepare_bet_win_amount)+"：").append(GameShipHelper.formatMoney(betResult.getOrder_bet_amount()+""));
         etBetSubmitInfor.setText(Html.fromHtml(stringBuilder.toString()));
         //tvBetSubmitLimit.setText("单注最低："+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_BUY_MIN)+"元<br>"+"单注最高："+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_BUY_MAX)+"元");
     }

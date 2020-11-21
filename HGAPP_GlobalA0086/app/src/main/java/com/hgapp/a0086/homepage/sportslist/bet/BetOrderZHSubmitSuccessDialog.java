@@ -77,13 +77,13 @@ public class BetOrderZHSubmitSuccessDialog extends HGBaseDialogFragment{
     protected void initView(View view, Bundle bundle) {
         getParam1 =  getArguments().getString(PARAM1);
         betResult =  getArguments().getParcelable(PARAM2);
-        betSuccessTitle.setText(betResult.getCaption()+"\n交易成功");
+        betSuccessTitle.setText(betResult.getCaption()+"\n"+getString(R.string.games_prepare_bet_bill_zh_success));
         userMoney = GameShipHelper.formatMoney(betResult.getHavemoney());
         ACache.get(getContext()).put(HGConstant.USERNAME_REMAIN_MONEY,userMoney );
         EventBus.getDefault().post(new UserMoneyEvent(userMoney));
         tvSuccessUserMoney.setText(userMoney);
-        etBetSubmitInfor1.setText("单号："+betResult.getOrder());
-        etBetSubmitInfor2.setText("交易金额："+betResult.getGold()+"\n可赢："+GameShipHelper.formatMoney(betResult.getOrder_bet_amount()+""));
+        etBetSubmitInfor1.setText(getString(R.string.games_prepare_bet_bill_number)+betResult.getOrder());
+        etBetSubmitInfor2.setText(getString(R.string.games_prepare_bet_bill_money)+betResult.getGold()+"\n"+getString(R.string.games_prepare_bet_win_amount)+"："+GameShipHelper.formatMoney(betResult.getOrder_bet_amount()+""));
        /* StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("编号：")
                 .append(betResult.getOrder()).append("\n\n");*/

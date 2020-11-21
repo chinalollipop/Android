@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:textSize="18sp"
-            android:text="交易单"
+            android:text="@string/games_prepare_bet_bill"
             android:textColor="#7B7369" />
 
         <LinearLayout
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="12px"
-                android:text="当前余额："
+                android:text="@string/games_prepare_bet_my_bal"
                 android:textColor="#030303"
                 android:textSize="14sp" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12px"
                 android:gravity="center"
-                android:text=" 元"
+                android:text="@string/comm_roll_money_unit"
                 android:textColor="#FF1D1D1D"
                 android:textSize="14sp" />
 
@@ -101,7 +101,7 @@
                 android:inputType="number"
                 android:maxLength="10"
                 android:layout_height="match_parent"
-                android:hint="投注额"
+                android:hint="@string/games_prepare_bet_fhead"
                 />
                 <ImageView
                     android:id="@+id/ivBetSubmitGodClear"
@@ -129,7 +129,7 @@
                         android:layout_height="match_parent"
                         android:textColor="#C5C5C5"
                         android:textSize="15sp"
-                        android:text="单注最低：" />
+                        android:text="@string/games_prepare_bet_lowest" />
                     <TextView
                         android:id="@+id/tvBetSubmitGodMin"
                         android:layout_width="wrap_content"
@@ -148,7 +148,7 @@
                         android:layout_height="match_parent"
                         android:textColor="#C5C5C5"
                         android:textSize="15sp"
-                        android:text="单注最高：" />
+                        android:text="@string/games_prepare_bet_highest" />
                     <TextView
                         android:id="@+id/tvBetSubmitGodMax"
                         android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
             android:layout_height="40dp">
             <TextView
                 android:layout_marginLeft="20dp"
-                android:text="可赢金额"
+                android:text="@string/games_prepare_bet_win_amount"
                 android:textColor="#C5C5C5"
                 android:gravity="center|left"
                 android:layout_width="wrap_content"
@@ -203,7 +203,7 @@
                 android:gravity="center"
                 android:paddingBottom="39px"
                 android:paddingTop="39px"
-                android:text="取消"
+                android:text="@string/comm_cancel"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp" />
 
@@ -216,7 +216,7 @@
                 android:gravity="center"
                 android:paddingBottom="39px"
                 android:paddingTop="39px"
-                android:text="确认交易"
+                android:text="@string/comm_confirm_bill"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp" />
         </LinearLayout>

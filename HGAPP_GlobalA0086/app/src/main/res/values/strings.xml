@@ -134,10 +134,22 @@
     <string name="games_prepare_bet_sw_dua">双重机会&amp;进球 大/小</string>
     <string name="games_prepare_bet_bk_zfdx">总分：大/小</string>
     <string name="games_prepare_bet_bk_zfds">总分：单/双</string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
+    <string name="games_prepare_bet_bill">交易单</string>
+    <string name="games_prepare_bet_my_bal">当前余额：</string>
+    <string name="games_prepare_bet_better">自动接收较佳赔率</string>
 
+    <string name="games_prepare_bet_fhead">投注额</string>
+    <string name="games_prepare_bet_lowest">单注最低：</string>
+    <string name="games_prepare_bet_highest">单注最高：</string>
+    <string name="games_prepare_bet_win_amount">可赢金额</string>
+    <string name="games_prepare_bet_bill_input">请输入投注额！</string>
+    <string name="games_prepare_bet_bill_big_highest">下注金额需大于</string>
+    <string name="games_prepare_bet_bill_highest">单注最高派彩额是RMB 1,000,000</string>
+    <string name="games_prepare_bet_bill_success">恭喜，交易成功！</string>
+    <string name="games_prepare_bet_bill_number">单号：</string>
+    <string name="games_prepare_bet_bill_money">交易金额：</string>
+    <string name="games_prepare_bet_bill_zh_success">交易成功</string>
+    <!--<string name="games_prepare_bet_"></string>
     <string name="games_prepare_bet_"></string>
     <string name="games_prepare_bet_"></string>
     <string name="games_prepare_bet_"></string>
@@ -168,19 +180,7 @@
     <string name="games_prepare_bet_"></string>
     <string name="games_prepare_bet_"></string>
     <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
+    <string name="games_prepare_bet_"></string>-->
 
 
     <string name="games_all_time">全部日期</string>
@@ -352,6 +352,7 @@
     <string name="comm_roll_money_out"> 请输出转换金额 </string>
     <string name="comm_cancel">取消</string>
     <string name="comm_confirm">确认</string>
+    <string name="comm_confirm_bill">确认交易</string>
     <string name="comm_back">返回</string>
     <string name="comm_usernamealisa">用户名</string>
     <string name="comm_username">姓名</string>
