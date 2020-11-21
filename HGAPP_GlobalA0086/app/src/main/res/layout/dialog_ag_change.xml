@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="账户余额："
+                android:text="@string/games_ag_my_bal"
                 android:textColor="#030303"
                 android:textSize="14sp" />
 
@@ -44,11 +44,12 @@
             >
 
             <TextView
+                android:id="@+id/agzrOrdz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="真人余额："
+                android:text="@string/games_ag_dz_bal"
                 android:textColor="#030303"
                 android:textSize="14sp" />
 
@@ -68,7 +69,7 @@
             android:layout_height="45dp"
             android:layout_margin="10dp"
             android:gravity="center|left"
-            android:hint="输入金额"
+            android:hint="@string/games_ag_input"
             android:inputType="number"
             android:maxLength="8" />
 
@@ -80,7 +81,7 @@
                 android:id="@+id/agOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="真人转出"
+                android:text="@string/games_ag_out"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp"
                 android:gravity="center"
@@ -95,7 +96,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/ag_in"
                 android:gravity="center"
-                android:text="真人转入"
+                android:text="@string/games_ag_in"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/pop_hight"
                 android:textSize="18sp" />

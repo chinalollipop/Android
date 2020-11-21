@@ -10,7 +10,7 @@
         android:id="@+id/agTitleBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backText="返回"
+        app:backText="@string/comm_back"
         app:moreTextOnly="true" />
 
     <RelativeLayout
@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/text_margin"
             android:gravity="center"
-            android:text="加载额度中..."
+            android:text="@string/games_loading_bal"
             android:textColor="@color/color_bg_dialog" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:drawableLeft="@mipmap/game_quota"
             android:drawablePadding="10dp"
             android:gravity="center"
-            android:text="额度转换"
+            android:text="@string/me_exchange"
             android:textColor="@color/event_red" />
 
     </RelativeLayout>

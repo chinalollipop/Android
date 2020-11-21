@@ -135,12 +135,16 @@ public class SignTodayFragment extends HGBaseDialogFragment implements SignToday
                 signToday07.setBackground(getResources().getDrawable(R.mipmap.sign_today_c));
             }
         }
-        String tyexx =
-                "1. 活动期间登录"+onMarkRed("APP")+"，每天累计存款金额达到"+onMarkRed(signTodayResults.getStandardmoney())+"元均可点击签到" +
-                "动态图进入活动页面参与签到。<br>"+
+        /*String tyexx =
+                "1. 活动期间登录"+onMarkRed("APP")+"，每天累计存款金额达到"+onMarkRed(signTodayResults.getStandardmoney())+"元均可点击签到动态图进入活动页面参与签到。<br>"+
                 "2. 签到以美东时间星期一至星期日为一个周期，完成一个周期玩家可登录活动页面领取红包，24小时未领取视为自动放弃。<br>"+
                 "3. 签到活动期间用户累计签到"+onMarkRed(signTodayResults.getAttendanceDay().get(0)+"天、"+signTodayResults.getAttendanceDay().get(1)+"天、"+signTodayResults.getAttendanceDay().get(2)+"天")+"分别有不同等级的红包。<br>"+
-                "4. 签到天数等级越高，获得高金额红包的几率越大，最高可获得"+onMarkRed(signTodayResults.getMaxstandardMoney())+"红包大奖!";
+                "4. 签到天数等级越高，获得高金额红包的几率越大，最高可获得"+onMarkRed(signTodayResults.getMaxstandardMoney())+"红包大奖!";*/
+        String tyexx =
+                getString(R.string.games_sign_mark1)+onMarkRed("APP")+getString(R.string.games_sign_mark2)+onMarkRed(signTodayResults.getStandardmoney())+getString(R.string.games_sign_mark3)+
+                getString(R.string.games_sign_mark4)+
+                        getString(R.string.games_sign_mark5)+onMarkRed(signTodayResults.getAttendanceDay().get(0)+getString(R.string.games_sign_comm_day)+signTodayResults.getAttendanceDay().get(1)+getString(R.string.games_sign_comm_day)+signTodayResults.getAttendanceDay().get(2)+getString(R.string.games_sign_comm_day))+getString(R.string.games_sign_mark6)+
+                getString(R.string.games_sign_mark7)+onMarkRed(signTodayResults.getMaxstandardMoney())+getString(R.string.games_sign_mark8);
         signTodayNowText.setText(Html.fromHtml(tyexx));
     }
 
@@ -172,7 +176,7 @@ public class SignTodayFragment extends HGBaseDialogFragment implements SignToday
                 if(lastweekday>=3){
                     presenter.postSignTodayReceive("","receive");
                 }else{
-                    showMessage("当前不满足领取规则！");
+                    showMessage(getString(R.string.games_sign_fail));
                 }
                 break;
             case R.id.eventShowCancel:

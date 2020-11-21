@@ -132,12 +132,12 @@ public class XPlayGameActivity extends Activity {
                 GameLog.log("设置全屏。。。。");
                 if(gameFull==0){
                     gameFull = 1;
-                    payGameTitle.setMoreText("正常");
+                    payGameTitle.setMoreText(getString(R.string.games_comm_normal));
                     payGameTitle.setVisibility(View.GONE);
                     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }else{
                     gameFull = 0;
-                    payGameTitle.setMoreText("全屏");
+                    payGameTitle.setMoreText(getString(R.string.games_comm_full));
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }
             }

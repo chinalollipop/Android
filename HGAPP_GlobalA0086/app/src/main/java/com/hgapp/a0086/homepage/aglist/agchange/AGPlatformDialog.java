@@ -35,6 +35,9 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
     TextView hgMoney;
     @BindView(R.id.agMoney)
     TextView agMoney;
+    @BindView(R.id.agzrOrdz)
+    TextView agzrOrdz;
+
     @BindView(R.id.etAgGoldInput)
     EditText etAgGoldInput;
     @BindView(R.id.agOut)
@@ -79,26 +82,27 @@ public class AGPlatformDialog extends NBaseBottomDialog implements AGPlatformCon
         GameLog.log("当把钱  "+fshowtype);
         switch (fshowtype){
             case "fg":
-                agOut.setText("FG电子转出");
-                agInt.setText("FG电子转入");
+                agOut.setText(getString(R.string.games_fg_out));//"FG电子转出");
+                agInt.setText(getString(R.string.games_fg_in));//"FG电子转入");
                 presenter.postFGPersonBalance("","");
                 break;
             case "mw":
-                agOut.setText("MW电子转出");
-                agInt.setText("MW电子转入");
+                agOut.setText(getString(R.string.games_mw_out));//"MW电子转出");
+                agInt.setText(getString(R.string.games_mw_in));//"MW电子转入");
                 presenter.postMWPersonBalance("","");
                 break;
             case "cq":
-                agOut.setText("CQ电子转出");
-                agInt.setText("CQ电子转入");
+                agOut.setText(getString(R.string.games_cq_out));//"CQ电子转出");
+                agInt.setText(getString(R.string.games_cq_in));//"CQ电子转入");
                 presenter.postCQPersonBalance("","");
                 break;
             case "mg":
-                agOut.setText("MG电子转出");
-                agInt.setText("MG电子转入");
+                agOut.setText(getString(R.string.games_mg_out));//"MG电子转出");
+                agInt.setText(getString(R.string.games_mg_in));//"MG电子转入");
                 presenter.postMGPersonBalance("","");
                 break;
             default:
+                agzrOrdz.setText(getString(R.string.games_ag_zr_bal1));
                 presenter.postPersonBalance("","");
                 break;
         }

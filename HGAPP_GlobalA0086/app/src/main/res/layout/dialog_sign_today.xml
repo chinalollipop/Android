@@ -59,7 +59,7 @@
                     android:background="@mipmap/sign_today_n" />
 
                 <TextView
-                    android:text="第1天"
+                    android:text="@string/games_sign_day1"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     android:background="@mipmap/sign_today_n" />
 
                 <TextView
-                    android:text="第2天"
+                    android:text="@string/games_sign_day2"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
 
 
                 <TextView
-                    android:text="第3天"
+                    android:text="@string/games_sign_day3"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                     android:background="@mipmap/sign_today_n" />
 
                 <TextView
-                    android:text="第4天"
+                    android:text="@string/games_sign_day4"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="第5天"
+                    android:text="@string/games_sign_day5"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -174,7 +174,7 @@
                     android:background="@mipmap/sign_today_n" />
 
                 <TextView
-                    android:text="第6天"
+                    android:text="@string/games_sign_day6"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -198,7 +198,7 @@
                     android:background="@mipmap/sign_today_n" />
 
                 <TextView
-                    android:text="第7天"
+                    android:text="@string/games_sign_day7"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="~~活动规则~~"
+                android:text="@string/games_sign_mark0"
                 android:textStyle="bold"
                 android:textColor="@color/color_bg_dialog"
                 />

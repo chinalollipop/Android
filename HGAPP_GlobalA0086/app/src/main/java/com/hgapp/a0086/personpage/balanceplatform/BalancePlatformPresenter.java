@@ -1,6 +1,7 @@
 package com.hgapp.a0086.personpage.balanceplatform;
 
 import com.hgapp.a0086.common.http.ResponseSubscriber;
+import com.hgapp.a0086.common.http.request.AppTextMessageResponse;
 import com.hgapp.a0086.common.http.request.AppTextMessageResponseList;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.common.util.RxHelper;
@@ -24,9 +25,9 @@ public class BalancePlatformPresenter implements BalancePlatformContract.Present
     @Override
     public void postBanalceTransferCP(String appRefer,  String action, String from,String to, String fund) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransferCP(HGConstant.PRODUCT_PLATFORM,action,from,to,fund))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                    public void success(AppTextMessageResponse<KYBalanceResult> response) {
 
                         if(response.isSuccess())
                         {
@@ -50,9 +51,9 @@ public class BalancePlatformPresenter implements BalancePlatformContract.Present
     @Override
     public void postBanalceTransfer(String appRefer, String f, String t,String b) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransfer(HGConstant.PRODUCT_PLATFORM,f,t,b))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<KYBalanceResult>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<KYBalanceResult>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<KYBalanceResult> response) {
+                    public void success(AppTextMessageResponse<KYBalanceResult> response) {
                         if(response.isSuccess())
                         {
                             //view.postPersonBalanceResult(response.getData().get(0));

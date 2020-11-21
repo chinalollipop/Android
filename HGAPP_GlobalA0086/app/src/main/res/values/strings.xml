@@ -149,39 +149,57 @@
     <string name="games_prepare_bet_bill_number">单号：</string>
     <string name="games_prepare_bet_bill_money">交易金额：</string>
     <string name="games_prepare_bet_bill_zh_success">交易成功</string>
-    <!--<string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>
-    <string name="games_prepare_bet_"></string>-->
 
+
+    <string name="games_sign_fail">当前不满足领取规则！</string>
+    <string name="games_sign_day1">第1天</string>
+    <string name="games_sign_day2">第2天</string>
+    <string name="games_sign_day3">第3天</string>
+    <string name="games_sign_day4">第4天</string>
+    <string name="games_sign_day5">第5天</string>
+    <string name="games_sign_day6">第6天</string>
+    <string name="games_sign_day7">第7天</string>
+    <string name="games_sign_mark0">~~活动规则~~</string>
+    <string name="games_sign_mark1">1. 活动期间登录</string>
+    <string name="games_sign_mark2">，每天累计存款金额达到</string>
+    <string name="games_sign_mark3">元均可点击签到动态图进入活动页面参与签到。\n</string>
+    <string name="games_sign_mark4">2. 签到以美东时间星期一至星期日为一个周期，完成一个周期玩家可登录活动页面领取红包，24小时未领取视为自动放弃。\n</string>
+    <string name="games_sign_mark5">3. 签到活动期间用户累计签到</string>
+    <string name="games_sign_mark6">分别有不同等级的红包。</string>
+    <string name="games_sign_mark7">4. 签到天数等级越高，获得高金额红包的几率越大，最高可获得</string>
+    <string name="games_sign_mark8">红包大奖!</string>
+    <string name="games_sign_comm_day">天、</string>
+    <string name="games_event_mark1">【新老会员下载APP免费领取彩金</string>
+    <string name="games_event_mark2">凡在本公司注册会员，累计存款金额</string>
+    <string name="games_event_mark22">元以上，均可领取！</string>
+    <string name="games_event_mark3">昨日有效流水：</string>
+    <string name="games_event_mark4">可领取次数：</string>
+    <string name="games_event_mark5">有效金额</string>
+    <string name="games_event_mark6">抢红包次数</string>
+    <string name="games_event_mark7">提款要求</string>
+    <string name="games_event_mark8">一倍流水</string>
+    <string name="games_event_mark9">活动条款：</string>
+    <string name="games_event_mark10">彩金将在24小时内自动派发到账</string>
+    <string name="games_event_mark11">恭喜发财，大吉大利</string>
+
+    <string name="games_loading_bal">加载额度中...</string>
+    <string name="games_ag_zr_bal">真人额度：</string>
+    <string name="games_ag_dz_bal">电子额度：</string>
+    <string name="games_comm_normal">正常</string>
+    <string name="games_comm_full">全屏</string>
+    <string name="games_ag_my_bal">账户余额:</string>
+    <string name="games_ag_zr_bal1">真人余额:</string>
+    <string name="games_ag_out">真人转出</string>
+    <string name="games_ag_in">真人转入</string>
+    <string name="games_ag_input">输入金额</string>
+    <string name="games_fg_out">FG电子转出</string>
+    <string name="games_fg_in">FG电子转入</string>
+    <string name="games_mw_out">MW电子转出</string>
+    <string name="games_mw_in">MW电子转入</string>
+    <string name="games_cq_out">CQ电子转出</string>
+    <string name="games_cq_in">CQ电子转入</string>
+    <string name="games_mg_out">MG电子转出</string>
+    <string name="games_mg_in">MG电子转入</string>
 
     <string name="games_all_time">全部日期</string>
     <string name="games_union_sorting">联盟排序</string>
@@ -409,7 +427,7 @@
                                     3、此优惠需要会员在此活动页面点击【抽取幸运红包】进行领取，领取到的红包金额将自动添加到会员账户！\n
                                     4、每位会员每个可参与的红包次数，次日15点之后自动更新，更新可领次数即可开始点击抽取幸运红包进行领取，直至可领次数用完为止；如果在24小时内未点击抽取幸运红包本公司将视为自动放弃本次活动。\n
                                     5、领取红包之后将重新计算新一轮的日累计打码量！\n
-</string>
+    </string>
     <string name="str_event_list2"> 1、此活动仅适用于<font color='#FF0000'>手机APP</font>用户！\n
                                     2、任何个人或团体以不诚实方式套取红利，HG0086保留取消其活动资格，收回优惠红利和活动产生盈利以及关闭会员账号的权利。\n
                                     3、HG0086保留在任何时候都可以更改，停止该活动的权利，并不做提前通知。\n

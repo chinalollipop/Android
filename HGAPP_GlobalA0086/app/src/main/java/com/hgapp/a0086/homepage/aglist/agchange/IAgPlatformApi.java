@@ -14,7 +14,7 @@ public interface IAgPlatformApi {
     //体育额度转换  f=hg&t=ag f=ag&t=hg
     @POST("ag_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<Object>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
+    public Observable<AppTextMessageResponse<Object>> postBanalceTransfer(@Field("appRefer") String appRefer, @Field("f") String f, @Field("t") String t, @Field("b") String b);
 
     //MG额度转换  f=hg&t=mg f=mg&t=hg
     @POST("mg/mg_api.php")

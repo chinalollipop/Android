@@ -104,8 +104,8 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-        downAppGold.setText("【新老会员下载APP免费领取彩金"+ACache.get(getContext()).getAsString(HGConstant.DOWNLOAD_APP_GIFT_GOLD)+"元");
-        roundtv.setText("凡在本公司注册会员，累计存款金额"+ACache.get(getContext()).getAsString(HGConstant.DOWNLOAD_APP_GIFT_DEPOSIT)+"元以上，均可领取！");
+        downAppGold.setText(getString(R.string.games_event_mark1)+ACache.get(getContext()).getAsString(HGConstant.DOWNLOAD_APP_GIFT_GOLD)+getString(R.string.comm_roll_money_unit)+"】");
+        roundtv.setText(getString(R.string.games_event_mark2)+ACache.get(getContext()).getAsString(HGConstant.DOWNLOAD_APP_GIFT_DEPOSIT)+getString(R.string.games_event_mark22));
         animation = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
         eventTitleUserMoney.setText(getArgParam1);
         presenter.postValidGift("","get_valid");
@@ -124,7 +124,7 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
 
     public void showRedDialog(String data){
         String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
-        RedPacketEntity entity = new RedPacketEntity(alias, "http://xxx.xxx.com/20171205180511192.png", "恭喜发财，大吉大利");
+        RedPacketEntity entity = new RedPacketEntity(alias, "http://xxx.xxx.com/20171205180511192.png", getString(R.string.games_event_mark11));
         showRedPacketDialog(entity,data);
     }
 
@@ -145,7 +145,7 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                     @Override
                     public void run() {
                         if(isShow){
-                            showMessage("彩金将在24小时内自动派发到账!");
+                            showMessage(getString(R.string.games_event_mark10));
                         }
                         presenter.postPersonBalance("","");
                         mRedPacketDialog.dismiss();
@@ -176,7 +176,7 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                 break;
             case R.id.ivClickOldestMember:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 presenter.postDownAppGift("");
@@ -192,7 +192,7 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                 break;
             case R.id.btnClickRed:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 presenter.postLuckGift("","extract_lucky_red_envelope");
@@ -208,7 +208,7 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
                 break;
             case R.id.ivEventRefresh:
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 if(null !=ivEventRefresh){
@@ -275,8 +275,8 @@ public  class EventsFragment extends HGBaseFragment implements EventsContract.Vi
     @Override
     public void postValidGiftResult(ValidResult validResult) {
         ivEventRefresh.clearAnimation();
-        tvLastEventsFlowings.setText("昨日有效流水："+validResult.getValid_money());
-        tvLastEventsNumber.setText("可领取次数："+validResult.getLast_times());
+        tvLastEventsFlowings.setText(getString(R.string.games_event_mark3)+validResult.getValid_money());
+        tvLastEventsNumber.setText(getString(R.string.games_event_mark4)+validResult.getLast_times());
     }
 
     @Override

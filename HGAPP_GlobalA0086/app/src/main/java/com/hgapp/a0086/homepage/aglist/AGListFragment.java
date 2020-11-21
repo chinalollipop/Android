@@ -126,7 +126,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             //presenter.postCheckAgLiveAccount("");
             presenter.postPersonBalance("","");
             presenter.postAGGameList("","","gamelist_zhenren");
-            titleName = "真人额度：";
+            titleName = getString(R.string.games_ag_zr_bal);//"真人额度："
             //onAgLiveTestData();
             agLiveList.setVisibility(View.GONE);
             tabLay.setVisibility(View.GONE);
@@ -137,7 +137,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             //presenter.postCheckAgGameAccount("");
             initTabStyle();
             //presenter.postAGGameList("","","gamelist_dianzi");
-            titleName = "电子额度：";
+            titleName = getString(R.string.games_ag_dz_bal);//"电子额度："
             //onAgGameTestData();
             agLiveList.setVisibility(View.VISIBLE);
             tabLay.setVisibility(View.VISIBLE);
@@ -149,11 +149,11 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
     private void initTabStyle() {
         //presenter.getDepositSubmit(typeArgs2,"","","");
-        gameTab.addTab(gameTab.newTab().setText("AG电子"));
-        gameTab.addTab(gameTab.newTab().setText("MG电子"));
-        gameTab.addTab(gameTab.newTab().setText("CQ9电子"));
-        gameTab.addTab(gameTab.newTab().setText("MW电子"));//大满贯
-        gameTab.addTab(gameTab.newTab().setText("FG电子"));//大满贯
+        gameTab.addTab(gameTab.newTab().setText(getString(R.string.plat_aggame)));
+        gameTab.addTab(gameTab.newTab().setText(getString(R.string.plat_mg)));
+        gameTab.addTab(gameTab.newTab().setText(getString(R.string.plat_cq)));
+        gameTab.addTab(gameTab.newTab().setText(getString(R.string.plat_mw)));//大满贯
+        gameTab.addTab(gameTab.newTab().setText(getString(R.string.plat_fg)));//大满贯
         gameTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -236,7 +236,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
         GameLog.log("游戏弟弟值："+agGameLoginResult.getUrl());
 
-        if("真人视讯".equals(dzTitileName)){
+        if(getString(R.string.plat_agvideo).equals(dzTitileName)){
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(agGameLoginResult.getUrl()));
             startActivity(intent);
@@ -322,7 +322,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
             agLiveList.setLayoutManager(gridLayoutManager);
             agLiveList.setAdapter(new AGLiveAdapter(getContext(),R.layout.item_ag_live,agLiveResult));*/
             gameId = agLiveResult.get(0).getGameid();
-            dzTitileName = "真人视讯";
+            dzTitileName = getString(R.string.plat_agvideo);//"真人视讯";
         }else{
             agLiveList.setVisibility(View.VISIBLE);
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
@@ -466,7 +466,7 @@ public class AGListFragment extends HGBaseFragment implements AGListContract.Vie
 
     @OnClick({R.id.agVideo})
     public void onAGVodie(){
-        dzTitileName = "真人视讯";
+        dzTitileName = getString(R.string.plat_agvideo);//"真人视讯";
         presenter.postGoPlayGame("",gameId);
     }
 

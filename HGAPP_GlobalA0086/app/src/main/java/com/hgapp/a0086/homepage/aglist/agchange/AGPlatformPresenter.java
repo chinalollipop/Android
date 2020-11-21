@@ -182,9 +182,9 @@ public class AGPlatformPresenter implements AGPlatformContract.Presenter {
     @Override
     public void postBanalceTransfer(String appRefer, String f, String t,String b) {
         subscriptionHelper.add(RxHelper.addSugar(api.postBanalceTransfer(HGConstant.PRODUCT_PLATFORM,f,t,b))
-                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<Object>>() {
+                .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
-                    public void success(AppTextMessageResponseList<Object> response) {
+                    public void success(AppTextMessageResponse<Object> response) {
 
                         if(response.isSuccess()){
                             view.postBanalceTransferSuccess();

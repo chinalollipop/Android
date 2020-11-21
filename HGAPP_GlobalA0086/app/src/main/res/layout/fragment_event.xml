@@ -35,7 +35,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="【新老会员下载APP免费领取彩金38元】"
+                            android:text="@string/games_event_mark1"
                             android:textColor="@color/event_line"
                             android:textSize="13sp" />
 
@@ -57,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLines="2"
-                        android:text="凡在本公司注册会员，累计存款金额1000元以上，均可领取！"
+                        android:text="@string/games_event_mark2"
                         android:textColor="@color/event_line"
                         android:textSize="14sp" />
 
@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tvLastEventsFlowings"
-                        android:text="昨日有效金额："
+                        android:text="@string/games_event_mark3"
                         android:textColor="#30a6d9"
                         android:textSize="18sp" />
                     <LinearLayout
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="可领次数："
+                        android:text="@string/games_event_mark4"
                         android:textColor="#30a6d9"
                         android:textSize="18sp"
                          />
@@ -110,7 +110,7 @@
                                 android:layout_height="30dp"
                                 android:background="@color/colorPrimaryDark"
                                 android:gravity="center"
-                                android:text="有效金额"
+                                android:text="@string/games_event_mark5"
                                 android:textColor="@color/all_bg"
                                 android:textSize="16sp" />
 
@@ -267,7 +267,7 @@
                                 android:layout_height="30dp"
                                 android:background="@color/colorPrimaryDark"
                                 android:gravity="center"
-                                android:text="抢红包次数"
+                                android:text="@string/games_event_mark6"
                                 android:textColor="@color/all_bg"
                                 android:textSize="16sp" />
 
@@ -423,7 +423,7 @@
                                 android:layout_height="30dp"
                                 android:background="@color/colorPrimaryDark"
                                 android:gravity="center"
-                                android:text="提款要求"
+                                android:text="@string/games_event_mark7"
                                 android:textColor="@color/all_bg"
                                 android:textSize="16sp" />
 
@@ -437,7 +437,7 @@
                                 android:layout_height="259dp"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:text="一倍流水"
+                                android:text="@string/games_event_mark8"
                                 android:textColor="@color/event_tv"
                                 android:textSize="18sp" />
 
@@ -474,7 +474,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="活动条款："
+                        android:text="@string/games_event_mark9"
                         android:textColor="@color/event_tv"
                         android:textSize="18sp" />
 
@@ -499,7 +499,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:text="@string/n_titlebar_back"
+                android:text="@string/comm_back"
                 android:drawablePadding="5dp"
                 android:textSize="16sp"
                 android:textColor="@color/title_text"
@@ -512,7 +512,6 @@
                 android:layout_alignParentRight="true"
                 android:drawableLeft="@mipmap/title_right"
                 android:gravity="center"
-                android:text="@string/account"
                 android:textColor="@color/title_text"
                 android:textSize="16sp" />
 
