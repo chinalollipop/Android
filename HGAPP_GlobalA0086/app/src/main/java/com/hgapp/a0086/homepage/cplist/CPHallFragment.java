@@ -65,7 +65,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     MarqueeTextView cpPageBulletin;
     @BindView(R.id.cpHallList)
     RecyclerView cpHallList;
-    private static List<CPHallIcon> cpGameList = new ArrayList<CPHallIcon>();
+    private  List<CPHallIcon> cpGameList = new ArrayList<CPHallIcon>();
     @BindView(R.id.cpHallMenu)
     ImageView cpHallMenu;
     @BindView(R.id.cpHallUserName)
@@ -89,23 +89,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
     private CustomPopWindow mCustomPopWindowIn;
     TextView moneyText;
     String moneyStr="0.00";
-    static {
-        cpGameList.add(new CPHallIcon("北京赛车", R.mipmap.cp_bjsc, 0,51));
-        cpGameList.add(new CPHallIcon("欢乐生肖", R.mipmap.cp_cqssc, 0,2));
-        cpGameList.add(new CPHallIcon("极速赛车", R.mipmap.cp_jsft, 0,189));
-        cpGameList.add(new CPHallIcon("极速飞艇", R.mipmap.cp_jsfc, 0,222));
-        cpGameList.add(new CPHallIcon("分分彩", R.mipmap.cp_ffc, 0,207));
-        cpGameList.add(new CPHallIcon("三分彩", R.mipmap.cp_sfc, 0,407));
-        cpGameList.add(new CPHallIcon("五分彩", R.mipmap.cp_wfc, 0,507));
-        cpGameList.add(new CPHallIcon("腾讯二分彩", R.mipmap.cp_efc, 0,607));
-        cpGameList.add(new CPHallIcon("PC蛋蛋", R.mipmap.cp_pcdd, 0,304));
-        cpGameList.add(new CPHallIcon("江苏快3", R.mipmap.cp_js, 0,159));
-        cpGameList.add(new CPHallIcon("幸运农场", R.mipmap.cp_xync, 0,47));
-        cpGameList.add(new CPHallIcon("快乐十分", R.mipmap.cp_klsfc, 0,3));
-        cpGameList.add(new CPHallIcon("香港六合彩", R.mipmap.cp_lhc, 0,69));
-        cpGameList.add(new CPHallIcon("极速快三", R.mipmap.cp_js, 0,384));
-        cpGameList.add(new CPHallIcon("幸运飞艇", R.mipmap.gf_xyft, 0,168));
-    }
+
 
    /* public static CPHallFragment newInstance(List<String> param1) {
         CPHallFragment fragment = new CPHallFragment();
@@ -150,8 +134,27 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         }
     }
 
+    private void iniData(){
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_bjsc), R.mipmap.cp_bjsc, 0,51));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_hlsx), R.mipmap.cp_cqssc, 0,2));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_jssc), R.mipmap.cp_jsft, 0,189));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_jsft), R.mipmap.cp_jsfc, 0,222));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_ffc), R.mipmap.cp_ffc, 0,207));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_sfc), R.mipmap.cp_sfc, 0,407));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_wfc), R.mipmap.cp_wfc, 0,507));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_efc), R.mipmap.cp_efc, 0,607));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_pcdd), R.mipmap.cp_pcdd, 0,304));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_k3), R.mipmap.cp_js, 0,159));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_xync), R.mipmap.cp_xync, 0,47));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_klsfc), R.mipmap.cp_klsfc, 0,3));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_lhc), R.mipmap.cp_lhc, 0,69));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_jsk3), R.mipmap.cp_js, 0,384));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_xyft), R.mipmap.gf_xyft, 0,168));
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        iniData();
         cpHallUserName.setText(Html.fromHtml("<u>"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME)+"</u>"));
         //cpHallUserName.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
         sendAuthTime = HGConstant.ACTION_SEND_LEAGUE_TIME_M;
@@ -253,7 +256,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
             case R.id.cpHallUserName:
                 Intent intent2  = new Intent(getContext(),CPMeFragment.class);
                 intent2.putExtra("gameId","51");
-                intent2.putExtra("gameName","北京赛车");
+                intent2.putExtra("gameName",getString(R.string.lotter_bjsc));
                 startActivity(intent2);
                 break;
         }
@@ -278,19 +281,19 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                     case R.id.popCPOrder1:
                         Intent intent1  = new Intent(getContext(),CPBetNowFragment.class);
                         intent1.putExtra("gameId","51");
-                        intent1.putExtra("gameName","北京赛车");
+                        intent1.putExtra("gameName",getString(R.string.lotter_bjsc));
                         startActivity(intent1);
                         break;
                     case R.id.popCPOrder3:
                         Intent intent3  = new Intent(getContext(),CPBetRecordsFragment.class);
                         intent3.putExtra("gameId","51");
-                        intent3.putExtra("gameName","北京赛车");
+                        intent3.putExtra("gameName",getString(R.string.lotter_bjsc));
                         startActivity(intent3);
                         break;
                     case R.id.popCPOrder4:
                         Intent intent4 = new Intent(getContext(),CPLotteryListFragment.class);
                         intent4.putExtra("gameId","51");
-                        intent4.putExtra("gameName","北京赛车");
+                        intent4.putExtra("gameName",getString(R.string.lotter_bjsc));
                         startActivity(intent4);
                         break;
                     case R.id.popCPOrder5:
@@ -312,7 +315,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         contentView.findViewById(R.id.popCPOrder3).setOnClickListener(listener);
         contentView.findViewById(R.id.popCPOrder4).setOnClickListener(listener);
         contentView.findViewById(R.id.popCPOrder5).setOnClickListener(listener);
-        moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
+        moneyText.setText(Html.fromHtml(getString(R.string.lotter_me_jszd)+"<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
 
         //创建并显示popWindow
         /*if(mCustomPopWindow !=null){
@@ -519,7 +522,7 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
         }
         cpHallUserMoney.setText(GameShipHelper.formatMoney(cpLeftInfoResult.getMoney()));
         if(!Check.isNull(moneyText)) {
-            moneyText.setText(Html.fromHtml("即时注单<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
+            moneyText.setText(Html.fromHtml(getString(R.string.lotter_me_jszd)+"<br>"+onMarkRed("("+GameShipHelper.formatMoney(moneyStr)+")")));
         }
     }
 
@@ -545,9 +548,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                         GameLog.log("，，，，，，，，，，，，，重庆请求0，，，，，，，，，，，，，，");
                                         onRequestData();
                                         if(scpHallIcon0==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                     }
                                 });
@@ -568,9 +571,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                         GameLog.log("，，，，，，，，，，，，，重庆请求1，，，，，，，，，，，，，，");
                                         onRequestData();
                                         if(scpHallIcon1==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                     }
                                 });
@@ -591,9 +594,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                         GameLog.log("，，，，，，，，，，，，，重庆请求2，，，，，，，，，，，，，，");
                                         onRequestData();
                                         if(scpHallIcon2==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                     }
                                 });
@@ -613,9 +616,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon3==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求3，，，，，，，，，，，，，，");
                                     }
@@ -636,9 +639,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon4==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求4，，，，，，，，，，，，，，");
                                     }
@@ -659,9 +662,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon5==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求5，，，，，，，，，，，，，，");
                                     }
@@ -682,9 +685,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon6==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求6，，，，，，，，，，，，，，");
                                     }
@@ -705,9 +708,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon7==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求7，，，，，，，，，，，，，，");
                                     }
@@ -728,9 +731,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon0==8){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求8，，，，，，，，，，，，，，");
                                     }
@@ -751,9 +754,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon0==9){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求9，，，，，，，，，，，，，，");
                                     }
@@ -774,9 +777,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon10==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求10，，，，，，，，，，，，，，");
                                     }
@@ -797,9 +800,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon11==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求11，，，，，，，，，，，，，，");
                                     }
@@ -820,9 +823,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon12==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求12，，，，，，，，，，，，，，");
                                     }
@@ -843,9 +846,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon13==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求13，，，，，，，，，，，，，，");
                                     }
@@ -867,9 +870,9 @@ public class CPHallFragment extends BaseActivity2 implements CPHallListContract.
                                     public void run() {
                                         onRequestData();
                                         if(scpHallIcon14==1){
-                                            holder.setText(R.id.cpHallItemTime, "未开盘");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_not_open));
                                         }else{
-                                            holder.setText(R.id.cpHallItemTime, "开奖中");
+                                            holder.setText(R.id.cpHallItemTime, getString(R.string.lotter_ing));
                                         }
                                         GameLog.log("，，，，，，，，，，，，，重庆请求14，，，，，，，，，，，，，，");
                                     }

@@ -51,7 +51,7 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.cpMeList)
     RecyclerView cpMeList;
-    private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
+    private  List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
     @BindView(R.id.backHome)
     ImageView backHome;
     @BindView(R.id.userLogout)
@@ -68,14 +68,6 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
     private String titleName = "";
     private String dzTitileName = "";
     Animation animation ;
-    static {
-        cpGameList.add(new HomePageIcon("即时注单", R.mipmap.cp_profile,1));
-        cpGameList.add(new HomePageIcon("今日已结", R.mipmap.cp_modifypwd,2));
-        cpGameList.add(new HomePageIcon("下注记录", R.mipmap.cp_message,3));
-        cpGameList.add(new HomePageIcon("开奖结果", R.mipmap.cp_funds,4));
-        cpGameList.add(new HomePageIcon("今日输赢", R.mipmap.cp_transfer,5));
-        cpGameList.add(new HomePageIcon("在线客服", R.mipmap.cp_service,6));
-    }
 
    /* public static CPMeFragment newInstance(List<String> param1) {
         CPMeFragment fragment = new CPMeFragment();
@@ -104,11 +96,17 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_me_jszd), R.mipmap.cp_profile,1));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_me_jryj), R.mipmap.cp_modifypwd,2));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_bar_record), R.mipmap.cp_message,3));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_me_kjjg), R.mipmap.cp_funds,4));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_me_jrsy), R.mipmap.cp_transfer,5));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_me_zxkf), R.mipmap.cp_service,6));
         presenter.postCPLeftInfo("");
         GregorianCalendar ca = new GregorianCalendar();
         int time =  ca.get(GregorianCalendar.AM_PM);
         GameLog.log("当前的时间是 "+(time==0?"上午":"下午"));
-        cpUserName.setText((time==0?"上午好！":"下午好！")+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME));
+        cpUserName.setText((time==0?getString(R.string.lotter_me_am):getString(R.string.lotter_me_pm))+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME));
         animation = AnimationUtils.loadAnimation(getContext(),R.anim.rotate_clockwise);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, OrientationHelper.VERTICAL, false);
         cpMeList.setLayoutManager(gridLayoutManager);
@@ -143,7 +141,7 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
     @Override
     public void postCPLeftInfoResult(CPLeftInfoResult cpLeftInfoResult) {
         userMoneyRefresh.clearAnimation();
-        cpUserMoney.setText("用户余额："+GameShipHelper.formatMoney(cpLeftInfoResult.getMoney()));
+        cpUserMoney.setText(getResources().getString(R.string.lotter_me_bal)+GameShipHelper.formatMoney(cpLeftInfoResult.getMoney()));
     }
 
     @Override
@@ -183,12 +181,12 @@ public class CPMeFragment extends BaseActivity2 implements CPHallListContract.Vi
                         case 3:
                             intent = new Intent(getContext(),CPBetRecordsFragment.class);
                             intent.putExtra("gameId","51");
-                            intent.putExtra("gameName","北京赛车");
+                            intent.putExtra("gameName",getString(R.string.lotter_bjsc));
                             break;
                         case 4:
                             intent = new Intent(getContext(),CPLotteryListFragment.class);
                             intent.putExtra("gameId","51");
-                            intent.putExtra("gameName","北京赛车");
+                            intent.putExtra("gameName",getString(R.string.lotter_bjsc));
                             break;
                         case 6:
                             intent = new Intent(getContext(),CPServiceActivity.class);

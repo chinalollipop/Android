@@ -1,6 +1,8 @@
 package com.hgapp.a0086.homepage.cplist;
 
-public class CPHallIcon {
+import com.contrarywind.interfaces.IPickerViewData;
+
+public class CPHallIcon implements IPickerViewData {
     private String iconName;
     private int iconId;
     private int iconTime;
@@ -108,5 +110,10 @@ public class CPHallIcon {
 
     public void setIsopen(int isopen) {
         this.isopen = isopen;
+    }
+
+    @Override
+    public String getPickerViewText() {
+        return this.iconName;
     }
 }

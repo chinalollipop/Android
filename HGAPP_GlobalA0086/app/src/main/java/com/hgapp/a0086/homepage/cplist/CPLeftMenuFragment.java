@@ -41,8 +41,9 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
     AGListContract.Presenter presenter;
     private String userName, userMoney, fshowtype;
     private static List<CPOrderAllResult> allResultList = new ArrayList<CPOrderAllResult>();
-    private static List<CPIcon> cpGameList = new ArrayList<CPIcon>();
-    static {
+    private  List<CPIcon> cpGameList = new ArrayList<CPIcon>();
+
+    private void initData(){
         //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
         /** 北京赛车    game_code 51
          *  重庆时时彩    game_code 2
@@ -60,22 +61,22 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
          *  极速快三    game_code 384
          *
          */
-        cpGameList.add(new CPIcon("返回大厅", R.mipmap.home_hgty,0));
-        cpGameList.add(new CPIcon("北京赛车", R.mipmap.home_hgty,51));
-        cpGameList.add(new CPIcon("欢乐生肖", R.mipmap.home_vrcp,2));
-        cpGameList.add(new CPIcon("极速赛车", R.mipmap.home_qipai,189));
-        cpGameList.add(new CPIcon("极速飞艇", R.mipmap.home_hgty,222));
-        cpGameList.add(new CPIcon("分分彩", R.mipmap.home_lhj,207));
-        cpGameList.add(new CPIcon("三分彩", R.mipmap.home_lhj,407));
-        cpGameList.add(new CPIcon("五分彩", R.mipmap.home_lhj,507));
-        cpGameList.add(new CPIcon("腾讯二分彩", R.mipmap.home_lhj,607));
-        cpGameList.add(new CPIcon("PC蛋蛋", R.mipmap.home_ag,304));
-        cpGameList.add(new CPIcon("江苏快3", R.mipmap.home_ag,159));
-        cpGameList.add(new CPIcon("幸运农场", R.mipmap.home_ag,47));
-        cpGameList.add(new CPIcon("快乐十分", R.mipmap.home_vrcp,3));
-        cpGameList.add(new CPIcon("香港六合彩", R.mipmap.home_lhj,69));
-        cpGameList.add(new CPIcon("极速快三", R.mipmap.home_lhj,384));
-        cpGameList.add(new CPIcon("幸运飞艇", R.mipmap.gf_xyft,168));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_back_hall), R.mipmap.home_hgty,0));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_bjsc), R.mipmap.home_hgty,51));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_hlsx), R.mipmap.home_vrcp,2));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_jssc), R.mipmap.home_qipai,189));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_jsft), R.mipmap.home_hgty,222));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_ffc), R.mipmap.home_lhj,207));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_sfc), R.mipmap.home_lhj,407));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_wfc), R.mipmap.home_lhj,507));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_efc), R.mipmap.home_lhj,607));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_pcdd), R.mipmap.home_ag,304));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_k3), R.mipmap.home_ag,159));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_xync), R.mipmap.home_ag,47));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_klsfc), R.mipmap.home_vrcp,3));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_lhc), R.mipmap.home_lhj,69));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_jsk3), R.mipmap.home_lhj,384));
+        cpGameList.add(new CPIcon(getString(R.string.lotter_xyft), R.mipmap.gf_xyft,168));
     }
     public static CPLeftMenuFragment newInstance(List<String> param1) {
         CPLeftMenuFragment fragment = new CPLeftMenuFragment();
@@ -103,6 +104,7 @@ public class CPLeftMenuFragment extends HGBaseFragment implements AGListContract
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        initData();
         LinearLayoutManager linearLayoutManagerRight = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         rvContentOrder.setLayoutManager(linearLayoutManagerRight);
         rvContentOrder.setHasFixedSize(true);

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="个人中心"
+            android:text="@string/lotter_me_title"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
         <TextView
@@ -65,8 +65,8 @@
                     android:layout_gravity="center|left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="用户余额：0RMB"
-                    />
+                    android:text="@string/lotter_me_bal"
+                />
                 <ImageView
                     android:id="@+id/userMoneyRefresh"
                     android:background="@mipmap/cp_refresh"

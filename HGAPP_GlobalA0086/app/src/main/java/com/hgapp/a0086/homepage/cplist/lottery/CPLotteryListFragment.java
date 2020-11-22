@@ -24,6 +24,7 @@ import com.hgapp.a0086.base.IPresenter;
 import com.hgapp.a0086.common.adapters.AutoSizeRVAdapter;
 import com.hgapp.a0086.common.util.DateHelper;
 import com.hgapp.a0086.data.CPLotteryListResult;
+import com.hgapp.a0086.homepage.cplist.CPHallIcon;
 import com.hgapp.common.util.Check;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
@@ -60,39 +61,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
     String gameId = "",gameTime = "";
     private static List<String> cpLeftEventList1 = new ArrayList<String>();
     private static List<String> cpLeftEventList2 = new ArrayList<String>();
-    static  List<String> lotteryList  = new ArrayList<String>();
-    static {
-        /** 北京赛车    game_code 51
-         *  重庆时时彩    game_code 2
-         *  极速赛车    game_code 189
-         *  极速飞艇    game_code 222
-         *  分分彩    game_code 207
-         *  三分彩    game_code 407
-         *  五分彩    game_code 507
-         *  腾讯二分彩    game_code 607
-         *  PC蛋蛋    game_code 304
-         *  江苏快3    game_code 159
-         *  幸运农场    game_code 47
-         *  快乐十分    game_code 3
-         *  香港六合彩  game_code 69
-         *  极速快三    game_code 384
-         */
-        lotteryList.add("北京赛车");
-        lotteryList.add("欢乐生肖");
-        lotteryList.add("极速赛车");
-        lotteryList.add("极速飞艇");
-        lotteryList.add("分分彩");
-        lotteryList.add("三分彩");
-        lotteryList.add("五分彩");
-        lotteryList.add("腾讯二分彩");
-        lotteryList.add("PC蛋蛋");
-        lotteryList.add("江苏快3");
-        lotteryList.add("幸运农场");
-        lotteryList.add("快乐十分");
-        lotteryList.add("香港六合彩");
-        lotteryList.add("极速快三");
-        lotteryList.add("幸运飞艇");
-    }
+    private  List<CPHallIcon> cpGameList = new ArrayList<CPHallIcon>();
 
    /* public static CPMeFragment newInstance(List<String> param1) {
         CPMeFragment fragment = new CPMeFragment();
@@ -139,6 +108,37 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
     }
 
     private void initDataView(){
+        /** 北京赛车    game_code 51
+         *  重庆时时彩    game_code 2
+         *  极速赛车    game_code 189
+         *  极速飞艇    game_code 222
+         *  分分彩    game_code 207
+         *  三分彩    game_code 407
+         *  五分彩    game_code 507
+         *  腾讯二分彩    game_code 607
+         *  PC蛋蛋    game_code 304
+         *  江苏快3    game_code 159
+         *  幸运农场    game_code 47
+         *  快乐十分    game_code 3
+         *  香港六合彩  game_code 69
+         *  极速快三    game_code 384
+         */
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_bjsc), R.mipmap.cp_bjsc, 0,51));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_hlsx), R.mipmap.cp_cqssc, 0,2));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_jssc), R.mipmap.cp_jsft, 0,189));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_jsft), R.mipmap.cp_jsfc, 0,222));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_ffc), R.mipmap.cp_ffc, 0,207));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_sfc), R.mipmap.cp_sfc, 0,407));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_wfc), R.mipmap.cp_wfc, 0,507));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_efc), R.mipmap.cp_efc, 0,607));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_pcdd), R.mipmap.cp_pcdd, 0,304));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_k3), R.mipmap.cp_js, 0,159));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_xync), R.mipmap.cp_xync, 0,47));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_klsfc), R.mipmap.cp_klsfc, 0,3));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_lhc), R.mipmap.cp_lhc, 0,69));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_jsk3), R.mipmap.cp_js, 0,384));
+        cpGameList.add(new CPHallIcon(getString(R.string.lotter_xyft), R.mipmap.gf_xyft, 0,168));
+
         gameId ="2";
         gameTime = DateHelper.getToday();
         cpLotteryTime.setText(gameTime);
@@ -159,59 +159,13 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
 
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                String gameName = lotteryList.get(options1);
-                switch (gameName){
-                    case "北京赛车":
-                        gameId ="51";
-                        break;
-                    case "欢乐生肖":
-                        gameId ="2";
-                        break;
-                    case "极速赛车":
-                        gameId ="189";
-                        break;
-                    case "极速飞艇":
-                        gameId ="222";
-                        break;
-                    case "幸运飞艇":
-                        gameId ="168";
-                        break;
-                    case "分分彩":
-                        gameId ="207";
-                        break;
-                    case "三分彩":
-                        gameId ="407";
-                        break;
-                    case "五分彩":
-                        gameId ="507";
-                        break;
-                    case "腾讯二分彩":
-                        gameId ="607";
-                        break;
-                    case "PC蛋蛋":
-                        gameId ="304";
-                        break;
-                    case "江苏快3":
-                        gameId ="159";
-                        break;
-                    case "幸运农场":
-                        gameId ="47";
-                        break;
-                    case "快乐十分":
-                        gameId ="3";
-                        break;
-                    case "香港六合彩":
-                        gameId ="69";
-                        break;
-                    case "极速快三":
-                        gameId ="384";
-                        break;
-                }
+                String gameName = cpGameList.get(options1).getIconName();
+                gameId = cpGameList.get(options1).getGameId()+"";
                 onSearchLotteryData();
                 cpLotteryName.setText(gameName);
             }
         }).build();
-        optionsPickerViewState.setPicker(lotteryList);
+        optionsPickerViewState.setPicker(cpGameList);
         optionsPickerViewState.setSelectOptions (1);
     }
 
@@ -233,7 +187,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
     @Override
     public void postCPLotteryListResult(CPLotteryListResult cpLotteryListResult) {
         if(!Check.isNull(cpLotteryListResult.getData())&&cpLotteryListResult.getData().size()==0){
-            showMessage("暂无数据！");
+            showMessage(getString(R.string.games_no_data));
             cpLotteryList.setVisibility(View.GONE);
         }else{
             cpLotteryList.setVisibility(View.VISIBLE);
@@ -286,8 +240,8 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                 case "507":
                 case "607":
                     cpLeftEventList2.add(total+"");
-                    cpLeftEventList2.add((total >= 23)?"大":"小");
-                    cpLeftEventList2.add((total % 2 ==1)?"单":"双");
+                    cpLeftEventList2.add((total >= 23)?getString(R.string.games_prepare_bet_da):getString(R.string.games_prepare_bet_xiao));
+                    cpLeftEventList2.add((total % 2 ==1)?getString(R.string.games_prepare_bet_dan):getString(R.string.games_prepare_bet_shuang));
                 /*if(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])){
                     cpLeftEventList2.add("龙");
                 }else if(Integer.parseInt(dataList[0])==Integer.parseInt(dataList[4])){
@@ -295,7 +249,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                 }else{
                     cpLeftEventList2.add("虎");
                 }*/
-                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>=Integer.parseInt(dataList[4])? Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])?"龙":"和":"虎");
+                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>=Integer.parseInt(dataList[4])? Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])?getString(R.string.lotter_dragon):getString(R.string.lotter_he):getString(R.string.lotter_tiger));
                     cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList1));
                     cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
                     break;
@@ -304,31 +258,31 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                 case "222":
                 case "168"://幸运飞艇 暂无
                     cpLeftEventList2.add(Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1])+"");
-                    cpLeftEventList2.add((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))>11?"大":"小");
-                    cpLeftEventList2.add(((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))%2 ==1)?"单":"双");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[9])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[1])>Integer.parseInt(dataList[8])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[2])>Integer.parseInt(dataList[7])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[3])>Integer.parseInt(dataList[6])?"龙":"虎");
-                    cpLeftEventList2.add(Integer.parseInt(dataList[4])>Integer.parseInt(dataList[5])?"龙":"虎");
+                    cpLeftEventList2.add((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))>11?getString(R.string.games_prepare_bet_da):getString(R.string.games_prepare_bet_xiao));
+                    cpLeftEventList2.add(((Integer.parseInt(dataList[0])+Integer.parseInt(dataList[1]))%2 ==1)?getString(R.string.games_prepare_bet_dan):getString(R.string.games_prepare_bet_shuang));
+                    cpLeftEventList2.add(Integer.parseInt(dataList[0])>Integer.parseInt(dataList[9])?getString(R.string.lotter_dragon):getString(R.string.lotter_tiger));
+                    cpLeftEventList2.add(Integer.parseInt(dataList[1])>Integer.parseInt(dataList[8])?getString(R.string.lotter_dragon):getString(R.string.lotter_tiger));
+                    cpLeftEventList2.add(Integer.parseInt(dataList[2])>Integer.parseInt(dataList[7])?getString(R.string.lotter_dragon):getString(R.string.lotter_tiger));
+                    cpLeftEventList2.add(Integer.parseInt(dataList[3])>Integer.parseInt(dataList[6])?getString(R.string.lotter_dragon):getString(R.string.lotter_tiger));
+                    cpLeftEventList2.add(Integer.parseInt(dataList[4])>Integer.parseInt(dataList[5])?getString(R.string.lotter_dragon):getString(R.string.lotter_tiger));
                     cpOrderLotteryOpen1.setAdapter(new Open1GameAdapter(getContext(), R.layout.item_cp_order_open_1, cpLeftEventList1));
                     cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
                     break;
                 case "47":
                 case "3":
                     cpLeftEventList2.add(total+"");
-                    cpLeftEventList2.add((total >= 84)?total > 84?"大":"和":"小");
-                    cpLeftEventList2.add((total % 2 == 1) ? "单":"双");
-                    cpLeftEventList2.add((total % 10 >= 5) ? "大":"小");
+                    cpLeftEventList2.add((total >= 84)?total > 84?getString(R.string.games_prepare_bet_da):getString(R.string.lotter_he):getString(R.string.games_prepare_bet_xiao));
+                    cpLeftEventList2.add((total % 2 == 1) ? getString(R.string.games_prepare_bet_dan):getString(R.string.games_prepare_bet_shuang));
+                    cpLeftEventList2.add((total % 10 >= 5) ? getString(R.string.games_prepare_bet_da):getString(R.string.games_prepare_bet_xiao));
                     cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList1));
                     cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
                     break;
                 case "21"://广东11选5 暂无
                     cpLeftEventList2.add(total+"");
-                    cpLeftEventList2.add((total >= 30)?total > 30?"大":"和":"小");
-                    cpLeftEventList2.add((total % 2 == 1) ? "单":"双");
-                    cpLeftEventList2.add((total % 10 >= 5) ? "大":"小");
-                    cpLeftEventList2.add((Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])) ? "龙":"虎");
+                    cpLeftEventList2.add((total >= 30)?total > 30?getString(R.string.games_prepare_bet_da):getString(R.string.lotter_he):getString(R.string.games_prepare_bet_xiao));
+                    cpLeftEventList2.add((total % 2 == 1) ? getString(R.string.games_prepare_bet_dan):getString(R.string.games_prepare_bet_shuang));
+                    cpLeftEventList2.add((total % 10 >= 5) ? getString(R.string.games_prepare_bet_da):getString(R.string.games_prepare_bet_xiao));
+                    cpLeftEventList2.add((Integer.parseInt(dataList[0])>Integer.parseInt(dataList[4])) ? getString(R.string.lotter_dragon):getString(R.string.lotter_tiger));
                     cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
                     break;
                 case "65"://"北京快乐8" 暂无
@@ -336,7 +290,7 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                 case "159":
                 case "384":
                     cpLeftEventList2.add(total+"");
-                    cpLeftEventList2.add((total >= 11) ? "大":"小");
+                    cpLeftEventList2.add((total >= 11) ? getString(R.string.games_prepare_bet_da):getString(R.string.games_prepare_bet_xiao));
                     cpOrderLotteryOpen1.setAdapter(new OpenK3GameAdapter(getContext(), R.layout.item_cp_order_open_1, cpLeftEventList1));
                     cpOrderLotteryOpen2.setAdapter(new Open2GameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList2));
                     break;
@@ -351,8 +305,8 @@ public class CPLotteryListFragment extends BaseActivity2 implements CPLotteryLis
                     break;
                 case "304":
                     cpLeftEventList2.add(total+"");
-                    cpLeftEventList2.add((total > 13) ? "大":"小");
-                    cpLeftEventList2.add((total % 2 == 1) ? "单":"双");
+                    cpLeftEventList2.add((total > 13) ? getString(R.string.games_prepare_bet_da):getString(R.string.games_prepare_bet_xiao));
+                    cpLeftEventList2.add((total % 2 == 1) ? getString(R.string.games_prepare_bet_dan):getString(R.string.games_prepare_bet_shuang));
                     cpLeftEventList1.add("=");
                     cpLeftEventList1.add(""+total);
                     cpOrderLotteryOpen1.setAdapter(new OpenQIUGameAdapter(getContext(), R.layout.item_cp_order_open_2, cpLeftEventList1));

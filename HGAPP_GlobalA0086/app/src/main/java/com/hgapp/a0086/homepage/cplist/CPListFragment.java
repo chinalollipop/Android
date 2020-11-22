@@ -149,7 +149,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
             }
         }
         if(Check.isEmpty(token)){
-            showMessage("请重新登录！");
+            showMessage(getString(R.string.lotter_relogin));
         }
         presenter.postCPNote(token);
         /*cpBottomBar.postDelayed(new Runnable() {
@@ -162,7 +162,7 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
 //        RetrofitUrlManager.getInstance().putDomain("CpUrl", "http://mc.hg50080.com/#/home/");
         cpBottomBar
                 .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_home, getString(R.string.str_title_homepage)))
-                .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_record, getString(R.string.cp_title_record)))
+                .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_record, getString(R.string.lotter_bar_record)))
                 .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_me, getString(R.string.str_title_person)))
                 .addItem(new CPBottomBarTab(getContext(), R.drawable.cp_tab_service, getString(R.string.str_title_withdraw)));
         //cpBottomBar.getItem(1).setUnreadCount(9);
@@ -182,13 +182,13 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                     case 1:
                         Intent intent  = new Intent(getContext(),CPBetRecordsFragment.class);
                         intent.putExtra("gameId","51");
-                        intent.putExtra("gameName","北京赛车");
+                        intent.putExtra("gameName",getString(R.string.lotter_bjsc));
                         startActivity(intent);
                         break;
                     case 2:
                         Intent intent2  = new Intent(getContext(),CPMeFragment.class);
                         intent2.putExtra("gameId","51");
-                        intent2.putExtra("gameName","北京赛车");
+                        intent2.putExtra("gameName",getString(R.string.lotter_bjsc));
                         startActivity(intent2);
                        // EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
                         break;
@@ -218,13 +218,13 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
                 } else if (position == 2) {
                     Intent intent2  = new Intent(getContext(),CPMeFragment.class);
                     intent2.putExtra("gameId","51");
-                    intent2.putExtra("gameName","北京赛车");
+                    intent2.putExtra("gameName",getString(R.string.lotter_bjsc));
                     startActivity(intent2);
                     //EventBus.getDefault().post(new StartBrotherEvent(CPMeFragment.newInstance(Arrays.asList("", "", "", "")), SupportFragment.SINGLETASK));
                 }else if(position == 1){
                     Intent intent  = new Intent(getContext(),CPBetRecordsFragment.class);
                     intent.putExtra("gameId","51");
-                    intent.putExtra("gameName","北京赛车");
+                    intent.putExtra("gameName",getString(R.string.lotter_bjsc));
                     startActivity(intent);
                 }else{
                     Intent intent6 = new Intent(getContext(),CPServiceActivity.class);
@@ -281,70 +281,70 @@ public class CPListFragment extends BaseActivity2 implements CPListContract.View
 //                startActivity(new Intent(getContext(),CPOrderFragment.class));
                 Intent intent  = new Intent(getContext(),CPOrderFragment.class);
                 intent.putExtra("gameId","51");
-                intent.putExtra("gameName","北京赛车");
+                intent.putExtra("gameName",getString(R.string.lotter_bjsc));
                 startActivity(intent);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("51", "北京赛车", "111"))));
                 break;
             case R.id.cpTv2:
                 Intent intent2  = new Intent(getContext(),CPOrderFragment.class);
                 intent2.putExtra("gameId","222");
-                intent2.putExtra("gameName","极速飞艇");
+                intent2.putExtra("gameName",getString(R.string.lotter_jsft));
                 startActivity(intent2);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("222", "极速飞艇", "222"))));
                 break;
             case R.id.cpTv3:
                 Intent intent3  = new Intent(getContext(),CPOrderFragment.class);
                 intent3.putExtra("gameId","2");
-                intent3.putExtra("gameName","欢乐生肖");
+                intent3.putExtra("gameName",getString(R.string.lotter_hlsx));
                 startActivity(intent3);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("2", "重庆时时彩", "333"))));
                 break;
             case R.id.cpTv4:
                 Intent intent4  = new Intent(getContext(),CPOrderFragment.class);
                 intent4.putExtra("gameId","189");
-                intent4.putExtra("gameName","极速赛车");
+                intent4.putExtra("gameName",getString(R.string.lotter_jssc));
                 startActivity(intent4);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("189", "极速赛车", "444"))));
                 break;
             case R.id.cpTv5:
                 Intent intent5  = new Intent(getContext(),CPOrderFragment.class);
                 intent5.putExtra("gameId","69");
-                intent5.putExtra("gameName","香港六合彩");
+                intent5.putExtra("gameName",getString(R.string.lotter_lhc));
                 startActivity(intent5);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("69", "香港六合彩", "555"))));
                 break;
             case R.id.cpTv6:
                 Intent intent6  = new Intent(getContext(),CPOrderFragment.class);
                 intent6.putExtra("gameId","207");
-                intent6.putExtra("gameName","分分彩");
+                intent6.putExtra("gameName",getString(R.string.lotter_ffc));
                 startActivity(intent6);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("207", "分分彩", "666"))));
                 break;
             case R.id.cpTv7:
                 Intent intent7  = new Intent(getContext(),CPOrderFragment.class);
                 intent7.putExtra("gameId","304");
-                intent7.putExtra("gameName","PC蛋蛋");
+                intent7.putExtra("gameName",getString(R.string.lotter_pcdd));
                 startActivity(intent7);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("304", "PC蛋蛋", "777"))));
                 break;
             case R.id.cpTv8:
                 Intent intent8  = new Intent(getContext(),CPOrderFragment.class);
                 intent8.putExtra("gameId","3");
-                intent8.putExtra("gameName","快乐十分");
+                intent8.putExtra("gameName",getString(R.string.lotter_klsfc));
                 startActivity(intent8);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("3", "快乐十分", "888"))));
                 break;
             case R.id.cpTv9:
                 Intent intent9  = new Intent(getContext(),CPOrderFragment.class);
                 intent9.putExtra("gameId","47");
-                intent9.putExtra("gameName","幸运农场");
+                intent9.putExtra("gameName",getString(R.string.lotter_xync));
                 startActivity(intent9);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("47", "幸运农场", "999"))));
                 break;
             case R.id.cpTv10:
                 Intent intent10  = new Intent(getContext(),CPOrderFragment.class);
                 intent10.putExtra("gameId","159");
-                intent10.putExtra("gameName","江苏快3");
+                intent10.putExtra("gameName",getString(R.string.lotter_k3));
                 startActivity(intent10);
                 //EventBus.getDefault().post(new StartBrotherEvent(CPOrderFragment.newInstance(Arrays.asList("159", "江苏快3", "101010"))));
                 break;

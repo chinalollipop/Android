@@ -178,7 +178,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             public void onTabSelected(int position, int prePosition) {
                 if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))&&position==1){
                     mBottomBar.setCurrentItem(prePosition);
-                    showMessage("非常抱歉，请您注册真实会员！");
+                    showMessage(getString(R.string.comm_pls_register_real_acccount));
                     return;
                 }
                 try{

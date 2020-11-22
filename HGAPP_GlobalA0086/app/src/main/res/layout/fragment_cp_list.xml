@@ -84,7 +84,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="北京赛车" />
+                    android:text="@string/lotter_bjsc" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -100,7 +100,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="极速飞艇" />
+                    android:text="@string/lotter_jsft" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -116,7 +116,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="欢乐生肖" />
+                    android:text="@string/lotter_hlsx" />
             </LinearLayout>
 
             <TextView
@@ -137,7 +137,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="极速赛车" />
+                    android:text="@string/lotter_jssc" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -153,7 +153,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="六合彩" />
+                    android:text="@string/lotter_lhc" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -169,7 +169,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="分分彩" />
+                    android:text="@string/lotter_ffc" />
             </LinearLayout>
 
             <TextView
@@ -190,7 +190,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="PC蛋蛋" />
+                    android:text="@string/lotter_pcdd" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -206,7 +206,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="快乐十分" />
+                    android:text="@string/lotter_klsfc" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -222,7 +222,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="幸运农场" />
+                    android:text="@string/lotter_xync" />
             </LinearLayout>
 
             <TextView
@@ -243,7 +243,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="江苏快3" />
+                    android:text="@string/lotter_k3" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -259,7 +259,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="更多彩种" />
+                    android:text="@string/lotter_more" />
 
                 <TextView
                     android:layout_width="@dimen/cp_line"
@@ -274,7 +274,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="天津时时彩"
+                    android:text="@string/lotter_more"
                     android:visibility="invisible" />
             </LinearLayout>
 

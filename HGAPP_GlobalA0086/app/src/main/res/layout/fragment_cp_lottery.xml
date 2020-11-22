@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="开奖结果"
+            android:text="@string/lotter_me_kjjg"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
 
@@ -52,7 +52,7 @@
                 android:drawableRight="@mipmap/icon_ex_down"
                 android:drawablePadding="5dp"
                 android:padding="6dp"
-                android:text="欢乐生肖"
+                android:text="@string/lotter_hlsx"
                 android:textColor="@color/cp_hall_tv" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:text="期数"
+                android:text="@string/lotter_periods"
                 android:textColor="@color/cp_hall_tv" />
 
         </LinearLayout>
@@ -87,7 +87,7 @@
                 android:drawableRight="@mipmap/icon_ex_down"
                 android:drawablePadding="10dp"
                 android:padding="6dp"
-                android:text="今日的时间"
+                android:text="time"
                 android:textColor="@color/cp_hall_tv" />
 
             <TextView
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:text="开奖号码"
+                android:text="@string/lotter_number"
                 android:textColor="@color/cp_hall_tv" />
         </LinearLayout>
 
