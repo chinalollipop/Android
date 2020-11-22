@@ -113,7 +113,7 @@ public class ThirdbankCardFragment extends HGBaseFragment {
         String thirdBankMoney = etDepositThirdBankMoney.getText().toString().trim();
 
         if(Check.isEmpty(thirdBankMoney)){
-            showMessage("汇款金额必须是整数！");
+            showMessage(getString(R.string.deposite_money_error));
             return;
         }
         EventBus.getDefault().post(new StartBrotherEvent(OnlinePlayFragment.newInstance(dataBean.getUrl(),thirdBankMoney,dataBean.getUserid(),dataBean.getId(),bankCode), SupportFragment.SINGLETASK));

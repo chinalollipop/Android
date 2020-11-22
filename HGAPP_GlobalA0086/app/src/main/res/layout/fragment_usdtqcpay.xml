@@ -23,7 +23,7 @@
         android:textSize="18sp"
         android:gravity="center"
         android:layout_margin="10dp"
-        android:text="ETC20"
+        android:text="TRC20"
         android:textColor="#FF0000"
         />
     <LinearLayout
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请转入"
+            android:text="@string/deposite_usdt_in"
             />
         <TextView
             android:id="@+id/usdtAmount"
@@ -53,7 +53,7 @@
             android:id="@+id/usdtAmountCopy"
             android:layout_width="wrap_content"
             android:layout_height="27dp"
-            android:text="复制金额"
+            android:text="@string/deposite_usdt_copy_money"
             />
     </LinearLayout>
     <ImageView
@@ -71,7 +71,7 @@
         android:layout_marginTop="10dp"
         android:textSize="15sp"
         android:textColor="#FF0000"
-        android:text="重要提示：请勿保存二维码，\n收款账户不定时更换，敬请注意！"
+        android:text="@string/deposite_usdt_qc_note"
         />
 
 
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="充值地址"
+            android:text="@string/deposite_usdt_address"
             android:textColor="@color/color_bg_dialog" />
 
         <TextView
@@ -104,7 +104,7 @@
             android:id="@+id/usdtAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="充值地址"
+            android:text="@string/deposite_usdt_address"
             android:textColor="@color/color_bg_dialog" />
 
         <TextView
@@ -116,7 +116,7 @@
             android:id="@+id/usdtAddressCopy"
             android:layout_width="wrap_content"
             android:layout_height="27dp"
-            android:text="复制地址"
+            android:text="@string/deposite_usdt_copy_address"
             android:textColor="@color/all_bg" />
     </LinearLayout>
     <TextView
@@ -130,21 +130,20 @@
         android:id="@+id/usdtService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="10dp"
         android:padding="5dp"
         android:textSize="15sp"
         android:textColor="@color/color_bg_dialog"
         android:drawableRight="@mipmap/tv_tservice"
         android:background="@drawable/tv_service"
-        android:text="*支付完成请等待5-10分钟到账，支付失败请咨询客服"
+        android:text="@string/deposite_usdt_mark"
         />
     <TextView
         android:id="@+id/usdtMark"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="*注意\n1.请勿想上述地址支付任何非TRC20 USDT资产，否则资产将无法找回。\n2.当前Okex/火币/币安交易所USDT最新场外卖单单价6.75元。\n3.请确保收款地址收到14.81 USDt[不含转账手续费]，否则无法到账。\n 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。"
+        android:text="@string/deposite_usdt_qc_mark"
         android:textColor="@color/color_bg_dialog"
         />
 

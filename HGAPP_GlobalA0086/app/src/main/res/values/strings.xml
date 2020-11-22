@@ -32,7 +32,7 @@
     <string name="games_login_demo">试玩参观</string>
     <string name="games_login_demo_phone">*手机号</string>
     <string name="games_login_demo_phone_h">请输入10位手机号码</string>
-    <string name="games_login_demo_submit">提 交</string>
+    <string name="games_login_demo_submit">提交</string>
     <string name="games_login_success">登录成功</string>
 
     <string name="games_register_introducer">介绍人</string>
@@ -236,6 +236,83 @@
     <string name="games_event_mark10">彩金将在24小时内自动派发到账</string>
     <string name="games_event_mark11">恭喜发财，大吉大利</string>
 
+
+    <string name="deposite_aliqcpay_title">扫一扫，轻松支付</string>
+    <string name="deposite_aliqcpay_title_ali">支付宝扫一扫，轻松支付</string>
+    <string name="deposite_aliqcpay_title_wechat">微信扫一扫，轻松支付</string>
+    <string name="deposite_aliqcpay_title_ali_name">支付宝姓名</string>
+    <string name="deposite_aliqcpay_title_wechat_name">微信姓名</string>
+    <string name="deposite_aliqcpay_title_name">姓名</string>
+    <string name="deposite_aliqcpay_input">请输入</string>
+    <string name="deposite_aliqcpay_title_yin">银联扫码|云闪付扫一扫，轻松支付</string>
+    <string name="deposite_aliqcpay_note">重要提示：请勿保存二维码，\n收款账户不定时更换，敬请注意！</string>
+    <string name="deposite_aliqcpay_type">存款人姓名</string>
+    <string name="deposite_aliqcpay_type_h">请输入存款人姓名</string>
+    <string name="deposite_aliqcpay_money">汇款金额</string>
+    <string name="deposite_aliqcpay_money_h">请输入汇款金额</string>
+    <string name="deposite_aliqcpay_order">交易订单号</string>
+    <string name="deposite_aliqcpay_order_h">请输入交易订单号</string>
+    <string name="deposite_aliqcpay_time">汇款日期</string>
+    <string name="deposite_aliqcpay_time_h">请选择汇款日期</string>
+    <string name="deposite_submit">确认存款</string>
+    <string name="deposite_submit1">申请存款</string>
+    <string name="deposite_money_error">汇款金额必须是整数！</string>
+    <string name="deposite_order_error">请输入交易单号！</string>
+    <string name="deposite_money">充值金额</string>
+    <string name="deposite_type">支付渠道</string>
+    <string name="deposite_type_h">请点击此处选择支付渠道 ⇊▼</string>
+    <string name="deposite_limit_greater">大于</string>
+    <string name="deposite_limit_less">小于</string>
+    <string name="deposite_type_error">亲，记得请选择支付渠道哦！</string>
+    <string name="deposite_type_error_contract">充值方式错误，请联系管理员！</string>
+    <string name="deposite_channel">充值渠道</string>
+    <string name="deposite_channel_h">请输入汇款渠道</string>
+    <string name="deposite_bank">转入银行</string>
+    <string name="deposite_bank_h">请选择银行卡</string>
+
+    <string name="deposite_usdt_title">USDT支付</string>
+    <string name="deposite_usdt_type_name">链名称</string>
+    <string name="deposite_usdt_type">TRC20</string>
+    <string name="deposite_usdt_channel">支付通道</string>
+    <string name="deposite_usdt_channel_h">UDST-极速</string>
+    <string name="deposite_usdt_tutorial">USDT充值教程</string>
+    <string name="deposite_usdt_note">请注意：\n请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。\n本公司最低存款金额为%s元，每次存款赠送最高%s红利。</string>
+    <string name="deposite_usdt_limit_moeny">汇款金额须大于100元</string>
+
+    <string name="deposite_usdt_copy_money">复制金额</string>
+    <string name="deposite_usdt_in">请转入</string>
+    <string name="deposite_usdt_qc_note">重要提示：请勿保存二维码，\n收款账户不定时更换，敬请注意！</string>
+    <string name="deposite_usdt_address">充值地址</string>
+
+    <string name="deposite_usdt_copy_address">复制地址</string>
+    <string name="deposite_usdt_mark">*支付完成请等待<font color='#FF0000'>5-10</font>分钟到账，支付失败请<font color='#FF0000'>咨询客服</font></string>
+    <string name="deposite_usdt_qc_mark">*注意\n 1.请勿向上述地址支付任何非%s USDT资产，否则资产将无法找回。\n2.当前%s 交易所USDT最新场外卖单单价%s 元。\n3.请确保收款地址收到%s USDT[不含转账手续费]，否则无法到账。\n 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。</string>
+
+
+    <string name="deposite_bank_choice">选择银行</string>
+    <string name="deposite_bank_infor">汇款详细账户资料</string>
+    <string name="deposite_bank_name">银行</string>
+    <string name="deposite_bank_pay_name">开户名</string>
+    <string name="deposite_bank_copy">复制</string>
+    <string name="deposite_bank_number">银行账号</string>
+    <string name="deposite_bank_address">银行分行</string>
+    <string name="deposite_bank_money_note">温馨提示：\n 一：请在金额转出之后务必及时填写汇款信息表格，以遍我们财务人员能及时为您确认添加金额到您的会员账号。\n二：本公司最低存款金额为100元。</string>
+    <string name="deposite_bank_submit">填写汇款表格</string>
+    <string name="deposite_bank_mark">此存款信息只是您汇款详情的提交，并非代表存款。您需要自己通过ATM或网银转账到本公司的账户后，填写提交此信息，待工作人员核实充值！</string>
+    <string name="deposite_bank_qset_money">快速设置金额：</string>
+
+    <string name="deposite_bank_pay_channel">汇款方式</string>
+    <string name="deposite_bank_pay_channel_h">请选择汇款方式</string>
+    <string name="deposite_bank_submit_mark">存款备注</string>
+    <string name="deposite_bank_submit_mark_h">可填入银行转账单号等信息</string>
+    <string name="deposite_bank_submit_sure">提交信息</string>
+    <string name="deposite_bank_reset">重新填写</string>
+    <string name="deposite_bank_submit_note">汇款信息提交说明：\n 1，请按表格填写准确的汇款转账信息，确认提交后相关财务人员会及时为您查询入款情况！\n2，请您在转账金额后面加个位数，例如：转账金额1000.66或1000.88等，以便相关财务人员更快确认您的转账金额并充值！\n3，如有任何疑问，您可以联系在线客服，在线客服为您提供365天X24小时不间断的友善和专业客户咨询服务！</string>
+    <string name="deposite_bank_pay_channel1">银行柜台</string>
+    <string name="deposite_bank_pay_channel2">ATM现金</string>
+    <string name="deposite_bank_pay_channel3">ATM卡转</string>
+    <string name="deposite_bank_pay_channel4">网银转账</string>
+
     <string name="games_loading_bal">加载额度中...</string>
     <string name="games_ag_zr_bal">真人额度：</string>
     <string name="games_ag_dz_bal">电子额度：</string>
@@ -304,8 +381,12 @@
     <string name="comm_better_net">已是最优线路！</string>
     <string name="comm_line">线路</string>
     <string name="comm_login_register">登陆/注册</string>
+    <string name="comm_service_error">请求服务有异常，请稍后再试！</string>
+    <string name="contract_qq">QQ客服</string>
+    <string name="contract_wechat">微信公众号</string>
+    <string name="contract_wechat_qc">微信公众号二维码</string>
 
-
+    <string name="contract_copy">点击复制</string>
     <string name="bcard_user_first">请先绑定银行卡！</string>
     <string name="bcard_user_no_alise">暂无</string>
     <string name="bcard_change_confirm">更改绑定</string>
@@ -406,6 +487,9 @@
     <string name="realname_accountname_hint">提款行卡的姓名，用于提款</string>
     <string name="realname_accountname_hint2">请输入真实姓名！</string>
 
+    <string name="comm_app_upgrade_title">版本更新</string>
+    <string name="comm_app_upgrade_later">以后更新</string>
+    <string name="comm_app_upgrade_imme">立即更新</string>
     <string name="comm_register">注册</string>
     <string name="comm_pls_register_real_acccount">非常抱歉，请您注册真实会员！</string>
     <string name="comm_loading">加载中</string>

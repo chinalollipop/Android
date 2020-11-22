@@ -117,11 +117,11 @@ public class CompanyPayTwoFragment extends HGBaseFragment {
                 break;
             case R.id.etDepositCompanyPayNameCopy:
                 CLipHelper.copy(getContext(),etDepositCompanyPayName.getText().toString());
-                showMessage("复制成功！");
+                showMessage(getString(R.string.comm_copy_succeed));
                 break;
             case R.id.tvDepositCompanyPayBankNumberCopy:
                 CLipHelper.copy(getContext(),tvDepositCompanyPayBankNumber.getText().toString());
-                showMessage("复制成功！");
+                showMessage(getString(R.string.comm_copy_succeed));
                 break;
         }
 

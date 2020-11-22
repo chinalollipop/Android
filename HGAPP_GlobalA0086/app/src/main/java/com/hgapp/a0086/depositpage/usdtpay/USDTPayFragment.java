@@ -1,5 +1,6 @@
 package com.hgapp.a0086.depositpage.usdtpay;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Html;
@@ -94,6 +95,8 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
     private String onMarkRed(String sign){
         return " <font color='#FF0000'>" + sign+"</font>";
     }
+
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         tvThirdBankBack.setMoreText(getArgParam1);
@@ -107,11 +110,12 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
             }
         });
 
-        StringBuffer mark = new StringBuffer();
+        //StringBuffer mark = new StringBuffer();
         //请注意：请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。\n 本公司最低存款金额为100元，每次存款赠送最高1%红利。
-        mark.append("请注意：<br>请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。<br>本公司最低存款金额为").append("").
-                append(onMarkRed(dataBean.getMin_deposit())).append("元，每次存款赠送最高").append(onMarkRed(dataBean.getYuhui_rate())).append("红利。");
-        tvUsdtMark.setText(Html.fromHtml(mark.toString()));
+        /*mark.append("请注意：<br>请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。<br>本公司最低存款金额为").append("").
+                append(onMarkRed(dataBean.getMin_deposit())).append("元，每次存款赠送最高").append(onMarkRed(dataBean.getYuhui_rate())).append("红利。");*/
+        String mark = String.format(getString(R.string.deposite_usdt_note).replace("\n","<br>"), onMarkRed(dataBean.getMin_deposit()),onMarkRed(dataBean.getYuhui_rate()));
+        tvUsdtMark.setText(Html.fromHtml(mark));
        /* List<String> stringList  = new ArrayList<String>();
         int listSize = dataBean.getBankList().size();
         for(int i=0;i<listSize;++i){
@@ -136,7 +140,7 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
     private void onCheckThirdMobilePay(){
         String thirdBankMoney = etDepositThirdBankMoney.getText().toString().trim();
         if (Check.isEmpty(thirdBankMoney)||Double.parseDouble(thirdBankMoney)<Double.parseDouble("100")) {
-            super.showMessage("汇款金额须大于100元！");
+            super.showMessage(getString(R.string.deposite_usdt_limit_moeny));
             return;
         }
         presenter.postDepositUSDTPaySubimt("", dataBean.getId(),  thirdBankMoney, getTime(new Date()), "",dataBean.getBank_user());

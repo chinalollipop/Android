@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="USDT支付"
+        android:text="@string/deposite_usdt_title"
         android:textSize="22sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/cp_hall_tv"
@@ -44,7 +44,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="充值金额"
+            android:text="@string/deposite_money"
             android:textColor="@color/textview_hight"
             android:textSize="15sp" />
 
@@ -52,7 +52,7 @@
             android:id="@+id/etDepositThirdBankMoney"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入汇款金额"
+            android:hint="@string/deposite_aliqcpay_money_h"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -76,7 +76,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="链名称"
+            android:text="@string/deposite_usdt_type_name"
             android:textColor="@color/textview_hight"
             android:textSize="15sp" />
 
@@ -87,7 +87,7 @@
             android:layout_height="match_parent"
             android:gravity="left|center"
             android:paddingLeft="10dp"
-            android:text="TRC20" />
+            android:text="@string/deposite_usdt_type" />
     </LinearLayout>
 
 
@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="支付通道"
+            android:text="@string/deposite_usdt_channel"
             android:textColor="@color/textview_hight"
             android:textSize="15sp" />
 
@@ -123,7 +123,7 @@
             android:layout_height="match_parent"
             android:gravity="left|center"
             android:paddingLeft="10dp"
-            android:text="UDST-极速" />
+            android:text="@string/deposite_usdt_channel_h" />
     </LinearLayout>
 
     <TextView
@@ -140,7 +140,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginTop="40dp"
-    android:text="确认存款" />
+    android:text="@string/deposite_submit" />
 
     <Button
         android:id="@+id/btnUSDTSubmit"
@@ -151,13 +151,13 @@
         android:layout_marginRight="10dp"
         android:background="@color/textview_normal"
         android:layout_marginTop="20dp"
-        android:text="USDT充值教程" />
+        android:text="@string/deposite_usdt_tutorial" />
 
     <TextView
         android:id="@+id/tvUsdtMark"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="请注意：请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。\n 本公司最低存款金额为100元，每次存款赠送最高1%红利。"
+        android:text="@string/deposite_usdt_note"
         />
 </LinearLayout>

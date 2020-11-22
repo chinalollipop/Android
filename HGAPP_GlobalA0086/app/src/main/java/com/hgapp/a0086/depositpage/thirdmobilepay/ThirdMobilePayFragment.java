@@ -113,9 +113,9 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
         });
 
         if(dataBean.size()>=2){
-            tvDepositThirdMobile.setText("请点击此处选择支付渠道 ⇊▼");
+            tvDepositThirdMobile.setText(getString(R.string.deposite_type_h));//"请点击此处选择支付渠道 ⇊▼"
         }else{
-            etDepositThirdMobileMoney.setHint("大于"+dataBean.get(0).getMinCurrency()+"小于"+dataBean.get(0).getMaxCurrency());
+            etDepositThirdMobileMoney.setHint(getString(R.string.deposite_limit_greater)+dataBean.get(0).getMinCurrency()+getString(R.string.deposite_limit_less)+dataBean.get(0).getMaxCurrency());
             tvDepositThirdMobile.setText(dataBean.get(0).getTitle());
             id = dataBean.get(0).getId();
             url = dataBean.get(0).getUrl();
@@ -129,7 +129,7 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
                 tvDepositThirdMobile.setText(dataBean.get(options1).getTitle()+" ⇊▼");
                 GameLog.log("充值方式："+dataBean.get(options1).getTitle());
                 //showMessage("金额必须大于"+dataBean.get(options1).getMinCurrency()+"小于"+dataBean.get(options1).getMaxCurrency());
-                etDepositThirdMobileMoney.setHint("大于"+dataBean.get(options1).getMinCurrency()+"小于"+dataBean.get(options1).getMaxCurrency());
+                etDepositThirdMobileMoney.setHint(getString(R.string.deposite_limit_greater)+dataBean.get(options1).getMinCurrency()+getString(R.string.deposite_limit_less)+dataBean.get(options1).getMaxCurrency());
                 id = dataBean.get(options1).getId();
                 url = dataBean.get(options1).getUrl();
                 useId = dataBean.get(options1).getUserid();
@@ -171,15 +171,15 @@ public class ThirdMobilePayFragment extends HGBaseFragment {
         String thirdMobileMoney = etDepositThirdMobileMoney.getText().toString().trim();
 
         if(Check.isEmpty(thirdMobileMoney)){
-            showMessage("汇款金额必须是整数！");
+            showMessage(getString(R.string.deposite_money_error));
             return;
         }
-        if("请点击此处选择支付渠道 ⇊▼".equals(tvDepositThirdMobile.getText().toString().trim())){
-            showMessage("亲，记得请选择支付渠道哦！");
+        if(getString(R.string.deposite_type_h).equals(tvDepositThirdMobile.getText().toString().trim())){
+            showMessage(getString(R.string.deposite_type_error));
             return;
         }
         if(Check.isEmpty(url)){
-            showMessage("充值方式错误，请联系管理员！");
+            showMessage(getString(R.string.deposite_type_error_contract));
             return;
         }
 

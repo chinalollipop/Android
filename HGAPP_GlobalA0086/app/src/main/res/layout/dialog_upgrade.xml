@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:textColor="#030303"
                 android:textSize="18sp"
-                android:text="版本更新"/>
+                android:text="@string/comm_app_upgrade_title"/>
             <TextView
                 android:id="@+id/tv_msg_upgrade"
                 android:paddingTop="56px"
@@ -80,7 +80,7 @@
                 android:id="@+id/btn_cancel_upgrade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="以后更新"
+                android:text="@string/comm_app_upgrade_later"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp"
                 android:gravity="center"
@@ -93,7 +93,7 @@
                 android:id="@+id/btn_confirm_upgrade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="立即更新"
+                android:text="@string/comm_app_upgrade_imme"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:textColor="@color/pop_hight"

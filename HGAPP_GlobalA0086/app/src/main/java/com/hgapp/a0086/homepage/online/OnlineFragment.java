@@ -126,7 +126,7 @@ public class OnlineFragment extends HGBaseFragment {
         //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         if(Check.isEmpty(mParam2)){
-            showMessage("请求服务有异常，请稍后再试！");
+            showMessage(getString(R.string.comm_service_error));
             pop();
         }
         GameLog.log("加载的URL地址是："+mParam2);

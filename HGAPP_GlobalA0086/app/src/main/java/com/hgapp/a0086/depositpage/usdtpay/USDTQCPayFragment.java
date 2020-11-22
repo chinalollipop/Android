@@ -118,7 +118,7 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
         // \n2.当前Okex/火币/币安交易所USDT最新场外卖单单价6.75元。
         // \n3.请确保收款地址收到14.81 USDt[不含转账手续费]，否则无法到账。
         // \n 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。
-        StringBuffer mark = new StringBuffer();
+        /*StringBuffer mark = new StringBuffer();
         mark.append("*注意<br>1.请勿向上述地址支付任何非"+onMarkRed(getArgParam1.getType())+" USDT资产，否则资产将无法找回。<br> ")
         .append( "2.当前"+getArgParam1.getJiaoyisuo()+"交易所USDT最新场外卖单单价").
                 append(onMarkRed(getArgParam1.getUsdt_rate())).
@@ -127,10 +127,12 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
                 append(" USDT").
                 append(onMarkRed("[不含转账手续费]")).
                 append(",否则无法到账。<br> 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。");
-        usdtMark.setText(Html.fromHtml(mark.toString()));
-        StringBuffer service = new StringBuffer();
+        usdtMark.setText(Html.fromHtml(mark.toString()));*/
+        String mark =  String.format(getString(R.string.deposite_usdt_qc_mark).replace("\n","<br>"), onMarkRed(getArgParam1.getType()),onMarkRed(getArgParam1.getJiaoyisuo()),onMarkRed(getArgParam1.getUsdt_rate()),onMarkRed(getArgParam1.getUsdt_amount()));
+        usdtMark.setText(Html.fromHtml(mark));
+       /* StringBuffer service = new StringBuffer();
         service.append("*支付完成请等待").append(onMarkRed("5-10")).append("分钟到账,支付失败").append(onMarkRed("咨询客服"));
-        usdtService.setText(Html.fromHtml(service.toString()));
+        usdtService.setText(Html.fromHtml(service.toString()));*/
         tvAliQCPayBack.setMoreText(getArgParam2);
         tvAliQCPayBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -159,12 +161,12 @@ public class USDTQCPayFragment extends HGBaseFragment implements USDTPayContract
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.usdtAddressCopy:
-                showMessage("复制成功！");
+                showMessage(getString(R.string.comm_copy_succeed));
                 DoubleClickHelper.getNewInstance().disabledView(usdtAddressCopy);
                 CLipHelper.copy(getContext(),usdtAddress.getText().toString());
                 break;
             case R.id.usdtAmountCopy:
-                showMessage("复制成功！");
+                showMessage(getString(R.string.comm_copy_succeed));
                 DoubleClickHelper.getNewInstance().disabledView(usdtAmountCopy);
                 CLipHelper.copy(getContext(),usdtAmount.getText().toString());
                 break;

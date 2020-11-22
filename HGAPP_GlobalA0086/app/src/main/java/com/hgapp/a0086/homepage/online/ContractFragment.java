@@ -111,7 +111,7 @@ public class ContractFragment extends HGBaseFragment {
         switch (view.getId()) {
             case R.id.llContractQQ:
                 CLipHelper.copy(getContext(),getArgParam2);
-                showMessage("复制成功！");
+                showMessage(getString(R.string.comm_copy_succeed));
                 /*if(fasterPayList.contains("com.tencent.mobileqq")){
                     //PackageUtil.startAppByPackageName(getContext(), "com.tencent.mobileqq");
                     String tvContractQQ = tvContractQQNumber.getText().toString();
@@ -132,7 +132,7 @@ public class ContractFragment extends HGBaseFragment {
                 break;
             case R.id.llContractWX:
                 CLipHelper.copy(getContext(),getArgParam3);
-                showMessage("复制成功！");
+                showMessage(getString(R.string.comm_copy_succeed));
                 /*if(!tvContractWXBg.isShown()){
                     tvContractWXBg.setVisibility(View.VISIBLE);
                 }else{

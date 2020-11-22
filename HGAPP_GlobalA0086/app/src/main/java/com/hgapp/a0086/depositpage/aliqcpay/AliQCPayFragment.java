@@ -108,16 +108,16 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
                 case 5://QQ第三方
                     break;
                 case 6://支付宝扫码
-                    tvAliQCPayTitle.setText("支付宝扫一扫，轻松支付");
-                    tvDepositAliQCPayType.setText("支付宝姓名");
+                    tvAliQCPayTitle.setText(getString(R.string.deposite_aliqcpay_title_ali));
+                    tvDepositAliQCPayType.setText(getString(R.string.deposite_aliqcpay_title_ali_name));
                     break;
                 case 7://支付宝扫码
-                    tvAliQCPayTitle.setText("微信扫一扫，轻松支付");
-                    tvDepositAliQCPayType.setText("微信姓名");
+                    tvAliQCPayTitle.setText(getString(R.string.deposite_aliqcpay_title_wechat));
+                    tvDepositAliQCPayType.setText(getString(R.string.deposite_aliqcpay_title_wechat_name));
                     break;
                 case 8://云闪付
-                    tvAliQCPayTitle.setText("银联扫码|云闪付扫一扫，轻松支付");
-                    tvDepositAliQCPayType.setText("姓名");
+                    tvAliQCPayTitle.setText(getString(R.string.deposite_aliqcpay_title_yin));
+                    tvDepositAliQCPayType.setText(getString(R.string.deposite_aliqcpay_title_name));
                     break;
             }
         //时间选择器
@@ -146,7 +146,7 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
         payBankUser = dataBean.getData().get(0).getBank_user();
         if(!Check.isEmpty(dataBean.getData().get(0).getNotice())) {
             edDepositAliQCPayOrder.setText(dataBean.getData().get(0).getNotice());
-            edDepositAliQCPayOrderNumber.setHint("请输入" + dataBean.getData().get(0).getNotice());
+            edDepositAliQCPayOrderNumber.setHint(getString(R.string.deposite_aliqcpay_input) + dataBean.getData().get(0).getNotice());
         }
         tvDepositAliQCPayName.setText(dataBean.getData().get(0).getBank_user());
         tvDepositAliQCPayTime.setText(getTime(new Date()));
@@ -158,12 +158,12 @@ public class AliQCPayFragment extends HGBaseFragment implements AliQCPayContract
         String tvTime = tvDepositAliQCPayTime.getText().toString().trim();
 
         if (Check.isEmpty(etMoney)) {
-            showMessage("汇款金额必须是整数！");
+            showMessage(getString(R.string.deposite_money_error));
             return;
         }
 
         if (Check.isEmpty(number)) {
-            showMessage("请输入交易单号！");
+            showMessage(getString(R.string.deposite_order_error));
             return;
         }
 

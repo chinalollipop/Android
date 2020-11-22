@@ -9,7 +9,7 @@
         android:id="@+id/backContract"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backText="返回"
+        app:backText="@string/comm_back"
         />
 
     <TextView
@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="QQ客服"
+            android:text="@string/contract_qq"
             android:layout_marginLeft="10dp"
             />
         <TextView
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="点击复制"
+            android:text="@string/contract_copy"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginLeft="48dp"
@@ -81,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="微信公众号"
+            android:text="@string/contract_wechat"
             />
         <TextView
             android:id="@+id/tvContractWXNumber"
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="点击复制"
+            android:text="@string/contract_copy"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginLeft="20dp"
@@ -106,7 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="微信公众号二维码"
+        android:text="@string/contract_wechat_qc"
         android:layout_margin="10dp"
         />
     <ImageView

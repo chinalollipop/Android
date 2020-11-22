@@ -60,15 +60,9 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
     private String bankId;
     private String getArgParam1;
     private CompanyPayContract.Presenter presenter;
-    static List<String> stringListChannel  = new ArrayList<String>();
+    List<String> stringListChannel  = new ArrayList<String>();
     List<String> stringListBankName  = new ArrayList<String>();
-    static {
-        stringListChannel.add("银行柜台");
-        stringListChannel.add("ATM现金");
-        stringListChannel.add("ATM卡转");
-        stringListChannel.add("网银转账");
-        stringListChannel.add("其他");
-    }
+
     public static CompanyPayFragment newInstance(DepositBankCordListResult dataBean,String getArgParam1) {
         CompanyPayFragment fragment = new CompanyPayFragment();
         Bundle args = new Bundle();
@@ -95,6 +89,11 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        stringListChannel.add(getString(R.string.deposite_bank_pay_channel1));
+        stringListChannel.add(getString(R.string.deposite_bank_pay_channel2));
+        stringListChannel.add(getString(R.string.deposite_bank_pay_channel3));
+        stringListChannel.add(getString(R.string.deposite_bank_pay_channel4));
+        stringListChannel.add(getString(R.string.games_prepare_bet_qita));
         tvCompanyPayBack.setMoreText(getArgParam1);
         tvCompanyPayBack.setBackListener(new View.OnClickListener() {
             @Override
@@ -109,7 +108,7 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
         tvDepositCompanyPayBank.setText(dataBean.getData().get(0).getBank_name()+dataBean.getData().get(0).getBank_user());
         tvDepositCompanyPayBankNumber.setText(dataBean.getData().get(0).getBank_account());
         tvDepositCompanyPayBankAddress.setText(dataBean.getData().get(0).getBank_addres());
-        tvDepositCompanyPayChannel.setText("银行柜台");
+        tvDepositCompanyPayChannel.setText(getString(R.string.deposite_bank_pay_channel1));
         tvDepositCompanyPayTime.setText(getTime(new Date()));
 
         //时间选择器
@@ -170,12 +169,12 @@ public class CompanyPayFragment extends HGBaseFragment implements CompanyPayCont
         String edRemark = edDepositCompanyPayRemark.getText().toString().trim();
 
         if (Check.isEmpty(etMoney)||Double.parseDouble(etMoney)<Double.parseDouble("100")) {
-            super.showMessage("汇款金额须大于100元！");
+            super.showMessage(getString(R.string.deposite_usdt_limit_moeny));
             return;
         }
 
         if (Check.isEmpty(etName)) {
-            super.showMessage("请输入存款人姓名！");
+            super.showMessage(getString(R.string.deposite_aliqcpay_type_h));
             return;
         }
 

@@ -13,7 +13,7 @@
         android:id="@+id/tvAliQCPayBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backText="返回"
+        app:backText="@string/comm_back"
         />
 
     <TextView
@@ -23,7 +23,7 @@
         android:textSize="16sp"
         android:gravity="center"
         android:layout_margin="10dp"
-        android:text="扫一扫，轻松支付"
+        android:text="@string/deposite_aliqcpay_title"
         android:textColor="@color/intputEditText"
         />
     <ImageView
@@ -40,7 +40,7 @@
         android:layout_marginTop="10dp"
         android:textSize="15sp"
         android:textColor="@color/intputEditText"
-        android:text="重要提示：请勿保存二维码，\n收款账户不定时更换，敬请注意！"
+        android:text="@string/deposite_aliqcpay_note"
         />
     <TextView
         android:layout_marginTop="10dp"
@@ -59,7 +59,7 @@
             android:textColor="@color/textview_hight"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="存款人姓名"
+            android:text="@string/deposite_aliqcpay_type"
             android:textSize="15sp" />
 
 
@@ -70,7 +70,7 @@
             android:textSize="15sp"
             android:maxLines="1"
             android:gravity="center|left"
-            android:text="请输入存款人姓名"
+            android:text="@string/deposite_aliqcpay_type_h"
             />
     </LinearLayout>
     <TextView
@@ -96,7 +96,7 @@
         <TextView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="汇款金额"
+            android:text="@string/deposite_aliqcpay_money"
             android:textColor="@color/textview_hight"
             android:textSize="15sp" />
 
@@ -105,7 +105,7 @@
             android:id="@+id/etDepositAliQCPayMoney"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入汇款金额"
+            android:hint="@string/deposite_aliqcpay_money_h"
             android:inputType="numberDecimal" />
     </LinearLayout>
     <TextView
@@ -132,7 +132,7 @@
             android:id="@+id/edDepositAliQCPayOrder"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="交易订单号"
+            android:text="@string/deposite_aliqcpay_order"
             android:gravity="center|left"
             android:textColor="@color/textview_hight"
             android:textSize="15sp" />
@@ -141,7 +141,7 @@
             android:id="@+id/edDepositAliQCPayOrderNumber"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入交易订单号" />
+            android:hint="@string/deposite_aliqcpay_order_h" />
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
@@ -167,7 +167,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="汇款日期"
+            android:text="@string/deposite_aliqcpay_time"
             android:textColor="@color/textview_hight"
             android:textSize="15sp" />
 
@@ -180,7 +180,7 @@
             android:paddingLeft="20dp"
             android:textColor="#868686"
             android:textSize="15sp"
-            android:text="请选择汇款日期 " />
+            android:text="@string/deposite_aliqcpay_time_h" />
 
     </LinearLayout>
 
@@ -199,7 +199,7 @@
         android:layout_marginBottom="40dp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/h_tbn_height"
-        android:text="确认存款"
+        android:text="@string/deposite_submit"
         />
 </LinearLayout>
 </ScrollView>
