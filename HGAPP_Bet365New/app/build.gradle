@@ -6,7 +6,7 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.hgapp.betnew" //线上环境
-        versionName "6.0.9" //线上环境
+        versionName "6.0.10" //线上环境
 //        applicationId "com.cndodricideh.daniel"//测试环境
 //        versionName "1.5" //测试环境环境
         minSdkVersion 19
