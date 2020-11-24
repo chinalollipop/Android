@@ -58,6 +58,7 @@ import com.hgapp.a0086.homepage.cplist.bet.CPBetParams;
 import com.hgapp.a0086.homepage.cplist.bet.betrecords.CPBetRecordsFragment;
 import com.hgapp.a0086.homepage.cplist.bet.betrecords.betlistrecords.CPBetListRecordsFragment;
 import com.hgapp.a0086.homepage.cplist.bet.betrecords.betnow.CPBetNowFragment;
+import com.hgapp.a0086.homepage.cplist.events.CPIcon;
 import com.hgapp.a0086.homepage.cplist.events.CPOrderList;
 import com.hgapp.a0086.homepage.cplist.events.CPOrderSuccessEvent;
 import com.hgapp.a0086.homepage.cplist.events.CloseLotteryEvent;
@@ -167,8 +168,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     @BindView(R.id.cpOrderGold)
     EditText cpOrderGold;
 
-    private static List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
-    private static List<LeftEvents> cpLeftEventList = new ArrayList<LeftEvents>();
+    private  List<HomePageIcon> cpGameList = new ArrayList<HomePageIcon>();
 
     private static List<String> cpLeftEventList1 = new ArrayList<String>();
     private static List<String> cpLeftEventList2 = new ArrayList<String>();
@@ -228,46 +228,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
     String moneyStr="0.00",todaywinStr="0.00";
     private boolean isCloseLottery = false;
     CPQuickBetResult cpQuickBetResult;
-    static {
+    private void initData(){
         //注意事项  每次投注成功之后都需要刷新一下用户的金额 ，且是全局的金额都需要变动  需要发送一下全部的 Money  message 去
-        cpGameList.add(new HomePageIcon("系统菜单", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("返回大厅", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("北京赛车(PK10)", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("欢乐生肖", R.mipmap.home_vrcp));
-        cpGameList.add(new HomePageIcon("极速赛车", R.mipmap.home_qipai));
-        cpGameList.add(new HomePageIcon("极速飞艇", R.mipmap.home_hgty));
-        cpGameList.add(new HomePageIcon("分分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("三分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("五分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("腾讯二分彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("PC蛋蛋", R.mipmap.home_ag));
-        cpGameList.add(new HomePageIcon("江苏鼓宝(快3)", R.mipmap.home_ag));
-        cpGameList.add(new HomePageIcon("幸运农场", R.mipmap.home_ag));
-        cpGameList.add(new HomePageIcon("广东快乐十分", R.mipmap.home_vrcp));
-        cpGameList.add(new HomePageIcon("香港六合彩", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("极速快三", R.mipmap.home_lhj));
-        cpGameList.add(new HomePageIcon("幸运飞艇", R.mipmap.gf_xyft));
-        cpLeftEventList.add(new LeftEvents("两面", "1", false));
-        cpLeftEventList.add(new LeftEvents("1-5球", "2", true));
-        cpLeftEventList.add(new LeftEvents("前中后", "3", false));
-        cpLeftEventList.add(new LeftEvents("两面", "4", false));
-        cpLeftEventList.add(new LeftEvents("1-5球", "8", true));
-        cpLeftEventList.add(new LeftEvents("前中后", "9", false));
-        cpLeftEventList.add(new LeftEvents("两面", "7", false));
-        cpLeftEventList.add(new LeftEvents("1-5球", "6", true));
-        cpLeftEventList.add(new LeftEvents("前中后", "10", false));
-        cpLeftEventList.add(new LeftEvents("两面", "5", false));
-        /*cpLeftEventList2.add("3");
-        cpLeftEventList2.add("小");
-        cpLeftEventList2.add("单");
-        cpLeftEventList2.add("虎");
-        cpLeftEventList2.add("龙");
-        cpLeftEventList2.add("虎");
-        cpLeftEventList2.add("虎");
-        cpLeftEventList2.add("龙");*/
-
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_menu), R.mipmap.home_hgty,0));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_back_hall), R.mipmap.home_hgty,0));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_bjsc), R.mipmap.home_hgty,51));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_hlsx), R.mipmap.home_vrcp,2));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_jssc), R.mipmap.home_qipai,189));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_jsft), R.mipmap.home_hgty,222));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_ffc), R.mipmap.home_lhj,207));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_sfc), R.mipmap.home_lhj,407));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_wfc), R.mipmap.home_lhj,507));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_efc), R.mipmap.home_lhj,607));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_pcdd), R.mipmap.home_ag,304));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_k3), R.mipmap.home_ag,159));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_xync), R.mipmap.home_ag,47));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_klsfc), R.mipmap.home_vrcp,3));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_lhc), R.mipmap.home_lhj,69));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_jsk3), R.mipmap.home_lhj,384));
+        cpGameList.add(new HomePageIcon(getString(R.string.lotter_xyft), R.mipmap.gf_xyft,168));
 
     }
+
 
    /* public static CPOrderFragment newInstance(List<String> param1) {
         CPOrderFragment fragment = new CPOrderFragment();

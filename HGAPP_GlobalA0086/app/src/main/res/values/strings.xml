@@ -85,6 +85,12 @@
     <string name="lotter_bet_record_money_all">总下注金额：</string>
     <string name="lotter_bet_record_result">退水后结果</string>
     <string name="lotter_bet_record_count_winlos">输赢金额</string>
+    <string name="lotter_game_menu">游戏大厅</string>
+    <string name="lotter_game_close_time">封盘：</string>
+    <string name="lotter_game_open_time">开奖：</string>
+    <string name="lotter_odds">赔率:</string>
+    <string name="lotter_marksix_te_b">特码B</string>
+    <string name="lotter_marksix_te_a">特码A</string>
     <!--底部兰标题-->
     <string name="str_title_homepage">首页</string>
     <string name="str_title_deposit">存款</string>

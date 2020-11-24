@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="游戏大厅"
+            android:text="@string/lotter_game_menu"
             android:textColor="@color/title_text"
             android:textSize="20sp" />
 
@@ -127,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="封盘："
+                    android:text="@string/lotter_game_close_time"
                     android:textColor="@color/n_edittext"
                     android:textSize="15sp" />
 
@@ -147,7 +147,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="开奖："
+                    android:text="@string/lotter_game_open_time"
                     android:textColor="@color/n_edittext"
                     android:textSize="15sp" />
 
@@ -213,7 +213,7 @@
                     android:layout_gravity="center"
                     android:background="@color/title_text"
                     android:gravity="center"
-                    android:text="赔率:"
+                    android:text="@string/lotter_odds"
                     android:textColor="@color/cp_hall_tv"
                     android:textSize="16sp" />
 
@@ -234,13 +234,13 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:id="@+id/cpOrderTeMaA"
-                    android:text="特码B"
+                    android:text="@string/lotter_marksix_te_b"
                     android:background="@color/cp_order_hk_click"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
                 <TextView
                     android:layout_weight="1"
-                    android:text="特码A"
+                    android:text="@string/lotter_marksix_te_a"
                     android:gravity="center"
                     android:background="@color/cp_order_hk_nor"
                     android:id="@+id/cpOrderTeMaB"
