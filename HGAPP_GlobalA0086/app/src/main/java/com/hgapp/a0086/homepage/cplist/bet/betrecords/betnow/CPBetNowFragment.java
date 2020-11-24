@@ -137,51 +137,50 @@ public class CPBetNowFragment extends BaseActivity2 implements CpBetNowContract.
             String name ="";
             switch (data.id){
                 case "51":
-                    name ="北京赛车";
+                    name =getString(R.string.lotter_bjsc);//"北京赛车";
                     break;
                 case "2":
-                    name ="欢乐生肖";
+                    name =getString(R.string.lotter_hlsx);//"欢乐生肖";
                     break;
                 case "189":
-                    name ="极速赛车";
+                    name =getString(R.string.lotter_jssc);//"极速赛车";
                     break;
                 case "222":
-                    name ="极速飞艇";
+                    name =getString(R.string.lotter_jsft);//"极速飞艇";
                     break;
                 case "168":
-                    name ="幸运飞艇";
+                    name =getString(R.string.lotter_xyft);//"幸运飞艇";
                     break;
                 case "207":
-                    name ="分分彩";
+                    name =getString(R.string.lotter_ffc);//"分分彩";
                     break;
                 case "407":
-                    name ="三分彩";
+                    name =getString(R.string.lotter_sfc);//"三分彩";
                     break;
-                 case "507":
-                     name ="五分彩";
+                case "507":
+                    name =getString(R.string.lotter_wfc);//"五分彩";
                     break;
                 case "607":
-                    name ="腾讯二分彩";
+                    name =getString(R.string.lotter_efc);//"腾讯二分彩";
                     break;
                 case "304":
-                    name ="PC蛋蛋";
+                    name =getString(R.string.lotter_pcdd);//"PC蛋蛋";
                     break;
                 case "159":
-                    name ="江苏快3";
+                    name =getString(R.string.lotter_k3);//"江苏快3";
                     break;
                 case "47":
-                    name ="幸运农场";
+                    name =getString(R.string.lotter_xync);//"幸运农场";
                     break;
                 case "3":
-                    name ="快乐十分";
+                    name =getString(R.string.lotter_klsfc);//"快乐十分";
                     break;
                 case "69":
-                    name ="香港六合彩";
+                    name =getString(R.string.lotter_lhc);//"香港六合彩";
                     break;
                 case "384":
-                    name ="极速快三";
+                    name =getString(R.string.lotter_jsk3);//"极速快三";
                     break;
-
             }
             holder.setText(R.id.cpBetRecord2time, name);
             holder.setText(R.id.cpBetRecord2number, data.num);

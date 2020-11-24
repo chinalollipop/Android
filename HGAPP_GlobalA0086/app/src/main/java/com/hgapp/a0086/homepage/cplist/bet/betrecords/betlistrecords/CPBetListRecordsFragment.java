@@ -80,65 +80,64 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
         gameTime = intent.getStringExtra("gameTime");
         GameLog.log("船只的时间是才 "+gameTime);
         if(gameForm.equals("today")){
-            cpBetRecordsTitle.setText("今日已结");
+            cpBetRecordsTitle.setText(getString(R.string.lotter_bet_record_today));
             presenter.getCpBetRecords("page=1&rows=20","today");
         }else if(gameForm.equals("before")){
             presenter.getCpBetRecords(gameTime+"/1/20","before");
         }else{
-            cpBetRecordsTitle.setText("即时注单");
-            cpBetNowName.setText("可盈金额");
+            cpBetRecordsTitle.setText(getString(R.string.lotter_bet_record_now));
+            cpBetNowName.setText(getString(R.string.lotter_bet_record_winlos));
             gameId =  intent.getStringExtra("gameId");
             String name = "";
             switch (gameId){
                 case "51":
-                    name ="北京赛车";
+                    name =getString(R.string.lotter_bjsc);//"北京赛车";
                     break;
                 case "2":
-                    name ="欢乐生肖";
+                    name =getString(R.string.lotter_hlsx);//"欢乐生肖";
                     break;
                 case "189":
-                    name ="极速赛车";
+                    name =getString(R.string.lotter_jssc);//"极速赛车";
                     break;
                 case "222":
-                    name ="极速飞艇";
+                    name =getString(R.string.lotter_jsft);//"极速飞艇";
                     break;
                 case "168":
-                    name ="幸运飞艇";
+                    name =getString(R.string.lotter_xyft);//"幸运飞艇";
                     break;
                 case "207":
-                    name ="分分彩";
+                    name =getString(R.string.lotter_ffc);//"分分彩";
                     break;
                 case "407":
-                    name ="三分彩";
+                    name =getString(R.string.lotter_sfc);//"三分彩";
                     break;
                 case "507":
-                    name ="五分彩";
+                    name =getString(R.string.lotter_wfc);//"五分彩";
                     break;
                 case "607":
-                    name ="腾讯二分彩";
+                    name =getString(R.string.lotter_efc);//"腾讯二分彩";
                     break;
                 case "304":
-                    name ="PC蛋蛋";
+                    name =getString(R.string.lotter_pcdd);//"PC蛋蛋";
                     break;
                 case "159":
-                    name ="江苏快3";
+                    name =getString(R.string.lotter_k3);//"江苏快3";
                     break;
                 case "47":
-                    name ="幸运农场";
+                    name =getString(R.string.lotter_xync);//"幸运农场";
                     break;
                 case "3":
-                    name ="快乐十分";
+                    name =getString(R.string.lotter_klsfc);//"快乐十分";
                     break;
                 case "69":
-                    name ="香港六合彩";
+                    name =getString(R.string.lotter_lhc);//"香港六合彩";
                     break;
                 case "384":
-                    name ="极速快三";
+                    name =getString(R.string.lotter_jsk3);//"极速快三";
                     break;
-
             }
             cpBetRecordsTitleName.setVisibility(View.VISIBLE);
-            cpBetRecordsTitleName.setText(name+">下注明细");
+            cpBetRecordsTitleName.setText(name+" >"+getString(R.string.lotter_bet_record_detail));
             presenter.getCpBetRecords(gameId,"now");
         }
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
@@ -216,51 +215,50 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
             String name ="";
             switch (data.getGame_code()){
                 case "51":
-                    name ="北京赛车";
+                    name =getString(R.string.lotter_bjsc);//"北京赛车";
                     break;
                 case "2":
-                    name ="欢乐生肖";
+                    name =getString(R.string.lotter_hlsx);//"欢乐生肖";
                     break;
                 case "189":
-                    name ="极速赛车";
+                    name =getString(R.string.lotter_jssc);//"极速赛车";
                     break;
                 case "222":
-                    name ="极速飞艇";
+                    name =getString(R.string.lotter_jsft);//"极速飞艇";
                     break;
                 case "168":
-                    name ="幸运飞艇";
+                    name =getString(R.string.lotter_xyft);//"幸运飞艇";
                     break;
                 case "207":
-                    name ="分分彩";
+                    name =getString(R.string.lotter_ffc);//"分分彩";
                     break;
                 case "407":
-                    name ="三分彩";
+                    name =getString(R.string.lotter_sfc);//"三分彩";
                     break;
-                 case "507":
-                     name ="五分彩";
+                case "507":
+                    name =getString(R.string.lotter_wfc);//"五分彩";
                     break;
                 case "607":
-                    name ="腾讯二分彩";
+                    name =getString(R.string.lotter_efc);//"腾讯二分彩";
                     break;
                 case "304":
-                    name ="PC蛋蛋";
+                    name =getString(R.string.lotter_pcdd);//"PC蛋蛋";
                     break;
                 case "159":
-                    name ="江苏快3";
+                    name =getString(R.string.lotter_k3);//"江苏快3";
                     break;
                 case "47":
-                    name ="幸运农场";
+                    name =getString(R.string.lotter_xync);//"幸运农场";
                     break;
                 case "3":
-                    name ="快乐十分";
+                    name =getString(R.string.lotter_klsfc);//"快乐十分";
                     break;
                 case "69":
-                    name ="香港六合彩";
+                    name =getString(R.string.lotter_lhc);//"香港六合彩";
                     break;
                 case "384":
-                    name ="极速快三";
+                    name =getString(R.string.lotter_jsk3);//"极速快三";
                     break;
-
             }
             holder.setText(R.id.cpBetRecord2time, name+"\n"+data.getRound());
             holder.setText(R.id.cpBetRecord2number, data.getBetInfo());
@@ -311,12 +309,12 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
     public void getBetRecordsResult(BetRecordsListItemResult betRecordsResult) {
         if(gameForm.equals("now")){
             pageTotal =1;
-            cpBetRecordsMoney.setText(Html.fromHtml("总下注金额："+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
+            cpBetRecordsMoney.setText(Html.fromHtml(getString(R.string.lotter_bet_record_money_all)+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
             cpBetRecordsNumber.setVisibility(View.GONE);
         }else{
             pageTotal = betRecordsResult.getTotalCount()/20;
-            cpBetRecordsNumber.setText(Html.fromHtml("下注金额："+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
-            cpBetRecordsMoney.setText(Html.fromHtml("输赢金额："+onMarkRed(betRecordsResult.getOtherData().getTotalResultMoney()+"")));
+            cpBetRecordsNumber.setText(Html.fromHtml(getString(R.string.lotter_bet_record_money)+"："+onMarkRed(betRecordsResult.getOtherData().getTotalBetMoney()+"")));
+            cpBetRecordsMoney.setText(Html.fromHtml(getString(R.string.lotter_bet_record_count_winlos)+"："+onMarkRed(betRecordsResult.getOtherData().getTotalResultMoney()+"")));
         }
         GameLog.log("当前是第 【"+page+" 】页  总共的页数是 【"+pageTotal+"】");
 
@@ -344,7 +342,7 @@ public class CPBetListRecordsFragment extends BaseActivity2 implements CpBetList
             }
             cpOrederContentGameAdapter.notifyDataSetChanged();
         }else{
-            showMessage("暂无数据！");
+            showMessage(getString(R.string.games_no_data));
             if(page==1){
                 cpBetRecordsList.setVisibility(View.GONE);
                 cpBetRecordsListNodata.setVisibility(View.VISIBLE);

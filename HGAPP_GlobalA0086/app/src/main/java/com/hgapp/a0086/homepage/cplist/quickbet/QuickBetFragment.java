@@ -62,7 +62,7 @@ public class QuickBetFragment extends NBaseBottomDialog implements QuickBetContr
                 break;
             case R.id.btnSaveQuickBet:
                 if(Check.isEmpty(quickBetParam.code)){
-                    showMessage("请选择注单数据！");
+                    showMessage(getString(R.string.lotter_choice_number));
                 }else{
                     QuickBetMethodFragment.newInstance(cpQuickBetResult,quickBetParam).show(getActivity().getSupportFragmentManager());
                 }

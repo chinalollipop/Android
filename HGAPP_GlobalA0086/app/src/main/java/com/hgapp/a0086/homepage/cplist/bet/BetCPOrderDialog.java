@@ -124,7 +124,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
                 dataString.add(betResult.get(k).gName.split(" - ")[1]);
                 nameData+= betResult.get(k).gName.split(" - ")[1].replace("尾","")+",";
                 nameData1 = betResult.get(k).gName.split(" - ")[0];
-                if(betResult.get(k).gName.split(" - ")[1].equals("狗")||betResult.get(k).gName.split(" - ")[1].replace("尾","").equals("0")){
+                if(betResult.get(k).gName.split(" - ")[1].equals(getString(R.string.lotter_dog))||betResult.get(k).gName.split(" - ")[1].replace(getString(R.string.lotter_wei),"").equals("0")){
                     gouRote= betResult.get(k).rate;
                 }else{
                     otherRote= betResult.get(k).rate;
@@ -143,7 +143,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             int ssDta = dta.size();
             ArrayList<CPOrderList> newBetListData = new ArrayList<>();
             for(int k=0;k<ssDta;++k){
-                if(dta.get(k).contains("狗")||dta.get(k).contains("0")){
+                if(dta.get(k).contains(getString(R.string.lotter_dog))||dta.get(k).contains("0")){
                     newBetListData.add(new CPOrderList(""+k,k+"",nameData1+" "+dta.get(k).replace("[","").replace("]",""),gouRote,""));
                 }else{
                     newBetListData.add(new CPOrderList(""+k,k+"",nameData1+" "+dta.get(k).replace("[","").replace("]",""),otherRote,""));
@@ -198,9 +198,9 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             }
             number = number.substring(0,number.length()-1);
             betOrderLMNumber.setText(cpBetParams.getTypeName()+"【"+number+"】");
-            betOrderLMZH.setText("组合数："+cpBetParams.getTypeNumber());
-            betOrderLMMoneyOne.setText("单注金额："+betGold);
-            betOrderLMMoney.setText("总金额："+totalMoney);
+            betOrderLMZH.setText(getString(R.string.lotter_bet_comb_number)+cpBetParams.getTypeNumber());
+            betOrderLMMoneyOne.setText(getString(R.string.lotter_bet_single_money)+betGold);
+            betOrderLMMoney.setText(getString(R.string.lotter_bet_money)+totalMoney);
         }else if("HKHX".equals(betType)){
             totalNums = cpBetParams.getTypeNumber();
             totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
@@ -213,10 +213,10 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
                 number += betResult.get(i).getgName()+",";
             }
             number = number.substring(0,number.length()-1);
-            betOrderLMNumber.setText(cpBetParams.getTypeName()+"-合肖"+size+"【"+number+"】");
-            betOrderLMZH.setText("组合数："+cpBetParams.getTypeNumber());
-            betOrderLMMoneyOne.setText("单注金额："+betGold);
-            betOrderLMMoney.setText("总金额："+totalMoney);
+            betOrderLMNumber.setText(cpBetParams.getTypeName()+"-"+getString(R.string.lotter_hexiao)+size+"【"+number+"】");
+            betOrderLMZH.setText(getString(R.string.lotter_bet_comb_number)+cpBetParams.getTypeNumber());
+            betOrderLMMoneyOne.setText(getString(R.string.lotter_bet_single_money)+betGold);
+            betOrderLMMoney.setText(getString(R.string.lotter_bet_money)+totalMoney);
         }else if("HKZXBZ".equals(betType)){
             totalNums = cpBetParams.getTypeNumber();
             totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
@@ -230,9 +230,9 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
             }
             number = number.substring(0,number.length()-1);
             betOrderLMNumber.setText(cpBetParams.getTypeName()+" - "+size+"【"+number+"】");
-            betOrderLMZH.setText("组合数："+cpBetParams.getTypeNumber());
-            betOrderLMMoneyOne.setText("单注金额："+betGold);
-            betOrderLMMoney.setText("总金额："+totalMoney);
+            betOrderLMZH.setText(getString(R.string.lotter_bet_comb_number)+cpBetParams.getTypeNumber());
+            betOrderLMMoneyOne.setText(getString(R.string.lotter_bet_single_money)+betGold);
+            betOrderLMMoney.setText(getString(R.string.lotter_bet_money)+totalMoney);
         }else{
             totalNums = betResult.size()+"";
             totalMoney = CalcHelper.multiplyString(betGold,totalNums)+"";
@@ -436,7 +436,7 @@ public class BetCPOrderDialog extends HGBaseDialogFragment implements CpBetApiCo
 
     @Subscribe
     public void onEventMain(CloseLotteryEvent closeLotteryEvent){
-        showMessage("已封盘，请稍后下注！");
+        showMessage(getString(R.string.lotter_bet_close));
         hide();
     }
 

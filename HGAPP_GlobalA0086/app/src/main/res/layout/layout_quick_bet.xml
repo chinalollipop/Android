@@ -25,7 +25,7 @@
                 android:gravity="center"
                 android:paddingTop="37px"
                 android:paddingBottom="37px"
-                android:text="快捷方式一"
+                android:text="@string/lotter_quick_type1"
                 android:textColor="#FF3300"
                 android:textSize="18sp" />
 
@@ -37,7 +37,7 @@
                 android:gravity="center"
                 android:paddingTop="37px"
                 android:paddingBottom="37px"
-                android:text="快捷方式二"
+                android:text="@string/lotter_quick_type2"
                 android:textColor="#FF3300"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -54,7 +54,7 @@
             android:gravity="center"
             android:paddingTop="37px"
             android:paddingBottom="37px"
-            android:text="保存快捷投注"
+            android:text="@string/lotter_quick_type_save"
             android:textColor="#4A4A4A"
             android:textSize="18sp" />
 

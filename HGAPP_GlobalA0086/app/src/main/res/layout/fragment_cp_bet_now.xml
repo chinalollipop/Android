@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="即时注单"
+            android:text="@string/lotter_bet_record_now"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
     </RelativeLayout>
@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:layout_height="40dp">
         <TextView
-            android:text="彩种"
+            android:text="@string/lotter_bet_record_name"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="120dp"
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="注单笔数"
+            android:text="@string/lotter_bet_record_count"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="120dp"
@@ -57,7 +57,7 @@
             android:layout_height="match_parent"
             android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="下注金额"
+            android:text="@string/lotter_bet_record_money"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="match_parent"

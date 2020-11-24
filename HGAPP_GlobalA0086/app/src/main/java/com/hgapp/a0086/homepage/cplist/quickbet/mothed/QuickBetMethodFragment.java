@@ -100,11 +100,11 @@ public class QuickBetMethodFragment extends HGBaseDialogFragment implements Quic
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
                     case R.id.quickBetMethod1:
-                        showMessage("方式一");
+                        showMessage(getString(R.string.lotter_quick_type1));
                         sort = "1";
                         break;
                     case R.id.quickBetMethod2:
-                        showMessage("方式二");
+                        showMessage(getString(R.string.lotter_quick_type2));
                         sort = "2";
                         break;
                 }

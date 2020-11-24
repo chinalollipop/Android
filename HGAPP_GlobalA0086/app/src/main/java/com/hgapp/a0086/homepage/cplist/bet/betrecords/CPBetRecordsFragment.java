@@ -124,7 +124,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
         @Override
         protected void convert(ViewHolder holder, final BetRecordsList.dataBean data, final int position) {
             if(position==7){
-                holder.setText(R.id.cpBetRecord2time, "点击日期可查看下注详情");
+                holder.setText(R.id.cpBetRecord2time, getString(R.string.lotter_bet_detail));
                 holder.setVisible(R.id.cpBetRecord2time,true);
                 holder.setVisible(R.id.cpBetRecord2number,false);
                 holder.setVisible(R.id.cpBetRecord2money,false);
@@ -145,7 +145,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
                 public void onClick(View view) {
                     //onHomeGameItemClick(position);
                     if(position==7){
-                        showMessage("点击到钢板了");
+                        showMessage(getString(R.string.lotter_bet_no_detail));
                         return;
                     }
                     GameLog.log("时间是："+data.getTime()+" 次数是 "+data.getAllnum());
@@ -201,9 +201,9 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
         List<BetRecordsList.dataBean>  lastweekList=  new ArrayList<>();
         List<BetRecordsList.dataBean>  thisweekList=  new ArrayList<>();
         BetRecordsList lastWeekBetRecordsData = new BetRecordsList();
-        lastWeekBetRecordsData.recordsname = "上 周";
+        lastWeekBetRecordsData.recordsname = getString(R.string.lotter_last_week);
         BetRecordsList thisWeekBetRecordsData = new BetRecordsList();
-        thisWeekBetRecordsData.recordsname ="本 周";
+        thisWeekBetRecordsData.recordsname =getString(R.string.lotter_this_week);
 
         for(int k=0;k<rowBeansSize;++k){
             if(rowBeans.get(k).getDate().equals(thisWeek.getdata1().getDateformat())){
@@ -514,7 +514,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
 
 
         GameLog.log("请求得到的数据："+betRecordsResult.getTodayWeek().toString());
-        cpBetRecordsNumber.setText(Html.fromHtml("总笔数："+onMarkRed(betNumber+"")));
+        cpBetRecordsNumber.setText(Html.fromHtml(getString(R.string.lotter_bet_count)+onMarkRed(betNumber+"")));
         Double win1d  = 0.0;
         Double win2d  = 0.0;
         for(int k=0;k<win1.size();++k){
@@ -526,7 +526,7 @@ public class CPBetRecordsFragment extends BaseActivity2 implements CpBetRecordsC
 
         Double win3d = CalcHelper.sub(""+win2d,""+win1d);
 
-        cpBetRecordsMoney.setText(Html.fromHtml("总输赢："+onMarkRed(GameShipHelper.formatMoney2(win3d+""))));
+        cpBetRecordsMoney.setText(Html.fromHtml(getString(R.string.lotter_bet_winlos)+onMarkRed(GameShipHelper.formatMoney2(win3d+""))));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, OrientationHelper.VERTICAL, false);
         cpBetRecordsList.setLayoutManager(gridLayoutManager);

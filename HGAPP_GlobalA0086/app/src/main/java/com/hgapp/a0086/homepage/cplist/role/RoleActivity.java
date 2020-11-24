@@ -129,63 +129,63 @@ public class RoleActivity extends Activity {
         switch (gameid){
             case "51":
                 gameUrl = "role/role_51.html";
-                gameName ="北京赛车";
+                gameName =getString(R.string.lotter_bjsc);//"北京赛车";
                 break;
             case "2":
                 gameUrl = "role/role_2.html";
-                gameName ="欢乐生肖";
+                gameName =getString(R.string.lotter_hlsx);//"欢乐生肖";
                 break;
             case "189":
                 gameUrl = "role/role_189.html";
-                gameName ="极速赛车";
+                gameName =getString(R.string.lotter_jssc);//"极速赛车";
                 break;
             case "222":
                 gameUrl = "role/role_222.html";
-                gameName ="极速飞艇";
+                gameName =getString(R.string.lotter_jsft);//"极速飞艇";
                 break;
             case "168":
                 gameUrl = "role/role_222.html";
-                gameName ="幸运飞艇";
+                gameName =getString(R.string.lotter_xyft);//"幸运飞艇";
                 break;
             case "207":
                 gameUrl = "role/role_207.html";
-                gameName ="分分彩";
+                gameName =getString(R.string.lotter_ffc);//"分分彩";
                 break;
             case "407":
                 gameUrl = "role/role_407.html";
-                gameName ="三分彩";
+                gameName =getString(R.string.lotter_sfc);//"三分彩";
                 break;
             case "507":
                 gameUrl = "role/role_507.html";
-                gameName ="五分彩";
+                gameName =getString(R.string.lotter_wfc);//"五分彩";
                 break;
             case "607":
                 gameUrl = "role/role_607.html";
-                gameName ="腾讯二分彩";
+                gameName =getString(R.string.lotter_efc);//"腾讯二分彩";
                 break;
             case "304":
                 gameUrl = "role/role_304.html";
-                gameName ="PC蛋蛋";
+                gameName =getString(R.string.lotter_pcdd);//"PC蛋蛋";
                 break;
             case "159":
                 gameUrl = "role/role_159.html";
-                gameName ="江苏快3";
+                gameName =getString(R.string.lotter_k3);//"江苏快3";
                 break;
             case "47":
                 gameUrl = "role/role_47.html";
-                gameName ="幸运农场";
+                gameName =getString(R.string.lotter_xync);//"幸运农场";
                 break;
             case "3":
                 gameUrl = "role/role_3.html";
-                gameName ="快乐十分";
+                gameName =getString(R.string.lotter_klsfc);//"快乐十分";
                 break;
             case "69":
                 gameUrl = "role/role_69.html";
-                gameName ="香港六合彩";
+                gameName =getString(R.string.lotter_lhc);//"香港六合彩";
                 break;
             case "384":
                 gameUrl = "role/role_384.html";
-                gameName ="极速快三";
+                gameName =getString(R.string.lotter_jsk3);//"极速快三";
                 break;
         }
         gameUrl = "file:///android_asset/"+gameUrl;

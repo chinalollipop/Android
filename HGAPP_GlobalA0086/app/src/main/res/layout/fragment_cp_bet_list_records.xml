@@ -26,13 +26,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="当天已结"
+            android:text="@string/lotter_bet_record_today"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
     </RelativeLayout>
     <TextView
         android:id="@+id/cpBetRecordsTitleName"
-        android:text="期号"
+        android:text="@string/lotter_bet_record_date"
         android:visibility="gone"
         android:layout_marginLeft="20dp"
         android:gravity="center|left"
@@ -49,7 +49,7 @@
         android:layout_gravity="center"
         android:layout_height="40dp">
         <TextView
-            android:text="期号"
+            android:text="@string/lotter_bet_record_date"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="80dp"
@@ -59,7 +59,7 @@
             android:layout_height="match_parent"
             android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="下注明细"
+            android:text="@string/lotter_bet_record_detail"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="110dp"
@@ -69,7 +69,7 @@
             android:layout_height="match_parent"
             android:background="@color/n_edittext_hint" />
         <TextView
-            android:text="下注金额"
+            android:text="@string/lotter_bet_record_money"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="80dp"
@@ -81,7 +81,7 @@
             android:background="@color/n_edittext_hint" />
         <TextView
             android:id="@+id/cpBetNowName"
-            android:text="退水后结果"
+            android:text="@string/lotter_bet_record_result"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
             android:layout_width="match_parent"
@@ -101,7 +101,7 @@
         android:layout_height="match_parent" />
         <TextView
             android:id="@+id/cpBetRecordsListNodata"
-            android:text="暂无数据"
+            android:text="@string/games_no_data"
             android:gravity="center"
             android:visibility="gone"
             android:layout_width="match_parent"
@@ -121,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
-            android:text="下注金额："
+            android:text="@string/lotter_bet_record_money"
             android:textColor="@color/title_text"
             android:textSize="16sp" />
 
@@ -132,7 +132,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="20dp"
-            android:text="输赢金额："
+            android:text="@string/lotter_bet_record_count_winlos"
             android:textColor="@color/title_text"
             android:textSize="16sp" />
 

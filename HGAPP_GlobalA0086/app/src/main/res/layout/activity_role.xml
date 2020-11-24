@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:onClick="roleClickBack"
             android:layout_centerInParent="true"
-            android:text="开奖结果"
+            android:text="@string/lotter_me_kjjg"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
         <ImageView

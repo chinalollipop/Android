@@ -20,7 +20,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="保存快捷投注"
+            android:text="@string/lotter_quick_type_save"
             android:textColor="@color/cp_hall_tv"
             android:textSize="18sp" />
 
@@ -35,7 +35,7 @@
                 android:id="@+id/quickBetMethod1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="快捷投注一"
+                android:text="@string/lotter_quick_bet_type1"
                 android:checked="true"
                 android:paddingLeft="5dp"
                 android:button="@drawable/btn_check_style"
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/btn_check_style"
-                android:text="快捷投注二"
+                android:text="@string/lotter_quick_bet_type2"
                 android:paddingLeft="5dp"
                 android:textColor="@color/cp_hall_tv"
                 android:textSize="18sp" />
@@ -76,7 +76,7 @@
                 android:gravity="center"
                 android:paddingTop="39px"
                 android:paddingBottom="39px"
-                android:text="取消"
+                android:text="@string/comm_cancel"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp" />
 
@@ -89,7 +89,7 @@
                 android:gravity="center"
                 android:paddingTop="39px"
                 android:paddingBottom="39px"
-                android:text="确认交易"
+                android:text="@string/comm_confirm_bill"
                 android:textColor="@color/pop_hight"
                 android:textSize="16sp" />
         </LinearLayout>

@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="下注记录"
+            android:text="@string/lotter_bar_record"
             android:textColor="@color/title_text"
             android:textSize="22sp" />
     </RelativeLayout>
@@ -35,7 +35,7 @@
         android:layout_gravity="center"
         android:layout_height="40dp">
         <TextView
-            android:text="时间"
+            android:text="@string/deposit_record_time"
             android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/cp_hall_tv"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="笔数"
+            android:text="@string/lotter_bet_single_count"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="16sp"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="投注额"
+            android:text="@string/games_prepare_bet_fhead"
             android:textSize="16sp"
             android:layout_weight="1"
             android:gravity="center"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="输赢"
+            android:text="@string/lotter_bet_single_winlos"
             android:textSize="16sp"
             android:layout_weight="1"
             android:gravity="center"
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
-            android:text="总笔数："
+            android:text="@string/lotter_bet_count"
             android:textColor="@color/title_text"
             android:textSize="16sp" />
 
@@ -101,7 +101,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="20dp"
-            android:text="总输赢："
+            android:text="@string/lotter_bet_winlos"
             android:textColor="@color/title_text"
             android:textSize="16sp" />
 

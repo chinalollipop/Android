@@ -137,7 +137,7 @@ public class CPServiceActivity extends Activity {
         if(Check.isEmpty(webUrl)){
             webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
         }
-        String  gameName="在线客服";
+        String  gameName=getString(R.string.lotter_me_zxkf);
 
         wvRoleName.setText(gameName);
         wvRoleXplay.loadUrl(webUrl);
