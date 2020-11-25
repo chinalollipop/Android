@@ -42,6 +42,7 @@
     <string name="lotter_more">更多彩种</string>
     <string name="lotter_not_open">未开盘</string>
     <string name="lotter_ing">开奖中</string>
+    <string name="lotter_close">已封盘</string>
     <string name="lotter_number">开奖号码</string>
     <string name="lotter_periods">期数</string>
     <string name="lotter_menu">系统菜单</string>
@@ -49,6 +50,8 @@
     <string name="lotter_dragon">龙</string>
     <string name="lotter_tiger">虎</string>
     <string name="lotter_he">和</string>
+    <string name="lotter_snake">蛇</string>
+    <string name="lotter_rabbit">兔</string>
     <string name="lotter_two_sides">两面</string>
     <string name="lotter_total">总和</string>
     <string name="lotter_total_da">总和大</string>
@@ -115,7 +118,69 @@
     <string name="lotter_llb">绿波</string>
     <string name="lotter_tm">特码</string>
 
+    <string name="lotter_rx2">任选二</string>
+    <string name="lotter_rx3">任选三</string>
+    <string name="lotter_rx4">任选四</string>
+    <string name="lotter_rx5">任选五</string>
 
+    <string name="lotter_ewlz">二尾连中</string>
+    <string name="lotter_swlz">三尾连中</string>
+    <string name="lotter_sswlz">四尾连中</string>
+    <string name="lotter_ewlbz">二尾连不中</string>
+    <string name="lotter_swlbz">三尾连不中</string>
+    <string name="lotter_sswlbz">四尾连不中</string>
+
+    <string name="lotter_exlz">二肖连中</string>
+    <string name="lotter_sxlz">三肖连中</string>
+    <string name="lotter_ssxlz">四肖连中</string>
+    <string name="lotter_wxlz">五肖连中</string>
+    <string name="lotter_exlbz">二肖连不中</string>
+    <string name="lotter_sxlbz">三肖连不中</string>
+    <string name="lotter_ssxlbz">四肖连不中</string>
+
+    <string name="lotter_szezs">三中二中三</string>
+    <string name="lotter_eztze">二中特中二</string>
+
+
+    <string name="lotter_sqz">三全中</string>
+    <string name="lotter_sze">三中二</string>
+    <string name="lotter_eqz">二全中</string>
+    <string name="lotter_ezt">二中特</string>
+    <string name="lotter_tc">特串</string>
+    <string name="lotter_szy">四中一</string>
+
+    <string name="lotter_z1t">正1特</string>
+    <string name="lotter_z2t">正2特</string>
+    <string name="lotter_z3t">正3特</string>
+    <string name="lotter_z4t">正4特</string>
+    <string name="lotter_z5t">正5特</string>
+    <string name="lotter_z6t">正6特</string>
+
+
+    <string name="lotter_zm">正码</string>
+    <string name="lotter_ztm">正特码</string>
+    <string name="lotter_zm16">正码1-6</string>
+    <string name="lotter_zmgg">过关</string>
+    <string name="lotter_zmlm">连码</string>
+    <string name="lotter_zmbb">半波</string>
+    <string name="lotter_zmyxws">一肖/尾数</string>
+    <string name="lotter_zmtmsx">特码生肖</string>
+    <string name="lotter_zmhx">合肖</string>
+    <string name="lotter_zmsxl">生肖连</string>
+    <string name="lotter_zmwsl">尾数连</string>
+    <string name="lotter_zmzxbz">自选不中</string>
+
+    <string name="lotter_ball15">1-5球</string>
+    <string name="lotter_qzh">前中后</string>
+    <string name="lotter_ygh">冠亚和</string>
+    <string name="lotter_yg15">1-5名</string>
+    <string name="lotter_yg610">6-10名</string>
+    <string name="lotter_bet_yyz">已选中</string>
+    <string name="lotter_bet_zhu">注</string>
+    <string name="lotter_bet_limits8">不允许超过8个选项</string>
+    <string name="lotter_bet_limits6">不允许超过6个选项</string>
+    <string name="lotter_input_money">请输入投注金额</string>
+    <string name="lotter_choice_method">请选择玩法</string>
 
 
     <string name="lotter_ball_second">第二球</string>
@@ -140,6 +205,7 @@
     <string name="lotter_bet_money">总金额：</string>
     <string name="lotter_bet_single_money">单注金额:</string>
     <string name="lotter_bet_comb_number">组合数：</string>
+    <string name="lotter_bet_comb_number_x">组合数</string>
     <string name="lotter_bet_close">已封盘，请稍后下注!</string>
     <string name="lotter_horse">马</string>
     <string name="lotter_dog">狗</string>
