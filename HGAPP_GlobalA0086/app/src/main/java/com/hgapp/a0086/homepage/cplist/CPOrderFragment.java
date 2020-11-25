@@ -5718,62 +5718,62 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
         if(k==0){
                 CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
-                cpOrderContentListResult.setOrderContentListName("混合");
+                cpOrderContentListResult.setOrderContentListName(getString(R.string.lotter_hh));
                 cpOrderContentListResult.setShowNumber(2);
 
                 List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                 cpOrderContentResult1.setOrderName(getString(R.string.games_prepare_bet_da));
-                cpOrderContentResult1.setFullName("混合");
+                cpOrderContentResult1.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult1.setOrderState(cpbjscResult.getData_5031());
                 cpOrderContentResult1.setOrderId("5031");
                 cpOrderContentResultList.add(cpOrderContentResult1);
 
                 CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                 cpOrderContentResult2.setOrderName(getString(R.string.games_prepare_bet_xiao));
-                cpOrderContentResult2.setFullName("混合");
+                cpOrderContentResult2.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult2.setOrderState(cpbjscResult.getData_5032());
                 cpOrderContentResult2.setOrderId("5032");
                 cpOrderContentResultList.add(cpOrderContentResult2);
 
                 CPOrderContentResult cpOrderContentResult29 = new CPOrderContentResult();
                 cpOrderContentResult29.setOrderName(getString(R.string.games_prepare_bet_dan));
-                cpOrderContentResult29.setFullName("混合");
+                cpOrderContentResult29.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult29.setOrderState(cpbjscResult.getData_5029());
                 cpOrderContentResult29.setOrderId("5029");
                 cpOrderContentResultList.add(cpOrderContentResult29);
 
                 CPOrderContentResult cpOrderContentResult30 = new CPOrderContentResult();
                 cpOrderContentResult30.setOrderName(getString(R.string.games_prepare_bet_shuang));
-                cpOrderContentResult30.setFullName("混合");
+                cpOrderContentResult30.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult30.setOrderState(cpbjscResult.getData_5030());
                 cpOrderContentResult30.setOrderId("5030");
                 cpOrderContentResultList.add(cpOrderContentResult30);
 
                 CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
-                cpOrderContentResult33.setOrderName("大单");
-                cpOrderContentResult33.setFullName("混合");
+                cpOrderContentResult33.setOrderName(getString(R.string.lotter_dd));
+                cpOrderContentResult33.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult33.setOrderState(cpbjscResult.getData_5033());
                 cpOrderContentResult33.setOrderId("5033");
                 cpOrderContentResultList.add(cpOrderContentResult33);
 
                 CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
-                cpOrderContentResult34.setOrderName("小单");
-                cpOrderContentResult34.setFullName("混合");
+                cpOrderContentResult34.setOrderName(getString(R.string.lotter_xd));
+                cpOrderContentResult34.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult34.setOrderState(cpbjscResult.getData_5034());
                 cpOrderContentResult34.setOrderId("5034");
                 cpOrderContentResultList.add(cpOrderContentResult34);
 
                 CPOrderContentResult cpOrderContentResult35 = new CPOrderContentResult();
-                cpOrderContentResult35.setOrderName("大双");
-                cpOrderContentResult35.setFullName("混合");
+                cpOrderContentResult35.setOrderName(getString(R.string.lotter_ds));
+                cpOrderContentResult35.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult35.setOrderState(cpbjscResult.getData_5035());
                 cpOrderContentResult35.setOrderId("5035");
                 cpOrderContentResultList.add(cpOrderContentResult35);
 
                 CPOrderContentResult cpOrderContentResult36 = new CPOrderContentResult();
-                cpOrderContentResult36.setOrderName("小双");
-                cpOrderContentResult36.setFullName("混合");
+                cpOrderContentResult36.setOrderName(getString(R.string.lotter_xs));
+                cpOrderContentResult36.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult36.setOrderState(cpbjscResult.getData_5036());
                 cpOrderContentResult36.setOrderId("5036");
                 cpOrderContentResultList.add(cpOrderContentResult36);
@@ -5788,43 +5788,43 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult37 = new CPOrderContentResult();
-                cpOrderContentResult37.setOrderName("极大");
-                cpOrderContentResult37.setFullName("混合");
+                cpOrderContentResult37.setOrderName(getString(R.string.lotter_jd));
+                cpOrderContentResult37.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult37.setOrderState(cpbjscResult.getData_5037());
                 cpOrderContentResult37.setOrderId("5037");
                 cpOrderContentResultList2.add(cpOrderContentResult37);
 
                 CPOrderContentResult cpOrderContentResult38 = new CPOrderContentResult();
-                cpOrderContentResult38.setOrderName("极小");
-                cpOrderContentResult38.setFullName("混合");
+                cpOrderContentResult38.setOrderName(getString(R.string.lotter_jx));
+                cpOrderContentResult38.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult38.setOrderState(cpbjscResult.getData_5038());
                 cpOrderContentResult38.setOrderId("5038");
                 cpOrderContentResultList2.add(cpOrderContentResult38);
 
                 CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
                 cpOrderContentResult42.setOrderName(getString(R.string.lotter_bz));
-                cpOrderContentResult42.setFullName("混合");
+                cpOrderContentResult42.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult42.setOrderState(cpbjscResult.getData_5042());
                 cpOrderContentResult42.setOrderId("5042");
                 cpOrderContentResultList2.add(cpOrderContentResult42);
 
                 CPOrderContentResult cpOrderContentResult39 = new CPOrderContentResult();
-                cpOrderContentResult39.setOrderName("红波");
-                cpOrderContentResult39.setFullName("混合");
+                cpOrderContentResult39.setOrderName(getString(R.string.lotter_hb));
+                cpOrderContentResult39.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult39.setOrderState(cpbjscResult.getData_5039());
                 cpOrderContentResult39.setOrderId("5039");
                 cpOrderContentResultList2.add(cpOrderContentResult39);
 
                 CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
-                cpOrderContentResult41.setOrderName("蓝波");
-                cpOrderContentResult41.setFullName("混合");
+                cpOrderContentResult41.setOrderName(getString(R.string.lotter_lb));
+                cpOrderContentResult41.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult41.setOrderState(cpbjscResult.getData_5041());
                 cpOrderContentResult41.setOrderId("5041");
                 cpOrderContentResultList2.add(cpOrderContentResult41);
 
                 CPOrderContentResult cpOrderContentResult40 = new CPOrderContentResult();
-                cpOrderContentResult40.setOrderName("绿波");
-                cpOrderContentResult40.setFullName("混合");
+                cpOrderContentResult40.setOrderName(getString(R.string.lotter_llb));
+                cpOrderContentResult40.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult40.setOrderState(cpbjscResult.getData_5040());
                 cpOrderContentResult40.setOrderId("5040");
                 cpOrderContentResultList2.add(cpOrderContentResult40);
@@ -5835,7 +5835,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             }else{
                 CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
-                cpOrderContentListResult.setOrderContentListName("特码");
+                cpOrderContentListResult.setOrderContentListName(getString(R.string.lotter_tm));
                 cpOrderContentListResult.setShowNumber(3);
                 cpOrderContentListResult.setShowType("QIU");
 
@@ -5843,168 +5843,168 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 CPOrderContentResult cpOrderContentResult00 = new CPOrderContentResult();
                 cpOrderContentResult00.setOrderName("0");
-                cpOrderContentResult00.setFullName("特码");
+                cpOrderContentResult00.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult00.setOrderState(cpbjscResult.getData_5001());
                 cpOrderContentResult00.setOrderId("5001");
                 cpOrderContentResultList.add(cpOrderContentResult00);
 
                 CPOrderContentResult cpOrderContentResult01 = new CPOrderContentResult();
                 cpOrderContentResult01.setOrderName("1");
-                cpOrderContentResult01.setFullName("特码");
+                cpOrderContentResult01.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult01.setOrderState(cpbjscResult.getData_5002());
                 cpOrderContentResult01.setOrderId("5002");
                 cpOrderContentResultList.add(cpOrderContentResult01);
 
                 CPOrderContentResult cpOrderContentResult02 = new CPOrderContentResult();
                 cpOrderContentResult02.setOrderName("2");
-                cpOrderContentResult02.setFullName("特码");
+                cpOrderContentResult02.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult02.setOrderState(cpbjscResult.getData_5003());
                 cpOrderContentResult02.setOrderId("5003");
                 cpOrderContentResultList.add(cpOrderContentResult02);
 
                 CPOrderContentResult cpOrderContentResult03 = new CPOrderContentResult();
                 cpOrderContentResult03.setOrderName("3");
-                cpOrderContentResult03.setFullName("特码");
+                cpOrderContentResult03.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult03.setOrderState(cpbjscResult.getData_5004());
                 cpOrderContentResult03.setOrderId("5004");
                 cpOrderContentResultList.add(cpOrderContentResult03);
 
                 CPOrderContentResult cpOrderContentResult04 = new CPOrderContentResult();
                 cpOrderContentResult04.setOrderName("4");
-                cpOrderContentResult04.setFullName("特码");
+                cpOrderContentResult04.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult04.setOrderState(cpbjscResult.getData_5005());
                 cpOrderContentResult04.setOrderId("5005");
                 cpOrderContentResultList.add(cpOrderContentResult04);
 
                 CPOrderContentResult cpOrderContentResult05 = new CPOrderContentResult();
                 cpOrderContentResult05.setOrderName("5");
-                cpOrderContentResult05.setFullName("特码");
+                cpOrderContentResult05.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult05.setOrderState(cpbjscResult.getData_5006());
                 cpOrderContentResult05.setOrderId("5006");
                 cpOrderContentResultList.add(cpOrderContentResult05);
 
                 CPOrderContentResult cpOrderContentResult06 = new CPOrderContentResult();
                 cpOrderContentResult06.setOrderName("6");
-                cpOrderContentResult06.setFullName("特码");
+                cpOrderContentResult06.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult06.setOrderState(cpbjscResult.getData_5007());
                 cpOrderContentResult06.setOrderId("5007");
                 cpOrderContentResultList.add(cpOrderContentResult06);
 
                 CPOrderContentResult cpOrderContentResult07 = new CPOrderContentResult();
                 cpOrderContentResult07.setOrderName("7");
-                cpOrderContentResult07.setFullName("特码");
+                cpOrderContentResult07.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult07.setOrderState(cpbjscResult.getData_5008());
                 cpOrderContentResult07.setOrderId("5008");
                 cpOrderContentResultList.add(cpOrderContentResult07);
 
                 CPOrderContentResult cpOrderContentResult08 = new CPOrderContentResult();
                 cpOrderContentResult08.setOrderName("8");
-                cpOrderContentResult08.setFullName("特码");
+                cpOrderContentResult08.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult08.setOrderState(cpbjscResult.getData_5009());
                 cpOrderContentResult08.setOrderId("5009");
                 cpOrderContentResultList.add(cpOrderContentResult08);
 
                 CPOrderContentResult cpOrderContentResult09 = new CPOrderContentResult();
                 cpOrderContentResult09.setOrderName("9");
-                cpOrderContentResult09.setFullName("特码");
+                cpOrderContentResult09.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult09.setOrderState(cpbjscResult.getData_5010());
                 cpOrderContentResult09.setOrderId("5010");
                 cpOrderContentResultList.add(cpOrderContentResult09);
 
                 CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
                 cpOrderContentResult10.setOrderName("10");
-                cpOrderContentResult10.setFullName("特码");
+                cpOrderContentResult10.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult10.setOrderState(cpbjscResult.getData_5011());
                 cpOrderContentResult10.setOrderId("5011");
                 cpOrderContentResultList.add(cpOrderContentResult10);
 
                 CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
                 cpOrderContentResult11.setOrderName("11");
-                cpOrderContentResult11.setFullName("特码");
+                cpOrderContentResult11.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult11.setOrderState(cpbjscResult.getData_5012());
                 cpOrderContentResult11.setOrderId("5012");
                 cpOrderContentResultList.add(cpOrderContentResult11);
 
                 CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
                 cpOrderContentResult12.setOrderName("12");
-                cpOrderContentResult12.setFullName("特码");
+                cpOrderContentResult12.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult12.setOrderState(cpbjscResult.getData_5013());
                 cpOrderContentResult12.setOrderId("5013");
                 cpOrderContentResultList.add(cpOrderContentResult12);
 
                 CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
                 cpOrderContentResult13.setOrderName("13");
-                cpOrderContentResult13.setFullName("特码");
+                cpOrderContentResult13.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult13.setOrderState(cpbjscResult.getData_5014());
                 cpOrderContentResult13.setOrderId("5014");
                 cpOrderContentResultList.add(cpOrderContentResult13);
 
                 CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
                 cpOrderContentResult14.setOrderName("14");
-                cpOrderContentResult14.setFullName("特码");
+                cpOrderContentResult14.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult14.setOrderState(cpbjscResult.getData_5015());
                 cpOrderContentResult14.setOrderId("5015");
                 cpOrderContentResultList.add(cpOrderContentResult14);
 
                 CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
                 cpOrderContentResult15.setOrderName("15");
-                cpOrderContentResult15.setFullName("特码");
+                cpOrderContentResult15.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult15.setOrderState(cpbjscResult.getData_5016());
                 cpOrderContentResult15.setOrderId("5016");
                 cpOrderContentResultList.add(cpOrderContentResult15);
 
                 CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
                 cpOrderContentResult16.setOrderName("16");
-                cpOrderContentResult16.setFullName("特码");
+                cpOrderContentResult16.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult16.setOrderState(cpbjscResult.getData_5017());
                 cpOrderContentResult16.setOrderId("5017");
                 cpOrderContentResultList.add(cpOrderContentResult16);
 
                 CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
                 cpOrderContentResult17.setOrderName("17");
-                cpOrderContentResult17.setFullName("特码");
+                cpOrderContentResult17.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult17.setOrderState(cpbjscResult.getData_5018());
                 cpOrderContentResult17.setOrderId("5018");
                 cpOrderContentResultList.add(cpOrderContentResult17);
 
                 CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
                 cpOrderContentResult18.setOrderName("18");
-                cpOrderContentResult18.setFullName("特码");
+                cpOrderContentResult18.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult18.setOrderState(cpbjscResult.getData_5019());
                 cpOrderContentResult18.setOrderId("5019");
                 cpOrderContentResultList.add(cpOrderContentResult18);
 
                 CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
                 cpOrderContentResult19.setOrderName("19");
-                cpOrderContentResult19.setFullName("特码");
+                cpOrderContentResult19.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult19.setOrderState(cpbjscResult.getData_5020());
                 cpOrderContentResult19.setOrderId("5020");
                 cpOrderContentResultList.add(cpOrderContentResult19);
 
                 CPOrderContentResult cpOrderContentResult20 = new CPOrderContentResult();
                 cpOrderContentResult20.setOrderName("20");
-                cpOrderContentResult20.setFullName("特码");
+                cpOrderContentResult20.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult20.setOrderState(cpbjscResult.getData_5021());
                 cpOrderContentResult20.setOrderId("5021");
                 cpOrderContentResultList.add(cpOrderContentResult20);
 
                 CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
                 cpOrderContentResult21.setOrderName("21");
-                cpOrderContentResult21.setFullName("特码");
+                cpOrderContentResult21.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult21.setOrderState(cpbjscResult.getData_5022());
                 cpOrderContentResult21.setOrderId("5022");
                 cpOrderContentResultList.add(cpOrderContentResult21);
 
                 CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
                 cpOrderContentResult22.setOrderName("22");
-                cpOrderContentResult22.setFullName("特码");
+                cpOrderContentResult22.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult22.setOrderState(cpbjscResult.getData_5023());
                 cpOrderContentResult22.setOrderId("5023");
                 cpOrderContentResultList.add(cpOrderContentResult22);
 
                 CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
                 cpOrderContentResult23.setOrderName("23");
-                cpOrderContentResult23.setFullName("特码");
+                cpOrderContentResult23.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult23.setOrderState(cpbjscResult.getData_5024());
                 cpOrderContentResult23.setOrderId("5024");
                 cpOrderContentResultList.add(cpOrderContentResult23);
@@ -6021,28 +6021,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
                 cpOrderContentResult25.setOrderName("24");
-                cpOrderContentResult25.setFullName("特码");
+                cpOrderContentResult25.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult25.setOrderState(cpbjscResult.getData_5025());
                 cpOrderContentResult25.setOrderId("5025");
                 cpOrderContentResultList2.add(cpOrderContentResult25);
 
                 CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
                 cpOrderContentResult26.setOrderName("25");
-                cpOrderContentResult26.setFullName("特码");
+                cpOrderContentResult26.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult26.setOrderState(cpbjscResult.getData_5026());
                 cpOrderContentResult26.setOrderId("5026");
                 cpOrderContentResultList2.add(cpOrderContentResult26);
 
                 CPOrderContentResult cpOrderContentResult27 = new CPOrderContentResult();
                 cpOrderContentResult27.setOrderName("26");
-                cpOrderContentResult27.setFullName("特码");
+                cpOrderContentResult27.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult27.setOrderState(cpbjscResult.getData_5027());
                 cpOrderContentResult27.setOrderId("5027");
                 cpOrderContentResultList2.add(cpOrderContentResult27);
 
                 CPOrderContentResult cpOrderContentResult28 = new CPOrderContentResult();
                 cpOrderContentResult28.setOrderName("27");
-                cpOrderContentResult28.setFullName("特码");
+                cpOrderContentResult28.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult28.setOrderState(cpbjscResult.getData_5028());
                 cpOrderContentResult28.setOrderId("5028");
                 cpOrderContentResultList2.add(cpOrderContentResult28);
@@ -6059,65 +6059,65 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             CPOrderAllResult allResult = new CPOrderAllResult();
             if(k==0){
                 allResult.setEventChecked(true);
-                allResult.setOrderAllName("混合");
+                allResult.setOrderAllName(getString(R.string.lotter_hh));
                 List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
                 CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
-                cpOrderContentListResult.setOrderContentListName("混合");
+                cpOrderContentListResult.setOrderContentListName(getString(R.string.lotter_hh));
                 cpOrderContentListResult.setShowNumber(2);
 
                 List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult1 = new CPOrderContentResult();
                 cpOrderContentResult1.setOrderName(getString(R.string.games_prepare_bet_da));
-                cpOrderContentResult1.setFullName("混合");
+                cpOrderContentResult1.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult1.setOrderState(cpbjscResult.getData_5031());
                 cpOrderContentResult1.setOrderId("5031");
                 cpOrderContentResultList.add(cpOrderContentResult1);
 
                 CPOrderContentResult cpOrderContentResult2 = new CPOrderContentResult();
                 cpOrderContentResult2.setOrderName(getString(R.string.games_prepare_bet_xiao));
-                cpOrderContentResult2.setFullName("混合");
+                cpOrderContentResult2.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult2.setOrderState(cpbjscResult.getData_5032());
                 cpOrderContentResult2.setOrderId("5032");
                 cpOrderContentResultList.add(cpOrderContentResult2);
 
                 CPOrderContentResult cpOrderContentResult29 = new CPOrderContentResult();
                 cpOrderContentResult29.setOrderName(getString(R.string.games_prepare_bet_dan));
-                cpOrderContentResult29.setFullName("混合");
+                cpOrderContentResult29.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult29.setOrderState(cpbjscResult.getData_5029());
                 cpOrderContentResult29.setOrderId("5029");
                 cpOrderContentResultList.add(cpOrderContentResult29);
 
                 CPOrderContentResult cpOrderContentResult30 = new CPOrderContentResult();
                 cpOrderContentResult30.setOrderName(getString(R.string.games_prepare_bet_shuang));
-                cpOrderContentResult30.setFullName("混合");
+                cpOrderContentResult30.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult30.setOrderState(cpbjscResult.getData_5030());
                 cpOrderContentResult30.setOrderId("5030");
                 cpOrderContentResultList.add(cpOrderContentResult30);
 
                 CPOrderContentResult cpOrderContentResult33 = new CPOrderContentResult();
-                cpOrderContentResult33.setOrderName("大单");
-                cpOrderContentResult33.setFullName("混合");
+                cpOrderContentResult33.setOrderName(getString(R.string.lotter_dd));
+                cpOrderContentResult33.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult33.setOrderState(cpbjscResult.getData_5033());
                 cpOrderContentResult33.setOrderId("5033");
                 cpOrderContentResultList.add(cpOrderContentResult33);
 
                 CPOrderContentResult cpOrderContentResult34 = new CPOrderContentResult();
-                cpOrderContentResult34.setOrderName("小单");
-                cpOrderContentResult34.setFullName("混合");
+                cpOrderContentResult34.setOrderName(getString(R.string.lotter_xd));
+                cpOrderContentResult34.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult34.setOrderState(cpbjscResult.getData_5034());
                 cpOrderContentResult34.setOrderId("5034");
                 cpOrderContentResultList.add(cpOrderContentResult34);
 
                 CPOrderContentResult cpOrderContentResult35 = new CPOrderContentResult();
-                cpOrderContentResult35.setOrderName("大双");
-                cpOrderContentResult35.setFullName("混合");
+                cpOrderContentResult35.setOrderName(getString(R.string.lotter_ds));
+                cpOrderContentResult35.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult35.setOrderState(cpbjscResult.getData_5035());
                 cpOrderContentResult35.setOrderId("5035");
                 cpOrderContentResultList.add(cpOrderContentResult35);
 
                 CPOrderContentResult cpOrderContentResult36 = new CPOrderContentResult();
-                cpOrderContentResult36.setOrderName("小双");
-                cpOrderContentResult36.setFullName("混合");
+                cpOrderContentResult36.setOrderName(getString(R.string.lotter_xs));
+                cpOrderContentResult36.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult36.setOrderState(cpbjscResult.getData_5036());
                 cpOrderContentResult36.setOrderId("5036");
                 cpOrderContentResultList.add(cpOrderContentResult36);
@@ -6132,43 +6132,43 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult37 = new CPOrderContentResult();
-                cpOrderContentResult37.setOrderName("极大");
-                cpOrderContentResult37.setFullName("混合");
+                cpOrderContentResult37.setOrderName(getString(R.string.lotter_jd));
+                cpOrderContentResult37.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult37.setOrderState(cpbjscResult.getData_5037());
                 cpOrderContentResult37.setOrderId("5037");
                 cpOrderContentResultList2.add(cpOrderContentResult37);
 
                 CPOrderContentResult cpOrderContentResult38 = new CPOrderContentResult();
-                cpOrderContentResult38.setOrderName("极小");
-                cpOrderContentResult38.setFullName("混合");
+                cpOrderContentResult38.setOrderName(getString(R.string.lotter_jx));
+                cpOrderContentResult38.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult38.setOrderState(cpbjscResult.getData_5038());
                 cpOrderContentResult38.setOrderId("5038");
                 cpOrderContentResultList2.add(cpOrderContentResult38);
 
                 CPOrderContentResult cpOrderContentResult42 = new CPOrderContentResult();
                 cpOrderContentResult42.setOrderName(getString(R.string.lotter_bz));
-                cpOrderContentResult42.setFullName("混合");
+                cpOrderContentResult42.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult42.setOrderState(cpbjscResult.getData_5042());
                 cpOrderContentResult42.setOrderId("5042");
                 cpOrderContentResultList2.add(cpOrderContentResult42);
 
                 CPOrderContentResult cpOrderContentResult39 = new CPOrderContentResult();
-                cpOrderContentResult39.setOrderName("红波");
-                cpOrderContentResult39.setFullName("混合");
+                cpOrderContentResult39.setOrderName(getString(R.string.lotter_hb));
+                cpOrderContentResult39.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult39.setOrderState(cpbjscResult.getData_5039());
                 cpOrderContentResult39.setOrderId("5039");
                 cpOrderContentResultList2.add(cpOrderContentResult39);
 
                 CPOrderContentResult cpOrderContentResult41 = new CPOrderContentResult();
-                cpOrderContentResult41.setOrderName("蓝波");
-                cpOrderContentResult41.setFullName("混合");
+                cpOrderContentResult41.setOrderName(getString(R.string.lotter_lb));
+                cpOrderContentResult41.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult41.setOrderState(cpbjscResult.getData_5041());
                 cpOrderContentResult41.setOrderId("5041");
                 cpOrderContentResultList2.add(cpOrderContentResult41);
 
                 CPOrderContentResult cpOrderContentResult40 = new CPOrderContentResult();
-                cpOrderContentResult40.setOrderName("绿波");
-                cpOrderContentResult40.setFullName("混合");
+                cpOrderContentResult40.setOrderName(getString(R.string.lotter_llb));
+                cpOrderContentResult40.setFullName(getString(R.string.lotter_hh));
                 cpOrderContentResult40.setOrderState(cpbjscResult.getData_5040());
                 cpOrderContentResult40.setOrderId("5040");
                 cpOrderContentResultList2.add(cpOrderContentResult40);
@@ -6179,10 +6179,10 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 allResult.setData(CPOrderContentListResult);
             }else{
-                allResult.setOrderAllName("特码");
+                allResult.setOrderAllName(getString(R.string.lotter_tm));
                 List<CPOrderContentListResult> CPOrderContentListResult = new ArrayList<CPOrderContentListResult>();
                 CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
-                cpOrderContentListResult.setOrderContentListName("特码");
+                cpOrderContentListResult.setOrderContentListName(getString(R.string.lotter_tm));
                 cpOrderContentListResult.setShowNumber(3);
                 cpOrderContentListResult.setShowType("QIU");
 
@@ -6190,168 +6190,168 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
                 CPOrderContentResult cpOrderContentResult00 = new CPOrderContentResult();
                 cpOrderContentResult00.setOrderName("0");
-                cpOrderContentResult00.setFullName("特码");
+                cpOrderContentResult00.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult00.setOrderState(cpbjscResult.getData_5001());
                 cpOrderContentResult00.setOrderId("5001");
                 cpOrderContentResultList.add(cpOrderContentResult00);
 
                 CPOrderContentResult cpOrderContentResult01 = new CPOrderContentResult();
                 cpOrderContentResult01.setOrderName("1");
-                cpOrderContentResult01.setFullName("特码");
+                cpOrderContentResult01.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult01.setOrderState(cpbjscResult.getData_5002());
                 cpOrderContentResult01.setOrderId("5002");
                 cpOrderContentResultList.add(cpOrderContentResult01);
 
                 CPOrderContentResult cpOrderContentResult02 = new CPOrderContentResult();
                 cpOrderContentResult02.setOrderName("2");
-                cpOrderContentResult02.setFullName("特码");
+                cpOrderContentResult02.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult02.setOrderState(cpbjscResult.getData_5003());
                 cpOrderContentResult02.setOrderId("5003");
                 cpOrderContentResultList.add(cpOrderContentResult02);
 
                 CPOrderContentResult cpOrderContentResult03 = new CPOrderContentResult();
                 cpOrderContentResult03.setOrderName("3");
-                cpOrderContentResult03.setFullName("特码");
+                cpOrderContentResult03.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult03.setOrderState(cpbjscResult.getData_5004());
                 cpOrderContentResult03.setOrderId("5004");
                 cpOrderContentResultList.add(cpOrderContentResult03);
 
                 CPOrderContentResult cpOrderContentResult04 = new CPOrderContentResult();
                 cpOrderContentResult04.setOrderName("4");
-                cpOrderContentResult04.setFullName("特码");
+                cpOrderContentResult04.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult04.setOrderState(cpbjscResult.getData_5005());
                 cpOrderContentResult04.setOrderId("5005");
                 cpOrderContentResultList.add(cpOrderContentResult04);
 
                 CPOrderContentResult cpOrderContentResult05 = new CPOrderContentResult();
                 cpOrderContentResult05.setOrderName("5");
-                cpOrderContentResult05.setFullName("特码");
+                cpOrderContentResult05.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult05.setOrderState(cpbjscResult.getData_5006());
                 cpOrderContentResult05.setOrderId("5006");
                 cpOrderContentResultList.add(cpOrderContentResult05);
 
                 CPOrderContentResult cpOrderContentResult06 = new CPOrderContentResult();
                 cpOrderContentResult06.setOrderName("6");
-                cpOrderContentResult06.setFullName("特码");
+                cpOrderContentResult06.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult06.setOrderState(cpbjscResult.getData_5007());
                 cpOrderContentResult06.setOrderId("5007");
                 cpOrderContentResultList.add(cpOrderContentResult06);
 
                 CPOrderContentResult cpOrderContentResult07 = new CPOrderContentResult();
                 cpOrderContentResult07.setOrderName("7");
-                cpOrderContentResult07.setFullName("特码");
+                cpOrderContentResult07.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult07.setOrderState(cpbjscResult.getData_5008());
                 cpOrderContentResult07.setOrderId("5008");
                 cpOrderContentResultList.add(cpOrderContentResult07);
 
                 CPOrderContentResult cpOrderContentResult08 = new CPOrderContentResult();
                 cpOrderContentResult08.setOrderName("8");
-                cpOrderContentResult08.setFullName("特码");
+                cpOrderContentResult08.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult08.setOrderState(cpbjscResult.getData_5009());
                 cpOrderContentResult08.setOrderId("5009");
                 cpOrderContentResultList.add(cpOrderContentResult08);
 
                 CPOrderContentResult cpOrderContentResult09 = new CPOrderContentResult();
                 cpOrderContentResult09.setOrderName("9");
-                cpOrderContentResult09.setFullName("特码");
+                cpOrderContentResult09.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult09.setOrderState(cpbjscResult.getData_5010());
                 cpOrderContentResult09.setOrderId("5010");
                 cpOrderContentResultList.add(cpOrderContentResult09);
 
                 CPOrderContentResult cpOrderContentResult10 = new CPOrderContentResult();
                 cpOrderContentResult10.setOrderName("10");
-                cpOrderContentResult10.setFullName("特码");
+                cpOrderContentResult10.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult10.setOrderState(cpbjscResult.getData_5011());
                 cpOrderContentResult10.setOrderId("5011");
                 cpOrderContentResultList.add(cpOrderContentResult10);
 
                 CPOrderContentResult cpOrderContentResult11 = new CPOrderContentResult();
                 cpOrderContentResult11.setOrderName("11");
-                cpOrderContentResult11.setFullName("特码");
+                cpOrderContentResult11.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult11.setOrderState(cpbjscResult.getData_5012());
                 cpOrderContentResult11.setOrderId("5012");
                 cpOrderContentResultList.add(cpOrderContentResult11);
 
                 CPOrderContentResult cpOrderContentResult12 = new CPOrderContentResult();
                 cpOrderContentResult12.setOrderName("12");
-                cpOrderContentResult12.setFullName("特码");
+                cpOrderContentResult12.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult12.setOrderState(cpbjscResult.getData_5013());
                 cpOrderContentResult12.setOrderId("5013");
                 cpOrderContentResultList.add(cpOrderContentResult12);
 
                 CPOrderContentResult cpOrderContentResult13 = new CPOrderContentResult();
                 cpOrderContentResult13.setOrderName("13");
-                cpOrderContentResult13.setFullName("特码");
+                cpOrderContentResult13.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult13.setOrderState(cpbjscResult.getData_5014());
                 cpOrderContentResult13.setOrderId("5014");
                 cpOrderContentResultList.add(cpOrderContentResult13);
 
                 CPOrderContentResult cpOrderContentResult14 = new CPOrderContentResult();
                 cpOrderContentResult14.setOrderName("14");
-                cpOrderContentResult14.setFullName("特码");
+                cpOrderContentResult14.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult14.setOrderState(cpbjscResult.getData_5015());
                 cpOrderContentResult14.setOrderId("5015");
                 cpOrderContentResultList.add(cpOrderContentResult14);
 
                 CPOrderContentResult cpOrderContentResult15 = new CPOrderContentResult();
                 cpOrderContentResult15.setOrderName("15");
-                cpOrderContentResult15.setFullName("特码");
+                cpOrderContentResult15.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult15.setOrderState(cpbjscResult.getData_5016());
                 cpOrderContentResult15.setOrderId("5016");
                 cpOrderContentResultList.add(cpOrderContentResult15);
 
                 CPOrderContentResult cpOrderContentResult16 = new CPOrderContentResult();
                 cpOrderContentResult16.setOrderName("16");
-                cpOrderContentResult16.setFullName("特码");
+                cpOrderContentResult16.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult16.setOrderState(cpbjscResult.getData_5017());
                 cpOrderContentResult16.setOrderId("5017");
                 cpOrderContentResultList.add(cpOrderContentResult16);
 
                 CPOrderContentResult cpOrderContentResult17 = new CPOrderContentResult();
                 cpOrderContentResult17.setOrderName("17");
-                cpOrderContentResult17.setFullName("特码");
+                cpOrderContentResult17.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult17.setOrderState(cpbjscResult.getData_5018());
                 cpOrderContentResult17.setOrderId("5018");
                 cpOrderContentResultList.add(cpOrderContentResult17);
 
                 CPOrderContentResult cpOrderContentResult18 = new CPOrderContentResult();
                 cpOrderContentResult18.setOrderName("18");
-                cpOrderContentResult18.setFullName("特码");
+                cpOrderContentResult18.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult18.setOrderState(cpbjscResult.getData_5019());
                 cpOrderContentResult18.setOrderId("5019");
                 cpOrderContentResultList.add(cpOrderContentResult18);
 
                 CPOrderContentResult cpOrderContentResult19 = new CPOrderContentResult();
                 cpOrderContentResult19.setOrderName("19");
-                cpOrderContentResult19.setFullName("特码");
+                cpOrderContentResult19.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult19.setOrderState(cpbjscResult.getData_5020());
                 cpOrderContentResult19.setOrderId("5020");
                 cpOrderContentResultList.add(cpOrderContentResult19);
 
                 CPOrderContentResult cpOrderContentResult20 = new CPOrderContentResult();
                 cpOrderContentResult20.setOrderName("20");
-                cpOrderContentResult20.setFullName("特码");
+                cpOrderContentResult20.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult20.setOrderState(cpbjscResult.getData_5021());
                 cpOrderContentResult20.setOrderId("5021");
                 cpOrderContentResultList.add(cpOrderContentResult20);
 
                 CPOrderContentResult cpOrderContentResult21 = new CPOrderContentResult();
                 cpOrderContentResult21.setOrderName("21");
-                cpOrderContentResult21.setFullName("特码");
+                cpOrderContentResult21.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult21.setOrderState(cpbjscResult.getData_5022());
                 cpOrderContentResult21.setOrderId("5022");
                 cpOrderContentResultList.add(cpOrderContentResult21);
 
                 CPOrderContentResult cpOrderContentResult22 = new CPOrderContentResult();
                 cpOrderContentResult22.setOrderName("22");
-                cpOrderContentResult22.setFullName("特码");
+                cpOrderContentResult22.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult22.setOrderState(cpbjscResult.getData_5023());
                 cpOrderContentResult22.setOrderId("5023");
                 cpOrderContentResultList.add(cpOrderContentResult22);
 
                 CPOrderContentResult cpOrderContentResult23 = new CPOrderContentResult();
                 cpOrderContentResult23.setOrderName("23");
-                cpOrderContentResult23.setFullName("特码");
+                cpOrderContentResult23.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult23.setOrderState(cpbjscResult.getData_5024());
                 cpOrderContentResult23.setOrderId("5024");
                 cpOrderContentResultList.add(cpOrderContentResult23);
@@ -6368,28 +6368,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                 List<CPOrderContentResult> cpOrderContentResultList2 = new ArrayList<>();
                 CPOrderContentResult cpOrderContentResult25 = new CPOrderContentResult();
                 cpOrderContentResult25.setOrderName("24");
-                cpOrderContentResult25.setFullName("特码");
+                cpOrderContentResult25.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult25.setOrderState(cpbjscResult.getData_5025());
                 cpOrderContentResult25.setOrderId("5025");
                 cpOrderContentResultList2.add(cpOrderContentResult25);
 
                 CPOrderContentResult cpOrderContentResult26 = new CPOrderContentResult();
                 cpOrderContentResult26.setOrderName("25");
-                cpOrderContentResult26.setFullName("特码");
+                cpOrderContentResult26.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult26.setOrderState(cpbjscResult.getData_5026());
                 cpOrderContentResult26.setOrderId("5026");
                 cpOrderContentResultList2.add(cpOrderContentResult26);
 
                 CPOrderContentResult cpOrderContentResult27 = new CPOrderContentResult();
                 cpOrderContentResult27.setOrderName("26");
-                cpOrderContentResult27.setFullName("特码");
+                cpOrderContentResult27.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult27.setOrderState(cpbjscResult.getData_5027());
                 cpOrderContentResult27.setOrderId("5027");
                 cpOrderContentResultList2.add(cpOrderContentResult27);
 
                 CPOrderContentResult cpOrderContentResult28 = new CPOrderContentResult();
                 cpOrderContentResult28.setOrderName("27");
-                cpOrderContentResult28.setFullName("特码");
+                cpOrderContentResult28.setFullName(getString(R.string.lotter_tm));
                 cpOrderContentResult28.setOrderState(cpbjscResult.getData_5028());
                 cpOrderContentResult28.setOrderId("5028");
                 cpOrderContentResultList2.add(cpOrderContentResult28);
@@ -18029,21 +18029,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult22114 = new CPOrderContentResult();
-            cpOrderContentResult22114.setOrderName("红波");
+            cpOrderContentResult22114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult22114.setFullName("特码B");
             cpOrderContentResult22114.setOrderState(cpbjscResult.getdata114().getRate());
             cpOrderContentResult22114.setOrderId("114");
             cpOrderContentResultList3.add(cpOrderContentResult22114);
 
             CPOrderContentResult cpOrderContentResult22115 = new CPOrderContentResult();
-            cpOrderContentResult22115.setOrderName("绿波");
+            cpOrderContentResult22115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult22115.setFullName("特码B");
             cpOrderContentResult22115.setOrderState(cpbjscResult.getdata115().getRate());
             cpOrderContentResult22115.setOrderId("115");
             cpOrderContentResultList3.add(cpOrderContentResult22115);
 
             CPOrderContentResult cpOrderContentResult22116 = new CPOrderContentResult();
-            cpOrderContentResult22116.setOrderName("蓝波");
+            cpOrderContentResult22116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult22116.setFullName("特码B");
             cpOrderContentResult22116.setOrderState(cpbjscResult.getdata116().getRate());
             cpOrderContentResult22116.setOrderId("116");
@@ -18089,28 +18089,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList4.add(cpOrderContentResult22802);
 
             CPOrderContentResult cpOrderContentResult22803 = new CPOrderContentResult();
-            cpOrderContentResult22803.setOrderName("大单");
+            cpOrderContentResult22803.setOrderName(getString(R.string.lotter_dd));
             cpOrderContentResult22803.setFullName("特码B");
             cpOrderContentResult22803.setOrderState(cpbjscResult.getdata803().getRate());
             cpOrderContentResult22803.setOrderId("803");
             cpOrderContentResultList4.add(cpOrderContentResult22803);
 
             CPOrderContentResult cpOrderContentResult22804 = new CPOrderContentResult();
-            cpOrderContentResult22804.setOrderName("小单");
+            cpOrderContentResult22804.setOrderName(getString(R.string.lotter_xd));
             cpOrderContentResult22804.setFullName("特码B");
             cpOrderContentResult22804.setOrderState(cpbjscResult.getdata804().getRate());
             cpOrderContentResult22804.setOrderId("804");
             cpOrderContentResultList4.add(cpOrderContentResult22804);
 
             CPOrderContentResult cpOrderContentResult22805 = new CPOrderContentResult();
-            cpOrderContentResult22805.setOrderName("大双");
+            cpOrderContentResult22805.setOrderName(getString(R.string.lotter_ds));
             cpOrderContentResult22805.setFullName("特码B");
             cpOrderContentResult22805.setOrderState(cpbjscResult.getdata805().getRate());
             cpOrderContentResult22805.setOrderId("805");
             cpOrderContentResultList4.add(cpOrderContentResult22805);
 
             CPOrderContentResult cpOrderContentResult22806 = new CPOrderContentResult();
-            cpOrderContentResult22806.setOrderName("小双");
+            cpOrderContentResult22806.setOrderName(getString(R.string.lotter_xs));
             cpOrderContentResult22806.setFullName("特码B");
             cpOrderContentResult22806.setOrderState(cpbjscResult.getdata806().getRate());
             cpOrderContentResult22806.setOrderId("806");
@@ -18547,21 +18547,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
 
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("特码A");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata56().getRate());
             cpOrderContentResult21114.setOrderId("56");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("特码A");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata57().getRate());
             cpOrderContentResult21115.setOrderId("57");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("特码A");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata58().getRate());
             cpOrderContentResult21116.setOrderId("58");
@@ -18607,28 +18607,28 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList4.add(cpOrderContentResult21802);
 
             CPOrderContentResult cpOrderContentResult21803 = new CPOrderContentResult();
-            cpOrderContentResult21803.setOrderName("大单");
+            cpOrderContentResult21803.setOrderName(getString(R.string.lotter_dd));
             cpOrderContentResult21803.setFullName("特码A");
             cpOrderContentResult21803.setOrderState(cpbjscResult.getdata797().getRate());
             cpOrderContentResult21803.setOrderId("797");
             cpOrderContentResultList4.add(cpOrderContentResult21803);
 
             CPOrderContentResult cpOrderContentResult21804 = new CPOrderContentResult();
-            cpOrderContentResult21804.setOrderName("小单");
+            cpOrderContentResult21804.setOrderName(getString(R.string.lotter_xd));
             cpOrderContentResult21804.setFullName("特码A");
             cpOrderContentResult21804.setOrderState(cpbjscResult.getdata798().getRate());
             cpOrderContentResult21804.setOrderId("798");
             cpOrderContentResultList4.add(cpOrderContentResult21804);
 
             CPOrderContentResult cpOrderContentResult21805 = new CPOrderContentResult();
-            cpOrderContentResult21805.setOrderName("大双");
+            cpOrderContentResult21805.setOrderName(getString(R.string.lotter_ds));
             cpOrderContentResult21805.setFullName("特码A");
             cpOrderContentResult21805.setOrderState(cpbjscResult.getdata799().getRate());
             cpOrderContentResult21805.setOrderId("799");
             cpOrderContentResultList4.add(cpOrderContentResult21805);
 
             CPOrderContentResult cpOrderContentResult21806 = new CPOrderContentResult();
-            cpOrderContentResult21806.setOrderName("小双");
+            cpOrderContentResult21806.setOrderName(getString(R.string.lotter_xs));
             cpOrderContentResult21806.setFullName("特码A");
             cpOrderContentResult21806.setOrderState(cpbjscResult.getdata800().getRate());
             cpOrderContentResult21806.setOrderId("800");
@@ -19876,21 +19876,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata172().getRate());
             cpOrderContentResult21114.setOrderId("172");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata173().getRate());
             cpOrderContentResult21115.setOrderId("173");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata174().getRate());
             cpOrderContentResult21116.setOrderId("174");
@@ -20327,21 +20327,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata230().getRate());
             cpOrderContentResult21114.setOrderId("230");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata231().getRate());
             cpOrderContentResult21115.setOrderId("231");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata232().getRate());
             cpOrderContentResult21116.setOrderId("232");
@@ -20778,21 +20778,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata288().getRate());
             cpOrderContentResult21114.setOrderId("288");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata289().getRate());
             cpOrderContentResult21115.setOrderId("289");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata290().getRate());
             cpOrderContentResult21116.setOrderId("290");
@@ -21229,21 +21229,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata346().getRate());
             cpOrderContentResult21114.setOrderId("346");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata347().getRate());
             cpOrderContentResult21115.setOrderId("347");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata348().getRate());
             cpOrderContentResult21116.setOrderId("348");
@@ -21680,21 +21680,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata404().getRate());
             cpOrderContentResult21114.setOrderId("404");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata405().getRate());
             cpOrderContentResult21115.setOrderId("405");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata406().getRate());
             cpOrderContentResult21116.setOrderId("406");
@@ -22131,21 +22131,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList3 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult21114 = new CPOrderContentResult();
-            cpOrderContentResult21114.setOrderName("红波");
+            cpOrderContentResult21114.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult21114.setFullName("");
             cpOrderContentResult21114.setOrderState(cpbjscResult.getdata462().getRate());
             cpOrderContentResult21114.setOrderId("462");
             cpOrderContentResultList3.add(cpOrderContentResult21114);
 
             CPOrderContentResult cpOrderContentResult21115 = new CPOrderContentResult();
-            cpOrderContentResult21115.setOrderName("绿波");
+            cpOrderContentResult21115.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult21115.setFullName("");
             cpOrderContentResult21115.setOrderState(cpbjscResult.getdata463().getRate());
             cpOrderContentResult21115.setOrderId("463");
             cpOrderContentResultList3.add(cpOrderContentResult21115);
 
             CPOrderContentResult cpOrderContentResult21116 = new CPOrderContentResult();
-            cpOrderContentResult21116.setOrderName("蓝波");
+            cpOrderContentResult21116.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult21116.setFullName("");
             cpOrderContentResult21116.setOrderState(cpbjscResult.getdata464().getRate());
             cpOrderContentResult21116.setOrderId("464");
@@ -22196,21 +22196,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList12 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult112105 = new CPOrderContentResult();
-            cpOrderContentResult112105.setOrderName("红波");
+            cpOrderContentResult112105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult112105.setFullName("");
             cpOrderContentResult112105.setOrderState(cpbjscResult.getdata575().getRate());
             cpOrderContentResult112105.setOrderId("575");
             cpOrderContentResultList12.add(cpOrderContentResult112105);
 
             CPOrderContentResult cpOrderContentResult112106 = new CPOrderContentResult();
-            cpOrderContentResult112106.setOrderName("绿波");
+            cpOrderContentResult112106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult112106.setFullName("");
             cpOrderContentResult112106.setOrderState(cpbjscResult.getdata576().getRate());
             cpOrderContentResult112106.setOrderId("576");
             cpOrderContentResultList12.add(cpOrderContentResult112106);
 
             CPOrderContentResult cpOrderContentResult112107 = new CPOrderContentResult();
-            cpOrderContentResult112107.setOrderName("蓝波");
+            cpOrderContentResult112107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult112107.setFullName("");
             cpOrderContentResult112107.setOrderState(cpbjscResult.getdata577().getRate());
             cpOrderContentResult112107.setOrderId("577");
@@ -22311,21 +22311,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList22 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1122105 = new CPOrderContentResult();
-            cpOrderContentResult1122105.setOrderName("红波");
+            cpOrderContentResult1122105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1122105.setFullName("");
             cpOrderContentResult1122105.setOrderState(cpbjscResult.getdata582().getRate());
             cpOrderContentResult1122105.setOrderId("582");
             cpOrderContentResultList22.add(cpOrderContentResult1122105);
 
             CPOrderContentResult cpOrderContentResult1122106 = new CPOrderContentResult();
-            cpOrderContentResult1122106.setOrderName("绿波");
+            cpOrderContentResult1122106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1122106.setFullName("");
             cpOrderContentResult1122106.setOrderState(cpbjscResult.getdata583().getRate());
             cpOrderContentResult1122106.setOrderId("583");
             cpOrderContentResultList22.add(cpOrderContentResult1122106);
 
             CPOrderContentResult cpOrderContentResult1122107 = new CPOrderContentResult();
-            cpOrderContentResult1122107.setOrderName("蓝波");
+            cpOrderContentResult1122107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1122107.setFullName("");
             cpOrderContentResult1122107.setOrderState(cpbjscResult.getdata584().getRate());
             cpOrderContentResult1122107.setOrderId("584");
@@ -22426,21 +22426,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList32 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1123105 = new CPOrderContentResult();
-            cpOrderContentResult1123105.setOrderName("红波");
+            cpOrderContentResult1123105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1123105.setFullName("");
             cpOrderContentResult1123105.setOrderState(cpbjscResult.getdata589().getRate());
             cpOrderContentResult1123105.setOrderId("589");
             cpOrderContentResultList32.add(cpOrderContentResult1123105);
 
             CPOrderContentResult cpOrderContentResult1123106 = new CPOrderContentResult();
-            cpOrderContentResult1123106.setOrderName("绿波");
+            cpOrderContentResult1123106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1123106.setFullName("");
             cpOrderContentResult1123106.setOrderState(cpbjscResult.getdata590().getRate());
             cpOrderContentResult1123106.setOrderId("590");
             cpOrderContentResultList32.add(cpOrderContentResult1123106);
 
             CPOrderContentResult cpOrderContentResult1123107 = new CPOrderContentResult();
-            cpOrderContentResult1123107.setOrderName("蓝波");
+            cpOrderContentResult1123107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1123107.setFullName("");
             cpOrderContentResult1123107.setOrderState(cpbjscResult.getdata591().getRate());
             cpOrderContentResult1123107.setOrderId("591");
@@ -22541,21 +22541,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList42 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1124105 = new CPOrderContentResult();
-            cpOrderContentResult1124105.setOrderName("红波");
+            cpOrderContentResult1124105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1124105.setFullName("");
             cpOrderContentResult1124105.setOrderState(cpbjscResult.getdata596().getRate());
             cpOrderContentResult1124105.setOrderId("596");
             cpOrderContentResultList42.add(cpOrderContentResult1124105);
 
             CPOrderContentResult cpOrderContentResult1124106 = new CPOrderContentResult();
-            cpOrderContentResult1124106.setOrderName("绿波");
+            cpOrderContentResult1124106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1124106.setFullName("");
             cpOrderContentResult1124106.setOrderState(cpbjscResult.getdata597().getRate());
             cpOrderContentResult1124106.setOrderId("597");
             cpOrderContentResultList42.add(cpOrderContentResult1124106);
 
             CPOrderContentResult cpOrderContentResult1124107 = new CPOrderContentResult();
-            cpOrderContentResult1124107.setOrderName("蓝波");
+            cpOrderContentResult1124107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1124107.setFullName("");
             cpOrderContentResult1124107.setOrderState(cpbjscResult.getdata598().getRate());
             cpOrderContentResult1124107.setOrderId("598");
@@ -22656,21 +22656,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList52 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1125105 = new CPOrderContentResult();
-            cpOrderContentResult1125105.setOrderName("红波");
+            cpOrderContentResult1125105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1125105.setFullName("");
             cpOrderContentResult1125105.setOrderState(cpbjscResult.getdata603().getRate());
             cpOrderContentResult1125105.setOrderId("603");
             cpOrderContentResultList52.add(cpOrderContentResult1125105);
 
             CPOrderContentResult cpOrderContentResult1125106 = new CPOrderContentResult();
-            cpOrderContentResult1125106.setOrderName("绿波");
+            cpOrderContentResult1125106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1125106.setFullName("");
             cpOrderContentResult1125106.setOrderState(cpbjscResult.getdata604().getRate());
             cpOrderContentResult1125106.setOrderId("604");
             cpOrderContentResultList52.add(cpOrderContentResult1125106);
 
             CPOrderContentResult cpOrderContentResult1125107 = new CPOrderContentResult();
-            cpOrderContentResult1125107.setOrderName("蓝波");
+            cpOrderContentResult1125107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1125107.setFullName("");
             cpOrderContentResult1125107.setOrderState(cpbjscResult.getdata605().getRate());
             cpOrderContentResult1125107.setOrderId("605");
@@ -22771,21 +22771,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList62 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1126105 = new CPOrderContentResult();
-            cpOrderContentResult1126105.setOrderName("红波");
+            cpOrderContentResult1126105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1126105.setFullName("");
             cpOrderContentResult1126105.setOrderState(cpbjscResult.getdata610().getRate());
             cpOrderContentResult1126105.setOrderId("610");
             cpOrderContentResultList62.add(cpOrderContentResult1126105);
 
             CPOrderContentResult cpOrderContentResult1126106 = new CPOrderContentResult();
-            cpOrderContentResult1126106.setOrderName("绿波");
+            cpOrderContentResult1126106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1126106.setFullName("");
             cpOrderContentResult1126106.setOrderState(cpbjscResult.getdata611().getRate());
             cpOrderContentResult1126106.setOrderId("611");
             cpOrderContentResultList62.add(cpOrderContentResult1126106);
 
             CPOrderContentResult cpOrderContentResult1126107 = new CPOrderContentResult();
-            cpOrderContentResult1126107.setOrderName("蓝波");
+            cpOrderContentResult1126107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1126107.setFullName("");
             cpOrderContentResult1126107.setOrderState(cpbjscResult.getdata612().getRate());
             cpOrderContentResult1126107.setOrderId("612");
@@ -22887,21 +22887,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList12 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult112105 = new CPOrderContentResult();
-            cpOrderContentResult112105.setOrderName("红波");
+            cpOrderContentResult112105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult112105.setFullName("正码一");
             cpOrderContentResult112105.setOrderState(cpbjscResult.getdata624().getRate());
             cpOrderContentResult112105.setOrderId("624");
             cpOrderContentResultList12.add(cpOrderContentResult112105);
 
             CPOrderContentResult cpOrderContentResult112106 = new CPOrderContentResult();
-            cpOrderContentResult112106.setOrderName("绿波");
+            cpOrderContentResult112106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult112106.setFullName("正码一");
             cpOrderContentResult112106.setOrderState(cpbjscResult.getdata625().getRate());
             cpOrderContentResult112106.setOrderId("625");
             cpOrderContentResultList12.add(cpOrderContentResult112106);
 
             CPOrderContentResult cpOrderContentResult112107 = new CPOrderContentResult();
-            cpOrderContentResult112107.setOrderName("蓝波");
+            cpOrderContentResult112107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult112107.setFullName("正码一");
             cpOrderContentResult112107.setOrderState(cpbjscResult.getdata626().getRate());
             cpOrderContentResult112107.setOrderId("626");
@@ -22948,21 +22948,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList22 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1122105 = new CPOrderContentResult();
-            cpOrderContentResult1122105.setOrderName("红波");
+            cpOrderContentResult1122105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1122105.setFullName("正码二");
             cpOrderContentResult1122105.setOrderState(cpbjscResult.getdata631().getRate());
             cpOrderContentResult1122105.setOrderId("631");
             cpOrderContentResultList22.add(cpOrderContentResult1122105);
 
             CPOrderContentResult cpOrderContentResult1122106 = new CPOrderContentResult();
-            cpOrderContentResult1122106.setOrderName("绿波");
+            cpOrderContentResult1122106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1122106.setFullName("正码二");
             cpOrderContentResult1122106.setOrderState(cpbjscResult.getdata632().getRate());
             cpOrderContentResult1122106.setOrderId("632");
             cpOrderContentResultList22.add(cpOrderContentResult1122106);
 
             CPOrderContentResult cpOrderContentResult1122107 = new CPOrderContentResult();
-            cpOrderContentResult1122107.setOrderName("蓝波");
+            cpOrderContentResult1122107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1122107.setFullName("正码二");
             cpOrderContentResult1122107.setOrderState(cpbjscResult.getdata633().getRate());
             cpOrderContentResult1122107.setOrderId("633");
@@ -23009,21 +23009,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList32 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1123105 = new CPOrderContentResult();
-            cpOrderContentResult1123105.setOrderName("红波");
+            cpOrderContentResult1123105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1123105.setFullName("正码三");
             cpOrderContentResult1123105.setOrderState(cpbjscResult.getdata638().getRate());
             cpOrderContentResult1123105.setOrderId("638");
             cpOrderContentResultList32.add(cpOrderContentResult1123105);
 
             CPOrderContentResult cpOrderContentResult1123106 = new CPOrderContentResult();
-            cpOrderContentResult1123106.setOrderName("绿波");
+            cpOrderContentResult1123106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1123106.setFullName("正码三");
             cpOrderContentResult1123106.setOrderState(cpbjscResult.getdata639().getRate());
             cpOrderContentResult1123106.setOrderId("639");
             cpOrderContentResultList32.add(cpOrderContentResult1123106);
 
             CPOrderContentResult cpOrderContentResult1123107 = new CPOrderContentResult();
-            cpOrderContentResult1123107.setOrderName("蓝波");
+            cpOrderContentResult1123107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1123107.setFullName("正码三");
             cpOrderContentResult1123107.setOrderState(cpbjscResult.getdata640().getRate());
             cpOrderContentResult1123107.setOrderId("640");
@@ -23070,21 +23070,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList42 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1124105 = new CPOrderContentResult();
-            cpOrderContentResult1124105.setOrderName("红波");
+            cpOrderContentResult1124105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1124105.setFullName("正码四");
             cpOrderContentResult1124105.setOrderState(cpbjscResult.getdata645().getRate());
             cpOrderContentResult1124105.setOrderId("645");
             cpOrderContentResultList42.add(cpOrderContentResult1124105);
 
             CPOrderContentResult cpOrderContentResult1124106 = new CPOrderContentResult();
-            cpOrderContentResult1124106.setOrderName("绿波");
+            cpOrderContentResult1124106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1124106.setFullName("正码四");
             cpOrderContentResult1124106.setOrderState(cpbjscResult.getdata646().getRate());
             cpOrderContentResult1124106.setOrderId("646");
             cpOrderContentResultList42.add(cpOrderContentResult1124106);
 
             CPOrderContentResult cpOrderContentResult1124107 = new CPOrderContentResult();
-            cpOrderContentResult1124107.setOrderName("蓝波");
+            cpOrderContentResult1124107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1124107.setFullName("正码四");
             cpOrderContentResult1124107.setOrderState(cpbjscResult.getdata647().getRate());
             cpOrderContentResult1124107.setOrderId("647");
@@ -23130,21 +23130,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList52 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1125105 = new CPOrderContentResult();
-            cpOrderContentResult1125105.setOrderName("红波");
+            cpOrderContentResult1125105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1125105.setFullName("正码五");
             cpOrderContentResult1125105.setOrderState(cpbjscResult.getdata652().getRate());
             cpOrderContentResult1125105.setOrderId("652");
             cpOrderContentResultList52.add(cpOrderContentResult1125105);
 
             CPOrderContentResult cpOrderContentResult1125106 = new CPOrderContentResult();
-            cpOrderContentResult1125106.setOrderName("绿波");
+            cpOrderContentResult1125106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1125106.setFullName("正码五");
             cpOrderContentResult1125106.setOrderState(cpbjscResult.getdata653().getRate());
             cpOrderContentResult1125106.setOrderId("653");
             cpOrderContentResultList52.add(cpOrderContentResult1125106);
 
             CPOrderContentResult cpOrderContentResult1125107 = new CPOrderContentResult();
-            cpOrderContentResult1125107.setOrderName("蓝波");
+            cpOrderContentResult1125107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1125107.setFullName("正码五");
             cpOrderContentResult1125107.setOrderState(cpbjscResult.getdata654().getRate());
             cpOrderContentResult1125107.setOrderId("654");
@@ -23191,21 +23191,21 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList62 = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult1126105 = new CPOrderContentResult();
-            cpOrderContentResult1126105.setOrderName("红波");
+            cpOrderContentResult1126105.setOrderName(getString(R.string.lotter_hb));
             cpOrderContentResult1126105.setFullName("正码六");
             cpOrderContentResult1126105.setOrderState(cpbjscResult.getdata659().getRate());
             cpOrderContentResult1126105.setOrderId("659");
             cpOrderContentResultList62.add(cpOrderContentResult1126105);
 
             CPOrderContentResult cpOrderContentResult1126106 = new CPOrderContentResult();
-            cpOrderContentResult1126106.setOrderName("绿波");
+            cpOrderContentResult1126106.setOrderName(getString(R.string.lotter_llb));
             cpOrderContentResult1126106.setFullName("正码六");
             cpOrderContentResult1126106.setOrderState(cpbjscResult.getdata660().getRate());
             cpOrderContentResult1126106.setOrderId("660");
             cpOrderContentResultList62.add(cpOrderContentResult1126106);
 
             CPOrderContentResult cpOrderContentResult1126107 = new CPOrderContentResult();
-            cpOrderContentResult1126107.setOrderName("蓝波");
+            cpOrderContentResult1126107.setOrderName(getString(R.string.lotter_lb));
             cpOrderContentResult1126107.setFullName("正码六");
             cpOrderContentResult1126107.setOrderState(cpbjscResult.getdata661().getRate());
             cpOrderContentResult1126107.setOrderId("661");
@@ -29039,7 +29039,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
         cpOrderAllResult1.setEventChecked(true);
         cpOrderAllResult1.setType("2");
-        cpOrderAllResult1.setOrderAllName("特码");
+        cpOrderAllResult1.setOrderAllName(getString(R.string.lotter_tm));
 
         CPOrderAllResult cpOrderAllResult2 = new CPOrderAllResult();
         cpOrderAllResult2.setOrderAllName("正码");
@@ -29222,10 +29222,10 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
         CPOrderAllResult cpOrderAllResult1 = new CPOrderAllResult();
         cpOrderAllResult1.setEventChecked(true);
         cpOrderAllResult1.setType("undefined");
-        cpOrderAllResult1.setOrderAllName("混合");
+        cpOrderAllResult1.setOrderAllName(getString(R.string.lotter_hh));
 
         CPOrderAllResult cpOrderAllResult2 = new CPOrderAllResult();
-        cpOrderAllResult2.setOrderAllName("特码");
+        cpOrderAllResult2.setOrderAllName(getString(R.string.lotter_tm));
         cpOrderAllResult2.setType("undefined");
 
         allResultList.add(cpOrderAllResult1);

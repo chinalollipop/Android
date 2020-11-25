@@ -102,6 +102,22 @@
     <string name="lotter_cbc">猜必出</string>
     <string name="lotter_cbbc">猜必不出</string>
 
+    <string name="lotter_hh">混合</string>
+    <string name="lotter_dd">大单</string>
+    <string name="lotter_xd">小单</string>
+    <string name="lotter_ds">大双</string>
+    <string name="lotter_xs">小双</string>
+    <string name="lotter_jd">极大</string>
+    <string name="lotter_jx">极小</string>
+
+    <string name="lotter_hb">红波</string>
+    <string name="lotter_lb">蓝波</string>
+    <string name="lotter_llb">绿波</string>
+    <string name="lotter_tm">特码</string>
+
+
+
+
     <string name="lotter_ball_second">第二球</string>
     <string name="lotter_ball_third">第三球</string>
     <string name="lotter_ball_fourth">第四球</string>
