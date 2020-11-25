@@ -49,6 +49,38 @@
     <string name="lotter_dragon">龙</string>
     <string name="lotter_tiger">虎</string>
     <string name="lotter_he">和</string>
+    <string name="lotter_two_sides">两面</string>
+    <string name="lotter_total">总和</string>
+    <string name="lotter_total_da">总和大</string>
+    <string name="lotter_total_xiao">总和小</string>
+    <string name="lotter_total_dan">总和单</string>
+    <string name="lotter_total_shuang">总和双</string>
+    <string name="lotter_total_w_big">总尾大</string>
+    <string name="lotter_total_w_small">总尾小</string>
+    <string name="lotter_wei_big">尾大</string>
+    <string name="lotter_wei_small">尾小</string>
+    <string name="lotter_he_dan">合单</string>
+    <string name="lotter_he_shuang">合双</string>
+    <string name="lotter_ball_first">第一球</string>
+
+    <string name="lotter_dong">东</string>
+    <string name="lotter_nan">南</string>
+    <string name="lotter_xi">西</string>
+    <string name="lotter_bei">北</string>
+    <string name="lotter_zhong">中</string>
+    <string name="lotter_fa">发</string>
+    <string name="lotter_bai">白</string>
+
+    <string name="lotter_ball_second">第二球</string>
+    <string name="lotter_ball_third">第三球</string>
+    <string name="lotter_ball_fourth">第四球</string>
+    <string name="lotter_ball_fifth">第五球</string>
+    <string name="lotter_ball_sixth">第六球</string>
+    <string name="lotter_ball_seventh">第七球</string>
+    <string name="lotter_ball_eighth">第八球</string>
+    <string name="lotter_ball_ninth">第九球</string>
+    <string name="lotter_ball_tenth">第十球</string>
+
     <string name="lotter_relogin">请重新登录！</string>
     <string name="lotter_choice_number">请选择注单数据</string>
     <string name="lotter_quick_type1">快捷方式一</string>
