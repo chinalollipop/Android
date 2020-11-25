@@ -52,8 +52,20 @@
     <string name="lotter_he">和</string>
     <string name="lotter_snake">蛇</string>
     <string name="lotter_rabbit">兔</string>
+    <string name="lotter_horse">马</string>
+    <string name="lotter_dog">狗</string>
+    <string name="lotter_cow">牛</string>
+    <string name="lotter_sheep">羊</string>
+    <string name="lotter_monkey">猴</string>
+    <string name="lotter_chook">鸡</string>
+    <string name="lotter_dog">狗</string>
+    <string name="lotter_pig">猪</string>
+    <string name="lotter_mouse">鼠</string>
+
+
     <string name="lotter_two_sides">两面</string>
     <string name="lotter_total">总和</string>
+    <string name="lotter_total_lh">总和、龙虎</string>
     <string name="lotter_total_da">总和大</string>
     <string name="lotter_total_xiao">总和小</string>
     <string name="lotter_total_dan">总和单</string>
@@ -62,6 +74,24 @@
     <string name="lotter_total_w_small">总尾小</string>
     <string name="lotter_wei_big">尾大</string>
     <string name="lotter_wei_small">尾小</string>
+    <string name="lotter_weishu">尾数</string>
+    <string name="lotter_weishu0">0尾</string>
+    <string name="lotter_weishu1">1尾</string>
+    <string name="lotter_weishu2">2尾</string>
+    <string name="lotter_weishu3">3尾</string>
+    <string name="lotter_weishu4">4尾</string>
+    <string name="lotter_weishu5">5尾</string>
+    <string name="lotter_weishu6">6尾</string>
+    <string name="lotter_weishu7">7尾</string>
+    <string name="lotter_weishu8">8尾</string>
+    <string name="lotter_weishu9">9尾</string>
+    <string name="lotter_six_tx">特肖</string>
+    <string name="lotter_six_elx">二连肖</string>
+    <string name="lotter_six_lx3">三连肖</string>
+    <string name="lotter_six_lx4">四连肖</string>
+    <string name="lotter_six_lx5">五连肖</string>
+    <string name="lotter_qi_number">期</string>
+
     <string name="lotter_he_dan">合单</string>
     <string name="lotter_he_shuang">合双</string>
     <string name="lotter_ball_first">第一球</string>
@@ -73,6 +103,31 @@
     <string name="lotter_zhong">中</string>
     <string name="lotter_fa">发</string>
     <string name="lotter_bai">白</string>
+
+
+    <string name="lotter_qs">前三</string>
+    <string name="lotter_bx">半顺</string>
+    <string name="lotter_zl">杂六</string>
+    <string name="lotter_zs">中三</string>
+    <string name="lotter_hs">后三</string>
+    <string name="lotter_gjd">冠军大</string>
+    <string name="lotter_gjx">冠军小</string>
+    <string name="lotter_gjdan">冠军单</string>
+    <string name="lotter_gjshuang">冠军双</string>
+    <string name="lotter_gjyjh">冠、亚军和</string>
+    <string name="lotter_gjwin">冠军</string>
+    <string name="lotter_yjwin">亚军</string>
+
+    <string name="lotter_ranking3">第三名</string>
+    <string name="lotter_ranking4">第四名</string>
+    <string name="lotter_ranking5">第五名</string>
+    <string name="lotter_ranking6">第六名</string>
+    <string name="lotter_ranking7">第七名</string>
+    <string name="lotter_ranking8">第八名</string>
+    <string name="lotter_ranking9">第九名</string>
+    <string name="lotter_ranking10">第十名</string>
+    <string name="lotter_rankingzh">冠、亚军 组合</string>
+
 
     <string name="lotter_hezhi">和值</string>
     <string name="lotter_point_3">3点</string>
@@ -179,6 +234,8 @@
     <string name="lotter_bet_zhu">注</string>
     <string name="lotter_bet_limits8">不允许超过8个选项</string>
     <string name="lotter_bet_limits6">不允许超过6个选项</string>
+    <string name="lotter_bet_limits10">不允许超过10个选项</string>
+    <string name="lotter_bet_limits12">不允许超过12个选项</string>
     <string name="lotter_input_money">请输入投注金额</string>
     <string name="lotter_choice_method">请选择玩法</string>
 
@@ -207,8 +264,7 @@
     <string name="lotter_bet_comb_number">组合数：</string>
     <string name="lotter_bet_comb_number_x">组合数</string>
     <string name="lotter_bet_close">已封盘，请稍后下注!</string>
-    <string name="lotter_horse">马</string>
-    <string name="lotter_dog">狗</string>
+
     <string name="lotter_wei">尾</string>
     <string name="lotter_hexiao">合肖</string>
     <string name="lotter_bet_count">总笔数：</string>
@@ -236,6 +292,56 @@
     <string name="lotter_odds">赔率:</string>
     <string name="lotter_marksix_te_b">特码B</string>
     <string name="lotter_marksix_te_a">特码A</string>
+    <string name="lotter_marksix_jq">家禽</string>
+    <string name="lotter_marksix_ys">野兽</string>
+    <string name="lotter_marksix_te_b">特码B</string>
+    <string name="lotter_marksix_te_a">特码A</string>
+    <string name="lotter_marksix_zma">正码A</string>
+    <string name="lotter_marksix_zmb">正码B</string>
+
+    <string name="lotter_marksix_zdan">总单</string>
+    <string name="lotter_marksix_zshuang">总双</string>
+    <string name="lotter_marksix_zda">总大</string>
+    <string name="lotter_marksix_zxiao">总小</string>
+    <string name="lotter_marksix_hda">合大</string>
+    <string name="lotter_marksix_hxiao">合小</string>
+    <string name="lotter_marksix_zm1">正码一</string>
+    <string name="lotter_marksix_zm2">正码二</string>
+    <string name="lotter_marksix_zms">正码三</string>
+    <string name="lotter_marksix_zm4">正码四</string>
+    <string name="lotter_marksix_zm5">正码五</string>
+    <string name="lotter_marksix_zm6">正码六</string>
+
+    <string name="lotter_marksix_hdan">红单</string>
+    <string name="lotter_marksix_hshuang">红双</string>
+    <string name="lotter_marksix_hda">红大</string>
+    <string name="lotter_marksix_hxiao">红小</string>
+    <string name="lotter_marksix_ldan">绿单</string>
+    <string name="lotter_marksix_lshuang">绿双</string>
+    <string name="lotter_marksix_lda">绿大</string>
+    <string name="lotter_marksix_lxiao">绿小</string>
+    <string name="lotter_marksix_landan">蓝单</string>
+    <string name="lotter_marksix_lanshuang">蓝双</string>
+    <string name="lotter_marksix_landa">蓝大</string>
+    <string name="lotter_marksix_lanxiao">蓝小</string>
+    <string name="lotter_marksix_hhdan">红合单</string>
+    <string name="lotter_marksix_hhshuang">红合双</string>
+    <string name="lotter_marksix_lhdan">绿合单</string>
+    <string name="lotter_marksix_lhshuang">绿合双</string>
+    <string name="lotter_marksix_lanhedan">蓝合单</string>
+    <string name="lotter_marksix_lanheshuang">蓝合双</string>
+
+    <string name="lotter_marksix_xiao1">一肖</string>
+    <string name="lotter_marksix_landa">蓝大</string>
+    <string name="lotter_marksix_lanxiao">蓝小</string>
+    <string name="lotter_marksix_hhdan">红合单</string>
+    <string name="lotter_marksix_hhshuang">红合双</string>
+    <string name="lotter_marksix_lhdan">绿合单</string>
+    <string name="lotter_marksix_lhshuang">绿合双</string>
+    <string name="lotter_marksix_lanhedan">蓝合单</string>
+    <string name="lotter_marksix_lanheshuang">蓝合双</string>
+
+
     <!--底部兰标题-->
     <string name="str_title_homepage">首页</string>
     <string name="str_title_deposit">存款</string>
