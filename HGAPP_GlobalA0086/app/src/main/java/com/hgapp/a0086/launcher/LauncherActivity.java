@@ -4,9 +4,12 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.alibaba.fastjson.JSON;
@@ -40,39 +43,74 @@ public class LauncherActivity extends AppCompatActivity{
     private boolean ifStop = false;
     MyHttpClient myHttpClient = new MyHttpClient();
     Button button;
+    private MyCountDownTimer mCountDownTimer;
+
+    class MyCountDownTimer extends CountDownTimer {
+        /**
+         * @param millisInFuture
+         *      表示以「 毫秒 」为单位倒计时的总数
+         *      例如 millisInFuture = 1000 表示1秒
+         *
+         * @param countDownInterval
+         *      表示 间隔 多少微秒 调用一次 onTick()
+         *      例如: countDownInterval = 1000 ; 表示每 1000 毫秒调用一次 onTick()
+         *
+         */
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+
+        public void onFinish() {
+            button.setText("0 "+getString(R.string.games_launcher_time));
+            enterMain();
+        }
+
+        public void onTick(long millisUntilFinished) {
+            button.setText( millisUntilFinished / 1000 +getString(R.string.games_launcher_time));
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+            mCountDownTimer = null;
+            GameLog.log("===============mCountDownTimer.cancel====================加载了数据========================");
+        }
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //去除标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //去除状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_launcher);
         button = (Button)findViewById(R.id.retry);
+        //创建倒计时类
+        mCountDownTimer = new MyCountDownTimer(6000, 1000);
+        mCountDownTimer.start();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onGetAvailableDomain();
+                String demainUrl =  ACache.get(getApplicationContext()).getAsString(HGConstant.APP_DEMAIN_URL);
+                if(!Check.isEmpty(demainUrl)){
+                    enterMain();
+                }else{
+                    onGetAvailableDomain();
+                }
             }
         });
         onGetAvailableDomain();
-        /*String isLogoChange = ACache.get(LauncherActivity.this).getAsString("change_logo");
-        GameLog.log("目前的状态是  " +isLogoChange);
-        if(Check.isEmpty(isLogoChange)){
-            changeLauncher( "com.hgapp.a0086.LauncherActivity1");
-        }else{
-            changeLauncher( "com.hgapp.a0086.launcher.LauncherActivity");
-        }*/
-
     }
 
-    private void changeLauncher(String name) {
-        PackageManager pm = getPackageManager();
-        //隐藏之前显示的桌面组件
-        pm.setComponentEnabledSetting(getComponentName(),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        //显示新的桌面组件
-        pm.setComponentEnabledSetting(new ComponentName(LauncherActivity.this, name),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-        ACache.get(LauncherActivity.this).put("change_logo","1");
-    }
+
 
     //获取可用域名
     public void onGetAvailableDomain() {
@@ -83,7 +121,7 @@ public class LauncherActivity extends AppCompatActivity{
          */
         if(!NetworkUtils.isConnected())
         {
-            ToastUtils.showLongToast("无网络连接！");
+            ToastUtils.showLongToast(getString(R.string.comm_no_net));
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086_1.txt";
@@ -191,7 +229,7 @@ public class LauncherActivity extends AppCompatActivity{
                         }
                         enterMain();
                         ifStop = true;
-                        ToastUtils.showLongToast("网络缓慢，请切换网络或联系客服");
+                        ToastUtils.showLongToast(getString(R.string.comm_no_good_net));
                         GameLog.log("网络缓慢，请切换网络或联系客服");
                     }
                 }

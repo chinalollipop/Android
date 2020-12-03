@@ -24,6 +24,7 @@
     <string name="lotter_me_kjjg">开奖结果</string>
     <string name="lotter_me_jrsy">今日输赢</string>
     <string name="lotter_me_zxkf">在线客服</string>
+    <string name="lotter_games_rule">游戏规则</string>
     <string name="lotter_bjsc">北京赛车</string>
     <string name="lotter_hlsx">欢乐生肖</string>
     <string name="lotter_jssc">极速赛车</string>
@@ -53,7 +54,6 @@
     <string name="lotter_snake">蛇</string>
     <string name="lotter_rabbit">兔</string>
     <string name="lotter_horse">马</string>
-    <string name="lotter_dog">狗</string>
     <string name="lotter_cow">牛</string>
     <string name="lotter_sheep">羊</string>
     <string name="lotter_monkey">猴</string>
@@ -294,8 +294,6 @@
     <string name="lotter_marksix_te_a">特码A</string>
     <string name="lotter_marksix_jq">家禽</string>
     <string name="lotter_marksix_ys">野兽</string>
-    <string name="lotter_marksix_te_b">特码B</string>
-    <string name="lotter_marksix_te_a">特码A</string>
     <string name="lotter_marksix_zma">正码A</string>
     <string name="lotter_marksix_zmb">正码B</string>
 
@@ -314,8 +312,8 @@
 
     <string name="lotter_marksix_hdan">红单</string>
     <string name="lotter_marksix_hshuang">红双</string>
-    <string name="lotter_marksix_hda">红大</string>
-    <string name="lotter_marksix_hxiao">红小</string>
+    <string name="lotter_marksix_hhda">红大</string>
+    <string name="lotter_marksix_hhxiao">红小</string>
     <string name="lotter_marksix_ldan">绿单</string>
     <string name="lotter_marksix_lshuang">绿双</string>
     <string name="lotter_marksix_lda">绿大</string>
@@ -332,14 +330,6 @@
     <string name="lotter_marksix_lanheshuang">蓝合双</string>
 
     <string name="lotter_marksix_xiao1">一肖</string>
-    <string name="lotter_marksix_landa">蓝大</string>
-    <string name="lotter_marksix_lanxiao">蓝小</string>
-    <string name="lotter_marksix_hhdan">红合单</string>
-    <string name="lotter_marksix_hhshuang">红合双</string>
-    <string name="lotter_marksix_lhdan">绿合单</string>
-    <string name="lotter_marksix_lhshuang">绿合双</string>
-    <string name="lotter_marksix_lanhedan">蓝合单</string>
-    <string name="lotter_marksix_lanheshuang">蓝合双</string>
 
 
     <!--底部兰标题-->
@@ -349,6 +339,7 @@
     <string name="str_title_person">我的</string>
     <string name="lotter_bar_record">下注记录</string>
 
+    <string name="games_launcher_time">秒跳过</string>
     <string name="games_login_uname_h">您的会员账号</string>
     <string name="games_login_pwd_h">您的密码</string>
     <string name="games_login_uname_error">请输入有效账号!</string>
@@ -706,6 +697,7 @@
     <string name="plat_new_t">新手教学</string>
     <string name="plast_hg_remind">皇冠公告</string>
     <string name="comm_no_net">请检查您的网络！</string>
+    <string name="comm_no_good_net">网络缓慢，请切换网络或联系客服</string>
     <string name="comm_better_net">已是最优线路！</string>
     <string name="comm_line">线路</string>
     <string name="comm_login_register">登陆/注册</string>

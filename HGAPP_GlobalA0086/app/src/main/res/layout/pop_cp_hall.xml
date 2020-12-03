@@ -11,7 +11,7 @@
         android:textSize="16sp"
         android:textColor="@color/cp_hall_tv"
         android:background="@color/title_text"
-        android:text="即时注单"
+        android:text="@string/lotter_me_jszd"
         android:gravity="center"
 
         />
@@ -26,7 +26,7 @@
         android:textSize="16sp"
         android:textColor="@color/cp_hall_tv"
         android:background="@color/title_text"
-        android:text="今日已结"
+        android:text="@string/lotter_me_jryj"
         android:gravity="center"
         />
     <View
@@ -40,7 +40,7 @@
         android:textSize="16sp"
         android:textColor="@color/cp_hall_tv"
         android:background="@color/title_text"
-        android:text="下注记录"
+        android:text="@string/lotter_bar_record"
         android:gravity="center"
         />
     <View
@@ -54,7 +54,7 @@
         android:textSize="16sp"
         android:textColor="@color/cp_hall_tv"
         android:background="@color/title_text"
-        android:text="开奖结果"
+        android:text="@string/lotter_me_kjjg"
         android:gravity="center"
         />
     <View
@@ -69,7 +69,7 @@
         android:textSize="16sp"
         android:textColor="@color/cp_hall_tv"
         android:background="@color/title_text"
-        android:text="在线客服"
+        android:text="@string/lotter_me_zxkf"
         android:gravity="center"
         />
     <View
