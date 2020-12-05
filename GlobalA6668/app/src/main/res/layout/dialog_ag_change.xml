@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bet_tv_name"
+    >
+
+    <LinearLayout
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="@string/games_ag_my_bal"
+                android:textColor="#030303"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/hgMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="20002元"
+                android:textColor="@color/bet_line_inside_odds"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            >
+
+            <TextView
+                android:id="@+id/agzrOrdz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="@string/games_ag_dz_bal"
+                android:textColor="#030303"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/agMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="10002元"
+                android:textColor="@color/bet_line_inside_odds"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/etAgGoldInput"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:gravity="center|left"
+            android:hint="@string/games_ag_input"
+            android:inputType="number"
+            android:maxLength="8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+            <Button
+                android:id="@+id/agOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/games_ag_out"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ag_out"
+                />
+            <Button
+                android:id="@+id/agInt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ag_in"
+                android:gravity="center"
+                android:text="@string/games_ag_in"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/pop_hight"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

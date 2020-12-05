@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.hgapp.a0086.common.widgets.NTitleBar
+        android:id="@+id/tvAliQCPayBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="@string/comm_back"
+        />
+
+    <TextView
+        android:id="@+id/tvAliQCPayTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/deposite_aliqcpay_title"
+        android:textColor="@color/intputEditText"
+        />
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:id="@+id/ivDepositAliQCPayImage"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/intputEditText"
+        android:text="@string/deposite_aliqcpay_note"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+    <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:gravity="center|left"
+        android:layout_height="@dimen/h_edit_height">
+
+        <TextView
+            android:id="@+id/tvDepositAliQCPayType"
+            android:textColor="@color/textview_hight"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/deposite_aliqcpay_type"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tvDepositAliQCPayName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:gravity="center|left"
+            android:text="@string/deposite_aliqcpay_type_h"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <LinearLayout
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:gravity="center|left"
+        android:layout_height="@dimen/h_edit_height">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/deposite_aliqcpay_money"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/etDepositAliQCPayMoney"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/deposite_aliqcpay_money_h"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <LinearLayout
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center|left"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height">
+
+        <TextView
+            android:id="@+id/edDepositAliQCPayOrder"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/deposite_aliqcpay_order"
+            android:gravity="center|left"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edDepositAliQCPayOrderNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/deposite_aliqcpay_order_h" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_edit_height"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center|left">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/deposite_aliqcpay_time"
+            android:textColor="@color/textview_hight"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvDepositAliQCPayTime"
+            android:background="@mipmap/icon_textview_transfer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:textColor="#868686"
+            android:textSize="15sp"
+            android:text="@string/deposite_aliqcpay_time_h" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+
+    <Button
+        android:id="@+id/btnDepositAliQCPaySubmit"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_tbn_height"
+        android:text="@string/deposite_submit"
+        />
+</LinearLayout>
+</ScrollView>

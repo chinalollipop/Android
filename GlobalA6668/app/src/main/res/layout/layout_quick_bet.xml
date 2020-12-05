@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/groupQuickbet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnSaveQuickBet1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_text"
+                android:gravity="center"
+                android:paddingTop="37px"
+                android:paddingBottom="37px"
+                android:text="@string/lotter_quick_type1"
+                android:textColor="#FF3300"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnSaveQuickBet2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_text"
+                android:gravity="center"
+                android:paddingTop="37px"
+                android:paddingBottom="37px"
+                android:text="@string/lotter_quick_type2"
+                android:textColor="#FF3300"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@android:color/transparent"/>-->
+
+        <Button
+            android:id="@+id/btnSaveQuickBet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/title_text"
+            android:gravity="center"
+            android:paddingTop="37px"
+            android:paddingBottom="37px"
+            android:text="@string/lotter_quick_type_save"
+            android:textColor="#4A4A4A"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

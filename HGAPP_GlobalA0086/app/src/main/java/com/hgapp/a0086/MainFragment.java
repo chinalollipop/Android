@@ -303,6 +303,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put("guest_login_must_input_phone",checkUpgradeResult.getGuest_login_must_input_phone() );
             ACache.get(getContext()).put("login_must_tpl_name",checkUpgradeResult.getTpl_name());
             ACache.get(getContext()).put("signSwitch",checkUpgradeResult.getSignSwitch() );
+            ACache.get(getContext()).put("android_baodu",checkUpgradeResult.getAndroid_baodu());
             //EventBus.getDefault().post(checkUpgradeResult);
             checkUpgradeDone = true;
             PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
@@ -342,7 +343,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
         String lVersion = InstallHelper.apkInfoVersion(intent.dir+"/"+intent.fileName,getContext());
         GameLog.log("\"本地文件的版本号是："+lVersion);
         if(lVersion.equals(checkUpgradeResult.getVersion())){
-            showMessage("检测到有新版本更新，请安装！");
+            showMessage(getString(R.string.comm_app_upgrade_now));
             if (file.exists()) {
                 GameLog.log("\"安装app时发现文件已经存在"+file.getAbsolutePath());
                 InstallHelper.attemptIntallApp(getContext(),file);
@@ -376,7 +377,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
 
         @Override
         public void onComplete(String packagename) {
-            showMessage("检测到有新版本更新，请安装！");
+            showMessage(getString(R.string.comm_app_upgrade_now));
             if(null != intent)
             {
                 File file = new File(intent.dir,intent.fileName);

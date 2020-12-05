@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/frame_roundcorner_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="@string/games_prepare_bet_bill"
+            android:textColor="#7B7369" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:text="@string/games_prepare_bet_my_bal"
+                android:textColor="#030303"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvBetOrderMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:text="20002"
+                android:textColor="@color/bet_line_inside_odds"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12px"
+                android:gravity="center"
+                android:text="@string/comm_roll_money_unit"
+                android:textColor="#FF1D1D1D"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#7B7369" />
+
+
+        <TextView
+            android:id="@+id/etBetSubmitsInfor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:gravity="center|left"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:text="足球 单场独赢\n\n中国甲级超级联赛\n\n恒大足球俱乐部 VS 广州恒大 \n\n广州恒大 @3.16 \n\n120.00元" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/betSubmitZHRv"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <RelativeLayout
+                android:layout_marginLeft="20dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etBetSubmitGod"
+                android:background="@drawable/bet_dialog_edit"
+                android:layout_width="120dp"
+                android:textColorHint="#C5C5C5"
+                android:inputType="number"
+                android:maxLength="10"
+                android:layout_height="match_parent"
+                android:hint="@string/games_prepare_bet_fhead"
+                />
+                <ImageView
+                    android:id="@+id/ivBetSubmitGodClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/bet_dialog_close"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#C5C5C5"
+                        android:textSize="15sp"
+                        android:text="@string/games_prepare_bet_lowest" />
+                    <TextView
+                        android:id="@+id/tvBetSubmitGodMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:text="50"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#C5C5C5"
+                        android:textSize="15sp"
+                        android:text="@string/games_prepare_bet_highest" />
+                    <TextView
+                        android:id="@+id/tvBetSubmitGodMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:text="5000"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:text="@string/games_prepare_bet_win_amount"
+                android:textColor="#C5C5C5"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:id="@+id/tvetBetSubmitWinGod"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="0.00"
+                android:textColor="#52A47E"
+                android:textSize="16sp"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBetSubmitCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_cancel_dialog"
+                android:gravity="center"
+                android:paddingBottom="39px"
+                android:paddingTop="39px"
+                android:text="@string/comm_cancel"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnBetSubmitSuccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bet_submit_dialog"
+                android:gravity="center"
+                android:paddingBottom="39px"
+                android:paddingTop="39px"
+                android:text="@string/comm_confirm_bill"
+                android:textColor="@color/pop_hight"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

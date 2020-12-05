@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.hgapp.a0086.common.widgets.NTitleBar
+        android:id="@+id/tvAliQCPayBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backText="返回"
+        />
+
+    <TextView
+        android:id="@+id/usdtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:text="TRC20"
+        android:textColor="#FF0000"
+        />
+    <LinearLayout
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deposite_usdt_in"
+            />
+        <TextView
+            android:id="@+id/usdtAmount"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USDT"
+            />
+        <Button
+            android:id="@+id/usdtAmountCopy"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:text="@string/deposite_usdt_copy_money"
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:id="@+id/ivDepositAliQCPayImage"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textColor="#FF0000"
+        android:text="@string/deposite_usdt_qc_note"
+        />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/deposite_usdt_address"
+            android:textColor="@color/color_bg_dialog" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+
+        <TextView
+            android:id="@+id/usdtAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deposite_usdt_address"
+            android:textColor="@color/color_bg_dialog" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/l_view_color" />
+
+        <Button
+            android:id="@+id/usdtAddressCopy"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:text="@string/deposite_usdt_copy_address"
+            android:textColor="@color/all_bg" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/l_view_color"
+        />
+
+    <TextView
+        android:id="@+id/usdtService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:textColor="@color/color_bg_dialog"
+        android:drawableRight="@mipmap/tv_tservice"
+        android:background="@drawable/tv_service"
+        android:text="@string/deposite_usdt_mark"
+        />
+    <TextView
+        android:id="@+id/usdtMark"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/deposite_usdt_qc_mark"
+        android:textColor="@color/color_bg_dialog"
+        />
+
+</LinearLayout>
+</ScrollView>

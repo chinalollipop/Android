@@ -700,7 +700,7 @@
     <string name="comm_no_good_net">网络缓慢，请切换网络或联系客服</string>
     <string name="comm_better_net">已是最优线路！</string>
     <string name="comm_line">线路</string>
-    <string name="comm_login_register">登陆/注册</string>
+    <string name="comm_login_register">登录/注册</string>
     <string name="comm_service_error">请求服务有异常，请稍后再试！</string>
     <string name="contract_qq">QQ客服</string>
     <string name="contract_wechat">微信公众号</string>
@@ -810,6 +810,9 @@
     <string name="comm_app_upgrade_title">版本更新</string>
     <string name="comm_app_upgrade_later">以后更新</string>
     <string name="comm_app_upgrade_imme">立即更新</string>
+    <string name="comm_app_upgrade_redown">重新下载</string>
+    <string name="comm_app_upgrade_now">检测到有新版本更新，请安装！</string>
+    <string name="comm_app_upgrade_redown_error">更新错误，请重新下载</string>
     <string name="comm_register">注册</string>
     <string name="comm_pls_register_real_acccount">非常抱歉，请您注册真实会员！</string>
     <string name="comm_loading">加载中</string>
@@ -840,6 +843,7 @@
     <string name="lan_en">英文</string>
     <string name="lan_ja">日文</string>
     <string name="lan_de">德文</string>
+    <string name="lan_vi">越南</string>
 
     <string name="me_refresh">刷新</string>
     <string name="me_logout">登出</string>

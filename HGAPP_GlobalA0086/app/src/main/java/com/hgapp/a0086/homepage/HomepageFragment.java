@@ -221,7 +221,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
             int sizeq = domainUrl.getList().size();
             for (int k = 0; k < sizeq; ++k) {
                 if (domainUrl.getList().get(k).isChecked()) {
-                    tvHomePageLine.setText("线路" + domainUrl.getList().get(k).getPid());
+                    tvHomePageLine.setText(getString(R.string.comm_line) + domainUrl.getList().get(k).getPid());
                 }
             }
         }

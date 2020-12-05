@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/status_shape">
+            <TextView
+                android:id="@+id/tvHomePageLine"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/line_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comm_line"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/title_text"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/home_logo" />
+
+            <TextView
+                android:id="@+id/tvHomePageLogin"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/comm_login_register"
+                android:textColor="@color/title_text"
+                android:textSize="14sp" />
+            <TextView
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@mipmap/title_right"
+                android:id="@+id/tvHomePageUserMoney"
+                android:textColor="@color/title_text"
+                android:layout_marginRight="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--<com.jude.rollviewpager.RollPagerView
+                android:id="@+id/rollpageview"
+                android:layout_width="match_parent"
+                android:layout_height="144dp" />-->
+
+            <com.lzj.gallery.library.views.BannerViewPager
+                android:id="@+id/banner_3d"
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:background="@mipmap/homapage_bulletin"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginLeft="43px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/homapage_gonggao" />
+
+                <com.hgapp.a0086.common.widgets.MarqueeTextView
+                    android:id="@+id/tv_homapage_bulletin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="33px"
+                    android:layout_marginRight="23dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/home_sign"
+                android:background="@mipmap/home_sign"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.hgapp.a0086.common.widgets.HGGifView
+                android:id="@+id/home_newyear"
+                android:layout_centerInParent="true"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="35dp"
+                android:visibility="gone"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <!-- <ImageView
+                 android:id="@+id/home_newyear"
+                 android:background="@mipmap/home_newy"
+                 android:layout_gravity="left"
+                 android:layout_margin="10dp"
+                 android:visibility="gone"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"/>-->
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@mipmap/home_money_center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/homeUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="@string/home_play_no_login"
+                />
+
+            <LinearLayout
+                android:id="@+id/homeGoLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/home_login_first" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@mipmap/home_no_login" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homeLoginAl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_zxqb"
+                    android:visibility="gone"
+                    android:textColor="@color/title_bg_black" />
+
+                <TextView
+                    android:id="@+id/homeMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥0.00"
+                    android:textColor="@color/event_line_title" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:background="@mipmap/home_linec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+
+            <TextView
+                android:id="@+id/homeDeposit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:drawablePadding="5dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_deposit"
+                android:text="@string/str_title_deposit" />
+            <TextView
+                android:text="@string/home_deposite"
+                android:id="@+id/homeDepositC"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:drawablePadding="5dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_deposit_c"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/homeDwith"
+                android:text="@string/deposit_record_withdraw"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:drawablePadding="5dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_dwith"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/homeBank"
+                android:text="@string/me_bankcode"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:drawablePadding="5dp"
+                android:textColor="@color/title_bg_black"
+                android:drawableLeft="@mipmap/home_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/homepageTab"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabIndicatorHeight="0dp"
+        android:visibility="gone"
+        app:tabBackground="@drawable/tab_selector"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_homepage_game_hall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:fadeScrollbars="true"
+            />
+
+        <LinearLayout
+            android:background="@mipmap/home_tab_bga_c"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="50dp">
+            <TextView
+                android:id="@+id/hometabTextTY"
+                android:text=""
+                android:layout_weight="3"
+                android:background="@mipmap/home_tab_txt_ty"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/hometabTextZR"
+                android:text="@string/home_zr"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/hometabTextDJ"
+                android:text="@string/home_dj"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/hometabTextCP"
+                android:text="@string/plat_lottery"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/hometabTextQP"
+                android:text="@string/home_qp"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/hometabTextDY"
+                android:text="@string/home_dy"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/hometabTextZX"
+                android:text="@string/home_zx"
+                android:layout_weight="1"
+                android:textColor="@color/cp_hall_tv"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/home_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="60dp"
+        />
+</LinearLayout>

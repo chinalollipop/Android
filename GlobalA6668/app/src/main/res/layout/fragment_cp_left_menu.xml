@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/left_menu_frame_idxx"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cp_order_bg"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/lotter_menu"
+        android:layout_margin="10dp"
+        android:textSize="17sp"
+        android:textColor="@color/register_left"
+        />
+    <TextView
+        android:background="#2f5a9e"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvContentOrder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

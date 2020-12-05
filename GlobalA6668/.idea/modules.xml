@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GlobalA6668.iml" filepath="$PROJECT_DIR$/GlobalA6668.iml" group="GlobalA6668" />
+      <module fileurl="file://$PROJECT_DIR$/HGAPP_GlobalA0086.iml" filepath="$PROJECT_DIR$/HGAPP_GlobalA0086.iml" group="HGAPP_GlobalA0086" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarex/actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/actionbarex.iml" group="GlobalA6668/actionbarex" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="GlobalA6668/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" group="GlobalA6668/commonliberary" />
+      <module fileurl="file://$PROJECT_DIR$/gallery/gallery.iml" filepath="$PROJECT_DIR$/gallery/gallery.iml" group="GlobalA6668/gallery" />
+      <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" group="GlobalA6668/slidingmenu" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/bg_nyear_event"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="390dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:background="@mipmap/n_goodluck" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <EditText
+                                android:id="@+id/nyearSignEdit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_nyear_edit"
+                                android:inputType="number"
+                                android:maxLength="11"
+                                android:textColor="#f8e77d"
+                                android:textColorHint="#f8e77d" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="7dp"
+                                android:text="填写手机号码"
+                                android:textColor="@android:color/white" />
+
+                            <ImageView
+                                android:id="@+id/nyearSign"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@mipmap/n_sign" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/nyearSignNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_nyear_edit"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="#f8e77d" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="2dp"
+                                android:text="剩余次数"
+                                android:textColor="@android:color/white" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="2dp"
+                                android:background="@mipmap/n_red" />
+
+                            <ImageView
+                                android:id="@+id/nyearTake"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@mipmap/n_take" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- <ImageView
+                 android:background="@mipmap/nyear"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="150dp"
+                 android:layout_marginTop="416dp"
+                 android:text="领取" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/eventTitleBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:drawableLeft="@mipmap/back"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/n_titlebar_back"
+                    android:textColor="@color/title_text"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/eventTitleUserMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@mipmap/title_right"
+                    android:gravity="center"
+                    android:text="@string/account"
+                    android:textColor="@color/title_text"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <com.hgapp.a0086.common.widgets.redpacket.RedPacketsLayout
+                android:id="@+id/packets_layout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+    </ScrollView>
+</LinearLayout>
