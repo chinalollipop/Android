@@ -30,6 +30,7 @@ import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.LoginResult;
+import com.hgapp.a0086.data.NoticeResult;
 import com.hgapp.a0086.data.PersonBalanceResult;
 import com.hgapp.a0086.data.PersonInformResult;
 import com.hgapp.a0086.data.QipaiResult;
@@ -726,6 +727,11 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
     @Subscribe
     public void onPrepareGoEvent(PrepareGoEvent prepareGoEvent){
         showBetFragmnet(prepareGoEvent);
+    }
+
+    @Override
+    public void postNoticeListResult(NoticeResult noticeResult) {
+
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.hgapp.a0086.personpage;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,16 +20,18 @@ import com.hgapp.a0086.common.http.Client;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
-import com.hgapp.a0086.common.util.Store;
-import com.hgapp.a0086.common.widgets.GridRvItemDecoration;
-import com.hgapp.a0086.common.widgets.NTitleBar;
+import com.hgapp.a0086.common.widgets.RoundCornerImageView;
 import com.hgapp.a0086.data.CPResult;
 import com.hgapp.a0086.data.LoginResult;
+import com.hgapp.a0086.data.NoticeResult;
 import com.hgapp.a0086.data.PersonBalanceResult;
 import com.hgapp.a0086.data.PersonInformResult;
 import com.hgapp.a0086.data.QipaiResult;
+import com.hgapp.a0086.homepage.HomePageIcon;
 import com.hgapp.a0086.homepage.UserMoneyEvent;
 import com.hgapp.a0086.homepage.handicap.ShowMainEvent;
+import com.hgapp.a0086.homepage.noticelist.NoticeListFragment;
+import com.hgapp.a0086.homepage.online.ContractFragment;
 import com.hgapp.a0086.homepage.online.OnlineFragment;
 import com.hgapp.a0086.personpage.accountcenter.AccountCenterFragment;
 import com.hgapp.a0086.personpage.balanceplatform.BalancePlatformFragment;
@@ -63,65 +63,45 @@ import me.yokeyword.sample.demo_wechat.event.StartBrotherEvent;
 public class PersonFragment extends HGBaseFragment implements PersonContract.View {
 
     @BindView(R.id.tvPersonBack)
-    NTitleBar tvPersonBack;
+    TextView tvPersonBack;
     @BindView(R.id.rvMyList)
     RecyclerView rvMyList;
     @BindView(R.id.tvPersonUsername)
     TextView tvPersonUsername;
+    @BindView(R.id.personAdItem)
+    RoundCornerImageView personAd;
+    @BindView(R.id.personAgent)
+    RoundCornerImageView personAgent;
     @BindView(R.id.personRefresh)
     TextView personRefresh;
     @BindView(R.id.tvPersonHg)
     TextView tvPersonHg;
     @BindView(R.id.personLogout)
     TextView personLogout;
+    @BindView(R.id.personJoinDays)
+    TextView personJoinDays;
     @BindView(R.id.personVersion)
     TextView personVersion;
     private String personMoney;
     private PersonBalanceResult personBalance;
+    private NoticeResult noticeResultList;
     private PersonContract.Presenter presenter;
-    private static List<String> myList = new ArrayList<String>();
-
-   private void initListData() {
-        /*myList.add("真人升级");
-        myList.add("体育升级");
-        myList.add("充值");
-        myList.add("额度转换");
-        myList.add("银行卡");
-        myList.add("提现");
-        myList.add("平台余额");
-        myList.add("站内信");
-        myList.add("账户中心");
-        //myList.add("转账记录");
-        myList.add("投注记录");
-        //myList.add("交易记录");
-        myList.add("流水记录");
-        myList.add("语言设置");*/
-        /*<string name="me_zhenren">真人升级</string>
-        <string name="me_tiyu">体育升级</string>
-        <string name="me_deposit">充值</string>
-        <string name="me_exchange">额度转换</string>
-        <string name="me_bankcode">银行卡</string>
-        <string name="me_withdraw">提现</string>
-        <string name="me_platbalance">平台余额</string>
-        <string name="me_message">站内信</string>
-        <string name="me_accountcenter">账户中心</string>
-        <string name="me_bettingrecord">投注记录</string>
-        <string name="me_flowrecord">流水记录</string>*/
-       myList.clear();
-        myList.add(getString(R.string.me_zhenren));
-        myList.add(getString(R.string.me_tiyu));
-        myList.add(getString(R.string.me_deposit));
-        myList.add(getString(R.string.me_exchange));
-        myList.add(getString(R.string.me_bankcode));
-        myList.add(getString(R.string.me_withdraw));
-        myList.add(getString(R.string.me_platbalance));
-        myList.add(getString(R.string.me_message));
-        myList.add(getString(R.string.me_accountcenter));
-        myList.add(getString(R.string.me_bettingrecord));
-        myList.add(getString(R.string.me_flowrecord));
-       myList.add(getString(R.string.select_language));
+    private  List<HomePageIcon> myList = new ArrayList<HomePageIcon>();
+    private void initData() {
+        myList.clear();
+        myList.add(new HomePageIcon(getString(R.string.deposite_money),R.mipmap.icon_my_deposit,0));
+        myList.add(new HomePageIcon(getString(R.string.me_exchange),R.mipmap.icon_my_transfer,1));
+        myList.add(new HomePageIcon(getString(R.string.me_bankcode),R.mipmap.icon_my_bank_card,2));
+        myList.add(new HomePageIcon(getString(R.string.deposit_record_with),R.mipmap.icon_my_withdraw,3));
+        myList.add(new HomePageIcon(getString(R.string.me_message),R.mipmap.icon_my_message,4));
+        myList.add(new HomePageIcon(getString(R.string.me_accountcenter),R.mipmap.icon_my_psersion,5));
+        myList.add(new HomePageIcon(getString(R.string.me_bettingrecord),R.mipmap.icon_my_deal_record,6));
+        myList.add(new HomePageIcon(getString(R.string.me_flowrecord),R.mipmap.icon_my_running_record,7));
+        myList.add(new HomePageIcon(getString(R.string.me_newaccount),R.mipmap.icon_my_new,8));
+        myList.add(new HomePageIcon(getString(R.string.plat_contracts),R.mipmap.icon_my_contract,9));
+        myList.add(new HomePageIcon(getString(R.string.plat_agents),R.mipmap.icon_my_agent,10));
+        myList.add(new HomePageIcon(getString(R.string.plast_hg_remind),R.mipmap.icon_my_gonggao,11));
     }
-
 
     public static PersonFragment newInstance() {
         PersonFragment fragment = new PersonFragment();
@@ -138,12 +118,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
-
-        initListData();
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, OrientationHelper.VERTICAL,false);
+        initData();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4, OrientationHelper.VERTICAL,false);
         rvMyList.setLayoutManager(gridLayoutManager);
-        rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
+        //rvMyList.addItemDecoration(new GridRvItemDecoration(getContext()));
         rvMyList.setAdapter(new RvMylistAdapter(getContext(),R.layout.item_person,myList));
         PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());
         if(null == packageInfo)
@@ -156,50 +134,50 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         personVersion.setText("V:"+localver);
     }
 
-    class RvMylistAdapter extends com.hgapp.a0086.common.adapters.AutoSizeRVAdapter<String>{
+    private void showRealAccountMessage(){
+        showMessage(getString(R.string.comm_pls_register_real_acccount));
+    }
+
+    class RvMylistAdapter extends com.hgapp.a0086.common.adapters.AutoSizeRVAdapter<HomePageIcon>{
         private Context context;
-        public RvMylistAdapter(Context context, int layoutId,List<String> datas){
+        public RvMylistAdapter(Context context, int layoutId,List<HomePageIcon> datas){
             super(context, layoutId, datas);
             this.context =  context;
         }
         @Override
-        protected void convert(ViewHolder holder, String string,final int position) {
-
+        protected void convert(ViewHolder holder,final HomePageIcon data,final int position) {
+            holder.setText(R.id.tvItemMyName,data.getIconName());
+            holder.setImageResource(R.id.ivItemMyImage,data.getIconId());
             holder.setOnClickListener(R.id.llItemMySelf, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     GameLog.log("用户的金额："+personMoney);
-                    switch (position){
+                    switch (data.getId()){
                         case 0:
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"middle_lives_upgraded.php?tip=app&game_Type=live")));
-
-                            break;
-                        case 1:
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"middle_lives_upgraded.php?tip=app&game_Type=sport")));
-
-                            break;
-                        case 2:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage(getString(R.string.comm_pls_register_real_acccount));
+                                showRealAccountMessage();
                                 return;
                             }
                             //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
                             EventBus.getDefault().post(new ShowMainEvent(1));
                             break;
-                        case 3:
+                        case 1:
+                           /* if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }*/
                             EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
                             break;
-                        case 4:
-
+                        case 2:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage(getString(R.string.comm_pls_register_real_acccount));
+                                showRealAccountMessage();
                                 return;
                             }
                             EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             break;
-                        case 5:
+                        case 3:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage(getString(R.string.comm_pls_register_real_acccount));
+                                showRealAccountMessage();
                                 return;
                             }
                             String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
@@ -217,88 +195,53 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                 EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
                             }
                             break;
-                        case 6:
-                            EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
-                            break;
-                        case 7:
+                        case 4:
+                            /*if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                                showMessage("非常抱歉，请您注册真实会员！");
+                                return;
+                            }*/
                             showMessage(getString(R.string.me_stay_tuned));
+                            //EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
                             break;
-                        case 8:
+                        case 5:
                             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
-                                showMessage(getString(R.string.comm_pls_register_real_acccount));
+                                showRealAccountMessage();
                                 return;
                             }
                             EventBus.getDefault().post(new StartBrotherEvent(AccountCenterFragment.newInstance(personMoney)));
                             break;
-                        case 9:
-                            //投注记录
+                        case 6://投注记录
                             EventBus.getDefault().post(new StartBrotherEvent(BetRecordFragment.newInstance("today",personMoney), SupportFragment.SINGLETASK));
+
                             break;
-                        case 10:
-                            //交易记录
+                        case 7://交易记录
                             EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("T",personMoney), SupportFragment.SINGLETASK));
+
                             break;
-                        case 11://语言设置
+                        case 8://新手教学
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"help.php?tip=app")));
+                            break;
+                        case 9://联系我们
+                            EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_QQ),
+                                    ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
+                            break;
+                        case 10://代理加盟
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                            break;
+                        //presenter.logOut();
+                        case 11://皇冠公告
                             //presenter.logOut();
-                            setLanguage();
+                            if(Check.isNull(noticeResultList)) {
+                                presenter.postNoticeList("");
+                            }else{
+                                EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
+                            }
+                            //showMessage("敬请期待！");
                             break;
-                        case 12:
-                            EventBus.getDefault().post(new StartBrotherEvent(DepositRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            //EventBus.getDefault().post(new StartBrotherEvent(FlowingRecordFragment.newInstance("S",personMoney), SupportFragment.SINGLETASK));
-                            break;
-
-
                     }
                 }
             });
-            holder.setText(R.id.tvItemMyName,string);
-            switch (position){
-                case 0:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_live);
-                    break;
-                case 1:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_sport);
-                    break;
-                case 2:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deposit);
-                    break;
-                case 3:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer);
-                    break;
-                case 4:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bank_card);
-                    break;
-                case 5:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_withdraw);
-                    break;
-                case 6:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_balance);
-                    break;
-                case 7:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_message);
-                    break;
-                case 8:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_psersion);
-                    break;
-                case 9:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
-                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_transfer_record);
-                    break;
-                case 10:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
-                    //holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_bet_record);
-                    break;
-                case 11:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_deal_record);
-                    break;
-                case 12:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_running_record);
-                    break;
-                case 13:
-                    holder.setImageResource(R.id.ivItemMyImage,R.mipmap.icon_my_logout);
-                    break;
-
-            }
 
         }
 
@@ -306,20 +249,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     }
 
 
-    private void setLanguage(){
-        final String[] cities = {getString(R.string.lan_chinese), getString(R.string.lan_en), getString(R.string.lan_vi),getString(R.string.lan_ja), getString(R.string.lan_de)};
-        final String[] locals = {"zh_cn", "en-us", "vi-vn","ja", "de"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setIcon(R.mipmap.ico_launcher);
-        builder.setTitle(R.string.select_language);
-        builder.setItems(cities, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Store.setLanguageLocal(getActivity(), locals[which]);
-                EventBus.getDefault().post("EVENT_REFRESH_LANGUAGE");
-            }
-        });
-        builder.show();
+    @Override
+    public void postNoticeListResult(NoticeResult noticeResult) {
+
+        noticeResultList =noticeResult;
+        EventBus.getDefault().post(new StartBrotherEvent(NoticeListFragment.newInstance(noticeResultList,"","")));
     }
 
 
@@ -333,6 +267,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
         //tvPersonUsername.setText(personInformResult.getUsername());
         personMoney = GameShipHelper.formatMoney(personInformResult.getBalance_hg());
+        personJoinDays.setText(personInformResult.getJoinDays()+"天");
         GameLog.log("成功获取用户个人信心");
     }
 
@@ -342,7 +277,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         personMoney = GameShipHelper.formatMoney(personBalance.getBalance_hg());
         tvPersonHg.setText(personMoney);
         EventBus.getDefault().post(new UserMoneyEvent(personMoney));
-        tvPersonBack.setMoreText(personMoney);
+        tvPersonBack.setText(personMoney);
         GameLog.log("成功获取用户余额信息");
     }
 
@@ -375,10 +310,10 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
         GameLog.log("我的获取的用户余额："+loginResult.getMoney());
         if(!Check.isEmpty(loginResult.getMoney())){
             personMoney = GameShipHelper.formatMoney(loginResult.getMoney());
-            tvPersonBack.setMoreText(personMoney);
+            tvPersonBack.setText(personMoney);
             if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
                 tvPersonUsername.setText(getString(R.string.me_test_player));
-            }else {
+            }else{
                 tvPersonUsername.setText(loginResult.getUserName());
             }
             tvPersonHg.setText(personMoney);
@@ -410,8 +345,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     @Override
     public void onVisible() {
         super.onVisible();
-
-        if(!Check.isNull(presenter)){
+        if(!Check.isNull(presenter)) {
             presenter.getPersonBalance("", "");
             presenter.getPersonInform("");
         }
@@ -424,16 +358,57 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
             EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
         }*/
     }
-    @OnClick(R.id.personLogout)
-    public void onLogout(){
-        if(Check.isNull(presenter)){
-            presenter = Injections.inject(null, this);
+    @OnClick({R.id.personAgent,R.id.personAdItem,R.id.personRefresh,R.id.personLogout,R.id.personDeposit,R.id.personDwith,R.id.personDepositC,R.id.personAD})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.personAgent:
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                break;
+            case R.id.personRefresh:
+                presenter.getPersonBalance("","Refresh");
+                break;
+            case R.id.personLogout:
+                if(Check.isNull(presenter)){
+                    presenter = Injections.inject(null, this);
+                }
+                presenter.logOut();
+                break;
+            case R.id.personDeposit://存款
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showRealAccountMessage();
+                    return;
+                }
+                //EventBus.getDefault().post(new StartBrotherEvent(MainFragment.newInstance("person_to_deposit",""), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new ShowMainEvent(1));
+                break;
+            case R.id.personDwith://取款
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showRealAccountMessage();
+                    return;
+                }
+                String alias = ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS);
+                if(Check.isEmpty(alias)){
+                    EventBus.getDefault().post(new StartBrotherEvent(RealNameFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                    return;
+                }
+                String userStatus = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_ACCOUNT)+HGConstant.USERNAME_BIND_CARD);
+                //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_ACCOUNT+loginResult.getUserName()+, loginResult.getBindCard_Flag());
+                GameLog.log("用户是否已经绑定过银行卡："+userStatus);
+                if("0".equals(userStatus)){
+                    showMessage(getString(R.string.bcard_user_first));
+                    EventBus.getDefault().post(new StartBrotherEvent(BindingCardFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                }else{
+                    EventBus.getDefault().post(new StartBrotherEvent(WithdrawFragment.newInstance(personMoney,""), SupportFragment.SINGLETASK));
+                }
+                break;
+            case R.id.personDepositC://转账
+                //EventBus.getDefault().post(new StartBrotherEvent(BalanceTransferFragment.newInstance(personMoney), SupportFragment.SINGLETASK));
+                EventBus.getDefault().post(new StartBrotherEvent(BalancePlatformFragment.newInstance(personBalance), SupportFragment.SINGLETASK));
+                break;
+            case R.id.personAdItem:
+            case R.id.personAD://活动
+                EventBus.getDefault().post(new ShowMainEvent(0));
+                break;
         }
-        presenter.logOut();
-    }
-
-    @OnClick(R.id.personRefresh)
-    public void onPersonRefresh(){
-        presenter.getPersonBalance("","");
     }
 }

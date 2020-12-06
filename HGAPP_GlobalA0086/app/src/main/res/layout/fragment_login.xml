@@ -215,7 +215,7 @@
                 android:layout_height="33dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_register_normal"
-                android:text="安卓APP转账报毒解决方案" />
+                android:text="@string/games_login_baodu" />
 
         </LinearLayout>
 

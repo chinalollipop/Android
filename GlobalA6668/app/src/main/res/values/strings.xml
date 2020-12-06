@@ -351,7 +351,7 @@
     <string name="games_login_submit">确认登录</string>
     <string name="games_login_register_now">立即注册</string>
     <string name="games_login_demo">试玩参观</string>
-    <string name="games_login_baodu">安卓APP转账报毒解决方案</string>
+    <string name="games_login_baodu">APP转账报毒解决方案</string>
     <string name="games_login_demo_phone">*手机号</string>
     <string name="games_login_demo_phone_h">请输入10位手机号码</string>
     <string name="games_login_demo_submit">提交</string>
@@ -865,11 +865,14 @@
     <string name="me_accountcenter">账户中心</string>
     <string name="me_bettingrecord">投注记录</string>
     <string name="me_flowrecord">流水记录</string>
+    <string name="me_newaccount">新手教程</string>
     <string name="select_language">语言设置</string>
     <string name="me_personaldata">个人资料</string>
     <string name="me_changepwd">修改密码</string>
     <string name="me_stay_tuned">敬请期待！</string>
     <string name="me_test_player">试玩玩家</string>
+    <string name="me_function">我的功能</string>
+    <string name="me_logout1">登出登录</string>
     <string name="home_ty">体育</string>
     <string name="home_zr">真人</string>
     <string name="home_dj">电竞</string>

@@ -1,113 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-    <com.hgapp.a0086.common.widgets.NTitleBar
-        android:id="@+id/tvPersonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:backImageShow="false"
-        app:moreText="0.0"
-        />
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="@mipmap/icon_my_bg"
         android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_marginTop="10dp"
-            android:background="@mipmap/icon_my_persion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/tvPersonUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daniel"
-            android:textSize="15sp"
-            android:textColor="@color/title_text"
-            />
-        <RelativeLayout
-            android:gravity="center|right"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tvPersonHg"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/status_shape"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:id="@+id/tvPersonBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:drawableLeft="@mipmap/title_right"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="0.00"
+                    android:textColor="@color/title_text"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@mipmap/icon_my_persion" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvPersonUsername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Daniel"
+                            android:textColor="@color/title_text"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/personRefresh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/person_refresh"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="5dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/me_refresh"
+                            android:textColor="@color/title_text"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="您已加入HG6668 "
+                            android:alpha="0.5"
+                            android:textColor="@color/title_text" />
+                        <TextView
+                            android:id="@+id/personJoinDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/title_text" />
+                    </LinearLayout>
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center|right">
+
+                    <TextView
+                        android:id="@+id/personVersion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/bet_sw_padding_right"
+                        android:text="1.0.0"
+                        android:textColor="#FFFFFF" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/person_money_center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/homeLoginAl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.00"
-                android:textColor="@color/title_text"
-                android:textSize="22sp"
-                />
-            <TextView
-                android:id="@+id/personRefresh"
-                android:layout_width="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_zxqb"
+                    android:textColor="@color/cp_hall_tv" />
+
+                <TextView
+                    android:id="@+id/tvPersonHg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥0.00"
+                    android:textColor="@color/cp_hall_tv" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:background="@drawable/person_refresh"
-                android:text="@string/me_refresh"
-                android:textColor="@color/title_text"
-                android:textSize="14sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="20dp"
+                android:background="@mipmap/home_linec" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
-                />
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/personDeposit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="5dp"
+                    android:drawableLeft="@mipmap/home_deposit"
+                    android:drawablePadding="5dp"
+                    android:gravity="center|left"
+                    android:text="@string/str_title_deposit"
+                    android:textColor="@color/title_bg_black"
+                    />
+
+
+                <TextView
+                    android:id="@+id/personDwith"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="5dp"
+                    android:drawableLeft="@mipmap/home_dwith"
+                    android:drawablePadding="5dp"
+                    android:gravity="center|left"
+                    android:text="@string/deposit_record_withdraw"
+                    android:textColor="@color/title_bg_black"
+                    />
+                <TextView
+                    android:id="@+id/personDepositC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="5dp"
+                    android:drawableLeft="@mipmap/home_deposit_c"
+                    android:drawablePadding="5dp"
+                    android:gravity="center|left"
+                    android:text="@string/home_deposite"
+                    android:textColor="@color/title_bg_black"
+                    />
+                <TextView
+                    android:id="@+id/personAD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/home_ad"
+                    android:drawablePadding="5dp"
+                    android:gravity="center|left"
+                    android:text="@string/plat_activity"
+                    android:textColor="@color/title_bg_black"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
-            <TextView
-                android:id="@+id/personVersion"
-                android:text="1.0.0"
-                android:textColor="#555555"
-                android:layout_marginRight="@dimen/bet_sw_padding_right"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp">
+
+            <com.hgapp.a0086.common.widgets.RoundCornerImageView
+                android:id="@+id/personAdItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@mipmap/person_ad"
+                android:scaleType="centerCrop" />
+
+            <com.hgapp.a0086.common.widgets.RoundCornerImageView
+                android:id="@+id/personAgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@mipmap/person_agent"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_person"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@mipmap/person_my_ac"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:textColor="#000000"
+                android:padding="10dp"
+                android:text="@string/me_function" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvMyList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/btn_person"
+            android:fadeScrollbars="true" />
+
+        <TextView
+            android:id="@+id/personLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_person"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/me_logout1" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="60dp"
+            />
 
     </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvMyList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="30dp"
-        android:background="@color/l_view_color" />
-
-    <TextView
-        android:id="@+id/personLogout"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="5dp"
-        android:gravity="center"
-        android:drawableTop="@mipmap/icon_my_logout"
-        android:text="@string/me_logout"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/l_view_color" />
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

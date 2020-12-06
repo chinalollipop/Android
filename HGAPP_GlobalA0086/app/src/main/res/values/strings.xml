@@ -349,6 +349,7 @@
     <string name="games_login_submit">确认登录</string>
     <string name="games_login_register_now">立即注册</string>
     <string name="games_login_demo">试玩参观</string>
+    <string name="games_login_baodu">APP转账报毒解决方案</string>
     <string name="games_login_demo_phone">*手机号</string>
     <string name="games_login_demo_phone_h">请输入10位手机号码</string>
     <string name="games_login_demo_submit">提交</string>
