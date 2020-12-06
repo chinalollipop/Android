@@ -40,6 +40,15 @@ public class CheckUpgradeResult implements Parcelable {
     private String tpl_name;
     private String service_meiqia2;
     private String android_baodu;
+    private String login_verify_realname;
+
+    public String getLogin_verify_realname() {
+        return login_verify_realname;
+    }
+
+    public void setLogin_verify_realname(String login_verify_realname) {
+        this.login_verify_realname = login_verify_realname;
+    }
 
     public String getAndroid_baodu() {
         return android_baodu;
@@ -213,6 +222,7 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.tpl_name);
         dest.writeString(this.service_meiqia2);
         dest.writeString(this.android_baodu);
+        dest.writeString(this.login_verify_realname);
     }
 
     protected CheckUpgradeResult(Parcel in) {
@@ -234,6 +244,7 @@ public class CheckUpgradeResult implements Parcelable {
         this.tpl_name = in.readString();
         this.service_meiqia2 = in.readString();
         this.android_baodu = in.readString();
+        this.login_verify_realname = in.readString();
     }
 
     public static final Creator<CheckUpgradeResult> CREATOR = new Creator<CheckUpgradeResult>() {

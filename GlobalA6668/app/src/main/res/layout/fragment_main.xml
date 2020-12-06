@@ -11,11 +11,6 @@
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/fl_tab_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
         <per.goweii.actionbarex.ActionBarEx
             android:id="@+id/action_bar"
             android:layout_width="match_parent"
@@ -28,6 +23,10 @@
             app:ab_statusBarMode="auto"
             app:ab_statusBarVisible="visible"
             app:ab_titleBarHeight="1dp" />
+        <FrameLayout
+            android:id="@+id/fl_tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
     <FrameLayout
         android:id="@+id/fHomeBottom"

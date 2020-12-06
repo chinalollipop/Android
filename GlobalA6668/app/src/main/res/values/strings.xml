@@ -347,9 +347,11 @@
     <string name="games_login_pwd_error">请输入有效密码!</string>
     <string name="games_login_remeber_pwd">记住密码</string>
     <string name="games_login_forgot_pwd">忘记密码？</string>
+    <string name="games_login">登录</string>
     <string name="games_login_submit">确认登录</string>
     <string name="games_login_register_now">立即注册</string>
     <string name="games_login_demo">试玩参观</string>
+    <string name="games_login_baodu">安卓APP转账报毒解决方案</string>
     <string name="games_login_demo_phone">*手机号</string>
     <string name="games_login_demo_phone_h">请输入10位手机号码</string>
     <string name="games_login_demo_submit">提交</string>
@@ -371,6 +373,8 @@
     <string name="games_register_where_friends">朋友推荐</string>
     <string name="games_register_where_bass">论坛</string>
     <string name="games_register_agree_some">同意本站《协议条款》</string>
+    <string name="games_register_agree_some1">我已阅读并同意相关的</string>
+    <string name="games_register_agree_some2">条款和隐私政策</string>
     <string name="games_register_submit">注册</string>
     <string name="games_register_note">* 请认真填写,以便有优惠活动可以及时通知您参与！</string>
     <string name="games_register_uname_error">请输入账号！</string>
@@ -378,8 +382,10 @@
     <string name="games_register_pwd_error2">请输入有效确认密码！</string>
     <string name="games_register_pwd_error3">2次输入密码不一致，请重新输入！</string>
     <string name="games_register_phone_error"> 请输入有效手机号！</string>
-    <string name="games_register_wechat"> * 微信</string>
-    <string name="games_register_wechat_h">微信号码</string>
+    <string name="games_register_wechat"> * 微信号码</string>
+    <string name="games_register_wechat_h">请填写微信号码</string>
+    <string name="games_register_qq"> * QQ号码</string>
+    <string name="games_register_qq_h">请填写QQ号码</string>
     <string name="games_register_brithday"> * 出生日期</string>
     <string name="games_register_brithday_h">请填写出生年月日</string>
     <string name="games_register_success">恭喜您，账号注册成功！</string>
@@ -393,7 +399,7 @@
     <string name="games_forgetpwd_new_pwd2">* 确认密码</string>
     <string name="games_forgetpwd_new_pwd2_h">再次输入新密码</string>
     <string name="games_forgetpwd_submit">找回密码</string>
-
+    <string name="games_forgetpwd_withdrawname">与提款银行卡一致，否则无法提款</string>
 
     <string name="games_hello">您好</string>
     <string name="games_results">赛果</string>
@@ -795,7 +801,7 @@
     <string name="withdraw_dama_money">提款金额</string>
     <string name="withdraw_dama_pwd">提款密码</string>
     <string name="withdraw_dama_money_hint">请输入提款金额</string>
-    <string name="withdraw_dama_pwd_hint">请输入提款密码</string>
+    <string name="withdraw_dama_pwd_hint">请输入提款密码(6位纯数字)</string>
     <string name="withdraw_dama_usdt_rate">USDT汇率</string>
     <string name="withdraw_dama_usdt_amount">USDT提币数量</string>
     <string name="withdraw_dama_usdt_rate_now">实时汇率</string>

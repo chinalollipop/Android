@@ -1,294 +1,767 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:zhangym="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <com.hgapp.a0086.common.widgets.NTitleBar
-        android:id="@+id/tvLoginBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:backText="@string/comm_back"
-        app:moreTextOnly="true"
-        app:titleText="用户登录"
-        app:titleTextShow="false" />
-
-    <LinearLayout
+    android:layout_height="match_parent">
+    <com.hgapp.a0086.common.widgets.HGControlVideo
+        android:id="@+id/hgControlVideoPlayer"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:visibility="gone"
-        android:weightSum="2">
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/tvLoginUserName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/login_title_hight"
-            android:gravity="center"
-            android:text="登入"
-            android:textColor="@color/title_text"
-            android:textSize="15sp"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/tvLoginUserPhone"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/login_title_normal"
-            android:gravity="center"
-            android:text="手机登入"
-            android:textColor="@color/title_text"
-            android:textSize="15sp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:orientation="vertical">
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="28dp"
-            android:background="@mipmap/login_icon" />
+        android:descendantFocusability="blocksDescendants">
 
         <LinearLayout
-            android:id="@+id/fgtLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="42dp"
-                    android:layout_height="43dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/ivLoginType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@mipmap/login_hy" />
-                </LinearLayout>
-
-                <EditText
-                    android:id="@+id/etLoginType"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:hint="@string/games_login_uname_h" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#d4d8dc" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <LinearLayout
-                    android:layout_width="42dp"
-                    android:layout_height="43dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/tvLoginPwd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@mipmap/login_sou" />
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/etLoginPwd"
-                        android:layout_width="match_parent"
-                        android:layout_height="43dp"
-                        android:background="@null"
-                        android:hint="@string/games_login_pwd_h"
-                        android:inputType="textPassword"
-                        android:maxLength="15" />
-
-                    <ImageView
-                        android:id="@+id/etLoginEyes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="10dp"
-                        android:background="@mipmap/icon_eye_close" />
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#d4d8dc" />
-
-            <CheckBox
-                android:id="@+id/cbLoginRemeber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="记住手机号"
-                android:textColor="@color/textview_hight"
-                android:textSize="16sp"
-                android:visibility="gone" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp">
-
-                <CheckBox
-                    android:id="@+id/loginRemeberPwd"
+                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="12dp"
-                    android:button="@drawable/btn_check_style"
-                    android:paddingLeft="5dp"
-                    android:text="@string/games_login_remeber_pwd"
-                    android:textColor="@color/login_tv" />
-
-                <TextView
-                    android:id="@+id/tvLoginForgetPwd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="@string/games_login_forgot_pwd"
-                    android:textColor="@color/login_tv" />
-
-            </RelativeLayout>
-
-            <Button
-                android:id="@+id/btnLoginSubmit"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/btn_login_normal"
-                android:text="@string/games_login_submit" />
-
-            <Button
-                android:id="@+id/btnLoginRegister"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_register_normal"
-                android:text="@string/games_login_register_now" />
-
-            <Button
-                android:id="@+id/btnLoginDemo"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_register_demo"
-                android:text="@string/games_login_demo" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnLoginLayDemo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginTop="10dp">
-
-
-                <TextView
-                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/games_login_demo_phone"
-                    android:textColor="@color/cp_hall_tv"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="20dp"
+                    android:background="@mipmap/login_logo" />
 
-                <EditText
-                    android:id="@+id/etRegisterAccountPhoneDemo"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/btn_normal_top">
+
+                    <TextView
+                        android:id="@+id/btnLoginUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_normal_top_click"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/games_login"
+                        android:textColor="@color/register_left"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/btnLoginRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/games_register_submit"
+                        android:textColor="@color/register_left"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/fgtLogin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null"
-                    android:hint="@string/games_login_demo_phone_h"
-                    android:inputType="number"
-                    android:maxLength="11" />
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="42dp"
+                            android:layout_height="43dp"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/ivLoginType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@mipmap/login_uname" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/etLoginType"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="@string/games_login_uname_h"
+                            android:inputType="text"
+                            android:textColor="@color/register_left"
+                            android:textColorHint="@color/register_left_r" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#7b7c80" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="42dp"
+                            android:layout_height="43dp"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/tvLoginPwd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@mipmap/login_pwd" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/etLoginPwd"
+                                android:layout_width="match_parent"
+                                android:layout_height="43dp"
+                                android:background="@null"
+                                android:hint="@string/games_login_pwd_h"
+                                android:inputType="textPassword"
+                                android:maxLength="15"
+                                android:textColor="@color/register_left"
+                                android:textColorHint="@color/register_left_r" />
+
+                            <ImageView
+                                android:id="@+id/etLoginEyes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="10dp"
+                                android:background="@mipmap/icon_eye_close" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#7b7c80" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp">
+
+                        <CheckBox
+                            android:id="@+id/loginRemeberPwd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="12dp"
+                            android:button="@drawable/btn_check_r_style"
+                            android:paddingLeft="5dp"
+                            android:text="@string/games_login_remeber_pwd"
+                            android:textColor="@color/register_left" />
+
+                        <TextView
+                            android:id="@+id/tvLoginForgetPwd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:text="@string/games_login_forgot_pwd"
+                            android:textColor="#14dbe2" />
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btnLoginSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:background="@drawable/btn_normal_login"
+                        android:text="@string/games_login"
+                        android:textSize="22sp" />
+
+
+                    <Button
+                        android:id="@+id/btnLoginDemo"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/btn_normal_bottom"
+                        android:text="@string/games_login_demo"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/btnLoginBaodu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/btn_normal_login"
+                        android:text="@string/games_login_baodu"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnLoginLayDemo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:background="@mipmap/login_phone" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/games_login_demo_phone"
+                            android:textColor="@color/register_left"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/etRegisterAccountPhoneDemo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="@string/games_login_demo_phone_h"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:textColor="@color/register_left"
+                            android:textColorHint="@color/register_left" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#7b7c80" />
+
+                    <Button
+                        android:id="@+id/btnRegisterSubmitDemo"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/btn_normal_login"
+                        android:text="@string/games_login_demo_submit"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/fgtResgiter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp">
+
+                                <LinearLayout
+                                    android:id="@+id/llRegisterAccount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/h_login_edit_height"
+                                        android:layout_marginTop="10dp">
+
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@mipmap/login_into" />
+
+                                        <TextView
+                                            android:layout_width="90dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/games_register_introducer"
+                                            android:textColor="@color/register_left"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/etRegisterIntro"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:background="@null"
+                                            android:hint="@string/games_register_introducer_h"
+                                            android:maxLength="15"
+                                            android:textColor="@color/register_left"
+                                            android:textColorHint="@color/register_left" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#7b7c80" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/h_login_edit_height"
+                                        android:layout_marginTop="5dp">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@mipmap/login_uname" />
+
+                                        <TextView
+                                            android:layout_width="90dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/games_register_uname"
+                                            android:textColor="@color/register_left"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/etRegisterUserName"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:background="@null"
+                                            android:hint="@string/games_register_uname_h"
+                                            android:maxLength="15"
+                                            android:textColor="@color/register_left"
+                                            android:textColorHint="@color/register_left" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#7b7c80" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/h_login_edit_height"
+                                        android:layout_marginTop="5dp">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@mipmap/login_pwd" />
+
+                                        <TextView
+                                            android:layout_width="90dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/games_register_pwd1"
+                                            android:textColor="@color/register_left"
+                                            android:textSize="16sp" />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <EditText
+                                                android:id="@+id/etRegisterPwd"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="@null"
+                                                android:hint="@string/games_register_pwd1_h"
+                                                android:inputType="textPassword"
+                                                android:maxLength="15"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left"
+
+                                                />
+
+                                            <ImageView
+                                                android:id="@+id/etRegisterPwdEyes"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerInParent="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@mipmap/icon_eye_close" />
+                                        </RelativeLayout>
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#7b7c80" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/h_login_edit_height"
+                                        android:layout_marginTop="5dp">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@mipmap/login_pwd" />
+
+                                        <TextView
+                                            android:layout_width="90dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/games_register_pwd2"
+                                            android:textColor="@color/register_left"
+                                            android:textSize="16sp" />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <EditText
+                                                android:id="@+id/etRegisterPwdVerify"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="@null"
+                                                android:hint="@string/games_register_pwd1_h"
+                                                android:inputType="textPassword"
+                                                android:maxLength="15"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left"
+
+                                                />
+
+                                            <ImageView
+                                                android:id="@+id/etRegisterPwdVerifyEyes"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerInParent="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@mipmap/icon_eye_close" />
+                                        </RelativeLayout>
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#7b7c80" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:visibility="gone">
+
+                                        <LinearLayout
+                                            android:layout_width="@dimen/h_text_width"
+                                            android:layout_height="@dimen/h_text_height"
+                                            android:layout_gravity="center"
+                                            android:background="@color/login_left">
+
+                                            <TextView
+                                                android:id="@+id/tvRegisterRealName"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginLeft="30dp"
+                                                android:text="@string/games_forgetpwd_uname"
+                                                android:textColor="@color/register_left"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <EditText
+                                            android:id="@+id/etRegisterWithDrawName"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:hint="@string/games_forgetpwd_withdrawname"
+
+                                            />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:visibility="gone">
+
+                                        <LinearLayout
+                                            android:layout_width="@dimen/h_text_width"
+                                            android:layout_height="@dimen/h_text_height"
+                                            android:layout_gravity="center"
+                                            android:background="@color/login_left">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginLeft="30dp"
+                                                android:text="@string/withdraw_dama_pwd"
+                                                android:textColor="@color/register_left"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <EditText
+                                            android:id="@+id/etRegisterWithDrawPwd"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:hint="@string/withdraw_dama_pwd_hint"
+                                            android:inputType="numberPassword" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/layLineTel"
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/h_login_edit_height"
+                                            android:layout_marginTop="5dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginLeft="10dp"
+                                                android:background="@mipmap/login_phone" />
+
+                                            <TextView
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:text="@string/games_login_demo_phone"
+                                                android:textColor="@color/register_left"
+                                                android:textSize="16sp" />
+
+                                            <EditText
+                                                android:id="@+id/etRegisterAccountPhone"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="@null"
+                                                android:hint="@string/games_login_demo_phone_h"
+                                                android:inputType="number"
+                                                android:maxLength="11"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left" />
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="#7b7c80" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center|left"
+                                            android:layout_marginTop="10dp"
+                                            android:text="@string/games_register_note"
+                                            android:textColor="#fe0100"
+                                            android:textSize="13sp" />
+
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:orientation="vertical"
+                                        android:id="@+id/layLineWeChat"
+                                        >
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/h_login_edit_height">
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginLeft="10dp"
+                                                android:background="@mipmap/login_wechat" />
+                                            <TextView
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:text="@string/games_register_wechat"
+                                                android:textColor="@color/register_left"
+                                                android:textSize="15sp" />
+
+                                            <EditText
+                                                android:id="@+id/etRegisterWeChat"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:hint="@string/games_register_wechat_h"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left"
+                                                android:background="@null"
+                                                />
+                                        </LinearLayout>
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="#7b7c80" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:orientation="vertical"
+                                        android:id="@+id/layLineQQ"
+                                        >
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/h_login_edit_height">
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginLeft="10dp"
+                                                android:background="@mipmap/login_qq" />
+                                            <TextView
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:text="@string/games_register_qq"
+                                                android:textColor="@color/register_left"
+                                                android:textSize="15sp" />
+
+                                            <EditText
+                                                android:id="@+id/etRegisterBrithday"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:hint="@string/games_register_qq_h"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left"
+                                                android:background="@null"
+                                                />
+                                        </LinearLayout>
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="#7b7c80" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp">
+
+                                        <TextView
+                                            android:id="@+id/tvRegisterResource"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/games_register_where"
+                                            android:textColor="@color/register_left"
+                                            android:textSize="16sp" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+
+                                            <EditText
+                                                android:id="@+id/etRegisterResource"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="1dp"
+                                                android:background="@null"
+                                                android:focusable="false"
+                                                android:gravity="center"
+                                                android:hint="@string/games_register_where_net_ad"
+                                                android:textColor="@color/register_left"
+                                                android:textColorHint="@color/register_left" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:background="#7b7c80" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp">
+
+                                    <CheckBox
+                                        android:id="@+id/cbRegisterProtocol"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:button="@drawable/btn_check_style"
+                                        android:checked="true"
+                                        android:paddingLeft="5dp"
+                                        android:text="@string/games_register_agree_some1"
+                                        android:textColor="@color/register_left"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/games_register_agree_some2"
+                                        android:textColor="#19d9e4"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnRegisterSubmit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/h_login_edit_height"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:background="@drawable/btn_normal_login"
+                                    android:text="@string/games_register_submit"
+                                    android:textSize="22sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </FrameLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dcdcdc" />
-
-            <Button
-                android:id="@+id/btnRegisterSubmitDemo"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/btn_register_demo"
-                android:text="@string/games_login_demo_submit"
-                android:textSize="22sp" />
         </LinearLayout>
-
-        <com.hgapp.a0086.common.widgets.InputCodeLayout
-            android:id="@+id/inputCodeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:visibility="gone"
-            app:icl_divideWidth="10dp"
-            app:icl_focusBackground="@drawable/bg_edit_focus"
-            app:icl_height="40dp"
-            app:icl_number="4"
-            app:icl_showMode="password"
-            app:icl_textColor="@color/colorPrimaryDark"
-            app:icl_textSize="16sp"
-            app:icl_unFocusBackground="@drawable/bg_edit_un_focus"
-            app:icl_width="40dp" />
-
-        <com.hgapp.a0086.common.widgets.VerificationCodeView
-            android:id="@+id/verificationCodeView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:padding="20dp"
-            android:visibility="gone"
-            zhangym:interferenceCirclesCount="40"
-            zhangym:interferenceCirclesRadius="5"
-            zhangym:interferenceLinesCount="10"
-            zhangym:isShowInterferenceCircles="true"
-            zhangym:isShowInterferenceLines="true"
-            zhangym:isTextBold="true"
-            zhangym:textSize="80sp"
-            zhangym:textSkewX="0"
-            zhangym:verificationText="9D27" />
-    </LinearLayout>
-</LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>

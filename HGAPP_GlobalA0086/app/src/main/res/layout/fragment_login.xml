@@ -209,6 +209,14 @@
                 android:background="@drawable/btn_register_demo"
                 android:text="@string/games_login_demo" />
 
+            <Button
+                android:id="@+id/btnLoginBaodu"
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_register_normal"
+                android:text="安卓APP转账报毒解决方案" />
+
         </LinearLayout>
 
         <LinearLayout

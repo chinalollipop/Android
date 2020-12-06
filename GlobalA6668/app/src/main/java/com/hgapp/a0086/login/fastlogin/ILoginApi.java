@@ -32,6 +32,17 @@ public interface ILoginApi {
     @FormUrlEncoded
     public Observable<AppTextMessageResponse<LoginResult>> loginPhone(@Field("appRefer") String appRefer, @Field("phone") String phone);
 
+
+    //会员注册
+    @POST("mem_reg_add.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponse<LoginResult>> registerMember(
+            @Field("appRefer") String appRefer, @Field("introducer") String introducer, @Field("keys") String keys,
+            @Field("username") String username, @Field("password") String password, @Field("password2") String password2,
+            @Field("alias") String alias, @Field("paypassword") String paypassword, @Field("phone") String phone,
+            @Field("wechat") String wechat, @Field("qq") String qq, @Field("know_site") String know_site, @Field("code") String code);
+
+
     //-------------------------------以下接口废弃-------------------------
 
     //会员注册

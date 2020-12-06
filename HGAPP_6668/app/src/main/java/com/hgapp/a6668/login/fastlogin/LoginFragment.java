@@ -36,6 +36,7 @@ import com.hgapp.a6668.common.widgets.HGControlVideo;
 import com.hgapp.a6668.data.LoginResult;
 import com.hgapp.a6668.data.SportsPlayMethodRBResult;
 import com.hgapp.a6668.homepage.handicap.BottombarViewManager;
+import com.hgapp.a6668.homepage.online.OnlineFragment;
 import com.hgapp.a6668.login.fastregister.RegisterFragment;
 import com.hgapp.a6668.login.forgetpwd.ForgetPwdFragment;
 import com.hgapp.a6668.login.resetpwd.ResetPwdDialog;
@@ -134,7 +135,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     Button btnLoginDemo;
     @BindView(R.id.btnLoginLayDemo)
     LinearLayout btnLoginLayDemo;
-
+    @BindView(R.id.btnLoginBaodu)
+    Button btnLoginBaodu;
 
     @BindView(R.id.layLineTel)
     LinearLayout layLineTel;
@@ -429,7 +431,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
+    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnLoginBaodu,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -501,6 +503,16 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                     presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","demoguest","nicainicainicaicaicaicai");
                 }
                 //presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
+                break;
+            case R.id.btnLoginBaodu:
+                String baodu =  ACache.get(getContext()).getAsString("android_baodu");
+                GameLog.log("报毒url："+baodu);
+                if(!Check.isEmpty(baodu)){
+                    EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance("",baodu)));
+                }else{
+                    showMessage(getString(R.string.n_contact_service));
+                }
+
                 break;
             case R.id.btnRegisterSubmitDemo:
                 String phone = etRegisterAccountPhoneDemo.getText().toString().trim();

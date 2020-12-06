@@ -50,6 +50,7 @@
     <!--标题文字颜色-->
     <color name="login_left">#4d8eb9</color>
     <color name="register_left">#FFFFFF</color>
+    <color name="register_left_r">#dcdcdc</color>
     <color name="login_title_hight">#00B3E0</color>
     <color name="login_title_normal">#2A8FBD</color>
     <color name="color_bg_dialog">#e0000000</color>

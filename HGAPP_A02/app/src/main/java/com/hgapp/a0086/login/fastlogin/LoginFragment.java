@@ -26,6 +26,7 @@ import com.hgapp.a0086.data.LoginResult;
 import com.hgapp.a0086.data.SportsPlayMethodRBResult;
 import com.hgapp.a0086.homepage.handicap.BottombarViewManager;
 import com.hgapp.a0086.homepage.handicap.betnew.CloseBottomEvent;
+import com.hgapp.a0086.homepage.online.OnlineFragment;
 import com.hgapp.a0086.login.fastregister.RegisterFragment;
 import com.hgapp.a0086.login.forgetpwd.ForgetPwdFragment;
 import com.hgapp.a0086.login.resetpwd.ResetPwdDialog;
@@ -91,6 +92,9 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     EditText etRegisterAccountPhoneDemo;
     @BindView(R.id.btnRegisterSubmitDemo)
     Button btnRegisterSubmitDemo;
+    @BindView(R.id.btnLoginBaodu)
+    Button btnLoginBaodu;
+
     Unbinder unbinder1;
     private Random mRandom = new Random();
 
@@ -257,7 +261,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,R.id.tvLoginUserName, R.id.tvLoginUserPhone, R.id.cbLoginRemeber, R.id.btnLoginSubmit,R.id.btnRegisterSubmitDemo, R.id.btnLoginRegister,R.id.btnLoginDemo})
+    @OnClick({R.id.etLoginEyes,R.id.tvLoginForgetPwd,R.id.tvLoginUserName, R.id.tvLoginUserPhone, R.id.cbLoginRemeber, R.id.btnLoginSubmit,R.id.btnRegisterSubmitDemo, R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnLoginBaodu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -307,6 +311,16 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                 }else{
                     presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","demoguest","nicainicainicaicaicaicai");
                 }
+                break;
+            case R.id.btnLoginBaodu:
+                String baodu =  ACache.get(getContext()).getAsString("android_baodu");
+                GameLog.log("报毒url："+baodu);
+                if(!Check.isEmpty(baodu)){
+                    EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance("",baodu)));
+                }else{
+                    showMessage(getString(R.string.n_contact_service));
+                }
+
                 break;
             case R.id.btnRegisterSubmitDemo:
                 String phone = etRegisterAccountPhoneDemo.getText().toString().trim();
