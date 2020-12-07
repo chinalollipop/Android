@@ -673,7 +673,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     cpOrderContentResult52016.setOrderName(getString(R.string.lotter_he_shuang));
                     cpOrderContentResult52016.setFullName(getString(R.string.lotter_ball_fifth));
                     cpOrderContentResult52016.setOrderState(cpbjscResult.getdata52016());
-                    cpOrderContentResult52016.setOrderId("4-2016");
+                    cpOrderContentResult52016.setOrderId("5-2016");
                     cpOrderContentResultList5.add(cpOrderContentResult52016);
 
                     CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();

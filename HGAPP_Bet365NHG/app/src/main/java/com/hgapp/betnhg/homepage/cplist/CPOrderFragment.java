@@ -694,7 +694,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     cpOrderContentResult52016.setOrderName("合双");
                     cpOrderContentResult52016.setFullName("第五球");
                     cpOrderContentResult52016.setOrderState(cpbjscResult.getdata52016());
-                    cpOrderContentResult52016.setOrderId("4-2016");
+                    cpOrderContentResult52016.setOrderId("5-2016");
                     cpOrderContentResultList5.add(cpOrderContentResult52016);
 
                     CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();
@@ -2328,7 +2328,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
                     cpOrderContentResult52016.setOrderName("合双");
                     cpOrderContentResult52016.setFullName("第五球");
                     cpOrderContentResult52016.setOrderState(cpbjscResult.getdata52016());
-                    cpOrderContentResult52016.setOrderId("4-2016");
+                    cpOrderContentResult52016.setOrderId("5-2016");
                     cpOrderContentResultList5.add(cpOrderContentResult52016);
 
                     CPOrderContentListResult cpOrderContentListResult6 = new CPOrderContentListResult();

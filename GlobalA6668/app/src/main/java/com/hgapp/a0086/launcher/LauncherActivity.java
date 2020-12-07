@@ -162,6 +162,7 @@ public class LauncherActivity extends AppCompatActivity{
             mCountDownTimer = null;
             GameLog.log("===============enterMain====================加载了数据========================");
         }
+
         finish();
     }
 
@@ -216,29 +217,6 @@ public class LauncherActivity extends AppCompatActivity{
             }
         } catch (Exception e) {
             GameLog.log("request url : " + e.toString());
-        }
-        if(!ifStop){
-            button.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if(!ifStop) {
-                        String demainUrl =  ACache.get(getApplicationContext()).getAsString(HGConstant.APP_DEMAIN_URL);
-                        if(!Check.isEmpty(demainUrl)){
-                            Client.setClientDomain(demainUrl);
-                        }else{
-                            Client.setClientDomain(Client.domainUrl );
-                        }
-                        if(ifStop){
-                            GameLog.log("====================3=======================");
-                            return;
-                        }
-                        enterMain();
-                        ifStop = true;
-                        ToastUtils.showLongToast(getString(R.string.comm_no_good_net));
-                        GameLog.log("网络缓慢，请切换网络或联系客服");
-                    }
-                }
-            },6000);
         }
     }
 
