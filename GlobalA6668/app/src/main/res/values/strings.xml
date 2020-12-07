@@ -852,6 +852,7 @@
     <string name="lan_de">德文</string>
     <string name="lan_vi">越南</string>
 
+    <string name="me_join_days">您已加入</string>
     <string name="me_refresh">刷新</string>
     <string name="me_logout">登出</string>
     <string name="me_zhenren">真人升级</string>

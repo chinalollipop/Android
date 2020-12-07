@@ -267,7 +267,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
         //tvPersonUsername.setText(personInformResult.getUsername());
         personMoney = GameShipHelper.formatMoney(personInformResult.getBalance_hg());
-        personJoinDays.setText(personInformResult.getJoinDays()+"天");
+        personJoinDays.setText(getString(R.string.app_name) +" "+personInformResult.getJoinDays()+getString(R.string.games_sign_comm_day));
         GameLog.log("成功获取用户个人信心");
     }
 

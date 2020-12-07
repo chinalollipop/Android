@@ -82,7 +82,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="您已加入HG6668 "
+                            android:text="@string/me_join_days"
                             android:alpha="0.5"
                             android:textColor="@color/title_text" />
                         <TextView
