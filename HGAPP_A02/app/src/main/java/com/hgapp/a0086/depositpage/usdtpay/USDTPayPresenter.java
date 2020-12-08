@@ -25,8 +25,8 @@ public class USDTPayPresenter implements USDTPayContract.Presenter {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {
                         if(response.isSuccess()){
-                            //view.postDepositUSDTPaySubimtResult(response.getDescribe());
-                            postUsdtRateApiSubimt(v_amount);
+                            view.postDepositUSDTPaySubimtResult(response.getDescribe());
+                            //postUsdtRateApiSubimt(v_amount);
                         }
                         view.showMessage(response.getDescribe());
 

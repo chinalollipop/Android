@@ -1817,7 +1817,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         if(Check.isEmpty(qipai_url)){
             showMessage("正在加载中，请稍后再试!");
-            presenter.postQipai("","");
+            presenter.postQipai("","ky");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
@@ -1834,7 +1834,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         String qipai_url = ACache.get(getContext()).getAsString(HGConstant.USERNAME_HG_QIPAI_URL);
         if (Check.isEmpty(qipai_url)) {
             showMessage("正在加载中，请稍后再试!");
-            presenter.postHGQipai("", "");
+            presenter.postHGQipai("", "kl");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/ else {
@@ -1855,7 +1855,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         if(Check.isEmpty(qipai_url)){
             showMessage("正在加载中，请稍后再试!");
-            presenter.postVGQipai("","");
+            presenter.postVGQipai("","vg");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
@@ -1875,7 +1875,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         if(Check.isEmpty(qipai_url)){
             showMessage("正在加载中，请稍后再试!");
-            presenter.postLYQipai("","");
+            presenter.postLYQipai("","ly");
         }/*else if(Check.isEmpty(ACache.get(getContext()).getAsString(HGConstant.USERNAME_GIFT_URL))){
             showMessage("正在加载中，请稍后再试!");
         }*/else {
@@ -1895,7 +1895,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         }
         if(Check.isEmpty(qipai_url)){
             showMessage("正在加载中，请稍后再试!");
-            presenter.postAviaQiPai("","");
+            presenter.postAviaQiPai("","avia");
         }else {
             Intent intent = new Intent(getContext(),XPlayGameActivity.class);
             intent.putExtra("url",qipai_url);

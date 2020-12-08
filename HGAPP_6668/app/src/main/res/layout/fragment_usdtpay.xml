@@ -10,7 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backText="返回" />
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -132,15 +138,156 @@
         android:background="@color/l_view_color" />
 
 
-    <Button
-    android:id="@+id/btnDepositThirdBankSubmit"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/h_tbn_height"
+    <TextView
+        android:id="@+id/tvUsdtMark"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请注意：请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。\n 本公司最低存款金额为100元，每次存款赠送最高1%红利。"
+        />
 
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="40dp"
-    android:text="确认存款" />
+            <TextView
+                android:id="@+id/usdtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:text="ETC20"
+                android:visibility="gone"
+                android:textColor="#FF0000"
+                />
+            <LinearLayout
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请转入"
+                    />
+                <TextView
+                    android:id="@+id/usdtAmount"
+                    android:textSize="15sp"
+                    android:textColor="#FF0000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USDT"
+                    />
+                <Button
+                    android:id="@+id/usdtAmountCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:text="复制金额"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:id="@+id/ivDepositAliQCPayImage"
+                />
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="#FF0000"
+                android:text="重要提示：请勿保存二维码，\n收款账户不定时更换，敬请注意！"
+                />
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/l_view_color"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="充值地址"
+                    android:textColor="@color/color_bg_dialog" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/l_view_color" />
+
+                <TextView
+                    android:id="@+id/usdtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="充值地址"
+                    android:textColor="@color/color_bg_dialog" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/l_view_color" />
+
+                <Button
+                    android:id="@+id/usdtAddressCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:text="复制地址"
+                    android:textColor="@color/all_bg" />
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/l_view_color"
+                />
+            <TextView
+                android:id="@+id/usdtService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/color_bg_dialog"
+                android:drawableRight="@mipmap/tv_tservice"
+                android:background="@drawable/tv_service"
+                android:text="*支付完成请等待5-10分钟到账，支付失败请咨询客服"
+                />
+
+            <TextView
+                android:id="@+id/usdtMark"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*注意\n1.请勿想上述地址支付任何非TRC20 USDT资产，否则资产将无法找回。\n2.当前Okex/火币/币安交易所USDT最新场外卖单单价6.75元。\n3.请确保收款地址收到14.81 USDt[不含转账手续费]，否则无法到账。\n 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。"
+                android:textColor="@color/color_bg_dialog"
+                />
+
+
+    <Button
+        android:id="@+id/btnDepositThirdBankSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_tbn_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="确认存款" />
 
     <Button
         android:id="@+id/btnUSDTSubmit"
@@ -150,14 +297,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/textview_normal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="USDT充值教程" />
+        </LinearLayout>
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/tvUsdtMark"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="请注意：请在金额转出之后务必填写网页下方的汇款信息表格，以便我们财务人员能及时为您确认添加金额到您的会员账户。\n 本公司最低存款金额为100元，每次存款赠送最高1%红利。"
-        />
 </LinearLayout>

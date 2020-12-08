@@ -210,7 +210,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
 
     @Override
     public void postWithdrawResult(WithdrawResult withdrawResult) {
-        bank_account = withdrawResult.getBank_Account();
+        bank_account = withdrawResult.getBank_Account_hide();
         tvBindingCardUSDTAddress.setText(withdrawResult.getUsdt_Address_hide());
         tvBindingCardBankAddress.setText(withdrawResult.getBank_Address());
         tvBindingCardBankCode.setText(withdrawResult.getBank_Account_hide());
@@ -248,7 +248,7 @@ public class BindingCardFragment extends HGBaseFragment implements BindingCardCo
         if(!Check.isEmpty(bank_account)){
             bankCode = bank_account;
         }
-        if(!Check.isEmpty(bankCode)&&bankCode.contains("**")){
+        if(!Check.isEmpty(bankCode)&&bankCode.contains("*")){
             showMessage("请输入正确的银行账户");
             return;
         }
