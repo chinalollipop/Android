@@ -795,7 +795,12 @@
     <string name="withdraw_dama_money">提款金额</string>
     <string name="withdraw_dama_pwd">提款密码</string>
     <string name="withdraw_dama_money_hint">请输入提款金额</string>
-    <string name="withdraw_dama_pwd_hint">请输入提款密码</string>
+    <string name="withdraw_dama_money_hint100">提款金额最少100元！</string>
+    <string name="withdraw_dama_data_error">请求数据有误，请稍后再试</string>
+    <string name="withdraw_dama_type_name">所属币种</string>
+    <string name="withdraw_dama_type_usdt">USDT(TRC20)</string>
+    <string name="withdraw_dama_binding_address">请您先绑定USDT提款地址</string>
+    <string name="withdraw_dama_pwd_hint">请输入提款密码(6位纯数字)</string>
     <string name="withdraw_dama_usdt_rate">USDT汇率</string>
     <string name="withdraw_dama_usdt_amount">USDT提币数量</string>
     <string name="withdraw_dama_usdt_rate_now">实时汇率</string>

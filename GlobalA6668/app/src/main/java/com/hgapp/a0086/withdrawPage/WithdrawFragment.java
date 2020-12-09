@@ -191,9 +191,10 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
         tvWithdrawTotalBet.setText(withdrawResult.getTotal_bet());
         tvWithdrawBankAddress.setText(withdrawResult.getBank_Address());
         //前6后3
-        accountNumber = withdrawResult.getBank_Account();
-        String account = accountNumber.substring(0,6)+"******"+accountNumber.substring(accountNumber.length()-3);
-        tvWithdrawBankAccount.setText(account);
+        accountNumber = withdrawResult.getBank_Account_hide();
+        tvWithdrawBankAccount.setText(accountNumber);
+        usdtAddress = withdrawResult.getUsdt_Address_hide();
+        tvWithdrawUsdtAddress.setText(usdtAddress);
         tvWithdrawBankName.setText(withdrawResult.getBank_Name());
         bankNameString= withdrawResult.getBank_Name();
     }
@@ -211,11 +212,9 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
 
     @Override
     public void postUsdtRateApiSubimtResult(USDTRateResult usdtRateResult) {
-        usdtAddress = usdtRateResult.getUsdt_Address();
-        String account = usdtAddress.substring(0,6)+"******"+usdtAddress.substring(usdtAddress.length()-3);
-        tvWithdrawUsdtAddress.setText(account);
+
         usdtRate = usdtRateResult.getWithdrawals_usdt_rate();
-        String usdtrate  = "实时汇率："+onMarkRed(usdtRate);
+        String usdtrate  = getString(R.string.withdraw_dama_usdt_rate_now)+"："+onMarkRed(usdtRate);
         tvWithdrawUsdtRate.setText(Html.fromHtml(usdtrate.toString()));
 
     }
@@ -233,7 +232,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
                 break;
             case R.id.bankRButton:
                 isUsdtWithdraw = false;
-                bankName.setText("所在银行");
+                bankName.setText(getString(R.string.withdraw_dama_kaihu_address));
                 tvWithdrawBankName.setText(bankNameString);
                 layUsdtRate.setVisibility(View.GONE);
                 bankRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_selet),null,null,null);
@@ -241,11 +240,11 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
                 break;
             case R.id.usdtRButton:
                 if(Check.isEmpty(usdtAddress)){
-                 showMessage("请您先绑定USDT提款地址");
+                    showMessage(getString(R.string.withdraw_dama_binding_address));
                     return;
                 }
-                bankName.setText("所属币种");
-                tvWithdrawBankName.setText("USDT(TRC20)");
+                bankName.setText(getString(R.string.withdraw_dama_type_name));
+                tvWithdrawBankName.setText(getString(R.string.withdraw_dama_type_usdt));
                 isUsdtWithdraw = true;
                 layUsdtRate.setVisibility(View.VISIBLE);
                 usdtRButton.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.cert_selet),null,null,null);
@@ -258,7 +257,7 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
     @OnClick(R.id.tvWithdrawTotalBetDetail)
     public void onViewClickedDetail() {
         if(Check.isNull(WithdrawResult)||Check.isNull(WithdrawResult.getBet_list())){
-            showMessage("请求数据有误，请稍后再试！");
+            showMessage(getString(R.string.withdraw_dama_data_error));
             return;
         }
         WithDrawDetailFragment.newInstance(WithdrawResult).show(getFragmentManager());
@@ -271,24 +270,24 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
         String pwd = tvWithdrawBankPwd.getText().toString().trim();
 
         if(Check.isEmpty(money)){
-            showMessage("请输入提款金额！");
+            showMessage(getString(R.string.withdraw_dama_money_hint));
             return;
         }
         if(Check.isEmpty(pwd)){
-            showMessage("请输入提款密码！");
+            showMessage(getString(R.string.games_forgetpwd_tk_pwd_h));
             return;
         }
         if(Integer.parseInt(money)<100){
-            showMessage("提款金额最少100元！");
+            showMessage(getString(R.string.withdraw_dama_money_hint100));
             return;
         }
         DoubleClickHelper.getNewInstance().disabledView(tvWithdrawBankSubmit);
         if(isUsdtWithdraw){
-            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
-                    money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y",usdtAddress);
+            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),"",tvWithdrawBankName.getText().toString(),
+                    money,pwd, "","Y",usdtRate);
         }else{
-            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
-                    money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y","");
+            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),"",tvWithdrawBankName.getText().toString(),
+                    money,pwd, "","Y","");
         }
     }
 

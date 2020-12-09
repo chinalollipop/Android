@@ -115,7 +115,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
 
 
     @Override
-    public void postQipai(String appRefer, String action) {
+    public void postQipai(String appRefer,final  String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
                     @Override
@@ -126,6 +126,9 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                             }
                         }else{
                             ACache.get(Utils.getContext()).put(HGConstant.USERNAME_QIPAI_URL, "");
+                            if(Check.isEmpty(action)){
+                                return;
+                            }
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -142,7 +145,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
-    public void postHGQipai(String appRefer, String action) {
+    public void postHGQipai(String appRefer,final  String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postHGQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
                     @Override
@@ -153,6 +156,9 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                             }
                         }else{
                             ACache.get(Utils.getContext()).put(HGConstant.USERNAME_HG_QIPAI_URL, "");
+                            if(Check.isEmpty(action)){
+                                return;
+                            }
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -169,7 +175,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
-    public void postVGQipai(String appRefer, String action) {
+    public void postVGQipai(String appRefer,final  String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postVGQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
                     @Override
@@ -180,6 +186,9 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                             }
                         }else{
                             ACache.get(Utils.getContext()).put(HGConstant.USERNAME_VG_QIPAI_URL, "");
+                            if(Check.isEmpty(action)){
+                                return;
+                            }
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -196,7 +205,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
-    public void postLYQipai(String appRefer, String action) {
+    public void postLYQipai(String appRefer, final String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postLYQiPai(HGConstant.PRODUCT_PLATFORM,"cm"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
                     @Override
@@ -207,6 +216,9 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                             }
                         }else{
                             ACache.get(Utils.getContext()).put(HGConstant.USERNAME_LY_QIPAI_URL, "");
+                            if(Check.isEmpty(action)){
+                                return;
+                            }
                             view.showMessage(response.getDescribe());
                         }
                     }
@@ -223,7 +235,7 @@ public class HomePagePresenter implements HomePageContract.Presenter {
     }
 
     @Override
-    public void postAviaQiPai(String appRefer, String action) {
+    public void postAviaQiPai(String appRefer,final  String action) {
         subscriptionHelper.add(RxHelper.addSugar(api.postAviaQiPai(HGConstant.PRODUCT_PLATFORM,"getLaunchGameUrl"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<QipaiResult>>() {
                     @Override
@@ -233,6 +245,9 @@ public class HomePagePresenter implements HomePageContract.Presenter {
                                 view.postAviaQiPaiResult(response.getData());
                             }
                         }else{
+                            if(Check.isEmpty(action)){
+                                return;
+                            }
                             view.showMessage(response.getDescribe());
                         }
                     }

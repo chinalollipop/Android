@@ -314,6 +314,7 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put("qqOn",checkUpgradeResult.getQqOn() );
             ACache.get(getContext()).put("android_baodu",checkUpgradeResult.getAndroid_baodu());
             ACache.get(getContext()).put("login_verify_realname",checkUpgradeResult.getLogin_verify_realname());
+            //ACache.get(getContext()).put("service_meiqia2",checkUpgradeResult.getService_meiqia2() );
             //EventBus.getDefault().post(checkUpgradeResult);
             checkUpgradeDone = true;
             PackageInfo packageInfo =  PackageUtil.getAppPackageInfo(Utils.getContext());

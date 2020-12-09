@@ -273,7 +273,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="USDT汇率"
+            android:text="@string/withdraw_dama_usdt_rate"
             android:textSize="15sp" />
         <LinearLayout
             android:orientation="vertical"

@@ -48,8 +48,8 @@ public class WithDrawPresenter implements WithdrawContract.Presenter {
     }
 
     @Override
-    public void postWithdrawSubmit(String appRefer, String Bank_Address, String Bank_Account, String Bank_Name, String Money, String Withdrawal_Passwd, String Alias, String Key,String usdt_address) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawSubmit(HGConstant.PRODUCT_PLATFORM,Bank_Address,Bank_Account,Bank_Name,Money,Withdrawal_Passwd,Alias,Key,usdt_address))
+    public void postWithdrawSubmit(String appRefer, String Bank_Address, String Bank_Account, String Bank_Name, String Money, String Withdrawal_Passwd, String Alias, String Key,String usdt_rate) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postWithdrawSubmit(HGConstant.PRODUCT_PLATFORM,Bank_Address,Bank_Account,Bank_Name,Money,Withdrawal_Passwd,Alias,Key,usdt_rate))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponse<Object>>() {
                     @Override
                     public void success(AppTextMessageResponse<Object> response) {

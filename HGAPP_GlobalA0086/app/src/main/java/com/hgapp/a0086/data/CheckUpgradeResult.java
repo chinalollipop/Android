@@ -39,8 +39,44 @@ public class CheckUpgradeResult implements Parcelable {
     private String signSwitch;
     private String tpl_name;
     private String service_meiqia2;
+    private String redPocketOpen;
+    private String telOn;
+    private String chatOn;
+    private String qqOn;
     private String android_baodu;
     private String login_verify_realname;
+
+    public String getRedPocketOpen() {
+        return redPocketOpen;
+    }
+
+    public void setRedPocketOpen(String redPocketOpen) {
+        this.redPocketOpen = redPocketOpen;
+    }
+
+    public String getTelOn() {
+        return telOn;
+    }
+
+    public void setTelOn(String telOn) {
+        this.telOn = telOn;
+    }
+
+    public String getChatOn() {
+        return chatOn;
+    }
+
+    public void setChatOn(String chatOn) {
+        this.chatOn = chatOn;
+    }
+
+    public String getQqOn() {
+        return qqOn;
+    }
+
+    public void setQqOn(String qqOn) {
+        this.qqOn = qqOn;
+    }
 
     public String getLogin_verify_realname() {
         return login_verify_realname;
@@ -221,6 +257,10 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.signSwitch);
         dest.writeString(this.tpl_name);
         dest.writeString(this.service_meiqia2);
+        dest.writeString(this.redPocketOpen);
+        dest.writeString(this.telOn);
+        dest.writeString(this.chatOn);
+        dest.writeString(this.qqOn);
         dest.writeString(this.android_baodu);
         dest.writeString(this.login_verify_realname);
     }
@@ -243,6 +283,10 @@ public class CheckUpgradeResult implements Parcelable {
         this.signSwitch = in.readString();
         this.tpl_name = in.readString();
         this.service_meiqia2 = in.readString();
+        this.redPocketOpen = in.readString();
+        this.telOn = in.readString();
+        this.chatOn = in.readString();
+        this.qqOn = in.readString();
         this.android_baodu = in.readString();
         this.login_verify_realname = in.readString();
     }
