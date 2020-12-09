@@ -327,8 +327,6 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
             ACache.get(getContext()).put("telOn",checkUpgradeResult.getTelOn() );
             ACache.get(getContext()).put("chatOn",checkUpgradeResult.getChatOn() );
             ACache.get(getContext()).put("qqOn",checkUpgradeResult.getQqOn() );
-            ACache.get(getContext()).put("android_baodu",checkUpgradeResult.getAndroid_baodu());
-            ACache.get(getContext()).put("login_verify_realname",checkUpgradeResult.getLogin_verify_realname());
             String havePhone = ACache.get(getContext()).getAsString("guest_login_must_input_phone");
             GameLog.log("havePhone1 "+havePhone);
             //EventBus.getDefault().post(checkUpgradeResult);
@@ -345,7 +343,10 @@ public class MainFragment extends BaseFragment implements CheckUpdateContract.Vi
                 //onDownLoadAPP(checkUpgradeResult);
                 UpgradeDialog.newInstance(checkUpgradeResult).show(getFragmentManager());
             }
-            GameLog.log(""+checkUpgradeResult.getDescription());
+            GameLog.log("getDescription : "+checkUpgradeResult.getDescription());
+            ACache.get(getContext()).put("android_baodu",checkUpgradeResult.getAndroid_baodu());
+            ACache.get(getContext()).put("login_verify_realname",checkUpgradeResult.getLogin_verify_realname());
+
         }
     }
 

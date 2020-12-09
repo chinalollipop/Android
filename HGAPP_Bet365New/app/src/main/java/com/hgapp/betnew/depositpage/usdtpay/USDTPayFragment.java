@@ -2,10 +2,13 @@ package com.hgapp.betnew.depositpage.usdtpay;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.view.OptionsPickerView;
@@ -13,12 +16,19 @@ import com.hgapp.betnew.Injections;
 import com.hgapp.betnew.R;
 import com.hgapp.betnew.base.HGBaseFragment;
 import com.hgapp.betnew.base.IPresenter;
+import com.hgapp.betnew.common.util.ACache;
+import com.hgapp.betnew.common.util.CLipHelper;
+import com.hgapp.betnew.common.util.CalcHelper;
+import com.hgapp.betnew.common.util.DoubleClickHelper;
+import com.hgapp.betnew.common.util.GameShipHelper;
+import com.hgapp.betnew.common.util.HGConstant;
 import com.hgapp.betnew.common.widgets.NTitleBar;
 import com.hgapp.betnew.data.DepositAliPayQCCodeResult;
 import com.hgapp.betnew.data.USDTRateResult;
 import com.hgapp.betnew.homepage.online.OnlineFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -49,8 +59,25 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
     Button btnUSDTSubmit;
     @BindView(R.id.tvUsdtMark)
     TextView tvUsdtMark;
+    @BindView(R.id.ivDepositAliQCPayImage)
+    ImageView ivDepositAliQCPayImage;
+    @BindView(R.id.usdtTitle)
+    TextView usdtTitle;
+    @BindView(R.id.usdtAmount)
+    TextView usdtAmount;
+    @BindView(R.id.usdtAddress)
+    TextView usdtAddress;
+    @BindView(R.id.usdtAmountCopy)
+    Button usdtAmountCopy;
+    @BindView(R.id.usdtAddressCopy)
+    Button usdtAddressCopy;
+    @BindView(R.id.usdtService)
+    TextView usdtService;
+    @BindView(R.id.usdtMark)
+    TextView usdtMark;
     DepositAliPayQCCodeResult.DataBean dataBean;
     OptionsPickerView optionsPickerView;
+    USDTRateResult usdtRateResult;
 
     private USDTPayContract.Presenter presenter;
     private String getArgParam1;
@@ -91,7 +118,37 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
     }
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
+        presenter.postUsdtRateApiSubimt("100");
         tvThirdBankBack.setMoreText(getArgParam1);
+        etDepositThirdBankMoney.setText("100");
+        etDepositThirdBankMoney.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String money = s.toString().trim();
+                if(Check.isEmpty(money)||"0".equals(money)){
+                    onSetRate("0");
+                    return;
+                }
+                if(Double.valueOf(money) >= Double.valueOf("100")){
+                    //GameLog.log("当前存款大于 "+money);
+                    money=  CalcHelper.divide(money,usdtRateResult.getUsdt_rate()).toString();
+                    //GameLog.log("格式化的 "+GameShipHelper.formatNumber(money));
+                    onSetRate(GameShipHelper.formatNumber(money));
+                }else{
+                    onSetRate("0");
+                }
+            }
+        });
         GameLog.log("USDT当前存款的方式 "+dataBean.getType() +dataBean.getUsdt_name());
         tvDepositThirdBankChannel.setText(dataBean.getType());
         tvDepositThirdBankCode.setText(dataBean.getUsdt_name());
@@ -125,6 +182,23 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
         tvDepositThirdBankChannel.setText(dataBean.getTitle());
         tvDepositThirdBankCode.setText(dataBean.getBankList().get(0).getBankname());
         bankCode = dataBean.getBankList().get(0).getBankcode();*/
+
+        usdtTitle.setText(dataBean.getType());
+        usdtAddress.setText(dataBean.getDeposit_address());
+        //*注意
+        // \n1.请勿想上述地址支付任何非TRC20 USDT资产，否则资产将无法找回。
+        // \n2.当前Okex/火币/币安交易所USDT最新场外卖单单价6.75元。
+        // \n3.请确保收款地址收到14.81 USDt[不含转账手续费]，否则无法到账。
+        // \n 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。
+
+        StringBuffer service = new StringBuffer();
+        service.append("*支付完成请等待").append(onMarkRed("5-10")).append("分钟到账,支付失败").append(onMarkRed("咨询客服"));
+        usdtService.setText(Html.fromHtml(service.toString()));
+
+        Picasso.with(getContext())
+                .load(dataBean.getPhoto_name())
+                .placeholder(R.drawable.loading)
+                .into(ivDepositAliQCPayImage);
     }
 
     private void onCheckThirdMobilePay(){
@@ -142,7 +216,7 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
         return format.format(date);
     }
 
-    @OnClick({R.id.btnDepositThirdBankSubmit,R.id.btnUSDTSubmit})
+    @OnClick({R.id.btnDepositThirdBankSubmit,R.id.btnUSDTSubmit,R.id.usdtAddressCopy,R.id.usdtAmountCopy,R.id.usdtService})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.btnDepositThirdBankSubmit:
@@ -154,9 +228,29 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
 
                 //showMessage("当前访问的是 "+dataBean.getTutorial_url());
                 break;
+            case R.id.usdtAddressCopy:
+                showMessage("复制成功！");
+                DoubleClickHelper.getNewInstance().disabledView(usdtAddressCopy);
+                CLipHelper.copy(getContext(),usdtAddress.getText().toString());
+                break;
+            case R.id.usdtAmountCopy:
+                showMessage("复制成功！");
+                DoubleClickHelper.getNewInstance().disabledView(usdtAmountCopy);
+                CLipHelper.copy(getContext(),usdtAmount.getText().toString());
+                break;
+            case R.id.usdtService:
+                String webUrl = ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL);
+                if(Check.isEmpty(webUrl)){
+                    webUrl = HGConstant.USERNAME_SERVICE_DEFAULT_URL;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(getArgParam1, webUrl)));
+
+                // EventBus.getDefault().post(new ShowMainEvent(2));
+                break;
         }
 
     }
+
 
     @OnClick(R.id.tvDepositThirdBankCode)
     public void onViewBankCodeClicked() {
@@ -167,13 +261,30 @@ public class USDTPayFragment extends HGBaseFragment implements USDTPayContract.V
     @Override
     public void postDepositUSDTPaySubimtResult(String message) {
         showMessage(message);
-        String thirdBankMoney = etDepositThirdBankMoney.getText().toString().trim();
-        presenter.postUsdtRateApiSubimt(thirdBankMoney);
+        /*String thirdBankMoney = etDepositThirdBankMoney.getText().toString().trim();
+        presenter.postUsdtRateApiSubimt(thirdBankMoney);*/
+    }
+
+    private void onSetRate(String amount){
+        usdtAmount.setText( amount);
+        StringBuffer mark = new StringBuffer();
+        mark.append("*注意<br> 1.请勿向上述地址支付任何非"+onMarkRed(usdtRateResult.getType())+" USDT资产，否则资产将无法找回。<br> ")
+                .append( "2.当前"+usdtRateResult.getJiaoyisuo()+"交易所USDT最新场外卖单单价").
+                append(onMarkRed(usdtRateResult.getUsdt_rate())).
+                append("元。<br>3.请确保收款地址收到").
+                append(onMarkRed(amount)).
+                append(" USDT").
+                append(onMarkRed("[不含转账手续费]")).
+                append(",否则无法到账。<br> 4.您支付至上述地址后，需要整个网络节点的确认，请耐心等待。");
+        usdtMark.setText(Html.fromHtml(mark.toString()));
     }
 
     @Override
     public void postUsdtRateApiSubimtResult(USDTRateResult usdtRateResult) {
-        EventBus.getDefault().post(new StartBrotherEvent(USDTQCPayFragment.newInstance(dataBean,usdtRateResult,getArgParam1)));
+        this.usdtRateResult = usdtRateResult;
+        GameLog.log("usdtRate "+usdtRateResult.toString());
+        //EventBus.getDefault().post(new StartBrotherEvent(USDTQCPayFragment.newInstance(dataBean,usdtRateResult,getArgParam1)));
+        onSetRate(usdtRateResult.getUsdt_amount());
 
     }
 
