@@ -40,6 +40,25 @@ public class CheckUpgradeResult implements Parcelable {
     private String telOn;
     private String chatOn;
     private String qqOn;
+    private String android_baodu;
+    private String login_verify_realname;
+
+    public String getLogin_verify_realname() {
+        return login_verify_realname;
+    }
+
+    public void setLogin_verify_realname(String login_verify_realname) {
+        this.login_verify_realname = login_verify_realname;
+    }
+
+    public String getAndroid_baodu() {
+        return android_baodu;
+    }
+
+    public void setAndroid_baodu(String android_baodu) {
+        this.android_baodu = android_baodu;
+    }
+
 
 
     public String getVersion() {
@@ -202,6 +221,9 @@ public class CheckUpgradeResult implements Parcelable {
         this.qqOn = qqOn;
     }
 
+    public CheckUpgradeResult() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -229,9 +251,8 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.telOn);
         dest.writeString(this.chatOn);
         dest.writeString(this.qqOn);
-    }
-
-    public CheckUpgradeResult() {
+        dest.writeString(this.android_baodu);
+        dest.writeString(this.login_verify_realname);
     }
 
     protected CheckUpgradeResult(Parcel in) {
@@ -255,9 +276,11 @@ public class CheckUpgradeResult implements Parcelable {
         this.telOn = in.readString();
         this.chatOn = in.readString();
         this.qqOn = in.readString();
+        this.android_baodu = in.readString();
+        this.login_verify_realname = in.readString();
     }
 
-    public static final Parcelable.Creator<CheckUpgradeResult> CREATOR = new Parcelable.Creator<CheckUpgradeResult>() {
+    public static final Creator<CheckUpgradeResult> CREATOR = new Creator<CheckUpgradeResult>() {
         @Override
         public CheckUpgradeResult createFromParcel(Parcel source) {
             return new CheckUpgradeResult(source);

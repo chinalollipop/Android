@@ -226,6 +226,14 @@
                         android:text="先去逛逛"
                         android:textColor="#6ca7eb"
                         android:textSize="20sp" />
+                    <Button
+                        android:id="@+id/btnLoginBaodu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/h_login_edit_height"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/btn_normal_login"
+                        android:text="APP转账报毒解决方案"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout

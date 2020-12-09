@@ -11,7 +11,7 @@ public interface WithdrawContract {
     public interface Presenter extends IPresenter
     {
         public void postWithdrawBankCard(String appRefer);
-        public void postWithdrawSubmit(String appRefer,String Bank_Address,String Bank_Account,String Bank_Name,String Money,String Withdrawal_Passwd,String Alias,String Key,String usdt_address);
+        public void postWithdrawSubmit(String appRefer,String Bank_Address,String Bank_Account,String Bank_Name,String Money,String Withdrawal_Passwd,String Alias,String Key,String usdt_rate);
         public void postUsdtRateApiSubimt(String action);
     }
     public interface View extends IView<WithdrawContract.Presenter>,IMessageView,IProgressView

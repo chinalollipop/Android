@@ -31,6 +31,7 @@ import com.hgapp.betnew.common.widgets.NTitleBar;
 import com.hgapp.betnew.data.LoginResult;
 import com.hgapp.betnew.data.SportsPlayMethodRBResult;
 import com.hgapp.betnew.homepage.handicap.BottombarViewManager;
+import com.hgapp.betnew.homepage.online.OnlineFragment;
 import com.hgapp.betnew.login.fastregister.RegisterFragment;
 import com.hgapp.betnew.login.forgetpwd.ForgetPwdFragment;
 import com.hgapp.betnew.login.resetpwd.ResetPwdDialog;
@@ -129,7 +130,8 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
     Button btnLoginDemo;
     @BindView(R.id.btnLoginLayDemo)
     LinearLayout btnLoginLayDemo;
-
+    @BindView(R.id.btnLoginBaodu)
+    Button btnLoginBaodu;
     @BindView(R.id.loginTypeDaniel)
     TextView loginTypeDaniel;
 
@@ -262,6 +264,11 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
         }).build();
         optionsPickerViewState.setPicker(stateList);
         etRegisterResource.setText("网络广告  >");
+        String baodu =  ACache.get(getContext()).getAsString("android_baodu");
+        GameLog.log("报毒url："+baodu);
+        if(Check.isEmpty(baodu)){
+            btnLoginBaodu.setVisibility(View.GONE);
+        }
     }
 
     public void verifyStoragePermissions() {
@@ -439,7 +446,7 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
 
 
 
-    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit,R.id.loginTypeDaniel, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
+    @OnClick({R.id.etLoginEyes,R.id.etRegisterPwdEyes,R.id.etRegisterPwdVerifyEyes,R.id.tvLoginForgetPwd,  R.id.btnLoginSubmit,R.id.loginTypeDaniel, R.id.btnLoginUser,R.id.btnLoginRegister,R.id.btnLoginDemo,R.id.btnLoginBaodu,R.id.btnRegisterSubmitDemo,R.id.etRegisterResource,R.id.btnRegisterSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.etLoginEyes:
@@ -525,6 +532,16 @@ public class LoginFragment extends HGBaseFragment implements LoginContract.View 
                     presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","demoguest","nicainicainicaicaicaicai");
                 }
                 //presenter.postLoginDemo(HGConstant.PRODUCT_PLATFORM,"demoguest","nicainicainicaicaicaicai");
+                break;
+            case R.id.btnLoginBaodu:
+                String baodu =  ACache.get(getContext()).getAsString("android_baodu");
+                GameLog.log("报毒url："+baodu);
+                if(!Check.isEmpty(baodu)){
+                    EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance("",baodu)));
+                }else{
+                    showMessage(getString(R.string.n_contact_service));
+                }
+
                 break;
             case R.id.btnRegisterSubmitDemo:
                 String phone = etRegisterAccountPhoneDemo.getText().toString().trim();

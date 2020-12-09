@@ -191,9 +191,10 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
         tvWithdrawTotalBet.setText(withdrawResult.getTotal_bet());
         tvWithdrawBankAddress.setText(withdrawResult.getBank_Address());
         //前6后3
-        accountNumber = withdrawResult.getBank_Account();
-        String account = accountNumber.substring(0,6)+"******"+accountNumber.substring(accountNumber.length()-3);
-        tvWithdrawBankAccount.setText(account);
+        accountNumber = withdrawResult.getBank_Account_hide();
+        tvWithdrawBankAccount.setText(accountNumber);
+        usdtAddress = withdrawResult.getUsdt_Address_hide();
+        tvWithdrawUsdtAddress.setText(usdtAddress);
         tvWithdrawBankName.setText(withdrawResult.getBank_Name());
         bankNameString= withdrawResult.getBank_Name();
     }
@@ -211,12 +212,11 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
 
     @Override
     public void postUsdtRateApiSubimtResult(USDTRateResult usdtRateResult) {
-        usdtAddress = usdtRateResult.getUsdt_Address();
-        String account = usdtAddress.substring(0,6)+"******"+usdtAddress.substring(usdtAddress.length()-3);
-        tvWithdrawUsdtAddress.setText(account);
+
         usdtRate = usdtRateResult.getWithdrawals_usdt_rate();
         String usdtrate  = "实时汇率："+onMarkRed(usdtRate);
         tvWithdrawUsdtRate.setText(Html.fromHtml(usdtrate.toString()));
+
 
     }
 
@@ -284,11 +284,11 @@ public class WithdrawFragment extends HGBaseFragment implements WithdrawContract
         }
         DoubleClickHelper.getNewInstance().disabledView(tvWithdrawBankSubmit);
         if(isUsdtWithdraw){
-            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
-                    money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y",usdtAddress);
+            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),"",tvWithdrawBankName.getText().toString(),
+                    money,pwd, "","Y",usdtRate);
         }else{
-            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),accountNumber,tvWithdrawBankName.getText().toString(),
-                    money,pwd, ACache.get(getContext()).getAsString(HGConstant.USERNAME_ALIAS),"Y","");
+            presenter.postWithdrawSubmit("",tvWithdrawBankAddress.getText().toString(),"",tvWithdrawBankName.getText().toString(),
+                    money,pwd, "","Y","");
         }
     }
 

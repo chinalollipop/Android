@@ -19,7 +19,7 @@ public interface IWithdrawApi {
     //取款提交
     @POST("account/take.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponse<Object>> postWithdrawSubmit(@Field("appRefer") String appRefer, @Field("Bank_Address") String Bank_Address, @Field("Bank_Account") String Bank_Account, @Field("Bank_Name") String Bank_Name, @Field("Money") String Money, @Field("Withdrawal_Passwd") String Withdrawal_Passwd, @Field("Alias") String Alias, @Field("Key") String Key,@Field("usdt_address") String usdt_address);
+    public Observable<AppTextMessageResponse<Object>> postWithdrawSubmit(@Field("appRefer") String appRefer, @Field("Bank_Address") String Bank_Address, @Field("Bank_Account") String Bank_Account, @Field("Bank_Name") String Bank_Name, @Field("Money") String Money, @Field("Withdrawal_Passwd") String Withdrawal_Passwd, @Field("Alias") String Alias, @Field("Key") String Key,@Field("usdt_rate") String usdt_rate);
 
     @POST("api/usdtRateApi.php")
     @FormUrlEncoded
