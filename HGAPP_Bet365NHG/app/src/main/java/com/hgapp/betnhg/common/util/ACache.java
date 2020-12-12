@@ -12,6 +12,8 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import com.hgapp.common.util.Check;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -125,6 +127,9 @@ public class ACache {
      *            保存的String数据
      */
     public void put(String key, String value) {
+        if(Check.isEmpty(value)){
+            return;
+        }
         File file = mCache.newFile(key);
         BufferedWriter out = null;
         try {

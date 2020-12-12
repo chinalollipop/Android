@@ -6541,9 +6541,9 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
                     type = "C";
                 } else if (fromType.equals("2")) {
                     order_method = "BK_rm";
-                    rtype = "RMH";
+                    rtype = "RMC";
                     wtype = "RM";
-                    type = "H";
+                    type = "C";
                 } else if (fromType.equals("3") || fromType.equals("5")) {
                     order_method = "FT_m";
                     rtype = "MC";
