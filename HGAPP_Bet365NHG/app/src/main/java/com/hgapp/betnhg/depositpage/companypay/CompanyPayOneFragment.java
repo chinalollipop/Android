@@ -180,7 +180,7 @@ public class CompanyPayOneFragment extends HGBaseFragment{
             holder.setText(R.id.tvItemMyName,dataBean1.getBank_name());
             holder.setText(R.id.ivItemMyUser,dataBean1.getBank_user());
             holder.setText(R.id.ivItemMyCont,dataBean1.getBank_context());
-
+            holder.setText(R.id.ivItemMyNote,dataBean1.getNotice());
         }
 
 

@@ -77,6 +77,15 @@ public class DepositBankCordListResult implements Parcelable {
         private String bank_context;
         private String bank_addres;
         private String id;
+        private String notice;
+
+        public String getNotice() {
+            return notice;
+        }
+
+        public void setNotice(String notice) {
+            this.notice = notice;
+        }
 
         public String getBankcode() {
             return bankcode;
@@ -151,6 +160,7 @@ public class DepositBankCordListResult implements Parcelable {
             dest.writeString(this.bank_context);
             dest.writeString(this.bank_addres);
             dest.writeString(this.id);
+            dest.writeString(this.notice);
         }
 
         protected DataBean(Parcel in) {
@@ -161,6 +171,7 @@ public class DepositBankCordListResult implements Parcelable {
             this.bank_context = in.readString();
             this.bank_addres = in.readString();
             this.id = in.readString();
+            this.notice = in.readString();
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
