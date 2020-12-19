@@ -32,6 +32,7 @@ import com.hgapp.a0086.personpage.realname.RealNameFragment;
 import com.hgapp.a0086.withdrawPage.WithdrawFragment;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.squareup.picasso.Picasso;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
@@ -185,7 +186,13 @@ public class CompanyPayOneFragment extends HGBaseFragment{
         }
         @Override
         protected void convert(ViewHolder holder, final DepositBankCordListResult.DataBean dataBean1, final int position) {
-            onSwitchBankCode((ImageView)holder.getView(R.id.ivItemMyImage),dataBean1.getBankcode());
+            //onSwitchBankCode((ImageView)holder.getView(R.id.ivItemMyImage),dataBean1.getBankcode());
+            if(!Check.isEmpty(dataBean1.getPhoto_name())){
+                Picasso.with(getContext())
+                        .load(dataBean1.getPhoto_name())
+                        .placeholder(R.mipmap.deposit_union)
+                        .into((ImageView)holder.getView(R.id.ivItemMyImage));
+            }
             holder.setOnClickListener(R.id.llItemMySelf, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
