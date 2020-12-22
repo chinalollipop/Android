@@ -214,7 +214,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
 
                             break;
                         case 8://新手教学
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"help.php?tip=app")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ "help?tip=app")));
                             break;
                         case 9://联系我们
                             EventBus.getDefault().post(new StartBrotherEvent(ContractFragment.newInstance(personMoney,
@@ -222,7 +222,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             break;
                         case 10://代理加盟
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"agent?tip=app")));
                             break;
                             //presenter.logOut();
                         case 11://皇冠公告
@@ -357,7 +357,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.personAgent:
-                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"agents_reg.php?tip=app")));
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"agent?tip=app")));
                 break;
             case R.id.personRefresh:
                 presenter.getPersonBalance("","");

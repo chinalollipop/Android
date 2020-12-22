@@ -144,7 +144,7 @@ public class DiscountsFragment extends HGBaseFragment {
     }
 
     private void  goWebURl(){
-        String webUrl = Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
+        String webUrl = Client.baseUrl()+ "promo?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
         //String webUrl = Client.baseUrl()+"template/promo.php?tip=app"+ ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER);
         GameLog.log("优惠活动的请求地址是："+webUrl);
         wvServiceOnlineContent.loadUrl(webUrl);

@@ -669,10 +669,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                         @Override
                         public void onBannerClick(int position) {
                             //点击item
-                            if(bannerResult.getData().get(position).getName().equals("promo")){
+                            if(bannerResult.getData().get(position).getName().contains("promo")){
                                 String userMoney = ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_MONEY);
                                 //EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/promo.php?tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
-                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+ ACache.get(getContext()).getAsString("login_must_tpl_name")+"promo.php?tip=app" + ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+ "promo?tip=app" + ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
                             }
                             //showMessage("效果1点击"+position);
                         }

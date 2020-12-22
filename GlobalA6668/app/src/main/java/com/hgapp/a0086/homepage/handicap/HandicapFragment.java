@@ -464,7 +464,7 @@ public class HandicapFragment extends HGBaseFragment implements SportsListContra
 
             case R.id.tvHandicapRule:
                 BottombarViewManager.getSingleton().onCloseView();
-                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"template/sportroul.php?tip=app")));
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"sportroul?tip=app")));
                 break;
 
             case R.id.btn_login_1:

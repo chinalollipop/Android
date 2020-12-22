@@ -171,11 +171,11 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                     GameLog.log("用户的金额："+personMoney);
                     switch (position){
                         case 0:
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"middle_lives_upgraded.php?tip=app&game_Type=live")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"upgraded?tip=app&game_Type=live&username="+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME))));
 
                             break;
                         case 1:
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ACache.get(getContext()).getAsString("login_must_tpl_name")+"middle_lives_upgraded.php?tip=app&game_Type=sport")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+"upgraded?tip=app&game_Type=sport&username="+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_USERNAME))));
 
                             break;
                         case 2:
