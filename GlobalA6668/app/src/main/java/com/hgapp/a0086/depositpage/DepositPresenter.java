@@ -267,6 +267,31 @@ public class DepositPresenter implements DepositeContract.Presenter {
     }
 
     @Override
+    public void postDepositThirdBankCardYouHui(String appRefer,String bankid) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postDepositThirdBankCardYouHui(HGConstant.PRODUCT_PLATFORM,bankid))
+                .subscribe(new ResponseSubscriber<DepositThirdBankCardResult>() {
+                    @Override
+                    public void success(DepositThirdBankCardResult response) {
+                        if("200".equals(response.getStatus())){
+                            view.postDepositThirdBankCardResult(response);
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+
+    @Override
     public void start() {
 
     }

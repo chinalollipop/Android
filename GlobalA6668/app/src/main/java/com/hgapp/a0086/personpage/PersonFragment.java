@@ -227,7 +227,7 @@ public class PersonFragment extends HGBaseFragment implements PersonContract.Vie
                                     ACache.get(getContext()).getAsString(HGConstant.USERNAME_SERVICE_URL_WECHAT))));
                             break;
                         case 10://代理加盟
-                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ "agent.php?tip=app")));
+                            EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(personMoney, Client.baseUrl()+ "agent?tip=app")));
                             break;
                         //presenter.logOut();
                         case 11://皇冠公告

@@ -63,4 +63,10 @@ public interface IDepositApi {
     @POST("account/bank_type_USDT_api.php")
     @FormUrlEncoded
     public Observable<DepositAliPayQCCodeResult> postDepositThirdUSDTCCode(@Field("appRefer") String appRefer,@Field("type") String type,@Field("bankid") String bankid);
+
+    //显示公司入款，实际三方网银，走公司优惠
+    @POST("account/deposit_two_third_bank_youhui.php")
+    @FormUrlEncoded
+    public Observable<DepositThirdBankCardResult> postDepositThirdBankCardYouHui(@Field("appRefer") String appRefer,@Field("bankid") String bankid);
+
 }

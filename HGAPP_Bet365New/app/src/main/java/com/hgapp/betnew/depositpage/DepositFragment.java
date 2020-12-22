@@ -202,6 +202,7 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                     holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.deposit_union);
                     break;
                 case 2:
+                case 10:
                     holder.setBackgroundRes(R.id.ivDepositItem,R.mipmap.deposit_atm);
                     break;
                 case 3:
@@ -278,6 +279,9 @@ public class DepositFragment extends HGBaseFragment implements DepositeContract.
                 break;
             case 9://USDT
                 presenter.postDepositThirdUSDTCCode("",bankid);
+                break;
+            case 10://显示公司入款，实际三方网银，走公司优惠
+                presenter.postDepositThirdBankCardYouHui("",bankid);
                 break;
         }
     }
