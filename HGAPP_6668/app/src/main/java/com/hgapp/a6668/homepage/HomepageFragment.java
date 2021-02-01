@@ -1369,9 +1369,9 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 //ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro+"&type=packet");
-                EventBus.getDefault().post(new DisCountsEvent("&type=packet"));
-                EventBus.getDefault().post(new ShowMainEvent(0));
-
+                /*EventBus.getDefault().post(new DisCountsEvent("&type=packet"));
+                EventBus.getDefault().post(new ShowMainEvent(0));*/
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"promo?prokey=newyear_hb&showbg=bg&tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
                 break;
             case R.id.home_sign:
                 if(Check.isEmpty(userName)){
@@ -1980,6 +1980,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_USERNAME, userName);
         pro = "&Oid="+loginResult.getOid()+"&userid="+loginResult.getUserid()+"&UserName="+loginResult.getUserName()+"&Agents="+loginResult.getAgents()+"&appRefer="+HGConstant.PRODUCT_PLATFORM;
         ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_BANNER, pro);
+        GameLog.log("新登录的Pro "+pro);
         if(!Check.isEmpty(loginResult.getMoney())){
             ACache.get(getContext()).put(HGConstant.USERNAME_LOGIN_MONEY, loginResult.getMoney());
             tvHomePageUserMoney.setVisibility(View.VISIBLE);

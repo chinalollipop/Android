@@ -37,6 +37,9 @@ public class CheckUpgradeResult implements Parcelable {
     private String discount_activity;
     private String guest_login_must_input_phone;
     private String signSwitch;
+    private String redPocketOpen;
+    private String newYearBeginTime;
+    private String newSystemTime;
     private String tpl_name;
     private String service_meiqia2;
     private String android_baodu;
@@ -186,6 +189,30 @@ public class CheckUpgradeResult implements Parcelable {
         this.signSwitch = signSwitch;
     }
 
+    public String getRedPocketOpen() {
+        return redPocketOpen;
+    }
+
+    public void setRedPocketOpen(String redPocketOpen) {
+        this.redPocketOpen = redPocketOpen;
+    }
+
+    public String getNewYearBeginTime() {
+        return Check.isEmpty(newYearBeginTime)?newYearBeginTime:"2021-02-10 12:00:00";
+    }
+
+    public String getNewSystemTime() {
+        return newSystemTime;
+    }
+
+    public void setNewSystemTime(String newSystemTime) {
+        this.newSystemTime = newSystemTime;
+    }
+
+    public void setNewYearBeginTime(String newYearBeginTime) {
+        this.newYearBeginTime = newYearBeginTime;
+    }
+
     public String getTpl_name() {
         return tpl_name;
     }
@@ -219,6 +246,9 @@ public class CheckUpgradeResult implements Parcelable {
         dest.writeString(this.discount_activity);
         dest.writeString(this.guest_login_must_input_phone);
         dest.writeString(this.signSwitch);
+        dest.writeString(this.redPocketOpen);
+        dest.writeString(this.newYearBeginTime);
+        dest.writeString(this.newSystemTime);
         dest.writeString(this.tpl_name);
         dest.writeString(this.service_meiqia2);
         dest.writeString(this.android_baodu);
@@ -241,6 +271,9 @@ public class CheckUpgradeResult implements Parcelable {
         this.discount_activity = in.readString();
         this.guest_login_must_input_phone = in.readString();
         this.signSwitch = in.readString();
+        this.redPocketOpen = in.readString();
+        this.newYearBeginTime = in.readString();
+        this.newSystemTime = in.readString();
         this.tpl_name = in.readString();
         this.service_meiqia2 = in.readString();
         this.android_baodu = in.readString();

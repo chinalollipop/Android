@@ -29,6 +29,7 @@ import com.hgapp.a0086.common.http.cphttp.CPClient;
 import com.hgapp.a0086.common.util.ACache;
 import com.hgapp.a0086.common.util.GameShipHelper;
 import com.hgapp.a0086.common.util.HGConstant;
+import com.hgapp.a0086.common.util.TimeHelper;
 import com.hgapp.a0086.common.widgets.CustomPopWindow;
 import com.hgapp.a0086.common.widgets.MarqueeTextView;
 import com.hgapp.a0086.common.widgets.RoundCornerImageView;
@@ -52,6 +53,7 @@ import com.hgapp.a0086.homepage.events.EventShowDialog;
 import com.hgapp.a0086.homepage.events.EventsFragment;
 import com.hgapp.a0086.homepage.events.NewEventsFragment;
 import com.hgapp.a0086.homepage.handicap.HandicapFragment;
+import com.hgapp.a0086.homepage.handicap.leaguedetail.PrepareBetFragment;
 import com.hgapp.a0086.homepage.noticelist.NoticeListFragment;
 import com.hgapp.a0086.homepage.online.ContractFragment;
 import com.hgapp.a0086.homepage.online.OnlineFragment;
@@ -74,9 +76,14 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -108,7 +115,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     RecyclerView rvHomapageGameHall;
     @BindView(R.id.home_sign)
     ImageView homeSign;
+    @BindView(R.id.home_newyear)
+    ImageView homeNewyear;
+    @BindView(R.id.home_newyearcancel)
+    ImageView homeNewyearcancel;
+    @BindView(R.id.home_newyeartime)
+    TextView home_newyeartime;
 
+    long newyearTimeL =0L;
+    private ScheduledExecutorService executorService;
     private static List<HomePageIcon> homeGameList = new ArrayList<HomePageIcon>();
 
     HomePageContract.Presenter presenter;
@@ -172,6 +187,27 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         return R.layout.fragment_home;
     }
 
+    //等待时长
+    class onWaitingThread implements Runnable {
+        @Override
+        public void run() {
+            if (newyearTimeL-- <= 0) {
+                home_newyeartime.setText("活动进行中");
+            } else {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        if (home_newyeartime != null) {
+                            home_newyeartime.setText("" + TimeHelper.formatTimeDays(newyearTimeL));
+                            //GameLog.log(getString(R.string.n_register_phone_waiting) + sendAuthTime + "s");
+                        }
+                    }
+                });
+            }
+        }
+    }
+
     @Override
     public void setEvents(@Nullable Bundle savedInstanceState) {
         rvHomapageGameHall.postDelayed(new Runnable() {
@@ -181,6 +217,34 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 if(!Check.isEmpty(signSwitch)&&"true".equals(signSwitch)){
                     homeSign.setVisibility(View.VISIBLE);
                 }
+                String redPocketOpen  = ACache.get(getContext()).getAsString("redPocketOpen");
+                if(!Check.isEmpty(redPocketOpen)&&"true".equals(redPocketOpen)){
+                    homeNewyear.setVisibility(View.VISIBLE);
+                    String newyearTime = ACache.get(getContext()).getAsString("newYearBeginTime");
+                    String newSysTemTime = ACache.get(getContext()).getAsString("newSysTemTime");
+                    if(!Check.isEmpty(newSysTemTime)){
+                        newyearTimeL = TimeHelper.timeToSecond(newyearTime,newSysTemTime);
+                        GameLog.log("执行了服务器时间");
+                    }else{
+                        Date date = new Date();
+                        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        newSysTemTime = dateFormat.format(date);
+                        GameLog.log("执行了本地时间");
+                        newyearTimeL = TimeHelper.timeToSecond(newyearTime,newSysTemTime);
+                    }
+
+                    GameLog.log("当前时间 "+newSysTemTime+" 倒计时 "+ newyearTimeL);
+                    if (null != executorService) {
+                        executorService.shutdownNow();
+                        executorService.shutdown();
+                        executorService = null;
+                    }
+                    executorService = Executors.newScheduledThreadPool(1);
+                    executorService.scheduleAtFixedRate(new onWaitingThread(), 0, 1000, TimeUnit.MILLISECONDS);
+
+
+                }
+
                 GameLog.log("签到活动说法："+signSwitch);
             }
         },5000);
@@ -507,7 +571,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     }
 
 
-    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.home_sign})
+    @OnClick({R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.home_sign,R.id.home_newyear,R.id.home_newyearcancel})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tvHomePageLogin:
@@ -528,6 +592,22 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     return;
                 }
                 SignTodayFragment.newInstance(userMoney,1).show(getFragmentManager());
+                break;
+            case R.id.home_newyear:
+                if(Check.isEmpty(userName)){
+                    //start(LoginFragment.newInstance());
+                    EventBus.getDefault().post(new StartBrotherEvent(LoginFragment.newInstance(), SupportFragment.SINGLETASK));
+                    return;
+                }
+                if("true".equals(ACache.get(HGApplication.instance().getApplicationContext()).getAsString(HGConstant.USERNAME_LOGIN_DEMO))){
+                    showMessage("非常抱歉，请您注册真实会员！");
+                    return;
+                }
+                EventBus.getDefault().post(new StartBrotherEvent(OnlineFragment.newInstance(userMoney, Client.baseUrl()+"promo?prokey=newyear_hb&tip=app"+ACache.get(getContext()).getAsString(HGConstant.USERNAME_LOGIN_BANNER))));
+                break;
+            case R.id.home_newyearcancel:
+                homeNewyear.setVisibility(View.GONE);
+                home_newyeartime.setVisibility(View.GONE);
                 break;
         }
 

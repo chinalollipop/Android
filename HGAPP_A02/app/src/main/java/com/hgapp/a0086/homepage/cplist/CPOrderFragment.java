@@ -25697,7 +25697,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("一肖/尾数");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata700().getRate());
             cpOrderContentResult2112.setOrderId("700");
@@ -25705,7 +25705,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("一肖/尾数");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata701().getRate());
             cpOrderContentResult2101.setOrderId("701");
@@ -25713,7 +25713,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("一肖/尾数");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata702().getRate());
             cpOrderContentResult2102.setOrderId("702");
@@ -25721,7 +25721,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("一肖/尾数");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata703().getRate());
             cpOrderContentResult2103.setOrderId("703");
@@ -25729,7 +25729,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("一肖/尾数");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata704().getRate());
             cpOrderContentResult2104.setOrderId("704");
@@ -25737,7 +25737,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("一肖/尾数");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata705().getRate());
             cpOrderContentResult2105.setOrderId("705");
@@ -25745,7 +25745,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("一肖/尾数");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata706().getRate());
             cpOrderContentResult2106.setOrderId("706");
@@ -25753,7 +25753,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("一肖/尾数");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata707().getRate());
             cpOrderContentResult2107.setOrderId("707");
@@ -25761,7 +25761,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("一肖/尾数");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata708().getRate());
             cpOrderContentResult2108.setOrderId("708");
@@ -25769,7 +25769,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("一肖/尾数");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata709().getRate());
             cpOrderContentResult2109.setOrderId("709");
@@ -25777,7 +25777,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("一肖/尾数");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata710().getRate());
             cpOrderContentResult2110.setOrderId("710");
@@ -25785,7 +25785,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("一肖/尾数");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata711().getRate());
             cpOrderContentResult2111.setOrderId("711");
@@ -25894,7 +25894,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("特肖");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata685().getRate());
             cpOrderContentResult2112.setOrderId("685");
@@ -25902,7 +25902,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("特肖");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata674().getRate());
             cpOrderContentResult2101.setOrderId("674");
@@ -25910,7 +25910,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("特肖");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata680().getRate());
             cpOrderContentResult2102.setOrderId("680");
@@ -25918,7 +25918,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("特肖");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata675().getRate());
             cpOrderContentResult2103.setOrderId("675");
@@ -25926,7 +25926,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("特肖");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata681().getRate());
             cpOrderContentResult2104.setOrderId("681");
@@ -25934,7 +25934,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("特肖");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata676().getRate());
             cpOrderContentResult2105.setOrderId("676");
@@ -25942,7 +25942,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("特肖");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata682().getRate());
             cpOrderContentResult2106.setOrderId("682");
@@ -25950,7 +25950,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("特肖");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata677().getRate());
             cpOrderContentResult2107.setOrderId("677");
@@ -25958,7 +25958,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("特肖");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata683().getRate());
             cpOrderContentResult2108.setOrderId("683");
@@ -25966,7 +25966,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("特肖");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata678().getRate());
             cpOrderContentResult2109.setOrderId("678");
@@ -25974,7 +25974,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("特肖");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata684().getRate());
             cpOrderContentResult2110.setOrderId("684");
@@ -25982,7 +25982,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("特肖");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata679().getRate());
             cpOrderContentResult2111.setOrderId("679");
@@ -25993,7 +25993,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentListResult.setData(cpOrderContentResultList);
             CPOrderContentListResult.add(cpOrderContentListResult);
 
-        }else if(k == 17){
+        }else if(k == 17){//合肖特殊
             CPOrderContentListResult cpOrderContentListResult = new CPOrderContentListResult();
             cpOrderContentListResult.setOrderContentListName("");
             cpOrderContentListResult.setShowNumber(1);
@@ -26002,7 +26002,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("");
             cpOrderContentResult2112.setOrderState("");
             cpOrderContentResult2112.setOrderId("901");
@@ -26010,7 +26010,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("");
             cpOrderContentResult2101.setOrderState("");
             cpOrderContentResult2101.setOrderId("902");
@@ -26018,7 +26018,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("");
             cpOrderContentResult2102.setOrderState("");
             cpOrderContentResult2102.setOrderId("903");
@@ -26026,7 +26026,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("");
             cpOrderContentResult2103.setOrderState("");
             cpOrderContentResult2103.setOrderId("904");
@@ -26034,7 +26034,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("");
             cpOrderContentResult2104.setOrderState("");
             cpOrderContentResult2104.setOrderId("905");
@@ -26042,7 +26042,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("");
             cpOrderContentResult2105.setOrderState("");
             cpOrderContentResult2105.setOrderId("906");
@@ -26050,7 +26050,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("");
             cpOrderContentResult2106.setOrderState("");
             cpOrderContentResult2106.setOrderId("907");
@@ -26058,7 +26058,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("");
             cpOrderContentResult2107.setOrderState("");
             cpOrderContentResult2107.setOrderId("908");
@@ -26066,7 +26066,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("");
             cpOrderContentResult2108.setOrderState("");
             cpOrderContentResult2108.setOrderId("909");
@@ -26074,7 +26074,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("");
             cpOrderContentResult2109.setOrderState("");
             cpOrderContentResult2109.setOrderId("910");
@@ -26082,7 +26082,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("");
             cpOrderContentResult2110.setOrderState("");
             cpOrderContentResult2110.setOrderId("911");
@@ -26090,7 +26090,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("");
             cpOrderContentResult2111.setOrderState("");
             cpOrderContentResult2111.setOrderId("912");
@@ -26111,7 +26111,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("二肖连中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1401().getRate());
             cpOrderContentResult2112.setOrderId("1401");
@@ -26119,7 +26119,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("二肖连中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1402().getRate());
             cpOrderContentResult2101.setOrderId("1402");
@@ -26127,7 +26127,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("二肖连中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1403().getRate());
             cpOrderContentResult2102.setOrderId("1403");
@@ -26135,7 +26135,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("二肖连中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1404().getRate());
             cpOrderContentResult2103.setOrderId("1404");
@@ -26143,7 +26143,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("二肖连中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1405().getRate());
             cpOrderContentResult2104.setOrderId("1405");
@@ -26151,7 +26151,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("二肖连中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1406().getRate());
             cpOrderContentResult2105.setOrderId("1406");
@@ -26159,7 +26159,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("二肖连中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1407().getRate());
             cpOrderContentResult2106.setOrderId("1407");
@@ -26167,7 +26167,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("二肖连中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1408().getRate());
             cpOrderContentResult2107.setOrderId("1408");
@@ -26175,7 +26175,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("二肖连中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1409().getRate());
             cpOrderContentResult2108.setOrderId("1409");
@@ -26183,7 +26183,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("二肖连中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1410().getRate());
             cpOrderContentResult2109.setOrderId("1410");
@@ -26191,7 +26191,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("二肖连中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1411().getRate());
             cpOrderContentResult2110.setOrderId("1411");
@@ -26199,7 +26199,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("二肖连中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1412().getRate());
             cpOrderContentResult2111.setOrderId("1412");
@@ -26220,7 +26220,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("三肖连中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1413().getRate());
             cpOrderContentResult2112.setOrderId("1413");
@@ -26228,7 +26228,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("三肖连中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1414().getRate());
             cpOrderContentResult2101.setOrderId("1414");
@@ -26236,7 +26236,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("三肖连中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1415().getRate());
             cpOrderContentResult2102.setOrderId("1415");
@@ -26244,7 +26244,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("三肖连中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1416().getRate());
             cpOrderContentResult2103.setOrderId("1416");
@@ -26252,7 +26252,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("三肖连中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1417().getRate());
             cpOrderContentResult2104.setOrderId("1417");
@@ -26260,7 +26260,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("三肖连中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1418().getRate());
             cpOrderContentResult2105.setOrderId("1418");
@@ -26268,7 +26268,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("三肖连中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1419().getRate());
             cpOrderContentResult2106.setOrderId("1419");
@@ -26276,7 +26276,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("三肖连中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1420().getRate());
             cpOrderContentResult2107.setOrderId("1420");
@@ -26284,7 +26284,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("三肖连中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1421().getRate());
             cpOrderContentResult2108.setOrderId("1421");
@@ -26292,7 +26292,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("三肖连中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1422().getRate());
             cpOrderContentResult2109.setOrderId("1422");
@@ -26300,7 +26300,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("三肖连中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1423().getRate());
             cpOrderContentResult2110.setOrderId("1423");
@@ -26308,7 +26308,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("三肖连中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1424().getRate());
             cpOrderContentResult2111.setOrderId("1424");
@@ -26328,7 +26328,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("四肖连中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1425().getRate());
             cpOrderContentResult2112.setOrderId("1425");
@@ -26336,7 +26336,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("四肖连中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1426().getRate());
             cpOrderContentResult2101.setOrderId("1426");
@@ -26344,7 +26344,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("四肖连中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1427().getRate());
             cpOrderContentResult2102.setOrderId("1427");
@@ -26352,7 +26352,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("四肖连中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1428().getRate());
             cpOrderContentResult2103.setOrderId("1428");
@@ -26360,7 +26360,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("四肖连中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1429().getRate());
             cpOrderContentResult2104.setOrderId("1429");
@@ -26368,7 +26368,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("四肖连中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1430().getRate());
             cpOrderContentResult2105.setOrderId("1430");
@@ -26376,7 +26376,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("四肖连中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1431().getRate());
             cpOrderContentResult2106.setOrderId("1431");
@@ -26384,7 +26384,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("四肖连中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1432().getRate());
             cpOrderContentResult2107.setOrderId("1432");
@@ -26392,7 +26392,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("四肖连中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1433().getRate());
             cpOrderContentResult2108.setOrderId("1433");
@@ -26400,7 +26400,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("四肖连中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1434().getRate());
             cpOrderContentResult2109.setOrderId("1434");
@@ -26408,7 +26408,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("四肖连中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1435().getRate());
             cpOrderContentResult2110.setOrderId("1435");
@@ -26416,7 +26416,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("四肖连中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1436().getRate());
             cpOrderContentResult2111.setOrderId("1436");
@@ -26436,7 +26436,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("五肖连中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1473().getRate());
             cpOrderContentResult2112.setOrderId("1473");
@@ -26444,7 +26444,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("五肖连中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1474().getRate());
             cpOrderContentResult2101.setOrderId("1474");
@@ -26452,7 +26452,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("五肖连中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1475().getRate());
             cpOrderContentResult2102.setOrderId("1475");
@@ -26460,7 +26460,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("五肖连中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1476().getRate());
             cpOrderContentResult2103.setOrderId("1476");
@@ -26468,7 +26468,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("五肖连中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1477().getRate());
             cpOrderContentResult2104.setOrderId("1477");
@@ -26476,7 +26476,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("五肖连中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1478().getRate());
             cpOrderContentResult2105.setOrderId("1478");
@@ -26484,7 +26484,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("五肖连中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1479().getRate());
             cpOrderContentResult2106.setOrderId("1479");
@@ -26492,7 +26492,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("五肖连中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1480().getRate());
             cpOrderContentResult2107.setOrderId("1480");
@@ -26500,7 +26500,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("五肖连中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1481().getRate());
             cpOrderContentResult2108.setOrderId("1481");
@@ -26508,7 +26508,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("五肖连中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1482().getRate());
             cpOrderContentResult2109.setOrderId("1482");
@@ -26516,7 +26516,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("五肖连中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1483().getRate());
             cpOrderContentResult2110.setOrderId("1483");
@@ -26524,7 +26524,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("五肖连中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1484().getRate());
             cpOrderContentResult2111.setOrderId("1484");
@@ -26545,7 +26545,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("二肖连不中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1437().getRate());
             cpOrderContentResult2112.setOrderId("1437");
@@ -26553,7 +26553,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("二肖连不中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1438().getRate());
             cpOrderContentResult2101.setOrderId("1438");
@@ -26561,7 +26561,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("二肖连不中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1439().getRate());
             cpOrderContentResult2102.setOrderId("1439");
@@ -26569,7 +26569,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("二肖连不中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1440().getRate());
             cpOrderContentResult2103.setOrderId("1440");
@@ -26577,7 +26577,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("二肖连不中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1441().getRate());
             cpOrderContentResult2104.setOrderId("1441");
@@ -26585,7 +26585,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("二肖连不中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1442().getRate());
             cpOrderContentResult2105.setOrderId("1442");
@@ -26593,7 +26593,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("二肖连不中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1443().getRate());
             cpOrderContentResult2106.setOrderId("1443");
@@ -26601,7 +26601,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("二肖连不中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1444().getRate());
             cpOrderContentResult2107.setOrderId("1444");
@@ -26609,7 +26609,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("二肖连不中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1445().getRate());
             cpOrderContentResult2108.setOrderId("1445");
@@ -26617,7 +26617,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("二肖连不中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1446().getRate());
             cpOrderContentResult2109.setOrderId("1446");
@@ -26625,7 +26625,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("二肖连不中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1447().getRate());
             cpOrderContentResult2110.setOrderId("1447");
@@ -26633,7 +26633,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("二肖连不中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1448().getRate());
             cpOrderContentResult2111.setOrderId("1448");
@@ -26654,7 +26654,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("三肖连不中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1449().getRate());
             cpOrderContentResult2112.setOrderId("1449");
@@ -26662,7 +26662,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("三肖连不中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1450().getRate());
             cpOrderContentResult2101.setOrderId("1450");
@@ -26670,7 +26670,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("三肖连不中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1451().getRate());
             cpOrderContentResult2102.setOrderId("1451");
@@ -26678,7 +26678,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("三肖连不中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1452().getRate());
             cpOrderContentResult2103.setOrderId("1452");
@@ -26686,7 +26686,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("三肖连不中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1453().getRate());
             cpOrderContentResult2104.setOrderId("1453");
@@ -26694,7 +26694,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("三肖连不中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1454().getRate());
             cpOrderContentResult2105.setOrderId("1454");
@@ -26702,7 +26702,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("三肖连不中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1455().getRate());
             cpOrderContentResult2106.setOrderId("1455");
@@ -26710,7 +26710,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("三肖连不中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1456().getRate());
             cpOrderContentResult2107.setOrderId("1456");
@@ -26718,7 +26718,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("三肖连不中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1457().getRate());
             cpOrderContentResult2108.setOrderId("1457");
@@ -26726,7 +26726,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("三肖连不中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1458().getRate());
             cpOrderContentResult2109.setOrderId("1458");
@@ -26734,7 +26734,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("三肖连不中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1459().getRate());
             cpOrderContentResult2110.setOrderId("1459");
@@ -26742,7 +26742,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("三肖连不中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1460().getRate());
             cpOrderContentResult2111.setOrderId("1460");
@@ -26763,7 +26763,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             List<CPOrderContentResult> cpOrderContentResultList = new ArrayList<>();
 
             CPOrderContentResult cpOrderContentResult2112 = new CPOrderContentResult();
-            cpOrderContentResult2112.setOrderName("牛");
+            cpOrderContentResult2112.setOrderName("虎");
             cpOrderContentResult2112.setFullName("四肖连不中");
             cpOrderContentResult2112.setOrderState(cpbjscResult.getdata1461().getRate());
             cpOrderContentResult2112.setOrderId("1461");
@@ -26771,7 +26771,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2112);
 
             CPOrderContentResult cpOrderContentResult2101 = new CPOrderContentResult();
-            cpOrderContentResult2101.setOrderName("虎");
+            cpOrderContentResult2101.setOrderName("兔");
             cpOrderContentResult2101.setFullName("四肖连不中");
             cpOrderContentResult2101.setOrderState(cpbjscResult.getdata1462().getRate());
             cpOrderContentResult2101.setOrderId("1462");
@@ -26779,7 +26779,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2101);
 
             CPOrderContentResult cpOrderContentResult2102 = new CPOrderContentResult();
-            cpOrderContentResult2102.setOrderName("兔");
+            cpOrderContentResult2102.setOrderName("龙");
             cpOrderContentResult2102.setFullName("四肖连不中");
             cpOrderContentResult2102.setOrderState(cpbjscResult.getdata1463().getRate());
             cpOrderContentResult2102.setOrderId("1463");
@@ -26787,7 +26787,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2102);
 
             CPOrderContentResult cpOrderContentResult2103 = new CPOrderContentResult();
-            cpOrderContentResult2103.setOrderName("龙");
+            cpOrderContentResult2103.setOrderName("蛇");
             cpOrderContentResult2103.setFullName("四肖连不中");
             cpOrderContentResult2103.setOrderState(cpbjscResult.getdata1464().getRate());
             cpOrderContentResult2103.setOrderId("1464");
@@ -26795,7 +26795,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2103);
 
             CPOrderContentResult cpOrderContentResult2104 = new CPOrderContentResult();
-            cpOrderContentResult2104.setOrderName("蛇");
+            cpOrderContentResult2104.setOrderName("马");
             cpOrderContentResult2104.setFullName("四肖连不中");
             cpOrderContentResult2104.setOrderState(cpbjscResult.getdata1465().getRate());
             cpOrderContentResult2104.setOrderId("1465");
@@ -26803,7 +26803,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2104);
 
             CPOrderContentResult cpOrderContentResult2105 = new CPOrderContentResult();
-            cpOrderContentResult2105.setOrderName("马");
+            cpOrderContentResult2105.setOrderName("羊");
             cpOrderContentResult2105.setFullName("四肖连不中");
             cpOrderContentResult2105.setOrderState(cpbjscResult.getdata1466().getRate());
             cpOrderContentResult2105.setOrderId("1466");
@@ -26811,7 +26811,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2105);
 
             CPOrderContentResult cpOrderContentResult2106 = new CPOrderContentResult();
-            cpOrderContentResult2106.setOrderName("羊");
+            cpOrderContentResult2106.setOrderName("猴");
             cpOrderContentResult2106.setFullName("四肖连不中");
             cpOrderContentResult2106.setOrderState(cpbjscResult.getdata1467().getRate());
             cpOrderContentResult2106.setOrderId("1467");
@@ -26819,7 +26819,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2106);
 
             CPOrderContentResult cpOrderContentResult2107 = new CPOrderContentResult();
-            cpOrderContentResult2107.setOrderName("猴");
+            cpOrderContentResult2107.setOrderName("鸡");
             cpOrderContentResult2107.setFullName("四肖连不中");
             cpOrderContentResult2107.setOrderState(cpbjscResult.getdata1468().getRate());
             cpOrderContentResult2107.setOrderId("1468");
@@ -26827,7 +26827,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2107);
 
             CPOrderContentResult cpOrderContentResult2108 = new CPOrderContentResult();
-            cpOrderContentResult2108.setOrderName("鸡");
+            cpOrderContentResult2108.setOrderName("狗");
             cpOrderContentResult2108.setFullName("四肖连不中");
             cpOrderContentResult2108.setOrderState(cpbjscResult.getdata1469().getRate());
             cpOrderContentResult2108.setOrderId("1469");
@@ -26835,7 +26835,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2108);
 
             CPOrderContentResult cpOrderContentResult2109 = new CPOrderContentResult();
-            cpOrderContentResult2109.setOrderName("狗");
+            cpOrderContentResult2109.setOrderName("猪");
             cpOrderContentResult2109.setFullName("四肖连不中");
             cpOrderContentResult2109.setOrderState(cpbjscResult.getdata1470().getRate());
             cpOrderContentResult2109.setOrderId("1470");
@@ -26843,7 +26843,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2109);
 
             CPOrderContentResult cpOrderContentResult2110 = new CPOrderContentResult();
-            cpOrderContentResult2110.setOrderName("猪");
+            cpOrderContentResult2110.setOrderName("鼠");
             cpOrderContentResult2110.setFullName("四肖连不中");
             cpOrderContentResult2110.setOrderState(cpbjscResult.getdata1471().getRate());
             cpOrderContentResult2110.setOrderId("1471");
@@ -26851,7 +26851,7 @@ public class CPOrderFragment extends BaseSlidingActivity implements CPOrderContr
             cpOrderContentResultList.add(cpOrderContentResult2110);
 
             CPOrderContentResult cpOrderContentResult2111 = new CPOrderContentResult();
-            cpOrderContentResult2111.setOrderName("鼠");
+            cpOrderContentResult2111.setOrderName("牛");
             cpOrderContentResult2111.setFullName("四肖连不中");
             cpOrderContentResult2111.setOrderState(cpbjscResult.getdata1472().getRate());
             cpOrderContentResult2111.setOrderId("1472");
