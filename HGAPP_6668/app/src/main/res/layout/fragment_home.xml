@@ -109,19 +109,17 @@
             <com.hgapp.a6668.common.widgets.HGGifView
                 android:id="@+id/home_newyear"
                 android:layout_centerInParent="true"
-                android:layout_gravity="left|bottom"
-                android:layout_marginBottom="35dp"
-                android:visibility="gone"
-                android:layout_width="60dp"
-                android:layout_height="60dp" />
-           <!-- <ImageView
-                android:id="@+id/home_newyear"
-                android:background="@mipmap/home_newy"
                 android:layout_gravity="left"
-                android:layout_margin="10dp"
                 android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>-->
+                android:layout_width="100dp"
+                android:layout_height="120dp" />
+
+            <ImageView
+                android:id="@+id/home_newyearcancel"
+                android:layout_gravity="left"
+                android:layout_marginLeft="90dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
         </FrameLayout>
 
     </LinearLayout>

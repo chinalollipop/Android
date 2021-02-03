@@ -192,7 +192,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         @Override
         public void run() {
             if (newyearTimeL-- <= 0) {
-                home_newyeartime.setText("活动进行中");
+                home_newyeartime.setText("红包活动开启中");
             } else {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override

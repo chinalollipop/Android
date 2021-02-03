@@ -119,7 +119,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     ImageView homeSign;
     @BindView(R.id.home_newyear)
     HGGifView homeNewYear;
-
+    @BindView(R.id.home_newyearcancel)
+    ImageView home_newyearcancel;
 
     @BindView(R.id.hometabTextTY)
     TextView hometabTextTY;
@@ -1246,9 +1247,12 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
 
     @OnClick({R.id.hometabTextTY,R.id.hometabTextZR,R.id.hometabTextDJ,R.id.hometabTextQP,R.id.hometabTextCP,R.id.hometabTextDY,R.id.hometabTextZX,
-            R.id.home_sign,R.id.home_newyear,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
+            R.id.home_sign,R.id.home_newyearcancel,R.id.home_newyear,R.id.tvHomePageLogin,R.id.tvHomePageLine,R.id.homeUserName,R.id.homeGoLogin,R.id.homeDeposit,R.id.homeDepositC,R.id.homeDwith,R.id.homeBank})
     public void onViewClicked(View view) {
         switch (view.getId()){
+            case R.id.home_newyearcancel:
+                homeNewYear.setVisibility(View.GONE);
+                break;
             case R.id.hometabTextTY:
                 homeTabItem(0);
                 manager.scrollToPositionWithOffset(strTitleMarkup[0], 0);
