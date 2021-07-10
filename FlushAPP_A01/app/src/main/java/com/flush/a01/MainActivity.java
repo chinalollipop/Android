@@ -5,9 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -46,6 +48,7 @@ import com.tencent.smtt.sdk.WebViewClient;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -58,6 +61,7 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -72,10 +76,18 @@ public class MainActivity extends AppCompatActivity {
     private TextView closeItem;
     private CoolIndicator mCoolIndicator;
     String demainUrl;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ACache.get(getApplicationContext()).put("username","");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        onUpdate();
+        ACache.get(getApplicationContext()).put("username","");
         setContentView(R.layout.activity_main);
         flayoutXpay = this.findViewById(R.id.flayout_xpay);
         wvPayGame = this.findViewById(R.id.wv_pay_x5_game);
@@ -91,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         TBSWebSetting.init(wvPayGame);
         demainUrl =  ACache.get(getApplicationContext()).getAsString("app_demain_url");
         if(Check.isEmpty(demainUrl)){
-            demainUrl = "http://m.hga030.com/";
+            demainUrl = "http://admin.836298.com/";
         }
         /*for(int ii=100001;ii<101001;++ii){
             GameLog.log(""+ii);
@@ -101,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
         //ToastUtils.showLongToast("请求的地址是："+demainUrl);
         Map<String, String> extraHeaders;
         extraHeaders = new HashMap<String, String>();
-        extraHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36");//版本号(前面是key，后面是value)
+        //extraHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36");//版本号(前面是key，后面是value)
+        extraHeaders.put("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1");//版本号(前面是key，后面是value)
         GameLog.log("域名地址是 "+demainUrl);
         wvPayGame.loadUrl(demainUrl);
         //wvPayGame.loadUrl("https://m.hhhg6668.com/");
@@ -156,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageFinished(view, url);
 
                 String app_demain_url_s =  ACache.get(getApplicationContext()).getAsString("app_demain_url_s");
-                CookieSyncManager.createInstance(getApplicationContext());
+                /*CookieSyncManager.createInstance(getApplicationContext());
                 CookieManager cookieManager = CookieManager.getInstance();
                 if (cookieManager != null) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -164,14 +177,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 String CookieStr = cookieManager.getCookie(url);
-                GameLog.log("CookieStr "+CookieStr);
-                if(CookieStr.contains("gamePoint")){
-                    ACache.get(getApplicationContext()).put("APP_COOKIE", CookieStr);
+                GameLog.log("CookieStr "+CookieStr);*/
+                String username = ACache.get(getApplicationContext()).getAsString("username");
+                if(!TextUtils.isEmpty(username)){
+                    //ACache.get(getApplicationContext()).put("APP_COOKIE", CookieStr);
+                    //String cookie = ACache.get(getApplicationContext()).getAsString("APP_COOKIE");
                     String uid = ACache.get(getApplicationContext()).getAsString("uidEx");
                     String urlEnd = ACache.get(getApplicationContext()).getAsString("urlEnd");
 
-                    String cookie = ACache.get(getApplicationContext()).getAsString("APP_COOKIE");
-                    final String dataUrl= app_demain_url_s+"&uidEx="+ uid+"&cookie="+cookie+"&urlEnd="+urlEnd;
+
+                    String ver = ACache.get(getApplicationContext()).getAsString("ver");
+                    //String get = ACache.get(getApplicationContext()).getAsString("get");
+                    final String dataUrl= app_demain_url_s+"&uidEx="+ uid+"&urlEx="+urlEnd+ "&username="+username+"&ver="+ver.substring(13);
+                    //final String dataUrl= app_demain_url_s+"&uidEx="+ uid+"&cookie="+cookie+"&urlEnd="+urlEnd+"&"+ver+ get;
+
+                    GameLog.log("最后请求的网址oooo ："+dataUrl);
                     onloadedOtherUrl(dataUrl);
                 }
 
@@ -199,10 +219,12 @@ public class MainActivity extends AppCompatActivity {
                 GameLog.log("cookie日志："+CookieStr);*/
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 GameLog.log("请求的URL 地址："+url);
                 view.loadUrl(url);
+
                 //https://m540.hga025.com/?langx=zh-cn&maxcredit=0&currency=RMB&pay_type=0&odd_f=H,M,I,E&odd_f_type=H&
                 // showKR=N&shortlangx=g&password=qaz123&status=200
                 // &msg=100&code_message=&username=laobb020&mid=21758263&uid=ond172ndim21758263l204745&ltype=4&domain=&t_link=&
@@ -248,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+
                 //request.getRequestHeaders();
                 //request.getRequestHeaders().put("User-Agent","Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36");
                 //GameLog.log("请求的网址时候   "+request.getUrl().toString());
@@ -280,7 +303,9 @@ public class MainActivity extends AppCompatActivity {
                 WebResourceResponse webResourceResponse = null;
                 webResourceResponse = new WebResourceResponse("text/html", "utf-8", new ByteArrayInputStream(stringBuilder.toString().getBytes()));
                 */
+
                 return super.shouldInterceptRequest(view, request);
+
 
             }
 
@@ -314,7 +339,46 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 GameLog.log("进入网址："+urlStr);
+                //https://199.26.97.192/transform.php?ver=2021-07-05-03en18887b-3ed5-ad58-0702eeee466071ae5576be7630
+                //获取url地址和ver
+                if(urlStr.contains("/transform.php?ver=")) {//reloadCredit.php member/live/game_ioratio_view.php member/FT_browse/index.php?rtype=r
+                    String uid = "", cookie = "";
+                    String[] data = urlStr.split("\\?");
+                    String[] data2 = data[1].split("=");
+                    ACache.get(getApplicationContext()).put("ver", data2[1].toString());
+                    String urlEnd = urlStr.split("transform.php")[0] ;
+                    ACache.get(getApplicationContext()).put("urlEnd", urlEnd);
 
+                }
+                //https://66.133.80.46/?cu=N&uid=x1gw41q7z8m24361958l422036b0&pay_type=0&username=dtq0pao020&passwd_safe=dazhi020&mid=24361958&ltype=4&currency=RMB&odd_f=H,M,I,E&domain=&odd_f_type=H&four_pwd=new&abox4pwd_notshow=Y&langx=zh-cn&
+                //https://m588.hga030.com/?cu=Y&uid=s21t925m24361956l414313b0&pay_type=0&username=dtq0pao018&passwd_safe=dazhi018&mid=24361956&ltype=4&currency=RMB&odd_f=H,M,I,E&domain=199.26.100.165&odd_f_type=H&four_pwd=second&abox4pwd_notshow=N&maxcredit=1&enable=Y&langx=en-us&
+                if(urlStr.contains("?cu=Y&uid=")||urlStr.contains("?cu=N&uid=")) {//reloadCredit.php member/live/game_ioratio_view.php member/FT_browse/index.php?rtype=r
+                    String uid = "", username = "",mid="";
+                    String[] data = urlStr.split("\\?");
+                    String[] data2 = data[1].split("&");
+
+                    for(int k=0;k<data2.length;++k){
+                        if("uid".equals(data2[k].split("=")[0])){
+                            uid = data2[k].split("=")[1];
+                            ACache.get(getApplicationContext()).put("uidEx", uid);
+                            GameLog.log("uid = "+uid);
+                        }
+                        if("username".equals(data2[k].split("=")[0])){
+                            username = data2[k].split("=")[1];
+                            ACache.get(getApplicationContext()).put("username", username);
+                            GameLog.log("username = "+username);
+
+                        }
+                        if("mid".equals(data2[k].split("=")[0])){
+                            mid = data2[k].split("=")[1];
+                            ACache.get(getApplicationContext()).put("mid", mid);
+                            GameLog.log("mid = "+mid);
+                        }
+
+                    }
+                    ACache.get(getApplicationContext()).put("get", data[1].toString());
+
+                }
                /* onloadedOtherUrl(urlStr);
 
                 StringBuilder stringBuilder = new StringBuilder();
@@ -442,6 +506,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onloadedOtherUrl(String urls){
         GameLog.log("页面加载完成："+urls);
+        ACache.get(getApplicationContext()).put("username","");
         MyHttpClient myHttpClient = new MyHttpClient();
         myHttpClient.execute(urls ,null, new Callback() {
             @Override
@@ -463,7 +528,16 @@ public class MainActivity extends AppCompatActivity {
                             DomainAddResult domainUrlList = new Gson().fromJson(responseText, DomainAddResult.class);
                             if (domainUrlList.getStatus() == 200) {
                                 EventBus.getDefault().post(new FlushDomainEvent());
-                                showMessage(domainUrlList.getMessage());
+                                MessageDialog.show(MainActivity.this, "刷水成功提示", "DODO : "+domainUrlList.getMessage(),"取消")
+                                        .setOkButton(new OnDialogButtonClickListener() {  //仅需要对需要处理的按钮进行操作
+                                            @Override
+                                            public boolean onClick(BaseDialog baseDialog, View v) {
+                                                ACache.get(getApplicationContext()).put("username","");
+                                                //处理确定按钮事务
+                                                return false;    //可以通过 return 决定点击按钮是否默认自动关闭对话框
+                                            }
+                                        }).setCancelable(false);
+
                             }
                         }catch (Exception e){
                             e.printStackTrace();
@@ -548,6 +622,7 @@ public class MainActivity extends AppCompatActivity {
                     this.wvPayGame.goBack();
                     return true;
                 } else {
+
                     finish();
                     System.exit(0);
                     return false;

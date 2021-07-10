@@ -65,12 +65,12 @@ public class LaunchFlushActivity extends AppCompatActivity {
     @BindView(R.id.clearCookie)
     TextView clearCookie;
     private boolean ifStop = false;
-    //http://admin.qsd0086.com/   0086
-    // http://admin.789567111.com/  6668
-//    String domainUrl = "http://admin.qsd0086.com/";//6668  http://admin.qdf6668.com/ 0086 http://admin.qsd0086.com/
-    String domainUrl = "http://admin.hgw777.co/";//金沙
-//    String domainUrl = "http://admin.100372.com/";//3366
-//    String domainUrl = "http://admin.77000111.com/";//太阳城
+    //http://admin.qsd0086.com/
+    // http://admin.789567111.com/
+//    String domainUrl = "http://admin.qsd0086.com/";//  http://admin.qdf6668.com/ 0086 http://admin.qsd0086.com/
+    String domainUrl = "http://admin.836298.com/";//
+//    String domainUrl = "http://admin.100372.com/";//
+//    String domainUrl = "http://admin.77000111.com/";//
 
     List<DomainAllResult.DataBean> domainListResults = new ArrayList<>();
     DomainAllResult domainUrlList;
@@ -116,6 +116,20 @@ public class LaunchFlushActivity extends AppCompatActivity {
                 });
     }
 
+    private void onCheckNetWork(){
+        InputDialog.show(LaunchFlushActivity.this, "提示", "请检查您输入的网址是否正常！！！", "确定", "取消")
+                .setInputText(domainUrl)//"http://admin.hgw777.co/"
+                .setOnOkButtonClickListener(new OnInputDialogButtonClickListener() {
+                    @Override
+                    public boolean onClick(BaseDialog baseDialog, View v, String inputStr) {
+                        //inputStr 即当前输入的文本
+                        domainUrl = inputStr;
+                        GameLog.log("用户输入的地址是 " + domainUrl);
+                        onGetAvailableDomain();
+                        return false;
+                    }
+                });
+    }
 
     //获取可用域名
     public void onGetAvailableDomain() {
@@ -153,6 +167,11 @@ public class LaunchFlushActivity extends AppCompatActivity {
                         GameLog.log("返回的数据：" + responseText);
                         if(responseText.contains("403 Forbidden")){
                             showMessage("请检查你的网络是否正常，此处不要连接VPN！！！");
+                            return;
+                        }
+                        if(responseText.contains("<html")){
+                            //showMessage("");
+                            onCheckNetWork();
                             return;
                         }
                         domainUrlList = new Gson().fromJson(responseText, DomainAllResult.class);
@@ -334,13 +353,13 @@ public class LaunchFlushActivity extends AppCompatActivity {
                         return;
                     }
                     String data="",editurl="";
-                    data= itemDomain.getText().toString().trim()+"&nameEx="+itemName.getText().toString().trim()+
+                    data= "&nameEx="+itemName.getText().toString().trim()+
                             "&passwdEx="+itemPwd.getText().toString().trim()+"";
                     if(!Check.isEmpty(item.getID())&&item.getID().equals("新增")){
                         //inJoin(0,data,itemDomain.getText().toString().trim());
-                        editurl =  domainUrl + "app/agents/downdata_receive/wateraccount.php?appRefer=14&action=addAcc&urlEx="+data;
+                        editurl =  domainUrl + "app/agents/downdata_receive/wateraccount.php?appRefer=14&action=addAcc"+data;
                     }else{
-                        editurl =  domainUrl + "app/agents/downdata_receive/wateraccount.php?appRefer=14&action=edtAcc&id="+item.getID()+"&urlEx="+data;
+                        editurl =  domainUrl + "app/agents/downdata_receive/wateraccount.php?appRefer=14&action=edtAcc&id="+item.getID()+""+data;
                     }
                     ACache.get(getApplicationContext()).put("app_demain_url",itemDomain.getText().toString());
                     ACache.get(getApplicationContext()).put("app_demain_url_s",editurl);

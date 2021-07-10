@@ -63,6 +63,8 @@ public class DomainAllResult {
         private String datetime;
         private String source;
         private String cookie;
+        private String Ver;
+
 
         public String getID() {
             return ID;
@@ -150,6 +152,14 @@ public class DomainAllResult {
 
         public void setCookie(String cookie) {
             this.cookie = cookie;
+        }
+
+        public String getVer() {
+            return Ver;
+        }
+
+        public void setVer(String ver) {
+            Ver = ver;
         }
     }
 }
