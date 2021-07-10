@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2932ec682b5912dc573e72935636f166/exoplayer-2.9.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2932ec682b5912dc573e72935636f166/exoplayer-2.9.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2932ec682b5912dc573e72935636f166/exoplayer-2.9.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer/2.9.3/9ebbdf0c862ba99d54c4ad27e0b566135442866b/exoplayer-2.9.3-javadoc.jar!/" />

@@ -3,10 +3,11 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bf47306456e0e690054b3ad1d2903c3c/library-3.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bf47306456e0e690054b3ad1d2903c3c/library-3.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bf47306456e0e690054b3ad1d2903c3c/library-3.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.instacart.truetime-android/library/3.4/da65b57b72fbe323705a7b41aefff555ea6c6d55/library-3.4-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.instacart.truetime-android/library/3.4/d51c40cd6bc57c85bb6e8d89f4f654ae3069866d/library-3.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

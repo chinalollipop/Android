@@ -1,16 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:support-compat:25.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/370fdb9b498bfab0ed55007121e8f3ad/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/b82787691e5425fd27bf72289c74352d/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/370fdb9b498bfab0ed55007121e8f3ad/jars/libs/internal_impl-25.0.1.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/370fdb9b498bfab0ed55007121e8f3ad/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/370fdb9b498bfab0ed55007121e8f3ad/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/b82787691e5425fd27bf72289c74352d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/b82787691e5425fd27bf72289c74352d/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/b82787691e5425fd27bf72289c74352d/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-compat-25.0.1.aar/b82787691e5425fd27bf72289c74352d/jars/libs/internal_impl-25.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-compat/25.0.1/8bd0739517b986365440ec036dc65c01c23106d/support-compat-25.0.1-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

@@ -6,6 +6,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fefca8f20079741226660adb35c986f3/exoplayer-dash-2.9.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fefca8f20079741226660adb35c986f3/exoplayer-dash-2.9.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fefca8f20079741226660adb35c986f3/exoplayer-dash-2.9.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-dash/2.9.3/ddec7eaffec7f1fa969239a4d074cc52901a1bc5/exoplayer-dash-2.9.3-javadoc.jar!/" />

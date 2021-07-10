@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HGAPP_6668.iml" filepath="$PROJECT_DIR$/HGAPP_6668.iml" group="HGAPP_6668" />
-      <module fileurl="file://$PROJECT_DIR$/actionbarex/actionbarex.iml" filepath="$PROJECT_DIR$/actionbarex/actionbarex.iml" group="HGAPP_6668/actionbarex" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="HGAPP_6668/app" />
-      <module fileurl="file://$PROJECT_DIR$/commonliberary/commonliberary.iml" filepath="$PROJECT_DIR$/commonliberary/commonliberary.iml" group="HGAPP_6668/commonliberary" />
-      <module fileurl="file://$PROJECT_DIR$/gallery/gallery.iml" filepath="$PROJECT_DIR$/gallery/gallery.iml" group="HGAPP_6668/gallery" />
-      <module fileurl="file://$PROJECT_DIR$/slidingmenu/slidingmenu.iml" filepath="$PROJECT_DIR$/slidingmenu/slidingmenu.iml" group="HGAPP_6668/slidingmenu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HGAPP_6668.iml" filepath="$PROJECT_DIR$/.idea/modules/HGAPP_6668.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/actionbarex/HGAPP_6668.actionbarex.iml" filepath="$PROJECT_DIR$/.idea/modules/actionbarex/HGAPP_6668.actionbarex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HGAPP_6668.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HGAPP_6668.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonliberary/HGAPP_6668.commonliberary.iml" filepath="$PROJECT_DIR$/.idea/modules/commonliberary/HGAPP_6668.commonliberary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gallery/HGAPP_6668.gallery.iml" filepath="$PROJECT_DIR$/.idea/modules/gallery/HGAPP_6668.gallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slidingmenu/HGAPP_6668.slidingmenu.iml" filepath="$PROJECT_DIR$/.idea/modules/slidingmenu/HGAPP_6668.slidingmenu.iml" />
     </modules>
   </component>
 </project>

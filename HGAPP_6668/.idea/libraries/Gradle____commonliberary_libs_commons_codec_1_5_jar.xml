@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./commonliberary/libs/commons-codec-1.5.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/commonliberary/libs/commons-codec-1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

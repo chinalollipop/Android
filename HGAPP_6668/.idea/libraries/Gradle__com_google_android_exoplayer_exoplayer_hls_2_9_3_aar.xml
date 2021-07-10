@@ -6,6 +6,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2fbb7337870d2b581275e8380d21497a/exoplayer-hls-2.9.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2fbb7337870d2b581275e8380d21497a/exoplayer-hls-2.9.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2fbb7337870d2b581275e8380d21497a/exoplayer-hls-2.9.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-hls/2.9.3/554e2db53391e8332c4f453655d69cfaea7581c5/exoplayer-hls-2.9.3-javadoc.jar!/" />

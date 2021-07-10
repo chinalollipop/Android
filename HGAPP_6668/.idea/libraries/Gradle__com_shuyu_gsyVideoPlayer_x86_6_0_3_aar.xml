@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42386359bb8c96f50460efa134f5965b/gsyVideoPlayer-x86-6.0.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42386359bb8c96f50460efa134f5965b/gsyVideoPlayer-x86-6.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42386359bb8c96f50460efa134f5965b/gsyVideoPlayer-x86-6.0.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.shuyu/gsyVideoPlayer-x86/6.0.3/bd53bb49c17dfbb8bbbdcbb04fea947185d82fe0/gsyVideoPlayer-x86-6.0.3-javadoc.jar!/" />

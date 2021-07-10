@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/378da13b72175069747b0b64d63041b8/base-rvadapter-3.0.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/378da13b72175069747b0b64d63041b8/base-rvadapter-3.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/378da13b72175069747b0b64d63041b8/base-rvadapter-3.0.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zhy/base-rvadapter/3.0.3/5711eb04fb650480f1f3106eee4cb05ff6213532/base-rvadapter-3.0.3-javadoc.jar!/" />

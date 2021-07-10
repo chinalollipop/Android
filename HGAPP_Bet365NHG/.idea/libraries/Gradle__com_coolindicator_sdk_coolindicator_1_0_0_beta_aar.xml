@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d43f0c233e561e317adbdb4e343c7804/coolindicator-1.0.0-beta/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d43f0c233e561e317adbdb4e343c7804/coolindicator-1.0.0-beta/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d43f0c233e561e317adbdb4e343c7804/coolindicator-1.0.0-beta/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coolindicator.sdk/coolindicator/1.0.0-beta/44e6a49a5a449d59031e4c15e9d48cdd865accaf/coolindicator-1.0.0-beta-javadoc.jar!/" />

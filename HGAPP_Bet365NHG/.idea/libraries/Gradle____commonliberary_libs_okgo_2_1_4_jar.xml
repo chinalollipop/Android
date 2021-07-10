@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./commonliberary/libs/okgo-2.1.4.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/commonliberary/libs/okgo-2.1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
