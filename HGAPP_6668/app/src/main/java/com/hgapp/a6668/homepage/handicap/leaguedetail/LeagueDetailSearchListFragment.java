@@ -396,6 +396,13 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setText(R.id.tv_time,Check.isEmpty(dataList.getM_Date())?"":dataList.getM_Date()+" "+dataList.getM_Time());
             holder.setText(R.id.tv_showretime,dataList.getShowretime());
             holder.setText(R.id.tv_team_h,dataList.getTeam_h());
+            if(fromType.equals("1")){
+                if(dataList.getTeam_h().contains("角球数")){
+                    holder.setVisible(R.id.ll_pay_all,false);
+                }else{
+                    holder.setVisible(R.id.ll_pay_all,true);
+                }
+            }
 
             holder.setText(R.id.tv_redcard_h,dataList.getRedcard_h());//红牌数
             holder.setText(R.id.tv_redcard_c,dataList.getRedcard_c());
