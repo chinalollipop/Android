@@ -489,7 +489,7 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
 
     private void onSartTime(){
         //pappRefer,porder_method,pgid,ptype,pwtype,prtype,podd_f_type,perror_flag,porder_type
-        presenter.postPrepareBetApi("",prepareRequestParams.order_method,prepareRequestParams.gid,prepareRequestParams.type,prepareRequestParams.wtype,prepareRequestParams.rtype,prepareRequestParams.odd_f_type,prepareRequestParams.error_flag,prepareRequestParams.order_type);
+        presenter.postPrepareBetApi("",prepareRequestParams.order_method,prepareRequestParams.gid,prepareRequestParams.type,prepareRequestParams.wtype,prepareRequestParams.rtype,prepareRequestParams.odd_f_type,prepareRequestParams.error_flag,prepareRequestParams.order_type,ACache.get(getContext()).getAsString("isMaster"));
         if(null!=executorService){
             executorService.shutdownNow();
             executorService.shutdown();

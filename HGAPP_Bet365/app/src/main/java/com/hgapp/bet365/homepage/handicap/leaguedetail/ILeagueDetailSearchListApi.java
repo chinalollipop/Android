@@ -60,7 +60,8 @@ public interface ILeagueDetailSearchListApi {
     public Observable<AppTextMessageResponseList<PrepareBetResult>> postPrepareBet(
             @Field("appRefer") String appRefer, @Field("order_method") String order_method, @Field("gid") String gid,
             @Field("type") String type, @Field("wtype") String wtype, @Field("rtype") String rtype,
-            @Field("odd_f_type") String odd_f_type, @Field("error_flag") String error_flag, @Field("order_type") String order_type);
+            @Field("odd_f_type") String odd_f_type, @Field("error_flag") String error_flag, @Field("order_type") String order_type,
+            @Field("isMaster") String isMaster);
 
 
 

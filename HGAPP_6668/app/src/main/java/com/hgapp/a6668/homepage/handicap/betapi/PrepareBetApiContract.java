@@ -20,8 +20,8 @@ public interface PrepareBetApiContract {
         public void postGameAllBetsBK(String appRefer, String gid, String gtype,String showtype);
         public void postGameAllBetsRBK(String appRefer, String gid, String gtype,String showtype);
         public void postGameAllBetsFT(String appRefer, String gid, String gtype,String showtype);
-        public void postGameAllBetsRFT(String appRefer, String gid, String gtype,String showtype);
-        public void postPrepareBetApi(String appRefer, String order_method, String gid, String type, String wtype, String rtype,String odd_f_type, String error_flag, String order_type);
+        public void postGameAllBetsRFT(String appRefer, String gid, String gtype,String showtype,String isMaster);
+        public void postPrepareBetApi(String appRefer, String order_method, String gid, String type, String wtype, String rtype,String odd_f_type, String error_flag, String order_type,String isMaster);
         public void postBetFTApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype, String autoOdd);
         public void postBetFTreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype, String autoOdd);
         public void postBetFThreApi(String appRefer, String cate, String gid, String type, String active, String line_type, String odd_f_type, String gold, String ioradio_r_h, String rtype, String wtype, String autoOdd);

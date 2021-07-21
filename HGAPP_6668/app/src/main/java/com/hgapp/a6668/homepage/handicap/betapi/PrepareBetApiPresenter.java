@@ -158,8 +158,8 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postGameAllBetsRFT(String appRefer, String gid, String gtype, String showtype) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBetsRFT(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype))
+    public void postGameAllBetsRFT(String appRefer, String gid, String gtype, String showtype, String isMaster) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBetsRFT(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,isMaster))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<GameAllPlayRFTResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<GameAllPlayRFTResult> response) {
@@ -187,8 +187,8 @@ public class PrepareBetApiPresenter implements PrepareBetApiContract.Presenter {
     }
 
     @Override
-    public void postPrepareBetApi(String appRefer, String order_method, String gid, String type, String wtype, String rtype, String odd_f_type, String error_flag, String order_type) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postPrepareBet(HGConstant.PRODUCT_PLATFORM,order_method,gid,type,wtype,rtype,HGConstant.ODD_F_TYPE,error_flag,order_type))
+    public void postPrepareBetApi(String appRefer, String order_method, String gid, String type, String wtype, String rtype, String odd_f_type, String error_flag, String order_type,String isMaster) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postPrepareBet(HGConstant.PRODUCT_PLATFORM,order_method,gid,type,wtype,rtype,HGConstant.ODD_F_TYPE,error_flag,order_type,isMaster))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PrepareBetResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<PrepareBetResult> response) {

@@ -1110,7 +1110,7 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
     LinearLayout iorWBCH;
     private PrepareBetApiContract.Presenter presenter;
 
-    private String mLeague, mTeamH, mTeamC, gid, gtype, showtype, userMoney, fromType,fromString;
+    private String mLeague, mTeamH, mTeamC, gid, gtype, showtype, userMoney, fromType,fromString,isMaster;
 
     //准备下注的数据
     private String order_method, rtype, type, wtype;
@@ -1266,10 +1266,11 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
         }
         GameLog.log("fromString : "+fromString);
         onSendAuthCode();
+        isMaster = ACache.get(getContext()).getAsString("isMaster");
         switch (fromType) {
             case "1":
                 orderType = "FT_order_re";
-                presenter.postGameAllBetsRFT("", gid, gtype, showtype);
+                presenter.postGameAllBetsRFT("", gid, gtype, showtype,isMaster);
                 break;
             case "3":
             case "5":
@@ -5897,8 +5898,8 @@ public class PrepareBetFragment extends HGBaseFragment implements PrepareBetApiC
 
     //下注之前的准备动作  你懂的 神来之笔 哈哈哈
     private void onPrepareBetClick() {
-        GameLog.log(" 购买之前的下注准备数据：\norder_method [" + order_method + "] gid [" + gid + "] type [" + type + "] wtype [" + wtype + "] rtype [" + rtype + "]");
-        presenter.postPrepareBetApi("", order_method, gid, type, wtype, rtype, "", "", "");
+        GameLog.log(" 购买之前的下注准备数据：\norder_method [" + order_method + "] gid [" + gid + "] type [" + type + "] wtype [" + wtype + "] rtype [" + rtype + "] isMaster "+isMaster);
+        presenter.postPrepareBetApi("", order_method, gid, type, wtype, rtype, "", "", "",isMaster);
     }
 
 

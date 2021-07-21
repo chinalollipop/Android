@@ -43,7 +43,7 @@ public interface IPrepareBetApi {
     //滚球足球玩法接口
     @POST("get_game_allbets.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<GameAllPlayRFTResult>> postGameAllBetsRFT(@Field("appRefer") String appRefer, @Field("gid") String gid, @Field("gtype") String gtype, @Field("showtype") String showtype);
+    public Observable<AppTextMessageResponseList<GameAllPlayRFTResult>> postGameAllBetsRFT(@Field("appRefer") String appRefer, @Field("gid") String gid, @Field("gtype") String gtype, @Field("showtype") String showtype,@Field("isMaster") String isMaster);
 
 
     /**
@@ -65,7 +65,8 @@ public interface IPrepareBetApi {
     public Observable<AppTextMessageResponseList<PrepareBetResult>> postPrepareBet(
             @Field("appRefer") String appRefer, @Field("order_method") String order_method, @Field("gid") String gid,
             @Field("type") String type, @Field("wtype") String wtype, @Field("rtype") String rtype,
-            @Field("odd_f_type") String odd_f_type, @Field("error_flag") String error_flag, @Field("order_type") String order_type);
+            @Field("odd_f_type") String odd_f_type, @Field("error_flag") String error_flag, @Field("order_type") String order_type,
+            @Field("isMaster") String isMaster);
 
     //投注接口 此接口已废弃
     @POST("order/order_finish_api.php")

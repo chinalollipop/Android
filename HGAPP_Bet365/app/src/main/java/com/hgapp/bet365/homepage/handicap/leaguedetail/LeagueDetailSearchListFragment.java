@@ -132,7 +132,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
      */
     private String wtype;
 
-    private String mLeague ,mTeamH,mTeamC;
+    private String mLeague ,mTeamH,mTeamC,isMaster;
     //滚球的数值
     private String ratio;
 
@@ -396,13 +396,13 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setText(R.id.tv_time,Check.isEmpty(dataList.getM_Date())?"":dataList.getM_Date()+" "+dataList.getM_Time());
             holder.setText(R.id.tv_showretime,dataList.getShowretime());
             holder.setText(R.id.tv_team_h,dataList.getTeam_h());
-            if(fromType.equals("1")){
+            /*if(fromType.equals("1")){
                 if(dataList.getTeam_h().contains("角球数")){
                     holder.setVisible(R.id.ll_pay_all,false);
                 }else{
                     holder.setVisible(R.id.ll_pay_all,true);
                 }
-            }
+            }*/
 
             holder.setText(R.id.tv_redcard_h,dataList.getRedcard_h());//红牌数
             holder.setText(R.id.tv_redcard_c,dataList.getRedcard_c());
@@ -427,7 +427,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setText(R.id.tv_ratio_u_str,dataList.getRatio_u_str());//客队大小
             holder.setText(R.id.tv_ior_ouh,dataList.getIor_OUH());          //客队大小赔率
             if("0".equals(dataList.getAll())||"".equals(dataList.getAll())){
-                holder.setText(R.id.tv_pay_all,"更多玩法>");
+                holder.setText(R.id.tv_pay_all,"所有玩法>");
             }else{
                 holder.setVisible(R.id.ll_pay_all,true);
                 holder.setText(R.id.tv_pay_all,dataList.getAll()+" 玩法>");
@@ -474,6 +474,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setOnClickListener(R.id.ll_team_h_rang, new View.OnClickListener() {//主队让球
                 @Override
                 public void onClick(View view) {//让球 单场 主队
+                    isMaster = dataList.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
                     mLeague = dataList.getLeague() ;
                     mTeamH = dataList.getTeam_h();
                     mTeamC = dataList.getTeam_c();
@@ -523,6 +526,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setOnClickListener(R.id.ll_team_h_daxiao, new View.OnClickListener() {//主队大小
                 @Override
                 public void onClick(View view) {// 大小 单场 主队
+                    isMaster = dataList.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
                     mLeague = dataList.getLeague() ;
                     mTeamH = dataList.getTeam_h();
                     mTeamC = dataList.getTeam_c();
@@ -585,6 +591,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setOnClickListener(R.id.ll_team_c_rang, new View.OnClickListener() {//客队让球
                 @Override
                 public void onClick(View view) {//让球 单场 客队
+                    isMaster = dataList.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
                     mLeague = dataList.getLeague() ;
                     mTeamH = dataList.getTeam_h();
                     mTeamC = dataList.getTeam_c();
@@ -636,6 +645,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setOnClickListener(R.id.ll_team_c_daxiao, new View.OnClickListener() {//客队大小
                 @Override
                 public void onClick(View view) {//大小 单场 客队
+                    isMaster = dataList.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
                     mLeague = dataList.getLeague() ;
                     mTeamH = dataList.getTeam_h();
                     mTeamC = dataList.getTeam_c();
@@ -699,6 +711,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setOnClickListener(R.id.ll_pay_all, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    isMaster = dataList.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
                     //showMessage("您点击了 更多玩法啊 "+dataList);
                     TextView tvType = holder.getView(R.id.tv_M_Type);
                     TextView tvTime = holder.getView(R.id.tv_time);
@@ -1086,7 +1101,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
         //PrepareBetEvent prepareBetEvent = new PrepareBetEvent(buyOrderTitle,mLeague, mTeamH, mTeamC, ioradio_r_h, ratio,buyOrderText);
 
         //PrepareRequestParams prepareRequestParams  = new PrepareRequestParams(pappRefer,porder_method,pgid,ptype,pwtype,prtype,podd_f_type,perror_flag,porder_type);
-        presenter.postPrepareBetApi(pappRefer,porder_method,pgid,ptype,pwtype,prtype,podd_f_type,perror_flag,porder_type);
+        presenter.postPrepareBetApi(pappRefer,porder_method,pgid,ptype,pwtype,prtype,podd_f_type,perror_flag,porder_type,isMaster);
 
         /*OrderNumber orderNumber = new OrderNumber();
         orderNumber.setAppRefer("");
