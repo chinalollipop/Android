@@ -67,6 +67,11 @@ public class RequestBuilder {
                 stringBuilder.append(name).append("=").append(value).append("&");
             }
         }
+        if(stringBuilder.toString().contains("isMaster")) {//
+            if(stringBuilder.toString().contains("error_flag")){
+                stringBuilder.append("flag=all&");
+            }
+        }
 
         //return getRequestBody(map);
         return getRequestBody(stringBuilder.toString());

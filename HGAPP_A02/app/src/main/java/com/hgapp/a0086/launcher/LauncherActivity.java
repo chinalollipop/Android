@@ -45,7 +45,7 @@ public class LauncherActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //RetrofitUrlManager.getInstance().setGlobalDomain(Client.domainUrl);
+        RetrofitUrlManager.getInstance().setGlobalDomain(Client.domainUrl);
         setContentView(R.layout.activity_launcher);
         button = (Button)findViewById(R.id.retry);
         button.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +153,7 @@ public class LauncherActivity extends AppCompatActivity{
                             }
                             ACache.get(getContext()).put("homeLineChoice", JSON.toJSONString(domainUrl));
                             Client.setClientDomain(demain);
-                            //RetrofitUrlManager.getInstance().setGlobalDomain(demain);
+                            RetrofitUrlManager.getInstance().setGlobalDomain(demain);
                             enterMain();
                         }
                     });

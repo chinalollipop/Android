@@ -150,7 +150,7 @@ public class ServiceOnlineFragment extends HGBaseFragment {
         }
         //webUrl="https://888168u.com/";
         GameLog.log("客服界面加载的url地址 "+webUrl);
-        //wvServiceOnlineContent.loadUrl(webUrl);
+        wvServiceOnlineContent.loadUrl(webUrl);
     }
 
     @OnClick(R.id.servicePageRefresh)
