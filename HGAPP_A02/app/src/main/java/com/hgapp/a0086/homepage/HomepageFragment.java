@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -264,13 +265,15 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
         rvHomapageGameHall.setNestedScrollingEnabled(false);
         rvHomapageGameHall.setAdapter(new HomaPageGameAdapter(getContext(),R.layout.item_game_hall,homeGameList));
         BannerResult bannerResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_BANNER), BannerResult.class);
-        if(!Check.isNull(bannerResult)&&!Check.isNull(bannerResult.getData())){
+        if(!Check.isNull(bannerResult)&&!Check.isNull(bannerResult.getData())&&bannerResult.getData().size()>0){
+            GameLog.log("bannerResult的数据："+bannerResult.getData().size());
             rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
             //rollPagerViewManager.testImagesLocal(null);
             rollPagerViewManager.testImagesNet(null,null);
         }
         NoticeResult noticeResult = JSON.parseObject(ACache.get(getContext()).getAsString(HGConstant.USERNAME_HOME_NOTICE), NoticeResult.class);
-        if(!Check.isNull(noticeResult)){
+        if(!Check.isNull(noticeResult)&&!Check.isNull(noticeResult.getData())&&noticeResult.getData().size()>0){
+            GameLog.log("noticeResult：的数据 "+noticeResult.getData().size());
             List<String> stringList = new ArrayList<String>();
             int size =noticeResult.getData().size();
             for(int i=0;i<size;++i){
@@ -695,7 +698,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void postBannerResult(BannerResult bannerResult) {
-        GameLog.log("。。。。。Banner的数据返回。。。。。");
+        if(Check.isNull(bannerResult)||Check.isNull(bannerResult.getData())||bannerResult.getData().size()<1){
+            return;
+        }
+        GameLog.log("。。。。。Banner的数据返回。。。。。"+bannerResult.getData());
         ACache.get(getContext()).put(HGConstant.USERNAME_HOME_BANNER, JSON.toJSONString(bannerResult));
         rollPagerViewManager  = new RollPagerViewManager(rollpageview, bannerResult.getData());
         //rollPagerViewManager.testImagesLocal(null);
@@ -704,7 +710,10 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
 
     @Override
     public void postNoticeResult(NoticeResult noticeResult) {
-        GameLog.log("。。。。。公告的数据返回。。。。。");
+        if(Check.isNull(noticeResult)||Check.isNull(noticeResult.getData())||noticeResult.getData().size()<1){
+            return;
+        }
+        GameLog.log("。。。。。公告的数据返回。。。。。"+noticeResult.getData());
         ACache.get(getContext()).put(HGConstant.USERNAME_HOME_NOTICE, JSON.toJSONString(noticeResult));
         List<String> stringList = new ArrayList<String>();
         int size =noticeResult.getData().size();
