@@ -154,6 +154,8 @@ public class LeagueDatailNewData {
         private String textDown;
         private String textUpStr;
         private String textDownStr;
+        private String textM;
+        private String textMStr;
 
         public String getBuyOrderTitle() {
             return buyOrderTitle;
@@ -393,6 +395,22 @@ public class LeagueDatailNewData {
 
         public void setTextDownStr(String textDownStr) {
             this.textDownStr = textDownStr;
+        }
+
+        public String getTextM() {
+            return textM;
+        }
+
+        public void setTextM(String textM) {
+            this.textM = textM;
+        }
+
+        public String getTextMStr() {
+            return textMStr;
+        }
+
+        public void setTextMStr(String textMStr) {
+            this.textMStr = textMStr;
         }
     }
 }

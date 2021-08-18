@@ -131,6 +131,253 @@ public class LeagueDetailSearchListResult implements Parcelable {
         private String score_h;
         private String score_c;
 
+
+        private String toqualify;// 会晋级开关
+        private String bookings;// 罚牌开关
+        private Object corners;// 角球开关
+        private String goalsou;// 大小开关
+        private String handicaps;// 让球开关
+        private String eps;// 特优赔率开关
+
+        private String hgid;
+        private String hstrong;
+        private String hratio;
+        private String hratio_mb_str;
+        private String hratio_tg_str;
+        private String ior_HRH;//让球上半场 主
+        private String ior_HRC;
+        private String hratio_o;
+        private String hratio_u;
+        private String hratio_o_str;
+        private String hratio_u_str;
+        private String ior_HOUH;//得分大小 上半场 小
+        private String ior_HOUC;
+        private String ior_MH;//独赢主
+        private String ior_MC;
+        private String ior_MN;
+        private String ior_HMH;//上半场 独赢主
+        private String ior_HMC;
+        private String ior_HMN;
+        private String ior_EOO;//进球 单
+        private String ior_EOE;
+
+
+        public String getToqualify() {
+            return toqualify;
+        }
+
+        public void setToqualify(String toqualify) {
+            this.toqualify = toqualify;
+        }
+
+        public String getBookings() {
+            return bookings;
+        }
+
+        public void setBookings(String bookings) {
+            this.bookings = bookings;
+        }
+
+        public Object getCorners() {
+            return corners;
+        }
+
+        public void setCorners(Object corners) {
+            this.corners = corners;
+        }
+
+        public String getGoalsou() {
+            return goalsou;
+        }
+
+        public void setGoalsou(String goalsou) {
+            this.goalsou = goalsou;
+        }
+
+        public String getHandicaps() {
+            return handicaps;
+        }
+
+        public void setHandicaps(String handicaps) {
+            this.handicaps = handicaps;
+        }
+
+        public String getEps() {
+            return eps;
+        }
+
+        public void setEps(String eps) {
+            this.eps = eps;
+        }
+
+        public String getHgid() {
+            return hgid;
+        }
+
+        public void setHgid(String hgid) {
+            this.hgid = hgid;
+        }
+
+        public String getHstrong() {
+            return hstrong;
+        }
+
+        public void setHstrong(String hstrong) {
+            this.hstrong = hstrong;
+        }
+
+        public String getHratio() {
+            return hratio;
+        }
+
+        public void setHratio(String hratio) {
+            this.hratio = hratio;
+        }
+
+        public String getHratio_mb_str() {
+            return hratio_mb_str;
+        }
+
+        public void setHratio_mb_str(String hratio_mb_str) {
+            this.hratio_mb_str = hratio_mb_str;
+        }
+
+        public String getHratio_tg_str() {
+            return hratio_tg_str;
+        }
+
+        public void setHratio_tg_str(String hratio_tg_str) {
+            this.hratio_tg_str = hratio_tg_str;
+        }
+
+        public String getIor_HRH() {
+            return ior_HRH;
+        }
+
+        public void setIor_HRH(String ior_HRH) {
+            this.ior_HRH = ior_HRH;
+        }
+
+        public String getIor_HRC() {
+            return ior_HRC;
+        }
+
+        public void setIor_HRC(String ior_HRC) {
+            this.ior_HRC = ior_HRC;
+        }
+
+        public String getHratio_o() {
+            return hratio_o;
+        }
+
+        public void setHratio_o(String hratio_o) {
+            this.hratio_o = hratio_o;
+        }
+
+        public String getHratio_u() {
+            return hratio_u;
+        }
+
+        public void setHratio_u(String hratio_u) {
+            this.hratio_u = hratio_u;
+        }
+
+        public String getHratio_o_str() {
+            return hratio_o_str;
+        }
+
+        public void setHratio_o_str(String hratio_o_str) {
+            this.hratio_o_str = hratio_o_str;
+        }
+
+        public String getHratio_u_str() {
+            return hratio_u_str;
+        }
+
+        public void setHratio_u_str(String hratio_u_str) {
+            this.hratio_u_str = hratio_u_str;
+        }
+
+        public String getIor_HOUH() {
+            return ior_HOUH;
+        }
+
+        public void setIor_HOUH(String ior_HOUH) {
+            this.ior_HOUH = ior_HOUH;
+        }
+
+        public String getIor_HOUC() {
+            return ior_HOUC;
+        }
+
+        public void setIor_HOUC(String ior_HOUC) {
+            this.ior_HOUC = ior_HOUC;
+        }
+
+        public String getIor_MH() {
+            return ior_MH;
+        }
+
+        public void setIor_MH(String ior_MH) {
+            this.ior_MH = ior_MH;
+        }
+
+        public String getIor_MC() {
+            return ior_MC;
+        }
+
+        public void setIor_MC(String ior_MC) {
+            this.ior_MC = ior_MC;
+        }
+
+        public String getIor_MN() {
+            return ior_MN;
+        }
+
+        public void setIor_MN(String ior_MN) {
+            this.ior_MN = ior_MN;
+        }
+
+        public String getIor_HMH() {
+            return ior_HMH;
+        }
+
+        public void setIor_HMH(String ior_HMH) {
+            this.ior_HMH = ior_HMH;
+        }
+
+        public String getIor_HMC() {
+            return ior_HMC;
+        }
+
+        public void setIor_HMC(String ior_HMC) {
+            this.ior_HMC = ior_HMC;
+        }
+
+        public String getIor_HMN() {
+            return ior_HMN;
+        }
+
+        public void setIor_HMN(String ior_HMN) {
+            this.ior_HMN = ior_HMN;
+        }
+
+        public String getIor_EOO() {
+            return ior_EOO;
+        }
+
+        public void setIor_EOO(String ior_EOO) {
+            this.ior_EOO = ior_EOO;
+        }
+
+        public String getIor_EOE() {
+            return ior_EOE;
+        }
+
+        public void setIor_EOE(String ior_EOE) {
+            this.ior_EOE = ior_EOE;
+        }
+
         public String getGid() {
             return gid;
         }

@@ -17,7 +17,7 @@
         <TextView
             android:id="@+id/item_new_team_title"
             android:layout_width="84dp"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="让球" />
 
@@ -74,7 +74,37 @@
                 android:textColor="#C9270B "
                 android:textSize="16sp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_new_m_team_down"
+            android:layout_width="84dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/wanfa_item_default"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_new_m_tv_ratio_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="和"
+                android:textColor="#6E5336" />
+
+            <TextView
+                android:id="@+id/item_new_m_tv_ratio_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大小"
+                android:textColor="#C9270B "
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
+
+
 
 
 </LinearLayout>
