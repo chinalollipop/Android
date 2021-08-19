@@ -57,6 +57,7 @@ public class LeagueDetailListDataResults {
         private String _$Attributes185; // FIXME check this code
         private String gtype  = "";
         private String gid = "";
+        private String gid_fs = "";
         private String gidm = "";
         private String datetime = "";
         private String re_time = "";
@@ -149,6 +150,14 @@ public class LeagueDetailListDataResults {
         private String ratio_hu = "";
         private String ior_HOUC = "";
         private String ior_HOUH = "";
+
+        public String getGid_fs() {
+            return gid_fs;
+        }
+
+        public void setGid_fs(String gid_fs) {
+            this.gid_fs = gid_fs;
+        }
 
         public String getRatio_o() {
             return ratio_o;
