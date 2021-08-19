@@ -150,6 +150,32 @@ public class LeagueDetailListDataResults {
         private String ratio_hu = "";
         private String ior_HOUC = "";
         private String ior_HOUH = "";
+        private String ratio = "";
+        private String hratio = "";
+        private String hstrong = "";
+        public String getRatio() {
+            return ratio;
+        }
+
+        public void setRatio(String ratio) {
+            this.ratio = ratio;
+        }
+
+        public String getHratio() {
+            return hratio;
+        }
+
+        public void setHratio(String hratio) {
+            this.hratio = hratio;
+        }
+
+        public String getHstrong() {
+            return hstrong;
+        }
+
+        public void setHstrong(String hstrong) {
+            this.hstrong = hstrong;
+        }
 
         public String getGid_fs() {
             return gid_fs;

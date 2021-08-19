@@ -39,6 +39,7 @@ import com.hgapp.a0086.homepage.sportslist.bet.BetOrderSubmitDialog;
 import com.hgapp.a0086.homepage.sportslist.bet.OrderNumber;
 import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
+import com.hgapp.common.util.Utils;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
@@ -55,6 +56,8 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.hgapp.common.util.Utils.getContext;
 
 public class LeagueDetailSearchListFragment extends HGBaseFragment implements LeagueDetailSearchListContract.View{
 
@@ -136,7 +139,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
      */
     private String wtype;
 
-    private String mLeague ,mTeamH,mTeamC,isMaster;
+    private String mLeague ,mTeamH,mTeamC,isMaster,gid_fs="";
     //滚球的数值
     private String ratio;
 
@@ -842,7 +845,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         ptype = "H";
                         pwtype = dataBean.getPwtype();
                         prtype = "";
-
+                        gid_fs = "";
 
                         switch (dataBean.getPwtype()){
                             case "R"://让球
@@ -929,7 +932,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         ptype = "C";
                         pwtype = dataBean.getPwtype();
                         prtype = "";
-
+                        gid_fs = "";
                         switch (dataBean.getPwtype()){
                             case "R"://让球
                                 buyOrderText = mTeamC+" @ <font color='#C9270B'>"+ioradio_r_h+"</font>";
@@ -1020,7 +1023,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         ptype = "N";
                         pwtype = dataBean.getPwtype();
                         prtype = "";
-
+                        gid_fs = "";
                         switch (dataBean.getPwtype()){
                             case "M"://独赢
                                 buyOrderText = mTeamC+" @ <font color='#C9270B'>"+ioradio_r_h+"</font>";
@@ -1108,6 +1111,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setOnClickListener(R.id.ll_pay_all, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    gid_fs = "";
                     //showMessage("您点击了 更多玩法啊 "+dataList);
                     isMaster = dataLists.getAll();
                     isMaster = isMaster.equals("0")?"N":"Y";
@@ -1126,6 +1130,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 @Override
                 public void onClick(View view) {
                     //showMessage("您点击了 更多玩法啊 "+dataList);
+                    gid_fs = "";
                     isMaster = dataLists.getAll();
                     isMaster = isMaster.equals("0")?"N":"Y";
                     ACache.get(getContext()).put("isMaster",isMaster);
@@ -1143,6 +1148,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 @Override
                 public void onClick(View view) {
                     //showMessage("您点击了 更多玩法啊 "+dataList);
+                    gid_fs = "";
                     isMaster = dataLists.getAll();
                     isMaster = isMaster.equals("0")?"N":"Y";
                     ACache.get(getContext()).put("isMaster",isMaster);
@@ -1218,7 +1224,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     ptype = "H";
                                     //pwtype = dataBean.getPwtype();
                                     prtype = "";
-
+                                    gid_fs = dataBeanBottom.getGid_fs();
 
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
@@ -1276,7 +1282,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     item2_title.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            gid_fs = dataBeanBottom.getGid_fs();
 
                             switch (dataLists.getAction()){
                                 case "R":
@@ -1347,17 +1353,58 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         case "R":
                             holder.setTextColorRes(R.id.item_aa,R.color.event_red);
                             holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
-                            item1_ratio_up.setText(gameDataList.get(k).getTeam_h());
-                            item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
+                            if(gameDataList.get(k).getStrong().equals("H")){
+                                item1_ratio_up.setText(gameDataList.get(k).getTeam_h()+" "+gameDataList.get(k).getRatio());
+                                item2_ratio_up.setText(gameDataList.get(k).getTeam_c());
+                            }else{
+                                item1_ratio_up.setText(gameDataList.get(k).getTeam_h());
+                                item2_ratio_up.setText(gameDataList.get(k).getTeam_c()+" "+gameDataList.get(k).getRatio());
+                            }
 
-                            item2_ratio_up.setText(gameDataList.get(k).getTeam_c());
+                            item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
                             item2_ratio_down.setText(gameDataList.get(k).getIor_RC());
 
-                            item1_ratio_up2.setText(gameDataList.get(k).getTeam_h());
-                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HRH());
+                            if(gameDataList.get(k).getHstrong().equals("H")){
+                                item1_ratio_up2.setText(gameDataList.get(k).getTeam_h()+" "+gameDataList.get(k).getHratio());
+                                item2_ratio_up2.setText(gameDataList.get(k).getTeam_c());
+                            }else{
+                                item1_ratio_up2.setText(gameDataList.get(k).getTeam_h());
+                                item2_ratio_up2.setText(gameDataList.get(k).getTeam_c()+" "+gameDataList.get(k).getHratio());
+                            }
 
-                            item2_ratio_up2.setText(gameDataList.get(k).getTeam_c());
+
+                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HRH());
                             item2_ratio_down2.setText(gameDataList.get(k).getIor_HRC());
+
+                            if(Check.isEmpty(gameDataList.get(k).getIor_RH())){//
+                                item1_ratio_up.setText("");
+                                item1_ratio_down.setText("");
+                                item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+                            if(Check.isEmpty(gameDataList.get(k).getIor_RC())){//
+                                item2_ratio_up.setText("");
+                                item2_ratio_down.setText("");
+                                item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+
+                            if(Check.isEmpty(gameDataList.get(k).getIor_HRH())){//
+                                item1_ratio_up2.setText("");
+                                item1_ratio_down2.setText("");
+                                item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+                            if(Check.isEmpty(gameDataList.get(k).getIor_HRC())){//
+                                item2_ratio_up2.setText("");
+                                item2_ratio_down2.setText("");
+                                item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
                             break;
                         case "OU":
                             holder.setTextColorRes(R.id.item_aa,R.color.n_edittext);
@@ -1373,6 +1420,36 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
                             item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hu());
                             item2_ratio_down2.setText(gameDataList.get(k).getIor_HOUH());
+
+                            if(Check.isEmpty(gameDataList.get(k).getIor_OUC())){//
+                                item1_ratio_up.setText("");
+                                item1_ratio_down.setText("");
+                                item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+                            if(Check.isEmpty(gameDataList.get(k).getIor_OUH())){//
+                                item2_ratio_up.setText("");
+                                item2_ratio_down.setText("");
+                                item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+
+                            if(Check.isEmpty(gameDataList.get(k).getIor_HOUC())){//
+                                item1_ratio_up2.setText("");
+                                item1_ratio_down2.setText("");
+                                item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+                            if(Check.isEmpty(gameDataList.get(k).getIor_HOUH())){//
+                                item2_ratio_up2.setText("");
+                                item2_ratio_down2.setText("");
+                                item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                            }else{
+                                item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
                             break;
                     }
 
@@ -1381,7 +1458,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     item1_title2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            gid_fs = dataBeanBottom.getGid_fs();
                             switch (dataLists.getAction()){
                                 case "R":
                                     if(fromType.equals("1")){//滚球足球
@@ -1438,7 +1515,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     item2_title2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            gid_fs = dataBeanBottom.getGid_fs();
                             switch (dataLists.getAction()){
                                 case "R":
                                     if(fromType.equals("1")){//滚球足球
@@ -1492,6 +1569,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             onCheckThirdMobilePay(cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype);
                         }
                     });
+
 
                     tab_linear1.addView(view);
                     tab_linear2.addView(view2);
@@ -2225,13 +2303,17 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             showMessage("汇款金额必须是整数！");
             return;
         }*/
-        GameLog.log("rtype是：\n"+rtype);
+        GameLog.log("gid_fs：\n"+gid_fs);
         GameLog.log("赔率："+ioradio_r_h+" 金额："+gold+" cate："+cate+" active："+active+" type："+type+" line_type："+line_type+" porder_method："+porder_method);
         buyOrderInfor = buyOrderTitle +"\n"+ mLeague + "\n" +mTeamH + " "+ratio + " v "+ mTeamC +"\n"+buyOrderText;
         GameLog.log("购买的消息是：\n"+buyOrderInfor);
-
+        if(Check.isEmpty(gid_fs)){
+            gid_fs = "daniel";
+        }
+        ACache.get(Utils.getContext()).put("gid_fs",gid_fs);
         //PrepareBetEvent prepareBetEvent = new PrepareBetEvent(buyOrderTitle,mLeague, mTeamH, mTeamC, ioradio_r_h, ratio,buyOrderText);
-
+        String gidfs = ACache.get(Utils.getContext()).getAsString("gid_fs");
+        GameLog.log("gid_fs：\n"+gidfs);
         //PrepareRequestParams prepareRequestParams  = new PrepareRequestParams(pappRefer,porder_method,pgid,ptype,pwtype,prtype,podd_f_type,perror_flag,porder_type);
         presenter.postPrepareBetApi(pappRefer,porder_method,pgid,ptype,pwtype,prtype,podd_f_type,perror_flag,porder_type,isMaster);
 

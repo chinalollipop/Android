@@ -1,6 +1,8 @@
 package com.hgapp.a0086.common.http.util;
 
 import com.hgapp.a0086.common.http.ClientConfig;
+import com.hgapp.a0086.common.util.ACache;
+import com.hgapp.common.util.Check;
 import com.hgapp.common.util.Timber;
 
 import java.io.IOException;
@@ -11,6 +13,8 @@ import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+
+import static com.hgapp.common.util.Utils.getContext;
 
 /**
  * Created by Nereus on 2017/8/30.
@@ -72,6 +76,11 @@ public class RequestBuilder {
                 stringBuilder.append("flag=all&");
             }
         }
+        String gidfs = ACache.get(getContext()).getAsString("gid_fs");
+        if(!gidfs.equals("daniel")){
+            stringBuilder.append("&gid_fs="+gidfs+"&");
+        }
+
 
         //return getRequestBody(map);
         return getRequestBody(stringBuilder.toString());
