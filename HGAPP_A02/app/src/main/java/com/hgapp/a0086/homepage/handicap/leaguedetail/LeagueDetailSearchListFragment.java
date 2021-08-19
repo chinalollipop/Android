@@ -1119,7 +1119,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
                     //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
 
-                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","aa");
+                    //presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","R");
                 }
             });
             holder.setOnClickListener(R.id.item_aa, new View.OnClickListener() {
@@ -1136,7 +1136,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
                     //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
 
-                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","aa");
+                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","R");
                 }
             });
             holder.setOnClickListener(R.id.item_bb, new View.OnClickListener() {
@@ -1153,7 +1153,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
                     //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
 
-                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","bb");
+                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","OU");
                 }
             });
 
@@ -1169,7 +1169,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
             GameLog.log("当前数据的大小 "+gameDataList.size());
             for(int k=0;k<gameDataList.size();k++){
-
+                final LeagueDetailListDataResults.DataBean dataBeanBottom =  gameDataList.get(k);
                     LinearLayout tab_linear1 = (LinearLayout) holder.getView(R.id.tab_linear1);
                     tab_linear1.removeAllViews();
                     LinearLayout tab_linear2 = (LinearLayout) holder.getView(R.id.tab_linear2);
@@ -1181,11 +1181,157 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     LinearLayout item1_title = view.findViewById(R.id.item1_title);
                     LinearLayout item2_title = view.findViewById(R.id.item2_title);
                     TextView item1_ratio_up = view.findViewById(R.id.item1_ratio_up);
-                    TextView item1_ratio_down = view.findViewById(R.id.item1_ratio_down);
+                    final TextView item1_ratio_down = view.findViewById(R.id.item1_ratio_down);
                     TextView item2_ratio_up = view.findViewById(R.id.item2_ratio_up);
                     TextView item2_ratio_down = view.findViewById(R.id.item2_ratio_down);
 
 
+                    //投注
+                    item1_title.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            switch (dataLists.getAction()){
+                                case "R":
+
+                                    isMaster = dataLists.getAll();
+                                    isMaster = isMaster.equals("0")?"N":"Y";
+                                    ACache.get(getContext()).put("isMaster",isMaster);
+                                    mLeague = dataLists.getLeague() ;
+                                    mTeamH = dataLists.getTeam_h();
+                                    mTeamC = dataLists.getTeam_c();
+                                    ioradio_r_h = item1_ratio_down.getText().toString();
+                                    GameLog.log("当前选中的配料是："+ioradio_r_h);
+                                    if(Check.isEmpty(ioradio_r_h)){
+                                        return;
+                                    }
+                                    ratio = dataBeanBottom.getRatio_o();
+                                    gid = dataLists.getGid();
+                                    line_type = "2";
+                                    type = "H";
+                                    rtype = "H";
+                                    wtype = "";
+
+
+                                    porder_method = dataLists.getOrder_method();
+                                    //buyOrderTitle = dataLists.getBuyOrderTitle();
+                                    pgid = dataLists.getGid();
+                                    ptype = "H";
+                                    //pwtype = dataBean.getPwtype();
+                                    prtype = "";
+
+
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_re";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_re";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_r";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_r";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_r";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_r";
+                                    }
+                                    ratio ="";
+                                    ptype ="H";
+                                    prtype ="RH";
+                                    pwtype ="R";
+
+                                    break;
+                                case "OU":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_rou";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_rou";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_ou";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_ou";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_ou";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_ou";
+                                    }
+                                    ratio ="";
+                                    ptype = "C";
+                                    prtype ="OUC";
+                                    pwtype ="OU";
+
+                                    break;
+                            }
+                            onCheckThirdMobilePay(cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype);
+                        }
+                    });
+                    item2_title.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+
+                            switch (dataLists.getAction()){
+                                case "R":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_re";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_re";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_r";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_r";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_r";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_r";
+                                    }
+                                    ptype ="C";
+                                    prtype ="RC";
+                                    pwtype ="R";
+                                    break;
+                                case "OU":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_rou";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_rou";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_ou";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_ou";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_ou";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_ou";
+                                    }
+                                    ratio ="";
+                                    ptype = "H";
+                                    prtype ="OUH";
+                                    pwtype ="OU";
+                                    break;
+
+                            }
+                            onCheckThirdMobilePay(cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype);
+
+                        }
+                    });
 
                     View view2 = LayoutInflater.from(getContext()).inflate(R.layout.item_league_detail_new2, mLinearLayout, false);
 
@@ -1198,7 +1344,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     TextView item2_ratio_down2 = view2.findViewById(R.id.item2_ratio_down);
 
                     switch (dataLists.getAction()){
-                        case "aa":
+                        case "R":
+                            holder.setTextColorRes(R.id.item_aa,R.color.event_red);
+                            holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
                             item1_ratio_up.setText(gameDataList.get(k).getTeam_h());
                             item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
 
@@ -1211,21 +1359,139 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             item2_ratio_up2.setText(gameDataList.get(k).getTeam_c());
                             item2_ratio_down2.setText(gameDataList.get(k).getIor_HRC());
                             break;
-                        case "bb":
+                        case "OU":
+                            holder.setTextColorRes(R.id.item_aa,R.color.n_edittext);
+                            holder.setTextColorRes(R.id.item_bb,R.color.event_red);
                             item1_ratio_up.setText("大"+gameDataList.get(k).getRatio_o());
                             item1_ratio_down.setText(gameDataList.get(k).getIor_OUC());
 
-                            item2_ratio_up.setText("大"+gameDataList.get(k).getRatio_ho());
-                            item2_ratio_down.setText(gameDataList.get(k).getIor_HOUC());
+                            item2_ratio_up.setText("小"+gameDataList.get(k).getRatio_u());
+                            item2_ratio_down.setText(gameDataList.get(k).getIor_OUH());
 
-                            item1_ratio_up2.setText("小"+gameDataList.get(k).getRatio_u());
-                            item1_ratio_down2.setText(gameDataList.get(k).getIor_OUH());
+                            item1_ratio_up2.setText("大"+gameDataList.get(k).getRatio_ho());
+                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HOUC());
 
                             item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hu());
                             item2_ratio_down2.setText(gameDataList.get(k).getIor_HOUH());
                             break;
                     }
 
+
+                    //上半场
+                    item1_title2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            switch (dataLists.getAction()){
+                                case "R":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_hre";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_hre";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_hr";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_hr";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_hr";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_hr";
+                                    }
+                                    ptype ="H";
+                                    prtype ="HRH";
+                                    pwtype ="R";
+                                    break;
+                                case "OU":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_hrou";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_hrou";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_hou";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_hou";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_hou";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_hou";
+                                    }
+                                    ratio ="";
+                                    ptype = "C";
+                                    prtype ="HOUC";
+                                    pwtype ="HOU";
+                                    break;
+                            }
+                            onCheckThirdMobilePay(cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype);
+                        }
+
+                    });
+                    item2_title2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            switch (dataLists.getAction()){
+                                case "R":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_hre";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_hre";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_hr";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_hr";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_hr";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_hr";
+                                    }
+                                    ptype ="C";
+                                    prtype ="HRC";
+                                    pwtype ="HR";
+                                    break;
+                                case "OU":
+                                    if(fromType.equals("1")){//滚球足球
+                                        line_type = "9";
+                                        porder_method = "FT_hrou";
+                                    }else if(fromType.equals("2")){//滚球篮球
+                                        porder_method = "BK_hrou";
+
+                                    }else if(fromType.equals("3")){//今日足球
+                                        porder_method = "FT_hou";
+
+                                    }else if(fromType.equals("4")){//今日篮球
+                                        porder_method = "BK_hou";
+
+                                    }else if(fromType.equals("5")){//早盘足球
+                                        porder_method = "FT_hou";
+
+                                    }else if(fromType.equals("6")){//早盘篮球
+                                        porder_method = "BK_hou";
+                                    }
+                                    ratio ="";
+                                    ptype = "H";
+                                    prtype ="HOUH";
+                                    pwtype ="HOU";
+                                    break;
+                            }
+
+                            onCheckThirdMobilePay(cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype);
+                        }
+                    });
 
                     tab_linear1.addView(view);
                     tab_linear2.addView(view2);
