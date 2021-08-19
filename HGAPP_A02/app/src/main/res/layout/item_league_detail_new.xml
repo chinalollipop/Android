@@ -129,7 +129,142 @@
 
     </LinearLayout>
 
+    <!--<android.support.design.widget.TabLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>-->
+    <TextView
+        android:background="#606060"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/item_aa"
+            android:text="让球"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/item_bb"
+            android:text="得分大小"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"/>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/item_bottom"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_new_team_title"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="全场" />
+
+            <LinearLayout
+                android:id="@+id/tab_linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="半场"
+                android:textColor="#6E5336" />
+
+            <LinearLayout
+                android:id="@+id/tab_linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            </LinearLayout>
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/item3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/wanfa_item_default"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="6dp">
+
+                    <TextView
+                        android:id="@+id/item3_ratio_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="和"
+                        android:textColor="#6E5336" />
+
+                    <TextView
+                        android:id="@+id/item3_ratio_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="大小"
+                        android:textColor="#C9270B "
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/item4_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/wanfa_item_default"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="6dp">
+
+                    <TextView
+                        android:id="@+id/item4_ratio_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="和"
+                        android:textColor="#6E5336" />
+
+                    <TextView
+                        android:id="@+id/item4_ratio_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="大小"
+                        android:textColor="#C9270B "
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>-->
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:background="#606060"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
 
 
 

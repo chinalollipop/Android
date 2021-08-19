@@ -8,6 +8,8 @@ import com.hgapp.a0086.common.util.RxHelper;
 import com.hgapp.a0086.common.util.SubscriptionHelper;
 import com.hgapp.a0086.data.BetResult;
 import com.hgapp.a0086.data.ComPassSearchListResult;
+import com.hgapp.a0086.data.GameAllPlayRFTResult;
+import com.hgapp.a0086.data.LeagueDetailListDataResults;
 import com.hgapp.a0086.data.LeagueDetailSearchListResult;
 import com.hgapp.a0086.data.PrepareBetResult;
 import com.hgapp.common.util.Check;
@@ -138,6 +140,34 @@ public class LeagueDetailSearchListPresenter implements LeagueDetailSearchListCo
                     }
                 }));
 
+    }
+
+    @Override
+    public void postGameAllBets(String appRefer, String gid, String gtype, String showtype,final String postion,final String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBets(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,""))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LeagueDetailListDataResults.DataBean> response) {
+                        if(response.isSuccess()){
+                            if(null!=response.getData()){
+                                view.postGameAllBetsResult(response.getData(), postion,action);
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

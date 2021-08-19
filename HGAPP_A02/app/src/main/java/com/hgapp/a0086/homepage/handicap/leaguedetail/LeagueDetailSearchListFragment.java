@@ -24,6 +24,7 @@ import com.hgapp.a0086.common.widgets.NListView;
 import com.hgapp.a0086.data.BetResult;
 import com.hgapp.a0086.data.ComPassSearchListResult;
 import com.hgapp.a0086.data.LeagueDatailNewData;
+import com.hgapp.a0086.data.LeagueDetailListDataResults;
 import com.hgapp.a0086.data.LeagueDetailSearchListResult;
 import com.hgapp.a0086.data.PrepareBetResult;
 import com.hgapp.a0086.homepage.handicap.BottombarViewManager;
@@ -172,7 +173,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
     private int sorttype = 1;
     private String userMoney,M_League ;
 
-
+    ArrayList<LeagueDatailNewData> arrayListNewData = new ArrayList<LeagueDatailNewData>();
+    LeagueDetailNewListAdapter leagueDetailNewListAdapter;
     //请求所有玩法用
     String gtype = "";
     String showtype = "";
@@ -281,7 +283,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
         //数据转换
         List<LeagueDetailSearchListResult.DataBean> listData = leagueDetailSearchListResult.getData();
-        ArrayList<LeagueDatailNewData> arrayListNewData = new ArrayList<LeagueDatailNewData>();
+
+        arrayListNewData.clear();
         //让球 cate,gid,type,active,line_type,odd_f_type,gold,ioradio_r_h,rtype,wtype
         for(int x=0;x<listData.size();++x){
             LeagueDatailNewData leagueDatailNewData  = new LeagueDatailNewData();
@@ -615,11 +618,31 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             arrayListNewData.add(leagueDatailNewData);
 
         }
+        leagueDetailNewListAdapter = new LeagueDetailNewListAdapter(getContext(),R.layout.item_league_detail_new, arrayListNewData);
 
-
-        lvLeagueSearchList.setAdapter(new LeagueDetailNewListAdapter(getContext(),R.layout.item_league_detail_new, arrayListNewData));
+        lvLeagueSearchList.setAdapter(leagueDetailNewListAdapter);
         lvLeagueSearchList.setVisibility(View.VISIBLE);
         tvLeagueSearchNoData.setVisibility(View.GONE);
+    }
+
+
+    @Override
+    public void postGameAllBetsResult(List<LeagueDetailListDataResults.DataBean> leagueDetailListDataResults,final String postion,String action) {
+        GameLog.log("当前位置 【 "+postion+"】 \n数据结构 "+leagueDetailListDataResults);
+        int size = arrayListNewData.size();
+        if(Check.isNull(arrayListNewData)){
+           return;
+        }
+
+        for(int k=0;k<size;k++){
+            LeagueDatailNewData arrayListNewDatas =   arrayListNewData.get(k);
+            if(postion.equals(k+"")){
+                arrayListNewDatas.setGameData(leagueDetailListDataResults);
+                arrayListNewDatas.setAction(action);
+
+            }
+        }
+        leagueDetailNewListAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -703,6 +726,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
     public void postBetApiResult(BetResult betResult) {
 
     }
+
+
 
     @Override
     public void setPresenter(LeagueDetailSearchListContract.Presenter presenter) {
@@ -1079,6 +1104,136 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 //把行布局放到linear里
                 mLinearLayout.addView(view);
             }
+
+            holder.setOnClickListener(R.id.ll_pay_all, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //showMessage("您点击了 更多玩法啊 "+dataList);
+                    isMaster = dataLists.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
+                    TextView tvType = holder.getView(R.id.tv_M_Type);
+                    TextView tvTime = holder.getView(R.id.tv_time);
+                    TextView tvShowTime = holder.getView(R.id.tv_showretime);
+                    String fromString = tvType.getText().toString()+tvTime.getText().toString()+tvShowTime.getText().toString();
+                    //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
+                    //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
+
+                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","aa");
+                }
+            });
+            holder.setOnClickListener(R.id.item_aa, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //showMessage("您点击了 更多玩法啊 "+dataList);
+                    isMaster = dataLists.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
+                    TextView tvType = holder.getView(R.id.tv_M_Type);
+                    TextView tvTime = holder.getView(R.id.tv_time);
+                    TextView tvShowTime = holder.getView(R.id.tv_showretime);
+                    String fromString = tvType.getText().toString()+tvTime.getText().toString()+tvShowTime.getText().toString();
+                    //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
+                    //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
+
+                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","aa");
+                }
+            });
+            holder.setOnClickListener(R.id.item_bb, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //showMessage("您点击了 更多玩法啊 "+dataList);
+                    isMaster = dataLists.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
+                    TextView tvType = holder.getView(R.id.tv_M_Type);
+                    TextView tvTime = holder.getView(R.id.tv_time);
+                    TextView tvShowTime = holder.getView(R.id.tv_showretime);
+                    String fromString = tvType.getText().toString()+tvTime.getText().toString()+tvShowTime.getText().toString();
+                    //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
+                    //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
+
+                    presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","bb");
+                }
+            });
+
+            //添加附属盘口
+            List<LeagueDetailListDataResults.DataBean> gameDataList  = dataLists.getGameData();
+            if(Check.isNull(gameDataList)){
+
+                holder.setVisible(R.id.item_bottom, false);
+                return;
+            }
+            holder.setVisible(R.id.item_bottom, true);
+
+
+            GameLog.log("当前数据的大小 "+gameDataList.size());
+            for(int k=0;k<gameDataList.size();k++){
+
+                    LinearLayout tab_linear1 = (LinearLayout) holder.getView(R.id.tab_linear1);
+                    tab_linear1.removeAllViews();
+                    LinearLayout tab_linear2 = (LinearLayout) holder.getView(R.id.tab_linear2);
+                    tab_linear2.removeAllViews();
+
+                    View view = LayoutInflater.from(getContext()).inflate(R.layout.item_league_detail_new2, mLinearLayout, false);
+
+
+                    LinearLayout item1_title = view.findViewById(R.id.item1_title);
+                    LinearLayout item2_title = view.findViewById(R.id.item2_title);
+                    TextView item1_ratio_up = view.findViewById(R.id.item1_ratio_up);
+                    TextView item1_ratio_down = view.findViewById(R.id.item1_ratio_down);
+                    TextView item2_ratio_up = view.findViewById(R.id.item2_ratio_up);
+                    TextView item2_ratio_down = view.findViewById(R.id.item2_ratio_down);
+
+
+
+                    View view2 = LayoutInflater.from(getContext()).inflate(R.layout.item_league_detail_new2, mLinearLayout, false);
+
+
+                    LinearLayout item1_title2 = view2.findViewById(R.id.item1_title);
+                    LinearLayout item2_title2 = view2.findViewById(R.id.item2_title);
+                    TextView item1_ratio_up2 = view2.findViewById(R.id.item1_ratio_up);
+                    TextView item1_ratio_down2 = view2.findViewById(R.id.item1_ratio_down);
+                    TextView item2_ratio_up2 = view2.findViewById(R.id.item2_ratio_up);
+                    TextView item2_ratio_down2 = view2.findViewById(R.id.item2_ratio_down);
+
+                    switch (dataLists.getAction()){
+                        case "aa":
+                            item1_ratio_up.setText(gameDataList.get(k).getTeam_h());
+                            item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
+
+                            item2_ratio_up.setText(gameDataList.get(k).getTeam_c());
+                            item2_ratio_down.setText(gameDataList.get(k).getIor_RC());
+
+                            item1_ratio_up2.setText(gameDataList.get(k).getTeam_h());
+                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HRH());
+
+                            item2_ratio_up2.setText(gameDataList.get(k).getTeam_c());
+                            item2_ratio_down2.setText(gameDataList.get(k).getIor_HRC());
+                            break;
+                        case "bb":
+                            item1_ratio_up.setText("大"+gameDataList.get(k).getRatio_o());
+                            item1_ratio_down.setText(gameDataList.get(k).getIor_OUC());
+
+                            item2_ratio_up.setText("大"+gameDataList.get(k).getRatio_ho());
+                            item2_ratio_down.setText(gameDataList.get(k).getIor_HOUC());
+
+                            item1_ratio_up2.setText("小"+gameDataList.get(k).getRatio_u());
+                            item1_ratio_down2.setText(gameDataList.get(k).getIor_OUH());
+
+                            item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hu());
+                            item2_ratio_down2.setText(gameDataList.get(k).getIor_HOUH());
+                            break;
+                    }
+
+
+                    tab_linear1.addView(view);
+                    tab_linear2.addView(view2);
+
+            }
+
+
+
         }
 
     }
@@ -1428,8 +1583,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     TextView tvTime = holder.getView(R.id.tv_time);
                     TextView tvShowTime = holder.getView(R.id.tv_showretime);
                     String fromString = tvType.getText().toString()+tvTime.getText().toString()+tvShowTime.getText().toString();
-                    EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
+                    //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
                     //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
+
                 }
             });
         }

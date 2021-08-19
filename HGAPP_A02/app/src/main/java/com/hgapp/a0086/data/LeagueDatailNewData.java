@@ -15,6 +15,15 @@ public class LeagueDatailNewData {
     private String score_c;
     private String all;
     private String order_method;
+    private String action;
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
 
     public String getOrder_method() {
         return order_method;
@@ -41,6 +50,8 @@ public class LeagueDatailNewData {
     }
 
     private List<LeagueDatailNewData.DataBean> data;
+
+    private List<LeagueDetailListDataResults.DataBean> gameData;
 
     public String getGid() {
         return gid;
@@ -120,6 +131,14 @@ public class LeagueDatailNewData {
 
     public void setData(List<LeagueDatailNewData.DataBean> data) {
         this.data = data;
+    }
+
+    public List<LeagueDetailListDataResults.DataBean> getGameData() {
+        return gameData;
+    }
+
+    public void setGameData(List<LeagueDetailListDataResults.DataBean> gameData) {
+        this.gameData = gameData;
     }
 
     public static class DataBean {

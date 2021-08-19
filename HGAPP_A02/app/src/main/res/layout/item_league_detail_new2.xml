@@ -1,31 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:id="@+id/item_new_team_title"
-            android:layout_width="84dp"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:text="让球" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/item_new_h_team_up"
-            android:layout_width="84dp"
+            android:id="@+id/item1_title"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:layout_weight="1"
             android:background="@drawable/wanfa_item_default"
             android:gravity="center"
             android:orientation="vertical"
@@ -33,14 +21,14 @@
             android:paddingBottom="6dp">
 
             <TextView
-                android:id="@+id/item_new_h_tv_ratio_up"
+                android:id="@+id/item1_ratio_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="让球"
                 android:textColor="#6E5336" />
 
             <TextView
-                android:id="@+id/item_new_h_tv_ratio_down"
+                android:id="@+id/item1_ratio_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="让球"
@@ -49,18 +37,19 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/item_new_c_team_down"
-            android:layout_width="84dp"
+            android:id="@+id/item2_title"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:background="@drawable/wanfa_item_default"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="6dp">
 
             <TextView
-                android:id="@+id/item_new_c_tv_ratio_up"
+                android:id="@+id/item2_ratio_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -68,35 +57,7 @@
                 android:textColor="#6E5336" />
 
             <TextView
-                android:id="@+id/item_new_c_tv_ratio_down"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="大小"
-                android:textColor="#C9270B "
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/item_new_m_team_down"
-            android:layout_width="84dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/wanfa_item_default"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/item_new_m_tv_ratio_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="和"
-                android:textColor="#6E5336" />
-
-            <TextView
-                android:id="@+id/item_new_m_tv_ratio_down"
+                android:id="@+id/item2_ratio_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="大小"
