@@ -134,7 +134,7 @@ public class LeagueDetailSearchListResult implements Parcelable {
 
         private String toqualify;// 会晋级开关
         private String bookings;// 罚牌开关
-        private Object corners;// 角球开关
+        private String corners;// 角球开关
         private String goalsou;// 大小开关
         private String handicaps;// 让球开关
         private String eps;// 特优赔率开关
@@ -178,11 +178,11 @@ public class LeagueDetailSearchListResult implements Parcelable {
             this.bookings = bookings;
         }
 
-        public Object getCorners() {
+        public String getCorners() {
             return corners;
         }
 
-        public void setCorners(Object corners) {
+        public void setCorners(String corners) {
             this.corners = corners;
         }
 

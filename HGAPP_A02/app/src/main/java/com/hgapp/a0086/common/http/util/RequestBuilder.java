@@ -67,6 +67,11 @@ public class RequestBuilder {
                 String name = formBody.name(index);
                 String value = formBody.value(index);
                 Timber.d("%s ---> %s",name,value);
+                if(name.equals("isMaster")&&value.equals("isMaster")){
+                    name ="flag";
+                    value ="all";
+                   // stringBuilder.append("error_flag=&").append("order_type=&isMaster=Y").append("&");
+                }
                 map.put(name,value);
                 stringBuilder.append(name).append("=").append(value).append("&");
             }
@@ -83,7 +88,7 @@ public class RequestBuilder {
 
 
         //return getRequestBody(map);
-        return getRequestBody(stringBuilder.toString());
+        return getRequestBody(stringBuilder.toString().replace("&&","&"));
     }
 
     private String  getRequestBody(String requestString)//Map<String,Object> data

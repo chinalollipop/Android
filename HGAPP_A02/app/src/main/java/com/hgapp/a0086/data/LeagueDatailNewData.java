@@ -16,6 +16,60 @@ public class LeagueDatailNewData {
     private String all;
     private String order_method;
     private String action;
+    private String toqualify;// 会晋级开关
+    private String bookings;// 罚牌开关
+    private String corners;// 角球开关
+    private String goalsou;// 大小开关
+    private String handicaps;// 让球开关
+    private String eps;// 特优赔率开关
+
+    public String getToqualify() {
+        return toqualify;
+    }
+
+    public void setToqualify(String toqualify) {
+        this.toqualify = toqualify;
+    }
+
+    public String getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(String bookings) {
+        this.bookings = bookings;
+    }
+
+    public String getCorners() {
+        return corners;
+    }
+
+    public void setCorners(String corners) {
+        this.corners = corners;
+    }
+
+    public String getGoalsou() {
+        return goalsou;
+    }
+
+    public void setGoalsou(String goalsou) {
+        this.goalsou = goalsou;
+    }
+
+    public String getHandicaps() {
+        return handicaps;
+    }
+
+    public void setHandicaps(String handicaps) {
+        this.handicaps = handicaps;
+    }
+
+    public String getEps() {
+        return eps;
+    }
+
+    public void setEps(String eps) {
+        this.eps = eps;
+    }
 
     public String getAction() {
         return action;

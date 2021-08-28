@@ -140,19 +140,175 @@ public class LeagueDetailListDataResults {
         private String center_tv = "";
         private String ior_RH = "";
         private String ior_RC = "";
-        private String ior_HRH = "";
-        private String ior_HRC = "";
+
         private String ratio_o = "";//大
         private String ratio_u = "";
         private String ior_OUC = "";//大
         private String ior_OUH = "";
         private String ratio_ho = "";
         private String ratio_hu = "";
-        private String ior_HOUC = "";
-        private String ior_HOUH = "";
+
         private String ratio = "";
         private String hratio = "";
         private String hstrong = "";
+        private String description = "";
+        private String hratio_mb_str= "";
+        private String hratio_tg_str= "";
+        private String ior_HRH= "";//让球上半场 主
+        private String ior_HRC= "";
+        private String hratio_o= "";
+        private String hratio_u= "";
+        private String hratio_o_str= "";
+        private String hratio_u_str= "";
+        private String ior_HOUH= "";//得分大小 上半场 小
+        private String ior_HOUC= "";
+        private String ior_MH= "";//独赢主
+        private String ior_MC= "";
+        private String ior_MN= "";
+        private String ior_HMH= "";//上半场 独赢主
+        private String ior_HMC= "";
+        private String ior_HMN= "";
+        private String ior_EOO= "";//进球 单
+        private String ior_EOE= "";
+        private String ratio_mb_str= "";
+        private String ratio_tg_str= "";
+
+        public String getRatio_mb_str() {
+            return ratio_mb_str;
+        }
+
+        public void setRatio_mb_str(String ratio_mb_str) {
+            this.ratio_mb_str = ratio_mb_str;
+        }
+
+        public String getRatio_tg_str() {
+            return ratio_tg_str;
+        }
+
+        public void setRatio_tg_str(String ratio_tg_str) {
+            this.ratio_tg_str = ratio_tg_str;
+        }
+
+        public String getHratio_mb_str() {
+            return hratio_mb_str;
+        }
+
+        public void setHratio_mb_str(String hratio_mb_str) {
+            this.hratio_mb_str = hratio_mb_str;
+        }
+
+        public String getHratio_tg_str() {
+            return hratio_tg_str;
+        }
+
+        public void setHratio_tg_str(String hratio_tg_str) {
+            this.hratio_tg_str = hratio_tg_str;
+        }
+
+        public String getHratio_o() {
+            return hratio_o;
+        }
+
+        public void setHratio_o(String hratio_o) {
+            this.hratio_o = hratio_o;
+        }
+
+        public String getHratio_u() {
+            return hratio_u;
+        }
+
+        public void setHratio_u(String hratio_u) {
+            this.hratio_u = hratio_u;
+        }
+
+        public String getHratio_o_str() {
+            return hratio_o_str;
+        }
+
+        public void setHratio_o_str(String hratio_o_str) {
+            this.hratio_o_str = hratio_o_str;
+        }
+
+        public String getHratio_u_str() {
+            return hratio_u_str;
+        }
+
+        public void setHratio_u_str(String hratio_u_str) {
+            this.hratio_u_str = hratio_u_str;
+        }
+
+        public String getIor_MH() {
+            return ior_MH;
+        }
+
+        public void setIor_MH(String ior_MH) {
+            this.ior_MH = ior_MH;
+        }
+
+        public String getIor_MC() {
+            return ior_MC;
+        }
+
+        public void setIor_MC(String ior_MC) {
+            this.ior_MC = ior_MC;
+        }
+
+        public String getIor_MN() {
+            return ior_MN;
+        }
+
+        public void setIor_MN(String ior_MN) {
+            this.ior_MN = ior_MN;
+        }
+
+        public String getIor_HMH() {
+            return ior_HMH;
+        }
+
+        public void setIor_HMH(String ior_HMH) {
+            this.ior_HMH = ior_HMH;
+        }
+
+        public String getIor_HMC() {
+            return ior_HMC;
+        }
+
+        public void setIor_HMC(String ior_HMC) {
+            this.ior_HMC = ior_HMC;
+        }
+
+        public String getIor_HMN() {
+            return ior_HMN;
+        }
+
+        public void setIor_HMN(String ior_HMN) {
+            this.ior_HMN = ior_HMN;
+        }
+
+        public String getIor_EOO() {
+            return ior_EOO;
+        }
+
+        public void setIor_EOO(String ior_EOO) {
+            this.ior_EOO = ior_EOO;
+        }
+
+        public String getIor_EOE() {
+            return ior_EOE;
+        }
+
+        public void setIor_EOE(String ior_EOE) {
+            this.ior_EOE = ior_EOE;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
         public String getRatio() {
             return ratio;
         }
