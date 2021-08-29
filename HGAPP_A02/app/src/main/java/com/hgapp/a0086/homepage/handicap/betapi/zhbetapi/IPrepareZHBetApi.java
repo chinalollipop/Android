@@ -18,7 +18,7 @@ public interface IPrepareZHBetApi {
      */
     @POST("order/order_prepare_pr_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<GameAllZHBetsBKResult>> postGameAllZHBetsBK(@Field("appRefer") String appRefer, @Field("game") String game, @Field("game_id") String game_id);
+    public Observable<AppTextMessageResponseList<GameAllZHBetsBKResult>> postGameAllZHBetsBK(@Field("appRefer") String appRefer, @Field("game") String game, @Field("game_id") String game_id, @Field("gid_fs") String gid_fs);
 
     /**
      * /order/order_prepare_p3_api.php?game=PRH,PRH,PRH,POUC&game_id=3363442,3363572,3363582,3363562  足球综合过关选择玩法和赔率，准备投注接口
@@ -27,7 +27,7 @@ public interface IPrepareZHBetApi {
      */
     @POST("order/order_prepare_p3_api.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<GameAllZHBetsBKResult>> postGameAllZHBetsFT(@Field("appRefer") String appRefer, @Field("game") String game, @Field("game_id") String game_id);
+    public Observable<AppTextMessageResponseList<GameAllZHBetsBKResult>> postGameAllZHBetsFT(@Field("appRefer") String appRefer, @Field("game") String game, @Field("game_id") String game_id, @Field("gid_fs") String gid_fs);
 
 
     /**BK_order_p_finish_api.php 篮球综合过关下注接口

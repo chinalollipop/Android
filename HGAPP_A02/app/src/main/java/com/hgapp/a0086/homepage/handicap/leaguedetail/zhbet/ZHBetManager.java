@@ -34,7 +34,7 @@ public class ZHBetManager {
         }
     }
 
-    public void onAddData(String jointdata,String gid, String method_type,int checked){
+    public void onAddData(String jointdata,String gid, String gid_fs, String method_type,int checked){
         //GameLog.log("jointdata "+jointdata+" gid "+gid+" method_type "+method_type+" checked "+checked);
         if(hashSetGid.contains(jointdata)){//先判断是否包含这个游戏名字
             int size = listData.size();
@@ -48,18 +48,18 @@ public class ZHBetManager {
                             listData.remove(comPassListData1);
                         }else{
                             listData.remove(comPassListData1);
-                            listData.add(new ComPassListData(jointdata,gid,method_type,checked));
+                            listData.add(new ComPassListData(jointdata,gid,gid_fs,method_type,checked));
                         }
                         --size;
                     }else{
                         listData.remove(comPassListData1);
-                        listData.add(new ComPassListData(jointdata,gid,method_type,checked));
+                        listData.add(new ComPassListData(jointdata,gid,gid_fs,method_type,checked));
                     }
                 }
             }
         }else{//没有就增加一个
             hashSetGid.add(jointdata);
-            listData.add(new ComPassListData(jointdata,gid,method_type,checked));
+            listData.add(new ComPassListData(jointdata,gid,gid_fs,method_type,checked));
         }
 
          /*Iterator<ComPassListData> comPassListData = listData.iterator();

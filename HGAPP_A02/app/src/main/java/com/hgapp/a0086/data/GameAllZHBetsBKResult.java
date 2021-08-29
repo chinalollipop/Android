@@ -54,6 +54,7 @@ public class GameAllZHBetsBKResult {
 
         private String m_rate;
         private String m_gid;
+        private String m_gid_fs;
         private String type;
         private String showtype;
         private String leag;
@@ -77,6 +78,14 @@ public class GameAllZHBetsBKResult {
 
         public void setM_gid(String m_gid) {
             this.m_gid = m_gid;
+        }
+
+        public String getM_gid_fs() {
+            return m_gid_fs;
+        }
+
+        public void setM_gid_fs(String m_gid_fs) {
+            this.m_gid_fs = m_gid_fs;
         }
 
         public String getType() {

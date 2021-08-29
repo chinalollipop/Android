@@ -2997,7 +2997,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             showMessage("不接受超过10串过关投注！");
             return;
         }
-        ZHBetManager.getSingleton().onAddData(jointdata,gid,method_type,checked);
+        ZHBetManager.getSingleton().onAddData(jointdata,gid,gid,method_type,checked);
         GameLog.log("当前下单的数量："+ZHBetManager.getSingleton().onListSize());
         //floatNumber.setText(ZHBetManager.getSingleton().onListSize()+"");
         ZHBetViewManager.getSingleton().onShowNumber(ZHBetManager.getSingleton().onListSize()+"");
