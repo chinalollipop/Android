@@ -1134,17 +1134,17 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             holder.setText(R.id.tv_ior_rc,dataList.getIor_RC());            //客队让球赔率
             holder.setText(R.id.tv_ratio_u_str,dataList.getRatio_u_str());//客队大小
             holder.setText(R.id.tv_ior_ouh,dataList.getIor_OUH());          //客队大小赔率*/
-            if(dataLists.getHandicaps().equals("Y")){
+            if(!Check.isEmpty(dataLists.getHandicaps())&&dataLists.getHandicaps().equals("Y")){
                 holder.setVisible(R.id.item_aa,true);
             }else{
                 holder.setVisible(R.id.item_aa,false);
             }
-            if(dataLists.getGoalsou().equals("Y")){
+            if(!Check.isEmpty(dataLists.getGoalsou())&&dataLists.getGoalsou().equals("Y")){
                 holder.setVisible(R.id.item_bb,true);
             }else{
                 holder.setVisible(R.id.item_bb,false);
             }
-            if(dataLists.getCorners().equals("Y")){
+            if(!Check.isEmpty(dataLists.getCorners())&&dataLists.getCorners().equals("Y")){
                 holder.setVisible(R.id.item_cc,true);
             }else{
                 holder.setVisible(R.id.item_cc,false);

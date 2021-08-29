@@ -3,25 +3,25 @@ package com.hgapp.a0086.data;
 import java.util.List;
 
 public class LeagueDatailNewData {
-    private String gid;
-    private String league;
-    private String M_Type;
-    private String M_Time;
-    private String M_Date;
-    private String showretime;
-    private String team_h;
-    private String team_c;
-    private String score_h;
-    private String score_c;
-    private String all;
-    private String order_method;
-    private String action;
-    private String toqualify;// 会晋级开关
-    private String bookings;// 罚牌开关
-    private String corners;// 角球开关
-    private String goalsou;// 大小开关
-    private String handicaps;// 让球开关
-    private String eps;// 特优赔率开关
+    private String gid="";
+    private String league="";
+    private String M_Type="";
+    private String M_Time="";
+    private String M_Date="";
+    private String showretime="";
+    private String team_h="";
+    private String team_c="";
+    private String score_h="";
+    private String score_c="";
+    private String all="";
+    private String order_method="";
+    private String action="";
+    private String toqualify="";// 会晋级开关
+    private String bookings="";// 罚牌开关
+    private String corners="";// 角球开关
+    private String goalsou="";// 大小开关
+    private String handicaps="";// 让球开关
+    private String eps="";// 特优赔率开关
 
     public String getToqualify() {
         return toqualify;

@@ -82,13 +82,13 @@ public class RequestBuilder {
             }
         }
         String gidfs = ACache.get(getContext()).getAsString("gid_fs");
-        if(!gidfs.equals("daniel")){
+        if(!Check.isEmpty(gidfs)&&!gidfs.equals("daniel")){
             stringBuilder.append("&gid_fs="+gidfs+"&");
         }
 
 
         //return getRequestBody(map);
-        return getRequestBody(stringBuilder.toString().replace("&&","&"));
+        return getRequestBody(stringBuilder.toString());
     }
 
     private String  getRequestBody(String requestString)//Map<String,Object> data
