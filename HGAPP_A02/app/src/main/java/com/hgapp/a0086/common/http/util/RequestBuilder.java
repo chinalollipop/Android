@@ -83,7 +83,8 @@ public class RequestBuilder {
         }
         String gidfs = ACache.get(getContext()).getAsString("gid_fs");
         if(!Check.isEmpty(gidfs)&&!gidfs.equals("daniel")){
-            stringBuilder.append("&gid_fs="+gidfs+"&");
+            if(!stringBuilder.toString().contains("&gid_fs="))
+                stringBuilder.append("&gid_fs="+gidfs+"&");
         }
 
 

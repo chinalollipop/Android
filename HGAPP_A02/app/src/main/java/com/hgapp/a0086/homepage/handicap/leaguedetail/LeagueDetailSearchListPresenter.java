@@ -171,6 +171,34 @@ public class LeagueDetailSearchListPresenter implements LeagueDetailSearchListCo
     }
 
     @Override
+    public void postGameAllBetsZH(String appRefer, String gid, String gtype, String showtype,final String postion, final String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBetsZH(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,""))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LeagueDetailListDataResults.DataBean> response) {
+                        if(response.isSuccess()){
+                            if(null!=response.getData()){
+                                view.postGameAllBetsZHResult(response.getData(), postion,action);
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
     public void start() {
 
     }
