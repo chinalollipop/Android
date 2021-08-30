@@ -983,7 +983,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
     @Override
     public void postGameAllBetsZHResult(List<LeagueDetailListDataResults.DataBean> leagueDetailListDataResults, String postion, String action) {
-        GameLog.log("当前位置 【 "+postion+"】 \n数据结构 "+leagueDetailListDataResults);
+        GameLog.log("当前位置ZH 【 "+postion+"】 \n数据结构 "+leagueDetailListDataResults);
         int size = dataBeanList.size();
         if(Check.isNull(dataBeanList)){
             return;
@@ -2071,22 +2071,30 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
                             holder.setTextColorRes(R.id.item_cc,R.color.n_edittext);
                             if(gameDataList.get(k).getStrong().equals("H")){
-                                item1_ratio_up.setText(gameDataList.get(k).getTeam_h()+" "+gameDataList.get(k).getRatio());
-                                item2_ratio_up.setText(gameDataList.get(k).getTeam_c());
+                                item1_ratio_up.setText(" "+gameDataList.get(k).getRatio());//gameDataList.get(k).getTeam_h()+
+                                item2_ratio_up.setText("");//gameDataList.get(k).getTeam_c()
+                                item1_ratio_up.setVisibility(View.VISIBLE);
+                                item2_ratio_up.setVisibility(View.GONE);
                             }else{
-                                item1_ratio_up.setText(gameDataList.get(k).getTeam_h());
-                                item2_ratio_up.setText(gameDataList.get(k).getTeam_c()+" "+gameDataList.get(k).getRatio());
+                                item1_ratio_up.setText("");
+                                item2_ratio_up.setText(" "+gameDataList.get(k).getRatio());
+                                item1_ratio_up.setVisibility(View.GONE);
+                                item2_ratio_up.setVisibility(View.VISIBLE);
                             }
 
                             item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
                             item2_ratio_down.setText(gameDataList.get(k).getIor_RC());
 
                             if(gameDataList.get(k).getHstrong().equals("H")){
-                                item1_ratio_up2.setText(gameDataList.get(k).getTeam_h()+" "+gameDataList.get(k).getHratio());
-                                item2_ratio_up2.setText(gameDataList.get(k).getTeam_c());
+                                item1_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
+                                item2_ratio_up2.setText("");
+                                item1_ratio_up2.setVisibility(View.VISIBLE);
+                                item2_ratio_up2.setVisibility(View.GONE);
                             }else{
-                                item1_ratio_up2.setText(gameDataList.get(k).getTeam_h());
-                                item2_ratio_up2.setText(gameDataList.get(k).getTeam_c()+" "+gameDataList.get(k).getHratio());
+                                item1_ratio_up2.setText("");
+                                item2_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
+                                item1_ratio_up2.setVisibility(View.GONE);
+                                item2_ratio_up2.setVisibility(View.VISIBLE);
                             }
 
 
@@ -3068,7 +3076,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 holder.setVisible(R.id.item_bottom, false);
                 for(int k=0;k<gameDataList.size();k++) {
                     final LeagueDetailListDataResults.DataBean dataBeanBottom = gameDataList.get(k);
-                    if (dataBeanBottom.getDescription().equals("角球")) {
+                    if (dataBeanBottom.getDescription().equals("角球")) {//ZH
                         final List<LeagueDatailNewData.DataBean>   dataBeanss = dataChange(dataBeanBottom);
                         LinearLayout mLinearLayoutJiao = (LinearLayout) holder.getView(R.id.linear_jiao);
                         mLinearLayoutJiao.removeAllViews();
@@ -3314,6 +3322,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 TextView item2_ratio_down = view.findViewById(R.id.item2_ratio_down);
 
 
+
                 //投注
                 item1_title.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -3326,7 +3335,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
 
                                 //-----------------------------------s
-
+                                //item1_title.setBackgroundResource();
                                 //GameLog.log("当前点击的位置"+position);
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
@@ -3474,22 +3483,30 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
                         holder.setTextColorRes(R.id.item_cc,R.color.n_edittext);
                         if(gameDataList.get(k).getStrong().equals("H")){
-                            item1_ratio_up.setText(gameDataList.get(k).getTeam_h()+" "+gameDataList.get(k).getRatio());
-                            item2_ratio_up.setText(gameDataList.get(k).getTeam_c());
+                            item1_ratio_up.setText(" "+gameDataList.get(k).getRatio());
+                            item2_ratio_up.setText("");
+                            item1_ratio_up.setVisibility(View.VISIBLE);
+                            item2_ratio_up.setVisibility(View.GONE);
                         }else{
-                            item1_ratio_up.setText(gameDataList.get(k).getTeam_h());
-                            item2_ratio_up.setText(gameDataList.get(k).getTeam_c()+" "+gameDataList.get(k).getRatio());
+                            item1_ratio_up.setText("");
+                            item2_ratio_up.setText(" "+gameDataList.get(k).getRatio());
+                            item1_ratio_up.setVisibility(View.GONE);
+                            item2_ratio_up.setVisibility(View.VISIBLE);
                         }
 
                         item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
                         item2_ratio_down.setText(gameDataList.get(k).getIor_RC());
 
                         if(gameDataList.get(k).getHstrong().equals("H")){
-                            item1_ratio_up2.setText(gameDataList.get(k).getTeam_h()+" "+gameDataList.get(k).getHratio());
-                            item2_ratio_up2.setText(gameDataList.get(k).getTeam_c());
+                            item1_ratio_up2.setText(" "+gameDataList.get(k).getHratio());//gameDataList.get(k).getTeam_h()+
+                            item2_ratio_up2.setText("");//gameDataList.get(k).getTeam_c()
+                            item1_ratio_up2.setVisibility(View.VISIBLE);
+                            item2_ratio_up2.setVisibility(View.GONE);
                         }else{
-                            item1_ratio_up2.setText(gameDataList.get(k).getTeam_h());
-                            item2_ratio_up2.setText(gameDataList.get(k).getTeam_c()+" "+gameDataList.get(k).getHratio());
+                            item1_ratio_up2.setVisibility(View.GONE);
+                            item2_ratio_up2.setVisibility(View.VISIBLE);
+                            item1_ratio_up2.setText("");
+                            item2_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
                         }
 
 

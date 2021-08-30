@@ -229,6 +229,15 @@ public class LeagueDatailNewData {
         private String textDownStr;
         private String textM;
         private String textMStr;
+        private int isClick;
+
+        public int getIsClick() {
+            return isClick;
+        }
+
+        public void setIsClick(int isClick) {
+            this.isClick = isClick;
+        }
 
         public String getBuyOrderTitle() {
             return buyOrderTitle;

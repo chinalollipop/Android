@@ -15,8 +15,8 @@
 
         <LinearLayout
             android:id="@+id/item1_title"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_width="84dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/wanfa_item_default"
             android:gravity="center"
@@ -42,8 +42,8 @@
 
         <LinearLayout
             android:id="@+id/item2_title"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_width="84dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_weight="1"
