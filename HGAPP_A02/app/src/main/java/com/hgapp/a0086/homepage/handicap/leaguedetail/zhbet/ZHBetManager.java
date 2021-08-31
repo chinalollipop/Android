@@ -46,8 +46,14 @@ public class ZHBetManager {
                     if(gid.equals(comPassListData1.gid)){
                         if(gid.equals(comPassListData1.gid_fs)){
                             if(method_type.equals(comPassListData1.method_type)){
-                                hashSetGid.remove(jointdata);
-                                listData.remove(comPassListData1);
+                                if(gid_fs.equals(comPassListData1.gid_fs)){
+                                    hashSetGid.remove(jointdata);
+                                    listData.remove(comPassListData1);
+                                }else{
+                                    listData.remove(comPassListData1);
+                                    listData.add(new ComPassListData(jointdata,gid,gid_fs,method_type,checked));
+                                }
+
                             }else{
                                 listData.remove(comPassListData1);
                                 listData.add(new ComPassListData(jointdata,gid,gid_fs,method_type,checked));

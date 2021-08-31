@@ -661,6 +661,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean.setGid(dataBeanJiao.getGid());
+            dataBean.setGid_fs(dataBeanJiao.getGid_fs());
 
             dataBean.setRtype("H");
             dataBean.setBtype_h("H");
@@ -708,15 +709,15 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean2.setGid(dataBeanJiao.getGid());
-
+            dataBean2.setGid_fs(dataBeanJiao.getGid_fs());
             dataBean2.setRtype("O");
             dataBean2.setBtype_h("O");
-            dataBean2.setTextUp(dataBeanJiao.getRatio_o());
+            dataBean2.setTextUp("大"+dataBeanJiao.getRatio_o());
             dataBean2.setTextUpStr(dataBeanJiao.getIor_OUC());
 
             dataBean2.setWtype("U");
             dataBean2.setBtype_c("U");
-            dataBean2.setTextDown(dataBeanJiao.getRatio_u());
+            dataBean2.setTextDown("小"+dataBeanJiao.getRatio_u());
             dataBean2.setTextDownStr(dataBeanJiao.getIor_OUH());
             listDataLast.add(dataBean2);
 
@@ -752,7 +753,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean3.setGid(dataBeanJiao.getGid());
-
+            dataBean3.setGid_fs(dataBeanJiao.getGid_fs());
             dataBean3.setRtype("H");
             dataBean3.setBtype_h("H");
             dataBean3.setTextUp("");
@@ -801,7 +802,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean4.setGid(dataBeanJiao.getGid());
-
+            dataBean4.setGid_fs(dataBeanJiao.getGid_fs());
             dataBean4.setRtype("H");
             dataBean4.setBtype_h("H");
             dataBean4.setTextUp("");
@@ -849,7 +850,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean5.setGid(dataBeanJiao.getGid());
-
+            dataBean5.setGid_fs(dataBeanJiao.getGid_fs());
             dataBean5.setRtype("H");
             dataBean5.setBtype_h("H");
             if(dataBeanJiao.getHstrong().equals("H")){
@@ -901,15 +902,15 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean6.setGid(dataBeanJiao.getGid());
-
+            dataBean6.setGid_fs(dataBeanJiao.getGid_fs());
             dataBean6.setRtype("H");
             dataBean6.setBtype_h("H");
-            dataBean6.setTextUp(dataBeanJiao.getRatio_ho());
+            dataBean6.setTextUp("大"+dataBeanJiao.getRatio_ho());
             dataBean6.setTextUpStr(dataBeanJiao.getIor_HOUC());
 
             dataBean6.setWtype("C");
             dataBean6.setBtype_c("C");
-            dataBean6.setTextDown(dataBeanJiao.getRatio_hu());
+            dataBean6.setTextDown("小"+dataBeanJiao.getRatio_hu());
             dataBean6.setTextDownStr(dataBeanJiao.getIor_HOUH());
             listDataLast.add(dataBean6);
 
@@ -947,7 +948,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
 
             dataBean7.setGid(dataBeanJiao.getGid());
-
+            dataBean7.setGid_fs(dataBeanJiao.getGid_fs());
             dataBean7.setRtype("H");
             dataBean7.setBtype_h("H");
             dataBean7.setTextUp("单");
@@ -1014,6 +1015,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 int sizeK = gameData.size();
                 GameLog.log("当前 的" +sizeK);
 
+                //大小 让球
                 for(int jj=0;jj<sizeK;++jj){
                     if(gid_fs.equals(gameData.get(jj).getGid_fs())) {
                         switch (method_type){
@@ -1042,13 +1044,13 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 gameData.get(jj).setIor_HOUHCheck(true);
                                 break;
                         }
-                        comPassListAdapter.notifyDataSetChanged();
+
                     }
-                    comPassListAdapter.notifyDataSetChanged();
+
                 }
-                comPassListAdapter.notifyDataSetChanged();
+
             }
-            comPassListAdapter.notifyDataSetChanged();
+
         }
         GameLog.log("-、-----执行的刷新功能-、-----");
         comPassListAdapter.notifyDataSetChanged();
@@ -2743,6 +2745,35 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
         }
 
+        private void onRestJiaoDataCheck(LeagueDatailNewData.DataBean dataBean){
+            if(Check.isNull(dataBean))
+                return;
+            dataBean.setPRH(false);
+            dataBean.setPRC(false);
+
+            dataBean.setPEVEN(false);
+            dataBean.setPODD(false);
+
+            dataBean.setPOUC(false);
+            dataBean.setPOUH(false);
+
+            dataBean.setHPOUC(false);
+            dataBean.setHPOUH(false);
+
+            dataBean.setHPMH(false);
+            dataBean.setHPMC(false);
+            dataBean.setHPMN(false);
+
+            dataBean.setPMH(false);
+            dataBean.setPMC(false);
+            dataBean.setPMN(false);
+
+            dataBean.setHPRH(false);
+            dataBean.setHPRC(false);
+
+
+        }
+
         private void onResetComListDataCheck(List<LeagueDetailListDataResults.DataBean> gameDataList ) {
             if(Check.isNull(gameDataList)){
                 return;
@@ -3157,6 +3188,84 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     final LeagueDetailListDataResults.DataBean dataBeanBottom = gameDataList.get(k);
                     if (dataBeanBottom.getDescription().equals("角球")) {//ZH
                         final List<LeagueDatailNewData.DataBean>   dataBeanss = dataChange(dataBeanBottom);
+
+                        //--------------------------------------------
+
+                        ArrayList<ComPassListData>  comPassListData = ZHBetManager.getSingleton().onShowViewListData();
+
+                        int comSize =comPassListData.size();//本地数据
+                        int size =dataBeanss.size();//冬天
+                        for(int k2=0;k2<comSize;++k2){
+                            ComPassListData comPassListData1 = comPassListData.get(k2);
+                            String gid2= comPassListData1.gid;
+                            String gid_fs= comPassListData1.gid_fs;
+                            String method_type= comPassListData1.method_type;
+                            GameLog.log("gid "+gid2+" gid_fs "+gid_fs+" method_type "+ method_type);
+                            for(int kk=0;kk<size;++kk){
+                                LeagueDatailNewData.DataBean gameData =dataBeanss.get(kk);
+                                if(gid_fs.equals(gameData.getGid_fs())){
+                                    //角球
+                                    switch (method_type){
+                                        case "PMH":
+                                            gameData.setPMH(true);
+                                            break;
+                                        case "PMC":
+                                            gameData.setPMC(true);
+                                            break;
+                                        case "PMN":
+                                            gameData.setPMN(true);
+                                            break;
+                                        case "HPMH":
+                                            gameData.setHPMH(true);
+                                            break;
+                                        case "HPMC":
+                                            gameData.setHPMC(true);
+                                            break;
+                                        case "HPMN":
+                                            gameData.setHPMN(true);
+                                            break;
+                                        case "POUC":
+                                            gameData.setPOUC(true);
+                                            break;
+                                        case "POUH":
+                                            gameData.setPOUH(true);
+                                            break;
+                                        case "HPOUC":
+                                            gameData.setHPOUC(true);
+                                            break;
+                                        case "HPOUH":
+                                            gameData.setHPOUH(true);
+                                            break;
+                                        case "HPRH":
+                                            gameData.setHPRH(true);
+                                            break;
+                                        case "HPRC":
+                                            gameData.setHPRC(true);
+                                            break;
+                                        case "PRH":
+                                            gameData.setPRH(true);
+                                            break;
+                                        case "PRC":
+                                            gameData.setPRC(true);
+                                            break;
+                                        case "PEVEN":
+                                            gameData.setPEVEN(true);
+                                            break;
+                                        case "PODD":
+                                            gameData.setPODD(true);
+                                            break;
+                                    }
+                                }
+
+
+                            }
+
+                        }
+                        //--------------------------------------------
+
+
+
+
                         LinearLayout mLinearLayoutJiao = (LinearLayout) holder.getView(R.id.linear_jiao);
                         mLinearLayoutJiao.removeAllViews();
                         for (int x = 0; x < dataBeanss.size(); x++) {
@@ -3179,7 +3288,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     mTeamC = dataList.getTeam_c();
                                     jointdata = mLeague+mTeamH+mTeamC+dataList.getDatetime();
                                     dataList.setIsChecked(0);
-                                    notifyDataSetInvalidated();
+
                                     method_type = "PRH";
                                     gid = dataList.getGid();
                                     gid_fs = dataBeanBottom.getGid_fs();
@@ -3192,30 +3301,77 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     switch (dataBean.getPwtype()){
                                         case "R"://让球
                                             method_type ="PRH";
+                                            if(dataBean.isPRH()){
+                                                dataBean.setPRH(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPRH(true);
+                                            }
                                             break;
                                         case "OU"://大小
                                             method_type ="POUC";
+                                            if(dataBean.isPOUC()){
+                                                dataBean.setPOUC(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPOUC(true);
+                                            }
                                             break;
                                         case "M"://独赢
                                             method_type ="PMH";
+                                            if(dataBean.isPMH()){
+                                                dataBean.setPMH(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPMH(true);
+                                            }
                                             break;
                                         case "HM":
                                             method_type ="HPMH";
+                                            if(dataBean.isHPMH()){
+                                                dataBean.setHPMH(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPMH(true);
+                                            }
                                             break;
                                         case "HR":
                                             method_type ="HPRH";
+                                            if(dataBean.isHPRH()){
+                                                dataBean.setHPRH(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPRH(true);
+                                            }
                                             break;
                                         case "HOU":
                                             method_type ="HPOUC";
-                                            prtype ="HOUC";
+                                            if(dataBean.isHPOUC()){
+                                                dataBean.setHPOUC(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPOUC(true);
+                                            }
                                             break;
                                         case "EO":
-
                                             method_type ="PODD";
+                                            if(dataBean.isPODD()){
+                                                dataBean.setPODD(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPODD(true);
+                                            }
                                             break;
                                     }
 
-
+                                    notifyDataSetInvalidated();
                                     onAddData();
 
                                 }
@@ -3234,7 +3390,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     mTeamC = dataList.getTeam_c();
                                     jointdata = mLeague+mTeamH+mTeamC+dataList.getDatetime();
                                     dataList.setIsChecked(0);
-                                    notifyDataSetInvalidated();
+
                                     gid = dataList.getGid();
                                     gid_fs = dataBeanBottom.getGid_fs();
                                     ioradio_r_h = item_new_c_tv_ratio_down.getText().toString();
@@ -3246,28 +3402,77 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     switch (dataBean.getPwtype()){
                                         case "R"://让球
                                             method_type ="PRC";
+                                            if(dataBean.isPRC()){
+                                                dataBean.setPRC(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPRC(true);
+                                            }
                                             break;
                                         case "OU"://大小
                                             method_type ="POUH";
+                                            if(dataBean.isPOUH()){
+                                                dataBean.setPOUH(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPOUH(true);
+                                            }
                                             break;
                                         case "M"://独赢
                                             method_type ="PMC";
+                                            if(dataBean.isPMC()){
+                                                dataBean.setPMC(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPMC(true);
+                                            }
                                             break;
                                         case "HM":
                                             method_type ="HPMC";
+                                            if(dataBean.isHPMC()){
+                                                dataBean.setHPMC(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPMC(true);
+                                            }
                                             break;
                                         case "HR":
                                             method_type ="HPRC";
+                                            if(dataBean.isHPRC()){
+                                                dataBean.setHPRC(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPRC(true);
+                                            }
                                             break;
                                         case "HOU":
                                             method_type ="HPOUH";
+                                            if(dataBean.isHPOUH()){
+                                                dataBean.setHPOUH(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPOUH(true);
+                                            }
                                             break;
                                         case "EO":
                                             method_type ="PEVEN";
+                                            if(dataBean.isPEVEN()){
+                                                dataBean.setPEVEN(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPEVEN(true);
+                                            }
                                             break;
                                     }
 
-
+                                    notifyDataSetInvalidated();
                                     onAddData();
                                 }
                             });
@@ -3291,7 +3496,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     mTeamC = dataList.getTeam_c();
                                     jointdata = mLeague+mTeamH+mTeamC+dataList.getDatetime();
                                     dataList.setIsChecked(0);
-                                    notifyDataSetInvalidated();
+
                                     gid = dataList.getGid();
                                     gid_fs = dataBeanBottom.getGid_fs();
                                     ioradio_r_h = item_new_m_tv_ratio_down.getText().toString();
@@ -3303,12 +3508,26 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     switch (dataBean.getPwtype()){
                                         case "M"://独赢
                                             method_type ="PMN";
+                                            if(dataBean.isPMN()){
+                                                dataBean.setPMN(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setPMN(true);
+                                            }
                                             break;
                                         case "HM":
                                             method_type ="HPMN";
+                                            if(dataBean.isHPMN()){
+                                                dataBean.setHPMN(false);
+                                            }else{
+                                                onResetComListDataCheck(gameDataList);
+                                                onRestJiaoDataCheck(dataBean);
+                                                dataBean.setHPMN(true);
+                                            }
                                             break;
                                     }
-
+                                    notifyDataSetInvalidated();
                                     onAddData();
                                 }
                             });
@@ -3362,6 +3581,125 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     item_new_m_tv_ratio_up.setVisibility(View.VISIBLE);
                                 }
                                 item_new_m_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                            }
+                            switch (dataBean.getPwtype()){
+                                case "R":
+                                    if(dataBean.isPRH()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isPRC()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+                                    break;
+                                case "OU":
+                                    if(dataBean.isPOUC()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isPOUH()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+                                    break;
+                                case "HR":
+                                    if(dataBean.isHPRH()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isHPRC()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+                                    break;
+                                case "HOU":
+                                    if(dataBean.isHPOUC()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isHPOUH()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+                                    break;
+                                case "M":
+                                    if(dataBean.isPMH()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isPMC()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isPMN()){
+                                        item_new_m_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_m_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+                                    break;
+                                case "EO":
+                                    if(dataBean.isPODD()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isPEVEN()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    break;
+                                case "HM":
+                                    if(dataBean.isHPMH()){
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_h_team_up.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isHPMC()){
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_c_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+
+                                    if(dataBean.isHPMN()){
+                                        item_new_m_team_down.setBackgroundResource(R.drawable.wanfa_item_checked);
+                                    }else{
+                                        item_new_m_team_down.setBackgroundResource(R.drawable.wanfa_item_default);
+                                    }
+                                    break;
+
+                            }
+                            if(Check.isEmpty(dataBean.getTextUpStr())){//
+                                item_new_h_tv_ratio_up.setText("");
+                                item_new_h_team_up.setBackgroundResource(R.mipmap.bet_lock);
+                            }
+                            if(Check.isEmpty(dataBean.getTextDownStr())){//
+                                item_new_c_tv_ratio_up.setText("");
+                                item_new_c_team_down.setBackgroundResource(R.mipmap.bet_lock);
+                            }
+                            if(Check.isEmpty(dataBean.getTextMStr())){//
+                                item_new_m_tv_ratio_up.setText("");
+                                item_new_m_team_down.setBackgroundResource(R.mipmap.bet_lock);
                             }
 
                             //把行布局放到linear里
@@ -3419,6 +3757,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     dataBeanBottom.setIor_RHCheck(false);
                                 }else{
                                     onResetComListDataCheck(gameDataList);
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     dataBeanBottom.setIor_RHCheck(true);
                                 }
                                 //GameLog.log("当前点击的位置"+position);
@@ -3455,6 +3796,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 if(dataBeanBottom.isIor_OUCCheck()){
                                     dataBeanBottom.setIor_OUCCheck(false);
                                 }else{
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     onResetComListDataCheck(gameDataList);
                                     dataBeanBottom.setIor_OUCCheck(true);
                                 }
@@ -3504,6 +3848,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 if(dataBeanBottom.isIor_RCCheck()){
                                     dataBeanBottom.setIor_RCCheck(false);
                                 }else{
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     onResetComListDataCheck(gameDataList);
                                     dataBeanBottom.setIor_RCCheck(true);
                                 }
@@ -3536,6 +3883,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 if(dataBeanBottom.isIor_OUHCheck()){
                                     dataBeanBottom.setIor_OUHCheck(false);
                                 }else{
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     onResetComListDataCheck(gameDataList);
                                     dataBeanBottom.setIor_OUHCheck(true);
                                 }
@@ -3616,37 +3966,6 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         item1_ratio_down2.setText(gameDataList.get(k).getIor_HRH());
                         item2_ratio_down2.setText(gameDataList.get(k).getIor_HRC());
 
-                        if(Check.isEmpty(gameDataList.get(k).getIor_RH())){//
-                            item1_ratio_up.setText("");
-                            item1_ratio_down.setText("");
-                            item1_title.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-
-                        if(Check.isEmpty(gameDataList.get(k).getIor_RC())){//
-                            item2_ratio_up.setText("");
-                            item2_ratio_down.setText("");
-                            item2_title.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-
-                        if(Check.isEmpty(gameDataList.get(k).getIor_HRH())){//
-                            item1_ratio_up2.setText("");
-                            item1_ratio_down2.setText("");
-                            item1_title2.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-                        if(Check.isEmpty(gameDataList.get(k).getIor_HRC())){//
-                            item2_ratio_up2.setText("");
-                            item2_ratio_down2.setText("");
-                            item2_title2.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-
                         if(gameDataList.get(k).isIor_RHCheck()){
                             item1_title.setBackgroundResource(R.drawable.wanfa_item_checked);
                         }else{
@@ -3667,6 +3986,31 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         }else{
                             item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
                         }
+
+                        if(Check.isEmpty(gameDataList.get(k).getIor_RH())){//
+                            item1_ratio_up.setText("");
+                            item1_ratio_down.setText("");
+                            item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+
+                        if(Check.isEmpty(gameDataList.get(k).getIor_RC())){//
+                            item2_ratio_up.setText("");
+                            item2_ratio_down.setText("");
+                            item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+
+                        if(Check.isEmpty(gameDataList.get(k).getIor_HRH())){//
+                            item1_ratio_up2.setText("");
+                            item1_ratio_down2.setText("");
+                            item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+                        if(Check.isEmpty(gameDataList.get(k).getIor_HRC())){//
+                            item2_ratio_up2.setText("");
+                            item2_ratio_down2.setText("");
+                            item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+
+
                         break;
                     case "OU":
                         holder.setTextColorRes(R.id.item_aa,R.color.n_edittext);
@@ -3684,35 +4028,6 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hu());
                         item2_ratio_down2.setText(gameDataList.get(k).getIor_HOUH());
 
-                        if(Check.isEmpty(gameDataList.get(k).getIor_OUC())){//
-                            item1_ratio_up.setText("");
-                            item1_ratio_down.setText("");
-                            item1_title.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-                        if(Check.isEmpty(gameDataList.get(k).getIor_OUH())){//
-                            item2_ratio_up.setText("");
-                            item2_ratio_down.setText("");
-                            item2_title.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-
-                        if(Check.isEmpty(gameDataList.get(k).getIor_HOUC())){//
-                            item1_ratio_up2.setText("");
-                            item1_ratio_down2.setText("");
-                            item1_title2.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
-                        if(Check.isEmpty(gameDataList.get(k).getIor_HOUH())){//
-                            item2_ratio_up2.setText("");
-                            item2_ratio_down2.setText("");
-                            item2_title2.setBackgroundResource(R.mipmap.bet_lock);
-                        }else{
-                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                        }
                         if(gameDataList.get(k).isIor_OUCCheck()){
                             item1_title.setBackgroundResource(R.drawable.wanfa_item_checked);
                         }else{
@@ -3733,6 +4048,29 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         }else{
                             item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
                         }
+
+                        if(Check.isEmpty(gameDataList.get(k).getIor_OUC())){//
+                            item1_ratio_up.setText("");
+                            item1_ratio_down.setText("");
+                            item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+                        if(Check.isEmpty(gameDataList.get(k).getIor_OUH())){//
+                            item2_ratio_up.setText("");
+                            item2_ratio_down.setText("");
+                            item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+
+                        if(Check.isEmpty(gameDataList.get(k).getIor_HOUC())){//
+                            item1_ratio_up2.setText("");
+                            item1_ratio_down2.setText("");
+                            item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+                        if(Check.isEmpty(gameDataList.get(k).getIor_HOUH())){//
+                            item2_ratio_up2.setText("");
+                            item2_ratio_down2.setText("");
+                            item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                        }
+
                         break;
                     case "JIAO":
 
@@ -3756,6 +4094,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 if(dataBeanBottom.isIor_HRHCheck()){
                                     dataBeanBottom.setIor_HRHCheck(false);
                                 }else{
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     onResetComListDataCheck(gameDataList);
                                     dataBeanBottom.setIor_HRHCheck(true);
                                 }
@@ -3792,6 +4133,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     dataBeanBottom.setIor_HOUCCheck(false);
                                 }else{
                                     onResetComListDataCheck(gameDataList);
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     dataBeanBottom.setIor_HOUCCheck(true);
                                 }
                                 mLeague = dataList.getLeague() ;
@@ -3840,6 +4184,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 if(dataBeanBottom.isIor_HRCCheck()){
                                     dataBeanBottom.setIor_HRCCheck(false);
                                 }else{
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     onResetComListDataCheck(gameDataList);
                                     dataBeanBottom.setIor_HRCCheck(true);
                                 }
@@ -3876,6 +4223,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     dataBeanBottom.setIor_HOUHCheck(false);
                                 }else{
                                     onResetComListDataCheck(gameDataList);
+                                    if(position<gameDataList.size()){
+                                        onRestJiaoDataCheck(dataChange(gameDataList.get(position)).get(position));
+                                    }
                                     dataBeanBottom.setIor_HOUHCheck(true);
                                 }
                                 mLeague = dataList.getLeague() ;

@@ -196,7 +196,7 @@ public class LeagueDatailNewData {
     }
 
     public static class DataBean {
-
+        private String gid_fs;
         private String gid;
         private String cate;
         private String type;
@@ -229,6 +229,169 @@ public class LeagueDatailNewData {
         private String textDownStr;
         private String textM;
         private String textMStr;
+
+        private boolean HPMH = false;//独赢上
+        private boolean HPMC = false;
+        private boolean HPMN = false;
+
+
+        private boolean HPOUC = false;//大小 大 上
+        private boolean HPOUH = false;
+
+        private boolean HPRH = false;//让球   上
+        private boolean HPRC = false;
+
+        private boolean PMH = false;//独赢
+        private boolean PMC = false;
+        private boolean PMN = false;
+
+        private boolean POUC = false;//大小 大
+        private boolean POUH = false;
+
+
+        private boolean PRH = false;//让球
+        private boolean PRC = false;
+
+        private boolean PODD = false;//单双
+        private boolean PEVEN = false;
+
+
+        public String getGid_fs() {
+            return gid_fs;
+        }
+
+        public void setGid_fs(String gid_fs) {
+            this.gid_fs = gid_fs;
+        }
+
+        public boolean isPMN() {
+            return PMN;
+        }
+
+        public void setPMN(boolean PMN) {
+            this.PMN = PMN;
+        }
+
+        public boolean isHPMN() {
+            return HPMN;
+        }
+
+        public void setHPMN(boolean HPMN) {
+            this.HPMN = HPMN;
+        }
+
+        public boolean isPEVEN() {
+            return PEVEN;
+        }
+
+        public void setPEVEN(boolean PEVEN) {
+            this.PEVEN = PEVEN;
+        }
+
+        public boolean isHPOUH() {
+            return HPOUH;
+        }
+
+        public void setHPOUH(boolean HPOUH) {
+            this.HPOUH = HPOUH;
+        }
+
+        public boolean isHPRC() {
+            return HPRC;
+        }
+
+        public void setHPRC(boolean HPRC) {
+            this.HPRC = HPRC;
+        }
+
+        public boolean isHPMC() {
+            return HPMC;
+        }
+
+        public void setHPMC(boolean HPMC) {
+            this.HPMC = HPMC;
+        }
+
+        public boolean isPMC() {
+            return PMC;
+        }
+
+        public void setPMC(boolean PMC) {
+            this.PMC = PMC;
+        }
+
+        public boolean isPOUH() {
+            return POUH;
+        }
+
+        public void setPOUH(boolean POUH) {
+            this.POUH = POUH;
+        }
+
+        public boolean isPRC() {
+            return PRC;
+        }
+
+        public void setPRC(boolean PRC) {
+            this.PRC = PRC;
+        }
+
+        public boolean isPODD() {
+            return PODD;
+        }
+
+        public void setPODD(boolean PODD) {
+            this.PODD = PODD;
+        }
+
+        public boolean isHPOUC() {
+            return HPOUC;
+        }
+
+        public void setHPOUC(boolean HPOUC) {
+            this.HPOUC = HPOUC;
+        }
+
+        public boolean isHPRH() {
+            return HPRH;
+        }
+
+        public void setHPRH(boolean HPRH) {
+            this.HPRH = HPRH;
+        }
+
+        public boolean isHPMH() {
+            return HPMH;
+        }
+
+        public void setHPMH(boolean HPMH) {
+            this.HPMH = HPMH;
+        }
+
+        public boolean isPMH() {
+            return PMH;
+        }
+
+        public void setPMH(boolean PMH) {
+            this.PMH = PMH;
+        }
+
+        public boolean isPOUC() {
+            return POUC;
+        }
+
+        public void setPOUC(boolean POUC) {
+            this.POUC = POUC;
+        }
+
+        public boolean isPRH() {
+            return PRH;
+        }
+
+        public void setPRH(boolean PRH) {
+            this.PRH = PRH;
+        }
+
         private int isClick;
 
         public int getIsClick() {
