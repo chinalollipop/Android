@@ -997,6 +997,60 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 comPassSearchListResult.setAction(action);
             }
         }
+        ArrayList<ComPassListData>  comPassListData = ZHBetManager.getSingleton().onShowViewListData();
+
+        int comSize =comPassListData.size();//本地数据
+        for(int k=0;k<comSize;++k){
+            ComPassListData comPassListData1 = comPassListData.get(k);
+            String gid2= comPassListData1.gid;
+            String gid_fs= comPassListData1.gid_fs;
+            String method_type= comPassListData1.method_type;
+            GameLog.log("gid "+gid2+" gid_fs "+gid_fs+" method_type "+ method_type);
+            for(int kk=0;kk<size;++kk){
+                List<LeagueDetailListDataResults.DataBean> gameData =dataBeanList.get(kk).getGameData();
+                if(Check.isEmpty(gameData)){
+                    continue;
+                }
+                int sizeK = gameData.size();
+                GameLog.log("当前 的" +sizeK);
+
+                for(int jj=0;jj<sizeK;++jj){
+                    if(gid_fs.equals(gameData.get(jj).getGid_fs())) {
+                        switch (method_type){
+                            case "PRH":
+                                gameData.get(jj).setIor_RHCheck(true);
+                                break;
+                            case "PRC":
+                                gameData.get(jj).setIor_RCCheck(true);
+                                break;
+                            case "HPRH":
+                                gameData.get(jj).setIor_HRHCheck(true);
+                                break;
+                            case "HPRC":
+                                gameData.get(jj).setIor_HRCCheck(true);
+                                break;
+                            case "POUC":
+                                gameData.get(jj).setIor_OUCCheck(true);
+                                break;
+                            case "POUH":
+                                gameData.get(jj).setIor_OUHCheck(true);
+                                break;
+                            case "HPOUC":
+                                gameData.get(jj).setIor_HOUCCheck(true);
+                                break;
+                            case "HPOUH":
+                                gameData.get(jj).setIor_HOUHCheck(true);
+                                break;
+                        }
+                        comPassListAdapter.notifyDataSetChanged();
+                    }
+                    comPassListAdapter.notifyDataSetChanged();
+                }
+                comPassListAdapter.notifyDataSetChanged();
+            }
+            comPassListAdapter.notifyDataSetChanged();
+        }
+        GameLog.log("-、-----执行的刷新功能-、-----");
         comPassListAdapter.notifyDataSetChanged();
     }
 
@@ -1015,6 +1069,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             for(int k=0;k<comSize;++k){
                 ComPassListData comPassListData1 = comPassListData.get(k);
                 String gid2= comPassListData1.gid;
+                String gid_fs= comPassListData1.gid_fs;
                 for(int kk=0;kk<dataSize;++kk){
                     String gid1 = dataBeanList.get(kk).getGid();
                     if(gid1.equals(gid2)){
@@ -1486,7 +1541,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     TextView tvTime = holder.getView(R.id.tv_time);
                     TextView tvShowTime = holder.getView(R.id.tv_showretime);
                     String fromString = tvType.getText().toString()+tvTime.getText().toString()+tvShowTime.getText().toString();
-                    //EventBus.getDefault().post(new PrepareGoEvent(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType,fromString));
+                    EventBus.getDefault().post(new PrepareGoEvent(dataLists.getLeague(),dataLists.getTeam_h(),dataLists.getTeam_c(),dataLists.getGid(),gtype,showtype,userMoney,fromType,fromString));
                     //EventBus.getDefault().post(new StartBrotherEvent(PrepareBetFragment.newInstance(dataList.getLeague(),dataList.getTeam_h(),dataList.getTeam_c(),dataList.getGid(),gtype,showtype,userMoney,fromType),SupportFragment.SINGLETASK));
 
                     //presenter.postGameAllBets("",dataLists.getGid(),gtype,showtype,position+"","R");
@@ -2674,6 +2729,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
     public class ComPassListAdapter extends AutoSizeAdapter<ComPassSearchListResult.DataBean> {
         private Context context;
 
+
         public ComPassListAdapter(Context context, int layoutId, List datas) {
             super(context, layoutId, datas);
             this.context = context;
@@ -2687,6 +2743,24 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             }
         }
 
+        private void onResetComListDataCheck(List<LeagueDetailListDataResults.DataBean> gameDataList ) {
+            if(Check.isNull(gameDataList)){
+                return;
+            }
+            int size  = gameDataList.size();
+            for (int k = 0; k < size; k++) {
+                final LeagueDetailListDataResults.DataBean dataBeanBottom = gameDataList.get(k);
+                dataBeanBottom.setIor_RHCheck(false);
+                dataBeanBottom.setIor_RCCheck(false);
+                dataBeanBottom.setIor_HRHCheck(false);
+                dataBeanBottom.setIor_HRCCheck(false);
+                dataBeanBottom.setIor_OUCCheck(false);
+                dataBeanBottom.setIor_OUHCheck(false);
+                dataBeanBottom.setIor_HOUCCheck(false);
+                dataBeanBottom.setIor_HOUHCheck(false);
+            }
+        }
+
         @Override
         protected void convert(final ViewHolder holder, final ComPassSearchListResult.DataBean dataList, final int position) {
             /*if("1".equals(dataList.getM_Type())){
@@ -2696,6 +2770,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     holder.setText(R.id.tv_M_Type, dataList.getScore_h() + "-" + dataList.getScore_c());
                 }
             }*/
+
             holder.setVisible(R.id.tv_M_Type,true);
             holder.setText(R.id.tv_time,"");
             holder.setText(R.id.tv_showretime,dataList.getDatetime());
@@ -2805,6 +2880,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             dataList.setIsChecked(0);
                         }*/
                     }
+                    onResetComListDataCheck(dataList.getGameData());
                     notifyDataSetInvalidated();
                     method_type = "PRH";
 
@@ -2851,6 +2927,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             dataList.setIsChecked(0);
                         }*/
                     }
+                    onResetComListDataCheck(dataList.getGameData());
                     notifyDataSetInvalidated();
                     method_type = "POUC";
                     ioradio_r_h = dataList.getIor_POUC();
@@ -2896,6 +2973,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             dataList.setIsChecked(0);
                         }*/
                     }
+                    onResetComListDataCheck(dataList.getGameData());
                     notifyDataSetInvalidated();
                     method_type = "PRC";
                     ioradio_r_h = dataList.getIor_PRC();
@@ -2941,6 +3019,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             dataList.setIsChecked(0);
                         }*/
                     }
+                    onResetComListDataCheck(dataList.getGameData());
                     notifyDataSetInvalidated();
                     method_type = "POUH";
                     ioradio_r_h = dataList.getIor_POUH();
@@ -3058,7 +3137,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             });
 
             //添加附属盘口
-            List<LeagueDetailListDataResults.DataBean> gameDataList  = dataList.getGameData();
+            final List<LeagueDetailListDataResults.DataBean> gameDataList  = dataList.getGameData();
             if(Check.isNull(gameDataList)){
 
                 holder.setVisible(R.id.item_bottom, false);
@@ -3314,7 +3393,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 }
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.item_league_detail_new2, tab_linear1, false);
 
-                LinearLayout item1_title = view.findViewById(R.id.item1_title);
+                final LinearLayout item1_title = view.findViewById(R.id.item1_title);
                 LinearLayout item2_title = view.findViewById(R.id.item2_title);
                 TextView item1_ratio_up = view.findViewById(R.id.item1_ratio_up);
                 final TextView item1_ratio_down = view.findViewById(R.id.item1_ratio_down);
@@ -3335,7 +3414,13 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
 
                                 //-----------------------------------s
-                                //item1_title.setBackgroundResource();
+
+                                if(dataBeanBottom.isIor_RHCheck()){
+                                    dataBeanBottom.setIor_RHCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_RHCheck(true);
+                                }
                                 //GameLog.log("当前点击的位置"+position);
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
@@ -3367,6 +3452,12 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
                                 break;
                             case "OU":
+                                if(dataBeanBottom.isIor_OUCCheck()){
+                                    dataBeanBottom.setIor_OUCCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_OUCCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();
@@ -3410,6 +3501,12 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         switch (dataList.getAction()){
                             case "R":
 
+                                if(dataBeanBottom.isIor_RCCheck()){
+                                    dataBeanBottom.setIor_RCCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_RCCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();
@@ -3436,6 +3533,12 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 prtype = "P3";
                                 break;
                             case "OU":
+                                if(dataBeanBottom.isIor_OUHCheck()){
+                                    dataBeanBottom.setIor_OUHCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_OUHCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();
@@ -3520,6 +3623,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         }else{
                             item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
                         }
+
                         if(Check.isEmpty(gameDataList.get(k).getIor_RC())){//
                             item2_ratio_up.setText("");
                             item2_ratio_down.setText("");
@@ -3539,6 +3643,27 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                             item2_ratio_up2.setText("");
                             item2_ratio_down2.setText("");
                             item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                        }else{
+                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+
+                        if(gameDataList.get(k).isIor_RHCheck()){
+                            item1_title.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+                        if(gameDataList.get(k).isIor_RCCheck()){
+                            item2_title.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+                        if(gameDataList.get(k).isIor_HRHCheck()){
+                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+                        if(gameDataList.get(k).isIor_HRCCheck()){
+                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_checked);
                         }else{
                             item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
                         }
@@ -3588,6 +3713,26 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         }else{
                             item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
                         }
+                        if(gameDataList.get(k).isIor_OUCCheck()){
+                            item1_title.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+                        if(gameDataList.get(k).isIor_OUHCheck()){
+                            item2_title.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+                        if(gameDataList.get(k).isIor_HOUCCheck()){
+                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
+                        if(gameDataList.get(k).isIor_HOUHCheck()){
+                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_checked);
+                        }else{
+                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                        }
                         break;
                     case "JIAO":
 
@@ -3607,6 +3752,13 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         ACache.get(getContext()).put("isMaster","isMaster");
                         switch (dataList.getAction()){
                             case "R":
+
+                                if(dataBeanBottom.isIor_HRHCheck()){
+                                    dataBeanBottom.setIor_HRHCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_HRHCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();
@@ -3636,6 +3788,12 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
                                 break;
                             case "OU":
+                                if(dataBeanBottom.isIor_HOUCCheck()){
+                                    dataBeanBottom.setIor_HOUCCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_HOUCCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();
@@ -3678,6 +3836,13 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                         ACache.get(getContext()).put("isMaster","isMaster");
                         switch (dataList.getAction()){
                             case "R":
+
+                                if(dataBeanBottom.isIor_HRCCheck()){
+                                    dataBeanBottom.setIor_HRCCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_HRCCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();
@@ -3707,6 +3872,12 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
                                 break;
                             case "OU":
+                                if(dataBeanBottom.isIor_HOUHCheck()){
+                                    dataBeanBottom.setIor_HOUHCheck(false);
+                                }else{
+                                    onResetComListDataCheck(gameDataList);
+                                    dataBeanBottom.setIor_HOUHCheck(true);
+                                }
                                 mLeague = dataList.getLeague() ;
                                 mTeamH = dataList.getTeam_h();
                                 mTeamC = dataList.getTeam_c();

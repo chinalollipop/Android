@@ -172,6 +172,78 @@ public class LeagueDetailListDataResults {
         private String ior_EOE= "";
         private String ratio_mb_str= "";
         private String ratio_tg_str= "";
+        private boolean ior_RHCheck = false;
+        private boolean ior_RCCheck = false;
+        private boolean ior_HRHCheck = false;
+        private boolean ior_HRCCheck = false;
+        private boolean ior_OUCCheck = false;//大
+        private boolean ior_OUHCheck = false;
+        private boolean ior_HOUHCheck = false;//得分大小 上半场 小
+        private boolean ior_HOUCCheck = false;
+
+        public boolean isIor_OUCCheck() {
+            return ior_OUCCheck;
+        }
+
+        public void setIor_OUCCheck(boolean ior_OUCCheck) {
+            this.ior_OUCCheck = ior_OUCCheck;
+        }
+
+        public boolean isIor_OUHCheck() {
+            return ior_OUHCheck;
+        }
+
+        public void setIor_OUHCheck(boolean ior_OUHCheck) {
+            this.ior_OUHCheck = ior_OUHCheck;
+        }
+
+        public boolean isIor_HOUHCheck() {
+            return ior_HOUHCheck;
+        }
+
+        public void setIor_HOUHCheck(boolean ior_HOUHCheck) {
+            this.ior_HOUHCheck = ior_HOUHCheck;
+        }
+
+        public boolean isIor_HOUCCheck() {
+            return ior_HOUCCheck;
+        }
+
+        public void setIor_HOUCCheck(boolean ior_HOUCCheck) {
+            this.ior_HOUCCheck = ior_HOUCCheck;
+        }
+
+        public boolean isIor_RHCheck() {
+            return ior_RHCheck;
+        }
+
+        public void setIor_RHCheck(boolean ior_RHCheck) {
+            this.ior_RHCheck = ior_RHCheck;
+        }
+
+        public boolean isIor_RCCheck() {
+            return ior_RCCheck;
+        }
+
+        public void setIor_RCCheck(boolean ior_RCCheck) {
+            this.ior_RCCheck = ior_RCCheck;
+        }
+
+        public boolean isIor_HRHCheck() {
+            return ior_HRHCheck;
+        }
+
+        public void setIor_HRHCheck(boolean ior_HRHCheck) {
+            this.ior_HRHCheck = ior_HRHCheck;
+        }
+
+        public boolean isIor_HRCCheck() {
+            return ior_HRCCheck;
+        }
+
+        public void setIor_HRCCheck(boolean ior_HRCCheck) {
+            this.ior_HRCCheck = ior_HRCCheck;
+        }
 
         public String getRatio_mb_str() {
             return ratio_mb_str;
