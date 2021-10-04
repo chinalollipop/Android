@@ -1168,7 +1168,9 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 holder.setVisible(R.id.tv_M_Type, true);
             } else {
                 if (!Check.isEmpty(dataLists.getScore_h())) {
-                    holder.setText(R.id.tv_M_Type, dataLists.getScore_h() + "-" + dataLists.getScore_c());
+                    holder.setText(R.id.tv_score_h, dataLists.getScore_h());
+                    holder.setText(R.id.tv_score_c, dataLists.getScore_c());
+                    //holder.setText(R.id.tv_M_Type, dataLists.getScore_h() + "-" + dataLists.getScore_c());
                 } else {
                     holder.setText(R.id.tv_M_Type, "   ");
                 }
@@ -1539,6 +1541,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     isMaster = dataLists.getAll();
                     isMaster = isMaster.equals("0")?"N":"Y";
                     ACache.get(getContext()).put("isMaster",isMaster);
+                    ACache.get(getContext()).put("gid_fs","daniel");
                     TextView tvType = holder.getView(R.id.tv_M_Type);
                     TextView tvTime = holder.getView(R.id.tv_time);
                     TextView tvShowTime = holder.getView(R.id.tv_showretime);
@@ -1618,6 +1621,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 holder.setTextColorRes(R.id.item_aa,R.color.n_edittext);
                 holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
                 holder.setTextColorRes(R.id.item_cc,R.color.event_red);
+                holder.setText(R.id.tv_score_jiao_h,dataLists.getScore_h());
+                holder.setText(R.id.tv_score_jiao_c,dataLists.getScore_c());
                 holder.setText(R.id.tv_team_h_jiao,dataLists.getTeam_h());
                 holder.setText(R.id.tv_team_c_jiao,dataLists.getTeam_c());
                 holder.setVisible(R.id.item_jiao, true);
@@ -2715,6 +2720,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     isMaster = dataList.getAll();
                     isMaster = isMaster.equals("0")?"N":"Y";
                     ACache.get(getContext()).put("isMaster",isMaster);
+                    ACache.get(getContext()).put("gid_fs","daniel");
                     TextView tvType = holder.getView(R.id.tv_M_Type);
                     TextView tvTime = holder.getView(R.id.tv_time);
                     TextView tvShowTime = holder.getView(R.id.tv_showretime);
@@ -2794,15 +2800,17 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
 
         @Override
         protected void convert(final ViewHolder holder, final ComPassSearchListResult.DataBean dataList, final int position) {
-            /*if("1".equals(dataList.getM_Type())){
-                holder.setVisible(R.id.tv_M_Type,true);
-            }else{
-                if(!Check.isEmpty(dataList.getScore_h())) {
-                    holder.setText(R.id.tv_M_Type, dataList.getScore_h() + "-" + dataList.getScore_c());
-                }
-            }*/
+           /* if ("1".equals(dataList.getM_Type())) {
+                holder.setVisible(R.id.tv_M_Type, true);
+            } else {
 
-            holder.setVisible(R.id.tv_M_Type,true);
+            }*/
+            if (!Check.isEmpty(dataList.getScore_h())) {
+                holder.setText(R.id.tv_score_jiao_h, dataList.getScore_h());
+                holder.setText(R.id.tv_score_jiao_c, dataList.getScore_c());
+                //holder.setText(R.id.tv_M_Type, dataLists.getScore_h() + "-" + dataLists.getScore_c());
+            }
+            //holder.setVisible(R.id.tv_M_Type,true);
             holder.setText(R.id.tv_time,"");
             holder.setText(R.id.tv_showretime,dataList.getDatetime());
             holder.setText(R.id.tv_team_h,dataList.getTeam_h());
@@ -3081,6 +3089,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 @Override
                 public void onClick(View view) {
                     gid = dataList.getGid();
+                    isMaster = dataList.getAll();
+                    isMaster = isMaster.equals("0")?"N":"Y";
+                    ACache.get(getContext()).put("isMaster",isMaster);
+                    ACache.get(getContext()).put("gid_fs","daniel");
                     TextView tvType = holder.getView(R.id.tv_M_Type);
                     TextView tvTime = holder.getView(R.id.tv_time);
                     TextView tvShowTime = holder.getView(R.id.tv_showretime);

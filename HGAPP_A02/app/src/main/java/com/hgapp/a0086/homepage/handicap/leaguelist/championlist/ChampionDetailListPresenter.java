@@ -24,8 +24,8 @@ public class ChampionDetailListPresenter implements ChampionDetailListContract.P
 
 
     @Override
-    public void postLeagueSearchChampionList(String appRefer, String showtype, String FStype, String mtype, String M_League) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postLeagueSearchChampionList(HGConstant.PRODUCT_PLATFORM,showtype,FStype,mtype,M_League))
+    public void postLeagueSearchChampionList(String appRefer, String showtype, String FStype, String mtype, String M_League,String lid) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postLeagueSearchChampionList(HGConstant.PRODUCT_PLATFORM,showtype,FStype,mtype,M_League,lid))
                 .subscribe(new ResponseSubscriber<ChampionDetailListResult>() {
                     @Override
                     public void success(ChampionDetailListResult response) {

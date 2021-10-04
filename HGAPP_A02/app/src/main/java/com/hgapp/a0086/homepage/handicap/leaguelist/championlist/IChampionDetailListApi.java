@@ -16,7 +16,7 @@ public interface IChampionDetailListApi {
     //冠军联赛数据接口
     @POST("loadgame_R_api.php")
     @FormUrlEncoded
-    public Observable<ChampionDetailListResult> postLeagueSearchChampionList(@Field("appRefer") String appRefer, @Field("showtype")String showtype, @Field("FStype")String FStype, @Field("mtype")String mtype, @Field("M_League")String M_League);
+    public Observable<ChampionDetailListResult> postLeagueSearchChampionList(@Field("appRefer") String appRefer, @Field("showtype")String showtype, @Field("FStype")String FStype, @Field("mtype")String mtype, @Field("M_League")String M_League, @Field("lid")String lid);
 
     /**
      * 选择玩法和赔率，准备投注接口

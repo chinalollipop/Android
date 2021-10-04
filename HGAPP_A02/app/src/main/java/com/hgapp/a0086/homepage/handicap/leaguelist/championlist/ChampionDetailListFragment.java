@@ -63,7 +63,7 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
     LeagueDetailSearchListResult leagueDetailSearchListResult;
     MyExpandableAdapter myExAdapter;
     Animation animation;
-    private String FStype, Mtype,fshowtype,M_League,getArgParam4,fromType;
+    private String FStype, Mtype,fshowtype,M_League,getArgParam4,fromType,lid;;
 
     //购买的id
     private String gid;
@@ -181,6 +181,7 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
             M_League = getArguments().getStringArrayList(ARG_PARAM1).get(3);//联赛名字
             fromType = getArguments().getStringArrayList(ARG_PARAM1).get(4);//来自哪里的数据 1 2 3 4 5 6 7
             userMoney = getArguments().getStringArrayList(ARG_PARAM1).get(5);//用户金额
+            lid = getArguments().getStringArrayList(ARG_PARAM1).get(6);//lid 新增
         }
     }
 
@@ -452,7 +453,7 @@ public class ChampionDetailListFragment extends HGBaseFragment implements Champi
     }
 
     private void onSartTime(){
-        presenter.postLeagueSearchChampionList("","future",FStype,Mtype,M_League);
+        presenter.postLeagueSearchChampionList("","future",FStype,Mtype,M_League,lid);
         if(null!=executorService){
             executorService.shutdownNow();
             executorService.shutdown();

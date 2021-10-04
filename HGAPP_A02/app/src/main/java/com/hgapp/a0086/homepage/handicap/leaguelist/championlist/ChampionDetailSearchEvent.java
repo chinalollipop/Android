@@ -6,12 +6,14 @@ public class ChampionDetailSearchEvent {
     private String mtype;
     private String showtype;
     private String M_League;
+    private String lid;
 
-    public ChampionDetailSearchEvent(String FStype, String mtype, String showtype, String m_League) {
+    public ChampionDetailSearchEvent(String FStype, String mtype, String showtype, String m_League, String lid) {
         this.FStype = FStype;
         this.mtype = mtype;
         this.showtype = showtype;
-        M_League = m_League;
+        this.M_League = m_League;
+        this.lid = lid;
     }
 
     public String getFStype() {
@@ -44,5 +46,13 @@ public class ChampionDetailSearchEvent {
 
     public void setM_League(String m_League) {
         M_League = m_League;
+    }
+
+    public String getLid() {
+        return lid;
+    }
+
+    public void setLid(String lid) {
+        this.lid = lid;
     }
 }

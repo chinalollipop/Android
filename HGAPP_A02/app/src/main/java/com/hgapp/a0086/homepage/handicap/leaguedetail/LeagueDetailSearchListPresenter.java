@@ -172,7 +172,7 @@ public class LeagueDetailSearchListPresenter implements LeagueDetailSearchListCo
 
     @Override
     public void postGameAllBetsZH(String appRefer, String gid, String gtype, String showtype,final String postion, final String action) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBetsZH(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,""))
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBetsZH(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,"","Y"))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>>() {
                     @Override
                     public void success(AppTextMessageResponseList<LeagueDetailListDataResults.DataBean> response) {

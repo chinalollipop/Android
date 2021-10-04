@@ -63,6 +63,7 @@
             android:layout_height="match_parent"
             android:gravity="center|left"
             android:textSize="16sp"
+            android:textStyle="bold"
             android:text="阿德莱雷鸟阿德莱雷鸟阿德莱雷鸟阿德莱雷鸟"
             android:textColor="#303030" />
         <TextView
@@ -328,6 +329,7 @@
                         android:gravity="center|left"
                         android:text="阿德莱雷鸟阿德莱雷鸟阿德莱雷鸟阿德莱雷鸟"
                         android:textColor="#303030"
+                        android:textStyle="bold"
                         android:textSize="16sp" />
 
                     <TextView

@@ -520,7 +520,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                         EventBus.getDefault().post(new ComPassSearchEvent(getArgParam1,getArgParam3,getArgParam4,"",gtype,sorttype==0?"league":"time",mdata,"",dataList.getM_League()));
                         //EventBus.getDefault().post(new LeagueDetailSearchEvent(getArgParam3,getArgParam4,dataList.getGid(),getArgParam1));
                     }else if(Ctype.equals("3")){
-                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League()));
+                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League(),dataList.getLid()));
                     }
                     //presenter.postLeagueDetailSearchList("",getArgParam3,getArgParam4,dataList.getGid());
                     // EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(dataBean.getM_League(),dataBean.getType(),dataBean.getMID(),cate,active,type,userMoney), SupportFragment.SINGLETASK));
@@ -554,7 +554,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                         EventBus.getDefault().post(new ComPassSearchEvent(getArgParam1,getArgParam3,getArgParam4,"",gtype,sorttype==0?"league":"time",mdata,"",dataList.getM_League()));
                         //EventBus.getDefault().post(new LeagueDetailSearchEvent(getArgParam3,getArgParam4,dataList.getGid(),getArgParam1));
                     }else if(Ctype.equals("3")){
-                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League()));
+                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League(),dataList.getLid()));
                     }
                     ACache.get(getContext()).put(HGConstant.USER_CURRENT_POSITION,Ctype);
                     //presenter.postLeagueDetailSearchList("",getArgParam3,getArgParam4,dataList.getGid());

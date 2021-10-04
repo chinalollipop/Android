@@ -353,7 +353,7 @@ public class BetNewFragment extends HGBaseFragment implements PersonContract.Vie
     }
 
     private void  showSearchChampionDetailFragmnet(ChampionDetailSearchEvent championDetailSearchEvent ){
-        championDetailListFragment = ChampionDetailListFragment.newInstance(Arrays.asList(championDetailSearchEvent.getFStype(),championDetailSearchEvent.getMtype(),championDetailSearchEvent.getShowtype(),championDetailSearchEvent.getM_League(),getArgParam7,getArgParam2));
+        championDetailListFragment = ChampionDetailListFragment.newInstance(Arrays.asList(championDetailSearchEvent.getFStype(),championDetailSearchEvent.getMtype(),championDetailSearchEvent.getShowtype(),championDetailSearchEvent.getM_League(),getArgParam7,getArgParam2,championDetailSearchEvent.getLid()));
         FragmentTransaction ft = getFragmentManager().beginTransaction().replace(R.id.fgtContainer, championDetailListFragment);
         ft.show(championDetailListFragment);
         ft.commit();

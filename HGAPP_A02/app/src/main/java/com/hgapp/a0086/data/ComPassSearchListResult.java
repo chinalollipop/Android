@@ -160,6 +160,34 @@ public class ComPassSearchListResult {
         private String goalsou="";// 大小开关
         private String handicaps="";// 让球开关
         private String eps="";// 特优赔率开关
+        private String score_h="";
+        private String score_c="";
+        private String M_Type="";
+
+        public String getScore_h() {
+            return score_h;
+        }
+
+        public void setScore_h(String score_h) {
+            this.score_h = score_h;
+        }
+
+        public String getScore_c() {
+            return score_c;
+        }
+
+        public void setScore_c(String score_c) {
+            this.score_c = score_c;
+        }
+
+        public String getM_Type() {
+            return M_Type;
+        }
+
+        public void setM_Type(String m_Type) {
+            M_Type = m_Type;
+        }
+
         private List<LeagueDetailListDataResults.DataBean> gameData;
         public List<LeagueDetailListDataResults.DataBean> getGameData() {
             return gameData;

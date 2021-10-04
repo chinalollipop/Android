@@ -84,7 +84,7 @@ public interface ILeagueDetailSearchListApi {
     //滚球足球玩法接口
     @POST("get_game_allbets.php")
     @FormUrlEncoded
-    public Observable<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>> postGameAllBetsZH(@Field("appRefer") String appRefer, @Field("gid") String gid, @Field("gtype") String gtype, @Field("showtype") String showtype, @Field("isMaster") String isMaster);
+    public Observable<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>> postGameAllBetsZH(@Field("appRefer") String appRefer, @Field("gid") String gid, @Field("gtype") String gtype, @Field("showtype") String showtype, @Field("isMaster") String isMaster, @Field("isP3") String isP3);
 
 
 }
