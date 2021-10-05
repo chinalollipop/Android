@@ -621,6 +621,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
             leagueDatailNewData.setGoalsou(listData.get(x).getGoalsou());
             leagueDatailNewData.setHandicaps(listData.get(x).getHandicaps());
             leagueDatailNewData.setEps(listData.get(x).getEps());
+            leagueDatailNewData.setRedcard_c(listData.get(x).getRedcard_c());
+            leagueDatailNewData.setRedcard_h(listData.get(x).getRedcard_h());
             leagueDatailNewData.setData(listDataLast);
             arrayListNewData.add(leagueDatailNewData);
 
@@ -632,6 +634,335 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
         tvLeagueSearchNoData.setVisibility(View.GONE);
     }
 
+    private List<LeagueDatailNewData.DataBean>  dataChangeRE(LeagueDetailListDataResults.DataBean dataBeanJiao){
+        List<LeagueDatailNewData.DataBean> listDataLast = new ArrayList<LeagueDatailNewData.DataBean>();
+        LeagueDatailNewData.DataBean dataBean = new LeagueDatailNewData.DataBean();
+        dataBean.setLeague("让球");
+        dataBean.setPwtype("RE");
+        //让球主队
+        if(fromType.equals("1")){//滚球足球
+            line_type = "9";
+            dataBean.setOrder_method("FT_re");
+            dataBean.setBuyOrderTitle("足球（滚球） 让球");
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean.setOrder_method("BK_re");
+            dataBean.setBuyOrderTitle("篮球（滚球） 让球");
+        }else if(fromType.equals("3")){//今日足球
+            dataBean.setOrder_method("FT_r");
+            dataBean.setBuyOrderTitle("足球 让球");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean.setOrder_method("BK_r");
+            dataBean.setBuyOrderTitle("篮球 让球");
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean.setOrder_method("FT_r");
+            dataBean.setBuyOrderTitle("足球 早盘 让球");
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean.setOrder_method("BK_r");
+            dataBean.setBuyOrderTitle("篮球 早盘 让球");
+        }
+
+        dataBean.setGid(dataBeanJiao.getGid());
+        dataBean.setGid_fs(dataBeanJiao.getGid_fs());
+
+        dataBean.setRtype("H");
+        dataBean.setBtype_h("H");
+
+        if(dataBeanJiao.getStrong().equals("H")){
+            dataBean.setTextUp(dataBeanJiao.getRatio_re());
+            dataBean.setTextDown("");
+        }else{
+            dataBean.setTextUp("");
+            dataBean.setTextDown(dataBeanJiao.getRatio_re());
+        }
+
+        dataBean.setTextUpStr(dataBeanJiao.getIor_REH());
+
+        dataBean.setWtype("C");
+        dataBean.setBtype_c("C");
+
+        dataBean.setTextDownStr(dataBeanJiao.getIor_REC());
+
+
+        listDataLast.add(dataBean);
+
+
+        LeagueDatailNewData.DataBean dataBean2 = new LeagueDatailNewData.DataBean();
+        dataBean2.setLeague("大小");
+        dataBean2.setPwtype("ROU");
+        if(fromType.equals("1")){//滚球足球
+            dataBean2.setOrder_method("FT_rou");
+            dataBean2.setBuyOrderTitle("足球（滚球） 总分 大/小");
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean2.setOrder_method("BK_rou");
+            dataBean2.setBuyOrderTitle("篮球（滚球） 总分 大/小");
+        }else if(fromType.equals("3")){//今日足球
+            dataBean2.setBuyOrderTitle("足球 大/小");
+            dataBean2.setOrder_method("FT_ou");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean2.setOrder_method("BK_ou");
+            dataBean2.setBuyOrderTitle("篮球 大/小");
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean2.setOrder_method("FT_ou");
+            dataBean2.setBuyOrderTitle("足球 早盘 大/小");
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean2.setOrder_method("BK_ou");
+            dataBean2.setBuyOrderTitle("篮球 早盘 大/小");
+        }
+
+        dataBean2.setGid(dataBeanJiao.getGid());
+        dataBean2.setGid_fs(dataBeanJiao.getGid_fs());
+        dataBean2.setRtype("O");
+        dataBean2.setBtype_h("O");
+        dataBean2.setTextUp("大"+dataBeanJiao.getRatio_rouo());
+        dataBean2.setTextUpStr(dataBeanJiao.getIor_ROUC());
+
+        dataBean2.setWtype("U");
+        dataBean2.setBtype_c("U");
+        dataBean2.setTextDown("小"+dataBeanJiao.getRatio_rouu());
+        dataBean2.setTextDownStr(dataBeanJiao.getIor_ROUH());
+        listDataLast.add(dataBean2);
+
+        //独赢 全场
+        String  BuyOrderTitle1="足球（滚球） 全场 独赢",
+                BuyOrderTitle2="篮球（滚球） 全场 独赢",
+                BuyOrderTitle3="足球 全场 独赢",
+                BuyOrderTitle4="篮球 全场 独赢",
+                BuyOrderTitle5="足球 早盘 全场 独赢",
+                BuyOrderTitle6="篮球 早盘 全场 独赢";
+
+        LeagueDatailNewData.DataBean dataBean3 = new LeagueDatailNewData.DataBean();
+        dataBean3.setLeague("独赢");
+        dataBean3.setPwtype("RM");
+        if(fromType.equals("1")){//滚球足球
+            dataBean3.setOrder_method("FT_rm");
+            dataBean3.setBuyOrderTitle(BuyOrderTitle1);
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean3.setOrder_method("BK_rm");
+            dataBean3.setBuyOrderTitle(BuyOrderTitle2);
+        }else if(fromType.equals("3")){//今日足球
+            dataBean3.setBuyOrderTitle(BuyOrderTitle3);
+            dataBean3.setOrder_method("FT_m");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean3.setOrder_method("BK_m");
+            dataBean3.setBuyOrderTitle(BuyOrderTitle4);
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean3.setOrder_method("FT_m");
+            dataBean3.setBuyOrderTitle(BuyOrderTitle5);
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean3.setOrder_method("BK_m");
+            dataBean3.setBuyOrderTitle(BuyOrderTitle6);
+        }
+
+        dataBean3.setGid(dataBeanJiao.getGid());
+        dataBean3.setGid_fs(dataBeanJiao.getGid_fs());
+        dataBean3.setRtype("H");
+        dataBean3.setBtype_h("H");
+        dataBean3.setTextUp("");
+        dataBean3.setTextUpStr(dataBeanJiao.getIor_RMH());
+
+        dataBean3.setWtype("C");
+        dataBean3.setBtype_c("C");
+        dataBean3.setTextDown("");
+        dataBean3.setTextDownStr(dataBeanJiao.getIor_RMC());
+        dataBean3.setTextM("和");
+        dataBean3.setTextMStr(dataBeanJiao.getIor_RMN());
+
+        listDataLast.add(dataBean3);
+
+
+
+        //独赢上半场
+        String  BuyOrderTitle41="足球（滚球） 上半场 独赢",
+                BuyOrderTitle42="篮球（滚球） 上半场 独赢",
+                BuyOrderTitle43="足球 上半场 独赢",
+                BuyOrderTitle44="篮球 上半场 独赢",
+                BuyOrderTitle45="足球 早盘 上半场 独赢",
+                BuyOrderTitle46="篮球 早盘 上半场 独赢";
+
+        LeagueDatailNewData.DataBean dataBean4 = new LeagueDatailNewData.DataBean();
+        dataBean4.setLeague("独赢\n上半场");
+        dataBean4.setPwtype("HRM");
+        if(fromType.equals("1")){//滚球足球
+            dataBean4.setOrder_method("FT_hrm");
+            dataBean4.setBuyOrderTitle(BuyOrderTitle41);
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean4.setOrder_method("BK_hrm");
+            dataBean4.setBuyOrderTitle(BuyOrderTitle42);
+        }else if(fromType.equals("3")){//今日足球
+            dataBean4.setBuyOrderTitle(BuyOrderTitle43);
+            dataBean4.setOrder_method("FT_hm");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean4.setOrder_method("BK_hm");
+            dataBean4.setBuyOrderTitle(BuyOrderTitle44);
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean4.setOrder_method("FT_hm");
+            dataBean4.setBuyOrderTitle(BuyOrderTitle45);
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean4.setOrder_method("BK_hm");
+            dataBean4.setBuyOrderTitle(BuyOrderTitle46);
+        }
+
+        dataBean4.setGid(dataBeanJiao.getGid());
+        dataBean4.setGid_fs(dataBeanJiao.getGid_fs());
+        dataBean4.setRtype("H");
+        dataBean4.setBtype_h("H");
+        dataBean4.setTextUp("");
+        dataBean4.setTextUpStr(dataBeanJiao.getIor_HRMH());
+
+        dataBean4.setWtype("C");
+        dataBean4.setBtype_c("C");
+        dataBean4.setTextDown("");
+        dataBean4.setTextDownStr(dataBeanJiao.getIor_HRMC());
+
+        dataBean4.setTextM("和");
+        dataBean4.setTextMStr(dataBeanJiao.getIor_HRMN());
+        listDataLast.add(dataBean4);
+
+
+        //让球上半场
+        String  BuyOrderTitle51="足球（滚球） 上半场 让球",
+                BuyOrderTitle52="篮球（滚球） 上半场 让球",
+                BuyOrderTitle53="足球 上半场 让球",
+                BuyOrderTitle54="篮球 上半场 让球",
+                BuyOrderTitle55="足球 早盘 上半场 让球",
+                BuyOrderTitle56="篮球 早盘 上半场 让球";
+
+        LeagueDatailNewData.DataBean dataBean5 = new LeagueDatailNewData.DataBean();
+        dataBean5.setLeague("让球\n上半场");
+        dataBean5.setPwtype("HRE");
+        if(fromType.equals("1")){//滚球足球
+            dataBean5.setOrder_method("FT_hre");
+            dataBean5.setBuyOrderTitle(BuyOrderTitle51);
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean5.setOrder_method("BK_hre");
+            dataBean5.setBuyOrderTitle(BuyOrderTitle52);
+        }else if(fromType.equals("3")){//今日足球
+            dataBean5.setBuyOrderTitle(BuyOrderTitle53);
+            dataBean5.setOrder_method("FT_hr");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean5.setOrder_method("BK_hr");
+            dataBean5.setBuyOrderTitle(BuyOrderTitle54);
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean5.setOrder_method("FT_hr");
+            dataBean5.setBuyOrderTitle(BuyOrderTitle55);
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean5.setOrder_method("BK_hr");
+            dataBean5.setBuyOrderTitle(BuyOrderTitle56);
+        }
+
+        dataBean5.setGid(dataBeanJiao.getGid());
+        dataBean5.setGid_fs(dataBeanJiao.getGid_fs());
+        dataBean5.setRtype("H");
+        dataBean5.setBtype_h("H");
+        if(dataBeanJiao.getHstrong().equals("H")){
+            dataBean5.setTextUp(dataBeanJiao.getRatio_re());
+            dataBean5.setTextDown("");
+        }else{
+            dataBean5.setTextUp("");
+            dataBean5.setTextDown(dataBeanJiao.getRatio_re());
+        }
+
+        dataBean5.setTextUpStr(dataBeanJiao.getIor_HREH());
+
+        dataBean5.setWtype("C");
+        dataBean5.setBtype_c("C");
+
+        dataBean5.setTextDownStr(dataBeanJiao.getIor_HREC());
+        listDataLast.add(dataBean5);
+
+
+        //得分大小上半场
+        String  BuyOrderTitle61="足球（滚球） 上半场 大小",
+                BuyOrderTitle62="篮球（滚球） 上半场 大小",
+                BuyOrderTitle63="足球 上半场 大小",
+                BuyOrderTitle64="篮球 上半场 大小",
+                BuyOrderTitle65="足球 早盘 上半场 大小",
+                BuyOrderTitle66="篮球 早盘 上半场 大小";
+
+        LeagueDatailNewData.DataBean dataBean6 = new LeagueDatailNewData.DataBean();
+        dataBean6.setLeague("大小\n上半场");
+        dataBean6.setPwtype("HROU");
+        if(fromType.equals("1")){//滚球足球
+            dataBean6.setOrder_method("FT_hrou");
+            dataBean6.setBuyOrderTitle(BuyOrderTitle61);
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean6.setOrder_method("BK_hrou");
+            dataBean6.setBuyOrderTitle(BuyOrderTitle62);
+        }else if(fromType.equals("3")){//今日足球
+            dataBean6.setBuyOrderTitle(BuyOrderTitle63);
+            dataBean6.setOrder_method("FT_hou");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean6.setOrder_method("BK_hou");
+            dataBean6.setBuyOrderTitle(BuyOrderTitle64);
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean6.setOrder_method("FT_hou");
+            dataBean6.setBuyOrderTitle(BuyOrderTitle65);
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean6.setOrder_method("BK_hou");
+            dataBean6.setBuyOrderTitle(BuyOrderTitle66);
+        }
+
+        dataBean6.setGid(dataBeanJiao.getGid());
+        dataBean6.setGid_fs(dataBeanJiao.getGid_fs());
+        dataBean6.setRtype("H");
+        dataBean6.setBtype_h("H");
+        dataBean6.setTextUp("大"+dataBeanJiao.getRatio_hrouo());
+        dataBean6.setTextUpStr(dataBeanJiao.getIor_HROUC());
+
+        dataBean6.setWtype("C");
+        dataBean6.setBtype_c("C");
+        dataBean6.setTextDown("小"+dataBeanJiao.getRatio_hrouo());
+        dataBean6.setTextDownStr(dataBeanJiao.getIor_HROUH());
+        listDataLast.add(dataBean6);
+
+
+
+        //进球单双
+        String  BuyOrderTitle71="足球（滚球） 进球 单双",
+                BuyOrderTitle72="篮球（滚球） 进球 单双",
+                BuyOrderTitle73="足球 进球 单双",
+                BuyOrderTitle74="篮球 进球 单双",
+                BuyOrderTitle75="足球 早盘 进球单双",
+                BuyOrderTitle76="篮球 早盘 进球单双";
+
+        LeagueDatailNewData.DataBean dataBean7 = new LeagueDatailNewData.DataBean();
+        dataBean7.setLeague("进球\n单双");
+        dataBean7.setPwtype("REO");
+        if(fromType.equals("1")){//滚球足球
+            dataBean7.setOrder_method("FT_rt");
+            dataBean7.setBuyOrderTitle(BuyOrderTitle71);
+        }else if(fromType.equals("2")){//滚球篮球
+            dataBean7.setOrder_method("BK_rt");
+            dataBean7.setBuyOrderTitle(BuyOrderTitle72);
+        }else if(fromType.equals("3")){//今日足球
+            dataBean7.setBuyOrderTitle(BuyOrderTitle73);
+            dataBean7.setOrder_method("FT_t");
+        }else if(fromType.equals("4")){//今日篮球
+            dataBean7.setOrder_method("BK_t");
+            dataBean7.setBuyOrderTitle(BuyOrderTitle74);
+        }else if(fromType.equals("5")){//早盘足球
+            dataBean7.setOrder_method("FT_t");
+            dataBean7.setBuyOrderTitle(BuyOrderTitle75);
+        }else if(fromType.equals("6")){//早盘篮球
+            dataBean7.setOrder_method("BK_t");
+            dataBean7.setBuyOrderTitle(BuyOrderTitle76);
+        }
+
+        dataBean7.setGid(dataBeanJiao.getGid());
+        dataBean7.setGid_fs(dataBeanJiao.getGid_fs());
+        dataBean7.setRtype("H");
+        dataBean7.setBtype_h("H");
+        dataBean7.setTextUp("单");
+        dataBean7.setTextUpStr(dataBeanJiao.getIor_REOO());
+
+        dataBean7.setWtype("C");
+        dataBean7.setBtype_c("C");
+        dataBean7.setTextDown("双");
+        dataBean7.setTextDownStr(dataBeanJiao.getIor_REOE());
+        listDataLast.add(dataBean7);
+
+        return listDataLast;
+    }
 
     private List<LeagueDatailNewData.DataBean>  dataChange(LeagueDetailListDataResults.DataBean dataBeanJiao){
         List<LeagueDatailNewData.DataBean> listDataLast = new ArrayList<LeagueDatailNewData.DataBean>();
@@ -1175,6 +1506,11 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     holder.setText(R.id.tv_M_Type, "   ");
                 }
             }
+            if("0".equals(dataLists.getAll())||"".equals(dataLists.getAll())){
+                holder.setText(R.id.tv_pay_all,"所有玩法>");
+            }else{
+                holder.setText(R.id.tv_pay_all,dataLists.getAll()+" 玩法>");
+            }
             holder.setText(R.id.tv_time, Check.isEmpty(dataLists.getM_Date()) ? "" : dataLists.getM_Date() + " " + dataLists.getM_Time());
             holder.setText(R.id.tv_showretime, dataLists.getShowretime());
             holder.setText(R.id.tv_team_h, dataLists.getTeam_h());
@@ -1188,7 +1524,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 }
             }*/
 
-            /*holder.setText(R.id.tv_redcard_h, dataLists.getRedcard_h());//红牌数
+            holder.setText(R.id.tv_redcard_h, dataLists.getRedcard_h());//红牌数
             holder.setText(R.id.tv_redcard_c, dataLists.getRedcard_c());
             if (Check.isEmpty(dataLists.getRedcard_h())) {
                 holder.setVisible(R.id.tv_redcard_h, false);
@@ -1199,7 +1535,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 holder.setVisible(R.id.tv_redcard_c, false);
             } else {
                 holder.setVisible(R.id.tv_redcard_c, true);
-            }*/
+            }
 
 
             /*holder.setText(R.id.tv_ratio_mb_str,dataList.getRatio_mb_str());//主队让球数
@@ -1630,7 +1966,12 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                  for(int k=0;k<gameDataList.size();k++) {
                      final LeagueDetailListDataResults.DataBean dataBeanBottom = gameDataList.get(k);
                      if (dataBeanBottom.getDescription().equals("角球")) {
-                         final List<LeagueDatailNewData.DataBean>   dataBeanss = dataChange(dataBeanBottom);
+                         List<LeagueDatailNewData.DataBean>   dataBeanss;
+                         if(fromType.equals("1") || fromType.equals("2")){
+                             dataBeanss=  dataChangeRE(dataBeanBottom);
+                         }else{
+                             dataBeanss = dataChange(dataBeanBottom);
+                         }
                          LinearLayout mLinearLayoutJiao = (LinearLayout) holder.getView(R.id.linear_jiao);
                          mLinearLayoutJiao.removeAllViews();
                          for (int x = 0; x < dataBeanss.size(); x++) {
@@ -1703,6 +2044,30 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                              }
 
                                              wtype = "EO";
+                                             break;
+                                         case "RE":
+                                             prtype = "REH";
+                                             break;
+                                         case "ROU":
+                                             ptype = "C";
+                                             prtype = "ROUC";
+                                             break;
+                                         case "RM":
+                                             prtype ="RMH";
+                                             break;
+                                         case "HRM":
+                                             prtype ="HRMH";
+                                             break;
+                                         case "HRE":
+                                             prtype ="HREH";
+                                             //porder_method = "FT_order_hre";
+                                             break;
+                                         case "HROU":
+                                             ptype = "C";
+                                             prtype ="HROUC";
+                                             break;
+                                         case "REO":
+                                             prtype = "RODD";
                                              break;
                                      }
                                      if("OU".equals(dataBean.getPwtype())){
@@ -1791,6 +2156,30 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                              }
                                              wtype = "EO";
                                              break;
+                                         case "RE":
+                                             prtype = "REC";
+                                             break;
+                                         case "ROU":
+                                             ptype = "H";
+                                             prtype = "ROUH";
+                                             break;
+                                         case "RM":
+                                             prtype ="RMC";
+                                             break;
+                                         case "HRM":
+                                             prtype ="HRMC";
+                                             break;
+                                         case "HRE":
+                                             prtype ="HREC";
+                                             //porder_method = "FT_order_hre";
+                                             break;
+                                         case "HROU":
+                                             ptype = "H";
+                                             prtype ="HROUH";
+                                             break;
+                                         case "REO":
+                                             prtype = "REVEN";
+                                             break;
                                      }
                                      if("OU".equals(dataBean.getPwtype())){
 
@@ -1816,7 +2205,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                              });
 
                              LinearLayout item_new_m_team_down = view.findViewById(R.id.item_new_m_team_down);
-                             if("M".equals(dataBean.getPwtype())||"HM".equals(dataBean.getPwtype())){
+                             if("M".equals(dataBean.getPwtype())||"HM".equals(dataBean.getPwtype()) ||"HRM".equals(dataBean.getPwtype())||"RM".equals(dataBean.getPwtype())){
                                  item_new_m_team_down.setVisibility(View.VISIBLE);
                              }else{
                                  item_new_m_team_down.setVisibility(View.GONE);
@@ -1870,6 +2259,14 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                 }*/
                                              prtype = "HMN";
                                              wtype = "HM";
+                                             break;
+                                         case "RM":
+                                             prtype = "RMN";
+                                             wtype = "RM";
+                                             break;
+                                         case "HRM":
+                                             prtype = "HRMN";
+                                             wtype = "HRM";
                                              break;
 
                                      }
@@ -2005,6 +2402,11 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_re";
+                                        ratio ="";
+                                        ptype ="H";
+                                        prtype ="REH";
+                                        pwtype ="RE";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_re";
 
@@ -2030,6 +2432,11 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_rou";
+                                        ratio ="";
+                                        ptype = "C";
+                                        prtype ="ROUC";
+                                        pwtype ="ROU";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_rou";
 
@@ -2068,6 +2475,11 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_re";
+                                        ratio ="";
+                                        ptype ="C";
+                                        prtype ="REC";
+                                        pwtype ="RE";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_re";
 
@@ -2091,6 +2503,11 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_rou";
+                                        ratio ="";
+                                        ptype = "H";
+                                        prtype ="ROUH";
+                                        pwtype ="ROU";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_rou";
 
@@ -2127,117 +2544,230 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                     TextView item2_ratio_up2 = view2.findViewById(R.id.item2_ratio_up);
                     TextView item2_ratio_down2 = view2.findViewById(R.id.item2_ratio_down);
 
-                    switch (dataLists.getAction()){
+                    switch (dataLists.getAction()) {
                         case "R":
-                            holder.setTextColorRes(R.id.item_aa,R.color.event_red);
-                            holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
-                            holder.setTextColorRes(R.id.item_cc,R.color.n_edittext);
-                            if(gameDataList.get(k).getStrong().equals("H")){
-                                item1_ratio_up.setText(" "+gameDataList.get(k).getRatio());//gameDataList.get(k).getTeam_h()+
-                                item2_ratio_up.setText("");//gameDataList.get(k).getTeam_c()
-                                item1_ratio_up.setVisibility(View.VISIBLE);
-                                item2_ratio_up.setVisibility(View.GONE);
-                            }else{
-                                item1_ratio_up.setText("");
-                                item2_ratio_up.setText(" "+gameDataList.get(k).getRatio());
-                                item1_ratio_up.setVisibility(View.GONE);
-                                item2_ratio_up.setVisibility(View.VISIBLE);
-                            }
+                            holder.setTextColorRes(R.id.item_aa, R.color.event_red);
+                            holder.setTextColorRes(R.id.item_bb, R.color.n_edittext);
+                            holder.setTextColorRes(R.id.item_cc, R.color.n_edittext);
+                            if (fromType.equals("1") || fromType.equals("2")){//滚球
+                                if(gameDataList.get(k).getStrong().equals("H")){
+                                            item1_ratio_up.setText(" "+gameDataList.get(k).getRatio_re());//gameDataList.get(k).getTeam_h()+
+                                            item2_ratio_up.setText("");//gameDataList.get(k).getTeam_c()
+                                            item1_ratio_up.setVisibility(View.VISIBLE);
+                                            item2_ratio_up.setVisibility(View.GONE);
+                                        }else{
+                                            item1_ratio_up.setText("");
+                                            item2_ratio_up.setText(" "+gameDataList.get(k).getRatio_re());
+                                            item1_ratio_up.setVisibility(View.GONE);
+                                            item2_ratio_up.setVisibility(View.VISIBLE);
+                                        }
 
-                            item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
-                            item2_ratio_down.setText(gameDataList.get(k).getIor_RC());
+                                        item1_ratio_down.setText(gameDataList.get(k).getIor_REH());
+                                        item2_ratio_down.setText(gameDataList.get(k).getIor_REC());
 
-                            if(gameDataList.get(k).getHstrong().equals("H")){
-                                item1_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
-                                item2_ratio_up2.setText("");
-                                item1_ratio_up2.setVisibility(View.VISIBLE);
-                                item2_ratio_up2.setVisibility(View.GONE);
-                            }else{
-                                item1_ratio_up2.setText("");
-                                item2_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
-                                item1_ratio_up2.setVisibility(View.GONE);
-                                item2_ratio_up2.setVisibility(View.VISIBLE);
-                            }
+                                        if(gameDataList.get(k).getHstrong().equals("H")){
+                                            item1_ratio_up2.setText(" "+gameDataList.get(k).getRatio_hre());
+                                            item2_ratio_up2.setText("");
+                                            item1_ratio_up2.setVisibility(View.VISIBLE);
+                                            item2_ratio_up2.setVisibility(View.GONE);
+                                        }else{
+                                            item1_ratio_up2.setText("");
+                                            item2_ratio_up2.setText(" "+gameDataList.get(k).getRatio_hre());
+                                            item1_ratio_up2.setVisibility(View.GONE);
+                                            item2_ratio_up2.setVisibility(View.VISIBLE);
+                                        }
 
 
-                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HRH());
-                            item2_ratio_down2.setText(gameDataList.get(k).getIor_HRC());
+                                        item1_ratio_down2.setText(gameDataList.get(k).getIor_HREH());
+                                        item2_ratio_down2.setText(gameDataList.get(k).getIor_HREC());
 
-                            if(Check.isEmpty(gameDataList.get(k).getIor_RH())){//
-                                item1_ratio_up.setText("");
-                                item1_ratio_down.setText("");
-                                item1_title.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
-                            if(Check.isEmpty(gameDataList.get(k).getIor_RC())){//
-                                item2_ratio_up.setText("");
-                                item2_ratio_down.setText("");
-                                item2_title.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
+                                        if(Check.isEmpty(gameDataList.get(k).getIor_REH())){//
+                                            item1_ratio_up.setText("");
+                                            item1_ratio_down.setText("");
+                                            item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                                        }else{
+                                            item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                        }
+                                        if(Check.isEmpty(gameDataList.get(k).getIor_REC())){//
+                                            item2_ratio_up.setText("");
+                                            item2_ratio_down.setText("");
+                                            item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                                        }else{
+                                            item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                        }
 
-                            if(Check.isEmpty(gameDataList.get(k).getIor_HRH())){//
-                                item1_ratio_up2.setText("");
-                                item1_ratio_down2.setText("");
-                                item1_title2.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
-                            if(Check.isEmpty(gameDataList.get(k).getIor_HRC())){//
-                                item2_ratio_up2.setText("");
-                                item2_ratio_down2.setText("");
-                                item2_title2.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
+                                        if(Check.isEmpty(gameDataList.get(k).getIor_HREH())){//
+                                            item1_ratio_up2.setText("");
+                                            item1_ratio_down2.setText("");
+                                            item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                        }else{
+                                            item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                        }
+                                        if(Check.isEmpty(gameDataList.get(k).getIor_HREC())){//
+                                            item2_ratio_up2.setText("");
+                                            item2_ratio_down2.setText("");
+                                            item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                        }else{
+                                            item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                        }
+
+                                }else{
+                                    if(gameDataList.get(k).getStrong().equals("H")){
+                                                item1_ratio_up.setText(" "+gameDataList.get(k).getRatio());//gameDataList.get(k).getTeam_h()+
+                                                item2_ratio_up.setText("");//gameDataList.get(k).getTeam_c()
+                                                item1_ratio_up.setVisibility(View.VISIBLE);
+                                                item2_ratio_up.setVisibility(View.GONE);
+                                            }else{
+                                                item1_ratio_up.setText("");
+                                                item2_ratio_up.setText(" "+gameDataList.get(k).getRatio());
+                                                item1_ratio_up.setVisibility(View.GONE);
+                                                item2_ratio_up.setVisibility(View.VISIBLE);
+                                            }
+
+                                            item1_ratio_down.setText(gameDataList.get(k).getIor_RH());
+                                            item2_ratio_down.setText(gameDataList.get(k).getIor_RC());
+
+                                            if(gameDataList.get(k).getHstrong().equals("H")){
+                                                item1_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
+                                                item2_ratio_up2.setText("");
+                                                item1_ratio_up2.setVisibility(View.VISIBLE);
+                                                item2_ratio_up2.setVisibility(View.GONE);
+                                            }else{
+                                                item1_ratio_up2.setText("");
+                                                item2_ratio_up2.setText(" "+gameDataList.get(k).getHratio());
+                                                item1_ratio_up2.setVisibility(View.GONE);
+                                                item2_ratio_up2.setVisibility(View.VISIBLE);
+                                            }
+
+
+                                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HRH());
+                                            item2_ratio_down2.setText(gameDataList.get(k).getIor_HRC());
+
+                                            if(Check.isEmpty(gameDataList.get(k).getIor_RH())){//
+                                                item1_ratio_up.setText("");
+                                                item1_ratio_down.setText("");
+                                                item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                                            }else{
+                                                item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                            }
+                                            if(Check.isEmpty(gameDataList.get(k).getIor_RC())){//
+                                                item2_ratio_up.setText("");
+                                                item2_ratio_down.setText("");
+                                                item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                                            }else{
+                                                item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                            }
+
+                                            if(Check.isEmpty(gameDataList.get(k).getIor_HRH())){//
+                                                item1_ratio_up2.setText("");
+                                                item1_ratio_down2.setText("");
+                                                item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                            }else{
+                                                item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                            }
+                                            if(Check.isEmpty(gameDataList.get(k).getIor_HRC())){//
+                                                item2_ratio_up2.setText("");
+                                                item2_ratio_down2.setText("");
+                                                item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                            }else{
+                                                item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                            }
+                                }
+
+
                             break;
                         case "OU":
                             holder.setTextColorRes(R.id.item_aa,R.color.n_edittext);
                             holder.setTextColorRes(R.id.item_bb,R.color.event_red);
                             holder.setTextColorRes(R.id.item_cc,R.color.n_edittext);
-                            item1_ratio_up.setText("大"+gameDataList.get(k).getRatio_o());
-                            item1_ratio_down.setText(gameDataList.get(k).getIor_OUC());
 
-                            item2_ratio_up.setText("小"+gameDataList.get(k).getRatio_u());
-                            item2_ratio_down.setText(gameDataList.get(k).getIor_OUH());
+                            if (fromType.equals("1") || fromType.equals("2")) {//滚球
+                                item1_ratio_up.setText("大"+gameDataList.get(k).getRatio_rouo());
+                                item1_ratio_down.setText(gameDataList.get(k).getIor_ROUC());
 
-                            item1_ratio_up2.setText("大"+gameDataList.get(k).getRatio_ho());
-                            item1_ratio_down2.setText(gameDataList.get(k).getIor_HOUC());
+                                item2_ratio_up.setText("小"+gameDataList.get(k).getRatio_rouu());
+                                item2_ratio_down.setText(gameDataList.get(k).getIor_ROUH());
 
-                            item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hu());
-                            item2_ratio_down2.setText(gameDataList.get(k).getIor_HOUH());
+                                item1_ratio_up2.setText("大"+gameDataList.get(k).getRatio_hrouo());
+                                item1_ratio_down2.setText(gameDataList.get(k).getIor_HROUC());
 
-                            if(Check.isEmpty(gameDataList.get(k).getIor_OUC())){//
-                                item1_ratio_up.setText("");
-                                item1_ratio_down.setText("");
-                                item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                                item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hrouo());
+                                item2_ratio_down2.setText(gameDataList.get(k).getIor_HROUH());
+
+                                if(Check.isEmpty(gameDataList.get(k).getIor_ROUC())){//
+                                    item1_ratio_up.setText("");
+                                    item1_ratio_down.setText("");
+                                    item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+                                if(Check.isEmpty(gameDataList.get(k).getIor_ROUH())){//
+                                    item2_ratio_up.setText("");
+                                    item2_ratio_down.setText("");
+                                    item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+
+                                if(Check.isEmpty(gameDataList.get(k).getIor_HROUC())){//
+                                    item1_ratio_up2.setText("");
+                                    item1_ratio_down2.setText("");
+                                    item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+                                if(Check.isEmpty(gameDataList.get(k).getIor_HROUH())){//
+                                    item2_ratio_up2.setText("");
+                                    item2_ratio_down2.setText("");
+                                    item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+
                             }else{
-                                item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
-                            if(Check.isEmpty(gameDataList.get(k).getIor_OUH())){//
-                                item2_ratio_up.setText("");
-                                item2_ratio_down.setText("");
-                                item2_title.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                item1_ratio_up.setText("大"+gameDataList.get(k).getRatio_o());
+                                item1_ratio_down.setText(gameDataList.get(k).getIor_OUC());
+
+                                item2_ratio_up.setText("小"+gameDataList.get(k).getRatio_u());
+                                item2_ratio_down.setText(gameDataList.get(k).getIor_OUH());
+
+                                item1_ratio_up2.setText("大"+gameDataList.get(k).getRatio_ho());
+                                item1_ratio_down2.setText(gameDataList.get(k).getIor_HOUC());
+
+                                item2_ratio_up2.setText("小"+gameDataList.get(k).getRatio_hu());
+                                item2_ratio_down2.setText(gameDataList.get(k).getIor_HOUH());
+
+                                if(Check.isEmpty(gameDataList.get(k).getIor_OUC())){//
+                                    item1_ratio_up.setText("");
+                                    item1_ratio_down.setText("");
+                                    item1_title.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item1_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+                                if(Check.isEmpty(gameDataList.get(k).getIor_OUH())){//
+                                    item2_ratio_up.setText("");
+                                    item2_ratio_down.setText("");
+                                    item2_title.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item2_title.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+
+                                if(Check.isEmpty(gameDataList.get(k).getIor_HOUC())){//
+                                    item1_ratio_up2.setText("");
+                                    item1_ratio_down2.setText("");
+                                    item1_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
+                                if(Check.isEmpty(gameDataList.get(k).getIor_HOUH())){//
+                                    item2_ratio_up2.setText("");
+                                    item2_ratio_down2.setText("");
+                                    item2_title2.setBackgroundResource(R.mipmap.bet_lock);
+                                }else{
+                                    item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
+                                }
                             }
 
-                            if(Check.isEmpty(gameDataList.get(k).getIor_HOUC())){//
-                                item1_ratio_up2.setText("");
-                                item1_ratio_down2.setText("");
-                                item1_title2.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item1_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
-                            if(Check.isEmpty(gameDataList.get(k).getIor_HOUH())){//
-                                item2_ratio_up2.setText("");
-                                item2_ratio_down2.setText("");
-                                item2_title2.setBackgroundResource(R.mipmap.bet_lock);
-                            }else{
-                                item2_title2.setBackgroundResource(R.drawable.wanfa_item_default);
-                            }
                             break;
                         case "JIAO":
 
@@ -2258,6 +2788,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_hre";
+                                        ptype ="H";
+                                        prtype ="HREH";
+                                        pwtype ="HRE";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_hre";
 
@@ -2281,6 +2815,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_hrou";
+                                        ptype ="C";
+                                        prtype ="HROUC";
+                                        pwtype ="HROU";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_hrou";
 
@@ -2318,6 +2856,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_hre";
+                                        ptype ="C";
+                                        prtype ="HREC";
+                                        pwtype ="HRE";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_hre";
 
@@ -2341,6 +2883,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     if(fromType.equals("1")){//滚球足球
                                         line_type = "9";
                                         porder_method = "FT_hrou";
+                                        ptype ="H";
+                                        prtype ="HROUH";
+                                        pwtype ="HROU";
+                                        break;
                                     }else if(fromType.equals("2")){//滚球篮球
                                         porder_method = "BK_hrou";
 

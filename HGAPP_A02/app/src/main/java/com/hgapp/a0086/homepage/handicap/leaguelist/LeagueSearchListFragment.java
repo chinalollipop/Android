@@ -402,8 +402,19 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
         //GameLog.log("返回的列表是："+leagueSearchListResult.toString());
         ivLeagueSearchRefresh.clearAnimation();
         lvLeagueSearchList.setVisibility(View.VISIBLE);
-        lvLeagueSearchList.setAdapter(new LeagueListAdapter(getContext(),R.layout.item_league_search, leagueSearchListResult.getData()));
-        lvLeagueSearchNoData.setVisibility(View.GONE);
+        if(leagueSearchListResult.getData().size()>0){
+            List<LeagueSearchListResult.DataBean> data= leagueSearchListResult.getData();
+            if(getArgParam1.equals("1")||getArgParam1.equals("2")){
+                LeagueSearchListResult.DataBean DataBean = new LeagueSearchListResult.DataBean();
+                DataBean.setM_League("所有赛事");
+                data.add(0,DataBean);
+            }
+            LeagueListAdapter leagueListAdapter = new LeagueListAdapter(getContext(),R.layout.item_league_search, data);
+            lvLeagueSearchList.setAdapter(leagueListAdapter);
+            lvLeagueSearchNoData.setVisibility(View.GONE);
+        }else{
+            lvLeagueSearchNoData.setVisibility(View.VISIBLE);
+        }
         /*lvLeagueSearchList2.setVisibility(View.VISIBLE);
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
         lvLeagueSearchList2.setLayoutManager(gridLayoutManager);
@@ -543,7 +554,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
         @Override
         protected void convert(ViewHolder holder, final LeagueSearchListResult.DataBean dataList, final int position) {
             holder.setText(R.id.child_league_title,dataList.getM_League());
-            holder.setText(R.id.child_league_number,dataList.getNum()+"");
+            holder.setText(R.id.child_league_number,dataList.getNum()==0?"":dataList.getNum()+"");
             holder.setOnClickListener(R.id.child_league_title, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

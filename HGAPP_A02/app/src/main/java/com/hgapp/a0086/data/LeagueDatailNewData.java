@@ -23,6 +23,25 @@ public class LeagueDatailNewData {
     private String handicaps="";// 让球开关
     private String eps="";// 特优赔率开关
 
+    private String redcard_c="";
+    private String redcard_h="";
+
+    public String getRedcard_c() {
+        return redcard_c;
+    }
+
+    public void setRedcard_c(String redcard_c) {
+        this.redcard_c = redcard_c;
+    }
+
+    public String getRedcard_h() {
+        return redcard_h;
+    }
+
+    public void setRedcard_h(String redcard_h) {
+        this.redcard_h = redcard_h;
+    }
+
     public String getToqualify() {
         return toqualify;
     }

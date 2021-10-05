@@ -181,6 +181,97 @@ public class LeagueDetailListDataResults {
         private boolean ior_HOUHCheck = false;//得分大小 上半场 小
         private boolean ior_HOUCCheck = false;
 
+        private String ratio_hre = "";
+        private String ior_HREH = "";
+        private String ior_HREC = "";
+        private String ratio_hrouo = "";
+        private String ior_HROUH = "";
+        private String ior_HROUC = "";
+        private String ior_RMN = "";
+        private String ior_HRMH= "";//上半场 独赢主
+        private String ior_HRMC= "";
+        private String ior_HRMN= "";
+
+        public String getIor_HRMH() {
+            return ior_HRMH;
+        }
+
+        public void setIor_HRMH(String ior_HRMH) {
+            this.ior_HRMH = ior_HRMH;
+        }
+
+        public String getIor_HRMC() {
+            return ior_HRMC;
+        }
+
+        public void setIor_HRMC(String ior_HRMC) {
+            this.ior_HRMC = ior_HRMC;
+        }
+
+        public String getIor_HRMN() {
+            return ior_HRMN;
+        }
+
+        public void setIor_HRMN(String ior_HRMN) {
+            this.ior_HRMN = ior_HRMN;
+        }
+
+        public String getIor_RMN() {
+            return ior_RMN;
+        }
+
+        public void setIor_RMN(String ior_RMN) {
+            this.ior_RMN = ior_RMN;
+        }
+
+        public String getRatio_hre() {
+            return ratio_hre;
+        }
+
+        public void setRatio_hre(String ratio_hre) {
+            this.ratio_hre = ratio_hre;
+        }
+
+        public String getIor_HREH() {
+            return ior_HREH;
+        }
+
+        public void setIor_HREH(String ior_HREH) {
+            this.ior_HREH = ior_HREH;
+        }
+
+        public String getIor_HREC() {
+            return ior_HREC;
+        }
+
+        public void setIor_HREC(String ior_HREC) {
+            this.ior_HREC = ior_HREC;
+        }
+
+        public String getRatio_hrouo() {
+            return ratio_hrouo;
+        }
+
+        public void setRatio_hrouo(String ratio_hrouo) {
+            this.ratio_hrouo = ratio_hrouo;
+        }
+
+        public String getIor_HROUH() {
+            return ior_HROUH;
+        }
+
+        public void setIor_HROUH(String ior_HROUH) {
+            this.ior_HROUH = ior_HROUH;
+        }
+
+        public String getIor_HROUC() {
+            return ior_HROUC;
+        }
+
+        public void setIor_HROUC(String ior_HROUC) {
+            this.ior_HROUC = ior_HROUC;
+        }
+
         public boolean isIor_OUCCheck() {
             return ior_OUCCheck;
         }
