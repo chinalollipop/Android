@@ -2809,7 +2809,7 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                                     }
                                     ptype ="H";
                                     prtype ="HRH";
-                                    pwtype ="R";
+                                    pwtype ="HR";
                                     break;
                                 case "OU":
                                     if(fromType.equals("1")){//滚球足球

@@ -404,7 +404,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
         lvLeagueSearchList.setVisibility(View.VISIBLE);
         if(leagueSearchListResult.getData().size()>0){
             List<LeagueSearchListResult.DataBean> data= leagueSearchListResult.getData();
-            if(getArgParam1.equals("1")||getArgParam1.equals("2")){
+            if(getArgParam1.equals("1")){
                 LeagueSearchListResult.DataBean DataBean = new LeagueSearchListResult.DataBean();
                 DataBean.setM_League("所有赛事");
                 data.add(0,DataBean);
