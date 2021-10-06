@@ -131,7 +131,7 @@ public class LauncherActivity extends AppCompatActivity{
             ToastUtils.showLongToast("无网络连接！");
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
-        String domainUrl = "https://and.001bet365.com/new365.txt";
+        String domainUrl = "https://and.abc789787.com/new365.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {

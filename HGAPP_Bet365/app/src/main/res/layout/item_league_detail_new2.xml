@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:background="#606060"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/item1_title"
+            android:layout_width="84dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/wanfa_item_checked"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:id="@+id/item1_ratio_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="让球"
+                android:textColor="#6E5336" />
+
+            <TextView
+                android:id="@+id/item1_ratio_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="让球"
+                android:textColor="#C9270B"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item2_title"
+            android:layout_width="84dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:background="@drawable/wanfa_item_default"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:id="@+id/item2_ratio_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="大小"
+                android:textColor="#6E5336" />
+
+            <TextView
+                android:id="@+id/item2_ratio_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大小"
+                android:textColor="#C9270B "
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

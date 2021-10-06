@@ -26,8 +26,8 @@ public class PrepareZHBetApiPresenter implements PrepareZHBetApiContract.Present
         this.view.setPresenter(this);
     }
     @Override
-    public void postGameAllZHBetsBK(String appRefer, String game, String game_id) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllZHBetsBK(HGConstant.PRODUCT_PLATFORM,game,game_id))
+    public void postGameAllZHBetsBK(String appRefer, String game, String game_id, String gid_fs) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllZHBetsBK(HGConstant.PRODUCT_PLATFORM,game,game_id,gid_fs))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<GameAllZHBetsBKResult> >() {
                     @Override
                     public void success(AppTextMessageResponseList<GameAllZHBetsBKResult>  response) {
@@ -50,8 +50,8 @@ public class PrepareZHBetApiPresenter implements PrepareZHBetApiContract.Present
     }
 
     @Override
-    public void postGameAllZHBetsFT(String appRefer, String game, String game_id) {
-        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllZHBetsFT(HGConstant.PRODUCT_PLATFORM,game,game_id))
+    public void postGameAllZHBetsFT(String appRefer, String game, String game_id, String gid_fs) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllZHBetsFT(HGConstant.PRODUCT_PLATFORM,game,game_id,gid_fs))
                 .subscribe(new ResponseSubscriber<AppTextMessageResponseList<GameAllZHBetsBKResult>>() {
                     @Override
                     public void success(AppTextMessageResponseList<GameAllZHBetsBKResult> response) {

@@ -511,7 +511,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                 showMessage("不接受超过10串过关投注！");
                 return;
             }
-            ZHBetManager.getSingleton().onAddData(jointdata,pgid,pmothed_type,chedkedNumber);
+            ZHBetManager.getSingleton().onAddData(jointdata,pgid,pgid,pmothed_type,chedkedNumber);
             ZHBetViewManager.getSingleton().onShowNumber(ZHBetManager.getSingleton().onListSize()+"");
         }
 

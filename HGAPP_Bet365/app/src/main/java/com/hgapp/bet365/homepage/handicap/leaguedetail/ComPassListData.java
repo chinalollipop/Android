@@ -6,14 +6,16 @@ import android.os.Parcelable;
 public class ComPassListData implements Parcelable {
     public String jointdata;
     public String gid;
+    public String gid_fs;
     public String method_type;
     public int checked;
 
-   public ComPassListData(){}
+    public ComPassListData(){}
 
-    public ComPassListData(String jointdata, String gid, String method_type,int checked) {
+    public ComPassListData(String jointdata, String gid, String gid_fs, String method_type,int checked) {
         this.jointdata = jointdata;
         this.gid = gid;
+        this.gid_fs = gid_fs;
         this.method_type = method_type;
         this.checked = checked;
     }
@@ -27,6 +29,7 @@ public class ComPassListData implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.jointdata);
         dest.writeString(this.gid);
+        dest.writeString(this.gid_fs);
         dest.writeString(this.method_type);
         dest.writeInt(this.checked);
     }
@@ -34,6 +37,7 @@ public class ComPassListData implements Parcelable {
     protected ComPassListData(Parcel in) {
         this.jointdata = in.readString();
         this.gid = in.readString();
+        this.gid_fs = in.readString();
         this.method_type = in.readString();
         this.checked = in.readInt();
     }

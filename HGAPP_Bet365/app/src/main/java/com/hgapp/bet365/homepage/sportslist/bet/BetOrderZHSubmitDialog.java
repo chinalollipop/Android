@@ -88,7 +88,7 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
     PrepareBetResult prepareBetResult;
     ArrayList<ComPassListData> dataList;
     String gType,active;//bk ft
-    String game, gameid;
+    String game, gameid,gid_fs;
     private ScheduledExecutorService executorService;
     private int sendAuthTime = HGConstant.ACTION_SEND_PREPARE_BET_TIME;
     private List<GameAllZHBetsBKResult.BetItemBean> betItem;
@@ -265,22 +265,25 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
 
     private void onpostPrepareBetApiResult() {
         int size = dataList.size();
-         game = "";
-         gameid = "";
+        game = "";
+        gameid = "";
+        gid_fs = "";
         for(int k=0;k<size;++k){
             game += dataList.get(k).gid+",";
             gameid += dataList.get(k).method_type+",";
+            gid_fs += dataList.get(k).gid_fs+",";
         }
         if(Check.isEmpty(game)||Check.isEmpty(gameid)){
             return;
         }
         game = game.substring(0,game.length()-1);
         gameid = gameid.substring(0,gameid.length()-1);
-        GameLog.log("game "+game +" gameid "+gameid);
+        gid_fs = gid_fs.substring(0,gid_fs.length()-1);
+        GameLog.log("game "+game +" gameid "+gameid+" gid_fs "+gid_fs);
         if("BK".equals(gType)){
-            presenter.postGameAllZHBetsBK("",gameid,game);
+            presenter.postGameAllZHBetsBK("",gameid,game,gid_fs);
         }else{
-            presenter.postGameAllZHBetsFT("",gameid,game);
+            presenter.postGameAllZHBetsFT("",gameid,game,gid_fs);
         }
        /* tvBetSubmitGodMin.setText(prepareBetResult.getMinBet());//最小下注
         tvBetSubmitGodMax.setText(prepareBetResult.getMaxBet());//最大下注*/

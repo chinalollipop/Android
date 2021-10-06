@@ -4,6 +4,7 @@ import com.hgapp.bet365.common.http.request.AppTextMessageResponse;
 import com.hgapp.bet365.common.http.request.AppTextMessageResponseList;
 import com.hgapp.bet365.data.BetResult;
 import com.hgapp.bet365.data.ComPassSearchListResult;
+import com.hgapp.bet365.data.LeagueDetailListDataResults;
 import com.hgapp.bet365.data.LeagueDetailSearchListResult;
 import com.hgapp.bet365.data.PrepareBetResult;
 
@@ -71,5 +72,15 @@ public interface ILeagueDetailSearchListApi {
     public Observable<AppTextMessageResponse<BetResult>> postBet(@Field("appRefer") String appRefer, @Field("cate") String cate, @Field("gid") String gid, @Field("type") String type, @Field("active") String active, @Field("line_type") String line_type
             , @Field("odd_f_type") String odd_f_type, @Field("gold") String gold, @Field("ioradio_r_h") String ioradio_r_h, @Field("rtype") String rtype, @Field("wtype") String wtype, @Field("randomNum") String randomNum);
 
+    //滚球足球玩法接口
+    @POST("get_game_allbets.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>> postGameAllBets(@Field("appRefer") String appRefer, @Field("gid") String gid, @Field("gtype") String gtype, @Field("showtype") String showtype, @Field("isMaster") String isMaster);
+
+
+    //滚球足球玩法接口
+    @POST("get_game_allbets.php")
+    @FormUrlEncoded
+    public Observable<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>> postGameAllBetsZH(@Field("appRefer") String appRefer, @Field("gid") String gid, @Field("gtype") String gtype, @Field("showtype") String showtype, @Field("isMaster") String isMaster, @Field("isP3") String isP3);
 
 }
