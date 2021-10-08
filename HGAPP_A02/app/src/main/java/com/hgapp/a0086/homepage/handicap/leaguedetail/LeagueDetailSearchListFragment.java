@@ -1957,8 +1957,8 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                 holder.setTextColorRes(R.id.item_aa,R.color.n_edittext);
                 holder.setTextColorRes(R.id.item_bb,R.color.n_edittext);
                 holder.setTextColorRes(R.id.item_cc,R.color.event_red);
-                holder.setText(R.id.tv_score_jiao_h,dataLists.getScore_h());
-                holder.setText(R.id.tv_score_jiao_c,dataLists.getScore_c());
+                /*holder.setText(R.id.tv_score_jiao_h,dataLists.getScore_h());
+                holder.setText(R.id.tv_score_jiao_c,dataLists.getScore_c());*/
                 holder.setText(R.id.tv_team_h_jiao,dataLists.getTeam_h());
                 holder.setText(R.id.tv_team_c_jiao,dataLists.getTeam_c());
                 holder.setVisible(R.id.item_jiao, true);
@@ -1966,6 +1966,10 @@ public class LeagueDetailSearchListFragment extends HGBaseFragment implements Le
                  for(int k=0;k<gameDataList.size();k++) {
                      final LeagueDetailListDataResults.DataBean dataBeanBottom = gameDataList.get(k);
                      if (dataBeanBottom.getDescription().equals("角球")) {
+                         holder.setText(R.id.tv_score_jiao_h,dataBeanBottom.getScore_h());
+                         holder.setText(R.id.tv_score_jiao_c,dataBeanBottom.getScore_c());
+                         holder.setText(R.id.tv_team_h_jiao,dataBeanBottom.getTeam_h());
+                         holder.setText(R.id.tv_team_c_jiao,dataBeanBottom.getTeam_c());
                          List<LeagueDatailNewData.DataBean>   dataBeanss;
                          if(fromType.equals("1") || fromType.equals("2")){
                              dataBeanss=  dataChangeRE(dataBeanBottom);
