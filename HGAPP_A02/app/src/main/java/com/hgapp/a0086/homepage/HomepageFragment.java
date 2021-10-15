@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -116,6 +117,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
     RecyclerView rvHomapageGameHall;
     @BindView(R.id.home_sign)
     ImageView homeSign;
+    @BindView(R.id.home_newyear_frame)
+    FrameLayout home_newyear_frame;
     @BindView(R.id.home_newyear)
     ImageView homeNewyear;
     @BindView(R.id.home_newyearcancel)
@@ -220,6 +223,7 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                 }
                 String redPocketOpen  = ACache.get(getContext()).getAsString("redPocketOpen");
                 if(!Check.isEmpty(redPocketOpen)&&"true".equals(redPocketOpen)){
+                    home_newyear_frame.setVisibility(View.VISIBLE);
                     homeNewyear.setVisibility(View.VISIBLE);
                     String newyearTime = ACache.get(getContext()).getAsString("newYearBeginTime");
                     String newSysTemTime = ACache.get(getContext()).getAsString("newSysTemTime");
@@ -244,6 +248,8 @@ public class HomepageFragment extends HGBaseFragment implements HomePageContract
                     executorService.scheduleAtFixedRate(new onWaitingThread(), 0, 1000, TimeUnit.MILLISECONDS);
 
 
+                }else{
+                    home_newyear_frame.setVisibility(View.GONE);
                 }
 
                 GameLog.log("签到活动说法："+signSwitch);

@@ -89,7 +89,7 @@ public class LauncherActivity extends AppCompatActivity{
         }
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086.ini";
         //String domainUrl = "https://hg00086.firebaseapp.com/y/hg0086_1.txt";
-        String domainUrl = "https://hg0086.appdolo.com/hg0086.txt";
+        String domainUrl = "https://0086app006.com/hg0086.txt";
         myHttpClient.executeGet(domainUrl, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
