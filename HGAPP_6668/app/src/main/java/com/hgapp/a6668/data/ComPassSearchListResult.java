@@ -151,6 +151,122 @@ public class ComPassSearchListResult {
         private int par_maxlimit;
 
         private int isChecked;
+        private String all="";
+        private String order_method="";
+        private String action="";
+        private String toqualify="";// 会晋级开关
+        private String bookings="";// 罚牌开关
+        private String corners="";// 角球开关
+        private String goalsou="";// 大小开关
+        private String handicaps="";// 让球开关
+        private String eps="";// 特优赔率开关
+        private String score_h="";
+        private String score_c="";
+        private String M_Type="";
+
+        public String getScore_h() {
+            return score_h;
+        }
+
+        public void setScore_h(String score_h) {
+            this.score_h = score_h;
+        }
+
+        public String getScore_c() {
+            return score_c;
+        }
+
+        public void setScore_c(String score_c) {
+            this.score_c = score_c;
+        }
+
+        public String getM_Type() {
+            return M_Type;
+        }
+
+        public void setM_Type(String m_Type) {
+            M_Type = m_Type;
+        }
+
+        private List<LeagueDetailListDataResults.DataBean> gameData;
+        public List<LeagueDetailListDataResults.DataBean> getGameData() {
+            return gameData;
+        }
+
+        public void setGameData(List<LeagueDetailListDataResults.DataBean> gameData) {
+            this.gameData = gameData;
+        }
+        public String getAll() {
+            return all;
+        }
+
+        public void setAll(String all) {
+            this.all = all;
+        }
+
+        public String getOrder_method() {
+            return order_method;
+        }
+
+        public void setOrder_method(String order_method) {
+            this.order_method = order_method;
+        }
+
+        public String getAction() {
+            return action;
+        }
+
+        public void setAction(String action) {
+            this.action = action;
+        }
+
+        public String getToqualify() {
+            return toqualify;
+        }
+
+        public void setToqualify(String toqualify) {
+            this.toqualify = toqualify;
+        }
+
+        public String getBookings() {
+            return bookings;
+        }
+
+        public void setBookings(String bookings) {
+            this.bookings = bookings;
+        }
+
+        public String getCorners() {
+            return corners;
+        }
+
+        public void setCorners(String corners) {
+            this.corners = corners;
+        }
+
+        public String getGoalsou() {
+            return goalsou;
+        }
+
+        public void setGoalsou(String goalsou) {
+            this.goalsou = goalsou;
+        }
+
+        public String getHandicaps() {
+            return handicaps;
+        }
+
+        public void setHandicaps(String handicaps) {
+            this.handicaps = handicaps;
+        }
+
+        public String getEps() {
+            return eps;
+        }
+
+        public void setEps(String eps) {
+            this.eps = eps;
+        }
 
         public int getIsChecked() {
             return isChecked;

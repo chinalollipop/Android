@@ -87,7 +87,7 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
     PrepareBetResult prepareBetResult;
     ArrayList<ComPassListData> dataList;
     String gType,active;//bk ft
-    String game, gameid;
+    String game, gameid,gid_fs;
     private ScheduledExecutorService executorService;
     private int sendAuthTime = HGConstant.ACTION_SEND_PREPARE_BET_TIME;
     private List<GameAllZHBetsBKResult.BetItemBean> betItem;
@@ -173,7 +173,6 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
                 if(Check.isEmpty(edit)){//prepareBetResult
                     return;
                 }
-
                 if(Check.isNull(betItem)){
                     return;
                 }
@@ -201,16 +200,15 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
                 this.dismiss();
                 break;
             case R.id.btnBetSubmitSuccess:
-               String god =  etBetSubmitGod.getText().toString().trim();
-               String godWin = tvetBetSubmitWinGod.getText().toString().trim();
-               if(Check.isEmpty(god)){
-                   showMessage("请输入投注额！");
-                   return;
-               }
-               GameLog.log(" 购买金额："+god);
+                String god =  etBetSubmitGod.getText().toString().trim();
+                String godWin = tvetBetSubmitWinGod.getText().toString().trim();
+                if(Check.isEmpty(god)){
+                    showMessage("请输入投注额！");
+                    return;
+                }
+                GameLog.log(" 购买金额："+god);
 
                 if(Double.valueOf(god) < Double.valueOf(getParamMin)){
-                    //showMessage("下注金额需大于20元！");
                     showMessage("下注金额需大于"+getParamMin+"元！");
                     return;
                 }
@@ -224,7 +222,7 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
                 }
                 DoubleClickHelper.getNewInstance().disabledView(btnBetSubmitSuccess);
                 onPostRquestZHBet(god);
-               // GameLog.log("下注的请求参数是："+prepareRequestParams.autoOdd);
+                // GameLog.log("下注的请求参数是："+prepareRequestParams.autoOdd);
                 break;
         }
     }
@@ -263,22 +261,25 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
 
     private void onpostPrepareBetApiResult() {
         int size = dataList.size();
-         game = "";
-         gameid = "";
+        game = "";
+        gameid = "";
+        gid_fs = "";
         for(int k=0;k<size;++k){
             game += dataList.get(k).gid+",";
             gameid += dataList.get(k).method_type+",";
+            gid_fs += dataList.get(k).gid_fs+",";
         }
         if(Check.isEmpty(game)||Check.isEmpty(gameid)){
             return;
         }
         game = game.substring(0,game.length()-1);
         gameid = gameid.substring(0,gameid.length()-1);
-        GameLog.log("game "+game +" gameid "+gameid);
+        gid_fs = gid_fs.substring(0,gid_fs.length()-1);
+        GameLog.log("game "+game +" gameid "+gameid+" gid_fs "+gid_fs);
         if("BK".equals(gType)){
-            presenter.postGameAllZHBetsBK("",gameid,game);
+            presenter.postGameAllZHBetsBK("",gameid,game,gid_fs);
         }else{
-            presenter.postGameAllZHBetsFT("",gameid,game);
+            presenter.postGameAllZHBetsFT("",gameid,game,gid_fs);
         }
        /* tvBetSubmitGodMin.setText(prepareBetResult.getMinBet());//最小下注
         tvBetSubmitGodMax.setText(prepareBetResult.getMaxBet());//最大下注*/
@@ -288,7 +289,7 @@ public class BetOrderZHSubmitDialog extends HGBaseDialogFragment implements Prep
         String wagerDatas = "";
         int size = betItem.size();
         for(int k=0;k<size;++k){
-            wagerDatas += betItem.get(k).getM_gid()+","+betItem.get(k).getType()+","+betItem.get(k).getM_rate()+"|";
+            wagerDatas += betItem.get(k).getM_gid()+","+betItem.get(k).getType()+","+betItem.get(k).getM_rate()+","+betItem.get(k).getM_gid_fs()+"|";
         }
         if("BK".equals(gType)){
             presenter.postZHBetBK("",active,betItem.size()+"",gold,wagerDatas);

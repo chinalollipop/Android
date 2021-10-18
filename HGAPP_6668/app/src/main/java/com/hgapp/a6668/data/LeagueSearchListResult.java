@@ -69,6 +69,15 @@ public class LeagueSearchListResult {
         private String gid;
         private String M_League;
         private int num;
+        private String lid;
+
+        public String getLid() {
+            return lid;
+        }
+
+        public void setLid(String lid) {
+            this.lid = lid;
+        }
 
         public String getGid() {
             return gid;

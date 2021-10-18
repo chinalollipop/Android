@@ -9,8 +9,8 @@ import com.hgapp.a6668.data.GameAllZHBetsBKResult;
 
 public interface PrepareZHBetApiContract {
     public interface Presenter extends IPresenter{
-        public void postGameAllZHBetsBK(String appRefer, String game, String game_id);
-        public void postGameAllZHBetsFT(String appRefer, String game, String game_id);
+        public void postGameAllZHBetsBK(String appRefer, String game, String game_id, String gid_fs);
+        public void postGameAllZHBetsFT(String appRefer, String game, String game_id, String gid_fs);
         public void postZHBetBK(String appRefer, String active, String teamcount, String gold, String wagerDatas);
         public void postZHBetFT(String appRefer, String active, String teamcount, String gold, String wagerDatas);
     }

@@ -404,7 +404,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
         public int getGroupCount() {
 
             //return groups.length;
-           return arrayListDataAll.size();
+            return arrayListDataAll.size();
         }
 
         @Override
@@ -417,7 +417,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
         @Override
         public int getChildrenCount(int groupPosition) {
             // 根据groupPosition获取某一个组的长度
-           // return children[groupPosition].length;
+            // return children[groupPosition].length;
             return arrayListDataAll.get(groupPosition).prepareBetData.size();
         }
 
@@ -511,7 +511,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                 showMessage("不接受超过10串过关投注！");
                 return;
             }
-            ZHBetManager.getSingleton().onAddData(jointdata,pgid,pmothed_type,chedkedNumber);
+            ZHBetManager.getSingleton().onAddData(jointdata,pgid,pgid,pmothed_type,chedkedNumber);
             ZHBetViewManager.getSingleton().onShowNumber(ZHBetManager.getSingleton().onListSize()+"");
         }
 
@@ -523,9 +523,9 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             switch (prepareBetData.type){
                 case VIEW_TYPE_1:
 //                    if(convertView == null){
-                        convertView = mLayoutInflater.inflate(R.layout.item_view_type_1, null);
-                        view_type_1 = new View_Type_1(convertView);
-                        convertView.setTag(view_type_1);
+                    convertView = mLayoutInflater.inflate(R.layout.item_view_type_1, null);
+                    view_type_1 = new View_Type_1(convertView);
+                    convertView.setTag(view_type_1);
                     /*}else{
                         view_type_1 = (View_Type_1) convertView.getTag();
                     }*/
@@ -611,9 +611,9 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                     break;
                 case VIEW_TYPE_2:
 //                    if(convertView==null){
-                        convertView = mLayoutInflater.inflate(R.layout.item_view_type_2, null);
-                        view_type_2 = new View_Type_2(convertView);
-                        convertView.setTag(view_type_2);
+                    convertView = mLayoutInflater.inflate(R.layout.item_view_type_2, null);
+                    view_type_2 = new View_Type_2(convertView);
+                    convertView.setTag(view_type_2);
                     /*}else{
                         view_type_2 = (View_Type_2) convertView.getTag();
                     }*/
@@ -703,9 +703,9 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                     break;
                 case VIEW_TYPE_3:
 //                    if(convertView==null){
-                        convertView = mLayoutInflater.inflate(R.layout.item_view_type_3, null);
-                        view_type_3 = new View_Type_3(convertView);
-                        convertView.setTag(view_type_3);
+                    convertView = mLayoutInflater.inflate(R.layout.item_view_type_3, null);
+                    view_type_3 = new View_Type_3(convertView);
+                    convertView.setTag(view_type_3);
                     /*}else{
                         view_type_3 = (View_Type_3) convertView.getTag();
                     }*/
@@ -749,7 +749,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                                 notifyDataSetInvalidated();
                                 return;
                             }
-                           
+
                             onResetChecked();
                             arrayListDataAll.get(groupPosition).prepareBetData.get(childPosition).position = 1;
                             arrayListDataAll.get(groupPosition).prepareBetData.get(childPosition).isChecked = 1;
@@ -773,11 +773,11 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                                 //view_type_1.ior_RC_H.setBackgroundResource(R.drawable.wanfa_item_default);
                                 arrayListDataAll.get(groupPosition).prepareBetData.get(childPosition).position = 0;
                                 arrayListDataAll.get(groupPosition).prepareBetData.get(childPosition).isChecked = 0;
-                                
+
                                 notifyDataSetInvalidated();
                                 return;
                             }
-                            
+
                             //showMessage("让球-客队");
                             onResetChecked();
                             arrayListDataAll.get(groupPosition).prepareBetData.get(childPosition).position = 2;
@@ -821,9 +821,9 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
                     break;
                 case VIEW_TYPE_4:
 //                    if(convertView == null){
-                        convertView = mLayoutInflater.inflate(R.layout.item_view_type_4, null);
-                        view_type_4 = new View_Type_4(convertView);
-                        convertView.setTag(view_type_4);
+                    convertView = mLayoutInflater.inflate(R.layout.item_view_type_4, null);
+                    view_type_4 = new View_Type_4(convertView);
+                    convertView.setTag(view_type_4);
 //                    }else{
 //                        view_type_4 = (View_Type_4) convertView.getTag();
 //                    }
@@ -907,7 +907,7 @@ public class PrepareBetZHFragment extends HGBaseFragment implements PrepareBetZH
             return true;
         }
 
-         class GpViewHolder {
+        class GpViewHolder {
             public ImageView img;
             TextView title;
         }

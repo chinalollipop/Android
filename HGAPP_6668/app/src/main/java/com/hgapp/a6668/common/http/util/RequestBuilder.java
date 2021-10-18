@@ -1,6 +1,8 @@
 package com.hgapp.a6668.common.http.util;
 
 import com.hgapp.a6668.common.http.ClientConfig;
+import com.hgapp.a6668.common.util.ACache;
+import com.hgapp.common.util.Check;
 import com.hgapp.common.util.GameLog;
 import com.hgapp.common.util.Timber;
 
@@ -12,6 +14,8 @@ import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+
+import static com.hgapp.common.util.Utils.getContext;
 
 /**
  * Created by Nereus on 2017/8/30.
@@ -66,16 +70,26 @@ public class RequestBuilder {
                 String name = formBody.name(index);
                 String value = formBody.value(index);
                 Timber.d("%s ---> %s",name,value);
+                if(name.equals("isMaster")&&value.equals("isMaster")){
+                    name ="flag";
+                    value ="all";
+                    // stringBuilder.append("error_flag=&").append("order_type=&isMaster=Y").append("&");
+                }
                 map.put(name,value);
                 stringBuilder.append(name).append("=").append(value).append("&");
             }
         }
-
         if(stringBuilder.toString().contains("isMaster")) {//
             if(stringBuilder.toString().contains("error_flag")){
                 stringBuilder.append("flag=all&");
             }
         }
+        String gidfs = ACache.get(getContext()).getAsString("gid_fs");
+        if(!Check.isEmpty(gidfs)&&!gidfs.equals("daniel")){
+            if(!stringBuilder.toString().contains("&gid_fs="))
+                stringBuilder.append("&gid_fs="+gidfs+"&");
+        }
+
 
         //return getRequestBody(map);
         return getRequestBody(stringBuilder.toString());

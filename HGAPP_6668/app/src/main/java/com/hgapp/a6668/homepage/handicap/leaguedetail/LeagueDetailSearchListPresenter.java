@@ -8,6 +8,7 @@ import com.hgapp.a6668.common.util.RxHelper;
 import com.hgapp.a6668.common.util.SubscriptionHelper;
 import com.hgapp.a6668.data.BetResult;
 import com.hgapp.a6668.data.ComPassSearchListResult;
+import com.hgapp.a6668.data.LeagueDetailListDataResults;
 import com.hgapp.a6668.data.LeagueDetailSearchListResult;
 import com.hgapp.a6668.data.PrepareBetResult;
 import com.hgapp.common.util.Check;
@@ -86,28 +87,28 @@ public class LeagueDetailSearchListPresenter implements LeagueDetailSearchListCo
 
     @Override
     public void postPrepareBetApi(String appRefer, String order_method, String gid, String type, String wtype, String rtype, String odd_f_type, String error_flag, String order_type,String isMaster) {
-            subscriptionHelper.add(RxHelper.addSugar(api.postPrepareBet(HGConstant.PRODUCT_PLATFORM,order_method,gid,type,wtype,rtype,HGConstant.ODD_F_TYPE,error_flag,order_type,isMaster))
-                    .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PrepareBetResult>>() {
-                        @Override
-                        public void success(AppTextMessageResponseList<PrepareBetResult> response) {
-                            if(response.isSuccess()){
-                                if(null!=response.getData()){
-                                    view.postPrepareBetApiResult(response.getData().get(0));
-                                }
-                            }else{
-                                view.showMessage(response.getDescribe());
+        subscriptionHelper.add(RxHelper.addSugar(api.postPrepareBet(HGConstant.PRODUCT_PLATFORM,order_method,gid,type,wtype,rtype,HGConstant.ODD_F_TYPE,error_flag,order_type,isMaster))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<PrepareBetResult>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<PrepareBetResult> response) {
+                        if(response.isSuccess()){
+                            if(null!=response.getData()){
+                                view.postPrepareBetApiResult(response.getData().get(0));
                             }
+                        }else{
+                            view.showMessage(response.getDescribe());
                         }
+                    }
 
-                        @Override
-                        public void fail(String msg) {
-                            if(null != view)
-                            {
-                                view.setError(0,0);
-                                view.showMessage(msg);
-                            }
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
                         }
-                    }));
+                    }
+                }));
     }
 
     @Override
@@ -138,6 +139,62 @@ public class LeagueDetailSearchListPresenter implements LeagueDetailSearchListCo
                     }
                 }));
 
+    }
+
+    @Override
+    public void postGameAllBets(String appRefer, String gid, String gtype, String showtype,final String postion,final String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBets(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,""))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LeagueDetailListDataResults.DataBean> response) {
+                        if(response.isSuccess()){
+                            if(null!=response.getData()){
+                                view.postGameAllBetsResult(response.getData(), postion,action);
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
+    }
+
+    @Override
+    public void postGameAllBetsZH(String appRefer, String gid, String gtype, String showtype,final String postion, final String action) {
+        subscriptionHelper.add(RxHelper.addSugar(api.postGameAllBetsZH(HGConstant.PRODUCT_PLATFORM,gid,gtype,showtype,"","Y"))
+                .subscribe(new ResponseSubscriber<AppTextMessageResponseList<LeagueDetailListDataResults.DataBean>>() {
+                    @Override
+                    public void success(AppTextMessageResponseList<LeagueDetailListDataResults.DataBean> response) {
+                        if(response.isSuccess()){
+                            if(null!=response.getData()){
+                                view.postGameAllBetsZHResult(response.getData(), postion,action);
+                            }else{
+                                view.showMessage(response.getDescribe());
+                            }
+                        }else{
+                            view.showMessage(response.getDescribe());
+                        }
+                    }
+
+                    @Override
+                    public void fail(String msg) {
+                        if(null != view)
+                        {
+                            view.setError(0,0);
+                            view.showMessage(msg);
+                        }
+                    }
+                }));
     }
 
     @Override

@@ -179,7 +179,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                 llLeagueSearchTimeAll.setVisibility(View.GONE);
                 presenter.postLeagueSearchTime(null);
 
-               optionsPickerViewRBState = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
+                optionsPickerViewRBState = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -190,7 +190,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                 }).build();
                 optionsPickerViewRBState.setPicker(stateList);
 
-                 optionsPickerViewState2 = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
+                optionsPickerViewState2 = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -233,7 +233,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
             case "3":
                 gtype = "";
                 break;
-             default:
+            default:
                 gtype = "";
                 break;
         }
@@ -274,7 +274,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                 }else{
                     presenter.postLeagueSearchChampionList("",showtype,gtype,"4");
                 }
-                 break;
+                break;
             case "3":
                 showtype = "FU";
                 if(Ctype.equals("1")){
@@ -375,35 +375,46 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
             optionsPickerViewTime.setPicker(time);*/
 
 
-            optionsPickerViewTime1 = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
+        optionsPickerViewTime1 = new OptionsPickerBuilder(getContext(), new OnOptionsSelectListener() {
 
-                @Override
-                public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                    tvLeagueSearchTime1.setText(time.get(options1));
-                    //sorttype = options1;
-                    if(options1==0){
-                        mdata = "";
-                    }/*else if(options1==1){
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                tvLeagueSearchTime1.setText(time.get(options1));
+                //sorttype = options1;
+                if(options1==0){
+                    mdata = "";
+                }/*else if(options1==1){
                         mdata = time.get(options1);
                         tvLeagueSearchTime1.setText("今日");
                     }*/else{
-                        mdata = leagueSearchTimeResult.getData().get(options1-1).getDate();
-                        //mdata = time.get(options1);
-                    }
-                    GameLog.log("当前的时间是 "+mdata);
-                    postLeagueSearchList();
+                    mdata = leagueSearchTimeResult.getData().get(options1-1).getDate();
+                    //mdata = time.get(options1);
                 }
-            }).build();
-            optionsPickerViewTime1.setPicker(time);
-        }
+                GameLog.log("当前的时间是 "+mdata);
+                postLeagueSearchList();
+            }
+        }).build();
+        optionsPickerViewTime1.setPicker(time);
+    }
 
     @Override
     public void postLeagueSearchListResult(LeagueSearchListResult leagueSearchListResult) {
         //GameLog.log("返回的列表是："+leagueSearchListResult.toString());
         ivLeagueSearchRefresh.clearAnimation();
         lvLeagueSearchList.setVisibility(View.VISIBLE);
-        lvLeagueSearchList.setAdapter(new LeagueListAdapter(getContext(),R.layout.item_league_search, leagueSearchListResult.getData()));
-        lvLeagueSearchNoData.setVisibility(View.GONE);
+        if(leagueSearchListResult.getData().size()>0){
+            List<LeagueSearchListResult.DataBean> data= leagueSearchListResult.getData();
+            if(getArgParam1.equals("1")){
+                LeagueSearchListResult.DataBean DataBean = new LeagueSearchListResult.DataBean();
+                DataBean.setM_League("所有赛事");
+                data.add(0,DataBean);
+            }
+            LeagueListAdapter leagueListAdapter = new LeagueListAdapter(getContext(),R.layout.item_league_search, data);
+            lvLeagueSearchList.setAdapter(leagueListAdapter);
+            lvLeagueSearchNoData.setVisibility(View.GONE);
+        }else{
+            lvLeagueSearchNoData.setVisibility(View.VISIBLE);
+        }
         /*lvLeagueSearchList2.setVisibility(View.VISIBLE);
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL,false);
         lvLeagueSearchList2.setLayoutManager(gridLayoutManager);
@@ -432,7 +443,6 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
 
     @Override
     public void postMaintainResult(List<MaintainResult> maintainResult) {
-
         switch (getArgParam1){
             case "1":
                 for(MaintainResult maintainResult1:maintainResult){
@@ -521,7 +531,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                         EventBus.getDefault().post(new ComPassSearchEvent(getArgParam1,getArgParam3,getArgParam4,"",gtype,sorttype==0?"league":"time",mdata,"",dataList.getM_League()));
                         //EventBus.getDefault().post(new LeagueDetailSearchEvent(getArgParam3,getArgParam4,dataList.getGid(),getArgParam1));
                     }else if(Ctype.equals("3")){
-                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League()));
+                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League(),dataList.getLid()));
                     }
                     //presenter.postLeagueDetailSearchList("",getArgParam3,getArgParam4,dataList.getGid());
                     // EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(dataBean.getM_League(),dataBean.getType(),dataBean.getMID(),cate,active,type,userMoney), SupportFragment.SINGLETASK));
@@ -544,7 +554,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
         @Override
         protected void convert(ViewHolder holder, final LeagueSearchListResult.DataBean dataList, final int position) {
             holder.setText(R.id.child_league_title,dataList.getM_League());
-            holder.setText(R.id.child_league_number,dataList.getNum()+"");
+            holder.setText(R.id.child_league_number,dataList.getNum()==0?"":dataList.getNum()+"");
             holder.setOnClickListener(R.id.child_league_title, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -555,11 +565,11 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
                         EventBus.getDefault().post(new ComPassSearchEvent(getArgParam1,getArgParam3,getArgParam4,"",gtype,sorttype==0?"league":"time",mdata,"",dataList.getM_League()));
                         //EventBus.getDefault().post(new LeagueDetailSearchEvent(getArgParam3,getArgParam4,dataList.getGid(),getArgParam1));
                     }else if(Ctype.equals("3")){
-                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League()));
+                        EventBus.getDefault().post(new ChampionDetailSearchEvent(gtype,"4",getArgParam1,dataList.getM_League(),dataList.getLid()));
                     }
                     ACache.get(getContext()).put(HGConstant.USER_CURRENT_POSITION,Ctype);
                     //presenter.postLeagueDetailSearchList("",getArgParam3,getArgParam4,dataList.getGid());
-                   // EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(dataBean.getM_League(),dataBean.getType(),dataBean.getMID(),cate,active,type,userMoney), SupportFragment.SINGLETASK));
+                    // EventBus.getDefault().post(new StartBrotherEvent(BetFragment.newInstance(dataBean.getM_League(),dataBean.getType(),dataBean.getMID(),cate,active,type,userMoney), SupportFragment.SINGLETASK));
                 }
             });
 
@@ -687,7 +697,7 @@ public class LeagueSearchListFragment extends HGBaseFragment implements LeagueSe
             case R.id.btnLeagueSearch:
                 GameLog.log("点击了所有球类 参数一是"+getArgParam1);
                 EventBus.getDefault().post(new LeagueEvent(getArgParam1));
-               // finish();
+                // finish();
                 break;
             case R.id.btnLeagueSearchBackHome:
                 popTo(HandicapFragment.class,true);
