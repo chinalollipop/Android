@@ -372,6 +372,8 @@ public class BetOrderSubmitDialog extends HGBaseDialogFragment implements Prepar
         switch (prepareBetResult.getWtype()){
             case "R"://让球
             case "HR":
+            case "HRE":
+            case "RE":
                /* if(prepareBetResult.getShowTypeR().equals("H")){
                     showTypeR += onMarkRed(prepareBetResult.getSign())+"  "+prepareBetResult.getTG_Team();
                 }else if(prepareBetResult.getShowTypeR().equals("C")){

@@ -113,6 +113,8 @@ public class LauncherActivity extends AppCompatActivity{
                 final String responseText =  response.body().string();
                 if(response.isSuccessful()){
                     onGetSuccessDomain(responseText);
+                }else{
+                    enterMain();
                 }
             }
         });

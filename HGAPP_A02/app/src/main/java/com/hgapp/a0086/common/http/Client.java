@@ -34,7 +34,7 @@ public class Client {
     private static OkHttpClient client;
     private static ClientConfig clientConfig;
     private static ProxyCallFactory proxyCallFactory;
-    public static String domainUrl = "https://m.1g0086.com/";
+    public static String domainUrl = "https://m.0086app02.com/";
     /**
      * 应该在Application onCreate中使用
      * @param config
@@ -54,7 +54,7 @@ public class Client {
 //                domainUrl = "http://m.dh77.com/";
 //        domainUrl = "http://uatappfront-e03.agg013.com/";//运测环境 http://m.hhhg6668.com/ http://192.168.1.6/
 //        domainUrl = "836198.com m.jl08.comhttp://10.91.6.1:8082/e03_p01_app_front/";//开发环境http://10.91.6.17:8080/app-front_E03 http://10.91.6.17:8091
-//        domainUrl = "http://m.hg01455.com/"http://m.836298.com/;// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
+//        domainUrl = "http://new.836298.com/http://m.hg01455.com/"http://m.836298.com/;// 本地环境http://m.hg3088_da1.lcn  http://m.hg3088.lcn/  http://192.168.1.15 http://192.168.1.6
 //        domainUrl = "http://m.836298.com/";//运营环境 http://m.hgw777.co http://m.hg50080.com/
         //GameLog.log("get domainUrl:"+domainUrl);
         return domainUrl;
