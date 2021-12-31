@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Flags/austria</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags/austria">
+            <g id="austria">
+                <path d="M23.112479,16.1089491 C24.1007963,13.4281573 24.1007963,10.4784572 23.112479,7.79766534 L12.0000012,6.75642023 L0.887523513,7.79766534 C-0.100381171,10.478532 -0.100381171,13.4280824 0.887523513,16.1089491 L12.0000012,17.1501942 L23.112479,16.1089491 Z" id="Path" fill="#EEEEEE" fill-rule="nonzero"></path>
+                <path d="M12.0499995,23.806615 C17.0260246,23.80601 21.4762788,20.7215184 23.206225,16.0741839 L0.893774,16.0741839 C2.6237202,20.7215184 7.0739744,23.80601 12.0499995,23.806615 Z M12.0499995,0.1 C7.0739744,0.100605017 2.6237202,3.18509661 0.893774,7.83243106 L23.206225,7.83243106 C21.4762788,3.18509661 17.0260246,0.100605017 12.0499995,0.1 Z" id="Shape" fill="#FF4B55" fill-rule="nonzero"></path>
+                <circle id="Oval" stroke="#FFFFFF" cx="12" cy="12" r="11.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

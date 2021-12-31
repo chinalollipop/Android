@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/*登录后会员中心样式开始*/
+.memberWrap * {color: #333;}
+.tip_color {color: #fc6a50;}
+input,select{outline: none;border: 1px solid #ddd;background: #fff;}
+label {display: inline-block;max-width: 100%;font-weight: 700;}
+.text-right{text-align: right;}
+.memberWrap{float:right;width: 960px;/* margin: 10px 0 10px 0; */}
+.memberTit{width:100%;height:42px;background: #fff;margin-bottom: 10px;border-radius: 10px;box-shadow: 0px 2px 10px 0px rgba(0,0,0,.1);}
+.memberTit .titImg{margin-top: 8px;margin-left: 10px;width: 86px;height: 28px;background:none;background-position: -3px -75px;/* transform: scale(.8); */}
+.memberTit .titImg.deposit_nav{background: none;}
+.memberTit .titImg:before,.memberTit .titImg.deposit_nav:before,.memberTit .titImg.withdraw_nav::before{content: '存款';font-size: 20px;color: #609eea;}
+.memberTit .titImg:before{content: '额度转换';}
+.memberTit .titImg.withdraw_nav{width: 110px;background:none;}
+.memberTit .titImg.withdraw_nav::before{content: '提款';}
+.memberTit .titImg.account_nav:before{content: '账户记录';}
+.memberTit .titImg.user_nav:before{content: '个人资料';}
+.memberTit .backImg{margin-top:7px;margin-right:22px}
+.payWay{min-height:807px;padding: 15px 10px;background: #fff;border-radius: 10px;box-shadow: 0px 2px 10px 0px rgba(0,0,0,.1);}
+.payWay .payWayTit{font-size:18px;height:44px;line-height:44px;padding-left: 12px;border-bottom: 1px solid #ECE8E9;margin-bottom: 20px;}
+.payWay .payList{/* display:flex; */overflow: hidden;padding-bottom: 20px;margin-top: 20px;}
+.payList .payItemWrap{cursor: pointer;padding: 30px 5px 10px 15px;/* flex:1; */justify-content:space-around;border: 1px solid #ECE8E9;width: 21.1%;height: 104px;float: left;margin: 0 10px 10px 0;}
+.payList .payItemWrap:nth-child(4n){margin-right: 0;}
+.payList .payItemWrap.active{background:url("../images/deposit_active.png") no-repeat }
+.payList .payItem{display:flex;justify-content:space-around}
+.payList .payItem:last-child{border-right:none}
+.payList .payItem img{width:79px;height:79px;}
+.payItem .payText h1{font-size: 16px;}
+.active .payItem .payText h1{color: #5ea1ea;}
+.payItem .payText p{font-size: 12px;max-width: 92px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.payItemWrap .checkbox{display: none;width:26px;height:25px;margin:50px auto 0px;cursor:pointer;background:url("/images/check.png") no-repeat;}
+.payItemWrap .checkbox.active{background:url("/images/check-act.png") no-repeat}
+.nextBtn{width:195px;height:38px;line-height:38px;border-radius:20px;background: #708ae8 ;background:linear-gradient(to right,#708ae8 0%,#5ea0ea 100%);text-align:center;font-size:20px;color:#ffffff;display:block;cursor:pointer;margin: 55px auto 20px;}
+.nextBtn:hover{transition: .3s;opacity: .8;}
+.payTable{width:100%}
+.payTable td:first-child{width:145px;text-align:right}
+.payTable td{border:1px solid #dddddd;padding:18px}
+.payTable td input{width:293px;height:30px;padding-left:10px}
+.payTable .payType{display:flex;align-items:center;margin-top:10px}
+.payTable .payName{display:flex;align-items:center;width:100px}
+.payTable .payName span{font-size:15px;color:#000000;padding-left:10px}
+.payTable .payName img{width:35px;height:35px}
+.payTypeItem span{display:inline-block;padding:5px 10px;text-align:center;font-size:15px;color:#000000;margin:0 10px;border-radius:5px;cursor:pointer}
+.payTypeItem span.active{background:#ffb400}
+.warn{font-size:15px;padding:10px;border:1px solid #b5d3f5;margin:20px 0;border-radius:5px;background:#f7fafe;line-height: 24px;}
+.warn h2{font-size:15px}
+.incomeTable{width:100%;text-align:center}
+.incomeTable td{border: 1px solid #5ea1ea;padding:10px;}
+.payRemid{color: #5ea1ea;font-size: 14px;margin: 20px 0;}
+.tableSubmit{width:100%}
+.tableSubmit td{padding:10px;}
+.tableSubmit td:first-child{width:150px;text-align:right}
+.tableSubmit input,.tableSubmit select{width:295px;padding-left:10px;height:38px;border-radius: 5px;}
+.btnWrap .nextBtn{float:left;margin-top:20px;margin-left:150px}
+.btnWrap .nextBtn:last-child{margin-left:20px}
+.moneyType .quickM{display:inline-block;width:98px;padding:7px 0;font-size:16px;border-radius:5px;margin:0px 3px;cursor:pointer;border:1px solid #ddd;text-align:center}
+.moneyType .quickM:hover,.moneyType .quickM.active{ color:#333;border: 1px solid #b5d3f5;}
+section{width:95%;height:auto;margin:0 30px}
+section .title{width:100%;line-height:38px;margin:auto;flex:1;font-size:16px;font-weight:normal;letter-spacing:0.2px;}
+#step1{height:550px}
+
+.confirmation{height:45px;margin:10px auto 15px 30px;padding-bottom:30px}
+.flex-row{display:flex;flex-flow:row}
+.BankCardInfo.input-group .form-group{height:60px;margin-bottom:0px}
+.BankCardInfo.input-group .forValidations{height:100%;position:relative;margin:10px 0 0 0}
+.BankCardInfo.input-group .forValidations>div{height:100%}
+.BankCardInfo.input-group{width:338px;margin:20px auto 0px}
+.BankCardInfo.input-group .modal-dialog .modal-body select#username,.BankCardInfo.input-group .modal-dialog .modal-body select#bankaccount,.BankCardInfo.input-group .modal-dialog .modal-body select#bankaddress{appearance:none;-moz-appearance:none;-webkit-appearance:none;pointer-events:none}
+.BankCardInfo.input-group select,.BankCardInfo.input-group  div select,.BankCardInfo.input-group  input{width:100%;min-height:15px;line-height:25px;margin:0 0 0px 0;border-top:0;border-right:0;border-bottom: 1px solid #525252;border-left:0;font-family:"Microsoft Yahei";font-size:18px;font-weight:500;font-style:normal;font-stretch:normal;letter-spacing:normal;float:none;box-shadow:none;background: transparent;}
+.BankCardInfo.input-group  select:focus,#newBankCard div select:focus{outline:none}
+.BankCardInfo.input-group  label{color:#999999;font-size:12px;letter-spacing:1px;font-weight:normal}
+.BankCardInfo.input-group .bankInput .titleLabel{color:#999;font-size:16px;position:relative;transition:all 0.2s ease;top:-60px}
+.BankCardInfo.input-group .bankInput .backaccount{z-index:3}
+.BankCardInfo.input-group .bankInput .subTitle{font-size:12px}
+.BankCardInfo.input-group .bankInput input{font-size:18px;padding:3px 0px 0px 0px;display:block;color:#636363;width:100%;margin-top:26px;line-height:32px}
+.BankCardInfo.input-group .bankInput select{height:43px;padding:0}
+.BankCardInfo.input-group .bankInput input:focus{outline:none}
+.BankCardInfo.input-group .bankInput input:focus~.titleLabel,#newBankCard #bankInput input.used~.titleLabel,#newBankCard #bankInput select:focus~.titleLabel,#newBankCard #bankInput select.used~.titleLabel{margin-top:-76px;font-size:14px}
+.BankCardInfo.input-group  label.alert{display:none;margin:0px;padding:5px;border:#ffffff;background:#bd4700;color:#fff;font-size:13px;position:relative;bottom:70px;left:330px;z-index:99}
+.BankCardInfo.input-group  label.alert::before{content:'';width:0;height:0;border-bottom:10px solid #bd4700;border-left:10px solid transparent;position:absolute;bottom:0px;left:-7px;z-index:1}
+.BankCardInfo.input-group  .custom-select-bankname label.alert{left:120px;bottom:40px}
+.BankCardInfo.input-group  .custom-select-bankprovince label.alert{left:150px;bottom:60px}
+.BankCardInfo.input-group .custom-select-bankcity label.alert{left:80px;bottom:60px}
+.BankCardInfo.input-group  input:focus{border-bottom:1px solid#d3470f;outline:0;outline-offset:0px}
+.BankCardInfo.input-group .input_same .titleLabel{color:#999;font-size:16px;position:relative;transition:all 0.2s ease;top:-55px}
+.select-trigger{position:absolute;content:"";top:-6px;right:0px;color:#a0a0a0 !important;width:14px;height:14px;border-width:2.5px 2.5px 0 0;border-style:solid;margin:10px;display:inline-block;vertical-align:middle;box-sizing:border-box;-ms-transform:rotate(-225deg);transform:rotate(-225deg)}
+.BankCardInfo.input-group  select{display:block;background:transparent;appearance:none;-moz-appearance:none;-webkit-appearance:none}
+.modalFooter{padding:0px;border:0;text-align:center;}
+.modalFooter .btn-add{width:125px;height:38px;color:#fff;font-size:16px;border-radius: 5px;background: #708ae8;background: linear-gradient(to right,#7689e8 0%,#649fea 100%);}
+#location>div:last-of-type{width:35%;margin:0 auto}
+.flex-start{align-content:flex-start}
+.flex-row-wrap{display:flex;flex-flow:row wrap}
+.static-content{margin-bottom:50px;padding:20px}
+.box-border{border:1px solid}
+.profile-quicklook{padding:20px;border-color:#b5b5b5;margin:0px 0 10px 0px;font-size:14px}
+.profile-quicklook .member-name{font-size:16px}
+.profile-info{margin-bottom:80px;}
+.form-row{margin-bottom:10px;font-size:14px}
+.form-group{margin-bottom:5px}
+.form-horizontal .form-group{margin-left:-5px;margin-right:-5px}
+label.label-left-sm{text-align:right;width:140px;font-weight:normal;vertical-align:middle;margin-bottom:0;padding-top:5px;display: inline-block;padding: 0 15px;color: #333;}
+.form-control,.form-control:focus,.form-control:active{box-shadow:none;padding-left: 10px;width: 200px;}
+.form-control{height: 34px;font-size:16px;}
+select.form-control{padding-top:3px;padding-bottom:3px;height:29px}
+.btn-default{cursor:pointer;color:#fff;background: #708ae8;background: linear-gradient(to right,#7689e8 0%,#649fea 100%);border-color: #708ae8;text-transform:uppercase;padding: 5px 10px;}
+#top-sub-list{position:absolute;top:55px;left:100px;display:none}
+.phoneBg{width:100%;min-height:800px;height:calc(100vh - 85px);background:url("../images/phoneBg.jpg") no-repeat center center;background-size:cover}
+.codeBoxs{display:flex;position:absolute;left:50%;margin-left:-560px;top:504px}
+.codeBoxs img{margin:0 20px}
+.memberTit .titImg.user_nav{width: 110px;background-position: 1px -33px;}
+.memberTit .titImg.account_nav{width: 110px;background-position: 1px -258px;cursor: pointer;}
+.form-control[disabled], fieldset[disabled] .form-control {cursor: not-allowed;}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {opacity: 1;}
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9,.col-xs-5,.col-xs-6 ,.col-xs-9{display: inline-block;}
+.col-lg-6 {margin-left: 5px;}
+.col-lg-6 a{color: #5ea1ea;}
+.col-xs-5 {width: 41.66666667%;}
+.col-xs-6 {width: 50%;}
+.btn-block {display: block;width: 100%;float: left;}
+.input-group {position: relative;display: table;border-collapse: separate;width: 100%;}
+.changpwform{padding:15px;font-size: 14px;color: #333;}
+.changpwform .form-control {width: 100%;}
+.input-group .form-control, .input-group-addon, .input-group-btn {display: table-cell;}
+.input-group-btn {position: relative;white-space: nowrap;background: #ccc;border-bottom-right-radius: 3px;border-top-right-radius: 3px;padding: 0 8px;vertical-align: middle;cursor:pointer;}
+.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group{z-index:2;margin-left:-1px}
+.input-group .form-control:last-child,.input-group-addon:last-child,.input-group-btn:first-child>.btn-group:not(:first-child)>.btn,.input-group-btn:first-child>.btn:not(:first-child),.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group>.btn,.input-group-btn:last-child>.dropdown-toggle{border-top-left-radius:0;border-bottom-left-radius:0}
+.input-group-btn>.btn{position:relative}
+.changpwform .in_verifycode{display: inline-block;width: auto;vertical-align: middle;}
+.pwd_captchaImg {float: left;margin-right: 10px;}
+.col-xs-9 {width: 75%;}
+.col-xs-3 {width: 20%;float: right;padding-right: 15px;}
+.changpwform label{vertical-align: top;}
+.reveal-pw-toggle span {display: inline-block;width: 23px;height: 20px;background: url("/images/eye.png") no-repeat;background-size: 100%;}
+.reveal-pw-toggle.eye_open span{background: url("/images/eye1.png") no-repeat;background-size: 100%;}
+
+.tip_title{font-size:20px;padding:15px 0;margin-bottom:20px;border-bottom:1px solid #ECE8E9;border-top:1px solid #ECE8E9}
+.tip_title span{display:inline-block;width:28px;line-height:28px;text-align:center;margin-right:15px}
+
+/* 提款与额度转换 开始*/
+.ed-selection ul{overflow:hidden}
+.ed-selection li{width:16%;float:left;line-height:26px;margin:0 0 3% 3%;text-align:center;height:78px;border:1px solid #ddd;border-radius:5px}
+.ed-selection li:nth-child(5n+1){margin-left:0}
+.ed-selection li span{display:block}
+.ed-selection li span:first-child{margin-top:15px;color:#5ea1ea}
+.ed-selection button{margin:10px}
+.ed_change_all .ed_top{display:-webkit-flex;display:flex}
+.ed_change_all .ed_select{position:relative}
+.ed_change_all .ed_select:before{content:'';position:absolute;display:inline-block;width:27px;height:100%;background:url(../images/ucenter/edzh_icon.png) center no-repeat;left:220px}
+.ed_change_all .ed_select select{width:150px;margin:8px;height:38px;border-radius:5px}
+.ed_change_all .ed_select select:first-child{margin-right:60px}
+.ed_change_all .ed_change_inpout{border-radius:5px;height:38px;padding:0 30px;margin:8px}
+.ed_change_all .ed_money_input{position:relative}
+.ed_change_all .ed_money_input:before,.withdrawal-amount .input-field:before{content:'';position:absolute;display:inline-block;width:15px;height:100%;background:url(../images/ucenter/je_icon.png) center no-repeat;left:60px;z-index:1}
+
+/* 提款与额度转换 结束*/
+
+/* 帐户记录和打码量 */
+.static-content-user .detail_table{font-size:15px;line-height:24px;text-align:center;width:100%;table-layout:fixed;margin:10px 0;border-collapse:collapse}
+.static-content-user .detail_table th{color:#333;background-color: #f4f4f4;border: 1px solid #f4f4f4;padding:10px 0;padding-bottom:9px;text-align:center;font-weight:normal;}
+.static-content-user .detail_table tbody tr:nth-child(even){background: #f4f4f4;}
+.static-content-user .detail_table tbody tr:nth-child(even) td,.static-content-user .detail_table tbody tr:nth-child(even) td font{color: #609eea;}
+.static-content-user .detail_table td{border: 1px solid #f4f4f4;font-weight:100;color:#333;font-size:1em;padding:6px 10px;}
+/* 帐户记录和打码量 */

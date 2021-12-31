@@ -1,0 +1,58 @@
+#main,#menu{width:216px}
+#OSEL{margin:0;text-align:center;padding:10px 0 0;background-color:#493721}
+#main{margin:0 auto}
+form{margin:0;padding:0}
+a:link,a:visited{color:#FFF}
+a:hover{color:#FC0;text-decoration:none}
+#menu{background-color:#FEF6E4;font:.75em Arial,Helvetica,sans-serif}
+html>body #menu{height:42px}
+#menu .ord_btn,#menu .record_btn{padding-top:13px;cursor:pointer;height:32px;color:#E9B567;font-weight:700!important}
+#menu .ord_btn{float:left;width:99px;background:url(../../images/member/order_ord_btn_out.gif) left top no-repeat}
+#menu .record_btn{float:right;width:117px;background:url(../../images/member/order_record_btn_out.gif) right top no-repeat}
+html>body #menu .ord_btn,html>body #menu .record_btn{padding-top:12px;height:30px}
+#menu .ord_on,#menu .record_on{padding-top:11px;cursor:pointer;color:#3B2D1B;font-weight:700!important}
+#order_div{clear:both;margin-bottom:0;width:216px}
+#menu .ord_on{float:left;width:99px;height:32px;background:url(../../images/member/order_ord_btn_on.gif) left top no-repeat}
+#menu .record_on{float:right;width:117px;height:32px;background:url(../../images/member/order_record_btn_on.gif) right top no-repeat}
+html>body #menu .ord_on,html>body #menu .record_on{padding-top:10px;height:32px}
+#bet_div{z-index:1000}
+.left_gonggao{margin:10px 0 40px}
+.left_gonggao .msg_box h2{margin:0;padding:11px 0 0 11px;height:34px;text-align:left;font:.75em Arial,Helvetica,sans-serif;color:#E9B567;font-weight:700;background:url(../../images/member/order_msg_h2.gif) left top no-repeat}
+.left_gonggao .msg_box h2 .more{float:right;margin-right:11px;font-weight:400}
+#live_box h2,.left_gonggao .msg_box .msg_main{font:.75em Arial,Helvetica,sans-serif;text-align:left}
+.left_gonggao .msg_box .msg_main{clear:right;padding:5px 10px;color:#2F2F2F;background-color:#DFCCA8;margin-top:-10px}
+#order_div #bet_div,#order_div #rec5_div{width:100%;display:block;left:0;top:0}
+#live_box{margin-top:6px;color:#FFF;width:216px}
+#live_box h2{margin:0;padding:10px 0 0 32px;height:34px;color:#E9B567;font-weight:700;background:url(../../images/member/order_live_h2.gif) left top no-repeat}
+html>body #live_box h2{margin-bottom:-10px}
+#live_box h2 .more{float:right;margin-right:11px;font-weight:400}
+#live_box .live_main{padding-bottom:2px;color:#2F2F2F;background-color:#DFCCA8}
+#live_box .live_main ul.live_list{width:198px;margin:0;padding:0}
+#live_box .live_main li{margin-bottom:-5px;padding:6px 0 3px;list-style-type:none;border-bottom:1px dotted #2F2F2F;height:2em;line-height:2em;font:.75em Arial,Helvetica,sans-serif;display:block;clear:left}
+html>body #live_box .live_main li{line-height:180%;height:inherit;margin-bottom:-1px;padding-bottom:0}
+#live_box .live_main span{display:block}
+#live_box .live_main .time{float:left;width:40px}
+#live_box .live_main .team{float:left;padding-left:0;text-align:left;display:inline}
+html>body #live_box .live_main ul.live_list{overflow:auto;zoom:1;margin-bottom:2px;padding:2px 10px 14px}
+.left-game-add a{display:block;width:217px;height:50px}
+.left-game-add .left-game-live{background:url(../../images/zryl.gif) no-repeat}
+.left-game-add .left-game-lottery{background:url(../../images/caipiao.gif) no-repeat}
+.left-game-add .left-game-game{background:url(../../images/dzyy.gif) no-repeat}
+.left-game-add .left-game-promos{background:url(../../images/newyes.png);height:96px}
+.btn_money{margin-top:10px}
+.btn_money a{height:28px;line-height:28px;width:76px;font-size:16px;display:inline-block;color:#333;font-family:"Microsoft Yahei";background-color:#fff;text-decoration:none;font-weight:700;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}
+.btn_money a:hover{background-color:#ba8612;color:#fff}
+.euro_btn{height:45px;cursor:pointer;background:none}
+.left-game-add .kyqp a{background:#fff url(../../images/ico-kyqp.png) no-repeat 17px top}
+.left-game-add .live a{background:#fff url(../../images/ico-zhenren.png) no-repeat 17px top}
+.left-game-add .lottery a{background:#fff url(../../images/ico-caipiao.png) no-repeat 17px top}
+.left-game-add .pt a{background:#fff url(../../images/ico-dianzi.png?v=1) no-repeat 17px top}
+.left-game-add .fish a{background:#fff url(/images/agby/kill_fish.png?v=1) no-repeat 17px top}
+.left-game-add .dianjing a{background:#fff url(/images/dianjing/dianjing_left_btn.png?v=1) no-repeat 17px top}
+.left-game-add .promos a{background:#fff url(/images/promos/ico_promo.png) no-repeat 17px top}
+.left-game-add .zhsj a{background:#fff url(/images/ico-sj.png) no-repeat 17px top}
+.left-game-add .usdt a{background:#fff url(/images/ico-usdt.png) no-repeat 17px top}
+.left-game-add .euro_btn a:hover{text-decoration:none;background-color:#ac6708;background-position:17px bottom;color:#fff}
+.left-game-add .euro_btn a{text-decoration:none;float:left;width:216px;height:44px;line-height:44px;border-right:1px solid #856c4e;border-bottom:1px solid #856c4e;font-size:18px;color:#000;font-family:"Microsoft Yahei";background-color:#fff}
+.left-game-add .fish a:hover,.left-game-add .promos a:hover{background-position:17px -48px;}
+.left-game-add .dianjing a:hover{background-position:17px -44px;}

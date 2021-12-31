@@ -1,0 +1,115 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/m.css">
+<title>经典刺激 注册送豪礼</title>
+<meta name="Keywords" content="手机棋牌游戏">
+<meta name="Description" content="棋牌游戏合集!">
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//判断访问终端
+var browser = {
+    versions: function () {
+        var u = navigator.userAgent,
+            app = navigator.appVersion;
+        return {
+            trident: u.indexOf('Trident') > -1, //IE内核
+            presto: u.indexOf('Presto') > -1, //opera内核
+            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf('iPad') > -1, //是否iPad
+            webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+            weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+            qq: u.match(/\sQQ/i) == " qq" //是否QQ
+        };
+    }(),
+    language: (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+ function is_weixin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+	$(document).ready(function(){
+	    var agentCode = '100001';
+        var andAppUrl = 'https://hg0086.cdn.bcebos.com/hg0086-'+agentCode+'.apk'; // 打开域名
+        //var iosAppUrl = 'itms-services://?action=download-manifest&url='+ location.protocol + '//'+ location.host + '/download/hg0086.plist'; // 打开域名
+        var iosAppUrl = 'itms-services://?action=download-manifest&url=https://hg0086.appdolo.com/hg0086.plist'; // 打开域名
+
+        var isWeixin = is_weixin();
+        var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+        var weixinTip = $('<div id="weixinTip" style="z-index: 10000;position: absolute;top:0;left:0;background-color: #FFF;height:'+$(window).height()+'px;filter:alpha(opacity=90);-moz-opacity:0.90; opacity:0.90;"><p><img src="'+((isPIA() == 1)?"images/ios_tips.png":"images/android_tips.png")+'" alt=""/></p></div>');
+
+       
+
+		$("#all").click(function(){
+		
+		 if(isWeixin){
+            $("body").append(weixinTip);
+        }
+		
+		 if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) { // ios
+		    window.location.href = iosAppUrl;
+		 }else if (browser.versions.android) {
+               window.location.href = andAppUrl;
+            }else{
+				var isok = confirm("是否用电脑下载app？");
+				if(isok){
+				   window.open(andAppUrl);
+				}else{
+					return;
+				}
+			}
+
+		});
+	});
+
+	//js判断终端是安卓还是苹果
+	function isPIA(){
+		var u = navigator.userAgent, app = navigator.appVersion;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		if(isiOS) {return 1;}
+		if(isAndroid) {return 2};
+	}	
+</script>
+</head>
+
+
+<body>
+<div id="all">
+<div class="bg">
+    <img src="images/bg1_01.jpg">
+    <img src="images/bg1_02.jpg">
+    <img src="images/bg1_03.jpg">
+    <img src="images/bg1_04.jpg">
+    <img src="images/bg1_05.jpg">
+    <img src="images/bg1_06.jpg">
+    <img src="images/bg1_07.jpg">
+    <img src="images/bg1_08.jpg">
+    <img src="images/bg1_09.jpg">
+<div class="footer">
+	
+    <p>关注财产安全 拒绝赌博<br>
+    </p>
+</div></div>
+<div class="content">
+	<h1 class="title"></h1>
+    <div class="btn">
+
+        <a href="javascript:;" class="aall"></a>
+    </div>
+</div>   
+</div>
+
+</body>
+</html>

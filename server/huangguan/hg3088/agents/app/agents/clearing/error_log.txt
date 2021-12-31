@@ -1,0 +1,6 @@
+[01-Sep-2012 16:15:28] PHP Fatal error:  Call to undefined function  moneytossc() in D:\WWWROOT\hg\agents\app\agents\clearing\clearing_ft.php on line 171
+1329061_P
+1329089_P
+1328980_P
+1329021_P
+

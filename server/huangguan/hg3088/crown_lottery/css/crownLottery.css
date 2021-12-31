@@ -1,0 +1,198 @@
+@charset "utf-8";
+body,html,ul,li,p,div,dl,dt,dd,ol,pre,form,fieldset,legend,input,textarea,blockquote{margin:0;padding:0;}
+body{font-size:14px;/*font-family:"microsoft yahei",Arial,Helvetica,sans-serif;*/font-family:PingFang sc,"Helvetica Neue",Helvetica,Tahoma,Arial,"Liberation Sans","Hiragino Sans GB","Source Han Sans CN","Source Han Sans SC","Microsoft YaHei","ST Heiti",SimHei,sans-serif;text-align:left;color:#252525;}
+table,td,tr,th{font-size:14px;margin:0;padding:0;}
+img{border:0;vertical-align:bottom;}
+a{color:#333;text-decoration:none;font-size:14px;}
+a:hover{color:#ea571d;text-decoration:none;}
+a:visited{color:#333;text-decoration:none;}
+a:active{color:#333;text-decoration:none;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;padding:0;margin:0;font-size:14px;}
+ol,ul,li{list-style:none;vertical-align:baseline;}
+.clearfix:after{content:''; display: block; clear:both;}
+.clearfix{zoom: 1;}
+i,em,s{font-style: normal;}
+b{font-weight: normal;}
+button{outline: none;}
+::selection { background:#eb5a21;color: #fff; }
+::-moz-selection { background:#eb5a21;color: #fff;}
+/*header*/
+.crownLottery_header{width:1155px;height: 125px;margin:0 auto;overflow: hidden;}
+.crownLottery_header .logo{float: left;width: 393px;height: 105px;margin:10px auto;}
+.crownLottery_header ul{float: right;margin: 15px auto;}
+.crownLottery_header ul li{float: right;margin-left: 10px;}
+.crownLottery_header ul li a{display: block;width: 115px;height: 95px;text-align: center;font-size: 17px;}
+.crownLottery_header ul li a .p1{height: 62px;border: 1px solid #dcdcdc;color: #000000;border-bottom: none;border-top-left-radius: 20px;border-top-right-radius: 20px;}
+.crownLottery_header ul li a:hover .p1{border-color: #f13131;}
+.crownLottery_header ul li.self a .p1{border-color: #f13131;}
+.crownLottery_header ul li a .p2{height: 32px;line-height: 32px;color: #fff;font-size: 16px;background: #f13131;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;}
+.crownLottery_header ul li a .p1 em{display: block;width:32px;height: 23px;margin: 5px auto 4px;}
+.crownLottery_header ul li a .p1 .signin{background: url(../image/crownLottery_header_signin.png) no-repeat center;}
+.crownLottery_header ul li a .p1 .phone{background: url(../image/crownLottery_header_phone.png) no-repeat center;}
+.crownLottery_header ul li a .p1 .promotion{background: url(../image/crownLottery_header_promotion.png) no-repeat center;}
+.crownLottery_header ul li a .p1 .join{background: url(../image/crownLottery_header_join.png) no-repeat center;}
+.crownLottery_header ul li a .p1 .free{background: url(../image/crownLottery_header_free.png) no-repeat center;}
+.crownLottery_header ul li a .p1 .brand{background: url(../image/crownLottery_header_branding.png) no-repeat center;}
+/*content*/
+.crownLottery_content_warp{min-height: 782px;width: 100%;background: url(../image/crownLottery_content_bg.jpg) top center repeat-y;overflow: hidden;}
+.crownLottery_content{width: 1065px;height: 706px;margin:37px auto;background: #f5f3f4;border-radius: 6px;overflow: hidden;}
+.crownLottery_content_register h3{font-size: 18px;color:#e52e30;margin: 10px;font-weight: bold;}
+.crownLottery_content_register .inner{width: 720px;margin: 54px auto 0;overflow: hidden;}
+.crownLottery_content_register .logo{width: 246px;height: 77px;}
+.crownLottery_content_register form{margin-top: 39px;}
+.crownLottery_content_register form ul li{margin-bottom: 10px;height: 35px;line-height: 35px;font-size: 15px;color: #000;}
+.crownLottery_content_register form ul li label{float: left;width:90px;text-align: right;margin-right: 24px;}
+.crownLottery_content_register form ul li input{float: left;padding-left: 10px;width:284px;margin-right: 15px;border: 1px solid #a5a5a5;line-height: 35px;height: 35px;}
+.crownLottery_content_register form ul li select{padding-left: 10px;width:150px;margin-right: 5px;border: 1px solid #a5a5a5;line-height: 35px;height: 35px;}
+.crownLottery_content_register form ul li .selectwarp{float: left;width: 296px;margin-right: 15px;}
+.crownLottery_content_register form ul li span{float: left;font-size: 14px;color: #ff0000;}
+.crownLottery_content_register form ul li .choice{color: #676767;}
+.crownLottery_content_register form ul li .verifyCode{float: left;width: 294px;position: relative;}
+.crownLottery_content_register form ul li .verifyCode em{cursor: pointer;position: absolute;right: 0;top: 3px;width: 77px;height: 30px;}
+.crownLottery_content_register form ul li .verifyCode em img{vertical-align: top;}
+.crownLottery_content_register form button{width: 285px;height: 40px;line-height: 40px;text-align: center;background: #e52e30;font-size: 20px;color: #fff;border-radius: 8px;border: none;margin-left: 115px;margin-top: 50px;cursor: pointer;}
+.crownLottery_content_register form .button{width: 285px;height: 40px;line-height: 40px;text-align: center;background: #e52e30;font-size: 20px;color: #fff;border-radius: 8px;border: none;margin-left: 115px;margin-top: 50px;cursor: pointer;}
+
+.crownLottery_content_appLownload{width: 1035px;height: 684px;background: #fff;}
+.crownLottery_content_appLownload .left{float: left;width:469px;height: 631px;margin: 35px 33px 0px 42px;}
+.crownLottery_content_appLownload .right{float: left;width: 445px;}
+.crownLottery_content_appLownload .right .zhiying{margin: 110px auto 25px;}
+.crownLottery_content_appLownload .right .text{font-size: 19px;color: #000;line-height: 27px;letter-spacing: 1px;margin-bottom: 40px;}
+.crownLottery_content_appLownload .right ul li{float: left;width: 200px;height: 223px;border: 1px solid #b6b6b6;text-align: center;border-radius: 6px;box-shadow:1px 1px 8px 0px #b6b6b6;}
+.crownLottery_content_appLownload .right ul li:first-child{margin-right: 25px;}
+.crownLottery_content_appLownload .right ul li p{width: 170px;height: 50px;line-height: 50px;text-align: center;margin: 20px auto 18px;font-size: 19px;color: #fff;}
+.crownLottery_content_appLownload .right ul li p.ios{background: url(../image/crownLottery_appdownload_ios.png) no-repeat center;}
+.crownLottery_content_appLownload .right ul li p.android{background: url(../image/crownLottery_appdownload_android.png) no-repeat center;}
+
+.crownLottery_content_promotion{width: 1065px;margin:37px auto;padding:20px 0;background: #f5f3f4;border-radius: 6px;background: #fff;}
+.crownLottery_content_promotion ul{width: 932px;margin: 0 auto; }
+.crownLottery_content_promotion ul li{width: 930px;overflow: hidden;margin: 10px auto 5px;}
+.crownLottery_content_promotion ul li:first-child{margin-top: 20px;}
+.crownLottery_content_promotion ul li .img{width: 928px;height: 135px; cursor:pointer}
+
+.crownLottery_content_promotion h2{margin:0 0 10px 35px;}
+
+.crownLottery_content_join{padding: 30px 15px 5px;height:725px;margin-top: 10px;}
+.crownLottery_content_join ul{clear: both;overflow: hidden;margin-bottom: 23px;}
+.crownLottery_content_join ul li{float: left;}
+.crownLottery_content_join ul li a{margin-left: 20px;font-size: 20px;color: #000000;font-weight: bold;}
+.crownLottery_content_join ul li a:hover{color:#f13131;}
+.crownLottery_content_join ul li.current a{color:#f13131;}
+.crownLottery_content_join .joinCopywriting{display: none;}
+.crownLottery_content_join .joinCopywriting p{font-size: 16px;color: #6c6c6c;line-height: 25px;}
+.crownLottery_content_join .joinCopywriting h6{color: #6b6b6b;font-weight: bold;font-size: 16px;}
+.crownLottery_content_join .joinCopywriting p.link{font-weight: bold;color: #000;}
+
+.crownLottery_content_login_warp{background: url(../image/crownLottery_content_bg2.jpg) no-repeat center;}
+.crownLottery_content_login{position: relative;width: 1100px;margin: 0 auto;height: 100%;}
+.crownLottery_content_login .money{margin: 0 auto;width: 628px;height: 194px;background: url(../image/crownLottery_login_bg1.png) no-repeat center;}
+.crownLottery_content_login .car{margin: -30px auto 0px 358px;;width: 540px;height: 230px;background: url(../image/crownLottery_login_bg2.png) no-repeat center;}
+.crownLottery_content_login  ul{margin-bottom:70px;}
+.crownLottery_content_login  ul li{width:325px;height: 41px;text-align: center;margin: 13px auto 0px;}
+.crownLottery_content_login  ul li input{border: none;font-size: 15px;color: #bfbfbf;width: 310px;height: 41px;padding-left: 15px;background: url(../image/crownLottery_login_input_bg1.png) no-repeat center;}
+.crownLottery_content_login  ul li:first-child{background: url(../image/crownLottery_login_input_bg0.png) no-repeat center;}
+.crownLottery_content_login  ul li a{width:324px;height:41px;line-height: 41px;display: block;font-size: 20px;cursor: pointer;letter-spacing: 12px;color: #000;background: url(../image/crownLottery_login_input_bg3.png) no-repeat center;}
+.crownLottery_content_login  ul li.login a{background: url(../image/crownLottery_login_input_bg2.png) no-repeat center;}
+.crownLottery_content_login dl{}
+.crownLottery_content_login dl dd{float: left;height: 35px;line-height: 35px;font-size: 14px;color: #fff;width: 259px;margin-left: 15px;background: url(../image/crownLottery_login_bottom_line.png) no-repeat center;}
+.crownLottery_content_login dl dd span{padding-left: 40px;}
+.crownLottery_content_login dl dd.tel span{background: url(../image/crownLottery_login_tel.png) no-repeat 13px center;}
+.crownLottery_content_login dl dd.email span{background: url(../image/crownLottery_login_email.png) no-repeat 13px center;}
+.crownLottery_content_login dl dd.downLoad span{background: url(../image/crownLottery_login_download.png) no-repeat 13px center;}
+.crownLottery_content_login dl dd.customerService span{background: url(../image/crownLottery_login_kefu.png) no-repeat 13px center;}
+
+.login_proxy{overflow: hidden;width: 100%;height: 100%;background: #f23132 url(../image/crownLottery_login_proxy_bg2.png) no-repeat center top;}
+.crownLottery_login_proxy .top{position: fixed;top: 0;left: 0;width: 100%;height: 47px;line-height: 47px;background: url(../image/crownLottery_loginbg1.png) repeat-x;}
+.crownLottery_login_proxy .top span{font-size: 22px;color: #fff;background: url(../image/crownLottery_login_proxy_icon1.png) no-repeat 30px center;padding-left: 60px;}
+.crownLottery_login_proxy form{position: absolute;top:50%;margin-top: -168px;left: 50%;margin-left: -346px;width: 692px;height: 336px;background: url(../image/crownLottery_login_proxy_form_bg.png) no-repeat center;}
+.crownLottery_login_proxy form ul{margin-top: 76px;margin-left: 262px;}
+.crownLottery_login_proxy form ul li input{border: none;margin-bottom: 7px;padding-left: 35px;}
+.crownLottery_login_proxy form ul .username input{width: 308px;height: 40px;line-height: 40px;background: url(../image/crownLottery_login_proxy_input1.png) no-repeat center;}
+.crownLottery_login_proxy form ul .password input{width: 308px;height: 40px;line-height: 40px;background: url(../image/crownLottery_login_proxy_input2.png) no-repeat center;}
+.crownLottery_login_proxy form ul .vcode input{width: 108px;height: 40px;line-height: 40px;background: url(../image/crownLottery_login_proxy_input3.png) no-repeat center;}
+.crownLottery_login_proxy form ul .vcode em{cursor: pointer;width: 77px;height: 30px;display: inline-block;margin-left: 10px;vertical-align: middle;}
+.crownLottery_login_proxy form ul .vcode em img{vertical-align: top;}
+.crownLottery_login_proxy form ul .loginWarp{margin-top: 20px;}
+.crownLottery_login_proxy form ul .loginWarp .login{width: 113px;height: 36px;line-height: 36px;border-radius: 3px;font-size: 15px;color: #fff;background: #f23132;text-align: center;padding-left: 0px;}
+.crownLottery_login_proxy form ul .loginWarp label{font-size: 12px;color: #653333;margin:0px 25px}
+.crownLottery_login_proxy form ul .loginWarp label input{border: none;color: #90a2bc;vertical-align: middle;margin-bottom: 0px;}
+.crownLottery_login_proxy .cloud{width: 405px;height: 165px;background: url(../image/cloud.png) no-repeat center;position: absolute;top: 0;left: 0;animation: move 90s linear 0s infinite;}
+@keyframes move
+{
+from {left: 0;}
+to {left: 100%;}
+}
+@-moz-keyframes move
+{
+from {left: 0;}
+to {left: 100%;}
+}
+@-webkit-keyframes move
+{
+from {left: 0;}
+to {left: 100%;}
+}
+@-o-keyframes move
+{
+from {left: 0;}
+to {left: 100%;}
+}
+/*video*/
+.videWarp{display: none;position: fixed;top: 160px;z-index: 9999;width: 640px;left: 50%;margin-left: -320px;}
+.videWarp .video{position: relative;}
+.videWarp span{position: absolute;top: 0;right: 0;cursor: pointer;color: #fff;padding: 5px;}
+/*footer*/
+.crownLottery_footer{width:1100px;margin: 0 auto;height: 92px;overflow: hidden;text-align: center;font-size: 17px;color: #000;}
+.crownLottery_footer .tips{margin: 30px auto 5px;}
+/*float window*/
+.crownLottery_floatWindow_warp{position: fixed;top: 155px;right: 20px;width:150px;height: 414px;z-index: 999;}
+.crownLottery_floatWindow{width:150px;height: 414px;position: relative;background: url(../image/crownLottery_float_bg.png) no-repeat center;}
+.crownLot
+tery_floatWindow ul{position: absolute;top: 182px;width: 126px;left: 50%;margin-left: -63px;}
+.crownLottery_floatWindow ul li{width:126px;height: 67px;background: url(../image/crownLottery_float_kefu_bg.png) no-repeat center;margin-top: 5px;overflow: hidden;text-align: center;}
+.crownLottery_floatWindow ul li span{display: block;width:110px;height: 30px;background: url(../image/crownLottery_float_kefu_qq.png) no-repeat center;margin: 7px auto 5px;}
+.crownLottery_floatWindow ul li p{font-size: 18px;color: #fff;text-align: center;}
+.crownLottery_floatWindow .colse{width:50px;height: 25px;position: absolute;left: 50%;margin-left:-25px;bottom: 0;cursor: pointer;}
+.free_btn{display:block;width:128px;height:31px;position: absolute;left: 50%;margin-left: -64px;top: 131px;background:url(../image/free_before.jpg) no-repeat;}
+.free_btn:hover{width:134px;height:33px;margin-left:-67px;background:url(../image/free_after.jpg) no-repeat;}
+.server{width:150px;height:100px;position: absolute;left: 50%;margin-left:-75px;top:20px;cursor: pointer;}
+.online{width:154px;height:119px;display:block;position: absolute;left: 50%;margin-left: -77px;top: 0px;background:url(../image/online_before.png) no-repeat;}
+.online:hover{background:url(../image/online_after.png) no-repeat;}
+/*active*/
+.crownLottery_content_promotion .active{width:932px;border:none;}
+.active{display:none;}
+
+/*free play*/
+.skin_red{background: #f94941 url(../image/crownLottery_free_bg3.jpg) repeat-x left top;}
+.agree_win{width:790px;margin:20px auto;}
+
+
+.user_logo{ width:210px; height:45px; /* margin:20px auto; */}
+.user_wintitle{width:100%;height:48px;font-size:20px;font-weight:bold;line-height:50px;color:white;background:url(../image/user_winT.png) no-repeat left top;text-align:center;}
+.user_winmain{ width:100%; background:url(../image/user_winshadow.png) repeat-y right top;}
+.win_info{ width:780px; margin:0 auto;background:white url(../image/user_bgwin.png) repeat-x left top;}
+.user_winmain ul{ padding:20px 40px;}
+.user_winmain li{ line-height:18px; margin:0 0 5px 0;font-size:14px;}
+.user_winmain li em{font-style:normal;font-size:25px;}
+.ftcolor_red{ color:red;}
+
+.user_winbu div{border-top:1px solid #d3d1d1; padding:20px 0; margin:30px 0 10px 0;}
+.user_winbu span{display:block; width:350px; margin:0 auto;}
+.user_winbu a{
+	display:block;
+	width:118px;
+	height:40px;
+	line-height:40px;
+	background:url(../image/tab3.png) no-repeat left top;
+	font-size:21px;
+	color:white;
+	text-align:center;
+	margin:0 0 0 50px;
+	float:left;
+}
+
+.user_winbu a:hover{background-position:left -40px;color:yellow;}
+
+.user_winfooter{ width:100%; height:20px; background:url(../image/user_winB.png) no-repeat left bottom;}
+.crownLottery_floatWindow img{margin:190px 0 0 12px;}
+

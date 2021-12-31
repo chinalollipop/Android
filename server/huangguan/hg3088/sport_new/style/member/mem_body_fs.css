@@ -1,0 +1,20 @@
+.mem .game{background-color: #fff;}
+.leg_bar,.r_bold,.table-title,td.sub_title td{font-weight:700}
+.game-div td{padding-left:10px}
+#MNFS h2 .rig{display:block;float:right}
+#MNFS h2 .left{float:left;display:inline;white-space:nowrap;clear:both;padding-top:3px}
+td.sub_title{background-color:#FCF9CE}
+td.sub_title table{width:100%}
+td.sub_title td{color:#493721}
+td.sub_tab{width:50%;padding:0;border:none;background-color:#B9B9A3}
+td.sub_title{padding:4px 4px 2px;border:1px solid #B9B9A3}
+body:nth-of-type(1) td.sub_title{padding:4px 4px 2px;border:1px solid #B9B9A3}
+.fs_leg tbody{background:#C8A670}
+.legicon{display:none}
+.fs_leg td[align=right]{padding-right:20px}
+.b_tab{width:50%;float:left}
+.r_bold{border-right:1px solid #B9B9A3;color:#C00;padding-right:10px;text-align:right}
+.r_bold,.team_name{border-bottom:1px solid #B9B9A3;font-size:.75em}
+.table-title{width:100%;font-family:Arial,Helvetica,SimSun,sans-serif;color:#493721;height:24px}
+.game .b_hline td{padding: 10px;}
+span.no_game {display: block;height: 45px;line-height: 40px;color: #bd4700;}

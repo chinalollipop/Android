@@ -1,0 +1,59 @@
+
+
+<style type="text/css">
+    .app_top{position: relative;}
+    .app_download{display:-webkit-flex;display:flex;justify-content:space-between;position:absolute;width:465px;height:168px;top:297px;left:135px}
+    .app_download span{width:168px;height:100%;background-size:100% !important}
+    .subcont_app img{width: 1004px;}
+    .ios_jc img{border: 2px solid #fff;width: 1000px;}
+</style>
+
+<!-- 主体 -开始 -->
+
+<div class="subban subban6"></div>
+<div class="psr">
+    <div class="banyuan">
+
+    </div>
+</div>
+
+<div class="subcont subcont_app">
+    <div class="inner">
+        <div class="cl h13"></div>
+        <div class="app_top">
+            <div class="app_download">
+                <span class="download_ios_app"></span>
+                <span class="download_android_app"></span>
+            </div>
+            <div class="tac"><img src="images/appimg/kt.jpg?v=4" alt=""></div>
+        </div>
+        <div class="cl h2"></div>
+        <div class="ios_jc">
+            <div class="tac"><img src="images/appimg/ios.gif?v=1" alt=""></div>
+        </div>
+        <div class="cl h2"></div>
+        <div class="">
+            <div class="tac"><img src="images/appimg/zj.gif?v=2" alt=""></div>
+        </div>
+        <div class="cl h2"></div>
+        <div class="">
+            <div class="tac"><img src="images/appimg/jw.jpg?v=2" alt=""></div>
+        </div>
+        <div class="cl h2"></div>
+
+        <div class="cl h25"></div>
+    </div>
+</div>
+<!-- 主体 -结束 -->
+
+
+<script type="text/javascript">
+    $(function () {
+        urlSetAction(HTTPS_HEAD,FETCH_NUM);
+        setUserMsg(usermessage,'nottip') ;
+        $('.download_android_app').css({'background':'url('+webPicConfig.download_android_url+') center no-repeat'});
+        $('.download_ios_app').css({'background':'url('+webPicConfig.download_ios_url+') center no-repeat'});
+    })
+
+</script>
+

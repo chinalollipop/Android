@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+html,body,ul,li,input,a,spa,p,h1,h2,h3,h4,h5,h6 {padding:0;margin:0;border: none;text-decoration: none;list-style: none;}
+html,body{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #fff;font-family:"Arial","Microsoft YaHei";text-align:center;overflow-y: auto;overflow-x: hidden;font-size: 14px;max-width: 750px;margin: 0 auto;}
+body{position:relative;background: #fff;}
+a{color: #fff;}
+iframe{width: 100%;border: 0;}
+label{font-size: 1.15rem;}
+@media only screen and (max-width: 350px) { /* 小屏幕 */
+    html,body{ font-size:12px;}
+}
+@media only screen and (min-width: 351px) and (max-width: 410px) {
+    html,body{ font-size:14px;}
+}
+@media only screen and (min-width: 411px) and (max-width: 700px){
+    html,body{ font-size:16px;}
+}
+@media only screen and (min-width: 701px){ /* 大屏幕 */
+    html,body{ font-size:20px; }
+
+}
+.red {color: red;}
+input,select,button{outline:none;color:#3c3941;font-size:1.1rem}
+input,select{background:transparent;height:3rem;line-height:3rem;border:0}
+.linear_1{background:#7485e8;background:linear-gradient(to right,#7485e8 0%,#5da1ea 100%);border-radius:20px}
+.linear_2{background:#5da1ea;background:linear-gradient(to right,#5da1ea 0%,#7485e8 100%);border-radius:20px}
+.flex{display:-webkit-flex;display:flex}
+.btn{font-size:1.2rem;display:inline-block;width:100%;padding:10px 0;margin:3rem 0}
+.contentAll{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column}
+.contentAll>div{-webkit-flex:none;flex:none;height:auto}
+.contentAll .contentCenterAll{padding:0 0 4rem;-webkit-flex:1;flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling: touch;}
+.contentAll .footerNav{position:absolute;width:100%;height:4rem;border-top:1px solid #ddd;bottom:0;z-index:9;background:#fff}
+.contentAll .footerNav a{-webkit-flex:auto;flex:auto;color:#acacac}
+.contentAll .footerNav a.active{color:#5da2ea}
+.contentAll .footerNav a .icon{display:block;width:1.5rem;height:1.5rem;margin:.6rem auto .3rem;background-size:100%;background-repeat:no-repeat}
+.contentAll .footerNav a .icon_home{background-image:url(../images/icon_home.png)}
+.contentAll .footerNav a.active .icon_home{background-image:url(../images/icon_home_ac.png)}
+.contentAll .footerNav a .icon_user{background-image:url(../images/icon_user.png)}
+.contentAll .footerNav a.active .icon_user{background-image:url(../images/icon_user_ac.png)}
+.contentAll .footerNav a .icon_bb{background-image:url(../images/icon_bb.png)}
+.contentAll .footerNav a.active .icon_bb{background-image:url(../images/icon_bb_ac.png)}
+.contentAll .footerNav a .icon_sz{background-image:url(../images/icon_ss.png)}
+.contentAll .footerNav a.active .icon_sz{background-image:url(../images/icon_ss_ac.png)}
+.contentAll .topHeader{position:relative;height:3rem;line-height:3rem;color:#000;font-size:1.3rem;border-bottom:1px solid #f1f1f1}
+.contentAll .topHeader a{position:absolute;width:3rem;height:100%;left:2%}
+.contentAll .topHeader a:before,.setting_center li a:after{content:"";display:inline-block;vertical-align:middle;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;margin:38% 0 0 -5%;height:.8rem;width:.8rem;border-left:2px solid #000;border-bottom:2px solid #000}
+.tableContent{font-size:1rem;color:#acacac;border-collapse:collapse;border-spacing:0}
+.tableContent td{border:1px solid #acacac}
+.tableContent .bg_tr{background:#f1f6fb}
+
+/* 会员查询，报表查询 */
+.contentAll .reportTopHeader{color: #fff;border-bottom: none}
+.contentAll .reportTopHeader a{left: -2%;}
+.contentAll .reportTopHeader a:before{border-color: #fff;}
+.contentAll .report_top{position:relative;height:23.3rem}
+.report_top .report_content{padding:3% 2%;height:11rem;background:url(../images/hy_bg.png) center no-repeat;background-size: cover;}
+.report_top .report_content>div{justify-content:space-between}
+.report_top .report_bottom{position:absolute;background:#fff;width:80%;height:19.2rem;left:50%;margin-left:-40%;bottom:0;border-radius:5px;box-shadow:0 2px 3px rgba(0,0,0,0.2);color:#4e525e;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column}
+.report_top .report_bottom .topList{-webkit-flex:auto;flex:auto;padding:0 5%}
+.report_top .report_bottom .topList span{display:block;line-height:2rem}
+.report_top .report_bottom .topList span:first-child{color:#496dd5;font-weight:bold;font-size:1.2rem}
+.report_top input,.report_top select{width:100%;border-bottom:1px solid #f1f1f1}
+.report_top .btn{margin: .5rem 0;}

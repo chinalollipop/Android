@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sportsbook Rules</title>
+<link rel="stylesheet" href="/style/member/mem_qa.css" type="text/css">
+<link rel="stylesheet" href="/style/member/mem_qa_roul.css" type="text/css">
+
+<script language="javascript" src="/js/QA_sport.js"></script>
+</head>
+<body id="SPORT">
+<div class="qa_head"><em>幫助</em><span class="close_box" onClick="window.close();">關閉</span></div>
+<div id="wrapper">
+	
+    <div id="qa_nav">
+      <ul>
+        <li class="sport"><a href="../QA_sport.html">體育規則</a></li>
+        <li class="rule"><a href="../QA_roul.html">規則與條款</a></li>
+        
+        <li class="odd"><a href="../QA_way.html">賠率計算列表</a></li>
+        <li class="mail"><a href="../QA_conn.html">聯繫我們</a></li>
+      </ul>
+    </div>
+    
+    <div id="main">
+    <a name="top"></a>
+    	<h1>選擇體育項目 : 
+    	  <label>
+    	    <select name="jumpMenu" id="jumpMenu" onchange="chg_roul(this.options[this.selectedIndex].value);">
+    	  	<option value="../QA_sport.html">一般體育說明</option>
+    	    <option value="outright.html">冠軍</option>
+            <option value="parlays-multiples.html">連串過關</option>
+            <option value="roul_nf.html">美式足球</option>
+            <option value="archery.html">射箭和射擊</option>
+            <option value="athletic.html">田徑</option>
+            <option value="aussie.html">澳式足球規則更改</option>
+            <option value="badminton.html">羽毛球</option>
+            <option value="baseball.html">棒球</option>
+            <option value="basketball.html">籃球</option>
+            <option value="beach-soccer.html">沙灘足球</option>
+            <option value="beach-volleyball.html">沙灘排球</option>
+            <option value="boxing.html">拳擊</option>
+            <option value="cricket.html">板球</option>
+            <option value="cycling.html">自行車</option>
+            <option value="darts.html">飛鏢</option>
+            <option value="field-hockey.html">曲棍球</option>
+            <option value="financial-bets.html">金融投注</option>
+            <option value="futsal.html">室內足球</option>
+            <option value="golf.html">高爾夫</option>
+            <option value="gymnastics.html">體操</option>
+            <option value="handball.html">手球</option>
+            <option value="ice-hockey.html" selected="selected">冰球</option>
+            <option value="judo.html">柔道</option>
+            <option value="major-league-lacrosse.html">袋棍球</option>
+            <option value="medal-betting.html">獎牌投注</option>
+            <option value="motor-sports.html">賽車</option>
+            <option value="olympics.html">奧林匹克或相關事件投注</option>
+            <option value="rowing.html">賽艇和皮划艇</option>
+            <option value="rugby-league.html">橄欖球</option>
+            <option value="snooker.html">桌球/9號球巡迴賽</option>
+            <option value="football.html">足球</option>
+            <option value="softball.html">壘球</option>
+            <option value="swimming.html">游泳</option>
+            <option value="table-tennis.html">乒乓球</option>
+            <option value="taekwondo.html">跆拳道</option>
+            <option value="tennis.html">網球</option>
+            <option value="tamp.html">三項全能和現代五項運</option>
+            <option value="ultimate-fighting.html">終極格鬥錦標賽（綜合格斗大賽）</option>
+            <option value="volleyball.html">排球</option>
+            <option value="water-polo.html">水球</option>
+            <option value="weightlifting.html">舉重</option>
+            <option value="wrestling.html">角力</option>
+  	    </select>
+  	    </label>
+    	
+    	 
+  	          
+    	</h1>
+        <div id="info"><!--資料區-->
+        
+            <p class="b">冰球：</p>
+            <ul>
+                <li>如果比賽場地更改，所有投注將被視為無效。 </li>
+                <li>所有賽事規定時間全場以55分鐘為準，不包括加時，除非不同的賽事規定。 </li>
+                <li>罰球賽中獲勝者將需要多一個進球來決定賽事完成的最後比分。 </li>
+                <li>賽節投注，特殊的賽節必須全部完成注單才被視為有效。如果賽節沒有完成，所有的注單被視為無效。 </li>
+                <li>第三節賽節投注是不包括加時賽或罰球賽。 </li>
+                <li>如果賽事在官方60分鐘以內取消，所有投注被視為無效。 </li>
+                <li>如果賽事延遲或重新安排在12小時以內開始，那麼所有的注單有效。如果賽事延遲超過12小時，所有投注被視為無效。 </li>
+            </ul>
+            <p class="b">滾球危險模式（滾球市場管理）</p>
+            <ul>
+                <li>滾球賽事期間下注將保持為審核模式"特殊危險球時刻"。 </li>
+                <li>如果注單是在"危險模式"時投注，投注單中會出現"危險球-待確認"字樣，待確認的意思為此註單並沒有接受或拒絕。如果危險期間內沒有重要的事件發生，注單將會被確認。 </li>
+                <li>如果出現進球得分或任何對市場有重大影響的事件發生，待確認的注單將被取消。 </li>
+            </ul>
+            <p class="b">投注類型：</p>
+            <span class="b">勝負</span>
+            <ul>
+                <li>預測哪一方將獲得比賽的勝利。出於結算的目前加時是計算的。 </li>
+            </ul>
+            <span class="b">1 x 2獨贏</span>
+            <ul>
+                <li>預測哪一方將獲得比賽的勝利。這個投注方式將包含2個球隊和平局的投注選項。加時不計算在內。 </li>
+            </ul>
+            <span class="b">讓球</span>
+            <ul>
+                <li>預測哪一方將獲得讓球比賽/賽節的勝利。出於結算的目前加時是計算的。 </li>
+            </ul>
+            
+            <div class="to_top"><a href="#top"><span>回最上層</span></a></div>
+            
+            <span class="b">滾球讓球</span>
+            <ul>
+                <li>預測哪一方將獲得讓球比賽/賽節的勝利。結算是根據比分線，從開始投注到賽事/賽節結束。出於結算的目的加時不計算在內。 </li>
+            </ul>
+            <span class="b">大/小(球)</span>
+            <ul>
+                <li>預測總進球數將大於或小於指定的盤口。 </li>
+            </ul>
+            <span class="b">滾球大/小（球）</span>
+            <ul>
+                <li>預測總進球數將大於或小於指定的盤口。結算會根據比分線，從開始投注到賽事/賽節結束。處於結算的目的加時不計算在內。 </li>
+            </ul>
+            <span class="b">單/雙</span>
+            <ul>
+                <li>預測賽事的總進球數是單數或雙數。 </li>
+            </ul>
+            <span class="b">最先進球球隊</span>
+            <ul>
+                <li>預測哪個球隊將最先得分。 </li>
+            </ul>
+            <span class="b">最後進球球隊</span>
+            <ul>
+                <li>預測哪個球隊將最後得分</li>
+            </ul>
+            <span class="b">球隊最高得分的賽節</span>
+            <ul>
+                <li>預測哪個球隊在一場賽事中將獲得最高的賽節得分。 </li>
+                <li>如果兩個球隊的最高賽節得分相同，投注按平局結算。 </li>
+                <li>所有賽節必須完成注單被視為有效。 </li>
+            </ul>
+        
+       	<div class="to_top"><a href="#top"><span>回最上層</span></a></div>
+            
+        </div><!--資料區 End-->
+    </div>
+    
+</div>
+<div class="qa_foot"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* 登录注册 开始 */
+.middle_content{background: #000;}
+.modal-body{position:relative;padding: 5px;/*background-color: #1f1f1f;margin: 0 28px 19px 28px;border-radius: 5px;*/}
+.modal-body .group{width:340px;height: 45px;margin:0 0 4px 0;position:relative;}
+.modal-body input:not([type=checkbox]){width:100%;height:30px;font-family:"Microsoft Yahei";font-size:18px;font-weight:500;font-style:normal;font-stretch:normal;letter-spacing:normal;color:#333333;border:none;position:relative;top:5px;-webkit-appearance:none}
+form .group .error{width:auto;color:#bd4700;font-size:14px;position:relative;z-index:99;pointer-events:none;position:relative;top:-10px}
+form .group .error.filled{display:none;height:24px;line-height:24px;margin:0px;padding:0 5px;border:#ffffff;border-radius:3px;background:#bd4700;color:#fff;font-size:13px;position:relative;bottom:40px;left:330px;z-index:99;white-space:nowrap}
+form .group .error.filled::before{content:'';width:0;height:0;border-bottom:10px solid #bd4700;border-left:10px solid transparent;position:absolute;bottom:0px;left:-7px;z-index:1}
+label{display:block;max-width:100%;margin-bottom:5px;font-weight:bold}
+.modal-body label{color:#999999;font-family:"Microsoft Yahei";font-size: 14px;font-weight:500;font-style:normal;font-stretch:normal;position:absolute;pointer-events:none;top:-28px;transition:all 0.2s ease;}
+.modal-body .details{font-family:"Microsoft Yahei";font-size:12px;font-weight:500;font-style:normal;font-stretch:normal;line-height:5;letter-spacing:normal;color:#bbbbbb}
+.modal-body input#captchas~label{top:0px}
+.captchaImg{position:absolute;top: 0;left: 161px;z-index: 1;}
+.register_captchaImg{width: 90px;height: 28px;margin: 6px 0 0 0;mix-blend-mode:multiply;}
+.submit-btn{width:360px;height:40px;background-color:#363636;border-radius:20px;color:#fff;text-align:center;margin:0 0 0 -10px;font-size:16px;cursor:pointer;line-height:40px}
+.modal-body input.used{top:15px}
+input::-webkit-input-safebox-button{display:none}
+.modal-body input:focus{outline:none} /* top:15px; */
+.modal-body input::-ms-check,.modal-body input::-ms-clear,.modal-body input::-ms-reveal{display:none}
+.modal-body input:focus~label,.modal-body input.used~label{font-size:12px}
+.modal-body .bar{position:relative;top:5px;display:block;width:100%;background:#e4e4e4;height:1px}
+.modal-body input.used~.bar{top:20px}
+.modal-body input:focus~.bar{top:20px;background:transparent}
+.modal-body .bar:before,.modal-body .bar:after{content:'';height:1px;width:0;bottom:1px;position:absolute;background:#d03c00;transition:all 0.2s ease}
+.modal-body .bar:before{left:50%}
+.modal-body .bar:after{right:50%}
+.modal-body input:focus~.bar:before,.modal-body input:focus~.bar:after{width:50%}
+.ageCheck{line-height:18px;font-size: 13px;color: #6e6e6e;}
+.modal-body .ageCheck_input{border-bottom:none;display:inline-block;width:6%;height:0}
+.ageCheck .age_checkbox{width:18px;height:18px;cursor:pointer;position:absolute;top:0;left:0;background:#000;border-radius:4px}
+.ageCheck .age_checkbox:after{content:'';width:10px;height:5px;position:absolute;top:4px;left:4px;border:2.5px solid #fcfff4;border-top:none;border-right:none;background:transparent;opacity:0;-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+.ageCheck .ageCheck_input:checked~.age_checkbox:after{opacity:1}
+.account-terms{color: red;cursor:pointer;}
+.forget_psw {position: absolute;right: 23px;top: -7px;font-size: 13px;color: #bbb;cursor: pointer;}
+.forget_psw span {padding: 0 5px;background: #bbb;color: #fff;border-radius: 3px;margin-right: 3px;}
+
+/* 新登录页面 */
+.login_sec_all{margin:0;background:url(../images/login_bg.jpg?v=1) no-repeat;background-size:cover;overflow:hidden}
+.login_sec_all a:hover,.submit-btn:hover{transition: .3s;opacity: .8}
+.login_sec_all form{width:20%;min-width:270px;min-height:480px;float:right;margin:3% 7%;background:rgba(0,0,0,.67);border:2px solid rgb(56,55,55)}
+.login_sec_all .login_all{width:90%;margin:5% auto}
+.login_sec_all .login_all p{text-align:center;font-size:20px;color:#c0c0c0;margin: 5% 0;}
+.login_sec_all .logo{width:60%;height: 8%;max-height: 50px;margin:2% auto;background:url(../images/LOGO.png) no-repeat;background-size:100%;}
+.login_sec_all .group{width:100%;height: 8%;max-height: 60px;min-height:45px;}
+.login_sec_all .bottom{width:96%;margin:0 auto}
+.login_sec_all .submit-btn{width:100%;margin:0;background:#ffb400;border-radius:7px}
+.login_sec_all input:not([type=checkbox]){background:none;color:#fff;border-bottom:1px solid #ffb400;top:0;}
+.login_sec_all input::-webkit-input-placeholder{color:#fff;font-size:14px}
+.login_sec_all input::-moz-placeholder{color:#fff;font-size:14px}
+.login_sec_all .register_captchaImg{margin:8px 0px 0 0}
+.login_sec_all .sec_forget_psw{display:block;width:96%;color:#fff;text-decoration:underline;text-align:right;font-size:12px;margin-top:2px}
+.login_sec_all .not_account{display:flex;color:#c0c0c0;line-height:0;margin-top:9%}
+.login_sec_all .not_account span{display:inline-block;height:1px;width:calc(50% - 47px);background:#c0c0c0}
+.login_sec_all .sec_memberreg,.login_sec_all .sec_testplay{display:block;height:40px;line-height:40px;text-align:center;margin-top: 8%;border:1px solid #ffb400;border-radius:7px;color:#ffb400;}
+.login_sec_all .sec_testplay{border:1px solid #fff;color: #fff;}
+.login_sec_all .label-login{margin-top:7px}
+.login_sec_all .label-login .rememberme{float:left;margin:4px}
+.login_sec_all .label-login a{color: #fff;}
+.reg_sec_all form{margin:0 auto;padding: 0 60px;}
+.reg_sec_all .top{margin:15px 0 10px;padding-bottom:5px;text-align: center;}
+.reg_sec_all .top span:first-child{font-size:20px;}
+.reg_sec_all label{position:static;display:inline-block;color: #dbdbdb;width:94px;line-height: 40px;text-align: right;}
+.reg_sec_all input:not([type=checkbox]){font-size:15px;width: 160px;height: 30px;display:inline-block;border:1px solid #ccc;border-radius:5px;padding:0 5px;}
+.reg_sec_all .reg_left{position:relative;display:inline-block;border: 1px solid #fffb88;padding: 20px 70px 10px;}
+.reg_sec_all .reg_left:before{content:'注册账号';background:#fffb88;color:#000;padding:0px 12px;border-radius:5px;position:absolute;top:-10px;left:20px}
+.reg_sec_all .reg_left .group,.reg_sec_all .reg_right .group{width:100%;display:flex;}
+.reg_sec_all .reg_checkbox{width:21px;height:21px;display:inline-block;background:url(/images/check_box.png) no-repeat;background-size:100%;position:relative;margin: 4px 7px 0 0;}
+.reg_sec_all .reg_checkbox:after{content:url(/images/checked_box.png);display:inline-block;position:absolute;height:13px;width:13px;top:4px;left:3px}
+.reg_sec_all .ageCheck,.reg_sec_all .ageCheck p{font-size: 14px;line-height: 30px;margin: 5px 0;color: #fff;}
+.reg_sec_all .ageCheck p{display:flex}
+.reg_sec_all .reg_18{display:inline-block;width:30px;height:30px;margin-right:7px}
+.reg_sec_all .submit-btn{width:225px;margin: 10px auto 20px;background: #df0000;border-radius:8px;height:48px;line-height:48px;}
+.reg_sec_all .reg_tip{line-height: 40px;}
+/* 登录注册 结束 */

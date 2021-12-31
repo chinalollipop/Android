@@ -1,0 +1,27 @@
+body,html{margin:0;padding:0;font-family:Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;text-align:center}
+a{text-decoration:none}
+input{outline:0;border:none}
+.top-header{height:55px;background:#7b0f0f;text-align:center;line-height:55px}
+.top-header a{display:inline-block;width:108px;color:#B26563}
+.top-header a.link_on{color:#F3D7D7;background:#961f1d}
+.top-logo{margin:0 auto 30px;width:72px;height:72px;background:url(../../images/login_top.png) no-repeat}
+.login-table{background:#e2e2e2;width:356px;height:400px;margin:0 auto}
+.login-table form{padding:20px}
+.login-top,.remember-me{height:55px;line-height:55px;text-align:left}
+.login-middle{margin-top:20px;border:1px solid #d1d1d1}
+.login-middle div{height:58px;background:#fff}
+.login-middle div:first-child{border-bottom:1px solid #d1d1d1}
+.login-middle div span{display:inline-block;width:21px;height:24px;float:left;margin:18.5px 0 0 10px}
+.login-middle div .username-logo{background:url(../../images/account_icon.png) no-repeat}
+.login-middle div .password-logo{background:url(../../images/password_icon.png) no-repeat}
+.login-middle input{height:100%;line-height:58px;width:280px;padding:0 20px;font-size:16px}
+.remember-me span{text-shadow:2px 1px #fff;color:#737373}
+.remember-me .label-login input{width:16px;height:16px;float:left;margin-top:22px}
+.all{width:100%;margin-top:30px}
+.login-bottom a,.login-bottom input{cursor:pointer;height:55px;line-height:55px;background:#658c18;width:100%;font-size:16px;text-align:center;color:#fff}
+.login-bottom input:hover{opacity:.8;transition:.3s liner}
+.login-bottom a{display:block;background:#ff7e00;margin-top:8px}
+.log_btn,.log_btnON{display:block;float:left;width:105px;height:55px;line-height:55px;color:#a49e9e;background-color:#585757;overflow:hidden;text-align:center}
+.log_btn:hover,.log_btnON{background-color:#8b8b8b;color:#FFF}
+.log_btnON{width:106px}
+.log_btn:hover{-o-transition:color .2s linear,background-color .2s linear,border-color .2s linear;-webkit-transition:color .2s linear,background-color .2s linear,border-color .2s linear;-moz-transition:color .2s linear,background-color .2s linear,border-color .2s linear;transition:color .2s linear,background-color .2s linear,border-color .2s linear}

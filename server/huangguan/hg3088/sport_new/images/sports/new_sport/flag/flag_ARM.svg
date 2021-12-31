@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Flags/armenia</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flags/armenia">
+            <g id="armenia">
+                <g id="Group" transform="translate(0.500000, 0.500000)" fill-rule="nonzero">
+                    <path d="M22.9105993,11.4962162 C22.9105993,10.0901616 22.6600156,8.7425053 22.1946459,7.49816936 L11.4553463,6.99504436 L0.716046726,7.49816936 C-0.238682242,10.0773691 -0.238682242,12.9150633 0.716046726,15.4942631 L11.4553463,15.9973881 L22.1946459,15.4942631 C22.6600156,14.2499272 22.9105993,12.9022709 22.9105993,11.4962162 Z" id="Path" fill="#0052B4"></path>
+                    <path d="M11.4553463,22.9962162 C16.2454095,22.9956293 20.5293506,20.0030761 22.1946459,15.4942631 L0.716046726,15.4942631 C2.38134209,20.0030761 6.6652832,22.9956293 11.4553463,22.9962162 Z" id="Path" fill="#FF9811"></path>
+                    <path d="M0.716046726,7.49816936 L22.1946459,7.49816936 C20.5281085,2.99084682 16.2444496,-3.04201109e-13 11.4553463,-3.04201109e-13 C6.66624306,-3.04201109e-13 2.38258414,2.99084682 0.716046726,7.49816936 Z" id="Path" fill="#D80027"></path>
+                </g>
+                <circle id="Oval" stroke="#FFFFFF" cx="12" cy="12" r="11.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

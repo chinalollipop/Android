@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* control_index.css */
+.top-header{height:55px;background: #007B5B;text-align:center;line-height:55px;}
+.top-header a{display:inline-block;width:108px;color: #fff;}
+.top-header a.link_on{background: #03654b;}
+.top-logo{margin:0 auto 30px;width:72px;height:72px;background:url(../images/3366/login_top.png) no-repeat}
+.login-table{background: #fff;width: 400px;height: 540px;margin:0 auto;border-radius: 5px;}
+.login-table form{padding: 50px;}
+.remember-me{height:60px;line-height:60px;text-align:left;width: 90%;margin: 0 auto;}
+.login-middle{margin-top:20px;border: 0;}
+.login-middle div{height: 50px;background: #eeeeee;margin-top: 20px;border-radius: 50px;}
+.login-middle div span{display:inline-block;width:25px;height:27px;float:left;margin: 13px 0 0 15px;}
+.login-middle div .username-logo{background:url(../images/3366/account_icon.png) no-repeat}
+.login-middle div .password-logo{background:url(../images/3366/password_icon.png) no-repeat}
+.login-middle input{height:100%;line-height: 50px;width: 245px;padding: 0 5px;font-size:16px;background: transparent;}
+.remember-me span{text-shadow:2px 1px #fff;color:#737373}
+.remember-me .label-login input{width:16px;height:16px;float:left;margin-top:22px;}
+.all{width:100%;height:800px;padding-top:120px;margin-top: 0;background: -webkit-gradient(linear,left top, left bottom,from(rgb(127,168,154)),to(rgb(0,28,0)));background: linear-gradient(rgb(127,168,154),rgb(0,28,0));}
+.login-bottom a,.login-bottom input{transition:.3s liner;cursor:pointer;height: 45px;line-height: 45px;background: rgb(63,124,104);width:100%;font-size:16px;text-align:center;color:#fff;border-radius: 5px;}
+.login-bottom input:hover{opacity: .8;}
+.login-bottom a{display:block;background: #fe0000;margin-top: 10px;}
+.log_btn,.log_btnON{display:block;float:left;width: 32%;height:55px;line-height:55px;color:#a49e9e;background-color:#585757;overflow:hidden;text-align:center;}
+.log_btn:hover,.log_btnON{background-color:#8b8b8b;color:#FFF}
+.log_btnON{width:106px}
+.log_btn:hover{-o-transition:color .2s linear,background-color .2s linear,border-color .2s linear;-webkit-transition:color .2s linear,background-color .2s linear,border-color .2s linear;-moz-transition:color .2s linear,background-color .2s linear,border-color .2s linear;transition:color .2s linear,background-color .2s linear,border-color .2s linear}
+.login-top{height:55px;width: 100%;background:  url("../images/bet365/logo.png") center no-repeat;margin: 20px 0 40px;}
+
+/* control_header.css */
+.main_content{background:#f6f3ed}
+/*.main_content.ag_main_content{background:#281912}*/
+.ui-header {background: #007B5B;}
+.ui-header .top_header_left{float:left;width:190px;height:71px;text-align:left;padding-left:10px;background: none;}
+.ui-header .top_header_left .logo img{height: 35px;margin: 10px 0 5px;}
+.top_header_right{position:relative}
+.top_header_right:before,.top_header_right:after{content:'';position:absolute;display:inline-block;height:38px;width:100%;background:#03654b;top:33px;left:150px}
+.top_header_right:after{width: 0;height: 0;border-bottom: 38px solid #03654b;border-left: 28px solid transparent;top: 32px;left: 123px;background: none;}
+.ui-header .top-nav a:hover{color:#fdd35d}
+.top_header_right_bottom{margin-top:3px;position:relative}
+.memu1 a,.top_header_right_bottom .memu1 .top_down_ul_yx a{display:inline-block;padding:3px 10px;line-height:20px}
+.memu1 a:hover{color:#fdd35d;background:#4b3100;box-shadow:inset 0 0 25px rgba(0,0,0,.9);border-radius:3px}
+.top_header_m .memu1>a:hover{color:#fdd35d;background:0 0;box-shadow:none;border-radius:0}
+.memu2{color:#FFF;padding-top:2px}
+.memu2 a:link,.memu2 a:visited{color:#fdd35d}
+.memu2 a:hover{color:#FFF}
+.log{color:#fdd35d}
+.top_down_ul{display:none;position:absolute;top:33px;top:26px\9;background:#020202;list-style:none;z-index:10}
+.top_header_right_bottom .memu1 a{padding:7px 10px}
+.ui-header .yellow_a{color:#fdd35d}
+
+/* control_header.css */
+html{margin:0;padding:0;overflow-x:hidden;overflow-y:auto;font-family:Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif}
+/*.ag-body{background:#281912}*/
+.ag-body .home-notice{background:#533d2f;border:1px solid #533d2f}
+.home-notice th{position:relative;width:150px;height:34px;line-height:32px;background:url(../images/3366/notice-tit-bg.png) center center no-repeat;font-size:14px;color:#945400;text-indent:30px}
+.ag-body .home-tips dt,.ag-body .main-nav dt{color:#fff}
+.ag-body .home-tips dt{background: url(../images/3366/home-tips-tit-bg.png) center top no-repeat;}
+.home-tips td{padding:10px 0}
+.ag-body .home-tips .bg_tr{background:#544437}
+.ag-body .home-tips .bg_tr td{color:#fff}
+.ag-body .main-shadow{background: url(../images/3366/main-shadow.png) repeat-x}

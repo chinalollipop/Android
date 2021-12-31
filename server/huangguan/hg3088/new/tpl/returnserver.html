@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../style/member/mem_body_ft.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../style/member/mem_body_p3.css" type="text/css">
+    <title>编写信息</title>
+    <style>
+        input{height:25px;}
+        #box {
+            width: 850px;
+            position: relative;
+            margin-bottom: 12px;
+        }table{
+             font-size:12px;
+         }
+    </style></head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" id="myTable" ><tbody><tr><td>
+    <table border="0" cellpadding="0" cellspacing="0" id="box">
+        <tbody><tr>
+            <td class="top"><h1 class="top_h1"><em>电话回访登记</em></h1></td>
+
+        </tr>
+        <tr><td class="mem">
+            <form id="form1" action="bakphone.php?uid=a646b1f80743a418c0ccra6&amp;mtype=&amp;langx=zh-cn" method="POST" onsubmit=" return chkk();">
+                <div class="cont-area2">
+
+                    <table cellspacing="1" cellpadding="1" border="0" align="center" width="100%">
+                        <tbody>
+                        <tr>
+                            <td align="right" width="16%" class="b_hline">用户名：</td>
+                            <td align="left" style="background-color: #FFF;">hg308877</td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="b_hline">姓名：</td>
+                            <td height="20" align="left" style="background-color: #FFF;"><input type="text" maxlength="12" size="12" class="input-txt" name="username" id="username"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="b_hline">手机：</td>
+                            <td align="left" style="background-color: #FFF;"><input type="text" maxlength="11" size="11" class="input-txt" name="phone" id="phone" onkeypress="return event.keyCode>=48&amp;&amp;event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="b_hline">验证码：</td>
+                            <td align="left" style="background-color: #FFF;"><input type="text" maxlength="4" size="4" class="input-txt" name="yzm" id="yzm"><img src="./yeepay/yzm.php"></td>
+                        </tr>
+                        <tr style="text-align:center"><td colspan="2" style="background-color: #FFF;"><font color="#FF0000">通过客服中心提交您的真实姓名，联系电话后，我们的客服人员会回电为您服务，请确认您填写的号码可以联系到您。</font></td></tr>
+                        <tr>
+                            <td class="b_cen" colspan="2" align="center">
+                                <input type="submit" class="notice-btn-send" id="Button1" value="提交">&nbsp;&nbsp;
+                                <input type="reset" class="notice-btn-reset" id="Button2" value="重填">
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" height="28" class="b_cen"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont-btm2"></div>
+            </form></td>
+        </tr>
+
+        <tr>
+            <td id="foot"><b>&nbsp;</b></td>
+        </tr>
+
+        </tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+
+<script>
+    function chkk(){
+        //alert(document.getElementById('phone').value.length);
+        if(document.getElementById('phone').value.length!=11){
+            alert('手机号码只能输入11位。');
+            return false;
+        }
+        if(document.getElementById('username').value==''||document.getElementById('phone').value==''||document.getElementById('yzm').value==''){
+            alert('请输入正确信息。');
+            return false;
+        }
+        return true;
+    }
+</script>
+</body></html>

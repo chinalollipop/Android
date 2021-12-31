@@ -1,0 +1,62 @@
+.language #lang_cn,.language #lang_tw,td{font-family:simsun}
+.err_position,.mem,.news,.title{display:block}
+body{margin:0;text-align:center}
+form,table{margin:0;padding:0}
+.language,.title{height:55px;margin-left:auto;margin-right:auto;text-align:center}
+td{font-size:14px}
+.title{width:100%;background:#52402a}
+.language{width:318px;color:#B2A183}
+.language #lang_en{font-family:Arial,Helvetica,sans-serif}
+.sub{font:16px Arial,Helvetica,sans-serif;font-weight:700}
+.err_info{text-align:left;color:#A73339;font-size:12px;margin:3px 0 0 55px;position:absolute}
+.btn,.log,.mem{text-align:center}
+.bord,.btn,.mem,.news{margin-left:auto}
+.bord,.btn,.foot,.mem,.news{margin-right:auto;overflow-y:hidden}
+.err_position{position:relative;top:15px;width:320px}
+.txt{padding-bottom:2px;font:12px Arial,Helvetica,sans-serif;font-weight:700}
+.label-login,.login-forget{position:absolute;z-index:20;top:0;line-height:26px}
+.log,.za_button{font-family:simsun}
+.mem{width:100%}
+.log{width:330px;margin:auto;background:#fff;padding:50px 15px 50px;border-radius:5px}
+.bord,.log form,.za_button{width:100%;overflow-y:hidden}
+.log tr{height:56px}
+.err_position{margin-top:2px}
+.label-login{left:0}
+.login-forget{cursor:pointer;right:0;height:27px;color:#949393}
+.lang,.lang2{top:18px;font-size:16px}
+.bord{height:114px;background:#fff}
+.za_button{height:45px;cursor:pointer;cursor:hand;border:none;background:#ffb400;color:#fff;font-size:16px;border-radius:5px}
+.btn input:hover{transition:.3s;opacity:.9}
+.lang2,.lang:hover{background:#705636}
+.lang2{color:#e6ca9c}
+.lang{color:#B2A183}
+.lang a:link,.lang a:visited{color:#B2A183;text-decoration:none}
+.lang:hover{color:#e6ca9c}
+.chk_box{width:24px}
+.btn{width:100%}
+.vs_new{width:50%;font-weight:700}
+.vs_old{text-align:right}
+.news{width:948px;height:186px;clear:left}
+.moblie,.newbettypes,.tv{margin-top:26px;width:280px;height:205px;display:block;float:left}
+.moblie,.newbettypes{margin-left:54px}
+.foot{clear:left;display:block;width:948px;height:76px;margin-top:80px;margin-left:auto;background:url(../../images/member/zh-cn/index_browser.gif) 345px 0 no-repeat}
+.go_to_new{position:fixed;display:inline-block;width:160px;height:154px;background:url(../../images/top_left.gif) no-repeat;background-size:100%;z-index:999;top:1px;left:0}
+.to_sports{display:block;margin:0 auto;width:360px;height:100px;background:url(../../images/login_index.jpg) no-repeat}
+.index_top_pic{margin:100px auto 0;width:360px;height:75px;display:block;}
+.index_ID{text-align:center;padding:0 18px 0 7px}
+.index_line{border-bottom:1px solid #ededed}
+.index_input{width:240px;height:30px;line-height:30px;margin-top:1px;margin-bottom:2px;font-family:Arial;font-size:16px;border:none;outline:0;color:#3d2e14!important}
+.index_re{text-align:left;width:100%;height:50px;color:#a08e70;font-size:14px}
+.login-remember-me{color:#949393;text-decoration:none}
+.index_box{margin:0 3px 0 0;position:relative;top:-1px;top:2px}
+::-webkit-input-placeholder{color:#776547!important;font-family:simsun}
+:-moz-placeholder{color:#776547!important;font-family:simsun}
+::-moz-placeholder{color:#776547!important;font-family:simsun}
+:-ms-input-placeholder{color:#776547!important;font-family:simsun}
+label input[type=checkbox]+span{display:inline-block;width:16px;height:16px;margin:-4px 6px 0 0;vertical-align:middle;cursor:pointer}
+.cs_button,.reg_button{width:49%;height:45px;cursor:hand;border:none;color:#fff;font-size:16px;font-family:simsun}
+.reg_button{background:#ff9201;float:left;width:100%;border-radius:5px}
+input::-ms-clear{display:none}
+input::-ms-reveal{display:none}
+.cs_button{background:#27a67b;float:right}
+input[type=checkbox]{width:13px;height:13px;margin-top:8px;vertical-align:bottom;display:inline-block;float:left}

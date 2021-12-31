@@ -1,0 +1,168 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../style/member/mem_body_ft.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../style/member/mem_body_p3.css" type="text/css">
+
+    <title>消息</title>
+    <style>
+        input{height:25px;}
+        #box {
+            width: 850px;
+            position: relative;
+            margin-bottom: 12px;
+        }table{
+             font-size:12px;
+         }
+    </style></head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" id="myTable"><tbody><tr><td>
+    <table border="0" cellpadding="0" cellspacing="0" id="box">
+        <tbody><tr>
+            <td class="top"><h1 class="top_h1"><em>建议反馈</em></h1></td>
+
+        </tr>
+        <tr><td class="mem">
+            <!--div class="cont-area2">
+                <div class="rule-class" style="padding:10px 5px;">
+                    <a href="notices.php?uid=a646b1f80743a418c0ccra6&mtype=&langx=zh-cn" class="seled">查看信息</a>
+                    <a href="notices_add.php?uid=a646b1f80743a418c0ccra6&mtype=&langx=zh-cn">编写信息</a>
+            </div-->
+            <form id="delFrom" method="POST" action="notices.php?uid=a646b1f80743a418c0ccra6&amp;mtype=&amp;langx=zh-cn&amp;act=">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td width="20%" height="30" class="b_cen">
+                            <button type="button" class="notice-btn2" onclick="javascript:location.href='add_suggestserver.html'">写建议反馈</button>
+                            <button type="button" class="notice-btn2" onclick="javascript:location.reload();">查看建议反馈</button>
+                            <!--button type="button" class="notice-btn2" onclick="javascript:location.href='notices.php?uid=a646b1f80743a418c0ccra6&mtype=&langx=zh-cn&act=7'">已发短信</button-->
+                        </td>
+                        <td align="right" width="80%" class="b_cen">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table cellspacing="1" cellpadding="1" border="0" width="100%" class="notice-list">
+                    <thead>
+                    <tr>
+                        <td width="6%" class="b_hline">序号</td>
+                        <td width="7%" class="b_hline">发件人</td>
+                        <td width="13%" class="b_hline">标 题</td>
+                        <td align="left" width="50%" class="b_hline">内容</td>
+                        <td width="16%" class="b_hline">日 期</td>
+                        <td width="7%" class="b_hline">类 型</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="b_cen">1</td>
+                        <td class="b_cen">会员</td>
+                        <td class="b_cen"><span class="b_cen" style="padding-left:10px;text-align:left;"><a class="font-bblue" href="notice_detail.php?id=297&amp;uid=a646b1f80743a418c0ccra6&amp;mtype=&amp;langx=zh-cn">
+	              gfgf	            </a></span></td>
+                        <td class="b_cen" style="padding-left:1px;text-align:left;">gfgfd</td>
+                        <td class="b_cen">2018-01-27 03:29:39</td>
+                        <td class="b_cen">未回复</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="6" class="b_cen">
+                            <table border="0" width="100%">
+                                <tbody><tr>
+                                    <td style="text-align:left;">
+                                        <!--选择: <a href="javascript:" onClick="ChenkAll(true);">全部</a> - <a href="javascript:" onClick="ChenkIsRead(0);">未读</a> - <a href="javascript:" onClick="ChenkIsRead(1);">已读</a> - <a href="javascript:" onClick="ChenkOhter();">反选</a> - <a href="javascript:" onClick="ChenkAll(false);">不选</a>
+                                        <input name="del" type="image" src="/images/button-sc.jpg" style="margin-left: 10px; border: 0px none; cursor: pointer; height:auto; width:auto;" value="刪除" onClick="return confirm('确认刪除？');"/-->
+                                    </td>
+                                    <td style="text-align:right;" id="showPage">
+                                        <a href="javascript:" onclick="loadData(1);">首頁</a>&nbsp;
+                                        <a href="javascript:" onclick="loadData(1);">上一頁</a>&nbsp;
+                                        <a href="javascript:" onclick="loadData(1.1);">下一頁</a>&nbsp;
+                                        <a href="javascript:" onclick="loadData(1.1);">末页</a>　
+                                        第 <select onchange="loadData(this.value)" size="1" id="showIndex" name="showIndex">
+                                        <option value="1">1</option>		              	</select> 页
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </form>
+
+            <div class="cont-btm2"></div>
+        </td>
+        </tr>
+
+        <tr>
+            <td id="foot"><b>&nbsp;</b></td>
+        </tr>
+
+        </tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+<script>
+    function ChenkAll(isCheck){
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++)
+        {
+            if (inputs[i].type == "checkbox" && inputs[i].id.indexOf("Msg_") >= 0)
+            {
+                inputs[i].checked = isCheck;
+            }
+        }
+    }
+
+    function ChenkOhter(){
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "checkbox" && inputs[i].id.indexOf("Msg_") >= 0){
+                if(inputs[i].checked==true)
+                    inputs[i].checked = false;
+                else
+                    inputs[i].checked = true;
+            }
+        }
+    }
+
+    function ChenkIsRead(IsR){
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "checkbox" && inputs[i].id.indexOf("Msg_") >= 0){
+                if(inputs[i].name == 'Msg_'+IsR+'[]' )
+                    inputs[i].checked = true;
+                else
+                    inputs[i].checked = false;
+            }
+        }
+    }
+
+    function SubDel(){
+        var strDel='';
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "checkbox" && inputs[i].id.indexOf("Msg_") >= 0){
+                if(inputs[i].checked == true ){
+                    strDel += inputs[i].id.substring(4)+'|';
+                }
+            }
+        }
+        if(strDel!=''){
+            document.getElementById('strID').value=strDel;
+            if(!confirm("確定刪除信息?")){return false;}
+            document.getElementById('delFrom').submit();
+        }else{
+            alert('請选擇要刪除的信息。');
+        }
+    }
+
+    function loadData(count){
+        icount=Number(count);
+        window.location.href='notices.php?uid=a646b1f80743a418c0ccra6&mtype=&langx=zh-cnact=1&page='+icount;
+    }
+
+</script>
+
+</body></html>

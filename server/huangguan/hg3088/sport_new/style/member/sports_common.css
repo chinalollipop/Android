@@ -1,0 +1,237 @@
+body{color: #b4b4b4;/*height: 100%;overflow-x: hidden;overflow-y: scroll;*/}
+.middle_content {background: #464646;}
+.sport_content_all{font-family:Microsoft YaHei,Heiti SC,PingFang SC;display:-ms-flexbox;display:flex;height:100%;min-width:1250px;max-width:1420px;margin:auto}
+.side-p-10{padding-left:10px;padding-right:10px}
+.p-h-t-10{padding-top:10px;padding-bottom:10px}
+.w-p-100{width:100%}
+.h-p-100{height:100%}
+.w-p-70{width:70%}
+.w-p-50{width:50%}
+.w-p-33{width:33%}
+.w-px-180{width:180px}
+.h-px-30{height:40px}
+.p-h-t-6{padding-top:6px;padding-bottom:6px}
+.side-p-6{padding-left:6px;padding-right:6px}
+.p-h-t-30{padding-top:30px;padding-bottom:30px}
+.side-p-30{padding-left:30px;padding-right:30px}
+.side-p-75{padding-left:75px;padding-right:75px}
+.cur-p{cursor:pointer}
+.t-a-c{text-align:center}
+.t-a-r{text-align:right}
+
+/* 右侧 开始*/
+.BetForm *,.bet-history-button-box *{box-sizing:border-box}
+.LeftSection{-ms-flex:0 0 200px;flex:0 0 200px;overflow-x:hidden;margin:0;height:100%}
+.RightSection{-ms-flex:0 0 315px;flex:0 0 315px;overflow-x:hidden;overflow-y:scroll}
+.RightSection.enlarge{-ms-flex:0 0 315px;flex:0 0 315px}
+.CenterSection{-ms-flex:1 1 auto;flex:1 1 auto;overflow-x:hidden;/*overflow-y:scroll;*/height:100%;position:relative}
+.RightSectionHeader{background-color:#4b4b4b;height:35px;line-height:35px;font-size:14px;position:relative;box-sizing:border-box}
+.RightSectionSubTitle{width:100%;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}
+.RightSectionTitle .bet-form-icon{width:16px;height:22px;margin:0 11px 0 13px}
+.RightSectionTitle .selected>span{color:#fff}
+.LiveSoccerShow{position:relative}
+.LiveSoccerShowTitleMenu{background:#4b4b4b;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;border:none;height:35px}
+.LiveSoccerShowTitleMenu .live-center-icon{vertical-align:sub;margin-left:10px;display:inline-block}
+.LiveSoccerShowTitleMenu-icon-wrapper{margin-right:10px;width:55px;height:25px}
+.LiveSoccerShowTitleMenu-icon-wrapper__icon{background-color:#3a3a3a;background-repeat:no-repeat;background-position:50%;width:25px;height:25px;border-radius:4px;display:inline-block;cursor:pointer}
+.LiveSoccerShowTitleMenu-icon-wrapper__icon-info{background-image:url(../../images/sports/icon_exclamation.png);margin-right:5px}
+.LiveSoccerShowTitleMenu-icon-wrapper__icon{background-color:#3a3a3a;background-repeat:no-repeat;background-position:50%;width:25px;height:25px;border-radius:4px;display:inline-block;cursor:pointer}
+.LiveSoccerShowTitleMenu-icon-wrapper__icon-minimize{background-image:url(../../images/sports/icon_zoom_minimize.png)}
+.Livecontainer{background:#2d2d2d;height:220px;width:100%;overflow:hidden}
+.Livecontainer .NoMatchDisplay{color:#d4e1c7;text-align:center;padding:104px 0;font-size:14px}
+.add-bet-container{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;height:69px;color:#979797}
+.no-bet{padding-right:20px;text-align:center;min-height:69px;font-size:14px;line-height:69px}
+.Ads,.Ads img {width: 100%;color: #b4b4b4;}
+.Ads:hover{color: #000;}
+.Ads .contact-us-title {padding: 10px;}
+
+/* 右侧 结束*/
+
+.SportsMenu{background-color:#373737;width:190px}
+.special-leagues-menu{display:block;font-size:14px;border-bottom:6px solid #2d2d2d}
+.special-leagues-menu-title{background-color:#4b4b4b;color:#fff;font-size:16px;vertical-align:middle;font-weight:700;padding:6px 10px;overflow:hidden}
+.clickable{cursor:pointer}
+.special-leagues-menu-title>*{vertical-align:middle}
+.special-leagues-menu-title img{width:auto;height:auto;margin-right:10px;float:left}
+.leagues-menu-items{display:-ms-flexbox;display:flex;padding:5px 0}
+.leagues-menu-item{-ms-flex:1;flex:1;text-align:center;cursor:pointer}
+.menu-item-name{background:#373737;padding:4px 0}
+.badge{position:relative;display:inline-block}
+.badge,.badge-spinner{width:28px;height:28px}
+.badge-inner{white-space: nowrap;width:26px;height:26px;border-radius:50%;line-height:26px;text-align:center;color:#fff;font-size:12px;position:absolute;left:50%;top:50%;-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}
+.special-leagues-menu .badge-inner{background:#4a4a4a;border-radius:50%;overflow:hidden}
+.NonInplayMenu{display:block;font-size:13px;margin-bottom:6px}
+.bet-history-button-box{width:190px}
+.bet-history-button-box__header{height:35px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background:#4b4b4b;color:#fff;position:relative}
+.bet-history-button-box__header-icon{height:20px;width:20px;margin:0 10px}
+.bet-history-button-box__refresh-icon{position:absolute;right:0;width:21px;cursor:pointer}
+.bet-history-button-box__wrapper{height:70px;background:#363636;border-top:1px solid #292929;border-bottom:1px solid #292929;text-align:center}
+.bet-history-button-box__unsettled{border-right:1px solid #292929}
+.bet-history-button-box__settled,.bet-history-button-box__unsettled{float: left;width:95px;height:69px;display:inline-block;position:relative;cursor:pointer}
+.bet-history-button-box__img{display:block;margin:11px auto 6px;height:30px}
+.bet-history-button-box__text{color:#979797;line-height:12px}
+
+.clickable{cursor:pointer}
+.NonInplayMenuTitle{background-color:#4b4b4b;color:#ffffff;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:35px;font-size:14px}
+.left-menu-icon{margin:0 12px 0 11px;opacity:.495}
+.non-inplay-menu-content{display:-ms-flexbox;display:flex;border-top:1px solid #2b2b2b}
+.SubNonInplayMenu{background-color:#373737;line-height:34px}
+.NonInplayMenu .opened{max-height:1000px;transition:.6s ease-in-out;overflow:hidden}
+.NonInplayMenu .closed{max-height:0;transition:.2s ease-in-out;overflow:hidden}
+.SubNonInplayMenu .selected{background:#fff;color:#000}
+.sub-menu-item{border-radius:4px 0 0 4px;margin:1px 0 0;padding:0 0 0 10px;color:#999}
+.sub-menu-item:hover{color:#fff}
+.sub-menu-item.selected:hover{color:#000}
+.sub-menu-item-txt{-ms-flex:1;flex:1}
+.sub-menu-item .count{float:right;margin-right:10px}
+.sub-menu-item:before{content:"";display:block;height:1px;position:relative;top:-1px;background:#2d2d2d}
+.NonInplayMenuTypes{color:#b4b4b4;width:40px;border-right:1px solid #2d2d2d;z-index:1}
+.NonInplayMenuTypes .type{padding:12px 6px;text-align:center;font-weight:700;box-sizing:border-box;border-bottom:1px solid #2d2d2d;cursor:pointer}
+.menu-type-label{font-size:14px;line-height:1.25;width:1em;margin:0 auto 4px}
+.badge-spinner.on{background:url(../../images/sports/spinner.png);background-size:cover;animation:spinnerRotate 4s infinite linear}
+@keyframes spinnerRotate {
+    0% {transform: rotate(0deg)}
+    to {transform: rotate(1turn)}
+}
+
+
+.NonInplayMenuTypes .type .badge-inner{background:#ff9200}
+.NonInplayMenuTypes .type.selected{background:#fff;color:#000;position:relative}
+.NonInplayMenuTypes .selected:before{content:"";width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:12px solid #2b2b2b;position:absolute;top:50%;right:-1px;margin-top:-12px}
+.NonInplayMenuTypes .selected:after{content:"";width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-right:10px solid #4b4b4b;position:absolute;top:50%;right:-2px;margin-top:-10px}
+.non-inplay-menu-sports{position:relative;-ms-flex:1;flex:1;background:#4b4b4b;padding:5px 0 5px 5px}
+.sub-list-sport-title,.sub-list-sport-title-true{height:80px;text-align:center;border-radius:4px 0 0 4px;position:relative}
+.NonInplayMenu .bg-list-item{background:none}
+.NonInplayMenu .sub-list-sport-title-true,.sub-list-sport-title:hover{background:#fff;color:#000}
+.NonInplayMenu .icon-live-list{position:absolute;top:0;left:0;width:28px;height:34px;margin:0 10px}
+.sub-list-sport-title .sport-img-wrapper{height:36px;padding-top:10px;line-height:normal}
+.sub-list-sport-title .sport-img-wrapper .subSportIcon{display:inline-block;width: 36px;height: 36px;}
+.sub-list-sport-title .sport-img-wrapper .ft{background-image: url(../../images/sports/sport_icon_sid1_off.png);background-size: 100%;}
+.sub-list-sport-title-true .sport-img-wrapper .ft{background-image: url(../../images/sports/sport_icon_sid1_on.png);}
+.sub-list-sport-title .sport-img-wrapper .bk{background-image: url(../../images/sports/sport_icon_sid2_off.png);background-size: 100%;}
+.sub-list-sport-title-true .sport-img-wrapper .bk{background-image: url(../../images/sports/sport_icon_sid2_on.png);}
+.sub-list-sport-title .sport-img-wrapper .tn{background-image: url(../../images/sports/sport_icon_sid3_off.png);background-size: 100%;}
+.sub-list-sport-title-true .sport-img-wrapper .tn{background-image: url(../../images/sports/sport_icon_sid3_on.png);}
+.sub-list-sport-title .sport-img-wrapper .vb{background-image: url(../../images/sports/sport_icon_sid4_off.png);background-size: 100%;}
+.sub-list-sport-title-true .sport-img-wrapper .vb{background-image: url(../../images/sports/sport_icon_sid4_on.png);}
+.sub-list-sport-title-true .count,.sub-list-sport-title .count{position:absolute;bottom:0;right:0;line-height:34px;margin:0 10px;text-align:center}
+.sub-list-sport-title-true>.sport-name,.sub-list-sport-title>.sport-name{line-height:34px;text-align:center}
+.sport-type{cursor:pointer;height:auto;font-size:12px;font-weight:400;margin-bottom:1px}
+.sport-type:first-child{border:none}
+.InfoCenter{background-color:#373737;width:190px}
+.left-menu-icon__game{padding:0 12px 0 1px;vertical-align:middle;display:inline-block}
+.folder-icon {margin-right: 10px;}
+.no_game {font-size: 16px !important;}
+
+/* 8M */
+.middle_content_8msport {background: url(/images/sports/8m/sport_bg.jpg) top center no-repeat;max-height: 800px;}
+.sport_content_all_8msport {max-height: 800px;}
+.bodyset_8msport .sub-list-sport-title, .bodyset_8msport .sub-list-sport-title-true{color: #666;}
+.bodyset_8msport .bet-history-button-box__header,.bodyset_8msport .SportsMenu,
+.bodyset_8msport .NonInplayMenuTitle,.bodyset_8msport .bet-history-button-box__wrapper,
+.bodyset_8msport .NonInplayMenu .sub-list-sport-title-true, .bodyset_8msport .sub-list-sport-title:hover,
+.bodyset_8msport .InfoCenter, .bodyset_browse_8msport .game .play_tr_nav, .bodyset_browse_8msport .var_nav_bg div,
+.CustomScrollbar_8msport .RightSectionHeader
+{background: #6ca9eb;color: #fff;}
+.CustomScrollbar_8msport {background: #fff;}
+.bodyset_8msport .bet-history-button-box__wrapper{border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf;}
+.bodyset_8msport .bet-history-button-box__text{color: #fff;}
+.bodyset_8msport .NonInplayMenuTypes{color: #fff;border-right: 1px solid #dfdfdf;}
+.bodyset_8msport .special-leagues-menu{border-bottom: 6px solid #dfdfdf}
+.bodyset_8msport .bet-history-button-box__unsettled{border-right: 1px solid #dfdfdf;}
+.bodyset_8msport .non-inplay-menu-content{border-top: 1px solid #dfdfdf;}
+.bodyset_8msport .NonInplayMenuTypes .type.selected,.bodyset_browse_8msport .game .b_hline, .bodyset_browse_8msport .seach_submit
+{color:#fff;background: #708ae8;background: linear-gradient(to right,#7689e8 0%,#649fea 100%);}
+.bodyset_8msport .NonInplayMenuTypes, .bodyset_8msport .NonInplayMenuTypes .type{border-bottom: 1px solid #dfdfdf;}
+.bodyset_8msport .non-inplay-menu-sports{background: #fff;}
+.bodyset_8msport .NonInplayMenuTypes .selected:after{border-right: 10px solid #fff;}
+.bodyset_8msport .NonInplayMenuTypes .selected:before{border-right: 12px solid #dfdfdf;}
+.bodyset_8msport .SubNonInplayMenu{background-color: #fff;}
+.bodyset_8msport .SubNonInplayMenu .selected{background: none;color: #0b73e4;}
+.bodyset_8msport .sub-menu-item{color: #666;}
+.bodyset_8msport .sub-menu-item:before{background: #dfdfdf;}
+.bodyset_8msport .sub-list-sport-title .sport-img-wrapper .ft {background-image: url(../../images/sports/8m/sport_icon_sid1_off.png);background-size: 100%;}
+.bodyset_8msport .sub-list-sport-title-true .sport-img-wrapper .ft {background-image: url(../../images/sports/8m/sport_icon_sid1_on.png);}
+.bodyset_8msport .sub-list-sport-title .sport-img-wrapper .bk{background-image: url(../../images/sports/8m/sport_icon_sid2_off.png);background-size: 100%;}
+.bodyset_8msport .sub-list-sport-title-true .sport-img-wrapper .bk{background-image: url(../../images/sports/8m/sport_icon_sid2_on.png);}
+.bodyset_8msport .NonInplayMenuTypes .type .badge-inner, .bodyset_browse_8msport .game .today_time{background: #5f8af2;}
+
+/* bet365 nbet365*/
+.middle_content_bet365,.middle_content_nbet365,.bodyset_browse_bet365,.bodyset_browse_nbet365{background: #053327}
+.sport_content_all_bet365,.sport_content_all_nbet365 {max-height: 800px;}
+.bodyset_bet365,.bodyset_nbet365,.CustomScrollbar_bet365,.CustomScrollbar_nbet365{background: #044c39;}
+.bodyset_bet365 .sub-list-sport-title, .bodyset_bet365 .sub-list-sport-title-true,.bodyset_nbet365 .sub-list-sport-title, .bodyset_nbet365 .sub-list-sport-title-true{color: #666;}
+.bodyset_bet365 .bet-history-button-box__header,.bodyset_bet365 .SportsMenu,
+.bodyset_bet365 .NonInplayMenuTitle,.bodyset_bet365 .bet-history-button-box__wrapper,
+.bodyset_bet365 .sub-list-sport-title:hover,
+.bodyset_bet365 .InfoCenter, .bodyset_browse_bet365 .game .play_tr_nav, .bodyset_browse_bet365 .var_nav_bg div,
+.CustomScrollbar_bet365 .RightSectionHeader,
+.bodyset_nbet365 .bet-history-button-box__header,.bodyset_nbet365 .SportsMenu,
+.bodyset_nbet365 .NonInplayMenuTitle,.bodyset_nbet365 .bet-history-button-box__wrapper,
+.bodyset_nbet365 .sub-list-sport-title:hover,
+.bodyset_nbet365 .InfoCenter, .bodyset_browse_nbet365 .game .play_tr_nav, .bodyset_browse_nbet365 .var_nav_bg div,
+.CustomScrollbar_nbet365 .RightSectionHeader,
+.bodyset_browse_bet365 .game .b_hline,.bodyset_browse_nbet365 .game .b_hline
+{background: #007b5b;color: #fff;}
+.bodyset_bet365 .NonInplayMenu .sub-list-sport-title-true,.bodyset_nbet365 .NonInplayMenu .sub-list-sport-title-true{background: #fff;color: #007b5b;}
+.bodyset_bet365 .bet-history-button-box__wrapper,.bodyset_nbet365 .bet-history-button-box__wrapper{background:#055d46;border-top: 1px solid #053327;border-bottom: 1px solid #053327;}
+.bodyset_bet365 .bet-history-button-box__text,.bodyset_bet365 .nbet-history-button-box__text{color: #fff;}
+.bodyset_bet365 .NonInplayMenuTypes,.bodyset_nbet365 .NonInplayMenuTypes{color: #fff;border-right: 1px solid #053327;}
+.bodyset_bet365 .special-leagues-menu,.bodyset_nbet365 .special-leagues-menu{border-bottom: 6px solid #053327}
+.bodyset_bet365 .bet-history-button-box__unsettled,.bodyset_nbet365 .bet-history-button-box__unsettled{border-right: 1px solid #053327;}
+.bodyset_bet365 .non-inplay-menu-content,.bodyset_nbet365 .non-inplay-menu-content{border-top: 1px solid #053327;}
+.bodyset_bet365 .NonInplayMenuTypes .type.selected,.bodyset_browse_bet365 .seach_submit,
+.bodyset_nbet365 .NonInplayMenuTypes .type.selected,.bodyset_browse_nbet365 .seach_submit
+{color:#007b5b;background: #fff;}
+.bodyset_bet365 .NonInplayMenuTypes, .bodyset_bet365 .NonInplayMenuTypes .type,.bodyset_nbet365 .NonInplayMenuTypes, .bodyset_nbet365 .NonInplayMenuTypes .type{border-bottom: 1px solid #053327;}
+.bodyset_bet365 .non-inplay-menu-sports,.bodyset_nbet365 .non-inplay-menu-sports{background: #053327;}
+.bodyset_bet365 .NonInplayMenuTypes .selected:after,.bodyset_nbet365 .NonInplayMenuTypes .selected:after{border-right: 10px solid #053327;}
+.bodyset_bet365 .NonInplayMenuTypes .selected:before,.bodyset_nbet365 .NonInplayMenuTypes .selected:before{border-right: 12px solid #dfdfdf;}
+.bodyset_bet365 .SubNonInplayMenu,.bodyset_nbet365 .SubNonInplayMenu{background-color: #007b5b;}
+.bodyset_bet365 .SubNonInplayMenu .selected,.bodyset_nbet365 .SubNonInplayMenu .selected{background: #fff;color: #007b5b;}
+.bodyset_bet365 .sub-menu-item,.bodyset_nbet365 .sub-menu-item,.bodyset_browse_bet365 .game .b_hline td, .bodyset_browse_nbet365 .game .b_hline td,
+.bodyset_browse_bet365 .top_nav_sec a,.bodyset_browse_nbet365 .top_nav_sec a,
+.bodyset_browse_bet365 .div_date_title,.bodyset_browse_nbet365 .div_date_title
+{color: #fff;}
+.bodyset_bet365 .sub-menu-item:before,.bodyset_nbet365 .sub-menu-item:before{background: #053327;}
+.bodyset_bet365 .sub-list-sport-title .sport-img-wrapper .ft,.bodyset_nbet365 .sub-list-sport-title .sport-img-wrapper .ft {background-image: url(../../images/sports/bet365/sport_icon_sid1_off.png?v=1);background-size: 100%;}
+.bodyset_bet365 .sub-list-sport-title-true .sport-img-wrapper .ft,.bodyset_nbet365 .sub-list-sport-title-true .sport-img-wrapper .ft {background-image: url(../../images/sports/bet365/sport_icon_sid1_on.png?v=1);}
+.bodyset_bet365 .sub-list-sport-title .sport-img-wrapper .bk,.bodyset_nbet365 .sub-list-sport-title .sport-img-wrapper .bk{background-image: url(../../images/sports/bet365/sport_icon_sid2_off.png?v=1);background-size: 100%;}
+.bodyset_bet365 .sub-list-sport-title-true .sport-img-wrapper .bk,.bodyset_nbet365 .sub-list-sport-title-true .sport-img-wrapper .bk{background-image: url(../../images/sports/bet365/sport_icon_sid2_on.png?v=1);}
+.bodyset_bet365 .NonInplayMenuTypes .type .badge-inner, .bodyset_browse_bet365 .game .today_time,.bodyset_nbet365 .NonInplayMenuTypes .type .badge-inner, .bodyset_browse_nbet365 .game .today_time{background: #007b5b;}
+.bodyset_bet365 .sub-list-sport-title-true>.sport-name, .bodyset_bet365 .sub-list-sport-title>.sport-name,
+.bodyset_nbet365 .sub-list-sport-title-true>.sport-name, .bodyset_nbet365 .sub-list-sport-title>.sport-name
+{color: #007b5b}
+.bodyset_bet365 .sub-list-sport-title>.sport-name,
+.bodyset_nbet365 .sub-list-sport-title>.sport-name,
+.bodyset_bet365 .bet-history-button-box__text,.bodyset_nbet365 .bet-history-button-box__text,
+.sport_content_all_bet365 .Ads .contact-us-title,.sport_content_all_nbet365 .Ads .contact-us-title,
+.bodyset_bet365 .sub-list-sport-title .count,.bodyset_nbet365 .sub-list-sport-title .count
+{color: #fff;}
+.bodyset_bet365 .sub-list-sport-title-true>.sport-name,.bodyset_nbet365 .sub-list-sport-title-true>.sport-name,
+.bodyset_bet365 .sub-list-sport-title-true .count,
+.bodyset_nbet365 .sub-list-sport-title-true .count,
+.bodyset_browse_bet365 .con, .bodyset_browse_nbet365 .con
+{color: #007b5b;}
+.bodyset_browse_bet365 h2,.bodyset_browse_nbet365 h2{background: #005d46}
+.bodyset_browse_bet365 .refresh_btn div, .bodyset_browse_bet365 .refresh_on div,.bodyset_browse_nbet365 .refresh_btn div, .bodyset_browse_nbet365 .refresh_on div{background-image: url(/images/sports/bet365/icon_load.png);color: #fff;}
+.sport_content_all_bet365 .no-bet,.sport_content_all_nbet365 .no-bet{background: #055d46;color: #fff;}
+
+
+/* body_var*/
+.bodyset_browse_8msport ,.bodyset_browse_8msport h2{background: #fff;}
+.bodyset_browse_8msport #pg_txt, .bodyset_browse_8msport .top_nav_sec a {color: #707070;}
+.bodyset_browse_8msport .top_nav_sec a:hover{color: #000;}
+.bodyset_browse_8msport .select_btn{border:1px solid #000}
+.bodyset_browse_8msport .game .b_hline td{color: #fff;}
+.bodyset_browse_8msport .refresh_btn div, .bodyset_browse_8msport .refresh_on div{text-align:center;width:36px;height:36px;line-height: 36px;color: #fff;background: url(../../images/sports/8m/icon_load.png?v=1) no-repeat;}
+.bodyset_browse_8msport .refresh_btn font, .bodyset_browse_8msport .refresh_on font {margin-left: 0;}
+.bodyset_browse_8msport .top_nav_sec{height: auto}
+.bodyset_browse_8msport .choose_select{color: #5f8af2;}
+.bodyset_browse_8msport .mem .game a:hover, .bodyset_browse_8msport .game .pr_cen a,
+.bodyset_browse_8msport .game .pr_rig a, .bodyset_browse_8msport .game .pr_1st a,
+.bodyset_browse_8msport .game .pr_1stR a{background: #5f8af2;color: #fff;border-color: #5f8af2;}
+.bodyset_browse_8msport .team_name_zd {color: #ba0303;}
+.bodyset_browse_8msport .team_name_kd,.bodyset_browse_8msport .team_name_hj {color: #003075;}
+.bodyset_browse_8msport .game .today_time font{color: #434343;}
+.bodyset_browse_8msport .no_game {color: #666;}

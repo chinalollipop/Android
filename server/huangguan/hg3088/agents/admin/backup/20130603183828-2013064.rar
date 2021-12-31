@@ -1,0 +1,2 @@
+<?php 
+mysql_query("delete from ka_tan  where kithe='2013064'",$conn);

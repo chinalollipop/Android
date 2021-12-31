@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Robots" contect="none">
+    <link rel="stylesheet" href="../style/mem_qa_roul.css" type="text/css">
+    <title>联系我们</title>
+
+</head>
+
+<body id="MAIL">
+<div class="qa_head"><em>帮助</em><span class="close_box" onclick="window.close();">关闭</span></div>
+<div id="wrapper">
+
+    <div id="qa_nav">
+        <ul>
+            <li class="sport">体育规则</li>
+            <li class="rule"><a href="QA_roul.html">规则与条款</a></li>
+            <li class="wap"><a href="roul_mp.html" onclick="window.open('roul_mp.html','ROUL','location=no,status=no,width=680,height=500,toolbar=no,top=0,left=0,scrollbars=no,resizable=no,personalbar=yes');window.close();">Wap指南</a></li>
+            <li class="odd"><a href="QA_way.html">赔率计算列表</a></li>
+            <li class="mail"><a href="QA_conn.html">联系我们</a></li>
+        </ul>
+    </div>
+
+    <div id="main">
+        <h1>联系我们 </h1>
+        <p>如有任何疑问，可以通过下述方式联络客户服务部。</p>
+
+        <div class="info">
+            <br><strong>24小时热线：</strong> <span class="ess_zxkf"> </span>
+            <br>
+            <strong>邮件地址：</strong><span class="lx_e_mail"> </span>
+            <br>
+            <strong>在线客服:</strong><a class="to_livechat" >点击联系</a>
+        </div>
+
+    </div>
+
+</div>
+<div class="qa_foot"></div>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script>
+    var web_configbase = JSON.parse(localStorage.getItem('webconfigbase'));
+    //console.log(web_configbase);
+    getBaseSetting();
+    // 基本配置
+    function getBaseSetting() {
+        $('.to_livechat').attr({"href":web_configbase.service_meiqia}); // 在线客服
+        $('.ess_zxkf').text(web_configbase.service_phone_24);
+        $('.lx_e_mail').text(web_configbase.service_email);
+
+    }
+</script>
+
+</body>
+</html>

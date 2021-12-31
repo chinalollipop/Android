@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* control_index.css */
+.top-header{height:55px;background: #19171c;text-align:center;line-height:55px;}
+.top-header a{display:inline-block;width:108px;color: #f2f2f2;}
+.top-header a.link_on{background: rgba(0,0,0,.67);color: #f2f2f2;}
+.login-table{background:url(../images/suncity/kuang.png) no-repeat;width:366px;height:486px;margin:0 auto}
+.remember-me{height: 60px;line-height: 58px;text-align:left;}
+.login-middle{margin-top:10px;border: 0;}
+.login-middle div{height:58px;border-bottom: 2px solid #ffb400 !important;margin-bottom: 15px;background: transparent;}
+.login-middle div span{display:inline-block;width: 30px;height: 30px;float:left;margin:11px 0 0 10px;}
+.login-middle div .username-logo{background:url(../images/suncity/account_icon.png) no-repeat;background-size: 100%;}
+.login-middle div .password-logo{background:url(../images/suncity/password_icon.png) no-repeat;background-size: 100%;}
+.login-middle input{height:100%;line-height:58px;width:280px;padding: 0 5px;font-size:16px;background: transparent;color: #fff}
+.remember-me span{color: #f2f2f2;text-shadow: none;}
+.all{height: 693px;padding-top: 180px;background: url(../images/suncity/log_bg.jpg) no-repeat;margin-top: 0;}
+.login-bottom a,.login-bottom input{transition:.3s liner;cursor:pointer;height: 45px;line-height: 45px;background: #ffb400;width:100%;font-size:16px;text-align:center;color:#fff;border-radius: 10px;}
+.login-bottom a{display:block;background: transparent;margin-top: 15px;border: 1px solid #ffb400;height: 43px;line-height: 43px;}
+.log_btn:hover{-o-transition:color .2s linear,background-color .2s linear,border-color .2s linear;-webkit-transition:color .2s linear,background-color .2s linear,border-color .2s linear;-moz-transition:color .2s linear,background-color .2s linear,border-color .2s linear;transition:color .2s linear,background-color .2s linear,border-color .2s linear}
+.login-top {height: 88px;width: 100%;background: url(../images/suncity/log_logo.png) center no-repeat;margin: 10px 0 0;}
+
+/* control_header.css */
+.main_content{background:#f6f3ed}
+/*.main_content.ag_main_content{background:#281912}*/
+.ui-header {background: url(../images/suncity/header-bg.png) repeat-x;}
+.ui-header.ag-ui-header{background:url(../images/suncity/agents-header-bg.png) no-repeat}
+.ui-header .top_header_left{float:left;width:190px;height:71px;text-align:left;padding-left:10px;background: none;}
+.ui-header .top_header_left .logo img{height:55px}
+.top_header_right{position:relative}
+.top_header_right:before{content:'';position:absolute;display:inline-block;height:38px;width:100%;background:url(../images/suncity/header-bg-right.png) no-repeat;top:33px;left:150px}
+.ag-ui-header .top_header_right:before{background:url(../images/suncity/ag-header-bg-right.png) no-repeat}
+.ui-header .top-nav a:hover{color:#fdd35d}
+.top_header_right_bottom{margin-top:3px;position:relative}
+.memu1 a,.top_header_right_bottom .memu1 .top_down_ul_yx a{display:inline-block;padding:3px 10px;line-height:20px}
+.memu1 a:hover{color:#fdd35d;background:#4b3100;box-shadow:inset 0 0 25px rgba(0,0,0,.9);border-radius:3px}
+.top_header_m .memu1>a:hover{color:#fdd35d;background:0 0;box-shadow:none;border-radius:0}
+.memu2{color:#FFF;padding-top:2px}
+.memu2 a:link,.memu2 a:visited{color:#fdd35d}
+.memu2 a:hover{color:#FFF}
+.log{color:#fdd35d}
+.top_down_ul{display:none;position:absolute;top:33px;top:26px\9;background:#020202;list-style:none;z-index:10}
+.top_header_right_bottom .memu1 a{padding:7px 10px}
+.ui-header .yellow_a{color:#fdd35d}
+
+/* control_header.css */
+html{margin:0;padding:0;overflow-x:hidden;overflow-y:auto;font-family:Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif}
+.ag-body{background:#281912}
+.ag-body .home-notice{background:#533d2f;border:1px solid #533d2f}
+.home-notice th{position:relative;width:150px;height:34px;line-height:32px;background:url(../images/suncity/notice-tit-bg.png) center center no-repeat;font-size:14px;color:#945400;text-indent:30px}
+.ag-body .home-notice th{background:url(../images/suncity/ag-notice-tit-bg.png) center center no-repeat}
+.ag-body .home-tips dt,.ag-body .main-nav dt{color:#fff}
+.ag-body .home-tips{background:url(../images/suncity/ag-home-tips-bg.png) center 1px repeat-x #fff;border: 0;}
+.ag-body .home-tips dt{background: url(../images/suncity/home-tips-tit-bg.png) center top no-repeat;}
+.home-tips td{padding:10px 0}
+.ag-body .home-tips .bg_tr{background:#544437}
+.ag-body .home-tips .bg_tr td{color:#fff}
+.ag-body .main-shadow{background: url(../images/suncity/main-shadow.png) repeat-x}

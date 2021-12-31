@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../style/member/mem_body_ft.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../style/member/mem_body_p3.css" type="text/css">
+    <title>编写信息</title>
+    <style>
+        input{height:25px;}
+        #box {
+            width: 850px;
+            position: relative;
+            margin-bottom: 12px;
+        }table{
+             font-size:12px;
+         }
+    </style></head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" id="myTable"><tbody><tr><td>
+    <table border="0" cellpadding="0" cellspacing="0" id="box">
+        <tbody><tr>
+            <td class="top"><h1 class="top_h1"><em>建议反馈</em></h1></td>
+
+        </tr>
+        <tr><td class="mem">
+            <form id="form1" action="notices_add.php?uid=a646b1f80743a418c0ccra6&amp;mtype=&amp;langx=zh-cn" method="POST">
+                <div class="cont-area2">
+
+                    <table cellspacing="1" cellpadding="1" border="0" align="center" width="100%">
+                        <tbody>
+                        <tr><td colspan="2" class="b_cen" align="left">
+                            <!--a href="notices.php?uid=a646b1f80743a418c0ccra6&mtype=&langx=zh-cn">查看信息</a>
+                            <a href="notices_add.php?uid=a646b1f80743a418c0ccra6&mtype=&langx=zh-cn" class="seled">编写信息</a-->
+                            <button type="button" class="notice-btn2" onclick="javascript:history.go(-1)">查看建议反馈</button></td></tr>
+                        <tr>
+                            <td align="right" width="16%" class="b_hline">標題：</td>
+                            <td class="b_cen"><input type="text" maxlength="49" size="51" class="input-txt" id="feedtype" name="feedtype" style="width:502px;height:24px;"></td>
+                        </tr>
+                        <tr>
+                            <td class="b_hline"></td>
+                            <td id="feedtype_err" class="b_cen" style="height:20px;color:#ffff00;"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="b_hline">咨詢內容：</td>
+                            <td height="20" class="b_cen">請詳細描述您要咨詢的問題,我們的客服人員會盡快的回複您,謝謝!(限1000個中文字符)</td>
+                        </tr>
+                        <tr>
+                            <td class="b_hline">&nbsp;</td>
+                            <td class="b_cen"><textarea name="txtcont" cols="200" id="txtcont" style="margin-top:5px;width:500px;height:300px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class="b_hline"></td>
+                            <td id="txtcont_err" class="b_cen" style="height:30px;color:#ffff00;"></td>
+                        </tr>
+                        <tr>
+                            <td class="b_cen" colspan="2" align="center">
+                                <input type="submit" class="notice-btn-send" id="Button1" value="提交">&nbsp;&nbsp;
+                                <input type="reset" class="notice-btn-reset" id="Button2" value="重填">
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" height="28" class="b_cen"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont-btm2"></div>
+            </form></td>
+        </tr>
+
+        <tr>
+            <td id="foot"><b>&nbsp;</b></td>
+        </tr>
+
+        </tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+
+</body>
+</html>

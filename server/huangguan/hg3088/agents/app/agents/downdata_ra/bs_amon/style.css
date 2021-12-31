@@ -1,0 +1,32 @@
+body{COLOR:#3e4859;font-family:Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;font-size:8.5pt}
+TD{COLOR:#3e4859;font-size:8.5pt}
+INPUT{COLOR:#3e4859;font-size:12px}
+A{COLOR:#3e4859;}
+A:link{TEXT-DECORATION:underline}
+A:visited{TEXT-DECORATION:underline}
+A:hover{COLOR:#F90;TEXT-DECORATION:underline}
+A.photo:hover{left:1px;POSITION:relative;TOP:1px}
+A.c:link{TEXT-DECORATION:none}
+A.c:visited{TEXT-DECORATION:none}
+A.c:hover{TEXT-DECORATION:underline}
+A.d:link{COLOR:#C60;TEXT-DECORATION:underline;font-weight:700}
+A.d:visited{COLOR:#C60;TEXT-DECORATION:underline;font-weight:700}
+A.d:hover{COLOR:#C60;TEXT-DECORATION:none;font-weight:700}
+A.e:link{COLOR:#C60;TEXT-DECORATION:none}
+A.e:visited{COLOR:#C60;TEXT-DECORATION:none}
+A.e:hover{COLOR:#F90;TEXT-DECORATION:underline}
+A.ly:link{COLOR:#069;TEXT-DECORATION:none}
+A.ly:visited{COLOR:#069;TEXT-DECORATION:none}
+A.ly:hover{COLOR:#F90;TEXT-DECORATION:underline}
+.font10{font-size:10px}
+.font12{font-size:12px}
+.font16{font-size:16px}
+.font15{font-size:14.7px}
+.border-top{border-top-width:1px;border-right-width:1px;border-left-width:1px;border-top-style:solid;border-right-style:solid;border-bottom-style:none;border-left-style:solid;border-top-color:#7d7d7d;border-right-color:#7d7d7d;border-left-color:#7d7d7d}
+.border-l-r{border-right-width:1px;border-left-width:1px;border-top-style:none;border-right-style:solid;border-bottom-style:none;border-left-style:solid;border-right-color:#7d7d7d;border-left-color:#7d7d7d}
+.border-bottom{border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-top-style:none;border-right-style:solid;border-bottom-style:solid;border-left-style:solid;border-right-color:#7d7d7d;border-bottom-color:#7d7d7d;border-left-color:#7d7d7d}
+.border-l{border-left-width:1px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:solid;border-left-color:#CCC}
+.border-r{border-right-width:1px;border-top-style:none;border-right-style:solid;border-bottom-style:none;border-left-style:none;border-right-color:#CCC}
+.border-all{border:1px solid #CCC}
+.border-b{border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#CCC}
+.line-bg{background-image:url(/images/line_bg.gif);background-repeat:repeat-x;background-position-y:bottom}

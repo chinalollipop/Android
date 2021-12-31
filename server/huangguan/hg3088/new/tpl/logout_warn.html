@@ -1,0 +1,47 @@
+<html>
+<head>
+<style type="text/css"> 
+
+html, body { margin:0; padding:0; text-align:center;}
+#content { margin:74px auto 0; text-align:center; width:380px; height:280px;}
+h1 { font-size:0.9em; margin:15px 0 10px 37px; padding:0;}
+h2 {font-size:0.9em; height:31px; margin: 0 auto; padding:8px 0 0 37px; }
+p { font-size:0.75em; line-height:1.6em; margin:0px 20px;}
+#us p { font-size:0.9em;}
+#foot { margin:0 auto 15px auto;/* padding: 20px 140px 0 60px; */width:380px; height:54px;}
+#foot a { display:block; width:100%; height:54px; padding: 20px 140px 0 60px; text-align:left;}
+a:link, a:visited { color: #000;text-decoration: none;}
+a:hover { color:#C00;}
+h1,h2{ color: red;}
+</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+<script> 
+	function show(){
+        var current_domain = document.location.protocol+'//'+document.domain;
+        foot.innerHTML='<a href="'+current_domain+'">'+current_domain+'</a>';
+	}
+</script>
+<body onload=show();>
+ 
+	<div id="content">
+		<span id="tw">
+			<h1>敬告會員 :</h1>
+			<p>由於您長時間未作任何操作，系統已自動退出，請你重新登錄。</p>
+		</span>
+		<span id="cn">
+			<h2>敬告会员 :</h2>
+			<p>由于您长时间未做任何操作，系统已自动退出，请您重新登录。</p>
+		</span>
+		<span id="us">
+			<h2>For Member :</h2>
+			<p>Because you did not do anything for a long time, the system has automatically exited, please login again.</p>
+		</span>
+	</div>
+	<div id="foot"></div>
+ 
+</body>
+</html>
+

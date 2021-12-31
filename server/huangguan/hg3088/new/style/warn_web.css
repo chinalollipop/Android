@@ -1,0 +1,204 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
+body {line-height: 1; height:100%; zoom:1;text-align: center;}
+ol, ul {list-style: none;}
+blockquote, q {    quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+h1, h2, h3, h4, h5, h6{ font-weight:normal}
+a{text-decoration:none;color: inherit;}
+/* remember to define focus styles! */
+:focus {outline: 0;}
+input::-ms-clear{display: none;}/** IE10文本输入框的 X  **/
+input::-ms-reveal{display: none;}/** IE10密码输入框的 X  **/
+/* remember to highlight inserts somehow! */
+ins {text-decoration: none;}
+del {    text-decoration: line-through;}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {    border-collapse: collapse;border-spacing: 0;}
+
+/*字型*/
+
+
+* {font-family: Arial, Helvetica, SimSun, sans-serif; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+html{ width:100%;height:100%;}
+input, select, textarea{ outline:none;font-family:Arial, Helvetica, SimSun, sans-serif;}
+tt, em{font-family:Arial, Helvetica, SimSun, sans-serif; font-style:normal}
+
+body{width:100%; height:100%;}
+th.topTD, td.topTD{ vertical-align:top}
+.noFloat:after{ content:''; display:table; clear:both}
+.img100{ display:block; width:100%}
+.None{ display:none}
+
+/* Microsoft Edge Browser 12+ (All) - @supports method */
+@supports (-ms-accelerator:true) {
+    .index_loadDIV{ background-color: #261d18; background-image:none}
+    .index_loadDIV_edge{position:absolute; width:100%; height:900px; background: url(../images/load_s.gif) no-repeat center center  #261d18; top:0; left:0;}
+}
+
+
+/*捲軸*/
+::-webkit-scrollbar{ width:15px; background-color:#32271e} /*滾動條整體部分*/
+::-webkit-scrollbar-thumb {background: url(../images/scrollbar_thumbBG.png) center repeat-y; border-radius:100px;cursor:pointer;} /*拖動條*/
+*:hover::-webkit-scrollbar-thumb{background: url(../images/scrollbar_thumb_overBG.png) center repeat-y;}
+::-webkit-scrollbar-corner { background-color:#32271e}/*右邊跟下面拉霸連街處*/
+
+
+/*背景*/
+.index_body { background:#725945;}
+@charset "UTF-8";
+/*字型*/
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanssc.css);*/
+/*showMaintain.html 維護畫面*/
+.show_main{ padding-top:126px;}
+.show_top{ width:786px; height:195px; background:url(../images/ietip/showMaintain_top.jpg) no-repeat; margin:auto}
+.show_bottom{ width:100%;background-color:#513f33; margin:73px auto auto}
+.show_txtG{ width:1020px;height:281px; margin:auto}
+.show_txt{ position:relative;float:left; width:340px; height:281px; padding:25px 0 0 28px; font-size:15px; text-align:left;  border-right:1px solid #423329}
+.show_noline{ border-right:0}
+.show_txt ul{ color:#dabf93;margin-bottom:6px;}
+ul.show_lightTxt{ color:#c8c4b0}
+.show_txt li{ line-height:23px;}
+.show_txt tt{ font-size:14px; font-weight:bold}
+.show_space{ margin-left:38px;}
+.show_mail{ position:absolute; color:#c8c4b0; left:26px; bottom:28px;}
+
+ul.US{ font-size:14px; margin-bottom:7px; }
+.US li{line-height:20px;}
+.US .show_space{ margin-left:50px}
+
+.show_copyright{ color:#ac956c; font-size:12px; text-align:center; margin-top:19px;}
+
+
+/*showCleanData.html 清資料畫面*/
+.clean_Main{ display:table; width:100%; height:100%; background: url(../images/ietip/ord_DIV_Mask.png) repeat;}
+.clean_TD{ display:table-cell; vertical-align:middle}
+.cleanG{width:450px; height:234px; text-align:center; margin:auto}
+.cleanG h1{ height:40px;line-height:40px;background-color:#503f32;color:#fff1d6; font-size:15px;font-weight:bold}
+.cleanTxt{ display:block; background-color:#fff; padding:7px 0 10px;}
+.cleanG h2{color:#45403b; font-size:13px; line-height:16px;}
+.cleanG img{ margin:10px auto 7px;}
+.cleanG tt{ color:#539f09}
+
+
+/*瀏覽器轉換畫面*/
+.browserDIV{ width:100%;background:url(../images/ietip/browserDIV.png); padding:34px 0}
+.browserG{text-align: left; width:900px;background-color:#fff; padding:37px 58px 20px 60px; margin:0 auto}
+.browserG h1{ color:#705636; font-size:30px;}
+.browserG ul{ color:#705636; font-size:15px; margin-top:15px;}
+.browserG li{ line-height:25px;margin-bottom:2px;}
+.browserG li a{ color:#2ebc8c}
+.browserBTNG{ width:100%;margin:10px auto 20px auto;}
+.browser_ChromeBTN, .browser_FirefoxBTN, .browser_Safari{ position:relative;float:left;width:229px; height:244px;background: url(../images/ietip/browser_ChromeBTN.png)  center 27px #faeee4 no-repeat; border:1px solid #e5cebc; margin-right:46px;-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;}
+.browser_FirefoxBTN{ background:url(../images/ietip/browser_FirefoxBTN.png) center 27px #faeee4 no-repeat}
+.browser_Safari{ background:url(../images/ietip/browser_Safari.png) center 27px #faeee4 no-repeat; margin-right:0}
+.browser_ChromeBTN:hover{ background: url(../images/ietip/browser_ChromeBTN.png) #fae3cb center -426px no-repeat;border:1px solid #efc4a3;}
+.browser_FirefoxBTN:hover{ background: url(../images/ietip/browser_FirefoxBTN.png) #fae3cb center -426px no-repeat;border:1px solid #efc4a3;}
+.browser_Safari:hover{ background: url(../images/ietip/browser_Safari.png) #fae3cb center -426px no-repeat;border:1px solid #efc4a3;}
+
+.browser_recommend{ display:block; position:absolute; width:43px; height:45px; background:url(../images/ietip/browser_recommend.png) no-repeat; top:-6px; left:8px;}
+.browser_ChromeBTN tt, .browser_FirefoxBTN tt, .browser_Safari tt{ position:absolute; width:100%;color:#705636; font-size:14px; text-align:center; top:138px;}
+.browser_downloadBTN{ display:block; width:124px; height:40px; line-height:40px; background-color:#2ebc8c; border:1px solid #27a67b; color:#fff; font-size:13px; text-align:center; text-transform:uppercase; margin:169px auto auto;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+.browser_downloadBTN:hover{ background-color:#33D09B;}
+.browserG h2{ color:#705636; font-size:18px; margin-bottom:20px;}
+.browserWordG{ width:100%}
+.browserWord_txt01, .browserWord_txt03,.browserWord_txt02, .browserWord_txt04{  float:left;width:371px; height:95px;margin-right:27px; background:url(../images/ietip/browserWord_txt01.png) no-repeat left top; padding:4px 0 0 48px;}
+.browserWord_txt02{background:url(../images/ietip/browserWord_txt02.png) no-repeat left top; margin-right:0;}
+.browserWord_txt03{ height:76px;background:url(../images/ietip/browserWord_txt03.png) no-repeat left top;}
+.browserWord_txt04{height:76px; background:url(../images/ietip/browserWord_txt04.png) no-repeat left top; margin-right:0;}
+.browserWordG h3{color:#705636; font-size:16px; font-weight:bold; margin-bottom:5px;text-transform:uppercase;}
+.browserWordG h4{color:#705636; font-size:14px; line-height:17px;}
+
+.browser_clickBTN{ line-height:40px; background-color:#2ebc8c; border:1px solid #27a67b; color:#fff!important; font-size:13px; text-align:center; text-transform:uppercase; margin:0 auto;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px; padding:2px 7px;}
+.browser_clickBTN:hover{ background-color:#33D09B;}
+.browser_nextBTN{ display:block; width:124px; height:40px; line-height:40px; background-color:#2ebc8c; border:1px solid #27a67b; color:#fff; font-size:13px; text-align:center; text-transform:uppercase; margin:0 auto;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+.browser_nextBTN:hover{ background-color:#33D09B;}
+
+/*FT_index.html*/
+.status_errDIV{ width:100%; height:211px; padding-top:88px; color:#323232; font-size:16px; text-align:center; line-height:38px; background:url(../images/ietip/status_errDIV.jpg) repeat-x; border-bottom:1px solid #baa283;}
+.status_errDIV tt{ color:#705636; font-weight:bold; cursor:pointer;}
+
+.AL_BG{position: fixed;width: 100%;height: 100%; background-color: rgba(0, 0, 0, 0.7);}
+/*.AL_BG *{font-family:'Noto Sans SC','Noto Sans TC',Arial,SimSun}*/
+/*.AL_BG.EN *{font-family:'Roboto',Arial}*/
+.AL_dangerBOX{position: absolute;width: 300px;height: 420px;border-radius: 3px;background-color:#fff;box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.5); margin: auto;left: 0;right: 0; top: 0; bottom: 0;}
+.AL_dangerIM{position: relative;width: 300px;    border-top-left-radius: 2px;border-top-right-radius: 2px;}
+.AL_dangerTitle{ color: #4a4a4a;font-size: 18px;text-align: center;margin-bottom: 13px;}
+.AL_dangerG{position: relative;height:100%}
+.AL_dangerIMG{position: absolute;border-radius:100px;}
+.AL_dangerLBTN,.AL_dangerRBTN{display: block;position: absolute;width: 24px;height: 24px;background: url(../images/ietip/AL_dangerLBTN.png) no-repeat center; margin: auto; top: 0;bottom: 0;left: 16px;}
+.AL_dangerRBTN{ background-image:url(../images/ietip/AL_dangerRBTN.png);  left:auto; right: 16px;}
+.AL_dangerLBTN:hover,.AL_dangerRBTN:hover,.AL_dangerLBTN.On,.AL_dangerRBTN.On{opacity: 0.4}
+.AL_dangerIMG{position: absolute;margin:auto;left: 0;right: 0;}
+.AL_dangerPageBTN{position: absolute;display: inline-block;width: 93px;margin:auto;left: 0;right: 0;bottom:3px}
+.AL_dangerPageBTN li{display: inline-block;width: 9px;height: 9px;border:1px solid #fff;margin: 0 3px;border-radius:9px; }
+/*.AL_dangerPageBTN li:hover,*/.AL_dangerPageBTN li.On{background-color: #fff}
+.AL_dangerTXTG{position: relative;padding: 17px 0 0;}
+.AL_dangerTXT{line-height:20px;list-style: none; color: #4a4a4a;font-size: 14px;padding: 0 20px 0 24px;}
+.EN .AL_dangerTXT{line-height:15px;}
+.AL_dangerTXT li{margin-bottom: 10px;}
+.EN .AL_dangerTXT li{margin-bottom: 14px;letter-spacing: -.15px;}
+.AL_dangerNextBTN{position: absolute;display: block;width: 98px;  height: 40px;line-height: 38px;font-size: 18px;text-align: center;  border-radius: 3px; margin: auto;bottom: 16px;left: 0;right: 0 }
+li.AL_dangerLIicon,.EN li.AL_dangerLIicon{position: relative;padding-left: 27px;line-height:12px;margin-bottom: 9px;}
+li.AL_dangerLIicon.hight_li {line-height: 15px;}
+.AL_dangerLIicon:before{position: absolute;content:'';display: block;width: 12px;height: 12px;background:url(../images/ietip/AL_dangerLIicon.jpg) no-repeat;top: 0;left: 0; }
+
+
+/*危險球通告-各頁不同圖樣*/
+.AL_dangerP01 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC01.jpg) no-repeat;}
+.EN .AL_dangerP01 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC01_en.jpg) no-repeat;}
+.AL_dangerP01 .AL_dangerIMG{width: 61px;height: 61px;background: url(../images/ietip/AL_dangerIMG01.png) no-repeat center rgba(255, 255, 255, 0.1);top:7px;}
+
+.AL_dangerP01 .AL_dangerNextBTN{border: solid 2px #51a37c;color: #51a37c;}
+.AL_dangerP01 .AL_dangerNextBTN:hover{background-color:#51a37c;color:#fff }
+
+.AL_dangerP02 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC02.jpg) no-repeat;}
+.EN .AL_dangerP02 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC02_en.jpg) no-repeat;}
+.AL_dangerP02 .AL_dangerIMG{width: 130px;height: 130px;background: url(../images/ietip/AL_dangerIMG02.png) no-repeat center rgba(255, 255, 255, 0.1);top: 10px;}
+.AL_dangerP02 .AL_dangerNextBTN{border: solid 2px #51a37c;color: #51a37c;}
+.AL_dangerP02 .AL_dangerNextBTN:hover{background-color:#51a37c;color:#fff }
+
+.AL_dangerP03 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC03.jpg) no-repeat;}
+.EN .AL_dangerP03 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC03_en.jpg) no-repeat;}
+.AL_dangerP03 .AL_dangerIMG{width: 130px;height: 130px;background: url(../images/ietip/AL_dangerIMG03.png) no-repeat center rgba(255, 255, 255, 0.1);top: 10px;}
+.AL_dangerP03 .AL_dangerNextBTN{border: solid 2px #51a37c;color: #51a37c;}
+.AL_dangerP03 .AL_dangerNextBTN:hover{background-color:#51a37c;color:#fff }
+
+.AL_dangerP04 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC04.jpg) no-repeat;}
+.EN .AL_dangerP04 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC04_en.jpg) no-repeat;}
+.AL_dangerP04 .AL_dangerNextBTN{border: solid 2px #51a37c;color: #51a37c;}
+.AL_dangerP04 .AL_dangerNextBTN:hover{background-color:#51a37c;color:#fff }
+.AL_dangerP04 li.AL_dangerLIicon{line-height:15px;margin-bottom: 6px;}
+
+.AL_dangerP05 .AL_dangerTXTG{padding-top: 20px;}
+.AL_dangerP05 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC05.jpg) no-repeat;}
+.EN .AL_dangerP05 .AL_dangerIM{ height: 144px;background: url(../images/ietip/AL_annPIC05_en.jpg) no-repeat;}
+.AL_dangerP05 .AL_dangerNextBTN{border: solid 2px #51a37c;color: #51a37c;}
+.AL_dangerP05 .AL_dangerNextBTN:hover{background-color:#51a37c;color:#fff }
+
+
+
+
+/*all use*/
+.cleanG h1{text-transform:uppercase;}
+li.FONT18{font-size: 18px;margin-bottom: 12px;}
+
+.TXTR,td.TXTR,th.TXTR{text-align: right;padding-right: 10px;}
+.TXTL,td.TXTL,th.TXTL{text-align: left;padding-left: 10px;}
+.TXTC,td.TXTC,th.TXTC{text-align: center;}
+.coffee{background: #725945;}
+.wt{background: #FFF;}
+.Word_yell{color: #bc7d11;}
+.Word_bold{font-weight: bold;}
+.BLUEword{color: #2980b9}
+.GREENword{color: #46b591}
+/*------BTN------*/
+.ord_viewBTN, .browserG li a, .browser_downloadBTN,.AL_dangerLBTN,.AL_dangerRBTN,.AL_dangerNextBTN{cursor: pointer;
+    -o-transition: color .25s linear, background-color .25s linear, border-color .25s linear;
+    -webkit-transition: color .25s linear, background-color .25s linear, border-color .25s linear;
+    -moz-transition: color .25s linear, background-color .25s linear, border-color .25s linear;
+    transition: color .25s linear, background-color .25s linear, border-color .25s linear;}
+.download_a{display:block;text-align: center;}

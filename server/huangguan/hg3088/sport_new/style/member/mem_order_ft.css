@@ -1,0 +1,105 @@
+body.bodyset,form,html{margin:0;padding:0}
+input{vertical-align:middle;outline:none}
+.ord,.ord2{text-align:left;margin:0 auto;padding:0 0 10px;background-color:#333;font:14px Microsoft YaHei,Heiti SC,PingFang SC;color:#b4b4b4}
+div.ord p{margin:0}
+div.ord p tt{color:red;font:12px/140% Arial,Helvetica,SimSun,sans-serif;display:block;padding:5px 0;margin-bottom:4px}
+.ord .title{margin:0;padding:6px 10px;color:#ff9200;border-top:5px solid #2d2d2d;border-bottom:1px solid #2d2d2d;font-size:16px}
+.ord .title h1{word-break:break-all;height:22px;width:100%;font-size:16px;margin:0}
+html>body .ord .title h1{padding-top:0}
+.ord .title .tiTimer{float:right;margin-top:-19px;width:46px;height:22px;padding-right:0;padding-left:7px;text-align:right}
+.tiTimer{cursor:pointer}
+body .ord .title .tiTimer{margin-top:-24px;padding:2px 0 0;height:20px}
+.ord .main{padding:15px 5px 5px}
+.ord .main .leag{line-height:28px;padding:0 8px;border-bottom:none}
+html>body .ord .main .teamName{margin-top:-4px}
+.ord .main .teamName{padding:4px 8px 3px}
+.ord .main .teamName .tName{mini-height:14px}
+.ord .main .teamName .score{color:#BA2700;padding-left:10px;font-weight:700;height:14px}
+.radio{color:#fff}
+.ord .main .team{margin:3px 0;padding:3px 8px 2px}
+.ord .main .auto{padding:3px 8px 2px 4px}
+.ord .main .auto input{margin-top:0;float:left}
+.auto_info{cursor:pointer;font-size:12px}
+em{color:#fff;font-style:normal}
+strong.light{color:#ff9200}
+strong.lightOn{color:#BA2700;background-color:#EDDF67}
+.ord .main .error{clear:both;margin:0;min-height:25px;height:auto;padding:3px 8px 2px 10px;border-bottom:none;font-size: 12px;color: #666;}
+.ord .main .betdata{padding:6px 5px 5px 8px;line-height:110%;border-bottom:1px solid #2d2d2d}
+.main .betdata p:nth-child(n+2){height:20px}
+.main .betdata .mayWin font{color:#84b752}
+.ord .main .amount{margin-bottom:8px}
+.ord .main .amount .txt{line-height:35px;height:35px;width:180px;border:1px solid #d3ccbc;border-radius:5px;padding-left:5px}
+.ord .clean_bet_money{display:inline-block;position:absolute;width:14px;height:14px;background:url(../../images/sports/btn_close_dark.png);background-size:100%;margin:11px 0 0 -22px;cursor:pointer}
+.ord .betBox{margin-top:0;text-align:center;padding:0 10px}
+.ord .betBox input.no,div.betChk input.no{cursor:pointer;margin:0 0 10px;width:100%;height:35px;border:none;padding-top:2px;color:#fff;background:#959595;border-radius:3px}
+.ord .betBox input.yes,div.betChk input.yes{cursor:pointer;margin:10px 0;width:100%;height:35px;border:none;padding-top:2px;color:#fff;background:rgb(255,146,0);border-radius:3px}
+.ord .betChk{width:216px;padding:2px 6px 6px;color:#C00;text-align:center}
+.ord .betChk .notice{display:block;margin-bottom:5px}
+input.yes:hover,input.no:hover{transition: .3s;opacity: .8}
+#OHIS .ord .title h1{padding:6px 48px 2px 8px;height:20px}
+#OHIS .ord .title .tiTimer{width:21px!important;cursor:pointer}
+#OHIS .show{clear:right;width:210px;margin:0 3px -1px;padding:0;font:12px Arial,Helvetica,SimSun,sans-serif}
+#OHIS .show_info{width:216px;height:85px;background-color:#E3CFAA;font:.75em Arial,Helvetica,SimSun,sans-serif;font-weight:700}
+#OHIS .error,.dan_blue,.dan_green,.dan_red,.his_odd,.his_result{font-weight:700}
+#OHIS .tname{margin-bottom:3px!important;text-align:left;padding:1px 6px 2px;border:1px solid #937B52;background-color:#E1D6C2}
+#OHIS .error{margin:0 0 -1px;height:15px;line-height:15px;padding:1px 6px 0 21px;}
+#OHIS em{color:#000}
+.show_top{display:block;height:22px;margin-bottom:22px;}
+.dan_red{color:#d60008!important}
+.dan_blue{color:#0101f7!important}
+.dan_green{color:#090!important}
+.his_result{color:#BA2700;text-decoration:none}
+.his_score{color:red}
+.his_odd{color:#BA2700}
+.gold{text-align:left;display:block;padding-top:2px}
+.his_a,.his_h,.his_vs{color:#2F2F2F}
+.deletebtn{float:right;position:relative;top:0;}
+.deletebtn input{right:0;clear:right;width:20px;height:20px;border:none;margin:0;cursor:pointer;background:url(../../images/sports/icon_cancel.png)}
+#OFTP3 .errorP3{clear:both;margin:0 0 4px;height:17px;line-height:17px;padding-left:32px;color:#C00;}
+#OFIN .error,.fin_acc{height:15px;font-weight:700}
+#OFTP3 .team{margin-top:0}
+#OFTP3 .team_ch{margin:0 0 3px;padding:3px 8px 2px;text-align:left;border:2px solid #937B52;background-color:#FF6}
+#OFTP3 .teamName{border-bottom:none}
+#OFIN .error{margin:0;line-height:15px;padding:2px 6px 0 20px;border:none;color:#0000FE;}
+.fin_amount,.fin_title{border:1px solid #937B52}
+#OFIN .leag{margin-top:2px}
+#OFIN .ord .title .tiTimer{width:21px!important;cursor:pointer}
+.leag_txt{padding-right:16px}
+.fin_title{padding:6px 7px;background-color:#E8FFC7}
+.fin_acc,.fin_uid{padding-left:20px}
+.fin_acc{color:#589410;}
+.fin_team strong,.score{color:#BA2700}
+.fin_uid{height:17px;text-decoration:underline}
+.fin_amount,.fin_team{margin-top:3px!important;background-color:#E1D6C2}
+.fin_amount{padding:0 7px;line-height:21px;margin-bottom:0}
+.fin_gold{font-weight:700}
+.fin_team{padding:3px 7px 2px;border:2px solid #937B52}
+.score{padding-left:10px;font-weight:700;height:14px}
+.close,.print{cursor:pointer;width:102px;height:26px;border:none;padding-top:2px;font-weight:700;}
+.close{margin:0;color:#F8C100}
+.print{margin:0 1px 0 0;color:#FFF}
+body#BLUE .yes{cursor:pointer;margin:0;width:122px;height:26px;border:none;padding-top:2px;color:#F8C100;font-weight:700;}
+.betAmount{padding:5px 0;margin:5px 0px 3px 0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
+.betAmount ul{overflow:hidden;padding:0;margin:0}
+.betAmount li{float:left;width:85px;height:30px;background-color:#4b4b4b;margin:2px 2px;border-radius:3px;line-height:30px;text-align:center;color:#b4b4b4;display:inline-block;list-style:none;cursor:pointer}
+.betAmount li:hover{color:#fff}
+.betAmount li:active{font-weight:700;background-color:#644e3d}
+.title .info{color:#fff;height:16px;width:16px;line-height:16px;text-align:center;display:inline-block;background:#4b4b4b;border-radius:2px;font-size:12px;float:left;margin:2px 5px 0 0}
+.betBox .auto{text-align:left}
+.betBox input[type="checkbox" ]{width:12px;height:12px;background-color:rgb(153,153,153);-webkit-appearance:none;border-radius:2px;outline:none;position:relative}
+.betBox input[type="checkbox" ]:checked:after{content:'';position:absolute;width:5px;height:10px;border-bottom:2px solid rgb(51,51,51);border-right:2px solid rgb(51,51,51);transform:rotate(45deg);left:3px;top:-2px}
+.minBet{font-size:12px}
+.minBet .bet_txt{color:#666}
+.game_type_title {padding: 0 8px;color: #ff9200;font-size: 16px;}
+.ord .main .p3_every:nth-child(n+2) {border-top: 1px dashed #000;padding-top: 5px;}
+.not_enough {text-align: center;color: #ff9200;}
+.not_enough input {border: 0;background: #959595;color: #fff;width: 50%;padding: 5px 0;border-radius: 3px;}
+
+/* 8M */
+.bodyset_8msport .ord,.bodyset_8msport .ord2{background:#fff;color:#666}
+.bodyset_8msport .ord .title{color:#fff;border-top:5px solid #fff;border-bottom:1px solid #fff;background:#708ae8;background:linear-gradient(to right,#7689e8 0%,#649fea 100%)}
+.bodyset_8msport em, .bodyset_8msport .radio, .bodyset_8msport strong.light{color:#5f8af2}
+.bodyset_8msport .title .info{background:#ccc}
+.bodyset_8msport .ord .main .betdata{border-bottom:1px solid #6ca9eb}
+.bodyset_8msport .betAmount li{background-color:#6ca9eb;color:#fff}
+.bodyset_8msport .ord .betBox input.yes,.bodyset_8msport div.betChk input.yes{background:#708ae8;background:linear-gradient(to right,#7689e8 0%,#649fea 100%)}

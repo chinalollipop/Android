@@ -1,0 +1,108 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>真人视讯</title>
+    <link type="text/css" rel="stylesheet" href="../style/member/game_page_common.css">
+    <link type="text/css" rel="stylesheet" href="../style/member/jbox_skin2.css">
+
+</head>
+<body>
+<div class="ui-header">
+    <!-- 额度 -->
+    <div class="money-tips"><span id="agmoney">1010.00</span><a onclick="jb();">额度转换</a></div>
+</div>
+
+<!-- 游戏 -->
+<div class="live-main">
+    <div class="games g1">
+        <a class="mask" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+        <a class="rule" href="http://gci.aggin.net:81/agingame/rules/new/zh/b5.jsp?stamp=250517_208886_0&amp;bid=true&amp;bac_db=true&amp;bid=true&amp;bac_db=true&amp;bac_in=1&amp;ft=0&amp;ulpk=0&amp;nn=1&amp;bj=1" target="_blank">游戏规则</a>
+        <a class="start" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+        <a class="guest" href="/live/index.php?action=f&amp;uid=test00" target="_blank">免费试玩</a>
+    </div>
+    <div class="games g2 r">
+        <div>
+            <a class="mask" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+            <a class="rule" href="http://gci.aggin.net:81/agingame/rules/new/zh/b5.jsp?stamp=250517_208886_0&amp;bid=true&amp;bac_db=true&amp;bid=true&amp;bac_db=true&amp;bac_in=1&amp;ft=0&amp;ulpk=0&amp;nn=1&amp;bj=1" target="_blank">游戏规则</a>
+            <a class="start" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+            <a class="guest" href="/live/index.php?action=f&amp;uid=test00" target="_blank">免费试玩</a>
+        </div>
+    </div>
+    <div class="games g3">
+        <div>
+            <a class="mask" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+            <!-- <a class="rule" href="http://gc.zhenrenshixun555.com/agingame/rules/SHB_ZH.htm?stamp=300914_1081" target="_blank">游戏规则</a>
+            <a class="start" href="javascript:alert('首次游戏，请转账一笔以激活帐号！');">立即游戏</a>
+            <a class="guest" href="/live/index.php?action=f&uid=test00" target="_blank">免费试玩</a> -->
+            <a class="rule" href="http://gci.aggin.net:81/agingame/rules/new/zh/b5.jsp?stamp=250517_208886_0&amp;bid=true&amp;bac_db=true&amp;bid=true&amp;bac_db=true&amp;bac_in=1&amp;ft=0&amp;ulpk=0&amp;nn=1&amp;bj=1" target="_blank">游戏规则</a>
+            <a class="start" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+            <a class="guest" href="/live/index.php?action=f&amp;uid=test00" target="_blank">免费试玩</a>
+        </div>
+    </div>
+    <div class="games g4 r">
+        <div>
+            <a class="mask" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+            <a class="rule" href="http://gci.aggin.net:81/agingame/rules/new/zh/b5.jsp?stamp=250517_208886_0&amp;bid=true&amp;bac_db=true&amp;bid=true&amp;bac_db=true&amp;bac_in=1&amp;ft=0&amp;ulpk=0&amp;nn=1&amp;bj=1" target="_blank">游戏规则</a>
+            <a class="start" href="javascript:;" onclick="window.open('/live/index.php?action=f&amp;uid=87840ebc9abc883d9ebcra3','ag83')">立即游戏</a>
+            <a class="guest" href="/live/index.php?action=f&amp;uid=test00" target="_blank">免费试玩</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jbox/jquery.jBox-2.3.min.js"></script>
+<script type="text/javascript" src="../js/jbox/jquery.jBox-zh-CN.js"></script>
+
+<script type="text/javascript">
+
+    function jb(ctr){
+        $.jBox('get:/live/tran.php?uid=87840ebc9abc883d9ebcra3&ctr='+ctr, {
+            title: "真人视讯额度转换",
+            buttons: { '关闭': true },
+            closed:function(){
+                location.reload();
+            }
+        });
+
+    }
+
+    top.loadag=false;
+ /*   function get_blance(){
+        if(top.loadag){
+            return ;
+        }
+        top.loadag=true;
+        var dat={};
+        dat.uid=top.uid;
+        dat.action='b';
+        $.ajax({
+            type: 'POST',
+            url:'/live/index.php',
+            data:dat,
+            dataType:'json',
+            success:function(ret){
+                if(ret.err==0||ret.err==201){
+                    try{
+                        document.getElementById('agmoney').innerHTML=ret.ag;
+                    }
+                    catch(e){}
+                }
+                else{
+                    try{
+                        document.getElementById('agmoney').innerHTML=0;
+                    }
+                    catch(e){}
+                }
+            },
+            error:function(ii,jj,kk){top.loadag=false;
+                try{
+                    document.getElementById('agmoney').innerHTML='请重试';
+                }
+                catch(e){}
+            }
+        });
+        top.loadag=false;
+    }
+    get_blance();*/
+</script>
+
+</body></html>

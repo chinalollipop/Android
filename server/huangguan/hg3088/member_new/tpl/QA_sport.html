@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Robots" contect="none">
+    <link rel="stylesheet" href="../style/mem_qa_roul.css" type="text/css">
+    <title>体育规则</title>
+
+</head>
+
+<body id="SPORT">
+<div class="qa_head"><em>帮助</em><span class="close_box" onclick="window.close();">关闭</span></div>
+<div id="wrapper">
+
+    <div id="qa_nav">
+        <ul>
+            <li class="sport">体育规则</li>
+            <li class="rule"><a href="QA_roul.html">规则与条款</a></li>
+            <li class="wap"><a href="roul_mp.html" onclick="window.open('roul_mp.html','ROUL','location=no,status=no,width=680,height=500,toolbar=no,top=0,left=0,scrollbars=no,resizable=no,personalbar=yes');window.close();">Wap指南</a></li>
+            <li class="odd"><a href="QA_way.html">赔率计算列表</a></li>
+            <li class="mail"><a href="QA_conn.html">联系我们</a></li>
+        </ul>
+    </div>
+
+    <div id="main">
+        <a name="top"></a>
+        <h1>选择体育项目 :
+            <label>
+                <select name="jumpMenu" id="jumpMenu" onchange="chg_roul(this.options[this.selectedIndex].value);">
+                    <option value="roul/sport_rule.html" selected="selected">一般体育说明</option>
+                    <option value="roul/outright.html">冠军</option>
+                    <option value="roul/parlays-multiples.html">综合过关</option>
+                    <option value="roul/roul_nf.html">美式足球</option>
+                    <option value="roul/archery.html">射箭和射击</option>
+                    <option value="roul/athletic.html">田径</option>
+                    <option value="roul/aussie.html">澳式足球</option>
+                    <option value="roul/badminton.html">羽毛球</option>
+                    <option value="roul/baseball.html">棒球</option>
+                    <option value="roul/basketball.html">篮球</option>
+                    <option value="roul/beach-soccer.html">沙滩足球</option>
+                    <option value="roul/beach-volleyball.html">沙滩排球</option>
+                    <option value="roul/boxing.html">拳击</option>
+                    <option value="roul/cricket.html">板球</option>
+                    <option value="roul/cycling.html">自行车</option>
+                    <option value="roul/darts.html">飞镖</option>
+                    <option value="roul/e-sports.html">电子竞技</option>
+                    <option value="roul/field-hockey.html">曲棍球</option>
+                    <option value="roul/financial-bets.html">金融投注</option>
+                    <option value="roul/futsal.html">室内足球</option>
+                    <option value="roul/golf.html">高尔夫</option>
+                    <option value="roul/gymnastics.html">体操</option>
+                    <option value="roul/handball.html">手球</option>
+                    <option value="roul/ice-hockey.html">冰球</option>
+                    <option value="roul/judo.html">柔道</option>
+                    <option value="roul/major-league-lacrosse.html">袋棍球</option>
+                    <option value="roul/medal-betting.html">奖牌投注</option>
+                    <option value="roul/motor-sports.html">赛车</option>
+                    <option value="roul/olympics.html">奥林匹克或相关事件投注</option>
+                    <option value="roul/rowing.html">赛艇和皮划艇</option>
+                    <option value="roul/rugby-league.html">橄榄球</option>
+                    <option value="roul/snooker.html">桌球/9号球巡回赛</option>
+                    <option value="roul/football.html">足球</option>
+                    <option value="roul/softball.html">垒球</option>
+                    <option value="roul/swimming.html">游泳</option>
+                    <option value="roul/table-tennis.html">乒乓球</option>
+                    <option value="roul/taekwondo.html">跆拳道</option>
+                    <option value="roul/tennis.html">网球</option>
+                    <option value="roul/tamp.html">三项全能和现代五项运</option>
+                    <option value="roul/ultimate-fighting.html">终极格斗锦标赛（综合格斗大赛）</option>
+                    <option value="roul/volleyball.html">排球</option>
+                    <option value="roul/water-polo.html">水球</option>
+                    <option value="roul/weightlifting.html">举重</option>
+                    <option value="roul/wrestling.html">角力</option>
+                </select>
+            </label>
+
+
+
+        </h1>
+
+        <!--资料区-->
+        <div id="info">
+
+        </div>
+
+
+
+
+
+    </div>
+
+</div>
+<div class="qa_foot"></div>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script language="javascript" >
+    function MM_jumpMenu(targ,selObj,restore){ //v3.0
+        eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+        if (restore) selObj.selectedIndex=0;
+    }
+    function chg_roul(url){
+       // location = url;
+        $('#info').load(url,function () {
+
+        }) ;
+    }
+    chg_roul('roul/sport_rule.html') ; // 默认体育规则页面
+
+</script>
+
+</body></html>

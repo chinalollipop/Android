@@ -1,0 +1,1 @@
+self==top&&(self.location.href="http://"+document.domain),window.onload=function(){top.keepGold_PR="";try{parent.parent.body.orderRemoveALL()}catch(o){}parent.onloadSet(document.body.scrollWidth,document.body.scrollHeight,"bet_order_frame")};

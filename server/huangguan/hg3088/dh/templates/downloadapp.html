@@ -1,0 +1,45 @@
+
+
+<style type="text/css">
+    .sy_m{background:#996701}
+    .sjapp_top{float:right;display:inline;width:88%;margin-top:12px}
+    .sjapp_topkfd{float:left;display:inline;width:271px;height:48px}
+    .sjapp_m{float:left;display:inline;width:100%;min-height:650px}
+    .sjapp_mid{position:relative;margin:0 auto;overflow:hidden;width:1000px}
+    .sjapp_midl{float:left;display:inline;width:281px;margin-top:20px}
+    .sjapp_midr{float:right;display:inline;margin-top:72px;width:636px}
+    .app_download{display:-webkit-flex;display:flex;justify-content:space-between;position:absolute;width:166px;height:75px;top:142px;left:242px}
+    .app_download span{width:76px;height:100%;background-size:100% !important}
+</style>
+<!-- 主体 -开始 -->
+<div class="zrsx_m">
+    <div class="sjapp_m">
+        <div class="sjapp_mid" >
+            <div class="app_download">
+                <span class="download_ios_app"></span>
+                <span class="download_android_app"></span>
+            </div>
+            <img src="images/sjapp_pic1.jpg?v=6">
+
+        </div>
+        <div class="sjapp_mid" style="margin: 20px auto;">
+            <img src="images/iosold.gif?v=1">
+        </div>
+        <div class="sjapp_mid" style="margin: 20px auto;">
+            <img src="images/sjapp_pic1.gif?v=1">
+        </div>
+    </div>
+</div>
+
+<!-- 主体 -结束 -->
+
+<script type="text/javascript">
+    $(function () {
+        urlSetAction(HTTPS_HEAD,FETCH_NUM);
+        setUserMsg(usermessage,'nottip') ;
+        $('.download_android_app').css({'background':'url('+webPicConfig.download_android_url+') center no-repeat'});
+        $('.download_ios_app').css({'background':'url('+webPicConfig.download_ios_url+') center no-repeat'});
+    })
+
+
+</script>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sportsbook Rules</title>
+<link rel="stylesheet" href="/style/member/mem_qa.css" type="text/css">
+<link rel="stylesheet" href="/style/member/mem_qa_roul.css" type="text/css">
+
+<script language="javascript" src="/js/QA_sport.js"></script>
+</head>
+<body id="SPORT">
+<div class="qa_head"><em>幫助</em><span class="close_box" onClick="window.close();">關閉</span></div>
+<div id="wrapper">
+	
+    <div id="qa_nav">
+      <ul>
+        <li class="sport"><a href="../QA_sport.html">體育規則</a></li>
+        <li class="rule"><a href="../QA_roul.html">規則與條款</a></li>
+        
+        <li class="odd"><a href="../QA_way.html">賠率計算列表</a></li>
+        <li class="mail"><a href="../QA_conn.html">聯繫我們</a></li>
+      </ul>
+    </div>
+    
+    <div id="main">
+    <a name="top"></a>
+    	<h1>選擇體育項目 : 
+    	  <label>
+    	    <select name="jumpMenu" id="jumpMenu" onchange="chg_roul(this.options[this.selectedIndex].value);">
+    	  	<option value="../QA_sport.html">一般體育說明</option>
+    	    <option value="outright.html">冠軍</option>
+            <option value="parlays-multiples.html">連串過關</option>
+            <option value="roul_nf.html">美式足球</option>
+            <option value="archery.html">射箭和射擊</option>
+            <option value="athletic.html">田徑</option>
+            <option value="aussie.html">澳式足球規則更改</option>
+            <option value="badminton.html">羽毛球</option>
+            <option value="baseball.html">棒球</option>
+            <option value="basketball.html">籃球</option>
+            <option value="beach-soccer.html">沙灘足球</option>
+            <option value="beach-volleyball.html">沙灘排球</option>
+            <option value="boxing.html">拳擊</option>
+            <option value="cricket.html">板球</option>
+            <option value="cycling.html">自行車</option>
+            <option value="darts.html">飛鏢</option>
+            <option value="field-hockey.html">曲棍球</option>
+            <option value="financial-bets.html">金融投注</option>
+            <option value="futsal.html">室內足球</option>
+            <option value="golf.html">高爾夫</option>
+            <option value="gymnastics.html">體操</option>
+            <option value="handball.html">手球</option>
+            <option value="ice-hockey.html">冰球</option>
+            <option value="judo.html">柔道</option>
+            <option value="major-league-lacrosse.html">袋棍球</option>
+            <option value="medal-betting.html">獎牌投注</option>
+            <option value="motor-sports.html">賽車</option>
+            <option value="olympics.html">奧林匹克或相關事件投注</option>
+            <option value="rowing.html">賽艇和皮划艇</option>
+            <option value="rugby-league.html">橄欖球</option>
+            <option value="snooker.html">桌球/9號球巡迴賽</option>
+            <option value="football.html">足球</option>
+            <option value="softball.html">壘球</option>
+            <option value="swimming.html">游泳</option>
+            <option value="table-tennis.html">乒乓球</option>
+            <option value="taekwondo.html">跆拳道</option>
+            <option value="tennis.html">網球</option>
+            <option value="tamp.html">三項全能和現代五項運</option>
+            <option value="ultimate-fighting.html" selected="selected">終極格鬥錦標賽（綜合格斗大賽）</option>
+            <option value="volleyball.html">排球</option>
+            <option value="water-polo.html">水球</option>
+            <option value="weightlifting.html">舉重</option>
+            <option value="wrestling.html">角力</option>
+  	    </select>
+  	    </label>
+    	
+    	 
+  	          
+    	</h1>
+        <div id="info"><!--資料區-->
+        
+            <p class="b">終極格鬥錦標賽(綜合格斗大賽)</p>
+            <ul>
+                <li>一旦裁判員宣布第一回合賽事開始,所有註單即為有效。 </li>
+                <li>終極格鬥錦標賽(綜合格斗大賽)每回合為五分鐘。 </li>
+                <li>冠軍賽事將進行五回合,非冠軍賽事將進行三回合。每輪迴合結束有一分鐘休息。 </li>
+                <li>注單的計算將依據裁判員的官方決定,包括:點數,制服,技術性擊倒,擊倒或取消資格。
+                    <ul>
+                        <li>制服:參賽一方以敲擊台墊方式明確表示,或以口頭方式明確表示屈服。 </li>
+                        <li>技術性擊倒:如果參賽一方無法繼續比賽,賽事將以技術性擊倒結束。 </li>
+                        <li>平局將包括技術性平局。 </li>
+                    </ul>
+                </li>
+                <li>賽事結束時的結果將被認定為最終賽果。此賽果已包括重新統計裁判的記分牌或任何權威機構對賽事結果的賽后變更, 將不會更改注單的輸贏。 </li>
+                <li>如該賽事緩期、取消或放棄時，而賽事在原官方定義的時間之12小時內繼續進行時，投注此賽事之所有註單仍有效。 </li>
+                <li>如該賽事緩期、取消或放棄時，而賽事在原官方定義的時間之12小時內未能繼續進行時，投注此賽事之所有註單將視為無效，投注彩金返還原帳戶。 </li>
+            </ul>
+            <p class="b">一對一的投注</p>
+            <ul>
+                <li style="list-style:none;"> 在一對一的投注中, 如果賽事出現下述結果時，所有投注雙方隊員的注單將被視為無效,注金返還:</li>
+                <li>當賽事以平局結束,而我公司未給出平局的投注時。 </li>
+                <li>當參賽一方退出或更換時。 </li>
+            </ul>
+        
+       	<div class="to_top"><a href="#top"><span>回最上層</span></a></div>
+            
+        </div><!--資料區 End-->
+    </div>
+    
+</div>
+<div class="qa_foot"></div>
+</body>
+</html>
